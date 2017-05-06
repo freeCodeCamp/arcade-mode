@@ -1,0 +1,11 @@
+# Ignore environmental variables
+.env
+
+# Ignore npm packages
+node_modules/
+
+# Ignore macOS folder settings
+.DS_Store
+
+# Ignore logs
+npm-debug.log

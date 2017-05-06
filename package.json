@@ -1,0 +1,19 @@
+{
+  "name": "arcade-mode",
+  "version": "1.0.0",
+  "description": "An interview preparation app featuring algorithm and data structure questions.",
+  "main": "server/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/freeCodeCamp/arcade-mode.git"
+  },
+  "author": "freeCodeCamp",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/freeCodeCamp/arcade-mode/issues"
+  },
+  "homepage": "https://github.com/freeCodeCamp/arcade-mode#readme"
+}
