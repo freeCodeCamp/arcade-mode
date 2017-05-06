@@ -4,6 +4,7 @@
   "description": "An interview preparation app featuring algorithm and data structure questions.",
   "main": "server/server.js",
   "scripts": {
+    "start": "node server/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -22,5 +23,12 @@
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^5.0.0",
     "eslint-plugin-react": "^7.0.0"
+  },
+  "dependencies": {
+    "compression": "^1.6.2",
+    "express": "^4.15.2",
+    "helmet": "^3.6.0",
+    "mongoose": "^4.9.7",
+    "morgan": "^1.8.1"
   }
 }
