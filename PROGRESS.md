@@ -1,13 +1,13 @@
 # PROGRESS for Arcade Mode
 
-### Sunday 5/7/17: 
+## Sunday 5/7/17: 
 
-### Saturday 5/6/17:
-**TC:**
+## Saturday 5/6/17:
+###**TC:**
   - Progress:
-    - Set up directory structure
-    - Set up minimal placeholder files to test gulp task
-    - Initialize gulp task for transpiling JSX/ES6 -> ES5
+    1. Set up directory structure
+    2. Set up minimal placeholder files to test gulp task
+    3. Initialize gulp task for transpiling JSX/ES6 -> ES5
 
   - Issues:
     - [ ] Figure out why the .jsx extension is needed for gulp build-js task to properly work
