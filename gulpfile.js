@@ -25,7 +25,7 @@ const paths = {
 gulp.task('build-js', () => {
 
   const streams = paths.entries.map(entry => {
-    return browserify({ entries: [entry], basedir: './client/scripts', debug: true })
+    return browserify({ entries: [entry], basedir: './client/scripts', extensions: ['.jsx'], debug: true })
       .transform(babelify)
       .bundle()
       .on('error', gutil.log.bind(gutil, 'Browserify error.'))
