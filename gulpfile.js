@@ -23,6 +23,7 @@ const sass = require('gulp-sass');
 const autoprefixer = require('gulp-autoprefixer');
 const cssmin = require('gulp-cssmin');
 
+const notify = require('gulp-notify');
 
 // Configuration Objects
 // ---------------------
@@ -74,3 +75,38 @@ gulp.task('build-css', () =>
 );
 
 gulp.task('build', ['build-js', 'build-css']);
+
+// DEV-tasks (not used in production)
+//------------------------------------
+
+function handleErrors(...errorArgs) {
+  const args = Array.prototype.slice.call(errorArgs);
+  notify.onError({
+    title: 'Compile Error',
+    message: '<%= error.message %>'
+  }).apply(this, args);
+  this.emit('end'); // Keep gulp from hanging on this task
+}
+
+if (process.env.NODE_ENV !== 'production') {
+  const browserifyInc = require('browserify-incremental');
+
+  // Incrementally building the js
+  gulp.task('build-js-inc', () => {
+    const b = browserify(Object.assign({}, browserifyInc.args,
+      {
+        entries: paths.scripts,
+        extensions: ['.jsx'],
+        debug: true
+      }
+    ));
+
+    browserifyInc(b, { cacheFile: './browserify-cache.json' });
+
+    b.transform(babelify)
+      .bundle()
+        .on('error', handleErrors)
+        .pipe(source('./bundle.js'))
+        .pipe(gulp.dest('public/js'));
+  });
+}
