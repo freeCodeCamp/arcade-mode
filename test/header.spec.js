@@ -1,21 +1,22 @@
 
 import React from 'react';
 import { mount, shallow } from 'enzyme';
-import { expect } from 'chai';
 
+import chaiEnzyme from 'chai-enzyme';
+import chai, { expect } from 'chai';
 import Header from '../client/scripts/components/Header';
 
-describe('<Header/>', () => {
+chai.use(chaiEnzyme());
 
+
+describe('<Header/>', () => {
   it('should have a header tag', () => {
-	const wrapper = shallow(<Header/>);
-	expect(wrapper.find('header')).to.have.length(1);
+    const wrapper = shallow(<Header/>);
+    expect(wrapper.find('header')).to.have.length(1);
   });
 
   it('should have props for title', () => {
-	const wrapper = shallow(<Header/>);
-    expect(wrapper.props().title).to.be.defined;
+    const wrapper = shallow(<Header/>);
+    expect(wrapper.find('header').first()).to.contain.text('header');
   });
-
 });
-
