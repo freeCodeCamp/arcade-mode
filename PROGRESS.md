@@ -3,7 +3,7 @@
 ## Sunday 5/7/17: 
 
 ## Saturday 5/6/17:
-###**TC:**
+### Tim:
   - Progress:
     1. Set up directory structure
     2. Set up minimal placeholder files to test gulp task
