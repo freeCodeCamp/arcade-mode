@@ -18,7 +18,7 @@ const rename = require('gulp-rename');
 const es = require('event-stream');
 
 const paths = {
-  scripts: ['./client/scripts/**/*.jsx', './client/scripts/**/*.js'],
+  // scripts: ['./client/scripts/**/*.jsx', './client/scripts/**/*.js'],
   entries: ['./App.jsx']
 };
 

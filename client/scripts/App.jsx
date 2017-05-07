@@ -4,9 +4,6 @@ import ReactDOM from 'react-dom';
 import Hello from './components/Hello.jsx';
 
 class App extends React.Component {
-  constructor() {
-    super();
-  }
   render() {
     return (
       <div>
