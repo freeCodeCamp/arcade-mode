@@ -8,7 +8,7 @@ class App extends React.Component {
     return (
       <div>
         <Hello />
-        <strong>And this is straight from the App itself</strong>
+        <strong>And this is straight from the App itself.</strong>
       </div>
     );
   }
