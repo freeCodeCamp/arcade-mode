@@ -1,5 +1,3 @@
-'use strict';
-
 loadDotEnv();
 
 const express = require('express');
@@ -17,11 +15,11 @@ const app = express();
 app.use(compression());
 app.use(helmet());
 app.use(morgan('combined'));
-app.use(favicon(process.cwd() + '/public/img/favicon.ico'));
-app.use('/public', express.static(process.cwd() + '/public'));
+app.use(favicon(`${process.cwd()}/public/img/favicon.ico`));
+app.use('/public', express.static(`${process.cwd()}/public`));
 
 app.set('view engine', 'pug');
-app.set('views', process.cwd() + '/server/views');
+app.set('views', `${process.cwd()}/server/views`);
 app.locals.basedir = app.get('views'); // allows for pug includes
 
 routes(app);

@@ -1,8 +1,20 @@
 {
-    "extends": "airbnb",
-    "plugins": [
-        "react",
-        "jsx-a11y",
-        "import"
-    ]
+  "extends": "airbnb",
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "plugins": [
+      "react",
+      "jsx-a11y",
+      "import"
+  ],
+  "rules": {
+    "global-require": 0, // requires should be at the top not elsewhere, but sometimes..
+    "no-console": 0, // environment specified is both browser and node -> useful in node
+    "no-use-before-define": 0, // but hoisting...
+    "space-before-function-paren": 0,
+
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": true}] // process.env.NODE_ENV
+  }
 }

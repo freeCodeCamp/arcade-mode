@@ -1,9 +1,6 @@
-'use strict';
-
 const Controller = require('../controllers/controller');
 
 module.exports = (app) => {
-
   const controller = new Controller();
 
   app.route('/')
@@ -12,6 +9,4 @@ module.exports = (app) => {
   app.use((req, res) => {
     res.status(400).send('Bad request.');
   });
-
-
 };

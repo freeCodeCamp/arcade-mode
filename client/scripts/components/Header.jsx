@@ -1,9 +1,8 @@
 import React from 'react';
 
-export default class Header extends React.Component {
-  render() {
-    return (
-      <header>this is the header</header>
-    );
-  }
-}
+// pure component form
+const Header = () => (
+  <header>this is the header</header>
+);
+
+module.exports = Header;
