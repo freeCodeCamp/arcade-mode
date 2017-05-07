@@ -1,5 +1,7 @@
 'use strict';
 
+loadDotEnv();
+
 const express = require('express');
 const mongoose = require('mongoose');
 const helmet = require('helmet');
@@ -16,6 +18,7 @@ app.use(compression());
 app.use(helmet());
 app.use(morgan('combined'));
 app.use(favicon(`${process.cwd()}/public/img/favicon.ico`));
+app.use('/public', express.static(`${process.cwd()}/public`));
 
 app.set('view engine', 'pug');
 app.set('views', `${process.cwd()}/server/views`);
@@ -26,3 +29,13 @@ routes(app);
 app.listen(port, () => {
   console.log(`Node.js is now listening on port ${port}.`);
 });
+
+
+// helpers
+// -------
+
+function loadDotEnv () {
+  if (process.env.NODE_ENV !== 'production') {
+    require('dotenv').load();
+  }
+}
