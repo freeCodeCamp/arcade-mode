@@ -2,7 +2,7 @@
 
 function controller () {
   this.getIndex = (req, res) => {
-    res.send('Hello world!');
+    res.render('index');
   }
 }
 
