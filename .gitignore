@@ -9,3 +9,6 @@ node_modules/
 
 # Ignore logs
 npm-debug.log
+
+# Ignore temp/cache files
+browserify-cache.json
