@@ -1,6 +1,11 @@
 # PROGRESS for Arcade Mode
 
-## Sunday 5/7/17: 
+## Sunday 5/7/17:
+
+### Tuomas:
+  - Progress:
+      1. Added Enzyme + first unit test for Header component following an example from 
+        [Testing React components with Enzyme and Mocha](https://semaphoreci.com/community/tutorials/testing-react-components-with-enzyme-and-mocha)
 
 ## Saturday 5/6/17:
 ### Tim:
