@@ -7,7 +7,7 @@
     "build": "node node_modules/gulp/bin/gulp.js build",
     "postinstall": "npm run build",
     "start": "node --use-strict server/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --require test/helpers/browser.js --compilers js:babel-core/register test/*.spec.js"
   },
   "repository": {
     "type": "git",
