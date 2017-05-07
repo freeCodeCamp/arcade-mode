@@ -23,14 +23,13 @@ const paths = {
 };
 
 gulp.task('build-js', () => {
-
-  const streams = paths.entries.map(entry => {
-    return browserify({ entries: [entry], basedir: './client/scripts', extensions: ['.jsx'], debug: true })
+  const streams = paths.entries.map(entry =>
+    browserify({ entries: [entry], basedir: './client/scripts', extensions: ['.jsx'], debug: true })
       .transform(babelify)
       .bundle()
       .on('error', gutil.log.bind(gutil, 'Browserify error.'))
       .pipe(source(entry))
-      .pipe(rename(function (path) {
+      .pipe(rename(path => {
         paths.entries.length === 1 ? path.basename = 'bundle' : path.suffix = '.bundle';
         path.extname = '.js';
       }))
@@ -38,9 +37,8 @@ gulp.task('build-js', () => {
       .pipe(sourcemaps.init({ loadMaps: true }))
       .pipe(uglify({ mangle: false }))
       .pipe(sourcemaps.write('.'))
-      .pipe(gulp.dest('./public/js'));
-  });
+      .pipe(gulp.dest('./public/js'))
+  );
 
   return es.merge.apply(null, streams);
-
 });
