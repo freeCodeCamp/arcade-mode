@@ -39,11 +39,11 @@ const paths = {
 gulp.task('build-js', () => {
   const streams = paths.entries.map(entry =>
     browserify({ entries: [entry], basedir: './client/scripts', extensions: ['.jsx'], debug: true })
-      .pipe(plumber())
       .transform(babelify)
       .bundle()
       .on('error', gutil.log.bind(gutil, 'Browserify error.'))
       .pipe(source(entry))
+      .pipe(plumber())
       .pipe(rename(path => {
         paths.entries.length === 1 ? path.basename = 'bundle' : path.suffix = '.bundle';
         path.extname = '.js';
@@ -66,3 +66,5 @@ gulp.task('build-css', () =>
     .pipe(cssmin())
     .pipe(gulp.dest('./public/css'))
 );
+
+gulp.task('build', ['build-js', 'build-css']);
