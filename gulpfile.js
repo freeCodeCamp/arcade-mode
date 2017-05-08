@@ -45,6 +45,7 @@ const paths = {
   fonts: ['client/fonts/**/*'], // font sources
   images: ['client/images/**/*'], // image sources
   scripts: ['client/scripts/main.jsx'], // entry point scripts
+  srcClient: ['client/scripts/**/*.js*'],
   stylesheets: ['client/stylesheets/style.scss'] // entry point stylesheets
 };
 
@@ -160,14 +161,14 @@ gulp.task('build-dev', ['build-font', 'build-img', 'build-js-inc', 'build-css'])
 gulp.task('watch', ['build'], () => {
   gulp.watch(paths.fonts, ['build-font']);
   gulp.watch(paths.images, ['build-img']);
-  gulp.watch(paths.scripts, ['build-js']);
+  gulp.watch(paths.srcClient, ['build-js']);
   gulp.watch(paths.stylesheets, ['build-css']);
 });
 
 gulp.task('watch-dev', ['build-dev'], () => {
   gulp.watch(paths.fonts, ['build-font']);
   gulp.watch(paths.images, ['build-img']);
-  gulp.watch(paths.scripts, ['build-js-inc']);
+  gulp.watch(paths.srcClient, ['build-js-inc']);
   gulp.watch(paths.stylesheets, ['build-css']);
 });
 
