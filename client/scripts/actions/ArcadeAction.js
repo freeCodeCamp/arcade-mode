@@ -9,4 +9,4 @@ const runTest = () => ({
   type: 'RUN_TEST'
 });
 
-export default { RUN_TEST, runTest };
+export { RUN_TEST, runTest };
