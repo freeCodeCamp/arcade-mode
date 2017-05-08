@@ -1,7 +1,13 @@
 # PROGRESS for Arcade Mode
 
+## Tuesday 5/9/17:
+
 ## Monday 5/8/17:
 
+### Tuomas:
+  - Progress:
+    1. Added redux code with action, container (App.jsx) and reducer.
+    2. Created sample unit test file (test/ArcadeAction.spec.js) for first redux actions.
 
 ## Sunday 5/7/17:
 ### Tim:
