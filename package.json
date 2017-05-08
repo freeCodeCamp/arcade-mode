@@ -4,13 +4,13 @@
   "description": "An interview preparation app featuring algorithm and data structure questions.",
   "main": "server/server.js",
   "scripts": {
-    "build": "NODE_ENV=production node node_modules/gulp/bin/gulp.js build",
-    "build-dev": "NODE_ENV=development node node_modules/gulp/bin/gulp.js build-dev",
+    "build": "NODE_ENV=production gulp build",
+    "build-dev": "NODE_ENV=development gulp build-dev",
     "postinstall": "npm run build",
     "start": "node --use-strict server/server.js",
     "test": "NODE_ENV=test mocha --require test/helpers/browser.js --compilers js:babel-core/register test/*.spec.js",
-    "watch": "NODE_ENV=production node node_modules/gulp/bin/gulp.js watch",
-    "watch-dev": "NODE_ENV=development node node_modules/gulp/bin/gulp.js watch-dev"
+    "watch": "NODE_ENV=production gulp watch",
+    "watch-dev": "NODE_ENV=development gulp watch-dev"
   },
   "repository": {
     "type": "git",
@@ -40,7 +40,6 @@
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.10.3",
-    "event-stream": "^3.3.4",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
     "gulp-cache": "^0.4.6",
@@ -48,7 +47,6 @@
     "gulp-imagemin": "^3.2.0",
     "gulp-notify": "^3.0.0",
     "gulp-plumber": "^1.1.0",
-    "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.1.0",
     "gulp-uglify": "^2.1.2",
     "gulp-util": "^3.0.8",

@@ -3,6 +3,9 @@
 ## Tuesday 5/9/17:
 
 ## Monday 5/8/17:
+### Tim:
+  - Progress:
+    1. Set up app on heroku: https://arcademode.herokuapp.com
 
 ### Tuomas:
   - Progress:

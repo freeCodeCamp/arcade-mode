@@ -21,8 +21,6 @@ const collapse = require('bundle-collapser/plugin');
 const source = require('vinyl-source-stream');
 const buffer = require('vinyl-buffer');
 const uglify = require('gulp-uglify');
-const rename = require('gulp-rename');
-const es = require('event-stream');
 
 // SCSS -> CSS
 // -----------
@@ -44,7 +42,7 @@ const cache = require('gulp-cache');
 const paths = {
   fonts: ['client/fonts/**/*'], // font sources
   images: ['client/images/**/*'], // image sources
-  scripts: ['client/scripts/main.jsx'], // entry point scripts
+  scripts: ['client/scripts/arcademode/main.jsx', 'client/scripts/public/public.js'], // entry point scripts
   srcClient: ['client/scripts/**/*.js*'],
   stylesheets: ['client/stylesheets/style.scss'] // entry point stylesheets
 };
@@ -71,34 +69,26 @@ gulp.task('build-img', () => {
     .pipe(gulp.dest('public/img'));
 });
 
-gulp.task('build-js', () => {
-  const streams = paths.scripts.map(script =>
-    browserify({
-      entries: script,
-      extensions: ['.jsx'],
-      debug: true
-    })
-      .transform(babelify)
-      .transform(envify)
-      .transform({
-        global: true
-      }, uglifyify)
-      .plugin(collapse)
-      .bundle()
-      .on('error', gutil.log.bind(gutil, 'Browserify error.'))
-      .pipe(source(script.slice(15))) // "pretend" name: https://www.npmjs.com/package/vinyl-source-stream; slice off the './client/scripts/' segment for just the script file name
-      .pipe(buffer())
-      .pipe(plumber())
-      .pipe(rename(path => {
-        paths.scripts.length === 1 ? path.basename = 'bundle' : path.suffix = '.bundle';
-        path.extname = '.js';
-      }))
-      .pipe(uglify({ mangle: true }))
-      .pipe(gulp.dest('public/js'))
-  );
-
-  return es.merge.apply(null, streams);
-});
+gulp.task('build-js', () =>
+  browserify({
+    entries: paths.scripts,
+    extensions: ['.jsx'],
+    debug: true
+  })
+    .transform(babelify)
+    .transform(envify)
+    .transform({
+      global: true
+    }, uglifyify)
+    .plugin(collapse)
+    .bundle()
+    .on('error', gutil.log.bind(gutil, 'Browserify error.'))
+    .pipe(source('bundle.js'))
+    .pipe(buffer())
+    .pipe(plumber())
+    .pipe(uglify({ mangle: true }))
+    .pipe(gulp.dest('public/js'))
+);
 
 gulp.task('build-css', () =>
   gulp.src(paths.stylesheets[0]) // only the entry/index sheet, style.scss
@@ -140,7 +130,8 @@ if (process.env.NODE_ENV !== 'production') {
     b.transform(babelify)
       .bundle()
         .on('error', handleErrors)
-        .pipe(source('./bundle.js'))
+        .pipe(source('bundle.js'))
+        .pipe(buffer())
         .pipe(gulp.dest('public/js'));
   });
 }
