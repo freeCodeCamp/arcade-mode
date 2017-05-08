@@ -44,7 +44,7 @@ const cache = require('gulp-cache');
 const paths = {
   fonts: ['client/fonts/**/*'], // font sources
   images: ['client/images/**/*'], // image sources
-  scripts: ['client/scripts/App.jsx'], // entry point scripts
+  scripts: ['client/scripts/main.jsx'], // entry point scripts
   stylesheets: ['client/stylesheets/style.scss'] // entry point stylesheets
 };
 
