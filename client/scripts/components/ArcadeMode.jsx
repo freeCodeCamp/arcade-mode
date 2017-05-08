@@ -35,5 +35,5 @@ export default class ArcadeMode extends Component {
 
 ArcadeMode.propTypes = {
   runTest: React.PropTypes.func.isRequired,
-  userData: React.PropTypes.objectOf(UserData).isRequired
+  userData: React.PropTypes.instanceOf(UserData).isRequired
 };
