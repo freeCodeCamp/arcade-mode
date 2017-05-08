@@ -1,8 +1,6 @@
 
 'use strict';
 
-import React from 'react';
-import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 
 import ArcadeMode from '../components/ArcadeMode';
