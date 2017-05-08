@@ -1,8 +1,9 @@
 
+'use strict';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore } from 'redux';
+import { createStore, combineReducers } from 'redux';
 
 import App from './containers/App';
 import arcadeReducer from './reducers/ArcadeReducer';
@@ -13,7 +14,11 @@ const Provider = ReactRedux.Provider;
 
 const app = document.getElementById('app');
 
-const mainStore = createStore(arcadeReducer);
+const reducersCombined = combineReducers({
+  arcadeReducer
+});
+
+const mainStore = createStore(reducersCombined);
 
 ReactDOM.render(
   <Provider store={mainStore}>
