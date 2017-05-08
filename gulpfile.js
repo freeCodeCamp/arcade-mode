@@ -2,15 +2,17 @@
 
 
 // Requires
-// --------
+// ========
 
 // General
+// -------
 const gulp = require('gulp');
 const gutil = require('gulp-util');
 const plumber = require('gulp-plumber');
 const notify = require('gulp-notify');
 
 // JSX/ES6 -> ES5
+// --------------
 const browserify = require('browserify');
 const babelify = require('babelify');
 const envify = require('envify');
@@ -23,19 +25,22 @@ const rename = require('gulp-rename');
 const es = require('event-stream');
 
 // SCSS -> CSS
+// -----------
 const sass = require('gulp-sass');
 const autoprefixer = require('gulp-autoprefixer');
 const cssmin = require('gulp-cssmin');
 
 // Image processing
+// ----------------
 const imagemin = require('gulp-imagemin'); // supports png, jpg, gif, and svg only
 const cache = require('gulp-cache');
 
 
 // Configuration Objects
-// ---------------------
+// =====================
 
 // Entry points and sources
+// ------------------------
 const paths = {
   fonts: ['client/fonts/**/*'], // font sources
   images: ['client/images/**/*'], // image sources
@@ -45,7 +50,7 @@ const paths = {
 
 
 // Gulp Tasks
-// ----------
+// ==========
 
 gulp.task('build-font', () =>
 gulp.src(paths.fonts)
@@ -104,12 +109,6 @@ gulp.task('build-css', () =>
 );
 
 
-gulp.task('clear-cache', done => cache.clearAll(done));
-
-gulp.task('build', ['build-font', 'build-img', 'build-js', 'build-css']);
-gulp.task('build-dev', ['build-font', 'build-img', 'build-js-inc', 'build-css']);
-
-
 // DEV-tasks (not used in production)
 //-----------------------------------
 
@@ -144,3 +143,31 @@ if (process.env.NODE_ENV !== 'production') {
         .pipe(gulp.dest('public/js'));
   });
 }
+
+
+// Helper tasks
+// ------------
+
+gulp.task('clear-cache', done => cache.clearAll(done)); // clears img cache
+
+
+// Bundled tasks
+// -------------
+
+gulp.task('build', ['build-font', 'build-img', 'build-js', 'build-css']);
+gulp.task('build-dev', ['build-font', 'build-img', 'build-js-inc', 'build-css']);
+
+gulp.task('watch', ['build'], () => {
+  gulp.watch(paths.fonts, ['build-font']);
+  gulp.watch(paths.images, ['build-img']);
+  gulp.watch(paths.scripts, ['build-js']);
+  gulp.watch(paths.stylesheets, ['build-css']);
+});
+
+gulp.task('watch-dev', ['build-dev'], () => {
+  gulp.watch(paths.fonts, ['build-font']);
+  gulp.watch(paths.images, ['build-img']);
+  gulp.watch(paths.scripts, ['build-js-inc']);
+  gulp.watch(paths.stylesheets, ['build-css']);
+});
+
