@@ -1,19 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import Hello from './components/Hello';
+import {connect} from 'react-redux';
 
-class App extends React.Component {
-  render() {
-    return (
-      <div>
-        <Hello />
-        <strong>And this is straight from the App itself.</strong>
-      </div>
-    );
-  }
+import ArcadeMode from '../components/ArcadeMode';
+
+function mapStateToProps() {
+
 }
 
-const app = document.getElementById('app');
+function mapDispatchToProps() {
 
-ReactDOM.render(<App />, app);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ArcadeMode);
