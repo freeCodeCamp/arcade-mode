@@ -7,7 +7,7 @@
 ### Tim:
   - Progress:
     1. Set up gulp tasks for all major file types; set up gulp watch tasks
-    2.
+    2. Add mongoose setup code; revisit following completion of client-side UI
 
 
 ### Tuomas:
