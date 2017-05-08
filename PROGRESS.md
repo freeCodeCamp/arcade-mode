@@ -1,6 +1,12 @@
 # PROGRESS for Arcade Mode
 
+## Monday 5/8/17:
+
+
 ## Sunday 5/7/17:
+### Tim:
+  - Progress:
+
 
 ### Tuomas:
   - Progress:

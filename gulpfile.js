@@ -1,5 +1,6 @@
 'use strict';
 
+
 // Requires
 // --------
 
@@ -7,13 +8,16 @@
 const gulp = require('gulp');
 const gutil = require('gulp-util');
 const plumber = require('gulp-plumber');
+const notify = require('gulp-notify');
 
 // JSX/ES6 -> ES5
 const browserify = require('browserify');
 const babelify = require('babelify');
+const envify = require('envify');
+const uglifyify = require('uglifyify');
+const collapse = require('bundle-collapser/plugin');
 const source = require('vinyl-source-stream');
 const buffer = require('vinyl-buffer');
-const sourcemaps = require('gulp-sourcemaps');
 const uglify = require('gulp-uglify');
 const rename = require('gulp-rename');
 const es = require('event-stream');
@@ -23,21 +27,43 @@ const sass = require('gulp-sass');
 const autoprefixer = require('gulp-autoprefixer');
 const cssmin = require('gulp-cssmin');
 
-const notify = require('gulp-notify');
+// Image processing
+const imagemin = require('gulp-imagemin'); // supports png, jpg, gif, and svg only
+const cache = require('gulp-cache');
+
 
 // Configuration Objects
 // ---------------------
 
-// Entry points
+// Entry points and sources
 const paths = {
-  // scripts: ['./client/scripts/**/*.jsx', './client/scripts/**/*.js'],
-  scripts: ['./client/scripts/App.jsx'],
-  stylesheets: ['./client/stylesheets/style.scss']
+  fonts: ['client/fonts/**/*'], // font sources
+  images: ['client/images/**/*'], // image sources
+  scripts: ['client/scripts/App.jsx'], // entry point scripts
+  stylesheets: ['client/stylesheets/style.scss'] // entry point stylesheets
 };
 
 
 // Gulp Tasks
 // ----------
+
+gulp.task('build-font', () =>
+gulp.src(paths.fonts)
+  .pipe(gulp.dest('public/font')) // no processing because fonts are already optimized
+);
+
+gulp.task('build-img', () => {
+  gulp.src('client/images/favicon.ico')
+    .pipe(gulp.dest('public/img'));
+
+  gulp.src(paths.images)
+    .pipe(cache(imagemin([
+      imagemin.gifsicle({ interlaced: true }),
+      imagemin.jpegtran({ progressive: true }),
+      imagemin.optipng({ optimizationLevel: 5 })
+    ])))
+    .pipe(gulp.dest('public/img'));
+});
 
 gulp.task('build-js', () => {
   const streams = paths.scripts.map(script =>
@@ -47,18 +73,21 @@ gulp.task('build-js', () => {
       debug: true
     })
       .transform(babelify)
+      .transform(envify)
+      .transform({
+        global: true
+      }, uglifyify)
+      .plugin(collapse)
       .bundle()
       .on('error', gutil.log.bind(gutil, 'Browserify error.'))
-      .pipe(source(script.slice(17))) // "pretend" name: https://www.npmjs.com/package/vinyl-source-stream; slice off the './client/scripts/' segment for just the script file name
+      .pipe(source(script.slice(15))) // "pretend" name: https://www.npmjs.com/package/vinyl-source-stream; slice off the './client/scripts/' segment for just the script file name
+      .pipe(buffer())
       .pipe(plumber())
       .pipe(rename(path => {
         paths.scripts.length === 1 ? path.basename = 'bundle' : path.suffix = '.bundle';
         path.extname = '.js';
       }))
-      .pipe(buffer())
-      .pipe(sourcemaps.init({ loadMaps: true }))
-      .pipe(uglify({ mangle: false }))
-      .pipe(sourcemaps.write('.'))
+      .pipe(uglify({ mangle: true }))
       .pipe(gulp.dest('public/js'))
   );
 
@@ -74,10 +103,15 @@ gulp.task('build-css', () =>
     .pipe(gulp.dest('public/css'))
 );
 
-gulp.task('build', ['build-js', 'build-css']);
+
+gulp.task('clear-cache', done => cache.clearAll(done));
+
+gulp.task('build', ['build-font', 'build-img', 'build-js', 'build-css']);
+gulp.task('build-dev', ['build-font', 'build-img', 'build-js-inc', 'build-css']);
+
 
 // DEV-tasks (not used in production)
-//------------------------------------
+//-----------------------------------
 
 function handleErrors(...errorArgs) {
   const args = Array.prototype.slice.call(errorArgs);

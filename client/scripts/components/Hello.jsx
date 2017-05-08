@@ -8,6 +8,7 @@ export default class Hello extends React.Component {
       <div>
         <Header />
         <h1>This is the Hello component</h1>
+        <span>More text to update browserify-inc to see it in action</span>
       </div>
     );
   }
