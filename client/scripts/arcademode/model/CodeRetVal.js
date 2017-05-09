@@ -7,15 +7,9 @@ export default class CodeRetVal {
 
     if (typeof obj !== 'undefined') {
       this.type = obj.type;
-      this.data = obj.value;
+      this.data = obj.data;
       if (obj.error) {
         this.error = obj.error;
-      }
-    }
-
-    for (let p in obj) {
-      if (obj.hasOwnProperty(p)) {
-        console.log(p + ' => ' + obj.p);
       }
     }
   }
@@ -24,7 +18,7 @@ export default class CodeRetVal {
   toString() {
     return `
         Type: ${this.type}
-        Value: ${this.data}
+        Data: ${this.data}
         Error: ${this.error}
     `;
   }
