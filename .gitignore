@@ -14,4 +14,4 @@ npm-debug.log
 browserify-cache.json
 
 # Ignore generated static content
-public/
+/public
