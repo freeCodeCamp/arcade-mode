@@ -4,14 +4,17 @@
 import { connect } from 'react-redux';
 
 import ArcadeMode from '../components/ArcadeMode';
-import { runTest } from '../actions/ArcadeAction';
+import { onCodeChange, runTest } from '../actions/ArcadeAction';
 
 const mapStateToProps = state => ({
-  userData: state.arcadeReducer.userData
+  userData: state.arcadeReducer.userData,
+  code: state.arcadeReducer.code,
+  codeRetVal: state.arcadeReducer.codeRetVal
 });
 
 const mapDispatchToProps = dispatch => ({
-  runTest: () => dispatch(runTest())
+  runTest: () => dispatch(runTest()),
+  onCodeChange: newCode => dispatch(onCodeChange(newCode))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ArcadeMode);
