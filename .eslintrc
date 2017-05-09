@@ -15,6 +15,7 @@
     "brace-style": 0,
     "comma-dangle": ["error", "never"], // disallow trailing commas
     "global-require": 0, // requires should be at the top not elsewhere, but sometimes..
+    "jsx-quotes": ["error", "prefer-single"],
     "no-console": 0, // environment specified is both browser and node -> useful in node
     "no-param-reassign": ["error", {"props": false}], // only error when not modifying prop
     "no-unused-expressions": ["error", {"allowTernary": true}],

@@ -7,7 +7,8 @@
   - Progress:
     1. Set up app on heroku: https://arcademode.herokuapp.com
     2. Create a head script to enforce https on the Heroku app.
-    3. Slight refactoring of initial/placeholder React/Redux code to comply with newer standards.
+    3. Implement react-bootstrap as a possible solution to UI design; initialize navbar
+    4. Initialize info panel and editor sections
 
 ### Tuomas:
   - Progress:
@@ -23,8 +24,7 @@
 
 ### Tuomas:
   - Progress:
-      1. Added Enzyme + first unit test for Header component following an example from 
-        [Testing React components with Enzyme and Mocha](https://semaphoreci.com/community/tutorials/testing-react-components-with-enzyme-and-mocha)
+    1. Added Enzyme + first unit test for Header component following an example from [Testing React components with Enzyme and Mocha](https://semaphoreci.com/community/tutorials/testing-react-components-with-enzyme-and-mocha)
 
 ## Saturday 5/6/17:
 ### Tim:
