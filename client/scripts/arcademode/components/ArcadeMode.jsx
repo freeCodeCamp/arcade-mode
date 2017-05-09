@@ -55,28 +55,27 @@ export default class ArcadeMode extends Component {
         <Navbar />
         <Grid fluid>
           <Row className='show-grid'>
+
             <Col className='arcade-panel' xs={12} sm={12} md={4} lg={4}>
-              This is the info panel.
+              <p>This is the info panel.</p>
+              <button className={'btn btn-primary'} onClick={this.onClickCallback}>Run tests</button>
+              <p>Your code returned: {this.props.codeRetVal.toString()}</p>
+              <p>Userdata given: {this.props.userData.username} </p>
             </Col>
+
             <Col className='editor' xs={12} sm={12} md={8} lg={8}>
               This is where the editor should go.
+              <div className={'editor'}>
+                <CodeMirror
+                  onChange={this.onCodeChange}
+                  options={editorOptions}
+                  value={this.props.code}
+                />
+              </div>
             </Col>
+
           </Row>
         </Grid>
-        <h1>ArcadeMode</h1>
-        <Hello />
-        <button onClick={this.onClickCallback}>Run</button>
-        <p>Userdata given: {this.props.userData.username} </p>
-        <p>Your code returned: {this.props.codeRetVal.toString()}</p>
-
-        <div className={'editor'}>
-          <CodeMirror
-            onChange={this.onCodeChange}
-            options={editorOptions}
-            value={this.props.code}
-          />
-        </div>
-
       </div>
     );
   }
