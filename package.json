@@ -8,7 +8,7 @@
     "build-dev": "NODE_ENV=development gulp build-dev",
     "postinstall": "npm run build",
     "start": "node --use-strict server/server.js",
-    "test": "NODE_ENV=test mocha --require test/helpers/browser.js --compilers js:babel-core/register test/*.spec.js",
+    "test": "NODE_ENV=test mocha --require test/helpers/browser.js --compilers js:babel-core/register test/*.spec.js*",
     "watch": "NODE_ENV=production gulp watch",
     "watch-dev": "NODE_ENV=development gulp watch-dev"
   },
