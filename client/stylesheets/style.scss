@@ -1,10 +1,11 @@
 // style.scss
 
 @charset 'utf-8';
-@import "./includes/editor";
 
+@import 'partials/_codemirror.monokai';
 
 @import 'partials/_components.general';
 @import 'partials/_components.react.arcade-panel';
 @import 'partials/_components.react.editor';
 @import 'partials/_components.bootstrap-overrides';
+
