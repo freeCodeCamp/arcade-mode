@@ -4,11 +4,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import CodeMirror from 'react-codemirror';
-
 import { Grid, Row, Col } from 'react-bootstrap';
-import Hello from './Hello';
+
 import UserData from '../model/UserData';
 import CodeRetVal from '../model/CodeRetVal';
+import Navbar from './Navbar';
 
 const editorOptions = {
   theme: 'monokai',
@@ -25,7 +25,6 @@ const editorOptions = {
   inputStyle: 'contenteditable'
   */
 };
-import Navbar from './Navbar';
 
 /**
  * Top-level component for the app. This is rendered in App.jsx.
