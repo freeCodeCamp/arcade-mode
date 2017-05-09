@@ -1,7 +1,7 @@
 
 import { expect } from 'chai';
 
-import * as ArcadeAction from '../client/scripts/actions/ArcadeAction';
+import * as ArcadeAction from '../client/scripts/arcademode/actions/ArcadeAction';
 
 describe('ArcadeActions', () => {
   describe('runTest()', () => {

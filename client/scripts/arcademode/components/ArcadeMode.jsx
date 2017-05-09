@@ -2,6 +2,7 @@
 'use strict';
 
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Hello from './Hello';
 import UserData from '../model/UserData';
 
@@ -34,6 +35,6 @@ export default class ArcadeMode extends Component {
 }
 
 ArcadeMode.propTypes = {
-  runTest: React.PropTypes.func.isRequired,
-  userData: React.PropTypes.instanceOf(UserData).isRequired
+  runTest: PropTypes.func.isRequired,
+  userData: PropTypes.instanceOf(UserData).isRequired
 };

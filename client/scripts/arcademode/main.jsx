@@ -4,6 +4,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore, combineReducers } from 'redux';
+// import { combineReducers } from 'redux-immutable';
 
 import App from './containers/App';
 import arcadeReducer from './reducers/ArcadeReducer';

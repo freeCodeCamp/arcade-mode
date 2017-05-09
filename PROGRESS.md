@@ -6,6 +6,8 @@
 ### Tim:
   - Progress:
     1. Set up app on heroku: https://arcademode.herokuapp.com
+    2. Create a head script to enforce https on the Heroku app.
+    3. Slight refactoring of initial/placeholder React/Redux code to comply with newer standards.
 
 ### Tuomas:
   - Progress:
