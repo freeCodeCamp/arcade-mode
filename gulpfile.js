@@ -21,6 +21,8 @@ const collapse = require('bundle-collapser/plugin');
 const source = require('vinyl-source-stream');
 const buffer = require('vinyl-buffer');
 const uglify = require('gulp-uglify');
+const rename = require('gulp-rename');
+const es = require('event-stream');
 
 // SCSS -> CSS
 // -----------
@@ -42,7 +44,7 @@ const cache = require('gulp-cache');
 const paths = {
   fonts: ['client/fonts/**/*'], // font sources
   images: ['client/images/**/*'], // image sources
-  scripts: ['client/scripts/arcademode/main.jsx', 'client/scripts/public/public.js'], // entry point scripts
+  scripts: ['client/scripts/arcademode/main.jsx', 'client/scripts/public/head.js'], // entry point scripts
   srcClient: ['client/scripts/**/*.js*'],
   stylesheets: ['client/stylesheets/style.scss'] // entry point stylesheets
 };
@@ -69,26 +71,33 @@ gulp.task('build-img', () => {
     .pipe(gulp.dest('public/img'));
 });
 
-gulp.task('build-js', () =>
-  browserify({
-    entries: paths.scripts,
-    extensions: ['.jsx'],
-    debug: true
-  })
-    .transform(babelify)
-    .transform(envify)
-    .transform({
-      global: true
-    }, uglifyify)
-    .plugin(collapse)
-    .bundle()
-    .on('error', gutil.log.bind(gutil, 'Browserify error.'))
-    .pipe(source('bundle.js'))
-    .pipe(buffer())
-    .pipe(plumber())
-    .pipe(uglify({ mangle: true }))
-    .pipe(gulp.dest('public/js'))
-);
+gulp.task('build-js', () => {
+  const streams = paths.scripts.map(script =>
+    browserify({
+      entries: script,
+      extensions: ['.jsx'],
+      debug: true
+    })
+      .transform(babelify)
+      .transform(envify)
+      .transform({
+        global: true
+      }, uglifyify)
+      .plugin(collapse)
+      .bundle()
+      .on('error', gutil.log.bind(gutil, 'Browserify error.'))
+      .pipe(source(`./${script.split('/')[script.split('/').length - 1]}`))
+      .pipe(buffer())
+      .pipe(plumber())
+      .pipe(rename(path => {
+        path.extname = '.bundle.js';
+      }))
+      .pipe(uglify({ mangle: true }))
+      .pipe(gulp.dest('public/js'))
+  );
+
+  return es.merge.apply(null, streams);
+});
 
 gulp.task('build-css', () =>
   gulp.src(paths.stylesheets[0]) // only the entry/index sheet, style.scss
@@ -117,22 +126,30 @@ if (process.env.NODE_ENV !== 'production') {
 
   // Incrementally building the js
   gulp.task('build-js-inc', () => {
-    const b = browserify(Object.assign({}, browserifyInc.args,
-      {
-        entries: paths.scripts,
-        extensions: ['.jsx'],
-        debug: true
-      }
-    ));
+    const streams = paths.scripts.map(script => {
+      const b = browserify(Object.assign({}, browserifyInc.args,
+        {
+          entries: script,
+          extensions: ['.jsx'],
+          debug: true
+        }
+      ));
 
-    browserifyInc(b, { cacheFile: './browserify-cache.json' });
+      browserifyInc(b, { cacheFile: './browserify-cache.json' });
 
-    b.transform(babelify)
-      .bundle()
-        .on('error', handleErrors)
-        .pipe(source('bundle.js'))
-        .pipe(buffer())
-        .pipe(gulp.dest('public/js'));
+      return b.transform(babelify)
+        .bundle()
+          .on('error', handleErrors)
+          .pipe(source(`./${script.split('/')[script.split('/').length - 1]}`))
+          .pipe(buffer())
+          .pipe(plumber())
+          .pipe(rename(path => {
+            path.extname = '.bundle.js';
+          }))
+          .pipe(gulp.dest('public/js'));
+    });
+
+    return es.merge.apply(null, streams);
   });
 }
 
