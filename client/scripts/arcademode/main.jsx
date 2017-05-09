@@ -14,7 +14,7 @@ const ReactRedux = require('react-redux');
 
 const Provider = ReactRedux.Provider;
 
-const app = document.getElementById('app');
+const app = document.querySelector('.app');
 
 const reducersCombined = combineReducers({
   arcadeReducer

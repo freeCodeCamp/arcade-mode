@@ -1,10 +1,15 @@
+<<<<<<< HEAD
+
+@import "./includes/editor";
+
+
+=======
 // style.scss
 
 @charset 'utf-8';
-@import "./includes/editor";
-
 
 @import 'partials/_components.general';
 @import 'partials/_components.react.arcade-panel';
 @import 'partials/_components.react.editor';
 @import 'partials/_components.bootstrap-overrides';
+>>>>>>> f9bd5640eee68a76099f4ecbbb29bcf681eba71c

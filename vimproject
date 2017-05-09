@@ -1,0 +1,500 @@
+project=/home/tpoikela/git/arcade-mode CD=. filter="*" flags=S {
+ browserify-cache.json
+ eslint
+ gulpfile.js
+ LICENSE
+ package.json
+ PROGRESS.md
+ README.md
+ vimproject
+ .git=.git {
+  COMMIT_EDITMSG
+  FETCH_HEAD
+  HEAD
+  ORIG_HEAD
+  config
+  description
+  index
+  packed-refs
+  hooks=hooks {
+   applypatch-msg.sample
+   commit-msg.sample
+   post-update.sample
+   pre-applypatch.sample
+   pre-commit.sample
+   pre-push.sample
+   pre-rebase.sample
+   prepare-commit-msg.sample
+   update.sample
+  }
+  logs=logs {
+   HEAD
+   refs=refs {
+    remotes=remotes {
+     origin=origin {
+      HEAD
+      master
+     }
+    }
+    heads=heads {
+     master
+    }
+   }
+  }
+  objects=objects {
+   d3=d3 {
+    b4d7badb8378e7aba7743ab7ec59bcf06fe359
+   }
+   e3=e3 {
+    f9fec3c8c1eb96ccd3667737f867a4d7343207
+   }
+   06=06 {
+    b1553abe07cada931c454e0eb3197b27155659
+   }
+   d0=d0 {
+    7e59f4515cebc7e780e5ec7d61399c7dc42528
+   }
+   90=90 {
+    2f2b4df024779442c7c779c0bd3d9acbe0d502
+   }
+   24=24 {
+    4baa03a091cab498d3eb0e3e633ce5f5ce58af
+    fb3a44461aa701fa9f1d8215fd94d10b466415
+   }
+   61=61 {
+    95e52fe652f4f585e448eaf88aff898a003bac
+    bba5e1bdb96d5e207046e4b1fa02a02509768a
+   }
+   e6=e6 {
+    1d75b2fdffaa6c794a8c50ba22721ec6bd4596
+    4aec6a04d7e87837b9fa9fb0a1fcf33762e4b8
+   }
+   21=21 {
+    45385f056c4d54c42195ee48d892d022522197
+   }
+   7f=7f {
+    d008efcbc50783ed905ca8596644040a535084
+   }
+   ef=ef {
+    ecc15d37d54dcbc6f0a1af6f0084b85bd82f57
+   }
+   32=32 {
+    a1586044fb5ea412af37b150000c4fc6b992d8
+    fbd1fe44d666c7bde35196e04d00b6d0f8f4d9
+   }
+   5f=5f {
+    49a0bced9c42922f901f45379ff0ae8e6983ec
+   }
+   d6=d6 {
+    7f31e3b69ef041a4389513dd3105dd2a08f4ac
+    90d890a453277761f959f0e9b0969e4552f91a
+    958f7d66af38f5c0191c18e44c1ca28a123caf
+   }
+   0c=0c {
+    dd7c0d6f13588bd1dcdddf1f46a3336136a155
+   }
+   2a=2a {
+    2c059985daab5d1c212e497fbda4d7ab382a9f
+    45528b3e118584aa87092046e898bf21ec21a8
+    a79c55d5b1c6136b19d3707486d61bcff35b31
+    bfe47926c60a8049926de845a5ed34270830eb
+   }
+   a7=a7 {
+    a4224e109b4bcc057a4010d5126ebe8b8e5fcf
+    a88941735523522825ae57533780f621f56b61
+   }
+   4c=4c {
+    a40e661a6d7a5a54140883aed2a9c8b5fa4251
+    dc8cb71658dc1bca9230d612078b46c2a83f2b
+   }
+   79=79 {
+    6cab6cec0d812b846d95164142feb8e3f6d931
+    7834e468f16c6a6fd346afe97fe0fff2b0af0d
+    f0744fd543ef39eedb53f91191cc293541f404
+   }
+   34=34 {
+    37e80503bb19b6804c1ab9edbd49cb345110c9
+   }
+   9c=9c {
+    02c60d765d0b2beffe1317c4102bb674004d24
+   }
+   94=94 {
+    18aa36687bbce23b219cc78e7bb9c575cc6d23
+    c032a2a067e84043ce321a9fff53d9bdc69798
+   }
+   03=03 {
+    29c754aed7cbe1e254470308e59de761768064
+    5a05106d2787507930a3940a97ca17ec672133
+   }
+   3d=3d {
+    97148907882c211beee4ec21ed840f603e5883
+   }
+   6b=6b {
+    80237b647e45194acfe9e1bb62925ab67c26f6
+   }
+   58=58 {
+    52d950fa3584ea83f3751d8c475bcffe1a3b51
+    df630a478fb857eb7c994e60ea5e474e7bd84c
+    e9e69d47779cef116f4ae49dda7a6f6eb5c140
+   }
+   b1=b1 {
+    83e79421b3e88613f96b7ed77053fd5b503a30
+    ea0c1863103d57f53d14c55695d9706249b521
+   }
+   0a=0a {
+    7a2961c808c0ff6886a552ad560910ae9e1412
+    b5ee5e3c48e6fd8afff04075a90d0f896db45a
+   }
+   39=39 {
+    171b526ded9f3203b9a9802db63f4d356e5ee9
+    d978686d1e836b3fd676c9e29c7f7a58e82432
+   }
+   3b=3b {
+    443a5fdcad8808c0925b810724293d8af9d51b
+   }
+   b0=b0 {
+    be0763378db7e073273741c2a51b792031b433
+   }
+   f7=f7 {
+    134a72ea5b099a2d69c7255fbfe7f104110d85
+   }
+   a0=a0 {
+    d9f35acbb8e4ab5f59f23955eca7568154e72e
+   }
+   65=65 {
+    d10e832ec99cc80a81a813175bb688cee6a6bd
+    e212bd84bf9b8474236773a6790c97379d437c
+   }
+   4e=4e {
+    29f5d9c92d4731b3702795a32011195934f2ea
+   }
+   e7=e7 {
+    435c4f42589c3cdbfe52c88a76b7fad77f63f2
+    a659f6b89ba70e9abef9a0623ee57085929fb5
+    f4eb31eca24fa17ae5bada87e1fff3da40be7c
+   }
+   8b=8b {
+    36506775210020f9d879bd34593e875cdefacd
+   }
+   f0=f0 {
+    499d9be737b24ba6b9a2bb54cda7f5e0599768
+   }
+   6c=6c {
+    1909a4d989f2073b5fe8c3a1498f6d115da51d
+    8df4de6fbab68ff3a8bce6906348a15edf8266
+   }
+   36=36 {
+    8c6019e6b423c6315d27763cc877f8bfcc409c
+    a8c0837582d9eb49ec4f7c0c8e40f116f993f8
+   }
+   1d=1d {
+    aa8c856b831158d33016c86d140d1de5ddee5f
+   }
+   1f=1f {
+    4932cffe6c96ed2174ffaba073dd075fbe2437
+    628c55678b8fd01bdecbc9b9e3c14212d2f601
+    c5a4cf698a63b5326b12e9438b170a1258b74e
+   }
+   fb=fb {
+    3af2761051fe5ac91169ce42b8c3c3de381aa6
+   }
+   ce=ce {
+    79905262d58958d453146694fce73be1e9aeee
+    925c5743d110c835560b2fa7de78942e0107e3
+   }
+   d5=d5 {
+    08cf6c236125b49dae8eb44db17a716537d95a
+    6ac020f1b32781a3b9bc2e74db58a642c5d3bf
+   }
+   da=da {
+    da430e579f013983543bda1ca868c787b800ee
+    f24222e4161bf3621eb5582b1357fbdc9d413d
+   }
+   pack=pack {
+    pack-47502358c7d292d8ba1f5dae4aebc19e0f58a6e4.idx
+    pack-47502358c7d292d8ba1f5dae4aebc19e0f58a6e4.pack
+    pack-4ff3815e97d29777036ab36fd1dfb288a2bbe694.idx
+    pack-4ff3815e97d29777036ab36fd1dfb288a2bbe694.pack
+   }
+   5b=5b {
+    871cb0d81acdebeec8b7b5e8daa7771b300ef5
+   }
+   31=31 {
+    3df51c55c6f85b788d033c672d7eab12ee2f82
+    83d59b30563e7ce20bbaf290e2d77bc2572c89
+   }
+   c2=c2 {
+    25b36509ac29e63b1e89843960b5bc700ae41b
+    969a684e0adb005c9c65eb071ab5eb103a9691
+    e4947a8816ef3b8732b98f0cd0bb98cb134b1b
+   }
+   62=62 {
+    31e19dc3c6b2037b873cdf8fb1b66684bc826b
+    d3edc105cbf8536475e9691b799330057220a1
+   }
+   15=15 {
+    1b2f1db335a89a4450857941142caccc707806
+   }
+   17=17 {
+    de765484fa05e0ad2768dea75d41b821b9bf11
+   }
+   27=27 {
+    00d2703a42ea687b57845f85438bb4678ce5f2
+   }
+   6e=6e {
+    b0501e911b89d7f891955d83c509fdb9b2570c
+   }
+   4a=4a {
+    55492201faf1e77af6f141bab51a0f2eca0515
+   }
+   20=20 {
+    ad61578a7a0a16af6c9e4ad903ae4f570cd49a
+   }
+   a1=a1 {
+    5227eb8d7d7742bf0d29321f1f2bf8c71ddcc5
+    eb78bb5932f88455022446887f4e9234756ccc
+   }
+   12=12 {
+    480cc4fd1c5f91dab039e9a351000c2f7aaa85
+    9a489b9c140cdb58fd16c4a62c40f77360ebdd
+    a71db1e27033c4319f2ed3dee2d64b0847dc1f
+   }
+   50=50 {
+    975b1aff74cde5673df44a440c3243f8ed9aed
+    f931a17094853a0205b69377f925bc14fa92f7
+   }
+   c4=c4 {
+    14b870e3e358b331c233a71afc364033e75531
+   }
+   8a=8a {
+    869b9def373a7f382b1f9816fda749a4e52155
+   }
+   cd=cd {
+    68070bb893a76339e40e825bd7e81e4d6bddad
+    cd6a6ba8bdf9a19ec7296a49585b0fa05427b4
+   }
+   66=66 {
+    682ff581a00c8719e1b8cb41e72e684567ea5d
+   }
+   72=72 {
+    c26fb26461115e331c8ff71452b26df0277bc1
+   }
+   70=70 {
+    292d6e29783d3647aab814dd71071f0c34e589
+    d3498ec448d81cb39cc8470089afec89224c76
+   }
+   42=42 {
+    5689fa5f597733a55526a26bc540498ab03f3b
+   }
+   92=92 {
+    1db25519cc55e46c0612ad387d9e396d0d9927
+    59fb9f02fc18a2e307f0a9e7e8e5d575c4a404
+    83cfafe95e7137cd1069d74cf86c98b01ccf7c
+   }
+   f9=f9 {
+    5ab80a36b209ca2efc4f03de87690463a31371
+   }
+   7a=7a {
+    5a3b7d06ed58abb89d560fa8e06651646db5fe
+   }
+   db=db {
+    404540d5b1c98607650c934e4ac445480fd74e
+   }
+   81=81 {
+    4a31e18fcfa4573b8b9b6d984c25bd213c187a
+    eb082c1e7525aef62c883fa919aa110298a759
+   }
+   1c=1c {
+    0f33e7d2e80f1a932cb96819ed9bb1ac9de483
+   }
+   51=51 {
+    33f8d499f51f4f88322a9713129831e2765ca5
+   }
+   57=57 {
+    1a22da76ae9ba83a7ffcac05a84583a4d82387
+   }
+   dd=dd {
+    9069be477edbd52cddff4f76d851ff463b233c
+   }
+   3a=3a {
+    453d9b97b8ab5357877c99aa59027949b4e369
+   }
+   f8=f8 {
+    195162a08e701196960be279eabd18e6040c2e
+   }
+   fe=fe {
+    0840b2db3520702e07440b148e46a1dd27801d
+    a970a90763b3fb0b1bb361785d17f69a5ba646
+    df9b6d141ceca7e1204f1458221a0e56686337
+   }
+   d4=d4 {
+    61bec0a71c21a818b2b55a494e3bc19fd2f540
+   }
+   22=22 {
+    4ad22abe353fa9338889a9f470d425645beee2
+    8b5c0d6ab59907666d9ff5eaa1189a9ea7de6d
+   }
+   ae=ae {
+    95839c00ae8b56cf25eadf503b45f6a3b7ba69
+   }
+   df=df {
+    22a01523fcc336f8fd75b91d9cef097e3ab8c2
+   }
+   info=info {
+   }
+   00=00 {
+    9cc682dea118d7b0e5c5996224e1aac9996d0e
+   }
+   b3=b3 {
+    0f4c5f721de5ea48ab0e7d6dc20066ee78ffed
+    46171ea75e580b49fcd259bdfb1a2c73dcf6d0
+   }
+   16=16 {
+    1a6f89a6818b9d9c517b19987da69e3bd02c64
+   }
+   60=60 {
+    c6f28ba88542ba3c96b29088031b2f3c2afdd9
+   }
+   8e=8e {
+    2323394e3b1330e9cf7c8e5d7b28e0ad87ddc4
+   }
+   28=28 {
+    066134ab7256b9e901812253aaccdd3a869d8f
+    2a49c2260cd520f41ad7f54b933cdbc7bf845b
+    6edb3931965f06d2db20e991632dfc4d686664
+    ea97638d195d649a272b7aa7b2dea5f6df8e3b
+   }
+   44=44 {
+    744dabe62f8981431727d6b9f50d62e6184eea
+   }
+   b2=b2 {
+    0b710a3d2f0e4624d04370e88bd3cfc06dbc05
+    d7262b9900eb392a8739f49648df48153a1000
+   }
+   5a=5a {
+    516921685ee592d2f06b48ee501d49d8b2dcef
+   }
+   14=14 {
+    a9b988db71d40870dc80a56819ac289d682b6f
+    e1892dbc918ec0764dcb05d56de95e7637c3d1
+   }
+   49=49 {
+    f923ec47260412cbd929d0e10a6570fabdb097
+   }
+   c3=c3 {
+    8ea64e5d5ebe13b19976e79eb665604d449d1a
+    f6bc9ba10f820884fd194611eb48dd1269095c
+   }
+   6d=6d {
+    85f38b8ca21758c5af8a0a328014ea57b6ff75
+    af7bb9aac0a1550bb0f40f84edb0fb54953491
+   }
+   53=53 {
+    ed13348f25a3d9ab5885fdb291f441ec7f6329
+   }
+   d1=d1 {
+    ba744ffdb7abd2f9c67b25c48ac66df950a06e
+   }
+   5e=5e {
+    13bcb670191a5df55f17a573851ca5d0236549
+   }
+   64=64 {
+    e27b9d5c17f05453c81606a632d862e4e07ae4
+   }
+   0b=0b {
+    8372b8289aaf64dc644e888d7e17a076289bf8
+   }
+   04=04 {
+    81fa2dc089d9f4de4d6abe953d2483425c4952
+   }
+   73=73 {
+    8bbe4f8b1fe5c22fedb4529aa9d5040b9e3236
+    b95bffd62f50f16e05ac6a32d78428f4be6fb8
+   }
+  }
+  refs=refs {
+   remotes=remotes {
+    origin=origin {
+     HEAD
+     master
+    }
+   }
+   tags=tags {
+   }
+   heads=heads {
+    master
+   }
+  }
+  info=info {
+   exclude
+  }
+  branches=branches {
+  }
+ }
+ test=test {
+  ArcadeAction.spec.js
+  ArcadeReducer.spec.js
+  header.spec.jsx
+  helpers=helpers {
+   browser.js
+  }
+ }
+ client=client {
+  images=images {
+   favicon.ico
+  }
+  scripts=scripts {
+   arcademode=arcademode {
+    main.jsx
+    actions=actions {
+     ArcadeAction.js
+    }
+    components=components {
+     ArcadeMode.jsx
+     Header.jsx
+     Hello.jsx
+    }
+    containers=containers {
+     App.jsx
+    }
+    model=model {
+     UserData.js
+     CodeRetVal.js
+    }
+    reducers=reducers {
+     composeEnhancers.js
+     ArcadeReducer.js
+    }
+   }
+  }
+  stylesheets=stylesheets {
+   style.scss
+   includes=includes {
+    _editor.scss
+   }
+  }
+ }
+ server=server {
+  server.js
+  controllers=controllers {
+   controller.js
+  }
+  views=views {
+   index.pug
+   includes=includes {
+    footer.pug
+    header.pug
+   }
+  }
+  config=config {
+   passport.js
+  }
+  routes=routes {
+   routes.js
+  }
+  models=models {
+   Challenge.js
+   User.js
+  }
+ }
+}

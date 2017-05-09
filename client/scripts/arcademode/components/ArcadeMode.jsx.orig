@@ -3,9 +3,9 @@
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+<<<<<<< HEAD
 import CodeMirror from 'react-codemirror';
 
-import { Grid, Row, Col } from 'react-bootstrap';
 import Hello from './Hello';
 import UserData from '../model/UserData';
 import CodeRetVal from '../model/CodeRetVal';
@@ -25,7 +25,12 @@ const editorOptions = {
   inputStyle: 'contenteditable'
   */
 };
+=======
+import { Grid, Row, Col } from 'react-bootstrap';
+import Hello from './Hello';
+import UserData from '../model/UserData';
 import Navbar from './Navbar';
+>>>>>>> f9bd5640eee68a76099f4ecbbb29bcf681eba71c
 
 /**
  * Top-level component for the app. This is rendered in App.jsx.

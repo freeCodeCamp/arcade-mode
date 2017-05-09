@@ -45,9 +45,14 @@ const paths = {
   fonts: ['client/fonts/**/*'], // font sources
   images: ['client/images/**/*'], // image sources
   scripts: ['client/scripts/arcademode/main.jsx', 'client/scripts/public/head.js'], // entry point scripts
+<<<<<<< HEAD
+  srcClient: ['client/scripts/**/*.js*'],
+  stylesheets: ['client/stylesheets/style.scss', 'client/stylesheets/**/*.scss'] // entry point stylesheets
+=======
   stylesheets: ['client/stylesheets/style.scss'], // entry point stylesheets
   watchScripts: ['client/scripts/**/*.js*'],
   watchStylesheets: ['client/stylesheets/**/*.scss']
+>>>>>>> f9bd5640eee68a76099f4ecbbb29bcf681eba71c
 };
 
 
