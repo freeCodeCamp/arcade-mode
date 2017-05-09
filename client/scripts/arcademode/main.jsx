@@ -8,6 +8,7 @@ import { createStore, combineReducers } from 'redux';
 
 import App from './containers/App';
 import arcadeReducer from './reducers/ArcadeReducer';
+import composeEnhancers from './reducers/composeEnhancers';
 
 const ReactRedux = require('react-redux');
 
@@ -19,7 +20,7 @@ const reducersCombined = combineReducers({
   arcadeReducer
 });
 
-const mainStore = createStore(reducersCombined);
+const mainStore = createStore(reducersCombined, composeEnhancers());
 
 ReactDOM.render(
   <Provider store={mainStore}>
