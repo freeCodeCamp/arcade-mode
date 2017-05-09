@@ -46,7 +46,7 @@ const paths = {
   images: ['client/images/**/*'], // image sources
   scripts: ['client/scripts/arcademode/main.jsx', 'client/scripts/public/head.js'], // entry point scripts
   srcClient: ['client/scripts/**/*.js*'],
-  stylesheets: ['client/stylesheets/style.scss'] // entry point stylesheets
+  stylesheets: ['client/stylesheets/style.scss', 'client/stylesheets/**/*.scss'] // entry point stylesheets
 };
 
 
