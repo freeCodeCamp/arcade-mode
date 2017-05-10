@@ -43,7 +43,7 @@ export default function arcadeReducer(state, action) {
       break;
     }
     case START_CHALLENGE: {
-      nextState.code = state.currChallenge.getSeed();
+      nextState.code = state.currChallenge.getSeed().join('\n');
       break;
     }
     default: console.log('Default reached.');
