@@ -11,6 +11,13 @@ import TestResults from '../model/TestResults';
 import Challenge from '../model/Challenge';
 import Navbar from './Navbar';
 
+const outputOptions = {
+  readOnly: true,
+  theme: 'monokai',
+  scrollbarStyle: 'null',
+  lineWrapping: true
+};
+
 // TODO create <CodeEditor> and move options there
 const editorOptions = {
   theme: 'monokai',
@@ -99,6 +106,10 @@ export default class ArcadeMode extends Component {
               <button className={'btn btn-primary'} onClick={this.onClickRunTests}>Run tests</button>
               {/* <p>Your code returned: {this.props.codeRetVal.toString()}</p> */}
               <p>Userdata given: {this.props.userData.username} </p>
+              <CodeMirror className='output'
+                options={outputOptions}
+                value={this.props.userOutput}
+              />
               {testResults}
             </Col>
 
@@ -124,6 +135,7 @@ export default class ArcadeMode extends Component {
 
 ArcadeMode.propTypes = {
   currChallenge: PropTypes.instanceOf(Challenge).isRequired,
+  userOutput: PropTypes.string.isRequired,
   code: PropTypes.string.isRequired,
   onCodeChange: PropTypes.func.isRequired,
   runTests: PropTypes.func.isRequired,
