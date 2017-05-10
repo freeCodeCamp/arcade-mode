@@ -1,11 +1,21 @@
 # PROGRESS for Arcade Mode
 
+## Wednesday 5/10/17:
+
+### Tuomas:
+  - Progress:
+    1. Test case results are now shown on the left panel of the application.
+
 ## Tuesday 5/9/17:
 ### Tim:
   - Progress:
     1. Set up WebWorker to handle evaluation of user defined code.
       - User code execution hook generated; will be used for the code output window.
       - Test cases can now be evaluated, though still need to map the case to the result.
+
+### Tuomas:
+  - Progress:
+      1. Added react-codemirror component and integrated with redux code.
 
 ## Monday 5/8/17:
 ### Tim:
