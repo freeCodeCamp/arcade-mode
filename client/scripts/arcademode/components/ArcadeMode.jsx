@@ -55,10 +55,33 @@ export default class ArcadeMode extends Component {
     this.props.startChallenge();
   }
 
+  /* TODO: Add limit to the number of printed tests. Improve output. */
   renderTestResults() {
     const results = this.props.testResults.testResults;
-    return results.map((item, index) =>
-      <p key={index}>Pass: {item.pass}</p>
+    let testsOk = true;
+
+    const individualTests = results.map((item, index) => {
+      const result = item.pass ? 'Pass' : 'Fail';
+      const className = item.pass ? 'text-success' : 'text-danger';
+      testsOk = testsOk && item.pass;
+      console.log(JSON.stringify(item));
+
+      // If test had error, format the error message here
+      let msg = null;
+      if (item.error !== null) {
+        msg = <p>Error: {item.error.message}</p>;
+      }
+
+      return <p className={className} key={index}>Status: {result} {msg}</p>;
+    });
+
+    const finalResult = testsOk ? 'All tests passed' : 'There were failing tests';
+
+    return (
+      <div>
+        {individualTests}
+        <p>{finalResult}</p>
+      </div>
     );
   }
 
