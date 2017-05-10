@@ -5,7 +5,13 @@
 
 // import Interpreter from 'js-interpreter';
 
-import { TESTS_STARTED, CODE_CHANGED, START_CHALLENGE, TESTS_FINISHED } from '../actions/ArcadeAction';
+import {
+  TESTS_STARTED,
+  CODE_CHANGED,
+  OUTPUT_CHANGED,
+  START_CHALLENGE,
+  TESTS_FINISHED
+} from '../actions/ArcadeAction';
 import UserData from '../model/UserData';
 import Challenges from '../../../json/challenges.json';
 import TestResults from '../model/TestResults';
@@ -18,6 +24,7 @@ export default function arcadeReducer(state, action) {
   if (typeof state === 'undefined') {
     return {
       code: Challenges.challenges[0].challengeSeed.join('\n'),
+      userOutput: 'The output of your code will show up here.',
       interpreterError: false,
       isRunningTests: false,
       userData: new UserData({ username: '' }),
@@ -26,7 +33,7 @@ export default function arcadeReducer(state, action) {
     };
   }
 
-  let nextState = Object.assign({}, state);
+  const nextState = Object.assign({}, state);
 
   switch (action.type) {
     case TESTS_STARTED: {
@@ -40,6 +47,10 @@ export default function arcadeReducer(state, action) {
     }
     case CODE_CHANGED: {
       nextState.code = action.code;
+      break;
+    }
+    case OUTPUT_CHANGED: {
+      nextState.userOutput = action.userOutput;
       break;
     }
     case START_CHALLENGE: {
