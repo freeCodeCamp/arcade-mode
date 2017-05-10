@@ -7,9 +7,11 @@ import CodeMirror from 'react-codemirror';
 import { Grid, Row, Col } from 'react-bootstrap';
 
 import UserData from '../model/UserData';
-// import CodeRetVal from '../model/CodeRetVal';
+import TestResults from '../model/TestResults';
+import Challenge from '../model/Challenge';
 import Navbar from './Navbar';
 
+// TODO create <CodeEditor> and move options there
 const editorOptions = {
   theme: 'monokai',
   scrollbarStyle: 'null',
@@ -33,7 +35,8 @@ export default class ArcadeMode extends Component {
 
   constructor(props) {
     super(props);
-    this.onClickCallback = this.onClickCallback.bind(this);
+    this.onClickRunTests = this.onClickRunTests.bind(this);
+    this.onClickStartChallenge = this.onClickStartChallenge.bind(this);
 
     this.onCodeChange = this.onCodeChange.bind(this);
   }
@@ -43,12 +46,24 @@ export default class ArcadeMode extends Component {
     this.props.onCodeChange(newCode);
   }
 
-  onClickCallback(e) {
+  onClickRunTests(e) {
     const target = e.target;
     this.props.runTest(target);
   }
 
+  onClickStartChallenge() {
+    this.props.startChallenge();
+  }
+
+  renderTestResults() {
+    const results = this.props.testResults.testResults;
+    return results.map((item, index) =>
+      <p key={index}>Pass: {item.pass}</p>
+    );
+  }
+
   render() {
+    const testResults = this.renderTestResults();
     return (
       <div>
         <Navbar />
@@ -57,9 +72,11 @@ export default class ArcadeMode extends Component {
 
             <Col className='arcade-panel' xs={12} sm={12} md={4} lg={4}>
               <p>This is the info panel.</p>
-              <button className={'btn btn-primary'} onClick={this.onClickCallback}>Run tests</button>
+              <button className={'btn btn-success'} onClick={this.onClickStartChallenge}>Start</button>
+              <button className={'btn btn-primary'} onClick={this.onClickRunTests}>Run tests</button>
               {/* <p>Your code returned: {this.props.codeRetVal.toString()}</p> */}
               <p>Userdata given: {this.props.userData.username} </p>
+              {testResults}
             </Col>
 
             <Col className='editor' xs={12} sm={12} md={8} lg={8}>
@@ -79,12 +96,15 @@ export default class ArcadeMode extends Component {
     );
   }
 
+
 }
 
 ArcadeMode.propTypes = {
+  currChallenge: PropTypes.instanceOf(Challenge).isRequired,
   code: PropTypes.string.isRequired,
   onCodeChange: PropTypes.func.isRequired,
-//  codeRetVal: PropTypes.instanceOf(CodeRetVal).isRequired,
-  runTest: PropTypes.func.isRequired,
-  userData: PropTypes.instanceOf(UserData).isRequired
+  runTests: PropTypes.func.isRequired,
+  userData: PropTypes.instanceOf(UserData).isRequired,
+  startChallenge: PropTypes.func.isRequired,
+  testResults: PropTypes.instanceOf(TestResults).isRequired
 };
