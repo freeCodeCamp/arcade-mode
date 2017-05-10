@@ -5,19 +5,44 @@
 
 'use strict';
 
-
-// import { assert } from 'chai';
-import * as Challenges from '../../json/challenges.json';
+// used require because import didn't work
+const assert = require('chai').assert;
 
 onmessage = e => {
-  const tests = Challenges.challenges[0].tests.map(test => {
-    return {
+  const userCode = e.data.userCode;
+  const currChallenge = e.data.currChallenge;
+
+  // const tests = Challenges.challenges[0].tests.map(test => {
+  const tests = currChallenge.tests.map(test => (
+    {
       test,
       testCondition: test.match(/^assert\(([^,]*),/)[1],
       testMessage: test.match(/message: (.*)'\);$/)[1]
-    };
+    }
+  ));
+
+  const testResults = [];
+  tests.forEach(test => {
+    const testRunData = { error: null, pass: true };
+    try {
+      let val = eval(
+        `${userCode} // User code
+        ${test.test} // Test case code
+        `
+      );
+    }
+    catch (err) {
+      console.log(`Test Error: ${err}`);
+      testRunData.error = err;
+      testRunData.pass = false;
+    }
+    testResults.push(testRunData);
   });
 
+  console.log('Now sending worker test results');
+  postMessage(testResults);
+
+  /*
   // Solution #1: Append 'return' and construct a new Function, then call that function.
   const reFn = e.data.replace(Challenges.challenges[0].challengeSeed[0],
     `return ${Challenges.challenges[0].challengeSeed[0]}`);
@@ -48,27 +73,26 @@ onmessage = e => {
   // const testACase = eval((function () { return testCase; })());
 
   // console.log('test: ' + testACase);
+  */
 
 
-  const userCode = eval((function () { return e.data; })());
-  console.log(`User evaluated expression: ${userCode}`); // this is the return for the user console box.
 };
 
 // postMessage(runTestsAgainstUserCode());
 // onmessage = e => { console.log(e); };
 
-
+/*
 function assert (condition, message) {
   if (!condition) {
-    /*
-    message = message || 'Assertion failed';
-    if (typeof Error !== 'undefined') {
-      throw new Error(message);
-    }
-    throw message;
-    */
+    //message = message || 'Assertion failed';
+    //if (typeof Error !== 'undefined') {
+      //throw new Error(message);
+    //}
+    //throw message;
+    //
     return false;
   }
   return true;
 }
+*/
 
