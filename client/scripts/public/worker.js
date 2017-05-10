@@ -21,6 +21,34 @@ onmessage = e => {
     }
   ));
 
+  // append user code output to final object passed back via postMessage:
+  // if user output does not run, then tests should not be executed.
+  const userOutput = [];
+  const userFnData = { error: null, pass: true, output: '' };
+  try {
+    const val = eval(`${userCode}`);
+  }
+  catch (err) {
+    console.log(`err: ${err}`);
+    userFnData.error = err.toString();
+    userFnData.pass = false;
+    userFnData.output = err.toString();
+    userOutput.push(userFnData);
+
+    return postMessage(userOutput);
+  }
+
+  console.log('initial phase passed');
+  if (eval(`${userCode}`) === undefined) {
+    userFnData.output = 'User output is undefined';
+  }
+  else {
+    userFnData.output = JSON.stringify(eval(`${userCode}`));
+  }
+  userOutput.push(userFnData);
+  console.log('hi');
+  console.log(userFnData.output);
+
   const testResults = [];
   tests.forEach(test => {
     const testRunData = { error: null, pass: true };
@@ -39,8 +67,11 @@ onmessage = e => {
     testResults.push(testRunData);
   });
 
-  console.log('Now sending worker test results');
-  postMessage(testResults);
+  const postData = userOutput.concat(testResults);
+  console.log(`postData: ${postData}`);
+
+  console.log('Now sending worker user code output and test results');
+  postMessage(postData);
 
   /*
   // Solution #1: Append 'return' and construct a new Function, then call that function.
