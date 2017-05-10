@@ -46,13 +46,13 @@ export default class ArcadeMode extends Component {
     this.props.onCodeChange(newCode);
   }
 
-  onClickRunTests(e) {
-    const target = e.target;
+  onClickRunTests() {
     this.props.runTests(this.props.code, this.props.currChallenge);
   }
 
   onClickStartChallenge() {
     this.props.startChallenge();
+    this.props.startTimer();
   }
 
   /* TODO: Add limit to the number of printed tests. Improve output. */
@@ -87,9 +87,15 @@ export default class ArcadeMode extends Component {
 
   render() {
     const testResults = this.renderTestResults();
+
+    // Should move out of render
+    if (this.props.timeLeft <= 0) {
+      this.props.stopTimer();
+    }
+
     return (
       <div>
-        <Navbar />
+        <Navbar timeLeft={this.props.timeLeft} />
         <Grid fluid>
           <Row className='show-grid'>
 
@@ -129,5 +135,8 @@ ArcadeMode.propTypes = {
   runTests: PropTypes.func.isRequired,
   userData: PropTypes.instanceOf(UserData).isRequired,
   startChallenge: PropTypes.func.isRequired,
-  testResults: PropTypes.instanceOf(TestResults).isRequired
+  startTimer: PropTypes.func.isRequired,
+  stopTimer: PropTypes.func.isRequired,
+  testResults: PropTypes.instanceOf(TestResults).isRequired,
+  timeLeft: PropTypes.number.isRequired
 };
