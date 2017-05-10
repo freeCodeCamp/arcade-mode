@@ -7,7 +7,8 @@ export const CODE_CHANGED = 'CODE_CHANGED';
 export const TESTS_STARTED = 'TESTS_STARTED';
 export const TESTS_FINISHED = 'TESTS_FINISHED';
 export const START_CHALLENGE = 'START_CHALLENGE';
-
+export const TIMER_FINISHED = 'TIMER_FINISHED';
+export const TIMER_UPDATED = 'TIMER_UPDATED';
 
 /* Thunk action which runs the test cases against user code. */
 export function runTests(userCode, currChallenge) {
@@ -60,6 +61,18 @@ export function onCodeChange(newCode) {
   return {
     type: CODE_CHANGED,
     code: newCode
+  };
+}
+
+export function actionTimerFinished() {
+  return {
+    type: TIMER_FINISHED
+  };
+}
+
+export function actionTimerUpdated() {
+  return {
+    type: TIMER_FINISHED
   };
 }
 
