@@ -1,6 +1,11 @@
 # PROGRESS for Arcade Mode
 
 ## Tuesday 5/9/17:
+### Tim:
+  - Progress:
+    1. Set up WebWorker to handle evaluation of user defined code.
+      - User code execution hook generated; will be used for the code output window.
+      - Test cases can now be evaluated, though still need to map the case to the result.
 
 ## Monday 5/8/17:
 ### Tim:
