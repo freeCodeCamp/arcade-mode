@@ -7,7 +7,7 @@
 
 import { RUN_TEST, CODE_CHANGED } from '../actions/ArcadeAction';
 import UserData from '../model/UserData';
-// import Challenges from '../../../json/challenges.json';
+import Challenges from '../../../json/challenges.json';
 // import CodeRetVal from '../model/CodeRetVal';
 
 // const initialState = Immutable.Map();
@@ -61,7 +61,7 @@ function handleRunTests(state, nextState) {
 export default function arcadeReducer(state, action) {
   if (typeof state === 'undefined') {
     return {
-      code: '// Insert code here',
+      code: Challenges.challenges[0].challengeSeed.join('\n'),
       interpreterError: false,
       isRunningTests: false,
       userData: new UserData({ username: '' })
