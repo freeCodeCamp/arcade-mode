@@ -19,7 +19,8 @@ export function runTests(userCode, currChallenge) {
     function createWorker () {
       return new Promise((resolve, reject) => {
         const wk = new Worker('../../public/js/worker.bundle.js');
-        wk.postMessage({ userCode, currChallenge });
+        //wk.postMessage([userCode, currChallenge]);
+        wk.postMessage([userCode, currChallenge]);
         wk.onmessage = e => {
           console.log(`worker onmessage result: ${e.data}`);
           resolve(e.data);
