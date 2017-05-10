@@ -48,7 +48,7 @@ export default class ArcadeMode extends Component {
 
   onClickRunTests(e) {
     const target = e.target;
-    this.props.runTest(target);
+    this.props.runTests(this.props.code, this.props.currChallenge);
   }
 
   onClickStartChallenge() {
