@@ -3,7 +3,8 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import ThunkMiddleware from 'redux-thunk';
 // import { combineReducers } from 'redux-immutable';
 
 import App from './containers/App';
@@ -20,7 +21,13 @@ const reducersCombined = combineReducers({
   arcadeReducer
 });
 
-const mainStore = createStore(reducersCombined, composeEnhancers());
+const mainStore = createStore(reducersCombined,
+  composeEnhancers(
+    applyMiddleware(
+        ThunkMiddleware // Lets us dispatch functions
+    )
+));
+
 
 ReactDOM.render(
   <Provider store={mainStore}>
