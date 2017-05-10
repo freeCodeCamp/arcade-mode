@@ -7,6 +7,7 @@
 
 import { RUN_TEST, CODE_CHANGED } from '../actions/ArcadeAction';
 import UserData from '../model/UserData';
+// import Challenges from '../../../json/challenges.json';
 // import CodeRetVal from '../model/CodeRetVal';
 
 // const initialState = Immutable.Map();
@@ -32,17 +33,23 @@ function handleRunTests(state, nextState) {
 
   // http://stackoverflow.com/questions/9020116/is-it-possible-to-restrict-the-scope-of-a-javascript-function/36255766#36255766
   function createWorker () {
+    /*
     const userDefinedCode = state.code;
     const workerTemplate = `
-      function runTestsAgainstUserCode () { 
+      import Challenges from '../public/json/challenges.json';
+      console.log(Challenges);
+      function runTestsAgainstUserCode () {
         const arg = 5;
-        return (${userDefinedCode})(arg) 
+        return (${userDefinedCode})(arg)
       }
-      postMessage(userCode());
+      postMessage(runTestsAgainstUserCode());
       onMessage = function (e) { console.log(e) }`;
 
     const blob = new Blob([workerTemplate], { type: 'text/javascript' });
     const wk = new Worker(window.URL.createObjectURL(blob));
+    */
+    const wk = new Worker('../../public/js/worker.bundle.js');
+    wk.postMessage(state.code);
     wk.onmessage = e => { console.log(`Function result: ${e.data}`); };
   }
 
