@@ -7,7 +7,7 @@ import CodeMirror from 'react-codemirror';
 import { Grid, Row, Col } from 'react-bootstrap';
 
 import UserData from '../model/UserData';
-import CodeRetVal from '../model/CodeRetVal';
+// import CodeRetVal from '../model/CodeRetVal';
 import Navbar from './Navbar';
 
 const editorOptions = {
@@ -16,7 +16,7 @@ const editorOptions = {
   lineWrapping: true,
   mode: 'javascript',
   matchBrackets: true,
-  autoCloseBrackets: true,
+  autoCloseBrackets: true
   /*
   lineNumbers: true, // seems to break the css/dimensions
   lint: { esversion: 6 },
@@ -58,7 +58,7 @@ export default class ArcadeMode extends Component {
             <Col className='arcade-panel' xs={12} sm={12} md={4} lg={4}>
               <p>This is the info panel.</p>
               <button className={'btn btn-primary'} onClick={this.onClickCallback}>Run tests</button>
-              <p>Your code returned: {this.props.codeRetVal.toString()}</p>
+              {/* <p>Your code returned: {this.props.codeRetVal.toString()}</p> */}
               <p>Userdata given: {this.props.userData.username} </p>
             </Col>
 
@@ -84,7 +84,7 @@ export default class ArcadeMode extends Component {
 ArcadeMode.propTypes = {
   code: PropTypes.string.isRequired,
   onCodeChange: PropTypes.func.isRequired,
-  codeRetVal: PropTypes.instanceOf(CodeRetVal).isRequired,
+//  codeRetVal: PropTypes.instanceOf(CodeRetVal).isRequired,
   runTest: PropTypes.func.isRequired,
   userData: PropTypes.instanceOf(UserData).isRequired
 };

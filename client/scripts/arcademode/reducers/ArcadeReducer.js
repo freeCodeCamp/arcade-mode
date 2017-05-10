@@ -3,11 +3,11 @@
 
 // import Immutable from 'immutable';
 
-import Interpreter from 'js-interpreter';
+// import Interpreter from 'js-interpreter';
 
 import { RUN_TEST, CODE_CHANGED } from '../actions/ArcadeAction';
 import UserData from '../model/UserData';
-import CodeRetVal from '../model/CodeRetVal';
+// import CodeRetVal from '../model/CodeRetVal';
 
 // const initialState = Immutable.Map();
 //
@@ -17,6 +17,7 @@ function handleRunTests(state, nextState) {
 
   // Execute inside try-catch, otherwise errors are printed directly into
   // browser's console
+  /*
   try {
     const interpreter = new Interpreter(state.code);
     interpreter.run();
@@ -27,6 +28,25 @@ function handleRunTests(state, nextState) {
     nextState.codeRetVal = new CodeRetVal({ error: `${e.name} : ${e.message}` });
     nextState.interpreterError = true;
   }
+  */
+
+  // http://stackoverflow.com/questions/9020116/is-it-possible-to-restrict-the-scope-of-a-javascript-function/36255766#36255766
+  function createWorker () {
+    const userDefinedCode = state.code;
+    const workerTemplate = `
+      function runTestsAgainstUserCode () { 
+        const arg = 5;
+        return (${userDefinedCode})(arg) 
+      }
+      postMessage(userCode());
+      onMessage = function (e) { console.log(e) }`;
+
+    const blob = new Blob([workerTemplate], { type: 'text/javascript' });
+    const wk = new Worker(window.URL.createObjectURL(blob));
+    wk.onmessage = e => { console.log(`Function result: ${e.data}`); };
+  }
+
+  createWorker();
 
   return nextState;
 }
@@ -37,8 +57,8 @@ export default function arcadeReducer(state, action) {
       code: '// Insert code here',
       interpreterError: false,
       isRunningTests: false,
-      userData: new UserData({ username: '' }),
-      codeRetVal: new CodeRetVal()
+      userData: new UserData({ username: '' })
+   //   codeRetVal: new CodeRetVal()
     };
   }
 

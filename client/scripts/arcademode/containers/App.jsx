@@ -8,8 +8,8 @@ import { onCodeChange, runTest } from '../actions/ArcadeAction';
 
 const mapStateToProps = state => ({
   userData: state.arcadeReducer.userData,
-  code: state.arcadeReducer.code,
-  codeRetVal: state.arcadeReducer.codeRetVal
+  code: state.arcadeReducer.code
+ // codeRetVal: state.arcadeReducer.codeRetVal
 });
 
 const mapDispatchToProps = dispatch => ({
