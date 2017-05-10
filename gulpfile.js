@@ -45,7 +45,7 @@ const paths = {
   fonts: ['client/fonts/**/*'], // font sources
   images: ['client/images/**/*'], // image sources
   json: ['client/json/**/*'], // temporary storage for challenges
-  scripts: ['client/scripts/arcademode/main.jsx', 'client/scripts/public/head.js'], // entry point scripts
+  scripts: ['client/scripts/arcademode/main.jsx', 'client/scripts/public/head.js', 'client/scripts/public/worker.js'], // entry point scripts
   stylesheets: ['client/stylesheets/style.scss'], // entry point stylesheets
   watchScripts: ['client/scripts/**/*.js*'],
   watchStylesheets: ['client/stylesheets/**/*.scss']
