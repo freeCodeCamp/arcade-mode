@@ -44,6 +44,7 @@ const cache = require('gulp-cache');
 const paths = {
   fonts: ['client/fonts/**/*'], // font sources
   images: ['client/images/**/*'], // image sources
+  json: ['client/json/**/*'], // temporary storage for challenges
   scripts: ['client/scripts/arcademode/main.jsx', 'client/scripts/public/head.js'], // entry point scripts
   stylesheets: ['client/stylesheets/style.scss'], // entry point stylesheets
   watchScripts: ['client/scripts/**/*.js*'],
@@ -55,8 +56,8 @@ const paths = {
 // ==========
 
 gulp.task('build-font', () =>
-gulp.src(paths.fonts)
-  .pipe(gulp.dest('public/font')) // no processing because fonts are already optimized
+  gulp.src(paths.fonts)
+    .pipe(gulp.dest('public/font')) // no processing because fonts are already optimized
 );
 
 gulp.task('build-img', () => {
@@ -71,6 +72,11 @@ gulp.task('build-img', () => {
     ])))
     .pipe(gulp.dest('public/img'));
 });
+
+gulp.task('build-json', () =>
+  gulp.src(paths.json)
+    .pipe(gulp.dest('public/json'))
+);
 
 gulp.task('build-js', () => {
   const streams = paths.scripts.map(script =>
@@ -164,12 +170,13 @@ gulp.task('clear-cache', done => cache.clearAll(done)); // clears img cache
 // Bundled tasks
 // -------------
 
-gulp.task('build', ['build-font', 'build-img', 'build-js', 'build-css']);
-gulp.task('build-dev', ['build-font', 'build-img', 'build-js-inc', 'build-css']);
+gulp.task('build', ['build-font', 'build-img', 'build-json', 'build-js', 'build-css']);
+gulp.task('build-dev', ['build-font', 'build-img', 'build-json', 'build-js-inc', 'build-css']);
 
 gulp.task('watch', ['build'], () => {
   gulp.watch(paths.fonts, ['build-font']);
   gulp.watch(paths.images, ['build-img']);
+  gulp.watch(paths.json, ['build-json']);
   gulp.watch(paths.watchScripts, ['build-js']);
   gulp.watch(paths.watchStylesheets, ['build-css']);
 });
@@ -177,6 +184,7 @@ gulp.task('watch', ['build'], () => {
 gulp.task('watch-dev', ['build-dev'], () => {
   gulp.watch(paths.fonts, ['build-font']);
   gulp.watch(paths.images, ['build-img']);
+  gulp.watch(paths.json, ['build-json']);
   gulp.watch(paths.watchScripts, ['build-js-inc']);
   gulp.watch(paths.watchStylesheets, ['build-css']);
 });
