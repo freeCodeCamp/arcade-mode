@@ -2,16 +2,16 @@
 'use strict';
 
 
-import { assert } from 'chai';
+// import { assert } from 'chai';
 import * as Challenges from '../../json/challenges.json';
 
-console.log(Challenges);
+// console.log(Challenges);
 
 onmessage = e => {
-  console.log(Challenges.challenges[0].challengeSeed.join('\n'));
+  console.log(Challenges.challenges.map(challenge => challenge.challengeSeed));
   console.log(e.data);
-  const userCode = eval(`(${e.data})`);
-  console.log(userCode(2));
+  const userCode = eval((function () { return e.data; })());
+  console.log(userCode); // this is the return for the user console box.
 };
 
 // postMessage(runTestsAgainstUserCode());
