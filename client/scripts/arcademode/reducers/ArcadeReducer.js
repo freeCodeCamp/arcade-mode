@@ -5,11 +5,12 @@
 
 // import Interpreter from 'js-interpreter';
 
-import { TESTS_STARTED, CODE_CHANGED, START_CHALLENGE, TESTS_FINISHED } from '../actions/ArcadeAction';
+import { TESTS_STARTED, CODE_CHANGED, START_CHALLENGE, TESTS_FINISHED, TIMER_FINISHED } from '../actions/ArcadeAction';
 import UserData from '../model/UserData';
 import Challenges from '../../../json/challenges.json';
 import TestResults from '../model/TestResults';
 import Challenge from '../model/Challenge';
+import Timer from '../model/Timer';
 
 // const initialState = Immutable.Map();
 //
@@ -22,7 +23,9 @@ export default function arcadeReducer(state, action) {
       isRunningTests: false,
       userData: new UserData({ username: '' }),
       testResults: new TestResults([]),
-      currChallenge: new Challenge(Challenges.challenges[0])
+      currChallenge: new Challenge(Challenges.challenges[0]),
+      isTimerFinished: false,
+      timer: new Timer(1000 * 900)
     };
   }
 
@@ -44,6 +47,15 @@ export default function arcadeReducer(state, action) {
     }
     case START_CHALLENGE: {
       nextState.code = state.currChallenge.getSeed().join('\n');
+      nextState.isTimerFinished = false;
+      break;
+    }
+    case TIMER_FINISHED: {
+      nextState.isTimerFinished = true;
+      break;
+    }
+    case TIMER_UPDATED: {
+      nextState.timeLeft = state.timer.getTimeLeft();
       break;
     }
     default: console.log('Default reached.');
