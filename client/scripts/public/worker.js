@@ -1,11 +1,14 @@
 
 'use strict';
 
-import Challenges from '../../json/challenges.json';
+
+import { assert } from 'chai';
+import * as Challenges from '../../json/challenges.json';
 
 console.log(Challenges);
 
 onmessage = e => {
+  console.log(Challenges.challenges[0].challengeSeed.join('\n'));
   console.log(e.data);
   const userCode = eval(`(${e.data})`);
   console.log(userCode(2));
