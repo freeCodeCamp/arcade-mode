@@ -6,16 +6,13 @@
 'use strict';
 
 // used require because import didn't work
+/* eslint no-unused-vars: 0 */
 const assert = require('chai').assert;
 
 onmessage = e => {
   const userCode = e.data[0];
   const currChallenge = e.data[1];
-  console.log('onmessage e: ' + e.data);
 
-  console.log('currChallenge: ' + JSON.stringify(currChallenge));
-
-  // const tests = Challenges.challenges[0].tests.map(test => {
   const tests = currChallenge.challenge.tests.map(test => (
     {
       test,
@@ -28,7 +25,7 @@ onmessage = e => {
   tests.forEach(test => {
     const testRunData = { error: null, pass: true };
     try {
-      let val = eval(
+      const val = eval(
         `${userCode} // User code
         ${test.test} // Test case code
         `
@@ -77,8 +74,6 @@ onmessage = e => {
 
   // console.log('test: ' + testACase);
   */
-
-
 };
 
 // postMessage(runTestsAgainstUserCode());
