@@ -23,7 +23,7 @@ onmessage = e => {
     `return ${Challenges.challenges[0].challengeSeed[0]}`);
 
   const userFn = (new Function(reFn))();
-  console.log(userFn('test string'));
+  console.log(userFn('test string')); // passing an argument to the user function
 
   // single test case:
   const testCase = `${assert};${e.data};return ${tests[0].test}`;
@@ -51,7 +51,7 @@ onmessage = e => {
 
 
   const userCode = eval((function () { return e.data; })());
-  console.log(userCode); // this is the return for the user console box.
+  console.log(`User evaluated expression: ${userCode}`); // this is the return for the user console box.
 };
 
 // postMessage(runTestsAgainstUserCode());
