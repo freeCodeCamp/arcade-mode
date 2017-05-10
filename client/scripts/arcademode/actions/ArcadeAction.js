@@ -9,10 +9,12 @@ export const TESTS_FINISHED = 'TESTS_FINISHED';
 export const START_CHALLENGE = 'START_CHALLENGE';
 export const TIMER_FINISHED = 'TIMER_FINISHED';
 export const TIMER_UPDATED = 'TIMER_UPDATED';
+export const TIMER_STARTED = 'TIMER_STARTED';
+export const STOP_TIMER = 'STOP_TIMER';
 
 /* Thunk action which runs the test cases against user code. */
 export function runTests(userCode, currChallenge) {
-  return function(dispatch) {
+  return dispatch => {
     dispatch(actionTestsStarted());
 
     // Eval user code inside worker
@@ -20,7 +22,6 @@ export function runTests(userCode, currChallenge) {
     function createWorker () {
       return new Promise((resolve, reject) => {
         const wk = new Worker('../../public/js/worker.bundle.js');
-        //wk.postMessage([userCode, currChallenge]);
         wk.postMessage([userCode, currChallenge]);
         wk.onmessage = e => {
           console.log(`worker onmessage result: ${e.data}`);
@@ -33,6 +34,26 @@ export function runTests(userCode, currChallenge) {
       .then(testResults => {
         dispatch(actionTestsFinished(testResults));
       });
+  };
+}
+
+let timer = null;
+
+/* Thunk action to start the timer. */
+export function startTimer() {
+  return dispatch => {
+    clearInterval(timer);
+    dispatch(actionTimerStarted());
+    timer = setInterval(() => {
+      dispatch(actionTimerUpdated());
+    }, 1000 / 60);
+  };
+}
+
+export function stopTimer() {
+  clearInterval(timer);
+  return {
+    type: STOP_TIMER
   };
 }
 
@@ -64,6 +85,12 @@ export function onCodeChange(newCode) {
   };
 }
 
+export function actionTimerStarted() {
+  return {
+    type: TIMER_STARTED
+  };
+}
+
 export function actionTimerFinished() {
   return {
     type: TIMER_FINISHED
@@ -72,7 +99,7 @@ export function actionTimerFinished() {
 
 export function actionTimerUpdated() {
   return {
-    type: TIMER_FINISHED
+    type: TIMER_UPDATED
   };
 }
 
