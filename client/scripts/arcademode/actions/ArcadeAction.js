@@ -4,6 +4,7 @@
 /* Action type constants. */
 export const RUN_TEST = 'RUN_TEST';
 export const CODE_CHANGED = 'CODE_CHANGED';
+export const OUTPUT_CHANGED = 'OUTPUT_CHANGED';
 export const TESTS_STARTED = 'TESTS_STARTED';
 export const TESTS_FINISHED = 'TESTS_FINISHED';
 export const START_CHALLENGE = 'START_CHALLENGE';
@@ -19,7 +20,6 @@ export function runTests(userCode, currChallenge) {
     function createWorker () {
       return new Promise((resolve, reject) => {
         const wk = new Worker('../../public/js/worker.bundle.js');
-        //wk.postMessage([userCode, currChallenge]);
         wk.postMessage([userCode, currChallenge]);
         wk.onmessage = e => {
           console.log(`worker onmessage result: ${e.data}`);
@@ -29,8 +29,14 @@ export function runTests(userCode, currChallenge) {
     }
 
     createWorker()
-      .then(testResults => {
-        dispatch(actionTestsFinished(testResults));
+      .then(workerData => {
+        dispatch(onOutputChange(workerData[0].output));
+        if (workerData.length > 1) {
+          dispatch(actionTestsFinished(workerData.slice(1)));
+        }
+        else {
+          
+        }
       });
   };
 }
@@ -63,3 +69,9 @@ export function onCodeChange(newCode) {
   };
 }
 
+export function onOutputChange(newOutput) {
+  return {
+    type: OUTPUT_CHANGED,
+    userOutput: newOutput
+  };
+}
