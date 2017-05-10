@@ -9,11 +9,14 @@
 const assert = require('chai').assert;
 
 onmessage = e => {
-  const userCode = e.data.userCode;
-  const currChallenge = e.data.currChallenge;
+  const userCode = e.data[0];
+  const currChallenge = e.data[1];
+  console.log('onmessage e: ' + e.data);
+
+  console.log('currChallenge: ' + JSON.stringify(currChallenge));
 
   // const tests = Challenges.challenges[0].tests.map(test => {
-  const tests = currChallenge.tests.map(test => (
+  const tests = currChallenge.challenge.tests.map(test => (
     {
       test,
       testCondition: test.match(/^assert\(([^,]*),/)[1],
