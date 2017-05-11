@@ -50,6 +50,7 @@ export default class ArcadeMode extends Component {
     this.onClickStartChallenge = this.onClickStartChallenge.bind(this);
     this.onClickFinishSession = this.onClickFinishSession.bind(this);
     this.onCodeChange = this.onCodeChange.bind(this);
+    this.onTimerMaxValueChange = this.onTimerMaxValueChange.bind(this);
   }
 
   onCodeChange(newCode) {
@@ -72,6 +73,14 @@ export default class ArcadeMode extends Component {
 
   onClickFinishSession() {
     this.props.finishSession();
+  }
+
+  onTimerMaxValueChange(e) {
+    const inputValue = e.target.value;
+    if (inputValue.length > 0) {
+      const maxValue = parseInt(e.target.value, 10);
+      this.props.onTimerMaxValueChange(maxValue);
+    }
   }
 
   processTestResults() {
@@ -139,7 +148,11 @@ export default class ArcadeMode extends Component {
 
     return (
       <div>
-        <Navbar timeLeft={this.props.timeLeft} />
+        <Navbar
+          timeLeft={this.props.timeLeft}
+          onTimerMaxValueChange={this.onTimerMaxValueChange}
+          timerMaxValue={this.props.timerMaxValue}
+        />
         <Grid fluid>
           <Row className='show-grid'>
 
@@ -199,5 +212,7 @@ ArcadeMode.propTypes = {
   startTimer: PropTypes.func.isRequired,
   stopTimer: PropTypes.func.isRequired,
   testResults: PropTypes.instanceOf(TestResults).isRequired,
-  timeLeft: PropTypes.number.isRequired
+  timeLeft: PropTypes.number.isRequired,
+  onTimerMaxValueChange: PropTypes.func.isRequired,
+  timerMaxValue: PropTypes.number.isRequired
 };
