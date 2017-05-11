@@ -1,5 +1,7 @@
 # PROGRESS for Arcade Mode
 
+## Thursday 5/11/17:
+
 ## Wednesday 5/10/17:
 ### Tim:
   - Progress:
@@ -11,6 +13,7 @@
 ### Tuomas:
   - Progress:
     1. Test case results are now shown on the left panel of the application.
+    2. Added configurable timer which starts when a user starts a session.
 
 ## Tuesday 5/9/17:
 ### Tim:
