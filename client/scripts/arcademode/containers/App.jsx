@@ -13,7 +13,8 @@ import {
   startTimer,
   stopTimer,
   actionFinishSession,
-  actionTimerMaxValueChanged
+  actionTimerMaxValueChanged,
+  actionSolveChallenge
 } from '../actions/ArcadeAction';
 
 const mapStateToProps = state => ({
@@ -42,7 +43,8 @@ const mapDispatchToProps = dispatch => ({
   startChallenge: () => dispatch(startChallenge()),
   startTimer: (timerMaxValue) => dispatch(startTimer(timerMaxValue)),
   stopTimer: () => dispatch(stopTimer()),
-  onTimerMaxValueChange: timerMaxValue => dispatch(actionTimerMaxValueChanged(timerMaxValue))
+  onTimerMaxValueChange: timerMaxValue => dispatch(actionTimerMaxValueChanged(timerMaxValue)),
+  solveChallenge: () => dispatch(actionSolveChallenge())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ArcadeMode);

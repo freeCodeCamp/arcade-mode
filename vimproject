@@ -5,6 +5,7 @@ project=/home/tpoikela/git/arcade-mode CD=. filter="*" flags=S {
  LICENSE
  package.json
  PROGRESS.md
+ PROGRESS.md.orig
  README.md
  vimproject
  .git=.git {
@@ -34,10 +35,12 @@ project=/home/tpoikela/git/arcade-mode CD=. filter="*" flags=S {
      origin=origin {
       HEAD
       master
+      timer
      }
     }
     heads=heads {
      master
+     timer
     }
    }
   }
@@ -57,10 +60,14 @@ project=/home/tpoikela/git/arcade-mode CD=. filter="*" flags=S {
     b1553abe07cada931c454e0eb3197b27155659
    }
    d0=d0 {
+    420483a8302267932f4299dbbbac7fa2ea7394
     7e59f4515cebc7e780e5ec7d61399c7dc42528
    }
    90=90 {
+    0d33527fd5eed8cb4511ab2b1ed61edeafbf35
     2f2b4df024779442c7c779c0bd3d9acbe0d502
+    461197be1afec824e31db2220aa86acb26dc63
+    a5bd83aa0d335df1fa8ffb29c1b320e5ad5e58
    }
    24=24 {
     4baa03a091cab498d3eb0e3e633ce5f5ce58af
@@ -70,11 +77,13 @@ project=/home/tpoikela/git/arcade-mode CD=. filter="*" flags=S {
    61=61 {
     56bc52464f45f542f49b3542346ea89f5c186c
     95e52fe652f4f585e448eaf88aff898a003bac
+    aa69302b3061acd9829410ed9aa6befddf4aa0
     bba5e1bdb96d5e207046e4b1fa02a02509768a
    }
    e6=e6 {
     1d75b2fdffaa6c794a8c50ba22721ec6bd4596
     4aec6a04d7e87837b9fa9fb0a1fcf33762e4b8
+    4e85d29d94c5d05b0b022a9847a69617d4bb00
    }
    21=21 {
     45385f056c4d54c42195ee48d892d022522197
@@ -82,22 +91,29 @@ project=/home/tpoikela/git/arcade-mode CD=. filter="*" flags=S {
     a135b22ec3a23afc518b5bb3dc8536334187af
    }
    7f=7f {
+    21190c2649d49e07f751a168ab1e98acf78cb9
     d008efcbc50783ed905ca8596644040a535084
    }
    ef=ef {
     36750fa3dcb9f29b184e5cc6582a551683aab2
+    4e1442d108cc5249c753934564687049c735f3
     ba0de9625a74f6b6f5874830fe02a9bd2c8370
+    e19d487b9bcdab30620eed3eba9d68a602129e
     ecc15d37d54dcbc6f0a1af6f0084b85bd82f57
    }
    32=32 {
+    47dfd83f7b834b4396065e8e5c59b714ab51c5
     a1586044fb5ea412af37b150000c4fc6b992d8
     fbd1fe44d666c7bde35196e04d00b6d0f8f4d9
    }
    5f=5f {
+    19cb22b0e7332b748d10074e0ec52c7a444928
     381a4452cc79def4b1924f232bb99456789bfc
     468a28d1b2e984dcce4ea8725e0f40d4f0a4b6
     49a0bced9c42922f901f45379ff0ae8e6983ec
+    71ab56af44cf2a1c5f89849ba2e6a777c04be4
     bb3a6c167fdd875742616f45bbcb69d122a2f5
+    c632e8d08c64277241a76a7a3ac8c1df85a1e5
     ee7bbbd980ae88fefc6141e7ab8c307ad45e08
    }
    d6=d6 {
@@ -107,42 +123,55 @@ project=/home/tpoikela/git/arcade-mode CD=. filter="*" flags=S {
     f0a499821844963f1394502ceac9e0fbd31242
    }
    0c=0c {
+    d3e638c4e6bf7b09370f57ac1fbf5155d93c80
     dd7c0d6f13588bd1dcdddf1f46a3336136a155
+    f783ad3eccf0a37736211a635ae9212063677b
    }
    2a=2a {
     2c059985daab5d1c212e497fbda4d7ab382a9f
     45528b3e118584aa87092046e898bf21ec21a8
     a79c55d5b1c6136b19d3707486d61bcff35b31
     bfe47926c60a8049926de845a5ed34270830eb
+    cb24a9c4e537ded4f9d4a2be66add10ae8bb23
    }
    a7=a7 {
     0d4a57fc510566d6df543691727b9201fd5cbb
+    2519f7b08fb1d94e58c71eebe50d42dc4ebb94
     49a3e1b3fa79b5216d3a4d5efaeef611ca8bf8
     6e37a6ea3341d331ab639bb9b8a894a2f67083
     a4224e109b4bcc057a4010d5126ebe8b8e5fcf
     a88941735523522825ae57533780f621f56b61
+    e53a705b6dc1760f811c3fab4167434a1717e5
+    efc6f5092e647fbde593605090602dce86d502
    }
    4c=4c {
     a40e661a6d7a5a54140883aed2a9c8b5fa4251
+    a6f20dcd9e67d3d20398f38f5b25d46858af3c
     dc8cb71658dc1bca9230d612078b46c2a83f2b
    }
    79=79 {
+    4a31294f0d849e4772e93bbe6df405e9642888
     6cab6cec0d812b846d95164142feb8e3f6d931
     7834e468f16c6a6fd346afe97fe0fff2b0af0d
+    b3c09e48bff9accb093a2e347e55d77d0a2d74
     f0744fd543ef39eedb53f91191cc293541f404
    }
    34=34 {
     37c64e5eb55dcbc1aaeda4aec5eb282d36d873
     37e80503bb19b6804c1ab9edbd49cb345110c9
+    3b40cd7d33d20db1353aed2a9c2b293a7f8ea9
     7b367c5bbcd64bb0060f245de42e57a37aae52
    }
    9c=9c {
     02c60d765d0b2beffe1317c4102bb674004d24
     1162fc3c25ec3997187bfda36d7ec85967cc5e
+    9f4e402abb180a0f8f42e26437271c52357eba
     e468a313f8f8cc09b9ecf53764362b32968755
    }
    94=94 {
     18aa36687bbce23b219cc78e7bb9c575cc6d23
+    3d6fb58dcb5374778826d612554a4fe7dc4e91
+    50e1c4bf947a66983f603dca5840662a201fa2
     c032a2a067e84043ce321a9fff53d9bdc69798
    }
    03=03 {
@@ -152,11 +181,15 @@ project=/home/tpoikela/git/arcade-mode CD=. filter="*" flags=S {
     5a05106d2787507930a3940a97ca17ec672133
     66588ac4a6e077d755a03c35f4cceb6ca1509a
     9c1404c908308b907e03c2c54f5658e9151139
+    ae1d17e6d92458f7acc041ebe03146db2c247d
    }
    3d=3d {
+    491bb23d61d34c40db6a27a40b633b2fbfe348
+    5eb14093a5e6f39836e0c53307eff78a344d12
     97148907882c211beee4ec21ed840f603e5883
    }
    6b=6b {
+    1ca6a9e1815d70ec2f2b4209b9674599ce5e47
     80237b647e45194acfe9e1bb62925ab67c26f6
     9f914141c61c5d72735615f2cc4d84eb0046a3
     f2a3452cffccf2844b07fae9fb0767498b61a7
@@ -168,6 +201,9 @@ project=/home/tpoikela/git/arcade-mode CD=. filter="*" flags=S {
    }
    b1=b1 {
     83e79421b3e88613f96b7ed77053fd5b503a30
+    8465369e842399c1a97ec2ff813e2d9eb86194
+    8cb45e95ccd5936092e236d2f00fdf01b2c703
+    8eac32698d77bd239d1ff14ba3349ff82bc524
     badfb89700ef46026ca3cb7d973f09b9a87a53
     ea0c1863103d57f53d14c55695d9706249b521
    }
@@ -176,8 +212,11 @@ project=/home/tpoikela/git/arcade-mode CD=. filter="*" flags=S {
     b5ee5e3c48e6fd8afff04075a90d0f896db45a
    }
    39=39 {
+    03acb2088bf5dd2755c12bc1be3725fce345fd
     171b526ded9f3203b9a9802db63f4d356e5ee9
+    2ab08e1f3c8e2765941a91b8aff1fa2388b85a
     d978686d1e836b3fd676c9e29c7f7a58e82432
+    f7d7342f3a3f64763a2b337c8a4ce87cd1adc0
    }
    3b=3b {
     443a5fdcad8808c0925b810724293d8af9d51b
@@ -185,17 +224,25 @@ project=/home/tpoikela/git/arcade-mode CD=. filter="*" flags=S {
    }
    b0=b0 {
     5caf6de2207086dcb974f41ab5f2a53198e65c
+    6f34b8c95b81338476675f86911bc79cf3b68d
     aaeea9deecf1fab6fd5ee35bff8b4b901dbdc5
     be0763378db7e073273741c2a51b792031b433
+    cc062412b77815417d45530f5c7f7b4f78cbca
+    ed6272d59d02380e1533279aa25256f2674b1f
    }
    f7=f7 {
     134a72ea5b099a2d69c7255fbfe7f104110d85
+    d3cce860502addc205f4eb8f64e9e53ebf9f29
+    e73fc6210ecf46b314ae2108176fb74475238e
    }
    a0=a0 {
+    6782703379237ad6a8fec8a7729fa5856898fc
     d9f35acbb8e4ab5f59f23955eca7568154e72e
     ed115d4a209cd20630d3d35fa859d1f0d0a356
    }
    65=65 {
+    160fdba98407f19229b83a8ed88273ee7927d0
+    5d606d9ba9e5a6d428cb070d96f91e926ba6ca
     b3e43fa53da03b5679621686b436aca9f012ad
     d10e832ec99cc80a81a813175bb688cee6a6bd
     e212bd84bf9b8474236773a6790c97379d437c
@@ -204,19 +251,25 @@ project=/home/tpoikela/git/arcade-mode CD=. filter="*" flags=S {
     1d54bd5383cb150a2218ea8ff8621e665515c5
     29f5d9c92d4731b3702795a32011195934f2ea
     94455d565269d60a795ac19107d8fb412cae5a
+    e2a17ef92ece49014d7b8b56b514348e557689
    }
    e7=e7 {
     435c4f42589c3cdbfe52c88a76b7fad77f63f2
+    8d4509623dc48748c67242a9d877c310574707
     a659f6b89ba70e9abef9a0623ee57085929fb5
     f4eb31eca24fa17ae5bada87e1fff3da40be7c
    }
    8b=8b {
     36506775210020f9d879bd34593e875cdefacd
+    36eda31290faf444c68a09084eb76f1cc9b407
     60a1aa91a952fbc48c07311bf40ad56d2cb1f3
+    da2d3a5756e3f85e77cf7da085164789564547
    }
    f0=f0 {
     1c21de9eb918877c56900e3387d028a8b96725
+    3538063f4227a065b217ca0f63f8bf60117cf8
     499d9be737b24ba6b9a2bb54cda7f5e0599768
+    4f2257f4fdafcf3048c8992242a3a955e8fc91
     561bf4688c83a12f7504242f1f91cfe816b098
     7168ecbe07639b24ac46731d2e251200de3243
     893c0f68bad9660b5c8ef52abb96a2ebd472ef
@@ -225,6 +278,8 @@ project=/home/tpoikela/git/arcade-mode CD=. filter="*" flags=S {
    6c=6c {
     1909a4d989f2073b5fe8c3a1498f6d115da51d
     1c0c291718d62db9dd6040ab3f55bd81260682
+    6ca3875e0dd1553c5febb68f50802ce524bc22
+    8537ff54d78b90bcb7316cf582480fb555f9ea
     8df4de6fbab68ff3a8bce6906348a15edf8266
     e10e51164746249e2489ea70441790fb8ab57f
    }
@@ -235,12 +290,14 @@ project=/home/tpoikela/git/arcade-mode CD=. filter="*" flags=S {
    1d=1d {
     aa8c856b831158d33016c86d140d1de5ddee5f
     bbf8e97fddd3116f96f5032d0a65183c408264
+    d6c646b2d2b189470ceafc02fa30376ad3c6ee
    }
    1f=1f {
     4932cffe6c96ed2174ffaba073dd075fbe2437
     628c55678b8fd01bdecbc9b9e3c14212d2f601
     870f91e1e5c8038e518ded5d35badd01213bd1
     c5a4cf698a63b5326b12e9438b170a1258b74e
+    ed733c31254d206ba1e7e0093f2dfb3e793f5b
    }
    fb=fb {
     3af2761051fe5ac91169ce42b8c3c3de381aa6
@@ -250,6 +307,7 @@ project=/home/tpoikela/git/arcade-mode CD=. filter="*" flags=S {
     2782eba387ae82d470837d85b74e2bbd14c00d
     79905262d58958d453146694fce73be1e9aeee
     925c5743d110c835560b2fa7de78942e0107e3
+    998fa14b90a3f4b689be04689b9fa1ca1c0897
    }
    d5=d5 {
     08cf6c236125b49dae8eb44db17a716537d95a
@@ -257,10 +315,13 @@ project=/home/tpoikela/git/arcade-mode CD=. filter="*" flags=S {
     ec86f2b327e07cf580670f872cb2ebce4aeada
    }
    da=da {
+    29b4ab748f559be0ee06464d1b3fbed5a4e79e
     da430e579f013983543bda1ca868c787b800ee
     f24222e4161bf3621eb5582b1357fbdc9d413d
    }
    pack=pack {
+    pack-1af9de717fd279ea4cc82ce167b117ef521c54b4.idx
+    pack-1af9de717fd279ea4cc82ce167b117ef521c54b4.pack
     pack-47502358c7d292d8ba1f5dae4aebc19e0f58a6e4.idx
     pack-47502358c7d292d8ba1f5dae4aebc19e0f58a6e4.pack
     pack-4ff3815e97d29777036ab36fd1dfb288a2bbe694.idx
@@ -278,7 +339,9 @@ project=/home/tpoikela/git/arcade-mode CD=. filter="*" flags=S {
    }
    c2=c2 {
     25b36509ac29e63b1e89843960b5bc700ae41b
+    6125cac0344b849764f4fefe4ca4312f5dd35a
     969a684e0adb005c9c65eb071ab5eb103a9691
+    9835a63c27cd838b73f6e1072ddeeed49379a7
     e04ce89ae723daa49d5aeaccf39e6effdf3eda
     e4947a8816ef3b8732b98f0cd0bb98cb134b1b
     fd24b22bf3b016776df804ae5bfd1fc6132b33
@@ -290,14 +353,19 @@ project=/home/tpoikela/git/arcade-mode CD=. filter="*" flags=S {
     d3edc105cbf8536475e9691b799330057220a1
    }
    15=15 {
+    0f31eacfa5eb51c5de5fc056c688693f13cbdc
     1b2f1db335a89a4450857941142caccc707806
    }
    17=17 {
+    0cd99bd2bae88a188836ca1af496468c63c7d8
+    c7e036baeff4904ef3d3cdf0678da227baab17
     de765484fa05e0ad2768dea75d41b821b9bf11
    }
    27=27 {
     00d2703a42ea687b57845f85438bb4678ce5f2
     037225a5a55b5208b15d732a6c926930184e1f
+    3637d57b69b31b0dacdee68e7ecd90b4e7f254
+    75828a73fd035a9d1e5d00509413ae5c6354c6
     b0db47100956f44dcdc02489ac97abeeea18ed
    }
    6e=6e {
@@ -306,6 +374,7 @@ project=/home/tpoikela/git/arcade-mode CD=. filter="*" flags=S {
    }
    4a=4a {
     2d7d883414bdebfcb660128857e53d620d3467
+    547a90db115f8d23e73c5d023149f172644b70
     55492201faf1e77af6f141bab51a0f2eca0515
    }
    20=20 {
@@ -324,37 +393,53 @@ project=/home/tpoikela/git/arcade-mode CD=. filter="*" flags=S {
     480cc4fd1c5f91dab039e9a351000c2f7aaa85
     553db9af1ec0b302403d8e803b2c42f151292e
     9a489b9c140cdb58fd16c4a62c40f77360ebdd
+    a36998451ec3137b1946f722639189827ac356
     a71db1e27033c4319f2ed3dee2d64b0847dc1f
+    eee4837d81f54cdec039d8e5087f24dbcf60a7
    }
    50=50 {
+    14c0f7fe2f36c535a9a7192f14bebbfe9c9567
+    79f55b91e89d7f613de59d2d3b1e8581539fc8
     975b1aff74cde5673df44a440c3243f8ed9aed
     f931a17094853a0205b69377f925bc14fa92f7
+    fe25b2c628b8ba5b384b1cec21e71ab8de00f5
    }
    c4=c4 {
     14b870e3e358b331c233a71afc364033e75531
     4f13513c979cc29778936b0bb4692f4a4c5bd5
     61504eb53ed0abf6e662664cb02fd856e206fd
     7ff36f7c3e7420280b54cdbb80fa119d67cafd
+    bc9aefc2174977149245ff21fdfb12c9bafab6
+    fac29440aa24805b6c88f62875e43af118725f
    }
    8a=8a {
     1c5944114eacdd1d88ee5bba0cf0ba8c04800e
     869b9def373a7f382b1f9816fda749a4e52155
+    950dee3dbc53a12e55140cfc784a320b67b6e6
     997484a64e9ea1207342bc1a1ad2a26287a8d9
+    b6ad2d7d066cf5aefc43b3e1ee69819ef2aa22
+    fbeccbb37427a1fedd2ec122b6d10e170de8c9
    }
    cd=cd {
+    53d29f9363d8386d9155541a66e24255bdc050
     68070bb893a76339e40e825bd7e81e4d6bddad
     cd6a6ba8bdf9a19ec7296a49585b0fa05427b4
    }
    66=66 {
+    00d100b9587f36d8f5e74236d85b1b76a0ba62
     682ff581a00c8719e1b8cb41e72e684567ea5d
    }
    72=72 {
     6727c837cc02cdaa94b411331da0fde4f37498
     a2b9ca8add771782773549fbcc3676cf3ab546
+    b8414ef15279030b8ca946bfcaf3a190d7abf9
     c26fb26461115e331c8ff71452b26df0277bc1
+    ec2eafa05c6b54eb9f1fae3c3c1dcf9ddaf525
    }
    70=70 {
     292d6e29783d3647aab814dd71071f0c34e589
+    5169fec670088e2d68dbb624ff24f74afd3e9d
+    9bb52936acfe1cc3ee4a2bc21bd731518e421b
     d3498ec448d81cb39cc8470089afec89224c76
    }
    42=42 {
@@ -369,7 +454,9 @@ project=/home/tpoikela/git/arcade-mode CD=. filter="*" flags=S {
    }
    f9=f9 {
     5ab80a36b209ca2efc4f03de87690463a31371
+    87188ccbbec9b25c7210b573ecc1cc91e1c165
     bd5640eee68a76099f4ecbbb29bcf681eba71c
+    d40e663f6b9d537e3da0cf813fb72d1d07162c
    }
    7a=7a {
     0515c4136a3124f67f9d619230060e6e6c7f9f
@@ -385,18 +472,23 @@ project=/home/tpoikela/git/arcade-mode CD=. filter="*" flags=S {
     ceb67abe6d067446fa58b2e420af13da69fa4f
    }
    81=81 {
+    4445b815df14a56eaeeb668eedc50adc9bd1d0
     4a31e18fcfa4573b8b9b6d984c25bd213c187a
     eb082c1e7525aef62c883fa919aa110298a759
    }
    1c=1c {
     0f33e7d2e80f1a932cb96819ed9bb1ac9de483
+    12a7dbf5d30d4cda6ed31c2e7193cd3e53fe16
+    ae9da26c7eb6973597d2bc0fc16b1d6286daa7
     c4ce7d866178a64c4f46a32bc9118190f98e5e
+    c6513e766cec9ac949be1a8e9e9ecb8fc54a3c
    }
    51=51 {
     33f8d499f51f4f88322a9713129831e2765ca5
    }
    57=57 {
     1a22da76ae9ba83a7ffcac05a84583a4d82387
+    2e74bf558c80a951748987f4272190d2a1b4fd
    }
    dd=dd {
     9069be477edbd52cddff4f76d851ff463b233c
@@ -410,6 +502,7 @@ project=/home/tpoikela/git/arcade-mode CD=. filter="*" flags=S {
    f8=f8 {
     195162a08e701196960be279eabd18e6040c2e
     3bad98016aadbe6117e9d0a32d8c90d984b71b
+    88b072377c57472233073e909f780722263c31
     c4372fb49207f9ab8d114743c43c090f5887c3
     d88fee5aa60f37e07ff034af75b0b59a2e9a4c
    }
@@ -420,26 +513,32 @@ project=/home/tpoikela/git/arcade-mode CD=. filter="*" flags=S {
     df9b6d141ceca7e1204f1458221a0e56686337
    }
    d4=d4 {
+    2247815ced3c65edecfb59abfa280df8070a82
     61bec0a71c21a818b2b55a494e3bc19fd2f540
    }
    22=22 {
+    4768f10a3d4cfeace57ab842f9fed4f3cc0dec
     4ad22abe353fa9338889a9f470d425645beee2
     862d88ceb7755452ef3e2e4af63e4b747483bb
     8b5c0d6ab59907666d9ff5eaa1189a9ea7de6d
    }
    ae=ae {
+    12a723f1c71a4057ea8657fa1cf9a0dc822d63
     95839c00ae8b56cf25eadf503b45f6a3b7ba69
    }
    df=df {
     11041b3f33973cac9136317f49f69e3dcd4b17
     22a01523fcc336f8fd75b91d9cef097e3ab8c2
+    295a242692f59a6e9fb9af4fbe6409f03d962f
     6a69bbb3be8d4c2761b5c1d7d2586e6ddc96ac
+    d88c40a121c2d2c8f3fe63fd52121f3bec78d8
    }
    info=info {
    }
    00=00 {
     98a8c2d90bc8cf35cbec11a2e0d0d15ca89ce9
     9cc682dea118d7b0e5c5996224e1aac9996d0e
+    b1e0443e0b8f488581196c6e48f24cc419b503
    }
    b3=b3 {
     0f4c5f721de5ea48ab0e7d6dc20066ee78ffed
@@ -459,27 +558,36 @@ project=/home/tpoikela/git/arcade-mode CD=. filter="*" flags=S {
    }
    8e=8e {
     2323394e3b1330e9cf7c8e5d7b28e0ad87ddc4
+    367a30c8eb494bec6f10a1150ee2dc727c606f
+    77b6f483be13e975b883375fc3f68344c0fe27
+    abb045bd20906410580b4c8a5b773c6d430011
    }
    28=28 {
     066134ab7256b9e901812253aaccdd3a869d8f
+    1158675401e41f066a3d63dd62caa34fe5d92b
     2a49c2260cd520f41ad7f54b933cdbc7bf845b
     6edb3931965f06d2db20e991632dfc4d686664
     ea97638d195d649a272b7aa7b2dea5f6df8e3b
    }
    44=44 {
     744dabe62f8981431727d6b9f50d62e6184eea
+    f94f539a722e5cf411a52528d9dd799958b38c
    }
    b2=b2 {
     0b710a3d2f0e4624d04370e88bd3cfc06dbc05
+    522f7e192d1778ad2fb90c85ad9cb2a2cc6291
     b1d69413af4c9bd89c2e6a393b0617bcfd4473
     d7262b9900eb392a8739f49648df48153a1000
    }
    5a=5a {
     043d759dd9102c53798c7364948c3e247ac436
     163cff9a3d10173d2e1ab2f85458e5d3fb5ef4
+    3ee303d276076f21fcd11ccc568697dd211600
     516921685ee592d2f06b48ee501d49d8b2dcef
+    9a153840d756823b143c838595c6f5afb9d6fa
    }
    14=14 {
+    7fd668766335b356286578ddcfc40aba377d04
     a9b988db71d40870dc80a56819ac289d682b6f
     e1892dbc918ec0764dcb05d56de95e7637c3d1
    }
@@ -493,19 +601,25 @@ project=/home/tpoikela/git/arcade-mode CD=. filter="*" flags=S {
     f6bc9ba10f820884fd194611eb48dd1269095c
    }
    6d=6d {
+    8128e8754c95da702a9d12134c41e48ee7cb0b
     85f38b8ca21758c5af8a0a328014ea57b6ff75
     8ed26d1428bf4618ff20624dc84b4b0b06d640
+    abe6779062f6049af9b342b2d195b740697042
     af7bb9aac0a1550bb0f40f84edb0fb54953491
     c8eb419a8c974f21b73fef69abcbba321baf97
     f70adeb486b1ac2d208b6bdafebce00175c7bb
    }
    53=53 {
     08acba50dcbe0ba319e8f3421687275d5bc80b
+    947806ae77642cbfb5b338697e1d55d729d7c7
+    ac97736b30773b26fa73107894097fa4bb1484
+    afc601b0580588e6762c32ef90281363100178
     ed13348f25a3d9ab5885fdb291f441ec7f6329
    }
    d1=d1 {
     1e9fd895d01f6f158e2798587a7dc8a9b0ad33
     ba744ffdb7abd2f9c67b25c48ac66df950a06e
+    d05f3c1be651f47e264124c29c30666a446302
     d3d87769f4269b948ebc8b808c618fd60ce96d
    }
    5e=5e {
@@ -520,14 +634,18 @@ project=/home/tpoikela/git/arcade-mode CD=. filter="*" flags=S {
    0b=0b {
     8372b8289aaf64dc644e888d7e17a076289bf8
     b2d83cf8bd05d07f1e72ca4b3c76312824b87e
+    b6a5a4441d194e8e5da4570cb8bab8465228f3
     f3006d343c0f289630b1fd2f10514d7effa9c5
    }
    04=04 {
+    5967e1d8979f75830206d4f180716b3063f960
     81fa2dc089d9f4de4d6abe953d2483425c4952
    }
    73=73 {
+    130afb43ba0ff9912de11fbaaea1e65524a053
     407be69540576a3359023f8ea0f311db815f1b
     8bbe4f8b1fe5c22fedb4529aa9d5040b9e3236
+    9f693f62ef113728d9d7010f4cd611291b2dca
     adee42b362b550f0187e2cf3b7a46eb8e12003
     b95bffd62f50f16e05ac6a32d78428f4be6fb8
    }
@@ -537,12 +655,14 @@ project=/home/tpoikela/git/arcade-mode CD=. filter="*" flags=S {
     origin=origin {
      HEAD
      master
+     timer
     }
    }
    tags=tags {
    }
    heads=heads {
     master
+    timer
    }
   }
   info=info {
@@ -554,6 +674,7 @@ project=/home/tpoikela/git/arcade-mode CD=. filter="*" flags=S {
  test=test {
   ArcadeAction.spec.js
   ArcadeReducer.spec.js
+  Timer.spec.js
   header.spec.jsx
   helpers=helpers {
    browser.js
@@ -568,15 +689,19 @@ project=/home/tpoikela/git/arcade-mode CD=. filter="*" flags=S {
     main.jsx
     actions=actions {
      ArcadeAction.js
+     ArcadeAction.js.orig
     }
     components=components {
      ArcadeMode.jsx
+     ArcadeMode.jsx.orig
      Header.jsx
      Hello.jsx
+     Modal.jsx
      Navbar.jsx
     }
     containers=containers {
      App.jsx
+     App.jsx.orig
     }
     model=model {
      Challenge.js
@@ -585,6 +710,7 @@ project=/home/tpoikela/git/arcade-mode CD=. filter="*" flags=S {
     }
     reducers=reducers {
      ArcadeReducer.js
+     ArcadeReducer.js.orig
      composeEnhancers.js
     }
    }
@@ -602,9 +728,11 @@ project=/home/tpoikela/git/arcade-mode CD=. filter="*" flags=S {
     _codemirror.monokai.scss
     _codemirror.scss
     _components.bootstrap-overrides.scss
+    _components.codemirror-overrides.scss
     _components.general.scss
+    _components.react.arcade-editor.scss
     _components.react.arcade-panel.scss
-    _components.react.editor.scss
+    _elements.general.scss
    }
   }
   json=json {

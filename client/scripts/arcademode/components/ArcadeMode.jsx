@@ -52,6 +52,7 @@ export default class ArcadeMode extends Component {
     this.onClickFinishSession = this.onClickFinishSession.bind(this);
     this.onCodeChange = this.onCodeChange.bind(this);
     this.onTimerMaxValueChange = this.onTimerMaxValueChange.bind(this);
+    this.onClickSolve = this.onClickSolve.bind(this);
   }
 
   onCodeChange(newCode) {
@@ -76,6 +77,11 @@ export default class ArcadeMode extends Component {
 
   onClickFinishSession() {
     this.props.finishSession();
+  }
+
+  /* Inserts the solution for current challenge into the editor. */
+  onClickSolve() {
+    this.props.solveChallenge();
   }
 
   onTimerMaxValueChange(e) {
@@ -167,6 +173,9 @@ export default class ArcadeMode extends Component {
                 <button className={'btn btn-primary'} onClick={this.onClickRunTests}>Run tests</button>
                 {finishButton}
               </div>
+              <div>
+                <button className={'btn btn-warning'} onClick={this.onClickSolve}>Solve</button>
+              </div>
 
               <div className='challenge__title'>{this.props.title}</div>
               <div className='challenge__description' dangerouslySetInnerHTML={createMarkup()} />
@@ -221,5 +230,6 @@ ArcadeMode.propTypes = {
   onTimerMaxValueChange: PropTypes.func.isRequired,
   timerMaxValue: PropTypes.number.isRequired,
   sessionScore: PropTypes.number.isRequired,
-  isTimerFinished: PropTypes.bool.isRequired
+  isTimerFinished: PropTypes.bool.isRequired,
+  solveChallenge: PropTypes.func.isRequired
 };

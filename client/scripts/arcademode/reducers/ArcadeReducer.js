@@ -17,7 +17,8 @@ import {
   TIMER_UPDATED,
   STOP_TIMER,
   FINISH_SESSION,
-  TIMER_MAX_VALUE_CHANGED
+  TIMER_MAX_VALUE_CHANGED,
+  SOLVE_CHALLENGE
 } from '../actions/ArcadeAction';
 
 import UserData from '../model/UserData';
@@ -136,6 +137,13 @@ export default function arcadeReducer(state, action) {
     }
     case FINISH_SESSION: {
       nextState.isSessionFinished = true;
+      break;
+    }
+    case SOLVE_CHALLENGE: {
+      const solution = state.currChallenge.getSolution();
+      if (solution !== null) {
+        nextState.code = solution;
+      }
       break;
     }
     default: console.log('ERROR. ArcadeReducer default reached.');

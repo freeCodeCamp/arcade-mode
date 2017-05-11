@@ -19,6 +19,8 @@ export const FINISH_SESSION = 'FINISH_SESSION';
 
 export const TIMER_MAX_VALUE_CHANGED = 'TIMER_MAX_VALUE_CHANGED';
 
+export const SOLVE_CHALLENGE = 'SOLVE_CHALLENGE';
+
 /* Thunk action which runs the test cases against user code. */
 export function runTests(userCode, currChallenge) {
   return dispatch => {
@@ -62,10 +64,6 @@ export function startTimer(timerMaxValue) {
       const timeElapsed = timeNow - timeStart;
       if (timeElapsed >= timerMaxValue) {
         dispatch(stopTimer());
-      }
-      else {
-        console.log('Elapsed time: ' + timeElapsed);
-        console.log('Max value: ' + timerMaxValue);
       }
     }, 1000 / 60);
   };
@@ -157,5 +155,11 @@ export function onOutputChange(newOutput) {
 export function actionFinishSession() {
   return {
     type: FINISH_SESSION
+  };
+}
+
+export function actionSolveChallenge() {
+  return {
+    type: SOLVE_CHALLENGE
   };
 }

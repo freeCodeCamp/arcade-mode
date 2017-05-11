@@ -24,4 +24,11 @@ export default class Challenge {
     return this.challenge.tests;
   }
 
+  getSolution() {
+    if (this.challenge.solutions.length > 0) {
+      return this.challenge.solutions[0];
+    }
+    return null;
+  }
+
 }
