@@ -55,14 +55,16 @@ let timer = null;
 export function startTimer(timerMaxValue) {
   return dispatch => {
     clearInterval(timer);
+
     const timeStart = new Date().getTime();
+    const timerMaxValueInt = parseInt(timerMaxValue, 10);
     dispatch(actionTimerStarted(timeStart));
 
     timer = setInterval(() => {
       const timeNow = new Date().getTime();
       dispatch(actionTimerUpdated(timeNow));
       const timeElapsed = timeNow - timeStart;
-      if (timeElapsed >= timerMaxValue) {
+      if (timeElapsed >= timerMaxValueInt) {
         dispatch(stopTimer());
       }
     }, 1000 / 60);
