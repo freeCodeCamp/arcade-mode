@@ -30,6 +30,11 @@ import Challenge from '../model/Challenge';
 
 const timerDefaultValue = 5 * 1000; // 15 minutes
 
+/* TODO: Returns score for completed challenge. */
+const getScoreForChallenge = challenge => {
+  return 1;
+};
+
 export default function arcadeReducer(state, action) {
   if (typeof state === 'undefined') {
     return {
@@ -42,12 +47,12 @@ export default function arcadeReducer(state, action) {
       `,
       // Challenges.challenges[0].challengeSeed.join('\n'),
       userOutput: 'The output of your code will show up here.',
-      interpreterError: false,
       isRunningTests: false,
       userData: new UserData({ username: '' }),
       testResults: new TestResults([]),
       challengeNumber: 0,
       currChallenge: new Challenge(Challenges.challenges[0]),
+      currChallengeStartedAt: 0,
       nextChallenge: '',
 
       // Timer handling
@@ -57,7 +62,8 @@ export default function arcadeReducer(state, action) {
       timerStart: 0,
 
       // Session control variables
-      isSessionFinished: false
+      isSessionFinished: false,
+      sessionScore: 0
     };
   }
 
@@ -82,7 +88,9 @@ export default function arcadeReducer(state, action) {
       break;
     }
     case NEXT_CHALLENGE: {
+      nextState.sessionScore = state.sessionScore + getScoreForChallenge(state.currChallenge);
       nextState.currChallenge = state.nextChallenge;
+      nextState.currChallengeStartedAt = action.startTime;
       nextState.title = state.nextChallenge.getTitle();
       nextState.description = state.nextChallenge.getDescription();
       nextState.code = state.nextChallenge.getSeed().join('\n');
@@ -103,7 +111,7 @@ export default function arcadeReducer(state, action) {
     case TIMER_STARTED: {
       nextState.isTimerFinished = false;
       nextState.timeLeft = timerDefaultValue;
-      nextState.timerStart = new Date().getTime();
+      nextState.timerStart = action.startTime;
       break;
     }
     case START_CHALLENGE: {
@@ -113,10 +121,11 @@ export default function arcadeReducer(state, action) {
       nextState.challengeNumber++;
       nextState.nextChallenge = new Challenge(Challenges.challenges[state.challengeNumber + 1]);
       nextState.isSessionFinished = false;
+      nextState.currChallengeStartedAt = action.startTime;
       break;
     }
     case TIMER_UPDATED: {
-      const timeNow = new Date().getTime();
+      const timeNow = action.timeNow;
       nextState.timeLeft = state.timerMaxValue - (timeNow - state.timerStart);
       break;
     }
