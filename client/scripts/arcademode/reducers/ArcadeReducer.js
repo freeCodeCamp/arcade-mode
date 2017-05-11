@@ -15,7 +15,8 @@ import {
   TIMER_STARTED,
   TIMER_UPDATED,
   STOP_TIMER,
-  FINISH_SESSION
+  FINISH_SESSION,
+  TIMER_MAX_VALUE_CHANGED
 } from '../actions/ArcadeAction';
 
 import UserData from '../model/UserData';
@@ -89,6 +90,10 @@ export default function arcadeReducer(state, action) {
       nextState.userOutput = action.userOutput;
       break;
     }
+    case TIMER_MAX_VALUE_CHANGED: {
+      nextState.timerMaxValue = action.timerMaxValue;
+      break;
+    }
     case TIMER_STARTED: {
       nextState.isTimerFinished = false;
       nextState.timeLeft = timerDefaultValue;
@@ -101,6 +106,7 @@ export default function arcadeReducer(state, action) {
       nextState.code = state.currChallenge.getSeed().join('\n');
       nextState.challengeNumber++;
       nextState.nextChallenge = new Challenge(Challenges.challenges[state.challengeNumber + 1]);
+      nextState.isSessionFinished = false;
       break;
     }
     case TIMER_UPDATED: {
