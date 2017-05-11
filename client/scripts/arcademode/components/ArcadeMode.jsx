@@ -194,7 +194,7 @@ export default class ArcadeMode extends Component {
                 {finishButton}
               </div>
               <div>
-                <button className={'btn btn-warning'} onClick={this.onClickSolve}>Solve</button>
+                <button className={'btn btn-warning'} onClick={this.onClickSolve}>Insert Solution</button>
               </div>
 
               <div className='challenge__title'>{this.props.title}</div>
