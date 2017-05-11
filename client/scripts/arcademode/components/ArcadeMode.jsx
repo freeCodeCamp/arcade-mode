@@ -35,9 +35,10 @@ export default class ArcadeMode extends Component {
 
   constructor(props) {
     super(props);
+
     this.onClickRunTests = this.onClickRunTests.bind(this);
     this.onClickStartChallenge = this.onClickStartChallenge.bind(this);
-
+    this.onClickFinishSession = this.onClickFinishSession.bind(this);
     this.onCodeChange = this.onCodeChange.bind(this);
   }
 
@@ -53,6 +54,10 @@ export default class ArcadeMode extends Component {
   onClickStartChallenge() {
     this.props.startChallenge();
     this.props.startTimer();
+  }
+
+  onClickFinishSession() {
+    this.props.finishSession();
   }
 
   /* TODO: Add limit to the number of printed tests. Improve output. */
@@ -88,9 +93,13 @@ export default class ArcadeMode extends Component {
   render() {
     const testResults = this.renderTestResults();
 
+    let finishButton = null;
     // Should move out of render
     if (this.props.timeLeft <= 0) {
       this.props.stopTimer();
+      finishButton = (
+        <button className='btn btn-danger' onClick={this.onClickFinishSession}>Finish</button>
+      );
     }
 
     return (
@@ -103,6 +112,7 @@ export default class ArcadeMode extends Component {
               <p>This is the info panel.</p>
               <button className={'btn btn-success'} onClick={this.onClickStartChallenge}>Start</button>
               <button className={'btn btn-primary'} onClick={this.onClickRunTests}>Run tests</button>
+              {finishButton}
               {/* <p>Your code returned: {this.props.codeRetVal.toString()}</p> */}
               <p>Userdata given: {this.props.userData.username} </p>
               {testResults}
@@ -131,6 +141,7 @@ export default class ArcadeMode extends Component {
 ArcadeMode.propTypes = {
   currChallenge: PropTypes.instanceOf(Challenge).isRequired,
   code: PropTypes.string.isRequired,
+  finishSession: PropTypes.func.isRequired,
   onCodeChange: PropTypes.func.isRequired,
   runTests: PropTypes.func.isRequired,
   userData: PropTypes.instanceOf(UserData).isRequired,
