@@ -5,7 +5,7 @@
 
 // import Interpreter from 'js-interpreter';
 
-import { TESTS_STARTED, CODE_CHANGED, START_CHALLENGE, TESTS_FINISHED, TIMER_STARTED, TIMER_UPDATED, STOP_TIMER } from '../actions/ArcadeAction';
+import { TESTS_STARTED, CODE_CHANGED, START_CHALLENGE, TESTS_FINISHED, TIMER_STARTED, TIMER_UPDATED, STOP_TIMER, FINISH_SESSION } from '../actions/ArcadeAction';
 import UserData from '../model/UserData';
 import Challenges from '../../../json/challenges.json';
 import TestResults from '../model/TestResults';
@@ -30,7 +30,10 @@ export default function arcadeReducer(state, action) {
       isTimerFinished: false,
       timerMaxValue: timerDefaultValue,
       timeLeft: timerDefaultValue,
-      timerStart: 0
+      timerStart: 0,
+
+      // Session control variables
+      isSessionFinished: false
     };
   }
 
@@ -53,6 +56,7 @@ export default function arcadeReducer(state, action) {
     case START_CHALLENGE: {
       nextState.code = state.currChallenge.getSeed().join('\n');
       nextState.isTimerFinished = false;
+      nextState.isSessionFinished = false;
       break;
     }
     case TIMER_STARTED: {
@@ -69,6 +73,10 @@ export default function arcadeReducer(state, action) {
     case STOP_TIMER: {
       nextState.isTimerFinished = true;
       nextState.timeLeft = 0;
+      break;
+    }
+    case FINISH_SESSION: {
+      nextState.isSessionFinished = true;
       break;
     }
     default: console.log('ERROR. ArcadeReducer default reached.');
