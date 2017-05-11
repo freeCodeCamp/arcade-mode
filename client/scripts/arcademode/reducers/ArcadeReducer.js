@@ -29,7 +29,7 @@ import Challenge from '../model/Challenge';
 // const initialState = Immutable.Map();
 //
 
-const timerDefaultValue = 5 * 1000; // 15 minutes
+const timerDefaultValue = 60 * 1000;
 
 /* TODO: Returns score for completed challenge. */
 const getScoreForChallenge = challenge => {
@@ -127,7 +127,7 @@ export default function arcadeReducer(state, action) {
     }
     case TIMER_UPDATED: {
       const timeNow = action.timeNow;
-      nextState.timeLeft = state.timerMaxValue - (timeNow - state.timerStart);
+      nextState.timeLeft = parseInt(state.timerMaxValue, 10) - (timeNow - state.timerStart);
       break;
     }
     case STOP_TIMER: {
