@@ -31,7 +31,8 @@ const mapStateToProps = state => ({
   timeLeft: state.arcadeReducer.timeLeft,
   timerMaxValue: state.arcadeReducer.timerMaxValue,
   sessionScore: state.arcadeReducer.sessionScore,
-  isTimerFinished: state.arcadeReducer.isTimerFinished
+  isTimerFinished: state.arcadeReducer.isTimerFinished,
+  isSessionFinished: state.arcadeReducer.isSessionFinished
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -144,6 +144,9 @@ export default function arcadeReducer(state, action) {
       if (solution !== null) {
         nextState.code = solution;
       }
+      else {
+        nextState.code = `// No solutions found\n${state.code}`;
+      }
       break;
     }
     default: console.log('ERROR. ArcadeReducer default reached.');

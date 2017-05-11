@@ -138,7 +138,30 @@ export default class ArcadeMode extends Component {
     );
   }
 
+  renderEditor() {
+    if (this.props.isSessionFinished) {
+      return (
+        <div className='session-finished'>
+          <h2 className='text-danger'>Game Over!</h2>
+          <p>Your final score: {this.props.sessionScore}</p>
+          <p>You completed NN challenges in XX time.</p>
+          <p>Click Start to play again.</p>
+        </div>
+      );
+    }
+    return (
+      <div className={'editor'}>
+        <CodeMirror
+          onChange={this.onCodeChange}
+          options={editorOptions}
+          value={this.props.code}
+        />
+      </div>
+    );
+  }
+
   render() {
+    const editorBody = this.renderEditor();
     const testResults = this.renderTestResults();
     const passFailResult = this.processTestResults();
     const descr = this.props.description.join('\n');
@@ -190,14 +213,7 @@ export default class ArcadeMode extends Component {
             </Col>
 
             <Col className='arcade-editor' xs={12} sm={12} md={8} lg={8}>
-              This is where the editor should go.
-              <div className={'editor'}>
-                <CodeMirror
-                  onChange={this.onCodeChange}
-                  options={editorOptions}
-                  value={this.props.code}
-                />
-              </div>
+              {editorBody}
               {passFailResult &&
                 <button className={'btn btn-info btn-block'} onClick={this.onClickNextChallenge}>Continue to next challenge!</button>
               }
@@ -231,5 +247,6 @@ ArcadeMode.propTypes = {
   timerMaxValue: PropTypes.number.isRequired,
   sessionScore: PropTypes.number.isRequired,
   isTimerFinished: PropTypes.bool.isRequired,
-  solveChallenge: PropTypes.func.isRequired
+  solveChallenge: PropTypes.func.isRequired,
+  isSessionFinished: PropTypes.bool.isRequired
 };
