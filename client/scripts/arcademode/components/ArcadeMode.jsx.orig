@@ -57,11 +57,16 @@ export default class ArcadeMode extends Component {
     this.props.onCodeChange(newCode);
   }
 
+<<<<<<< HEAD
   onClickNextChallenge() {
     this.props.nextChallenge();
   }
 
   onClickRunTests() {
+    // const target = e.target;
+=======
+  onClickRunTests() {
+>>>>>>> timer
     this.props.runTests(this.props.code, this.props.currChallenge);
   }
 
@@ -106,9 +111,7 @@ export default class ArcadeMode extends Component {
         return <p className={className} key={index}>Status: {result} {msg}</p>;
       });
     }
-    else {
-      testsOk = false;
-    }
+    else testsOk = false;
 
     const finalResult = testsOk ? 'All tests passed' : 'There were failing tests';
 
@@ -122,11 +125,13 @@ export default class ArcadeMode extends Component {
 
   render() {
     const testResults = this.renderTestResults();
+<<<<<<< HEAD
     const passFailResult = this.processTestResults();
     const descr = this.props.description.join('\n');
     function createMarkup() {
       return { __html: descr };
     }
+=======
 
     let finishButton = null;
     // Should move out of render
@@ -137,6 +142,7 @@ export default class ArcadeMode extends Component {
       );
     }
 
+>>>>>>> timer
     return (
       <div>
         <Navbar timeLeft={this.props.timeLeft} />
@@ -145,13 +151,19 @@ export default class ArcadeMode extends Component {
 
             <Col className='arcade-panel' xs={12} sm={12} md={4} lg={4}>
               <p>This is the info panel.</p>
+<<<<<<< HEAD
               <div className='challenge__title'>{this.props.title}</div>
               <div className='challenge__description' dangerouslySetInnerHTML={createMarkup()} />
               <div className='challenge__buttons'>
                 <button className={'btn btn-success'} onClick={this.onClickStartChallenge}>Start</button>
                 <button className={'btn btn-primary'} onClick={this.onClickRunTests}>Run tests</button>
-                {finishButton}
               </div>
+=======
+              <button className={'btn btn-success'} onClick={this.onClickStartChallenge}>Start</button>
+              <button className={'btn btn-primary'} onClick={this.onClickRunTests}>Run tests</button>
+              {finishButton}
+>>>>>>> timer
+              {/* <p>Your code returned: {this.props.codeRetVal.toString()}</p> */}
               <p>Userdata given: {this.props.userData.username} </p>
               <div className={'output'}>
                 <CodeMirror
@@ -190,8 +202,11 @@ ArcadeMode.propTypes = {
   description: PropTypes.array.isRequired,
   userOutput: PropTypes.string.isRequired,
   code: PropTypes.string.isRequired,
+<<<<<<< HEAD
   nextChallenge: PropTypes.func.isRequired,
+=======
   finishSession: PropTypes.func.isRequired,
+>>>>>>> timer
   onCodeChange: PropTypes.func.isRequired,
   runTests: PropTypes.func.isRequired,
   userData: PropTypes.instanceOf(UserData).isRequired,

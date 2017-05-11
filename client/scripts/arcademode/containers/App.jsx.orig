@@ -4,15 +4,16 @@
 import { connect } from 'react-redux';
 
 import ArcadeMode from '../components/ArcadeMode';
+<<<<<<< HEAD
 import {
   nextChallenge,
   onCodeChange,
   runTests,
-  startChallenge,
-  startTimer,
-  stopTimer,
-  actionFinishSession
+  startChallenge
 } from '../actions/ArcadeAction';
+=======
+import { onCodeChange, runTests, startChallenge, startTimer, stopTimer, actionFinishSession } from '../actions/ArcadeAction';
+>>>>>>> timer
 
 const mapStateToProps = state => ({
   challengeNumber: state.arcadeReducer.challengeNumber,
@@ -22,9 +23,13 @@ const mapStateToProps = state => ({
   code: state.arcadeReducer.code,
   userOutput: state.arcadeReducer.userOutput,
   currChallenge: state.arcadeReducer.currChallenge,
+<<<<<<< HEAD
   nextChallenge: state.arcadeReducer.nextChallenge,
+  testResults: state.arcadeReducer.testResults
+=======
   testResults: state.arcadeReducer.testResults,
   timeLeft: state.arcadeReducer.timeLeft
+>>>>>>> timer
 });
 
 const mapDispatchToProps = dispatch => ({
