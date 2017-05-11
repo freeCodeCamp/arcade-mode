@@ -14,6 +14,11 @@ export default class ArcadeNavbar extends Component {
           <Navbar.Brand>
             <a href='//freecodecamp.com'>freeCodeCamp Arcade Mode</a>
           </Navbar.Brand>
+
+          <Navbar.Form>
+            <input value={this.props.timerMaxValue} onChange={this.props.onTimerMaxValueChange} />
+          </Navbar.Form>
+
           <Navbar.Text>
             Time: {this.props.timeLeft}
           </Navbar.Text>
@@ -34,5 +39,7 @@ export default class ArcadeNavbar extends Component {
 }
 
 ArcadeNavbar.propTypes = {
-  timeLeft: PropTypes.number.isRequired
+  timeLeft: PropTypes.number.isRequired,
+  timerMaxValue: PropTypes.number.isRequired,
+  onTimerMaxValueChange: PropTypes.func.isRequired
 };
