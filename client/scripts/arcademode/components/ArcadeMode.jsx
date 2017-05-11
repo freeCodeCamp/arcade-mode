@@ -15,7 +15,9 @@ const outputOptions = {
   readOnly: true,
   theme: 'monokai',
   scrollbarStyle: 'null',
-  lineWrapping: true
+  lineWrapping: true,
+  mode: 'javascript',
+  json: true
 };
 
 // TODO create <CodeEditor> and move options there
