@@ -11,6 +11,7 @@ export const TIMER_FINISHED = 'TIMER_FINISHED';
 export const TIMER_UPDATED = 'TIMER_UPDATED';
 export const TIMER_STARTED = 'TIMER_STARTED';
 export const STOP_TIMER = 'STOP_TIMER';
+export const FINISH_SESSION = 'FINISH_SESSION';
 
 /* Thunk action which runs the test cases against user code. */
 export function runTests(userCode, currChallenge) {
@@ -100,6 +101,12 @@ export function actionTimerFinished() {
 export function actionTimerUpdated() {
   return {
     type: TIMER_UPDATED
+  };
+}
+
+export function actionFinishSession() {
+  return {
+    type: FINISH_SESSION
   };
 }
 
