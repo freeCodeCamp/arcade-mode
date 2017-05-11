@@ -689,11 +689,9 @@ project=/home/tpoikela/git/arcade-mode CD=. filter="*" flags=S {
     main.jsx
     actions=actions {
      ArcadeAction.js
-     ArcadeAction.js.orig
     }
     components=components {
      ArcadeMode.jsx
-     ArcadeMode.jsx.orig
      Header.jsx
      Hello.jsx
      Modal.jsx
@@ -701,7 +699,6 @@ project=/home/tpoikela/git/arcade-mode CD=. filter="*" flags=S {
     }
     containers=containers {
      App.jsx
-     App.jsx.orig
     }
     model=model {
      Challenge.js
@@ -710,7 +707,6 @@ project=/home/tpoikela/git/arcade-mode CD=. filter="*" flags=S {
     }
     reducers=reducers {
      ArcadeReducer.js
-     ArcadeReducer.js.orig
      composeEnhancers.js
     }
    }

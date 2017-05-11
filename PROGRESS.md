@@ -5,6 +5,12 @@
   - Progress:
     1. Add opening modal to app.
 
+### Tuomas:
+  - Progress:
+    1. Added `Insert Solution` button for quick testing.
+    2. Did Minor UX improvements, showing/hiding of buttons.
+    3. Added score to Navbar + Game Over screen after timer runs out.
+
 ## Wednesday 5/10/17:
 ### Tim:
   - Progress:
