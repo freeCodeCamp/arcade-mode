@@ -104,7 +104,6 @@ export default class ArcadeMode extends Component {
         const result = item.pass ? 'Pass' : 'Fail';
         const className = item.pass ? 'text-success' : 'text-danger';
         testsOk = testsOk && item.pass;
-        console.log(JSON.stringify(item));
 
         // If test had error, format the error message here
         let msg = null;
