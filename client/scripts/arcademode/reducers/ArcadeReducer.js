@@ -6,6 +6,7 @@
 // import Interpreter from 'js-interpreter';
 
 import {
+  NEXT_CHALLENGE,
   TESTS_STARTED,
   CODE_CHANGED,
   OUTPUT_CHANGED,
@@ -35,7 +36,9 @@ export default function arcadeReducer(state, action) {
       isRunningTests: false,
       userData: new UserData({ username: '' }),
       testResults: new TestResults([]),
-      currChallenge: new Challenge(Challenges.challenges[0])
+      challengeNumber: 0,
+      currChallenge: new Challenge(Challenges.challenges[0]),
+      nextChallenge: ''
     };
   }
 
@@ -55,6 +58,14 @@ export default function arcadeReducer(state, action) {
       nextState.code = action.code;
       break;
     }
+    case NEXT_CHALLENGE: {
+      nextState.currChallenge = state.nextChallenge;
+      nextState.title = state.nextChallenge.getTitle();
+      nextState.description = state.nextChallenge.getDescription();
+      nextState.code = state.nextChallenge.getSeed().join('\n');
+      nextState.testResults = new TestResults([]);
+      break;
+    }
     case OUTPUT_CHANGED: {
       nextState.userOutput = action.userOutput;
       break;
@@ -63,6 +74,8 @@ export default function arcadeReducer(state, action) {
       nextState.title = state.currChallenge.getTitle();
       nextState.description = state.currChallenge.getDescription();
       nextState.code = state.currChallenge.getSeed().join('\n');
+      nextState.challengeNumber++;
+      nextState.nextChallenge = new Challenge(Challenges.challenges[state.challengeNumber + 1]);
       break;
     }
     default: console.log('Default reached.');

@@ -8,6 +8,7 @@ export const OUTPUT_CHANGED = 'OUTPUT_CHANGED';
 export const TESTS_STARTED = 'TESTS_STARTED';
 export const TESTS_FINISHED = 'TESTS_FINISHED';
 export const START_CHALLENGE = 'START_CHALLENGE';
+export const NEXT_CHALLENGE = 'NEXT_CHALLENGE';
 
 
 /* Thunk action which runs the test cases against user code. */
@@ -56,6 +57,12 @@ export function actionTestsFinished(testResults) {
 export function startChallenge() {
   return {
     type: START_CHALLENGE
+  };
+}
+
+export function nextChallenge() {
+  return {
+    type: NEXT_CHALLENGE
   };
 }
 

@@ -45,6 +45,7 @@ export default class ArcadeMode extends Component {
   constructor(props) {
     super(props);
     this.onClickRunTests = this.onClickRunTests.bind(this);
+    this.onClickNextChallenge = this.onClickNextChallenge.bind(this);
     this.onClickStartChallenge = this.onClickStartChallenge.bind(this);
 
     this.onCodeChange = this.onCodeChange.bind(this);
@@ -53,6 +54,10 @@ export default class ArcadeMode extends Component {
   onCodeChange(newCode) {
     console.log('Emitting new code from <ArcadeMode>');
     this.props.onCodeChange(newCode);
+  }
+
+  onClickNextChallenge() {
+    this.props.nextChallenge();
   }
 
   onClickRunTests() {
@@ -150,7 +155,7 @@ export default class ArcadeMode extends Component {
                 />
               </div>
               {passFailResult &&
-              <button className={'btn btn-info btn-block'} onClick={this.onClickNextChallenge}>Continue to next challenge!</button>
+                <button className={'btn btn-info btn-block'} onClick={this.onClickNextChallenge}>Continue to next challenge!</button>
               }
             </Col>
 
@@ -169,6 +174,7 @@ ArcadeMode.propTypes = {
   description: PropTypes.array.isRequired,
   userOutput: PropTypes.string.isRequired,
   code: PropTypes.string.isRequired,
+  nextChallenge: PropTypes.func.isRequired,
   onCodeChange: PropTypes.func.isRequired,
   runTests: PropTypes.func.isRequired,
   userData: PropTypes.instanceOf(UserData).isRequired,
