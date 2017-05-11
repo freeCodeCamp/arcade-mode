@@ -1,6 +1,11 @@
 # PROGRESS for Arcade Mode
 
 ## Wednesday 5/10/17:
+### Tim:
+  - Progress:
+    1. Add user output box to the left panel.
+    2. Add challenge title and description to left panel.
+    3. Move the display of challenge information after user presses start.
 
 ### Tuomas:
   - Progress:
