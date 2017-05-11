@@ -195,7 +195,7 @@ export default class ArcadeMode extends Component {
                 }
                 {finishButton}
               </div>
-              <div>
+              <div className='challenge__buttons'>
                 {this.props.isSessionStarted &&
                   <button className={'btn btn-warning'} onClick={this.onClickSolve}>Insert Solution</button>
                 }
