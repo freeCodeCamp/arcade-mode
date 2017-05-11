@@ -190,11 +190,15 @@ export default class ArcadeMode extends Component {
 
               <div className='challenge__buttons'>
                 <button className={'btn btn-success'} onClick={this.onClickStartChallenge}>Start</button>
-                <button className={'btn btn-primary'} onClick={this.onClickRunTests}>Run tests</button>
+                {this.props.isSessionStarted &&
+                  <button className={'btn btn-primary'} onClick={this.onClickRunTests}>Run tests</button>
+                }
                 {finishButton}
               </div>
               <div>
-                <button className={'btn btn-warning'} onClick={this.onClickSolve}>Insert Solution</button>
+                {this.props.isSessionStarted &&
+                  <button className={'btn btn-warning'} onClick={this.onClickSolve}>Insert Solution</button>
+                }
               </div>
 
               <div className='challenge__title'>{this.props.title}</div>
@@ -245,5 +249,6 @@ ArcadeMode.propTypes = {
   sessionScore: PropTypes.number.isRequired,
   isTimerFinished: PropTypes.bool.isRequired,
   solveChallenge: PropTypes.func.isRequired,
-  isSessionFinished: PropTypes.bool.isRequired
+  isSessionFinished: PropTypes.bool.isRequired,
+  isSessionStarted: PropTypes.bool.isRequired
 };
