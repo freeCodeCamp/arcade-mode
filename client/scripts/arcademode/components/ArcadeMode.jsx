@@ -62,28 +62,41 @@ export default class ArcadeMode extends Component {
 
   onClickStartChallenge() {
     this.props.startChallenge();
-
   }
+
+  processTestResults() {
+    const results = this.props.testResults.testResults;
+    let testsOk = true;
+    if (results.length) {
+      results.forEach(result => { testsOk = testsOk && result.pass; });
+    }
+    else testsOk = false;
+    return testsOk;
+  }
+
 
   /* TODO: Add limit to the number of printed tests. Improve output. */
   renderTestResults() {
     const results = this.props.testResults.testResults;
     let testsOk = true;
+    let individualTests;
+    if (results.length) {
+      individualTests = results.map((item, index) => {
+        const result = item.pass ? 'Pass' : 'Fail';
+        const className = item.pass ? 'text-success' : 'text-danger';
+        testsOk = testsOk && item.pass;
+        console.log(JSON.stringify(item));
 
-    const individualTests = results.map((item, index) => {
-      const result = item.pass ? 'Pass' : 'Fail';
-      const className = item.pass ? 'text-success' : 'text-danger';
-      testsOk = testsOk && item.pass;
-      console.log(JSON.stringify(item));
+        // If test had error, format the error message here
+        let msg = null;
+        if (item.error !== null) {
+          msg = <p>Error: {item.error.message}</p>;
+        }
 
-      // If test had error, format the error message here
-      let msg = null;
-      if (item.error !== null) {
-        msg = <p>Error: {item.error.message}</p>;
-      }
-
-      return <p className={className} key={index}>Status: {result} {msg}</p>;
-    });
+        return <p className={className} key={index}>Status: {result} {msg}</p>;
+      });
+    }
+    else testsOk = false;
 
     const finalResult = testsOk ? 'All tests passed' : 'There were failing tests';
 
@@ -97,7 +110,7 @@ export default class ArcadeMode extends Component {
 
   render() {
     const testResults = this.renderTestResults();
-    console.log(this.props.description);
+    const passFailResult = this.processTestResults();
     const descr = this.props.description.join('\n');
     function createMarkup() {
       return { __html: descr };
@@ -136,6 +149,9 @@ export default class ArcadeMode extends Component {
                   value={this.props.code}
                 />
               </div>
+              {passFailResult &&
+              <button className={'btn btn-info btn-block'} onClick={this.onClickNextChallenge}>Continue to next challenge!</button>
+              }
             </Col>
 
           </Row>

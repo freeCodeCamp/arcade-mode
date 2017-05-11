@@ -34,9 +34,6 @@ export function runTests(userCode, currChallenge) {
         if (workerData.length > 1) {
           dispatch(actionTestsFinished(workerData.slice(1)));
         }
-        else {
-          
-        }
       });
   };
 }

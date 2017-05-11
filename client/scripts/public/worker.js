@@ -38,7 +38,6 @@ onmessage = e => {
     return postMessage(userOutput);
   }
 
-  console.log('initial phase passed');
   if (eval(`${userCode}`) === undefined) {
     userFnData.output = 'User output is undefined';
   }
@@ -46,7 +45,6 @@ onmessage = e => {
     userFnData.output = JSON.stringify(eval(`${userCode}`), null, 2);
   }
   userOutput.push(userFnData);
-  console.log('hi');
   console.log(userFnData.output);
 
   const testResults = [];
