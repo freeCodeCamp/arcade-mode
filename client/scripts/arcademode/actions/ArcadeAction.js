@@ -2,6 +2,7 @@
 'use strict';
 
 /* Action type constants. */
+export const MODAL_CLOSE = 'MODAL_CLOSE';
 export const RUN_TEST = 'RUN_TEST';
 export const CODE_CHANGED = 'CODE_CHANGED';
 export const OUTPUT_CHANGED = 'OUTPUT_CHANGED';
@@ -78,6 +79,12 @@ export function actionTestsFinished(testResults) {
   return {
     type: TESTS_FINISHED,
     testResults
+  };
+}
+
+export function onModalClose() {
+  return {
+    type: MODAL_CLOSE
   };
 }
 

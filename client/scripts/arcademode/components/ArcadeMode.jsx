@@ -9,6 +9,7 @@ import { Grid, Row, Col } from 'react-bootstrap';
 import UserData from '../model/UserData';
 import TestResults from '../model/TestResults';
 import Challenge from '../model/Challenge';
+import Modal from './Modal';
 import Navbar from './Navbar';
 
 const outputOptions = {
@@ -147,6 +148,7 @@ export default class ArcadeMode extends Component {
 
     return (
       <div>
+        <Modal modal={this.props.modal} onModalClose={this.props.onModalClose} />
         <Navbar
           timeLeft={this.props.timeLeft}
           onTimerMaxValueChange={this.onTimerMaxValueChange}
@@ -197,6 +199,8 @@ export default class ArcadeMode extends Component {
 }
 
 ArcadeMode.propTypes = {
+  modal: PropTypes.bool.isRequired,
+  onModalClose: PropTypes.func.isRequired,
   currChallenge: PropTypes.instanceOf(Challenge).isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.array.isRequired,
