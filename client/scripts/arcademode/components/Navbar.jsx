@@ -27,6 +27,9 @@ const ArcadeNavbar = props => (
       <Navbar.Text pullLeft>
         Time: {props.timeLeft}
       </Navbar.Text>
+      <Navbar.Text pullLeft>
+        Score: {props.sessionScore}
+      </Navbar.Text>
       <Navbar.Text pullRight>
         Signed in as: <Navbar.Link href='#'>Test</Navbar.Link>
       </Navbar.Text>
@@ -36,6 +39,7 @@ const ArcadeNavbar = props => (
 
 
 ArcadeNavbar.propTypes = {
+  sessionScore: PropTypes.number.isRequired,
   timeLeft: PropTypes.number.isRequired,
   timerMaxValue: PropTypes.number.isRequired,
   onTimerMaxValueChange: PropTypes.func.isRequired
