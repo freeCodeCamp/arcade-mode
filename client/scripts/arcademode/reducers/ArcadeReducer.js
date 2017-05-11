@@ -59,6 +59,7 @@ export default function arcadeReducer(state, action) {
       // Timer handling
       isTimerFinished: false,
       timerMaxValue: timerDefaultValue,
+      timerMaxValueLoaded: timerDefaultValue,
       timeLeft: timerDefaultValue,
       timerStart: 0,
 
@@ -107,9 +108,7 @@ export default function arcadeReducer(state, action) {
       break;
     }
     case TIMER_MAX_VALUE_CHANGED: {
-      if (!state.isSessionStarted) {
-        nextState.timerMaxValue = action.timerMaxValue;
-      }
+      nextState.timerMaxValue = action.timerMaxValue;
       break;
     }
     case TIMER_STARTED: {
@@ -127,11 +126,12 @@ export default function arcadeReducer(state, action) {
       nextState.isSessionFinished = false;
       nextState.isSessionStarted = true;
       nextState.currChallengeStartedAt = action.startTime;
+      nextState.timerMaxValueLoaded = state.timerMaxValue;
       break;
     }
     case TIMER_UPDATED: {
       const timeNow = action.timeNow;
-      nextState.timeLeft = parseInt(state.timerMaxValue, 10) - (timeNow - state.timerStart);
+      nextState.timeLeft = parseInt(state.timerMaxValueLoaded, 10) - (timeNow - state.timerStart);
       break;
     }
     case STOP_TIMER: {
