@@ -112,8 +112,10 @@ export default class ArcadeMode extends Component {
               <p>This is the info panel.</p>
               <div className='challenge__title'>{this.props.title}</div>
               <div className='challenge__description' dangerouslySetInnerHTML={createMarkup()} />
-              <button className={'btn btn-success'} onClick={this.onClickStartChallenge}>Start</button>
-              <button className={'btn btn-primary'} onClick={this.onClickRunTests}>Run tests</button>
+              <div className='challenge__buttons'>
+                <button className={'btn btn-success'} onClick={this.onClickStartChallenge}>Start</button>
+                <button className={'btn btn-primary'} onClick={this.onClickRunTests}>Run tests</button>
+              </div>
               {/* <p>Your code returned: {this.props.codeRetVal.toString()}</p> */}
               <p>Userdata given: {this.props.userData.username} </p>
               <div className={'output'}>
