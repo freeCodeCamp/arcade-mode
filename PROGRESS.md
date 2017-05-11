@@ -2,6 +2,7 @@
 
 ## Thursday 5/11/17:
 ### Tim:
+  - Progress:
     1. Add opening modal to app.
 
 ## Wednesday 5/10/17:
