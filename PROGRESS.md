@@ -1,5 +1,9 @@
 # PROGRESS for Arcade Mode
 
+## Thursday 5/11/17:
+### Tim:
+    1. Add opening modal to app.
+
 ## Wednesday 5/10/17:
 ### Tim:
   - Progress:
