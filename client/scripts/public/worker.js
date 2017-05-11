@@ -16,7 +16,7 @@ onmessage = e => {
   const tests = currChallenge.challenge.tests.map(test => (
     {
       test,
-      testCondition: test.match(/^assert\(([^,]*),/)[1],
+      // testCondition: test.match(/^assert\(([^,]*),/)[1],
       testMessage: test.match(/message: (.*)'\);$/)[1]
     }
   ));

@@ -64,6 +64,9 @@ export default function arcadeReducer(state, action) {
       nextState.description = state.nextChallenge.getDescription();
       nextState.code = state.nextChallenge.getSeed().join('\n');
       nextState.testResults = new TestResults([]);
+      nextState.challengeNumber++;
+      nextState.userOutput = '',
+      nextState.nextChallenge = new Challenge(Challenges.challenges[state.challengeNumber + 1]);
       break;
     }
     case OUTPUT_CHANGED: {
