@@ -69,7 +69,6 @@
     "express-session": "^1.15.2",
     "helmet": "^3.6.0",
     "immutable": "^3.8.1",
-    "js-interpreter": "^1.4.3",
     "mongoose": "^4.9.7",
     "morgan": "^1.8.1",
     "prop-types": "^15.5.8",
