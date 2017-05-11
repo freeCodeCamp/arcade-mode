@@ -2,7 +2,7 @@
 
 .arcade-panel {
   background-color: #0ff;
-  max-height: 90vh;
+  max-height: calc(100vh - 82px);;
   overflow-y: auto;
 }
 

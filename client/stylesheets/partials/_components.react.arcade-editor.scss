@@ -2,11 +2,13 @@
 
 .arcade-editor { // editor + continue button
   background-color: #ccc;
-  max-height: 90vh;
-  overflow-y: auto;
+  max-height: calc(100vh - 82px); // 82px is the height of the navbar and its margin-bottom
+  overflow-y: hidden;
 }
 
 .editor {
-  max-height: 83vh;
+  max-height: calc(100vh - 82px - 46px - 20px); 
+    // 46px is the height of the continue button
+    // 20px is the height of the "This is where the editor should go." line.
   overflow-y: auto;
 }
