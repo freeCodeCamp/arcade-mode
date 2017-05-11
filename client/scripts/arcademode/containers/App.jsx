@@ -11,7 +11,8 @@ import {
   startChallenge,
   startTimer,
   stopTimer,
-  actionFinishSession
+  actionFinishSession,
+  actionTimerMaxValueChanged
 } from '../actions/ArcadeAction';
 
 const mapStateToProps = state => ({
@@ -24,7 +25,8 @@ const mapStateToProps = state => ({
   currChallenge: state.arcadeReducer.currChallenge,
   nextChallenge: state.arcadeReducer.nextChallenge,
   testResults: state.arcadeReducer.testResults,
-  timeLeft: state.arcadeReducer.timeLeft
+  timeLeft: state.arcadeReducer.timeLeft,
+  timerMaxValue: state.arcadeReducer.timerMaxValue
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -34,7 +36,8 @@ const mapDispatchToProps = dispatch => ({
   onCodeChange: newCode => dispatch(onCodeChange(newCode)),
   startChallenge: () => dispatch(startChallenge()),
   startTimer: () => dispatch(startTimer()),
-  stopTimer: () => dispatch(stopTimer())
+  stopTimer: () => dispatch(stopTimer()),
+  onTimerMaxValueChange: timerMaxValue => dispatch(actionTimerMaxValueChanged(timerMaxValue))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ArcadeMode);
