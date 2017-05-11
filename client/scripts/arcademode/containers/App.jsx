@@ -28,7 +28,9 @@ const mapStateToProps = state => ({
   nextChallenge: state.arcadeReducer.nextChallenge,
   testResults: state.arcadeReducer.testResults,
   timeLeft: state.arcadeReducer.timeLeft,
-  timerMaxValue: state.arcadeReducer.timerMaxValue
+  timerMaxValue: state.arcadeReducer.timerMaxValue,
+  sessionScore: state.arcadeReducer.sessionScore,
+  isTimerFinished: state.arcadeReducer.isTimerFinished
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -38,7 +40,7 @@ const mapDispatchToProps = dispatch => ({
   nextChallenge: () => dispatch(nextChallenge()),
   onCodeChange: newCode => dispatch(onCodeChange(newCode)),
   startChallenge: () => dispatch(startChallenge()),
-  startTimer: () => dispatch(startTimer()),
+  startTimer: (timerMaxValue) => dispatch(startTimer(timerMaxValue)),
   stopTimer: () => dispatch(stopTimer()),
   onTimerMaxValueChange: timerMaxValue => dispatch(actionTimerMaxValueChanged(timerMaxValue))
 });
