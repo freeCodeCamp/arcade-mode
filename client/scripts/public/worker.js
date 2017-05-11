@@ -43,7 +43,7 @@ onmessage = e => {
     userFnData.output = 'User output is undefined';
   }
   else {
-    userFnData.output = JSON.stringify(eval(`${userCode}`));
+    userFnData.output = JSON.stringify(eval(`${userCode}`), null, 2);
   }
   userOutput.push(userFnData);
   console.log('hi');
