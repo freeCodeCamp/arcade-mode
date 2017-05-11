@@ -8,6 +8,8 @@ import { onCodeChange, runTests, startChallenge } from '../actions/ArcadeAction'
 
 const mapStateToProps = state => ({
   userData: state.arcadeReducer.userData,
+  title: state.arcadeReducer.title,
+  description: state.arcadeReducer.description,
   code: state.arcadeReducer.code,
   userOutput: state.arcadeReducer.userOutput,
   currChallenge: state.arcadeReducer.currChallenge,

@@ -6,6 +6,14 @@ export default class Challenge {
     this.challenge = challenge;
   }
 
+  getTitle() {
+    return this.challenge.title;
+  }
+
+  getDescription() {
+    return this.challenge.description;
+  }
+
   /* Returns the code seed for this challenge. */
   getSeed() {
     return this.challenge.challengeSeed;

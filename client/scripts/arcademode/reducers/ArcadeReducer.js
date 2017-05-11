@@ -23,7 +23,13 @@ import Challenge from '../model/Challenge';
 export default function arcadeReducer(state, action) {
   if (typeof state === 'undefined') {
     return {
-      code: Challenges.challenges[0].challengeSeed.join('\n'),
+      title: '',
+      description: [],
+      code: `
+        The code to work with will show up here.
+        When you are ready, enter a time at the top and press start to begin!
+      `,
+      // Challenges.challenges[0].challengeSeed.join('\n'),
       userOutput: 'The output of your code will show up here.',
       interpreterError: false,
       isRunningTests: false,
@@ -54,6 +60,8 @@ export default function arcadeReducer(state, action) {
       break;
     }
     case START_CHALLENGE: {
+      nextState.title = state.currChallenge.getTitle();
+      nextState.description = state.currChallenge.getDescription();
       nextState.code = state.currChallenge.getSeed().join('\n');
       break;
     }

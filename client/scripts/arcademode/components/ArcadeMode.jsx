@@ -55,13 +55,14 @@ export default class ArcadeMode extends Component {
     this.props.onCodeChange(newCode);
   }
 
-  onClickRunTests(e) {
-    const target = e.target;
+  onClickRunTests() {
+    // const target = e.target;
     this.props.runTests(this.props.code, this.props.currChallenge);
   }
 
   onClickStartChallenge() {
     this.props.startChallenge();
+
   }
 
   /* TODO: Add limit to the number of printed tests. Improve output. */
@@ -96,6 +97,11 @@ export default class ArcadeMode extends Component {
 
   render() {
     const testResults = this.renderTestResults();
+    console.log(this.props.description);
+    const descr = this.props.description.join('\n');
+    function createMarkup() {
+      return { __html: descr };
+    }
     return (
       <div>
         <Navbar />
@@ -104,14 +110,18 @@ export default class ArcadeMode extends Component {
 
             <Col className='arcade-panel' xs={12} sm={12} md={4} lg={4}>
               <p>This is the info panel.</p>
+              <div className='challenge__title'>{this.props.title}</div>
+              <div className='challenge__description' dangerouslySetInnerHTML={createMarkup()} />
               <button className={'btn btn-success'} onClick={this.onClickStartChallenge}>Start</button>
               <button className={'btn btn-primary'} onClick={this.onClickRunTests}>Run tests</button>
               {/* <p>Your code returned: {this.props.codeRetVal.toString()}</p> */}
               <p>Userdata given: {this.props.userData.username} </p>
-              <CodeMirror className='output'
-                options={outputOptions}
-                value={this.props.userOutput}
-              />
+              <div className={'output'}>
+                <CodeMirror
+                  options={outputOptions}
+                  value={this.props.userOutput}
+                />
+              </div>
               {testResults}
             </Col>
 
@@ -137,6 +147,8 @@ export default class ArcadeMode extends Component {
 
 ArcadeMode.propTypes = {
   currChallenge: PropTypes.instanceOf(Challenge).isRequired,
+  title: PropTypes.string.isRequired,
+  description: PropTypes.array.isRequired,
   userOutput: PropTypes.string.isRequired,
   code: PropTypes.string.isRequired,
   onCodeChange: PropTypes.func.isRequired,

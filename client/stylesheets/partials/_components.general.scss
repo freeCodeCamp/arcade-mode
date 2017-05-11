@@ -1,5 +1,14 @@
 // general styling
 
-.app {
+.app { // root app
   //max-width: 1200px; // set max width of react app
+}
+
+.challenge {
+  &__title {
+    font-weight: bold;
+  }
+  &__description {
+    white-space: pre-wrap;
+  }
 }
