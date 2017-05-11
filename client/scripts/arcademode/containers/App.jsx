@@ -4,7 +4,7 @@
 import { connect } from 'react-redux';
 
 import ArcadeMode from '../components/ArcadeMode';
-import { onCodeChange, runTests, startChallenge, startTimer, stopTimer } from '../actions/ArcadeAction';
+import { onCodeChange, runTests, startChallenge, startTimer, stopTimer, actionFinishSession } from '../actions/ArcadeAction';
 
 const mapStateToProps = state => ({
   userData: state.arcadeReducer.userData,
@@ -15,6 +15,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
+  finishSession: () => dispatch(actionFinishSession()),
   runTests: (userCode, currChallenge) => dispatch(runTests(userCode, currChallenge)),
   onCodeChange: newCode => dispatch(onCodeChange(newCode)),
   startChallenge: () => dispatch(startChallenge()),
