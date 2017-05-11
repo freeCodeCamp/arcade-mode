@@ -41,7 +41,7 @@ const ArcadeNavbar = props => (
 ArcadeNavbar.propTypes = {
   sessionScore: PropTypes.number.isRequired,
   timeLeft: PropTypes.number.isRequired,
-  timerMaxValue: PropTypes.number.isRequired,
+  timerMaxValue: PropTypes.string.isRequired,
   onTimerMaxValueChange: PropTypes.func.isRequired
 };
 

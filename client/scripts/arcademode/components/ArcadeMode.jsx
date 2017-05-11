@@ -86,10 +86,7 @@ export default class ArcadeMode extends Component {
 
   onTimerMaxValueChange(e) {
     const inputValue = e.target.value;
-    if (inputValue.length > 0) {
-      const maxValue = parseInt(e.target.value, 10);
-      this.props.onTimerMaxValueChange(maxValue);
-    }
+    this.props.onTimerMaxValueChange(inputValue);
   }
 
   processTestResults() {
@@ -244,7 +241,7 @@ ArcadeMode.propTypes = {
   testResults: PropTypes.instanceOf(TestResults).isRequired,
   timeLeft: PropTypes.number.isRequired,
   onTimerMaxValueChange: PropTypes.func.isRequired,
-  timerMaxValue: PropTypes.number.isRequired,
+  timerMaxValue: PropTypes.string.isRequired,
   sessionScore: PropTypes.number.isRequired,
   isTimerFinished: PropTypes.bool.isRequired,
   solveChallenge: PropTypes.func.isRequired,
