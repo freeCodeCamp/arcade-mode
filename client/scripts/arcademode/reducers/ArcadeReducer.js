@@ -64,6 +64,7 @@ export default function arcadeReducer(state, action) {
 
       // Session control variables
       isSessionFinished: false,
+      isSessionStarted: false,
       sessionScore: 0
     };
   }
@@ -106,7 +107,9 @@ export default function arcadeReducer(state, action) {
       break;
     }
     case TIMER_MAX_VALUE_CHANGED: {
-      nextState.timerMaxValue = action.timerMaxValue;
+      if (!state.isSessionStarted) {
+        nextState.timerMaxValue = action.timerMaxValue;
+      }
       break;
     }
     case TIMER_STARTED: {
@@ -122,6 +125,7 @@ export default function arcadeReducer(state, action) {
       nextState.challengeNumber++;
       nextState.nextChallenge = new Challenge(Challenges.challenges[state.challengeNumber + 1]);
       nextState.isSessionFinished = false;
+      nextState.isSessionStarted = true;
       nextState.currChallengeStartedAt = action.startTime;
       break;
     }
@@ -137,6 +141,7 @@ export default function arcadeReducer(state, action) {
     }
     case FINISH_SESSION: {
       nextState.isSessionFinished = true;
+      nextState.isSessionStarted = false;
       break;
     }
     case SOLVE_CHALLENGE: {
