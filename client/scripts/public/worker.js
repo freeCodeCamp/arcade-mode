@@ -45,7 +45,6 @@ onmessage = e => {
     userFnData.output = JSON.stringify(eval(`${userCode}`), null, 2);
   }
   userOutput.push(userFnData);
-  console.log(userFnData.output);
 
   const testResults = [];
   tests.forEach(test => {
@@ -66,7 +65,6 @@ onmessage = e => {
   });
 
   const postData = userOutput.concat(testResults);
-  console.log(`postData: ${postData}`);
 
   console.log('Now sending worker user code output and test results');
   postMessage(postData);
