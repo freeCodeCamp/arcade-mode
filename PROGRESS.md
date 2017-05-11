@@ -6,6 +6,7 @@
     1. Add user output box to the left panel.
     2. Add challenge title and description to left panel.
     3. Move the display of challenge information after user presses start.
+    4. Add ability to continue to the next challenge after passing all tests.
 
 ### Tuomas:
   - Progress:
