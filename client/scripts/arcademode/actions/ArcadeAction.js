@@ -16,6 +16,8 @@ export const TIMER_STARTED = 'TIMER_STARTED';
 export const STOP_TIMER = 'STOP_TIMER';
 export const FINISH_SESSION = 'FINISH_SESSION';
 
+export const TIMER_MAX_VALUE_CHANGED = 'TIMER_MAX_VALUE_CHANGED';
+
 /* Thunk action which runs the test cases against user code. */
 export function runTests(userCode, currChallenge) {
   return dispatch => {
@@ -113,6 +115,13 @@ export function actionTimerFinished() {
 export function actionTimerUpdated() {
   return {
     type: TIMER_UPDATED
+  };
+}
+
+export function actionTimerMaxValueChanged(timerMaxValue) {
+  return {
+    type: TIMER_MAX_VALUE_CHANGED,
+    timerMaxValue
   };
 }
 
