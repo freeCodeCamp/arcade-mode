@@ -158,7 +158,6 @@ export default class ArcadeMode extends Component {
                 <button className={'btn btn-info btn-block'} onClick={this.onClickNextChallenge}>Continue to next challenge!</button>
               }
             </Col>
-
           </Row>
         </Grid>
       </div>
