@@ -1,5 +1,7 @@
 // styling for react component: editor
 
-.editor {
+.arcade-editor {
   background-color: #ccc;
+  max-height: 90vh;
+  overflow-y: auto;
 }

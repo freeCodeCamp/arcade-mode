@@ -127,7 +127,7 @@ export default class ArcadeMode extends Component {
               {testResults}
             </Col>
 
-            <Col className='editor' xs={12} sm={12} md={8} lg={8}>
+            <Col className='arcade-editor' xs={12} sm={12} md={8} lg={8}>
               This is where the editor should go.
               <div className={'editor'}>
                 <CodeMirror
