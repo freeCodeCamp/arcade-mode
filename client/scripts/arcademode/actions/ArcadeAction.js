@@ -50,12 +50,23 @@ export function runTests(userCode, currChallenge) {
 let timer = null;
 
 /* Thunk action to start the timer. */
-export function startTimer() {
+export function startTimer(timerMaxValue) {
   return dispatch => {
     clearInterval(timer);
-    dispatch(actionTimerStarted());
+    const timeStart = new Date().getTime();
+    dispatch(actionTimerStarted(timeStart));
+
     timer = setInterval(() => {
-      dispatch(actionTimerUpdated());
+      const timeNow = new Date().getTime();
+      dispatch(actionTimerUpdated(timeNow));
+      const timeElapsed = timeNow - timeStart;
+      if (timeElapsed >= timerMaxValue) {
+        dispatch(stopTimer());
+      }
+      else {
+        console.log('Elapsed time: ' + timeElapsed);
+        console.log('Max value: ' + timerMaxValue);
+      }
     }, 1000 / 60);
   };
 }
@@ -88,15 +99,17 @@ export function onModalClose() {
   };
 }
 
-export function startChallenge() {
+export function startChallenge(startTime) {
   return {
-    type: START_CHALLENGE
+    type: START_CHALLENGE,
+    startTime
   };
 }
 
-export function nextChallenge() {
+export function nextChallenge(startTime) {
   return {
-    type: NEXT_CHALLENGE
+    type: NEXT_CHALLENGE,
+    startTime
   };
 }
 
@@ -107,9 +120,10 @@ export function onCodeChange(newCode) {
   };
 }
 
-export function actionTimerStarted() {
+export function actionTimerStarted(startTime) {
   return {
-    type: TIMER_STARTED
+    type: TIMER_STARTED,
+    startTime
   };
 }
 
@@ -119,9 +133,10 @@ export function actionTimerFinished() {
   };
 }
 
-export function actionTimerUpdated() {
+export function actionTimerUpdated(timeNow) {
   return {
-    type: TIMER_UPDATED
+    type: TIMER_UPDATED,
+    timeNow
   };
 }
 
