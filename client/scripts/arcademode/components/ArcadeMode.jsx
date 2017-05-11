@@ -60,7 +60,8 @@ export default class ArcadeMode extends Component {
   }
 
   onClickNextChallenge() {
-    this.props.nextChallenge();
+    const startTime = new Date().getTime();
+    this.props.nextChallenge(startTime);
   }
 
   onClickRunTests() {
@@ -68,8 +69,9 @@ export default class ArcadeMode extends Component {
   }
 
   onClickStartChallenge() {
-    this.props.startChallenge();
-    this.props.startTimer();
+    const startTime = new Date().getTime();
+    this.props.startChallenge(startTime);
+    this.props.startTimer(this.props.timerMaxValue);
   }
 
   onClickFinishSession() {
@@ -109,7 +111,8 @@ export default class ArcadeMode extends Component {
         // If test had error, format the error message here
         let msg = null;
         if (item.error !== null) {
-          msg = <p>Error: {item.error.message}</p>;
+          const innerHtml = { __html: `Error: ${item.error.message}` };
+          msg = <p dangerouslySetInnerHTML={innerHtml} />;
         }
 
         return <p className={className} key={index}>Status: {result} {msg}</p>;
@@ -138,35 +141,36 @@ export default class ArcadeMode extends Component {
     }
 
     let finishButton = null;
-    // Should move out of render
-    if (this.props.timeLeft <= 0) {
-      this.props.stopTimer();
+    if (this.props.isTimerFinished) {
       finishButton = (
         <button className='btn btn-danger' onClick={this.onClickFinishSession}>Finish</button>
       );
     }
 
+    /* eslint react/no-danger: 0 */
     return (
       <div>
         <Modal modal={this.props.modal} onModalClose={this.props.onModalClose} />
         <Navbar
-          timeLeft={this.props.timeLeft}
           onTimerMaxValueChange={this.onTimerMaxValueChange}
+          sessionScore={this.props.sessionScore}
+          timeLeft={this.props.timeLeft}
           timerMaxValue={this.props.timerMaxValue}
         />
         <Grid fluid>
           <Row className='show-grid'>
 
             <Col className='arcade-panel' xs={12} sm={12} md={4} lg={4}>
-              <p>This is the info panel.</p>
-              <div className='challenge__title'>{this.props.title}</div>
-              <div className='challenge__description' dangerouslySetInnerHTML={createMarkup()} />
+
               <div className='challenge__buttons'>
                 <button className={'btn btn-success'} onClick={this.onClickStartChallenge}>Start</button>
                 <button className={'btn btn-primary'} onClick={this.onClickRunTests}>Run tests</button>
                 {finishButton}
               </div>
-              <p>Userdata given: {this.props.userData.username} </p>
+
+              <div className='challenge__title'>{this.props.title}</div>
+              <div className='challenge__description' dangerouslySetInnerHTML={createMarkup()} />
+
               <div className={'output'}>
                 <CodeMirror
                   options={outputOptions}
@@ -195,7 +199,6 @@ export default class ArcadeMode extends Component {
     );
   }
 
-
 }
 
 ArcadeMode.propTypes = {
@@ -213,9 +216,10 @@ ArcadeMode.propTypes = {
   userData: PropTypes.instanceOf(UserData).isRequired,
   startChallenge: PropTypes.func.isRequired,
   startTimer: PropTypes.func.isRequired,
-  stopTimer: PropTypes.func.isRequired,
   testResults: PropTypes.instanceOf(TestResults).isRequired,
   timeLeft: PropTypes.number.isRequired,
   onTimerMaxValueChange: PropTypes.func.isRequired,
-  timerMaxValue: PropTypes.number.isRequired
+  timerMaxValue: PropTypes.number.isRequired,
+  sessionScore: PropTypes.number.isRequired,
+  isTimerFinished: PropTypes.bool.isRequired
 };
