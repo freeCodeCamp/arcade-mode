@@ -141,7 +141,7 @@ sub add_chai_mocha_test_boilerplate {
   my $chai_func = "assert";
   my $BOILERPLATE = << "__BOILERPLATE__";
 import { $chai_func } from 'chai';
-import codeUnderTest from '~/$target';
+import codeUnderTest from '~/$src';
 
 describe('$target', () => {
 
@@ -152,6 +152,7 @@ describe('$target', () => {
 });
 
 __BOILERPLATE__
+  print $OFILE $BOILERPLATE;
 }
 
 sub usage {
