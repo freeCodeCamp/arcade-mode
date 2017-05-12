@@ -99,5 +99,13 @@ describe('challenge reducer', () => {
     const nextState = reducer(initialState, actionSolveChallenge());
     assert.notEqual(initialState.code, nextState.code);
   });
+
+  it('yields no solution if challenge does not have it', () => {
+    // let challenge = { solutions: [] };
+    const initialState = reducer(undefined, dummyAction);
+    const nextState = reducer(initialState, actionSolveChallenge());
+      // TODO
+    assert.Equal(initialState.code, nextState.code);
+  });
 });
 

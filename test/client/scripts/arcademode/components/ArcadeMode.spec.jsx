@@ -1,17 +1,17 @@
-// 
+//
 // 'use strict';
-// 
+//
 // import React, { Component } from 'react';
 // import PropTypes from 'prop-types';
 // import CodeMirror from 'react-codemirror';
 // import { Grid, Row, Col } from 'react-bootstrap';
-// 
+//
 // import UserData from '../model/UserData';
 // import TestResults from '../model/TestResults';
 // import Challenge from '../model/Challenge';
 // import Modal from './Modal';
 // import Navbar from './Navbar';
-// 
+//
 // const outputOptions = {
 //   readOnly: true,
 //   theme: 'monokai',
@@ -20,7 +20,7 @@
 //   mode: 'javascript',
 //   json: true
 // };
-// 
+//
 // // TODO create <CodeEditor> and move options there
 // const editorOptions = {
 //   theme: 'monokai',
@@ -37,15 +37,15 @@
 //   inputStyle: 'contenteditable'
 //   */
 // };
-// 
+//
 // /**
 //  * Top-level component for the app. This is rendered in App.jsx.
 //  */
 // export default class ArcadeMode extends Component {
-// 
+//
 //   constructor(props) {
 //     super(props);
-// 
+//
 //     this.onClickRunTests = this.onClickRunTests.bind(this);
 //     this.onClickNextChallenge = this.onClickNextChallenge.bind(this);
 //     this.onClickStartChallenge = this.onClickStartChallenge.bind(this);
@@ -54,41 +54,41 @@
 //     this.onTimerMaxValueChange = this.onTimerMaxValueChange.bind(this);
 //     this.onClickSolve = this.onClickSolve.bind(this);
 //   }
-// 
+//
 //   onCodeChange(newCode) {
 //     console.log('Emitting new code from <ArcadeMode>');
 //     this.props.onCodeChange(newCode);
 //   }
-// 
+//
 //   onClickNextChallenge() {
 //     const startTime = new Date().getTime();
 //     this.props.nextChallenge(startTime);
 //   }
-// 
+//
 //   onClickRunTests() {
 //     this.props.runTests(this.props.code, this.props.currChallenge);
 //   }
-// 
+//
 //   onClickStartChallenge() {
 //     const startTime = new Date().getTime();
 //     this.props.startChallenge(startTime);
 //     this.props.startTimer(this.props.timerMaxValue);
 //   }
-// 
+//
 //   onClickFinishSession() {
 //     this.props.finishSession();
 //   }
-// 
+//
 //   /* Inserts the solution for current challenge into the editor. */
 //   onClickSolve() {
 //     this.props.solveChallenge();
 //   }
-// 
+//
 //   onTimerMaxValueChange(e) {
 //     const inputValue = e.target.value;
 //     this.props.onTimerMaxValueChange(inputValue);
 //   }
-// 
+//
 //   processTestResults() {
 //     const results = this.props.testResults.testResults;
 //     let testsOk = true;
@@ -98,8 +98,8 @@
 //     else testsOk = false;
 //     return testsOk;
 //   }
-// 
-// 
+//
+//
 //   /* TODO: Add limit to the number of printed tests. Improve output. */
 //   renderTestResults() {
 //     const results = this.props.testResults.testResults;
@@ -110,23 +110,23 @@
 //         const result = item.pass ? 'Pass' : 'Fail';
 //         const className = item.pass ? 'text-success' : 'text-danger';
 //         testsOk = testsOk && item.pass;
-// 
+//
 //         // If test had error, format the error message here
 //         let msg = null;
 //         if (item.error !== null) {
 //           const innerHtml = { __html: `Error: ${item.error.message}` };
 //           msg = <p dangerouslySetInnerHTML={innerHtml} />;
 //         }
-// 
+//
 //         return <p className={className} key={index}>Status: {result} {msg}</p>;
 //       });
 //     }
 //     else {
 //       testsOk = false;
 //     }
-// 
+//
 //     const finalResult = testsOk ? 'All tests passed' : 'There were failing tests';
-// 
+//
 //     return (
 //       <div>
 //         {individualTests}
@@ -134,7 +134,7 @@
 //       </div>
 //     );
 //   }
-// 
+//
 //   renderEditor() {
 //     if (this.props.isSessionFinished) {
 //       return (
@@ -156,7 +156,7 @@
 //       </div>
 //     );
 //   }
-// 
+//
 //   render() {
 //     const editorBody = this.renderEditor();
 //     const testResults = this.renderTestResults();
@@ -165,14 +165,14 @@
 //     function createMarkup() {
 //       return { __html: descr };
 //     }
-// 
+//
 //     let finishButton = null;
 //     if (this.props.isTimerFinished) {
 //       finishButton = (
 //         <button className='btn btn-danger' onClick={this.onClickFinishSession}>Finish</button>
 //       );
 //     }
-// 
+//
 //     /* eslint react/no-danger: 0 */
 //     return (
 //       <div>
@@ -185,9 +185,9 @@
 //         />
 //         <Grid fluid>
 //           <Row className='show-grid'>
-// 
+//
 //             <Col className='arcade-panel' xs={12} sm={12} md={4} lg={4}>
-// 
+//
 //               <div className='challenge__buttons'>
 //                 <button className={'btn btn-success'} onClick={this.onClickStartChallenge}>Start</button>
 //                 {this.props.isSessionStarted &&
@@ -200,10 +200,10 @@
 //                   <button className={'btn btn-warning'} onClick={this.onClickSolve}>Insert Solution</button>
 //                 }
 //               </div>
-// 
+//
 //               <div className='challenge__title'>{this.props.title}</div>
 //               <div className='challenge__description' dangerouslySetInnerHTML={createMarkup()} />
-// 
+//
 //               <div className={'output'}>
 //                 <CodeMirror
 //                   options={outputOptions}
@@ -212,7 +212,7 @@
 //               </div>
 //               {testResults}
 //             </Col>
-// 
+//
 //             <Col className='arcade-editor' xs={12} sm={12} md={8} lg={8}>
 //               {editorBody}
 //               {passFailResult &&
@@ -224,9 +224,9 @@
 //       </div>
 //     );
 //   }
-// 
+//
 // }
-// 
+//
 // ArcadeMode.propTypes = {
 //   modal: PropTypes.bool.isRequired,
 //   onModalClose: PropTypes.func.isRequired,
