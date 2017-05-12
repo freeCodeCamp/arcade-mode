@@ -58,9 +58,16 @@ import ArcadeNavbar from '../../../../../client/scripts/arcademode/components/Na
 
 chai.use(chaiEnzyme());
 
+const props = {
+  sessionScore: 0,
+  timeLeft: 0,
+  timerMaxValue: '',
+  onTimerMaxValueChange: () => {}
+};
+
 describe('<ArcadeNavbar>', () => {
   it('should have exactly one link', () => {
-    const wrapper = shallow(<ArcadeNavbar />);
+    const wrapper = shallow(<ArcadeNavbar {...props} />);
     expect(wrapper.find('a')).to.have.length(1);
   });
 });

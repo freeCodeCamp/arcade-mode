@@ -266,22 +266,21 @@ import TestResults from '../../../../../client/scripts/arcademode/model/TestResu
 chai.use(chaiEnzyme());
 
 describe('<ArcadeMode>', () => {
-  let testResults = null;
+  let props = null;
 
   beforeEach(() => {
-    testResults = new TestResults([]);
+    props = {
+      description: ['A', 'B', 'C'],
+      testResults: new TestResults([])
+    };
   });
 
   afterEach(() => {
-    testResults = null;
+    props = null;
   });
 
   it('should initially show one Start button', () => {
-    const wrapper = shallow(
-      <ArcadeMode
-        description={[]}
-        testResults={testResults}
-      />);
+    const wrapper = shallow(<ArcadeMode {...props} />);
     expect(wrapper.find('button')).to.have.length(1);
     expect(wrapper.find('button')).to.contain.text('Start');
   });
