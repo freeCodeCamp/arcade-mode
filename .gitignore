@@ -7,6 +7,11 @@ node_modules/
 # Ignore macOS folder settings
 .DS_Store
 
+# Ignore code coverage
+coverage/
+coverage_html_client/
+coverage_html_server/
+
 # Ignore logs
 npm-debug.log
 
