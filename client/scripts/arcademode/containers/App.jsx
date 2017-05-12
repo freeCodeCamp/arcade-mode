@@ -29,7 +29,7 @@ import {
 const mapStateToProps = state => ({
   modal: state.modal.modal,
   challengeNumber: state.challenge.challengeNumber,
-  userData: state.arcadeReducer.userData,
+  userData: state.session.userData,
   title: state.challenge.title,
   description: state.challenge.description,
   code: state.challenge.code,
@@ -39,10 +39,10 @@ const mapStateToProps = state => ({
   testResults: state.test.testResults,
   timeLeft: state.timer.timeLeft,
   timerMaxValue: state.timer.timerMaxValue,
-  sessionScore: state.arcadeReducer.sessionScore,
+  sessionScore: state.session.sessionScore,
   isTimerFinished: state.timer.isTimerFinished,
-  isSessionFinished: state.arcadeReducer.isSessionFinished,
-  isSessionStarted: state.arcadeReducer.isSessionStarted
+  isSessionFinished: state.session.isSessionFinished,
+  isSessionStarted: state.session.isSessionStarted
 });
 
 const mapDispatchToProps = dispatch => ({

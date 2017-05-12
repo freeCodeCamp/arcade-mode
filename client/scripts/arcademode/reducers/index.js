@@ -3,14 +3,14 @@
 
 import { combineReducers } from 'redux';
 
-import arcadeReducer from './ArcadeReducer';
+import session from './session';
 import challenge from './challenge';
 import modal from './modal';
 import test from './test';
 import timer from './timer';
 
 export default combineReducers({
-  arcadeReducer,
+  session,
   challenge,
   modal,
   test,
