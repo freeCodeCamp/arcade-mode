@@ -1,13 +1,17 @@
 
 'use strict';
 
-/* Action type constants. */
-export const RUN_TEST = 'RUN_TEST';
 export const OUTPUT_CHANGED = 'OUTPUT_CHANGED';
 export const TESTS_STARTED = 'TESTS_STARTED';
 export const TESTS_FINISHED = 'TESTS_FINISHED';
 
-export const FINISH_SESSION = 'FINISH_SESSION';
+
+export function onOutputChange(newOutput) {
+  return {
+    type: OUTPUT_CHANGED,
+    userOutput: newOutput
+  };
+}
 
 /* Thunk action which runs the test cases against user code. */
 export function runTests(userCode, currChallenge) {
@@ -38,29 +42,16 @@ export function runTests(userCode, currChallenge) {
 }
 
 /* Dispatched when a user starts running the tests.*/
-export function actionTestsStarted() {
+export function actionTestsStarted () {
   return {
     type: TESTS_STARTED
   };
 }
 
 /* Dispatched when the tests finish. */
-export function actionTestsFinished(testResults) {
+export function actionTestsFinished (testResults) {
   return {
     type: TESTS_FINISHED,
     testResults
-  };
-}
-
-export function onOutputChange(newOutput) {
-  return {
-    type: OUTPUT_CHANGED,
-    userOutput: newOutput
-  };
-}
-
-export function actionFinishSession() {
-  return {
-    type: FINISH_SESSION
   };
 }
