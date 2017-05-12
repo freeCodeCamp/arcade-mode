@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 
 import ArcadeMode from '../components/ArcadeMode';
 import {
-  onModalClose,
   nextChallenge,
   onCodeChange,
   runTests,
@@ -17,8 +16,10 @@ import {
   actionSolveChallenge
 } from '../actions/ArcadeAction';
 
+import { onModalClose } from '../actions/Modal';
+
 const mapStateToProps = state => ({
-  modal: state.arcadeReducer.modal,
+  modal: state.modal.modal,
   challengeNumber: state.arcadeReducer.challengeNumber,
   userData: state.arcadeReducer.userData,
   title: state.arcadeReducer.title,
