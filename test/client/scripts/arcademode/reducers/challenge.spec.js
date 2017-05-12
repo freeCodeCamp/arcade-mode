@@ -1,18 +1,18 @@
-// 
+//
 // 'use strict';
-// 
+//
 // import {
 //   CHALLENGE_START,
 //   CHALLENGE_NEXT,
 //   CHALLENGE_SOLVE,
 //   CODE_CHANGED
 // } from '../actions/challenge';
-// 
+//
 // import Challenges from '../../../json/challenges.json';
 // import Challenge from '../model/Challenge';
-// 
+//
 // // import Immutable from 'immutable';
-// 
+//
 // const initialState = {
 //   title: '',
 //   description: [],
@@ -25,10 +25,10 @@
 //   currChallengeStartedAt: 0,
 //   nextChallenge: ''
 // };
-// 
+//
 // export default function challenge(state = initialState, action) {
 //   const nextState = Object.assign({}, state);
-// 
+//
 //   switch (action.type) {
 //     case CHALLENGE_START: // lift to session start
 //       nextState.title = state.currChallenge.getTitle();
@@ -62,20 +62,36 @@
 //     default:
 //       return state;
 //   }
-// 
+//
 //   return nextState;
 // }
 
 /* Unit tests for file client/scripts/arcademode/reducers/challenge.js. */
 import { assert } from 'chai';
-import challenge from '../../../../..//client/scripts/arcademode/reducers/challenge.js'
+import challenge from '../../../../../client/scripts/arcademode/reducers/challenge';
+import { startChallenge, nextChallenge } from '../../../../../client/scripts/arcademode/actions/challenge';
 
+const dummyAction = { type: 'DUMMY' };
 
 describe('challenge', () => {
-
-  it('should do x', () => {
-    assert(/* code */);
+  it('should have clean initial state', () => {
+    const state = challenge(undefined, dummyAction);
+    assert.isOk(state, 'Initial state OK');
+    assert(state.challengeNumber === 0, 'Challenge number 0 OK');
   });
 
+  it('should set correct challenge start time', () => {
+    const action = startChallenge(1000);
+    const initialState = challenge(undefined, dummyAction);
+    const nextState = challenge(initialState, action);
+    assert(nextState.currChallengeStartedAt === 1000, 'Challenge started at 1000');
+  });
+
+  it('should move to next challenge with an action', () => {
+    const initialState = challenge(undefined, dummyAction);
+    const nextState = challenge(initialState, nextChallenge(1200));
+    assert(nextState.currChallenge === initialState.currChallenge, 'Next challenge chosen correctly.');
+
+  });
 });
 
