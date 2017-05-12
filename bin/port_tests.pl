@@ -32,10 +32,15 @@ use File::Basename;
 
 my %opt;
 GetOptions(
+  "all-in-test" => \$opt{all_in_test},
   "d|debug" => \$opt{debug},
   "t|target=s" => \$opt{target},
   "h|help" => \$opt{help},
+  "with-source" => \$opt{with_source},
 );
+
+my $export_default_re = qr/^\s*export\s*default\s+(class|function|const|let)\s+(\w+)/;
+my $module_exports_re = qr/^\s*module\.exports\*=\s*(\w+)/;
 
 my $test_dir = $opt{target}  || "test";
 
@@ -53,42 +58,63 @@ foreach my $f (@files) {chomp($f);}
 # This saves the new files that were created
 my @new_files = ();
 
-if (not -d $opt{target}) {
-  mkdir($opt{target}) or die $!;
+if (not -d $test_dir) {
+  if (not defined $opt{debug}) { 
+    mkdir($test_dir) or die $!;
+  }
 }
 
 # Copy non-existing files to the target folder.
 foreach my $f (@files) {
-  my ($filename, $dirs, $suffix) = fileparse($f, @suffixes);
+  my ($src_filename, $src_dir, $suffix) = fileparse($f, @suffixes);
 
-  my $new_suffix = ".spec$suffix";
-  my $new_filename = "$filename$new_suffix";
-  my $target_dir = "$test_dir/$dirs";
-  my $new_full_path = $target_dir . "/" . $new_filename;
+  my $target_suffix = ".spec$suffix";
+  my $target_filename = "$src_filename$target_suffix";
+  my $target_dir = "$test_dir/$src_dir";
+
+  if ($opt{with_source}) {
+    $target_dir = $src_dir. "/" . $test_dir;
+  }
+
+  my $target_file = $target_dir . "/" . $target_filename;
 
   if (defined $opt{debug}) {
     print "Source: $f\n";
-    print "\tFNAME: $filename\n";
+    print "\tSRC FILE $src_filename\n";
+    print "\tSRC DIR: $src_dir\n";
+    print "\tTEST FILE: $target_file\n";
+    print "\tTEST DIR: $src_dir/test\n";
     print "\tSUFFIX: $suffix\n";
-    print "\tNew full path: $new_full_path\n";
   }
 
   if (not -d $target_dir) {
     _exec("mkdir -p $target_dir");
   }
 
+  my $filedata = {
+    src_full_path    => $f,
+    src_filename     => $src_filename,
+    src_dir          => $src_dir,
+    src_suffix       => $suffix,
+    target_full_path => $target_file,
+    target_filename  => $target_filename,
+    target_dir       => $target_dir,
+    target_suffix    => $target_suffix,
+  };
+
   # Dont' overwrite existing files
-  if (not -e $new_full_path) {
+  if (not -e $target_file) {
     if (not defined $opt{debug}) {
-      copy_and_process_file($f, $new_full_path);
+      copy_and_process_file($filedata);
     }
     else {
-      print "\tcopy_and_process_file($f, $new_full_path)\n";
+      print "\tcopy_and_process_file($f, $target_file)\n";
     }
   }
 
 }
 
+# Print out the summary of script
 if (int(@new_files) > 0) {
   print "Following new spec-files were created:\n";
   foreach my $f (@new_files) {
@@ -119,31 +145,51 @@ sub _exec {
 
 # Copies the source file and comments out each line
 sub copy_and_process_file {
-  my ($src_file, $target_file) = @_;
-  open(my $IFILE, "<", $src_file) or die $!;
+  my ($fdata) = @_;
 
+  my $src_file = $fdata->{src_full_path};
+  my $target_file = $fdata->{target_full_path};
+
+  open(my $IFILE, "<", $src_file) or die $!;
   open(my $OFILE, ">", $target_file) or die $!;
+
+  my $default_export = '';
 
   while (my $line = <$IFILE>) {
     print $OFILE "// $line";
+    if ($line =~ $export_default_re) {
+      $default_export = $2;
+    }
+    elsif ($line =~ $module_exports_re) {
+      $default_export = $1;
+    }
   }
 
   # Add chai/mocha boilerplate
-  add_chai_mocha_test_boilerplate($OFILE, $src_file, $target_file);
+  add_chai_mocha_test_boilerplate($OFILE, $fdata, $default_export);
 
   close $OFILE;
   close $IFILE;
   push(@new_files, $target_file);
 }
 
+# Creates the mocha/chai test boilerplace code
 sub add_chai_mocha_test_boilerplate {
-  my ($OFILE, $src, $target) = @_;
+  my ($OFILE, $fdata, $export) = @_;
+
+  my $src = $fdata->{src_full_path};
+  my $target = $fdata->{target_full_path};
+
+  my $import_path_to_src = get_import_path($fdata->{src_dir});
+
   my $chai_func = "assert";
   my $BOILERPLATE = << "__BOILERPLATE__";
-import { $chai_func } from 'chai';
-import codeUnderTest from '~/$src';
 
-describe('$target', () => {
+/* Unit tests for file $src. */
+import { $chai_func } from 'chai';
+import $export from '$import_path_to_src/$src';
+
+describe('$export', () => {
 
   it('should do x', () => {
     $chai_func(/* code */);
@@ -155,8 +201,26 @@ __BOILERPLATE__
   print $OFILE $BOILERPLATE;
 }
 
+sub get_import_path {
+  my ($src_dir) = @_;
+  my $new_src_dir = $src_dir;
+  print "Before: src_dir is $new_src_dir\n";
+  $new_src_dir =~ s{\w+/}{../}gxs;
+  print "After: src_dir is $new_src_dir\n";
+  return "../" . $new_src_dir;
+}
+
 sub usage {
   my ($ret) = @_;
-  print "Usage: bin/port_tests.pl [-t target_dir]\n";
+  my $USAGE = << "__USAGE__";
+  "Usage: bin/port_tests.pl [-t target_dir]\n";
 
+  Options:
+    -all-in-test    All files in test/ (-t|target) folder.
+    -d|debug        Run in debug mode (no output files created)
+    -t|target       Target folder for test files. (default: test)
+    -with-source    Embed test files in source folders.
+
+__USAGE__
+  print $USAGE;
 }
