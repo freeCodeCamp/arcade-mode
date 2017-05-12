@@ -68,30 +68,36 @@
 
 /* Unit tests for file client/scripts/arcademode/reducers/challenge.js. */
 import { assert } from 'chai';
-import challenge from '../../../../../client/scripts/arcademode/reducers/challenge';
-import { startChallenge, nextChallenge } from '../../../../../client/scripts/arcademode/actions/challenge';
+import reducer from '../../../../../client/scripts/arcademode/reducers/challenge';
+import { startChallenge, nextChallenge, actionSolveChallenge } from '../../../../../client/scripts/arcademode/actions/challenge';
 
 const dummyAction = { type: 'DUMMY' };
 
-describe('challenge', () => {
+describe('challenge reducer', () => {
   it('should have clean initial state', () => {
-    const state = challenge(undefined, dummyAction);
+    const state = reducer(undefined, dummyAction);
     assert.isOk(state, 'Initial state OK');
     assert(state.challengeNumber === 0, 'Challenge number 0 OK');
   });
 
   it('should set correct challenge start time', () => {
     const action = startChallenge(1000);
-    const initialState = challenge(undefined, dummyAction);
-    const nextState = challenge(initialState, action);
+    const initialState = reducer(undefined, dummyAction);
+    const nextState = reducer(initialState, action);
     assert(nextState.currChallengeStartedAt === 1000, 'Challenge started at 1000');
   });
 
   it('should move to next challenge with an action', () => {
-    const initialState = challenge(undefined, dummyAction);
-    const nextState = challenge(initialState, nextChallenge(1200));
-    assert(nextState.currChallenge === initialState.currChallenge, 'Next challenge chosen correctly.');
+    const initialState = reducer(undefined, dummyAction);
+    const nextState = reducer(initialState, startChallenge(1200));
+    const nextState2 = reducer(nextState, nextChallenge(1600));
+    assert.deepEqual(nextState2.currChallenge, nextState.nextChallenge, 'Next challenge chosen correctly.');
+  });
 
+  it('should insert a solution when requested', () => {
+    const initialState = reducer(undefined, dummyAction);
+    const nextState = reducer(initialState, actionSolveChallenge());
+    assert.notEqual(initialState.code, nextState.code);
   });
 });
 
