@@ -1,5 +1,13 @@
 # PROGRESS for Arcade Mode
 
+## Friday 5/12/17:
+
+### Tuomas:
+  - Progress:
+    1. Added istanbul for code coverage.
+    2. Added script bin/port_tests.pl to create test files for all source files
+    3. Added coverage scripts to bin/cover_test_client|server.sh + npm scripts.
+
 ## Thursday 5/11/17:
 ### Tim:
   - Progress:
