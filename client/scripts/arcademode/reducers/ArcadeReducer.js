@@ -6,7 +6,6 @@
 // import Interpreter from 'js-interpreter';
 
 import {
-  MODAL_CLOSE,
   NEXT_CHALLENGE,
   TESTS_STARTED,
   CODE_CHANGED,
@@ -39,7 +38,6 @@ const getScoreForChallenge = challenge => {
 export default function arcadeReducer(state, action) {
   if (typeof state === 'undefined') {
     return {
-      modal: true,
       title: '',
       description: [],
       code: `
@@ -73,10 +71,6 @@ export default function arcadeReducer(state, action) {
   const nextState = Object.assign({}, state);
 
   switch (action.type) {
-    case MODAL_CLOSE: {
-      nextState.modal = false;
-      break;
-    }
     case TESTS_STARTED: {
       nextState.isRunningTests = true;
       break;
@@ -154,7 +148,9 @@ export default function arcadeReducer(state, action) {
       }
       break;
     }
-    default: console.log('ERROR. ArcadeReducer default reached.');
+    default: 
+      // console.log('ERROR. ArcadeReducer default reached.');
+      return state;
   }
 
   return nextState;
