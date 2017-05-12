@@ -272,6 +272,10 @@ describe('<ArcadeMode>', () => {
     testResults = new TestResults([]);
   });
 
+  afterEach(() => {
+    testResults = null;
+  });
+
   it('should initially show one Start button', () => {
     const wrapper = shallow(
       <ArcadeMode
