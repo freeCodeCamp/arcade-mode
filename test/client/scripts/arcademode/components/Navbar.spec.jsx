@@ -1,10 +1,10 @@
-// 
+//
 // 'use strict';
-// 
+//
 // import React from 'react';
 // import PropTypes from 'prop-types';
 // import { Navbar, FormGroup, FormControl } from 'react-bootstrap';
-// 
+//
 // /* Component at the top of page showing freeCodeCamp next and timer value. */
 // const ArcadeNavbar = props => (
 //   <Navbar fluid>
@@ -36,27 +36,32 @@
 //     </Navbar.Collapse>
 //   </Navbar>
 // );
-// 
-// 
+//
+//
 // ArcadeNavbar.propTypes = {
 //   sessionScore: PropTypes.number.isRequired,
 //   timeLeft: PropTypes.number.isRequired,
 //   timerMaxValue: PropTypes.string.isRequired,
 //   onTimerMaxValueChange: PropTypes.func.isRequired
 // };
-// 
+//
 // export default ArcadeNavbar;
 
 /* Unit tests for file client/scripts/arcademode/components/Navbar.jsx. */
-import { assert } from 'chai';
+import React from 'react';
+import { shallow } from 'enzyme';
 
+import chaiEnzyme from 'chai-enzyme';
+import chai, { expect } from 'chai';
 
+import ArcadeNavbar from '../../../../../client/scripts/arcademode/components/Navbar';
 
-describe('', () => {
+chai.use(chaiEnzyme());
 
-  it('should do x', () => {
-    assert(/* code */);
+describe('<ArcadeNavbar>', () => {
+  it('should have exactly one link', () => {
+    const wrapper = shallow(<ArcadeNavbar />);
+    expect(wrapper.find('a')).to.have.length(1);
   });
-
 });
 
