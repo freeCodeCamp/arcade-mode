@@ -254,15 +254,32 @@
 // };
 
 /* Unit tests for file client/scripts/arcademode/components/ArcadeMode.jsx. */
-import { assert } from 'chai';
-import ArcadeMode from '../../../../..//client/scripts/arcademode/components/ArcadeMode.jsx'
+import React from 'react';
+import { shallow } from 'enzyme';
 
+import chaiEnzyme from 'chai-enzyme';
+import chai, { expect } from 'chai';
 
-describe('ArcadeMode', () => {
+import ArcadeMode from '../../../../../client/scripts/arcademode/components/ArcadeMode';
+import TestResults from '../../../../../client/scripts/arcademode/model/TestResults';
 
-  it('should do x', () => {
-    assert(/* code */);
+chai.use(chaiEnzyme());
+
+describe('<ArcadeMode>', () => {
+  let testResults = null;
+
+  beforeEach(() => {
+    testResults = new TestResults([]);
   });
 
+  it('should initially show one Start button', () => {
+    const wrapper = shallow(
+      <ArcadeMode
+        description={[]}
+        testResults={testResults}
+      />);
+    expect(wrapper.find('button')).to.have.length(1);
+    expect(wrapper.find('button')).to.contain.text('Start');
+  });
 });
 
