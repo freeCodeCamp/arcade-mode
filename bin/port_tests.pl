@@ -39,11 +39,13 @@ GetOptions(
   "with-source" => \$opt{with_source},
 );
 
-my $export_default_re = qr/^\s*export\s*default\s+(class|function|const|let)\s+(\w+)/;
+my $export_default_re = qr/^\s*export\s*default\s+(class|function|const|let|var)\s+(\w+)/;
 my $module_exports_re = qr/^\s*module\.exports\*=\s*(\w+)/;
+my $exports_re = qr/^\s*export\s+(class|function|const|let|var)\s+(\w+)/;
 
 my $test_dir = $opt{target}  || "test";
 
+my @skipped = ();
 my @suffixes = ('.js', '.jsx');
 
 # Folders to be copied
@@ -67,6 +69,11 @@ if (not -d $test_dir) {
 # Copy non-existing files to the target folder.
 foreach my $f (@files) {
   my ($src_filename, $src_dir, $suffix) = fileparse($f, @suffixes);
+
+  if (length($suffix) == 0) {
+    push(@skipped, $f);
+    next;
+  }
 
   my $target_suffix = ".spec$suffix";
   my $target_filename = "$src_filename$target_suffix";
@@ -120,6 +127,12 @@ if (int(@new_files) > 0) {
   foreach my $f (@new_files) {
     print "\t$f\n";
   }
+  if (int(@skipped) > 0) {
+    print "Following files skipped due to file-suffix:\n";
+    foreach my $f (@skipped) {
+      print "\tSKIPPED: $f\n";
+    }
+  }
 }
 elsif (defined $opt{debug}) {
   print "Script was run in debug mode.\n";
@@ -155,6 +168,8 @@ sub copy_and_process_file {
 
   my $default_export = '';
 
+  my $exports = '';
+
   while (my $line = <$IFILE>) {
     print $OFILE "// $line";
     if ($line =~ $export_default_re) {
@@ -163,10 +178,15 @@ sub copy_and_process_file {
     elsif ($line =~ $module_exports_re) {
       $default_export = $1;
     }
+
+    if ($line =~ $exports_re) {
+      $exports .= "$2, ";
+    }
   }
+  $exports =~ s/,\s+$//g;
 
   # Add chai/mocha boilerplate
-  add_chai_mocha_test_boilerplate($OFILE, $fdata, $default_export);
+  add_chai_mocha_test_boilerplate($OFILE, $fdata, $default_export, $exports);
 
   close $OFILE;
   close $IFILE;
@@ -175,7 +195,7 @@ sub copy_and_process_file {
 
 # Creates the mocha/chai test boilerplace code
 sub add_chai_mocha_test_boilerplate {
-  my ($OFILE, $fdata, $export) = @_;
+  my ($OFILE, $fdata, $export, $exports) = @_;
 
   my $src = $fdata->{src_full_path};
   my $target = $fdata->{target_full_path};
@@ -183,11 +203,23 @@ sub add_chai_mocha_test_boilerplate {
   my $import_path_to_src = get_import_path($fdata->{src_dir});
 
   my $chai_func = "assert";
+
+  my $import_default = '';
+  if (length($export) > 0) {
+    $import_default = "import $export from '$import_path_to_src/$src'";
+  }
+
+  my $imports = '';
+  if (length($exports) > 0) {
+    $imports = "import {$exports} from '$import_path_to_src/$src'";
+  }
+
   my $BOILERPLATE = << "__BOILERPLATE__";
 
 /* Unit tests for file $src. */
 import { $chai_func } from 'chai';
-import $export from '$import_path_to_src/$src';
+$import_default
+$imports
 
 describe('$export', () => {
 
