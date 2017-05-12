@@ -1,7 +1,7 @@
 
 'use strict';
 
-import { combineReducers } from 'redux';
+import { combineReducers } from 'redux-immutable';
 
 import session from './session';
 import challenge from './challenge';

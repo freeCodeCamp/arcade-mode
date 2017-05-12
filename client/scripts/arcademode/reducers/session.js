@@ -1,7 +1,7 @@
 
 'use strict';
 
-// import Immutable from 'immutable';
+import Immutable from 'immutable';
 
 // import Interpreter from 'js-interpreter';
 
@@ -11,7 +11,7 @@ import {
 
 import { CHALLENGE_START, CHALLENGE_NEXT } from '../actions/challenge';
 
-import UserData from '../model/UserData';
+// import UserData from '../model/UserData';
 
 // const initialState = Immutable.Map();
 
@@ -20,7 +20,16 @@ const getScoreForChallenge = challenge => {
   return 1;
 };
 
-export default function session (state, action) {
+const initialState = Immutable.Map({
+  userOutput: 'The output of your code will show up here.',
+  userData: Immutable.Map(),
+  isSessionFinished: false,
+  isSessionStarted: false,
+  sessionScore: 0
+});
+
+export default function session (state = initialState, action) {
+  /*
   if (typeof state === 'undefined') {
     return {
       // Challenges.challenges[0].challengeSeed.join('\n'),
@@ -35,24 +44,39 @@ export default function session (state, action) {
   }
 
   const nextState = Object.assign({}, state);
-
+  */
   switch (action.type) {
     case CHALLENGE_START:
+      /*
       nextState.isSessionFinished = false;
       nextState.isSessionStarted = true;
       break;
+      */
+      return state
+        .set('isSessionFinished', false)
+        .set('isSessionStarted', true);
     case CHALLENGE_NEXT:
+      /*
       nextState.sessionScore = state.sessionScore + getScoreForChallenge(state.currChallenge);
       nextState.userOutput = 'The output of your code will show up here.';
       break;
+      */
+      return state
+        .update('sessionScore', sessionScore => sessionScore + getScoreForChallenge(state.currChallenge))
+        .set('userOutput', 'The output of your code will show up here.');
     case FINISH_SESSION:
+      /*
       nextState.isSessionFinished = true;
       nextState.isSessionStarted = false;
       break;
+      */
+      return state
+        .set('isSessionFinished', true)
+        .set('isSessionStarted', false);
     default:
       // console.log('ERROR. ArcadeReducer default reached.');
       return state;
   }
 
-  return nextState;
+  // return nextState;
 }

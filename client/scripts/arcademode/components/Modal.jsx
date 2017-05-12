@@ -2,6 +2,7 @@
 'use strict';
 
 import React, { Component } from 'react';
+// import ImmutablePropTypes from 'react-immutable-proptypes';
 import PropTypes from 'prop-types';
 import { Modal, Button } from 'react-bootstrap';
 

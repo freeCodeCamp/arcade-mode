@@ -26,7 +26,35 @@ import {
   actionTimerMaxValueChanged
 } from '../actions/timer';
 
+/*
+const makeMapStateToProps = () => {
+  const getSession = makeGetSession();
+
+  const mapStateToProps = (state, props) => ({
+    session: getSession(state
+  });
+};
+*/
+
 const mapStateToProps = state => ({
+  modal: state.getIn(['modal', 'modalOpened']),
+  challengeNumber: state.get('challengeNumber'),
+  userData: state.get('userData'),
+  title: state.get('title'),
+  description: state.get('description'),
+  code: state.get('code'),
+  userOutput: state.get('userOutput'),
+  currChallenge: state.get('currChallenge'),
+  nextChallenge: state.get('nextChallenge'),
+  testResults: state.get('testResults'),
+  timeLeft: state.get('timeLeft'),
+  timerMaxValue: state.get('timerMaxValue'),
+  sessionScore: state.get('sessionScore'),
+  isTimerFinished: state.get('isTimerFinished'),
+  isSessionFinished: state.get('isSessionFinished'),
+  isSessionStarted: state.get('isSessionStarted')
+
+  /*
   modal: state.modal.modal,
   challengeNumber: state.challenge.challengeNumber,
   userData: state.session.userData,
@@ -43,6 +71,7 @@ const mapStateToProps = state => ({
   isTimerFinished: state.timer.isTimerFinished,
   isSessionFinished: state.session.isSessionFinished,
   isSessionStarted: state.session.isSessionStarted
+  */
 });
 
 const mapDispatchToProps = dispatch => ({
