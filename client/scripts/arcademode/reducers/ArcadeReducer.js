@@ -6,40 +6,33 @@
 // import Interpreter from 'js-interpreter';
 
 import {
-  NEXT_CHALLENGE,
   TESTS_STARTED,
-  CODE_CHANGED,
   OUTPUT_CHANGED,
-  START_CHALLENGE,
   TESTS_FINISHED,
   TIMER_STARTED,
   TIMER_UPDATED,
   STOP_TIMER,
   FINISH_SESSION,
-  TIMER_MAX_VALUE_CHANGED,
-  SOLVE_CHALLENGE
+  TIMER_MAX_VALUE_CHANGED
 } from '../actions/ArcadeAction';
 
+import { CHALLENGE_START, CHALLENGE_NEXT } from '../actions/challenge';
+
 import UserData from '../model/UserData';
-import Challenges from '../../../json/challenges.json';
 import TestResults from '../model/TestResults';
-import Challenge from '../model/Challenge';
 
 // const initialState = Immutable.Map();
-//
-
-const timerDefaultValue = 60 * 1000;
 
 /* TODO: Returns score for completed challenge. */
 const getScoreForChallenge = challenge => {
   return 1;
 };
 
+const timerDefaultValue = 60 * 1000;
+
 export default function arcadeReducer(state, action) {
   if (typeof state === 'undefined') {
     return {
-      title: '',
-      description: [],
       code: `
         The code to work with will show up here.
         When you are ready, enter a time at the top and press start to begin!
@@ -49,10 +42,6 @@ export default function arcadeReducer(state, action) {
       isRunningTests: false,
       userData: new UserData({ username: '' }),
       testResults: new TestResults([]),
-      challengeNumber: 0,
-      currChallenge: new Challenge(Challenges.challenges[0]),
-      currChallengeStartedAt: 0,
-      nextChallenge: '',
 
       // Timer handling
       isTimerFinished: false,
@@ -71,6 +60,15 @@ export default function arcadeReducer(state, action) {
   const nextState = Object.assign({}, state);
 
   switch (action.type) {
+    case CHALLENGE_START:
+      nextState.isSessionFinished = false;
+      nextState.isSessionStarted = true;
+      break;
+    case CHALLENGE_NEXT:
+      nextState.sessionScore = state.sessionScore + getScoreForChallenge(state.currChallenge);
+      nextState.testResults = new TestResults([]);
+      nextState.userOutput = 'The output of your code will show up here.';
+      break;
     case TESTS_STARTED: {
       nextState.isRunningTests = true;
       break;
@@ -78,23 +76,6 @@ export default function arcadeReducer(state, action) {
     case TESTS_FINISHED: {
       nextState.isRunningTests = false;
       nextState.testResults = new TestResults(action.testResults);
-      break;
-    }
-    case CODE_CHANGED: {
-      nextState.code = action.code;
-      break;
-    }
-    case NEXT_CHALLENGE: {
-      nextState.sessionScore = state.sessionScore + getScoreForChallenge(state.currChallenge);
-      nextState.currChallenge = state.nextChallenge;
-      nextState.currChallengeStartedAt = action.startTime;
-      nextState.title = state.nextChallenge.getTitle();
-      nextState.description = state.nextChallenge.getDescription();
-      nextState.code = state.nextChallenge.getSeed().join('\n');
-      nextState.testResults = new TestResults([]);
-      nextState.challengeNumber++;
-      nextState.userOutput = '';
-      nextState.nextChallenge = new Challenge(Challenges.challenges[state.challengeNumber + 1]);
       break;
     }
     case OUTPUT_CHANGED: {
@@ -109,18 +90,6 @@ export default function arcadeReducer(state, action) {
       nextState.isTimerFinished = false;
       nextState.timeLeft = timerDefaultValue;
       nextState.timerStart = action.startTime;
-      break;
-    }
-    case START_CHALLENGE: {
-      nextState.title = state.currChallenge.getTitle();
-      nextState.description = state.currChallenge.getDescription();
-      nextState.code = state.currChallenge.getSeed().join('\n');
-      nextState.challengeNumber++;
-      nextState.nextChallenge = new Challenge(Challenges.challenges[state.challengeNumber + 1]);
-      nextState.isSessionFinished = false;
-      nextState.isSessionStarted = true;
-      nextState.currChallengeStartedAt = action.startTime;
-      nextState.timerMaxValueLoaded = state.timerMaxValue;
       break;
     }
     case TIMER_UPDATED: {
@@ -138,17 +107,7 @@ export default function arcadeReducer(state, action) {
       nextState.isSessionStarted = false;
       break;
     }
-    case SOLVE_CHALLENGE: {
-      const solution = state.currChallenge.getSolution();
-      if (solution !== null) {
-        nextState.code = solution;
-      }
-      else {
-        nextState.code = `// No solutions found\n${state.code}`;
-      }
-      break;
-    }
-    default: 
+    default:
       // console.log('ERROR. ArcadeReducer default reached.');
       return state;
   }

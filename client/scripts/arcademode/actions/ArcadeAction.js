@@ -3,12 +3,9 @@
 
 /* Action type constants. */
 export const RUN_TEST = 'RUN_TEST';
-export const CODE_CHANGED = 'CODE_CHANGED';
 export const OUTPUT_CHANGED = 'OUTPUT_CHANGED';
 export const TESTS_STARTED = 'TESTS_STARTED';
 export const TESTS_FINISHED = 'TESTS_FINISHED';
-export const START_CHALLENGE = 'START_CHALLENGE';
-export const NEXT_CHALLENGE = 'NEXT_CHALLENGE';
 
 export const TIMER_FINISHED = 'TIMER_FINISHED';
 export const TIMER_UPDATED = 'TIMER_UPDATED';
@@ -18,8 +15,6 @@ export const STOP_TIMER = 'STOP_TIMER';
 export const FINISH_SESSION = 'FINISH_SESSION';
 
 export const TIMER_MAX_VALUE_CHANGED = 'TIMER_MAX_VALUE_CHANGED';
-
-export const SOLVE_CHALLENGE = 'SOLVE_CHALLENGE';
 
 /* Thunk action which runs the test cases against user code. */
 export function runTests(userCode, currChallenge) {
@@ -93,27 +88,6 @@ export function actionTestsFinished(testResults) {
   };
 }
 
-export function startChallenge(startTime) {
-  return {
-    type: START_CHALLENGE,
-    startTime
-  };
-}
-
-export function nextChallenge(startTime) {
-  return {
-    type: NEXT_CHALLENGE,
-    startTime
-  };
-}
-
-export function onCodeChange(newCode) {
-  return {
-    type: CODE_CHANGED,
-    code: newCode
-  };
-}
-
 export function actionTimerStarted(startTime) {
   return {
     type: TIMER_STARTED,
@@ -151,11 +125,5 @@ export function onOutputChange(newOutput) {
 export function actionFinishSession() {
   return {
     type: FINISH_SESSION
-  };
-}
-
-export function actionSolveChallenge() {
-  return {
-    type: SOLVE_CHALLENGE
   };
 }

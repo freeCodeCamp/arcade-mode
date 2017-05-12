@@ -5,29 +5,32 @@ import { connect } from 'react-redux';
 
 import ArcadeMode from '../components/ArcadeMode';
 import {
-  nextChallenge,
-  onCodeChange,
   runTests,
-  startChallenge,
   startTimer,
   stopTimer,
   actionFinishSession,
-  actionTimerMaxValueChanged,
-  actionSolveChallenge
+  actionTimerMaxValueChanged
 } from '../actions/ArcadeAction';
 
-import { onModalClose } from '../actions/Modal';
+import { onModalClose } from '../actions/modal';
+
+import {
+  startChallenge,
+  nextChallenge,
+  actionSolveChallenge,
+  onCodeChange
+} from '../actions/challenge';
 
 const mapStateToProps = state => ({
   modal: state.modal.modal,
-  challengeNumber: state.arcadeReducer.challengeNumber,
+  challengeNumber: state.challenge.challengeNumber,
   userData: state.arcadeReducer.userData,
-  title: state.arcadeReducer.title,
-  description: state.arcadeReducer.description,
-  code: state.arcadeReducer.code,
+  title: state.challenge.title,
+  description: state.challenge.description,
+  code: state.challenge.code,
   userOutput: state.arcadeReducer.userOutput,
-  currChallenge: state.arcadeReducer.currChallenge,
-  nextChallenge: state.arcadeReducer.nextChallenge,
+  currChallenge: state.challenge.currChallenge,
+  nextChallenge: state.challenge.nextChallenge,
   testResults: state.arcadeReducer.testResults,
   timeLeft: state.arcadeReducer.timeLeft,
   timerMaxValue: state.arcadeReducer.timerMaxValue,
