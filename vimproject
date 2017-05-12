@@ -674,10 +674,48 @@ project=/home/tpoikela/git/arcade-mode CD=. filter="*" flags=S {
  test=test {
   ArcadeAction.spec.js
   ArcadeReducer.spec.js
-  Timer.spec.js
-  header.spec.jsx
   helpers=helpers {
    browser.js
+  }
+  client=client {
+   scripts=scripts {
+    arcademode=arcademode {
+     main.spec.jsx
+     actions=actions {
+      challenge.spec.js
+      modal.spec.js
+      session.spec.js
+      test.spec.js
+      timer.spec.js
+     }
+     components=components {
+      ArcadeMode.spec.jsx
+      Modal.spec.jsx
+      Navbar.spec.jsx
+     }
+     containers=containers {
+      App.spec.jsx
+     }
+     model=model {
+      Challenge.spec.js
+      TestResults.spec.js
+      UserData.spec.js
+     }
+     reducers=reducers {
+      challenge.spec.js
+      composeEnhancers.spec.js
+      index.spec.js
+      modal.spec.js
+      session.spec.js
+      test.spec.js
+      timer.spec.js
+     }
+    }
+    public=public {
+     head.spec.js
+     worker.spec.js
+    }
+   }
   }
  }
  client=client {
@@ -688,12 +726,14 @@ project=/home/tpoikela/git/arcade-mode CD=. filter="*" flags=S {
    arcademode=arcademode {
     main.jsx
     actions=actions {
-     ArcadeAction.js
+     challenge.js
+     modal.js
+     session.js
+     test.js
+     timer.js
     }
     components=components {
      ArcadeMode.jsx
-     Header.jsx
-     Hello.jsx
      Modal.jsx
      Navbar.jsx
     }
@@ -706,8 +746,13 @@ project=/home/tpoikela/git/arcade-mode CD=. filter="*" flags=S {
      UserData.js
     }
     reducers=reducers {
-     ArcadeReducer.js
+     challenge.js
      composeEnhancers.js
+     index.js
+     modal.js
+     session.js
+     test.js
+     timer.js
     }
    }
    public=public {
