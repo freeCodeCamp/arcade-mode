@@ -1,7 +1,7 @@
 
 'use strict';
 
-import { MODAL_CLOSE } from '../actions/Modal';
+import { MODAL_CLOSE } from '../actions/modal';
 
 // import Immutable from 'immutable';
 
