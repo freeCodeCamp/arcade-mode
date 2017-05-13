@@ -1,31 +1,31 @@
-// 
+//
 // 'use strict';
-// 
+//
 // import { connect } from 'react-redux';
-// 
+//
 // import ArcadeMode from '../components/ArcadeMode';
-// 
+//
 // import {
 //   actionFinishSession
 // } from '../actions/session';
-// 
+//
 // import {
 //   startChallenge,
 //   nextChallenge,
 //   actionSolveChallenge,
 //   onCodeChange
 // } from '../actions/challenge';
-// 
+//
 // import { onModalClose } from '../actions/modal';
-// 
+//
 // import { runTests } from '../actions/test';
-// 
+//
 // import {
 //   startTimer,
 //   stopTimer,
 //   actionTimerMaxValueChanged
 // } from '../actions/timer';
-// 
+//
 // const mapStateToProps = state => ({
 //   modal: state.modal.modal,
 //   challengeNumber: state.challenge.challengeNumber,
@@ -44,7 +44,7 @@
 //   isSessionFinished: state.session.isSessionFinished,
 //   isSessionStarted: state.session.isSessionStarted
 // });
-// 
+//
 // const mapDispatchToProps = dispatch => ({
 //   onModalClose: () => dispatch(onModalClose()),
 //   finishSession: () => dispatch(actionFinishSession()),
@@ -57,19 +57,24 @@
 //   onTimerMaxValueChange: timerMaxValue => dispatch(actionTimerMaxValueChanged(timerMaxValue)),
 //   solveChallenge: () => dispatch(actionSolveChallenge())
 // });
-// 
+//
 // export default connect(mapStateToProps, mapDispatchToProps)(ArcadeMode);
 
 /* Unit tests for file client/scripts/arcademode/containers/App.jsx. */
-import { assert } from 'chai';
+import React from 'react';
+import { expect } from 'chai';
+import { shallow, mount, render } from 'enzyme';
 
+import { Provider } from 'react-redux';
+import App from '../../../../../client/scripts/arcademode/containers/App';
+import configureStore from '../../../../../client/scripts/arcademode/store/configureStore';
 
+const store = configureStore();
 
-describe('', () => {
-
+describe('<App />', () => {
   it('should do x', () => {
-    assert(/* code */);
+    const wrapper = shallow(<Provider store={store}><App /></Provider>);
+    expect(wrapper).to.not.be.empty;
   });
-
 });
 
