@@ -65,9 +65,14 @@ const props = {
   onTimerMaxValueChange: () => {}
 };
 
+const wrapper = shallow(<ArcadeNavbar {...props} />);
+
 describe('<ArcadeNavbar>', () => {
+  it('should render', () => {
+    expect(wrapper).to.have.length(1);
+  });
+
   it('should have exactly one link', () => {
-    const wrapper = shallow(<ArcadeNavbar {...props} />);
     expect(wrapper.find('a')).to.have.length(1);
   });
 });
