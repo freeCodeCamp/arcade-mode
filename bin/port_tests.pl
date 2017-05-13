@@ -33,9 +33,10 @@ use File::Basename;
 my %opt;
 GetOptions(
   "all-in-test" => \$opt{all_in_test},
-  "d|debug" => \$opt{debug},
-  "t|target=s" => \$opt{target},
-  "h|help" => \$opt{help},
+  "d|debug"     => \$opt{debug},
+  "f|file=s"    => \$opt{file},
+  "t|target=s"  => \$opt{target},
+  "h|help"      => \$opt{help},
   "with-source" => \$opt{with_source},
 );
 
@@ -53,6 +54,11 @@ my @folders = qw(client server);
 
 # Use find to grab the filenames
 my @files = `find @folders -name "*.js*"`;
+if (defined $opt{file}) {
+    die("File $opt{file} specified with -f|-file doesn't exist.")
+        unless -e $opt{file};
+    @files = ($opt{file});
+}
 
 # Remove trailing newlines
 foreach my $f (@files) {chomp($f);}
@@ -250,6 +256,7 @@ sub usage {
   Options:
     -all-in-test    All files in test/ (-t|target) folder.
     -d|debug        Run in debug mode (no output files created)
+    -f|file         Input source file.
     -t|target       Target folder for test files. (default: test)
     -with-source    Embed test files in source folders.
 
