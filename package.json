@@ -36,6 +36,7 @@
     "bundle-collapser": "^1.2.1",
     "chai": "^3.5.0",
     "chai-enzyme": "^0.6.1",
+    "chai-immutable": "^1.6.0",
     "dotenv": "^4.0.0",
     "envify": "^4.0.0",
     "enzyme": "^2.8.2",
