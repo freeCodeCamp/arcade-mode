@@ -2,7 +2,7 @@
 'use strict';
 
 /* Unit tests for file client/scripts/arcademode/reducers/session.js. */
-import chai, { expect, assert } from 'chai';
+import chai, { expect } from 'chai';
 import Immutable from 'immutable';
 
 import chaiImmutable from 'chai-immutable';
@@ -18,15 +18,15 @@ const dummyAction = { type: 'DUMMY' };
 describe('session reducer', () => {
   it('should indicate that no session has been started or finished', () => {
     const initialState = reducer(undefined, dummyAction);
-    assert(initialState.isSessionStarted === false);
-    assert(initialState.isSessionFinished === false);
+    expect(initialState.get('isSessionStarted')).to.be.false;
+    expect(initialState.get('isSessionFinished')).to.be.false;
   });
 
   it('should start the session with an action', () => {
     const initialState = reducer(undefined, dummyAction);
     const nextState = reducer(initialState, startChallenge(0));
-    assert(initialState.isSessionStarted === false);
-    assert(nextState.isSessionStarted === true);
+    expect(initialState.get('isSessionStarted')).to.be.false;
+    expect(nextState.get('isSessionStarted')).to.be.true;
   });
 
   it('should start session on CHALLENGE_START', () => {
