@@ -8,12 +8,10 @@
     "build-dev": "NODE_ENV=development gulp build-dev",
     "postinstall": "npm run build",
     "start": "node --use-strict server/server.js",
-
     "test": "NODE_ENV=test mocha --require test/helpers/browser.js --compilers js:babel-core/register --recursive test",
     "test:coverage": "NODE_ENV=test bin/cover_test_client.sh && bin/cover_test_server.sh",
     "test:client": "NODE_ENV=test mocha --require test/helpers/browser.js --compilers js:babel-core/register --recursive test/client",
     "test:server": "NODE_ENV=test mocha --compilers js:babel-core/register --recursive test/server",
-
     "watch": "NODE_ENV=production gulp watch",
     "watch-dev": "NODE_ENV=development gulp watch-dev"
   },
@@ -89,7 +87,6 @@
     "redux": "^3.6.0",
     "redux-immutable": "^4.0.0",
     "redux-thunk": "^2.2.0",
-    "reselect": "^3.0.1",
     "serve-favicon": "^2.4.2"
   }
 }
