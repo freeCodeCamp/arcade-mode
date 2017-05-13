@@ -4,6 +4,7 @@
 ### Tim:
   - Progress:
     1. Transform Redux code to now use Immutable.js.
+    2. Flesh out tests for all slice reducers.
 
 ### Tuomas:
   - Progress:
