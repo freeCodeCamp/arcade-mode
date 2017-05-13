@@ -23,9 +23,6 @@ export function runTests(userCode, currChallenge) {
     function createWorker () {
       return new Promise((resolve, reject) => {
         const wk = new Worker('../../public/js/worker.bundle.js');
-        // console.log(`userCode: ${userCode}`);
-        // console.log(`currChallenge: ${JSON.stringify(currChallenge.toJS())}`);
-        // console.log(currChallenge);
         wk.postMessage([userCode, currChallenge.toJS()]); // postMessage mangles the Immutable object, so it needs to be transformed into regular JS before sending over to worker.
         wk.onmessage = e => {
           // console.log(`worker onmessage result: ${e.data}`);
