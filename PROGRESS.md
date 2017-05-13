@@ -9,7 +9,7 @@
   - Left to do:
     1. [ ] Fix CHALLENGE_START test.
     2. TIMER_FINISHED seems unused; no associated function calls.
-    3. Move CHALLENGE_START timerMaxValueLoaded to timer.
+    3. [ ] Move CHALLENGE_START timerMaxValueLoaded to timer.
 
 ### Tuomas:
   - Progress:
