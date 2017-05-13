@@ -34,8 +34,7 @@ export default function challenge(state = initialState, action) {
         .set('description', state.getIn(['currChallenge', 'description']))
         .set('code', state.getIn(['currChallenge', 'challengeSeed']).join('\n'))
         .set('nextChallenge', Immutable.Map(Immutable.fromJS(Challenges.challenges[state.get('challengeNumber') + 1])))
-        .set('currChallengeStartedAt', action.startTime)
-        .set('timerMaxValueLoaded', state.timerMaxValue);
+        .set('currChallengeStartedAt', action.startTime);
     case CHALLENGE_NEXT:
       return state
         .update('challengeNumber', challengeNumber => challengeNumber + 1)

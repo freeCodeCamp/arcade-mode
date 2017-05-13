@@ -11,6 +11,8 @@ import {
   TIMER_MAX_VALUE_CHANGED
 } from '../actions/timer';
 
+import { CHALLENGE_START } from '../actions/challenge';
+
 const timerDefaultValue = 60 * 1000;
 
 const initialState = Immutable.Map({
@@ -23,6 +25,8 @@ const initialState = Immutable.Map({
 
 export default function timer (state = initialState, action) {
   switch (action.type) {
+    case CHALLENGE_START:
+      return state.set('timerMaxValueLoaded', state.timerMaxValue);
     case STOP_TIMER:
       return state
         .set('isTimerFinished', true)
