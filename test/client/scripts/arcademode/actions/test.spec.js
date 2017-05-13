@@ -1,23 +1,23 @@
-// 
+//
 // 'use strict';
-// 
+//
 // export const OUTPUT_CHANGED = 'OUTPUT_CHANGED';
 // export const TESTS_STARTED = 'TESTS_STARTED';
 // export const TESTS_FINISHED = 'TESTS_FINISHED';
-// 
-// 
+//
+//
 // export function onOutputChange(newOutput) {
 //   return {
 //     type: OUTPUT_CHANGED,
 //     userOutput: newOutput
 //   };
 // }
-// 
+//
 // /* Thunk action which runs the test cases against user code. */
 // export function runTests(userCode, currChallenge) {
 //   return dispatch => {
 //     dispatch(actionTestsStarted());
-// 
+//
 //     // Eval user code inside worker
 //     // http://stackoverflow.com/questions/9020116/is-it-possible-to-restrict-the-scope-of-a-javascript-function/36255766#36255766
 //     function createWorker () {
@@ -30,7 +30,7 @@
 //         };
 //       });
 //     }
-// 
+//
 //     createWorker()
 //       .then(workerData => {
 //         dispatch(onOutputChange(workerData[0].output));
@@ -40,14 +40,14 @@
 //       });
 //   };
 // }
-// 
+//
 // /* Dispatched when a user starts running the tests.*/
 // export function actionTestsStarted () {
 //   return {
 //     type: TESTS_STARTED
 //   };
 // }
-// 
+//
 // /* Dispatched when the tests finish. */
 // export function actionTestsFinished (testResults) {
 //   return {
@@ -57,15 +57,51 @@
 // }
 
 /* Unit tests for file client/scripts/arcademode/actions/test.js. */
-import { assert } from 'chai';
+import chai, { expect } from 'chai';
 
-import {OUTPUT_CHANGED, TESTS_STARTED, TESTS_FINISHED, onOutputChange, runTests, actionTestsStarted, actionTestsFinished} from '../../../../..//client/scripts/arcademode/actions/test.js'
+import sinon from 'sinon';
+import sinonChai from 'sinon-chai';
 
-describe('', () => {
+import {
+  OUTPUT_CHANGED,
+  TESTS_STARTED,
+  TESTS_FINISHED,
+  onOutputChange,
+  runTests,
+  actionTestsStarted,
+  actionTestsFinished
+} from '../../../../..//client/scripts/arcademode/actions/test';
 
-  it('should do x', () => {
-    assert(/* code */);
+chai.use(sinonChai);
+
+describe('test actions', () => {
+
+  let stub = null;
+
+  beforeEach(() => {
+    stub = sinon.stub(Worker, 'postmessage');
   });
 
+  afterEach(() => {
+    stub.restore();
+  });
+
+
+  it('should return correct type for actionTestsStarted', () => {
+    expect(actionTestsStarted().type).to.equal(TESTS_STARTED);
+  });
+
+  it('should return correct type for actionTestsFinished()', () => {
+    expect(actionTestsFinished().type).to.equal(TESTS_FINISHED);
+  });
+
+  it('should return correct type for onOutputChange()', () => {
+    expect(onOutputChange().type).to.equal(OUTPUT_CHANGED);
+  });
+
+  it('should ', () => {
+    runTests('let xxx = "abcd";', {});
+    expect(stub).to.have.been.called;
+  });
 });
 

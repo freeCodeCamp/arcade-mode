@@ -1,24 +1,17 @@
-// 
-// 'use strict';
-// 
-// export const MODAL_CLOSE = 'MODAL_CLOSE';
-// 
-// export function onModalClose () {
-//   return {
-//     type: MODAL_CLOSE
-//   };
-// }
+
+'use strict';
 
 /* Unit tests for file client/scripts/arcademode/actions/modal.js. */
-import { assert } from 'chai';
+import { expect } from 'chai';
 
-import {MODAL_CLOSE, onModalClose} from '../../../../..//client/scripts/arcademode/actions/modal.js'
+import {
+  MODAL_CLOSE,
+  onModalClose
+} from '../../../../..//client/scripts/arcademode/actions/modal';
 
-describe('', () => {
-
-  it('should do x', () => {
-    assert(/* code */);
+describe('modal actions', () => {
+  it('should return MODAL_CLOSE type', () => {
+    expect(onModalClose().type).to.equal(MODAL_CLOSE);
   });
-
 });
 
