@@ -59,9 +59,6 @@
 /* Unit tests for file client/scripts/arcademode/actions/test.js. */
 import chai, { expect } from 'chai';
 
-import sinon from 'sinon';
-import sinonChai from 'sinon-chai';
-
 import {
   OUTPUT_CHANGED,
   TESTS_STARTED,
@@ -72,21 +69,7 @@ import {
   actionTestsFinished
 } from '../../../../..//client/scripts/arcademode/actions/test';
 
-chai.use(sinonChai);
-
 describe('test actions', () => {
-
-  let stub = null;
-
-  beforeEach(() => {
-    stub = sinon.stub(Worker, 'postmessage');
-  });
-
-  afterEach(() => {
-    stub.restore();
-  });
-
-
   it('should return correct type for actionTestsStarted', () => {
     expect(actionTestsStarted().type).to.equal(TESTS_STARTED);
   });
@@ -97,11 +80,6 @@ describe('test actions', () => {
 
   it('should return correct type for onOutputChange()', () => {
     expect(onOutputChange().type).to.equal(OUTPUT_CHANGED);
-  });
-
-  it('should ', () => {
-    runTests('let xxx = "abcd";', {});
-    expect(stub).to.have.been.called;
   });
 });
 
