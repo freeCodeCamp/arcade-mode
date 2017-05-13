@@ -1,29 +1,21 @@
-// 
-// 'use strict';
-// 
-// import { createStore, applyMiddleware } from 'redux';
-// import thunk from 'redux-thunk';
-// import appReducer from '../reducers';
-// import composeEnhancers from '../reducers/composeEnhancers';
-// // import Immutable from 'immutable';
-// 
-// 
-// export default function configureStore() {
-//   return createStore(appReducer, composeEnhancers(applyMiddleware(
-//     thunk
-//   )));
-// }
+
+'use strict';
 
 /* Unit tests for file client/scripts/arcademode/store/configureStore.js. */
-import { assert } from 'chai';
-import configureStore from '../../../../..//client/scripts/arcademode/store/configureStore.js'
+import { expect } from 'chai';
+import configureStore from '../../../../../client/scripts/arcademode/store/configureStore';
 
-
-describe('configureStore', () => {
-
-  it('should do x', () => {
-    assert(/* code */);
+describe('configureStore()', () => {
+  it('should do return an object', () => {
+    const store = configureStore();
+    expect(typeof store).to.equal('object');
+    const state = store.getState();
+    expect(state).not.to.empty;
   });
 
+  it('should do accept dispatched actions', () => {
+    const store = configureStore();
+    store.dispatch({ type: 'DUMMY' });
+  });
 });
 
