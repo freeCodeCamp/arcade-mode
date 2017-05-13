@@ -84,7 +84,6 @@ describe('challenge reducer', () => {
   });
 
   it('should go to next challenge on CHALLENGE_NEXT', () => {
-
     const nextChallengeStartTime = 500;
     const expectedDescription = Immutable.List(Immutable.fromJS(secondChallenge.description));
 
