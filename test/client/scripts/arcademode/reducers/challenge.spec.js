@@ -5,7 +5,6 @@ import Immutable from 'immutable';
 
 import chaiImmutable from 'chai-immutable';
 
-import Challenge from '../../../../../client/scripts/arcademode/model/Challenge';
 import reducer from '../../../../../client/scripts/arcademode/reducers/challenge';
 
 import {
@@ -16,6 +15,9 @@ import {
 } from '../../../../../client/scripts/arcademode/actions/challenge';
 
 import Challenges from '../../../../../client/json/challenges.json';
+
+const firstChallenge = Challenges.challenges[0];
+const secondChallenge = Challenges.challenges[1];
 
 chai.use(chaiImmutable);
 
@@ -50,11 +52,11 @@ describe('challenge reducer', () => {
 
   it('yields no solution if challenge does not have it', () => {
     const state = Immutable.Map({
-      currChallenge: new Challenge({ solutions: [] }),
+      currChallenge: Immutable.fromJS({ solutions: [] }),
       code: ''
     });
     const nextState = reducer(state, actionSolveChallenge());
-    assert.Equal(state.get('code'), nextState.get('code'));
+    assert(state.get('code') === nextState.get('code'), 'Code did not change');
   });
 
   it('should start first challenge on CHALLENGE_START', () => {
@@ -64,20 +66,20 @@ describe('challenge reducer', () => {
       description: Immutable.List(),
       code: 'The code to work with will show up here.',
       nextChallenge: Immutable.Map(),
-      currChallenge: Immutable.Map(Immutable.fromJS(Challenges.challenges[0])),
+      currChallenge: Immutable.Map(Immutable.fromJS(firstChallenge)),
       currChallengeStartedAt: 0
       // timerMaxValueLoaded
     });
     const nextChallengeStartTime = 200;
     const nextState = reducer(state, startChallenge(nextChallengeStartTime));
-    expect(nextState).to.equal(Immutable.Map({
-      challengeNumber: 1,
-      title: Challenges.challenges[0].title,
-      description: Immutable.List(Immutable.fromJS(Challenges.challenges[0].description)),
-      code: Challenges.challenges[0].challengeSeed,
-      nextChallenge: Immutable.Map(Immutable.fromJS(Challenges.challenges[1])),
-      currChallengeStartedAt: nextChallengeStartTime
-    }));
+    const expectedDescription = Immutable.List(Immutable.fromJS(firstChallenge.description));
+
+    expect(nextState.get('challengeNumber')).to.equal(1);
+    expect(nextState.get('title')).to.equal(Challenges.challenges[0].title);
+    expect(nextState.get('description')).to.equal(expectedDescription);
+    expect(nextState.get('code')).to.equal(firstChallenge.challengeSeed.join('\n'));
+    expect(nextState.get('nextChallenge')).to.equal(Immutable.Map(Immutable.fromJS(secondChallenge)));
+    expect(nextState.get('currChallengeStartedAt')).to.equal(nextChallengeStartTime);
   });
 
   it('should change code on CODE_CHANGED', () => {
