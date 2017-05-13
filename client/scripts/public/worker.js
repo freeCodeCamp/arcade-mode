@@ -9,11 +9,14 @@
 /* eslint no-unused-vars: 0 */
 const assert = require('chai').assert;
 
+// import Immutable from 'immutable';
+
 onmessage = e => {
   const userCode = e.data[0];
   const currChallenge = e.data[1];
 
-  const tests = currChallenge.challenge.tests.map(test => (
+  const tests = currChallenge.tests.map(test => (
+  // const tests = currChallenge.getIn(['challenge', 'tests']).map(test => (
     {
       test,
       // testCondition: test.match(/^assert\(([^,]*),/)[1],

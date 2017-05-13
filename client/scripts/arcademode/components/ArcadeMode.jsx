@@ -2,13 +2,14 @@
 'use strict';
 
 import React, { Component } from 'react';
+import ImmutablePropTypes from 'react-immutable-proptypes';
 import PropTypes from 'prop-types';
 import CodeMirror from 'react-codemirror';
 import { Grid, Row, Col } from 'react-bootstrap';
 
-import UserData from '../model/UserData';
-import TestResults from '../model/TestResults';
-import Challenge from '../model/Challenge';
+// import UserData from '../model/UserData';
+// import TestResults from '../model/TestResults';
+// import Challenge from '../model/Challenge';
 import Modal from './Modal';
 import Navbar from './Navbar';
 
@@ -90,9 +91,9 @@ export default class ArcadeMode extends Component {
   }
 
   processTestResults() {
-    const results = this.props.testResults.testResults;
+    const results = this.props.testResults;
     let testsOk = true;
-    if (results.length) {
+    if (results.size) {
       results.forEach(result => { testsOk = testsOk && result.pass; });
     }
     else testsOk = false;
@@ -102,10 +103,10 @@ export default class ArcadeMode extends Component {
 
   /* TODO: Add limit to the number of printed tests. Improve output. */
   renderTestResults() {
-    const results = this.props.testResults.testResults;
+    const results = this.props.testResults;
     let testsOk = true;
     let individualTests;
-    if (results.length) {
+    if (results.size) {
       individualTests = results.map((item, index) => {
         const result = item.pass ? 'Pass' : 'Fail';
         const className = item.pass ? 'text-success' : 'text-danger';
@@ -230,19 +231,19 @@ export default class ArcadeMode extends Component {
 ArcadeMode.propTypes = {
   modal: PropTypes.bool.isRequired,
   onModalClose: PropTypes.func.isRequired,
-  currChallenge: PropTypes.instanceOf(Challenge).isRequired,
+  currChallenge: ImmutablePropTypes.map.isRequired,
   title: PropTypes.string.isRequired,
-  description: PropTypes.array.isRequired,
+  description: ImmutablePropTypes.list.isRequired,
   userOutput: PropTypes.string.isRequired,
   code: PropTypes.string.isRequired,
   nextChallenge: PropTypes.func.isRequired,
   finishSession: PropTypes.func.isRequired,
   onCodeChange: PropTypes.func.isRequired,
   runTests: PropTypes.func.isRequired,
-  userData: PropTypes.instanceOf(UserData).isRequired,
+//  userData: ImmutablePropTypes.map.isRequired,
   startChallenge: PropTypes.func.isRequired,
   startTimer: PropTypes.func.isRequired,
-  testResults: PropTypes.instanceOf(TestResults).isRequired,
+  testResults: ImmutablePropTypes.list.isRequired,
   timeLeft: PropTypes.number.isRequired,
   onTimerMaxValueChange: PropTypes.func.isRequired,
   timerMaxValue: PropTypes.string.isRequired,

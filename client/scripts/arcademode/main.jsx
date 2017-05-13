@@ -10,6 +10,7 @@ import configureStore from './store/configureStore';
 import App from './containers/App';
 
 const store = configureStore();
+
 const app = document.querySelector('.app');
 
 ReactDOM.render(

@@ -8,7 +8,7 @@ import composeEnhancers from '../reducers/composeEnhancers';
 // import Immutable from 'immutable';
 
 
-export default function configureStore() {
+export default function configureStore () {
   return createStore(appReducer, composeEnhancers(applyMiddleware(
     thunk
   )));
