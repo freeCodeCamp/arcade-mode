@@ -26,7 +26,9 @@ import {
   actionTimerMaxValueChanged
 } from '../actions/timer';
 
+import makeMapStateToProps from '../selectors';
 
+/*
 const mapStateToProps = state => ({
   modal: state.getIn(['modal', 'modal']),
   challengeNumber: state.getIn(['challenge', 'challengeNumber']),
@@ -45,6 +47,7 @@ const mapStateToProps = state => ({
   isSessionFinished: state.getIn(['session', 'isSessionFinished']),
   isSessionStarted: state.getIn(['session', 'isSessionStarted'])
 });
+*/
 
 const mapDispatchToProps = dispatch => ({
   onModalClose: () => dispatch(onModalClose()),
@@ -59,4 +62,4 @@ const mapDispatchToProps = dispatch => ({
   solveChallenge: () => dispatch(actionSolveChallenge())
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(ArcadeMode);
+export default connect(makeMapStateToProps, mapDispatchToProps)(ArcadeMode);
