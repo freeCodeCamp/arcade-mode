@@ -18,6 +18,7 @@ import Challenges from '../../../../../client/json/challenges.json';
 
 const firstChallenge = Challenges.challenges[0];
 const secondChallenge = Challenges.challenges[1];
+const thirdChallenge = Challenges.challenges[2];
 
 chai.use(chaiImmutable);
 
@@ -80,6 +81,30 @@ describe('challenge reducer', () => {
     expect(nextState.get('code')).to.equal(firstChallenge.challengeSeed.join('\n'));
     expect(nextState.get('nextChallenge')).to.equal(Immutable.Map(Immutable.fromJS(secondChallenge)));
     expect(nextState.get('currChallengeStartedAt')).to.equal(nextChallengeStartTime);
+  });
+
+  it('should go to next challenge on CHALLENGE_NEXT', () => {
+
+    const nextChallengeStartTime = 500;
+    const expectedDescription = Immutable.List(Immutable.fromJS(secondChallenge.description));
+
+    const state = Immutable.Map({
+      challengeNumber: 1,
+      currChallenge: Immutable.Map(Immutable.fromJS(firstChallenge)),
+      currChallengeStartedAt: 200,
+      title: firstChallenge.title,
+      description: Immutable.List(Immutable.fromJS(firstChallenge.description)),
+      code: 'let y = 5;',
+      nextChallenge: Immutable.Map(Immutable.fromJS(secondChallenge))
+    });
+    const nextState = reducer(state, nextChallenge(nextChallengeStartTime));
+    expect(nextState.get('challengeNumber')).to.equal(2);
+    expect(nextState.get('currChallenge')).to.equal((Immutable.Map(Immutable.fromJS(secondChallenge))));
+    expect(nextState.get('currChallengeStartedAt')).to.equal(nextChallengeStartTime);
+    expect(nextState.get('title')).to.equal(Challenges.challenges[1].title);
+    expect(nextState.get('description')).to.equal(expectedDescription);
+    expect(nextState.get('code')).to.equal(secondChallenge.challengeSeed.join('\n'));
+    expect(nextState.get('nextChallenge')).to.equal(Immutable.Map(Immutable.fromJS(thirdChallenge)));
   });
 
   it('should change code on CODE_CHANGED', () => {
