@@ -91,9 +91,9 @@ export default class ArcadeMode extends Component {
   }
 
   processTestResults() {
-    const results = this.props.testResults.testResults;
+    const results = this.props.testResults;
     let testsOk = true;
-    if (results.length) {
+    if (results.size) {
       results.forEach(result => { testsOk = testsOk && result.pass; });
     }
     else testsOk = false;
@@ -103,10 +103,10 @@ export default class ArcadeMode extends Component {
 
   /* TODO: Add limit to the number of printed tests. Improve output. */
   renderTestResults() {
-    const results = this.props.testResults; // this.props.testResults.testResults;
+    const results = this.props.testResults;
     let testsOk = true;
     let individualTests;
-    if (results.length) {
+    if (results.size) {
       individualTests = results.map((item, index) => {
         const result = item.pass ? 'Pass' : 'Fail';
         const className = item.pass ? 'text-success' : 'text-danger';
