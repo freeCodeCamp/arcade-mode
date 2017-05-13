@@ -45,13 +45,14 @@ export default function challenge(state = initialState, action) {
         .set('description', state.getIn(['nextChallenge', 'description']))
         .set('code', state.getIn(['nextChallenge', 'challengeSeed']).join('\n'))
         .set('nextChallenge', Immutable.Map(Immutable.fromJS(Challenges.challenges[state.get('challengeNumber') + 1])));
-    case CHALLENGE_SOLVE:
+    case CHALLENGE_SOLVE: {
       const solutions = state.getIn(['currChallenge', 'solutions']);
       if (solutions.size > 0) {
         const solution = solutions.get(0);
         return state.set('code', solution);
       }
       return state;
+    }
     case CODE_CHANGED:
       return state.set('code', action.code);
     default:
