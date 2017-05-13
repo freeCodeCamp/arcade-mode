@@ -6,6 +6,10 @@
     1. Transform Redux code to now use Immutable.js.
     2. Flesh out tests for all slice reducers.
     3. Implement reselect's memoized selector for mapStateToProps calls.
+  - Left to do:
+    1. [ ] Fix CHALLENGE_START test.
+    2. TIMER_FINISHED seems unused; no associated function calls.
+    3. Move CHALLENGE_START timerMaxValueLoaded to timer.
 
 ### Tuomas:
   - Progress:
