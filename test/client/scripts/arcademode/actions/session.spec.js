@@ -10,7 +10,7 @@ import {
 } from '../../../../../client/scripts/arcademode/actions/session';
 
 describe('session actions', () => {
-  it('should do x', () => {
+  it('should return SESSION_FINISH for finishSession action', () => {
     expect(actionFinishSession().type).to.equal(SESSION_FINISH);
   });
 });

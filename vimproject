@@ -754,6 +754,12 @@ project=/home/tpoikela/git/arcade-mode CD=. filter="*" flags=S {
      test.js
      timer.js
     }
+    selectors=selectors {
+     index.js
+    }
+    store=store {
+     configureStore.js
+    }
    }
    public=public {
     head.js
