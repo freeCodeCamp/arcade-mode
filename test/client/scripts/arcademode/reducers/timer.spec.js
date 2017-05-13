@@ -12,16 +12,30 @@ import {
   stopTimer,
   actionTimerStarted,
   actionTimerUpdated,
-  actionTimerMaxValueChanged,
-  startTimer
+  actionTimerMaxValueChanged
+//  startTimer
 } from '../../../../../client/scripts/arcademode/actions/timer';
-// import { actionFinishSession } from '../../../../../client/scripts/arcademode/actions/session';
+
+// import { startChallenge } from '../../../../../client/scripts/arcademode/actions/challenge';
 
 chai.use(chaiImmutable);
 
 const timerDefaultValue = 60 * 1000;
 
 describe('timer reducer', () => {
+  /*
+  it('should load max timer on CHALLENGE_START', () => {
+    const startTime = 200;
+    const state = Immutable.Map({
+      timerMaxValueLoaded: timerDefaultValue
+    });
+    const nextState = reducer(state, startChallenge(startTime));
+    expect(nextState).to.equal(Immutable.Map({
+      timerMaxValueLoaded: startTime
+    }));
+  });
+  */
+
   it('should stop timer on STOP_TIMER', () => {
     const state = Immutable.Map({
       isTimerFinished: false,
