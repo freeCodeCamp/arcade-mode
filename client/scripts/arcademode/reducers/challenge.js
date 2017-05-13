@@ -22,7 +22,7 @@ const initialState = Immutable.Map({
   challengeNumber: 0,
   currChallenge: Immutable.Map(Immutable.fromJS(Challenges.challenges[0])),
   currChallengeStartedAt: 0,
-  nextChallenge: ''
+  nextChallenge: Immutable.Map()
 });
 
 export default function challenge(state = initialState, action) {
@@ -44,7 +44,6 @@ export default function challenge(state = initialState, action) {
         .set('title', state.getIn(['nextChallenge', 'title']))
         .set('description', state.getIn(['nextChallenge', 'description']))
         .set('code', state.getIn(['nextChallenge', 'challengeSeed']).join('\n'))
-        .set('userOutput', '')
         .set('nextChallenge', Immutable.Map(Immutable.fromJS(Challenges.challenges[state.get('challengeNumber') + 1])));
     case CHALLENGE_SOLVE:
       const solutions = state.getIn(['currChallenge', 'solutions']);

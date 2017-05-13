@@ -5,9 +5,7 @@ import Immutable from 'immutable';
 
 // import Interpreter from 'js-interpreter';
 
-import {
-  FINISH_SESSION
-} from '../actions/session';
+import { SESSION_FINISH } from '../actions/session';
 
 import { CHALLENGE_START, CHALLENGE_NEXT } from '../actions/challenge';
 
@@ -17,7 +15,6 @@ const getScoreForChallenge = challenge => {
 };
 
 const initialState = Immutable.Map({
-  userOutput: 'The output of your code will show up here.',
   userData: Immutable.Map(),
   isSessionFinished: false,
   isSessionStarted: false,
@@ -32,9 +29,8 @@ export default function session (state = initialState, action) {
         .set('isSessionStarted', true);
     case CHALLENGE_NEXT:
       return state
-        .update('sessionScore', sessionScore => sessionScore + getScoreForChallenge(state.currChallenge))
-        .set('userOutput', 'The output of your code will show up here.');
-    case FINISH_SESSION:
+        .update('sessionScore', sessionScore => sessionScore + getScoreForChallenge(state.currChallenge));
+    case SESSION_FINISH:
       return state
         .set('isSessionFinished', true)
         .set('isSessionStarted', false);

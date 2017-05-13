@@ -1,10 +1,10 @@
 
 'use strict';
 
-export const FINISH_SESSION = 'FINISH_SESSION';
+export const SESSION_FINISH = 'SESSION_FINISH';
 
 export function actionFinishSession() {
   return {
-    type: FINISH_SESSION
+    type: SESSION_FINISH
   };
 }
