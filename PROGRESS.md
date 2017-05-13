@@ -5,6 +5,7 @@
   - Progress:
     1. Transform Redux code to now use Immutable.js.
     2. Flesh out tests for all slice reducers.
+    3. Implement reselect's memoized selector for mapStateToProps calls.
 
 ### Tuomas:
   - Progress:
