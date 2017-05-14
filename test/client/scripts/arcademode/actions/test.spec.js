@@ -58,9 +58,7 @@
 
 /* Unit tests for file client/scripts/arcademode/actions/test.js. */
 import { expect } from 'chai';
-// import configureMockStore from 'redux-mock-store';
-// import thunk from 'redux-thunk';
-// import sinon from 'sinon';
+import sinon from 'sinon';
 
 import {
   OUTPUT_CHANGED,
@@ -72,24 +70,16 @@ import {
   actionTestsFinished
 } from '../../../../..//client/scripts/arcademode/actions/test';
 
-// const middlewares = [thunk];
-// const mockStore = configureMockStore(middlewares);
 
 describe('test actions', () => {
-  /*
   it('should dispatch an action on runTests', () => {
-    const expectedActions = [
-      { type: TESTS_STARTED },
-      { type: TESTS_FINISHED, testResults: [{ error: null, pass: true, output: '' }] }
-    ];
-    const store = mockStore({ testResults: [] });
+    const dispatch = sinon.spy();
+    const action = runTests();
 
-    return store.dispatch(runTests())
-      .then(() => {
-        expect(store.getActions()).to.equal(expectedActions);
-      });
+    action(dispatch).then(() => {
+      expect(dispatch.called).to.be.true;
+    });
   });
-  */
 
   it('should return correct type for actionTestsStarted', () => {
     expect(actionTestsStarted().type).to.equal(TESTS_STARTED);
