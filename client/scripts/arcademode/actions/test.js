@@ -20,6 +20,7 @@ export function runTests(userCode, currChallenge) {
 
     // Eval user code inside worker
     // http://stackoverflow.com/questions/9020116/is-it-possible-to-restrict-the-scope-of-a-javascript-function/36255766#36255766
+
     function createWorker () {
       return new Promise((resolve, reject) => {
         const wk = new Worker('../../public/js/worker.bundle.js');
@@ -37,7 +38,8 @@ export function runTests(userCode, currChallenge) {
         if (workerData.length > 1) {
           dispatch(actionTestsFinished(workerData.slice(1)));
         }
-      });
+      })
+      .catch(err => { console.log(`Promise rejected: ${err}.`); });
   };
 }
 
