@@ -1,10 +1,10 @@
-// 
+//
 // 'use strict';
-// 
+//
 // import React, { Component } from 'react';
 // import PropTypes from 'prop-types';
 // import { Modal, Button } from 'react-bootstrap';
-// 
+//
 // export default class ArcadeModal extends Component {
 //   render() {
 //     return (
@@ -25,34 +25,38 @@
 //     );
 //   }
 // }
-// 
+//
 // ArcadeModal.propTypes = {
 //   modal: PropTypes.bool.isRequired,
 //   onModalClose: PropTypes.func.isRequired
 // };
-// 
+//
 
 /* Unit tests for file client/scripts/arcademode/components/Modal.jsx. */
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 
 import chaiEnzyme from 'chai-enzyme';
 import chai, { expect } from 'chai';
+import { Modal, Button } from 'react-bootstrap';
 
-import ArcadeModal from '../../../../..//client/scripts/arcademode/components/Modal.jsx'
+import ArcadeModal from '../../../../../client/scripts/arcademode/components/Modal';
 
 chai.use(chaiEnzyme());
 
 const props = {
-  modal: true
+  modal: true,
+  onModalClose: () => {}
 };
 
-const wrapper = shallow(<ArcadeModal {...props} />);
+const wrapper = mount(<ArcadeModal {...props} />);
 
 describe('<ArcadeModal>', () => {
-  it('should render', () => {
+  it('should render shallowly OK', () => {
     expect(wrapper).to.have.length(1);
-  });
+    expect(wrapper).to.contain(<Button />);
+    const button = wrapper.find('<Button>');
 
+  });
 });
 
