@@ -1,6 +1,9 @@
 # PROGRESS for Arcade Mode
 
 ## Saturday 5/13/17:
+### Tim:
+  - Issues:
+    1. JSDOM not properly set up; importing Sinon instantly errors during testing.
 
 ## Friday 5/12/17:
 ### Tim:
