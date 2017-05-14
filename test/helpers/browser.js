@@ -8,21 +8,22 @@
 
 import { JSDOM } from 'jsdom';
 
-const dom = new JSDOM('<!DOCUMENT html><html><head></head><body></body></html>');
+const doc = new JSDOM('<!DOCTYPE html><html><head></head><body></body></html>');
+const win = doc.defaultView;
 // const exposedProperties = ['window', 'navigator', 'document'];
 
-global.document = dom;
-global.window = document.defaultView;
-
+global.document = doc;
+global.window = win;
 /*
-Object.keys(document.defaultView).forEach(property => {
+Object.keys(win).forEach(property => {
   if (typeof global[property] === 'undefined') {
-    exposedProperties.push(property);
-    global[property] = document.defaultView[property];
+    // exposedProperties.push(property);
+    global[property] = win[property];
   }
 });
 */
-
+/*
 global.navigator = {
   userAgent: 'node.js'
 };
+*/
