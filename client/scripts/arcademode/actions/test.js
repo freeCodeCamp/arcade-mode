@@ -31,7 +31,7 @@ export function runTests(userCode, currChallenge) {
       });
     }
 
-    createWorker()
+    return createWorker()
       .then(workerData => {
         dispatch(onOutputChange(workerData[0].output));
         if (workerData.length > 1) {
