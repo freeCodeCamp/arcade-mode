@@ -63,7 +63,7 @@
 /* Unit tests for file client/scripts/arcademode/containers/App.jsx. */
 import React from 'react';
 import { expect } from 'chai';
-import { shallow, mount, render } from 'enzyme';
+import { shallow } from 'enzyme';
 
 import { Provider } from 'react-redux';
 import App from '../../../../../client/scripts/arcademode/containers/App';
@@ -72,7 +72,7 @@ import configureStore from '../../../../../client/scripts/arcademode/store/confi
 const store = configureStore();
 
 describe('<App />', () => {
-  it('should do x', () => {
+  it('should render correctly with the store', () => {
     const wrapper = shallow(<Provider store={store}><App /></Provider>);
     expect(wrapper).to.not.be.empty;
   });

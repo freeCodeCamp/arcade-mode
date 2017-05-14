@@ -7,9 +7,6 @@ import PropTypes from 'prop-types';
 import CodeMirror from 'react-codemirror';
 import { Grid, Row, Col } from 'react-bootstrap';
 
-// import UserData from '../model/UserData';
-// import TestResults from '../model/TestResults';
-// import Challenge from '../model/Challenge';
 import Modal from './Modal';
 import Navbar from './Navbar';
 
