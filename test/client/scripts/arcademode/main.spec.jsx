@@ -24,11 +24,10 @@ import { assert } from 'chai';
 
 
 
-describe('', () => {
-
+describe('Entry file: main.jsx', () => {
+/*
   it('should do x', () => {
-    assert(/* code */);
   });
-
+*/
 });
 
