@@ -9,14 +9,21 @@ import chai, { expect } from 'chai';
 
 import Immutable from 'immutable';
 
+import { Grid, Row, Col } from 'react-bootstrap';
+import CodeMirror from 'react-codemirror';
+
 import ArcadeMode from '../../../../../client/scripts/arcademode/components/ArcadeMode';
-// import TestResults from '../../../../../client/scripts/arcademode/model/TestResults';
+import Modal from '../../../../../client/scripts/arcademode/components/Modal';
+import Navbar from '../../../../../client/scripts/arcademode/components/Navbar';
+
+// import reducers from '../../../../../client/scripts/arcademode/reducers';
+// import challengeActions from '../../../../../client/scripts/arcademode/actions/challenge';
 
 import Challenges from '../../../../../client/json/challenges.json';
 
 chai.use(chaiEnzyme());
 
-describe('<ArcadeMode>', () => {
+describe('Component: <ArcadeMode>', () => {
   let props = null;
   const timerDefaultValue = 60 * 1000;
 
@@ -56,23 +63,43 @@ describe('<ArcadeMode>', () => {
     expect(wrapper).to.have.length(1);
   });
 
-  it('should initially show one Start button', () => {
+  it('should render all subcomponents', () => {
     const wrapper = shallow(<ArcadeMode {...props} />);
-    expect(wrapper.find('button')).to.have.length(1);
-    expect(wrapper.find('button')).to.contain.text('Start');
+
+    expect(wrapper.find(Modal)).to.have.length(1);
+    expect(wrapper.find(Navbar)).to.have.length(1);
+    expect(wrapper.find(Grid)).to.have.length(1);
+    expect(wrapper.find(Row)).to.have.length(1);
+    expect(wrapper.find(Col)).to.have.length(2);
+    expect(wrapper.find(CodeMirror)).to.have.length(2);
+
+    const colOne = wrapper.find(Col).first();
+    expect(colOne.props().className).to.equal('arcade-panel');
+    expect(colOne.find('button').text()).to.equal('Start');
+
+    const colTwo = wrapper.find(Col).last();
+    expect(colTwo.props().className).to.equal('arcade-editor');
   });
 
+  /* This seems more of an integration test, walking through events */
+  /*
   it('should show code editor after running the tests', () => {
     // const spy = sinon.spy(ArcadeMode.prototype, 'onClickStartChallenge');
     const wrapper = shallow(<ArcadeMode {...props} />);
-    wrapper.find('button').first().simulate('click');
+    // console.log(wrapper.find('button').first());
+    const button = wrapper.find('button').first();
+    button.simulate('click');
+    // wrapper.find('button').first().simulate('click');
 
-    console.log('Buttons after click: ' + wrapper.find('button').length);
+    console.log(wrapper.find('button').props());
 
-    const runTestsButton = wrapper.find('button')[1];
-    runTestsButton.simulate('click');
+    console.log(`Buttons after click: ${wrapper.find('button').length}`);
+
+    // const runTestsButton = wrapper.find('button')[1];
+    // runTestsButton.simulate('click');
     // expect(spy.calledOnce).to.be.true;
     expect(wrapper.find('.editor')).to.have.length(1);
   });
+  */
 });
 
