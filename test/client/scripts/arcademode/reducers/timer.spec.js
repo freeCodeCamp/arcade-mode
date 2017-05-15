@@ -22,7 +22,7 @@ chai.use(chaiImmutable);
 
 const timerDefaultValue = 60 * 1000;
 
-describe('timer reducer', () => {
+describe('Reducer: timer', () => {
   /*
   it('should load max timer on CHALLENGE_START', () => {
     const startTime = 200;
