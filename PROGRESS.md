@@ -4,7 +4,8 @@
 ### Tim:
   - Progress:
     1. Fix JSOM setup.
-    2. Finish writing all client-side tests except for worker.js.
+    2. Move https enforcement to server-side (seems to be custom solution to Heroku however).
+    3. Finish writing all client-side tests except for worker.js.
 
 
 ## Saturday 5/13/17:
