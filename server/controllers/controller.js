@@ -1,9 +1,7 @@
 function controller () {
   this.getIndex = (req, res) => {
-    // if (req.protocol 
-    console.log(req.protocol);
-    if (req.protocol === 'http') {
-      res.redirect('https://arcademode.herokuapp.com');
+    if (!req.secure) {
+      return res.redirect(['https://', req.get('Host').req.url].join(''));
     }
     res.render('index');
   };
