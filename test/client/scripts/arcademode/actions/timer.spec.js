@@ -74,7 +74,7 @@ import {
   actionTimerMaxValueChanged
 } from '../../../../..//client/scripts/arcademode/actions/timer';
 
-describe('timer actions', () => {
+describe('Actions: timer', () => {
   it('should do return correct type and value for actionTimerMaxValueChanged()', () => {
     const action = actionTimerMaxValueChanged(1000);
     expect(action.type).to.equal(TIMER_MAX_VALUE_CHANGED);
