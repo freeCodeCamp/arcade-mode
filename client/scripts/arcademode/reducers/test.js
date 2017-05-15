@@ -19,6 +19,8 @@ export default function test (state = initialState, action) {
       return state
         .set('userOutput', 'The output of your code will show up here.')
         .set('testResults', Immutable.List());
+
+    // Nothing seems to call TIMER_FINISHED...
     case TIMER_FINISHED:
       return state.set('testResults', Immutable.List(action.testResults));
     case OUTPUT_CHANGED:

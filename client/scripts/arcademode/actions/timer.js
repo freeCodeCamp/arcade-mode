@@ -57,3 +57,10 @@ export function actionTimerMaxValueChanged (timerMaxValue) {
     timerMaxValue
   };
 }
+
+// contrived for testing TIMER_FINISHED, since nothing actually calls it.
+export function actionTimerFinished () {
+  return {
+    type: TIMER_FINISHED
+  };
+}
