@@ -3,8 +3,7 @@ function controller () {
     // if (req.protocol 
     console.log(req.protocol);
     if (req.protocol === 'http') {
-      res.protocol = 'https';
-      res.render('index');
+      res.redirect('https://arcademode.herokuapp.com');
     }
     res.render('index');
   };
