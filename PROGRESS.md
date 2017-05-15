@@ -1,5 +1,12 @@
 # PROGRESS for Arcade Mode
 
+## Sunday 5/14/17:
+### Tim:
+  - Progress:
+    1. Fix JSOM setup.
+    2. Finish writing all client-side tests except for worker.js.
+
+
 ## Saturday 5/13/17:
 ### Tim:
   - Issues:
