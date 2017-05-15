@@ -65,16 +65,29 @@ import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
 
+
 import { Provider } from 'react-redux';
 import App from '../../../../../client/scripts/arcademode/containers/App';
 import configureStore from '../../../../../client/scripts/arcademode/store/configureStore';
 
 const store = configureStore();
 
-describe('<App />', () => {
+describe('Container: <App>', () => {
+  it('should render', () => {
+    const wrapper = shallow(
+      <Provider store={store}>
+        <App />
+      </Provider>
+    );
+
+    expect(wrapper).to.have.length(1);
+    expect(wrapper.find(App)).to.have.length(1);
+  });
+
   it('should render correctly with the store', () => {
-    const wrapper = shallow(<Provider store={store}><App /></Provider>);
-    expect(wrapper).to.not.be.empty;
+    // const wrapper = shallow(<Provider store={store}><App /></Provider>);
+    // expect(wrapper).to.not.be.empty;
+    expect(store.getState().getIn(['session', 'isSessionStarted'])).to.equal(false);
   });
 });
 
