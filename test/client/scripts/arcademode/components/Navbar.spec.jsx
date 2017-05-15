@@ -70,15 +70,10 @@ const props = {
 };
 
 
-describe('<ArcadeNavbar>', () => {
+describe('Component: <ArcadeNavbar>', () => {
   it('should render', () => {
     const wrapper = shallow(<ArcadeNavbar {...props} />);
     expect(wrapper).to.have.length(1);
-  });
-
-  it('should have exactly one regular link', () => {
-    const wrapper = shallow(<ArcadeNavbar {...props} />);
-    expect(wrapper.find('a')).to.have.length(1);
   });
 
   it('should render all sub components', () => {
