@@ -1,18 +1,18 @@
 // // worker.js
 // // =========
-// 
+//
 // // Using a webworker ensures that this code does not have access to the global context
-// 
+//
 // 'use strict';
-// 
+//
 // // used require because import didn't work
 // /* eslint no-unused-vars: 0 */
 // const assert = require('chai').assert;
-// 
+//
 // onmessage = e => {
 //   const userCode = e.data[0];
 //   const currChallenge = e.data[1];
-// 
+//
 //   const tests = currChallenge.challenge.tests.map(test => (
 //     {
 //       test,
@@ -20,7 +20,7 @@
 //       testMessage: test.match(/message: (.*)'\);$/)[1]
 //     }
 //   ));
-// 
+//
 //   // append user code output to final object passed back via postMessage:
 //   // if user output does not run, then tests should not be executed.
 //   const userOutput = [];
@@ -34,10 +34,10 @@
 //     userFnData.pass = false;
 //     userFnData.output = err.toString();
 //     userOutput.push(userFnData);
-// 
+//
 //     return postMessage(userOutput);
 //   }
-// 
+//
 //   if (eval(`${userCode}`) === undefined) {
 //     userFnData.output = 'User output is undefined';
 //   }
@@ -45,7 +45,7 @@
 //     userFnData.output = JSON.stringify(eval(`${userCode}`), null, 2);
 //   }
 //   userOutput.push(userFnData);
-// 
+//
 //   const testResults = [];
 //   tests.forEach(test => {
 //     const testRunData = { error: null, pass: true };
@@ -63,49 +63,49 @@
 //     }
 //     testResults.push(testRunData);
 //   });
-// 
+//
 //   const postData = userOutput.concat(testResults);
-// 
+//
 //   console.log('Now sending worker user code output and test results');
 //   postMessage(postData);
-// 
+//
 //   /*
 //   // Solution #1: Append 'return' and construct a new Function, then call that function.
 //   const reFn = e.data.replace(Challenges.challenges[0].challengeSeed[0],
 //     `return ${Challenges.challenges[0].challengeSeed[0]}`);
-// 
+//
 //   const userFn = (new Function(reFn))();
 //   console.log(userFn('test string')); // passing an argument to the user function
-// 
+//
 //   // single test case:
 //   const testCase = `${assert};${e.data};return ${tests[0].test}`;
 //   const tc = (new Function(testCase))();
 //   console.log(`assert single test case: ${tc}`);
-// 
+//
 //   // multiple test cases in one:
 //   const reTestCases = tests.map(test =>
 //     `${assert};
 //     ${e.data};
 //    // console.log(${test.testCondition} ${test.testMessage});
 //     return ${test.test}`);
-// 
+//
 //   const assertFns = reTestCases.map(reTestCase => (new Function(reTestCase))());
 //   // console.log('assert: ' + assertFns);
 //   assertFns.map(assertFn => console.log(`assert all: ${assertFn}`));
-// 
+//
 //   // Solution: #2: Append the test case to the end the code below:
-// 
+//
 //   // console.log('eval: ' + eval(testCase));
-// 
+//
 //   // const testACase = eval((function () { return testCase; })());
-// 
+//
 //   // console.log('test: ' + testACase);
 //   */
 // };
-// 
+//
 // // postMessage(runTestsAgainstUserCode());
 // // onmessage = e => { console.log(e); };
-// 
+//
 // /*
 // function assert (condition, message) {
 //   if (!condition) {
@@ -120,51 +120,37 @@
 //   return true;
 // }
 // */
-// 
+//
 
 /* Unit tests for file client/scripts/public/worker.js. */
-import { expect } from 'chai';
-// import chaiAsPromised from 'chaiAsPromised';
+import chai, { expect } from 'chai';
+// import chaiAsPromised from 'chai-as-promised';
 
-import Challenges from '../../../../client/json/challenges';
+import Challenges from '../../../../client/json/challenges.json';
 
 const Worker = require('webworker-threads').Worker;
 
-import worker from '../../../../client/scripts/public/worker';
+// import worker from '../../../../client/scripts/public/worker';
 
 // chai.use(chaiAsPromised);
 
 describe('Worker', () => {
-  it('should ', function (done) {
-    /*
-    const props = {
-      data: [
-        'let x = 3;',
-        Challenges.challenges[0]
-      ]
-    };
-    */
-
+  it('should return correctly', () => {
     return new Promise(res => {
-      const dummyWorker = new Worker(worker);
+      // const dummyWorker = new Worker('./client/scripts/public/worker.js');
+      const dummyWorker = new Worker('./public/js/worker.bundle.js');
 
-      dummyWorker.postMessage(['let x = 3;', Challenges.challenges[0]]);
       dummyWorker.onmessage = e => {
         res(e.data);
       };
+
+      dummyWorker.postMessage(['var re = /^([+]?1[\\s]?)?((?:[(](?:[2-9]1[02-9]|[2-9][02-8][0-9])[)][\\s]?)|(?:(?:[2-9]1[02-9]|[2-9][02-8][0-9])[\\s.-]?)){1}([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2}[\\s.-]?){1}([0-9]{4}){1}$/; function telephoneCheck(str) { return re.test(str); } telephoneCheck("555-555-5555");', Challenges.challenges[0]]);
     })
     .then(workerData => {
-      console.log(workerData[0].output);
-      console.log(workerData.slice(1));
-      expect(workerData[0].output).to.equal('asdf');
-      done();
+      expect(workerData[0].output).to.equal('true');
+      // return expect(workerData.slice(1)).to.have.length(27);
     })
-    .catch(err => { console.error(err); });
+    .catch(err => console.err(err));
   });
-/*
-  const dummyWorker = new Worker(worker);
-  dummyWorker.postMessage(['let x = 3;', Challenges.challenges[0]]);
-  expect(Promise.resolve(dummyWorker.onmessage(e)
-  */
 });
 
