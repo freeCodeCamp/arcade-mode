@@ -4,8 +4,6 @@
  * components.
  * */
 
-// require('babel-register')();
-
 import { JSDOM } from 'jsdom';
 
 const dom = new JSDOM('<!DOCTYPE html><html><head></head><body></body></html>');
