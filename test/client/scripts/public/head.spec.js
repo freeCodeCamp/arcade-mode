@@ -28,18 +28,21 @@ chai.use(chaiHttp);
 describe('Helper scripts: public/head.js', () => {
   it('should redirect http to https', function (done) {
     this.timeout(5000);
-    // enforceHttps();
+    enforceHttps();
 
     nock('http://arcademode.herokuapp.com')
       .get('/');
-      
 
     chai.request('http://arcademode.herokuapp.com')
       .get('/')
       .end((err, res) => {
-        console.log(res);
-        expect(res).to.redirect;
-        done();
+        // console.log(res);
+        // expect(res).to.not.redirect;
+        setTimeout(function () {
+          console.log('hi');
+          return expect(res).to.redirect;
+          done();
+        }, 2000);
       });
     /*
       .then(res => {
