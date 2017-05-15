@@ -15,7 +15,7 @@ chai.use(chaiImmutable);
 
 const dummyAction = { type: 'DUMMY' };
 
-describe('session reducer', () => {
+describe('Reducer: session', () => {
   it('should indicate that no session has been started or finished', () => {
     const initialState = reducer(undefined, dummyAction);
     expect(initialState.get('isSessionStarted')).to.be.false;
