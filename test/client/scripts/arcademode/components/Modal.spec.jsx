@@ -49,9 +49,7 @@ const props = {
   onModalClose: () => {}
 };
 
-// const wrapper = shallow(<ArcadeModal {...props} />);
-
-describe('<ArcadeModal>', () => {
+describe('Component: <ArcadeModal>', () => {
   it('should render', () => {
     const wrapper = shallow(<ArcadeModal {...props} />);
     expect(wrapper).to.have.length(1);
@@ -59,6 +57,8 @@ describe('<ArcadeModal>', () => {
 
   it('should render all sub components', () => {
     const wrapper = shallow(<ArcadeModal {...props} />);
+
+    expect(wrapper.find(Modal)).to.have.length(1);
 
     expect(wrapper.find(Modal.Header)).to.have.length(1);
 
