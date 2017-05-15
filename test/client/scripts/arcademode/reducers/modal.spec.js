@@ -13,7 +13,7 @@ import { onModalClose } from '../../../../../client/scripts/arcademode/actions/m
 
 chai.use(chaiImmutable);
 
-describe('modal reducer', () => {
+describe('Reducer: modal', () => {
   it('should close modal upon MODAL_CLOSE', () => {
     const state = Immutable.Map({
       modal: true
