@@ -4,8 +4,11 @@ module.exports = app => {
   const controller = new Controller();
 
   app.use((req, res, next) => {
-    if (!req.secure) {
-      return res.redirect(['https://', req.get('Host'), req.url].join(''));
+    // if (process.env.NODE_ENV === 'production' && !req.secure) {
+    
+    if (req.get('X-Forwarded-Proto') !== 'https' && req.get('X-Forwarded-Port') !== '443'
+        && req.hostname !== 'localhost') {
+      return res.redirect(`https://${req.hostname}${req.url}`);
     }
     next();
   });
