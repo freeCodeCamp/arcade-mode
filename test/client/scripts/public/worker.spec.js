@@ -136,14 +136,14 @@ import worker from '../../../../client/scripts/public/worker';
 
 describe('Worker', () => {
   it('should ', function (done) {
-    this.timeout(5000);
-
+    /*
     const props = {
       data: [
         'let x = 3;',
         Challenges.challenges[0]
       ]
     };
+    */
 
     return new Promise(res => {
       const dummyWorker = new Worker(worker);
