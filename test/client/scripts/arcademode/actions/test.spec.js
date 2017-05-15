@@ -71,7 +71,7 @@ import {
 } from '../../../../..//client/scripts/arcademode/actions/test';
 
 
-describe('test actions', () => {
+describe('Actions: test', () => {
   it('should dispatch an action on runTests', () => {
     const dispatch = sinon.spy();
     const action = runTests();
