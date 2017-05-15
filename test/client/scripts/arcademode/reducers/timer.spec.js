@@ -25,13 +25,14 @@ const timerDefaultValue = 60 * 1000;
 
 describe('Reducer: timer', () => {
   it('should load max timer on CHALLENGE_START', () => {
-    const startTime = '200';
     const state = Immutable.Map({
+      timerMaxValue: 3000,
       timerMaxValueLoaded: timerDefaultValue
     });
-    const nextState = reducer(state, startChallenge(startTime));
+    const nextState = reducer(state, startChallenge(new Date().getTime()));
     expect(nextState).to.equal(Immutable.Map({
-      timerMaxValueLoaded: startTime
+      timerMaxValue: 3000,
+      timerMaxValueLoaded: 3000
     }));
   });
 
@@ -77,7 +78,7 @@ describe('Reducer: timer', () => {
     }));
   });
 
-  // currently no TIMER_FINISHED action; see STOP_TIMER?
+  // no TIMER_FINISHED action; see STOP_TIMER? 5/14/17 add a contrived action for test
   it('should finish timer on TIMER_FINISHED?', () => {
     const state = Immutable.Map({
       isRunningTests: true
@@ -90,7 +91,7 @@ describe('Reducer: timer', () => {
 
   it('should change max value when TIMER_MAX_VALUE_CHANGED', () => {
     const state = Immutable.Map({
-      timerMaxValue: timerDefaultValue.toString()
+      timerMaxValue: timerDefaultValue
     });
     const userEnteredMaxValue = 30 * 1000;
     const nextState = reducer(state, actionTimerMaxValueChanged(userEnteredMaxValue));
