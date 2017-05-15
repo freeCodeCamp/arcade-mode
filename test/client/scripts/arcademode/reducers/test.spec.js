@@ -17,7 +17,7 @@ import { nextChallenge } from '../../../../../client/scripts/arcademode/actions/
 
 chai.use(chaiImmutable);
 
-describe('test reducer', () => {
+describe('Reducer: test', () => {
   it('should clear test results and reset output on CHALLENGE_NEXT', () => {
     const state = Immutable.Map({
       userOutput: 'Sample user output',
