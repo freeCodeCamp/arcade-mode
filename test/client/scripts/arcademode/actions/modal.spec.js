@@ -9,7 +9,7 @@ import {
   onModalClose
 } from '../../../../..//client/scripts/arcademode/actions/modal';
 
-describe('modal actions', () => {
+describe('Actions: modal', () => {
   it('should return MODAL_CLOSE type', () => {
     expect(onModalClose().type).to.equal(MODAL_CLOSE);
   });
