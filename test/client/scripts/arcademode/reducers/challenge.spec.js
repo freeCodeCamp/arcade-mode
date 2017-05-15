@@ -24,7 +24,7 @@ chai.use(chaiImmutable);
 
 const dummyAction = { type: 'DUMMY' };
 
-describe('challenge reducer', () => {
+describe('Reducer: challenge', () => {
   it('should have clean initial state', () => {
     const state = reducer(undefined, dummyAction);
     assert.isOk(state, 'Initial state OK');
