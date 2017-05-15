@@ -47,7 +47,7 @@ import {
   onCodeChange
 } from '../../../../..//client/scripts/arcademode/actions/challenge';
 
-describe('challenge actions', () => {
+describe('Actions: challenge', () => {
   it('should return correct challenge start type', () => {
     expect(startChallenge(0).type).to.equal(CHALLENGE_START);
   });
