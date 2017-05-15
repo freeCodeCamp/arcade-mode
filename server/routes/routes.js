@@ -1,7 +1,14 @@
 const Controller = require('../controllers/controller');
 
-module.exports = (app) => {
+module.exports = app => {
   const controller = new Controller();
+
+  app.use((req, res, next) => {
+    if (!req.secure) {
+      return res.redirect(['https://', req.get('Host'), req.url].join(''));
+    }
+    next();
+  });
 
   app.route('/')
     .get(controller.getIndex);
