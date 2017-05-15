@@ -10,6 +10,8 @@
 // enforceHttps();
 
 /* Unit tests for file client/scripts/public/head.js. */
+/*
+
 import chai, { expect } from 'chai';
 import chaiHttp from 'chai-http';
 import nock from 'nock';
@@ -44,13 +46,7 @@ describe('Helper scripts: public/head.js', () => {
           done();
         }, 2000);
       });
-    /*
-      .then(res => {
-        console.log('hi');
-        expect(res).to.not.redirect;
-      })
-      .catch(err => console.error(err));
-      */
   });
 });
 
+*/

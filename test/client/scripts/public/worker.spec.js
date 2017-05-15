@@ -123,15 +123,48 @@
 // 
 
 /* Unit tests for file client/scripts/public/worker.js. */
-import { assert } from 'chai';
+import { expect } from 'chai';
+// import chaiAsPromised from 'chaiAsPromised';
 
+import Challenges from '../../../../client/json/challenges';
 
+const Worker = require('webworker-threads').Worker;
 
-describe('', () => {
+import worker from '../../../../client/scripts/public/worker';
 
-  it('should do x', () => {
-    assert(/* code */);
+// chai.use(chaiAsPromised);
+
+describe('Worker', () => {
+  it('should ', function (done) {
+    this.timeout(5000);
+
+    const props = {
+      data: [
+        'let x = 3;',
+        Challenges.challenges[0]
+      ]
+    };
+
+    return new Promise(res => {
+      const dummyWorker = new Worker(worker);
+
+      dummyWorker.postMessage(['let x = 3;', Challenges.challenges[0]]);
+      dummyWorker.onmessage = e => {
+        res(e.data);
+      };
+    })
+    .then(workerData => {
+      console.log(workerData[0].output);
+      console.log(workerData.slice(1));
+      expect(workerData[0].output).to.equal('asdf');
+      done();
+    })
+    .catch(err => { console.error(err); });
   });
-
+/*
+  const dummyWorker = new Worker(worker);
+  dummyWorker.postMessage(['let x = 3;', Challenges.challenges[0]]);
+  expect(Promise.resolve(dummyWorker.onmessage(e)
+  */
 });
 
