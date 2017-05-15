@@ -12,20 +12,20 @@ import {
   stopTimer,
   actionTimerStarted,
   actionTimerUpdated,
-  actionTimerMaxValueChanged
+  actionTimerMaxValueChanged,
+  actionTimerFinished
 //  startTimer
 } from '../../../../../client/scripts/arcademode/actions/timer';
 
-// import { startChallenge } from '../../../../../client/scripts/arcademode/actions/challenge';
+import { startChallenge } from '../../../../../client/scripts/arcademode/actions/challenge';
 
 chai.use(chaiImmutable);
 
 const timerDefaultValue = 60 * 1000;
 
 describe('Reducer: timer', () => {
-  /*
   it('should load max timer on CHALLENGE_START', () => {
-    const startTime = 200;
+    const startTime = '200';
     const state = Immutable.Map({
       timerMaxValueLoaded: timerDefaultValue
     });
@@ -34,7 +34,6 @@ describe('Reducer: timer', () => {
       timerMaxValueLoaded: startTime
     }));
   });
-  */
 
   it('should stop timer on STOP_TIMER', () => {
     const state = Immutable.Map({
@@ -78,15 +77,16 @@ describe('Reducer: timer', () => {
     }));
   });
 
-  /*
   // currently no TIMER_FINISHED action; see STOP_TIMER?
-  it('should finish timer on TIMER_FINISHED', () => {
+  it('should finish timer on TIMER_FINISHED?', () => {
     const state = Immutable.Map({
       isRunningTests: true
     });
-    const nextState = reducer(state,
+    const nextState = reducer(state, actionTimerFinished());
+    expect(nextState).to.equal(Immutable.Map({
+      isRunningTests: false
+    }));
   });
-  */
 
   it('should change max value when TIMER_MAX_VALUE_CHANGED', () => {
     const state = Immutable.Map({

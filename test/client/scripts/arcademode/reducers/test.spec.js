@@ -15,6 +15,8 @@ import {
 } from '../../../../../client/scripts/arcademode/actions/test';
 import { nextChallenge } from '../../../../../client/scripts/arcademode/actions/challenge';
 
+import { actionTimerFinished } from '../../../../../client/scripts/arcademode/actions/timer';
+
 chai.use(chaiImmutable);
 
 describe('Reducer: test', () => {
@@ -34,7 +36,15 @@ describe('Reducer: test', () => {
     }));
   });
 
-  // it('should -- TIMER_FINISHED?)
+  it('should retrieve the most recent test results on TIMER_FINISHED', () => {
+    const state = Immutable.Map({
+      testResults: Immutable.List()
+    });
+    const nextState = reducer(state, actionTimerFinished());
+    expect(nextState).to.equal(Immutable.Map({
+      testResults: Immutable.List()
+    }));
+  });
 
   it('should show new user code output on OUTPUT_CHANGED', () => {
     const state = Immutable.Map({
