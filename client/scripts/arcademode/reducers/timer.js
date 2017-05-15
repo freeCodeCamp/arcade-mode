@@ -26,7 +26,7 @@ const initialState = Immutable.Map({
 export default function timer (state = initialState, action) {
   switch (action.type) {
     case CHALLENGE_START:
-      return state.set('timerMaxValueLoaded', action.startTime);
+      return state.set('timerMaxValueLoaded', state.get('timerMaxValue'));
     case STOP_TIMER:
       return state
         .set('isTimerFinished', true)
