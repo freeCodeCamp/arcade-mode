@@ -9,6 +9,7 @@ import { Grid, Row, Col } from 'react-bootstrap';
 
 import Modal from './Modal';
 import Navbar from './Navbar';
+import Editor from './Editor';
 
 const outputOptions = {
   readOnly: true,
@@ -17,23 +18,6 @@ const outputOptions = {
   lineWrapping: true,
   mode: 'javascript',
   json: true
-};
-
-// TODO create <CodeEditor> and move options there
-const editorOptions = {
-  theme: 'monokai',
-  scrollbarStyle: 'null',
-  lineWrapping: true,
-  mode: 'javascript',
-  matchBrackets: true,
-  autoCloseBrackets: true
-  /*
-  lineNumbers: true, // seems to break the css/dimensions
-  lint: { esversion: 6 },
-  runnable: true,
-  gutters: ['CodeMirror-lint-markers']
-  inputStyle: 'contenteditable'
-  */
 };
 
 /**
@@ -145,13 +129,10 @@ export default class ArcadeMode extends Component {
       );
     }
     return (
-      <div className={'editor'}>
-        <CodeMirror
-          onChange={this.onCodeChange}
-          options={editorOptions}
-          value={this.props.code}
-        />
-      </div>
+      <Editor
+        onCodeChange={this.onCodeChange}
+        code={this.props.code}
+      />
     );
   }
 
