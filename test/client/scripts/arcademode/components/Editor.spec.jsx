@@ -2,7 +2,7 @@
 'use strict';
 
 import React from 'react';
-import { mount } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 
 import chaiEnzyme from 'chai-enzyme';
 import chai, { expect } from 'chai';
@@ -18,7 +18,12 @@ const props = {
   onCodeChange: code => { editorCode = code; }
 };
 
-describe('<Editor />', () => {
+describe('Component: <Editor />', () => {
+  it('should render', () => {
+    const wrapper = shallow(<Editor {...props} />);
+    expect(wrapper).to.have.length(1);
+  });
+
   it('Contains one CodeMirror element', () => {
     const wrapper = mount(<Editor {...props} />);
     expect(wrapper.find(CodeMirror)).to.have.length(1);
