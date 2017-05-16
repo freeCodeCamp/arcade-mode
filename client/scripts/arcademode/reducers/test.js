@@ -4,7 +4,7 @@
 import Immutable from 'immutable';
 
 import { OUTPUT_CHANGED, TESTS_STARTED, TESTS_FINISHED } from '../actions/test';
-import { CHALLENGE_NEXT } from '../actions/challenge';
+import { CHALLENGE_START, CHALLENGE_NEXT } from '../actions/challenge';
 import { TIMER_FINISHED } from '../actions/timer';
 
 const initialState = Immutable.Map({
@@ -15,6 +15,10 @@ const initialState = Immutable.Map({
 
 export default function test (state = initialState, action) {
   switch (action.type) {
+    case CHALLENGE_START:
+      return state
+        .set('testResults', Immutable.List())
+        .set('isRunningTests', false);
     case CHALLENGE_NEXT:
       return state
         .set('userOutput', 'The output of your code will show up here.')
