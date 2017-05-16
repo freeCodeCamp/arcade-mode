@@ -10,7 +10,7 @@
 
 const assert = require('chai').assert;
 
-onmessage = e => {
+self.onmessage = e => {
   const userCode = e.data[0];
   const currChallenge = e.data[1];
 
@@ -69,5 +69,6 @@ onmessage = e => {
   const postData = userOutput.concat(testResults);
 
   console.log('Now sending worker user code output and test results');
-  postMessage(postData);
+  self.postMessage(postData);
+  self.close();
 };
