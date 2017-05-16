@@ -11,7 +11,7 @@ import { CHALLENGE_START, CHALLENGE_NEXT } from '../actions/challenge';
 
 /* TODO: Returns score for completed challenge. */
 const getScoreForChallenge = challenge => {
-  return 1;
+  return 100;
 };
 
 const initialState = Immutable.Map({
