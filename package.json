@@ -36,9 +36,7 @@
     "browserify-incremental": "^3.1.1",
     "bundle-collapser": "^1.2.1",
     "chai": "^3.5.0",
-    "chai-as-promised": "^6.0.0",
     "chai-enzyme": "^0.6.1",
-    "chai-http": "^3.0.0",
     "chai-immutable": "^1.6.0",
     "dotenv": "^4.0.0",
     "envify": "^4.0.0",
@@ -63,15 +61,13 @@
     "istanbul": "^0.4.5",
     "jsdom": "^10.1.0",
     "mocha": "^3.3.0",
-    "nock": "^9.0.13",
     "react-addons-test-utils": "^15.5.1",
     "react-test-renderer": "^15.5.4",
-    "redux-mock-store": "^1.2.3",
     "sinon": "^2.2.0",
+    "tiny-worker": "^2.1.1",
     "uglifyify": "^3.0.4",
     "vinyl-buffer": "^1.0.0",
-    "vinyl-source-stream": "^1.1.0",
-    "webworker-threads": "^0.7.11"
+    "vinyl-source-stream": "^1.1.0"
   },
   "dependencies": {
     "body-parser": "^1.17.1",
