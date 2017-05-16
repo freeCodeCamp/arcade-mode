@@ -15,6 +15,7 @@ import CodeMirror from 'react-codemirror';
 import ArcadeMode from '../../../../../client/scripts/arcademode/components/ArcadeMode';
 import Modal from '../../../../../client/scripts/arcademode/components/Modal';
 import Navbar from '../../../../../client/scripts/arcademode/components/Navbar';
+import Editor from '../../../../../client/scripts/arcademode/components/Editor';
 
 // import reducers from '../../../../../client/scripts/arcademode/reducers';
 // import challengeActions from '../../../../../client/scripts/arcademode/actions/challenge';
@@ -71,7 +72,8 @@ describe('Component: <ArcadeMode>', () => {
     expect(wrapper.find(Grid)).to.have.length(1);
     expect(wrapper.find(Row)).to.have.length(1);
     expect(wrapper.find(Col)).to.have.length(2);
-    expect(wrapper.find(CodeMirror)).to.have.length(2);
+    expect(wrapper.find(CodeMirror)).to.have.length(1);
+    expect(wrapper.find(Editor)).to.have.length(1);
 
     const colOne = wrapper.find(Col).first();
     expect(colOne.props().className).to.equal('arcade-panel');
