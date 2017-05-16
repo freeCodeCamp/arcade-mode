@@ -123,34 +123,30 @@
 //
 
 /* Unit tests for file client/scripts/public/worker.js. */
-import chai, { expect } from 'chai';
-// import chaiAsPromised from 'chai-as-promised';
+import { expect } from 'chai';
 
 import Challenges from '../../../../client/json/challenges.json';
 
-const Worker = require('webworker-threads').Worker;
-
-// import worker from '../../../../client/scripts/public/worker';
-
-// chai.use(chaiAsPromised);
+const Worker = require('tiny-worker');
 
 describe('Worker', () => {
   it('should return correctly', () => {
-    return new Promise(res => {
-      // const dummyWorker = new Worker('./client/scripts/public/worker.js');
-      const dummyWorker = new Worker('./public/js/worker.bundle.js');
+    const promise = new Promise(res => {
+      const dummyWorker = new Worker('./client/scripts/public/worker.js');
+      // both versions work now.
+      // const dummyWorker = new Worker('./public/js/worker.bundle.js');
 
       dummyWorker.onmessage = e => {
         res(e.data);
       };
 
       dummyWorker.postMessage(['var re = /^([+]?1[\\s]?)?((?:[(](?:[2-9]1[02-9]|[2-9][02-8][0-9])[)][\\s]?)|(?:(?:[2-9]1[02-9]|[2-9][02-8][0-9])[\\s.-]?)){1}([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2}[\\s.-]?){1}([0-9]{4}){1}$/; function telephoneCheck(str) { return re.test(str); } telephoneCheck("555-555-5555");', Challenges.challenges[0]]);
-    })
+    });
+    return promise
     .then(workerData => {
       expect(workerData[0].output).to.equal('true');
-      // return expect(workerData.slice(1)).to.have.length(27);
-    })
-    .catch(err => console.err(err));
+      expect(workerData.slice(1)).to.have.length(27);
+      // no need to catch errors as the errors propogate to mocha to display
+    });
   });
 });
-
