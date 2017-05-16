@@ -17,7 +17,7 @@ const timerDefaultValue = 60 * 1000;
 
 const initialState = Immutable.Map({
   isTimerFinished: false,
-  timerMaxValue: timerDefaultValue,
+  timerMaxValue: `${timerDefaultValue}`,
   timerMaxValueLoaded: timerDefaultValue,
   timeLeft: timerDefaultValue,
   timerStart: 0
