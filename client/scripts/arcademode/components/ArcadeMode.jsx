@@ -81,7 +81,6 @@ export default class ArcadeMode extends Component {
     return testsOk;
   }
 
-
   /* TODO: Add limit to the number of printed tests. Improve output. */
   renderTestResults() {
     const results = this.props.testResults;
@@ -136,11 +135,30 @@ export default class ArcadeMode extends Component {
     );
   }
 
+    /* Returns either button for next challenge or button to finish the
+     * challenge.*/
+  renderNextChallengeButton(passFailResult) {
+    if (!this.props.isSessionFinished) {
+      if (this.props.isTimerFinished) {
+        return (
+          <button className={'btn btn-danger btn-block'} onClick={this.onClickFinishSession}>Finish Session</button>
+        );
+      }
+      if (passFailResult) {
+        return (
+          <button className={'btn btn-info btn-block'} onClick={this.onClickNextChallenge}>Continue to next challenge!</button>
+        );
+      }
+    }
+    return null;
+  }
+
   render() {
     const editorBody = this.renderEditor();
     const testResults = this.renderTestResults();
     const passFailResult = this.processTestResults();
     const descr = this.props.description.join('\n');
+    const nextChallengeButton = this.renderNextChallengeButton(passFailResult);
     function createMarkup() {
       return { __html: descr };
     }
@@ -194,9 +212,7 @@ export default class ArcadeMode extends Component {
 
             <Col className='arcade-editor' xs={12} sm={12} md={8} lg={8}>
               {editorBody}
-              {passFailResult &&
-                <button className={'btn btn-info btn-block'} onClick={this.onClickNextChallenge}>Continue to next challenge!</button>
-              }
+              {nextChallengeButton}
             </Col>
           </Row>
         </Grid>
