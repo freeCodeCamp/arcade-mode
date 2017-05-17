@@ -83,6 +83,31 @@ describe('Component: <ArcadeMode>', () => {
     expect(colTwo.props().className).to.equal('arcade-editor');
   });
 
+  describe('renderNextChallengeButton()', () => {
+    it('should render next challenge button when all tests pass', () => {
+      const newProps = Object.assign({}, props);
+      newProps.modal = false;
+      newProps.testResults = newProps.testResults.push({ pass: true, error: null });
+
+      const wrapper = shallow(<ArcadeMode {...newProps} />);
+      const editorDiv = wrapper.find('.arcade-editor');
+      const finishButton = editorDiv.find('button');
+      expect(finishButton.text()).to.include('Continue');
+    });
+
+    it('should render Finish buttons after timer runs out', () => {
+      const newProps = Object.assign({}, props);
+      newProps.isTimerFinished = true;
+      newProps.modal = false;
+      const wrapper = shallow(<ArcadeMode {...newProps} />);
+
+      const editorDiv = wrapper.find('.arcade-editor');
+      expect(editorDiv).to.have.length(1);
+      const finishButton = editorDiv.find('button');
+      expect(finishButton.text()).to.include('Finish');
+    });
+  });
+
   /* This seems more of an integration test, walking through events */
   /*
   it('should show code editor after running the tests', () => {
