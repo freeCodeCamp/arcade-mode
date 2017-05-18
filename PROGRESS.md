@@ -7,7 +7,7 @@
     2. Add player status bar to Arcade mode.
     3. Add whiteboard mode.
   - Issues:
-    [ ] Toggling class 'Codemirror-whiteboard' does not change editor to whiteboard mode.
+    - [ ] Toggling class 'Codemirror-whiteboard' does not change editor to whiteboard mode.
   - To do:
     1. Fix editor toggle issue.
     2. Define difficulty settings that have state set when selected in modal menu.
@@ -37,7 +37,7 @@
 ## Saturday 5/13/17:
 ### Tim:
   - Issues:
-    [X] JSDOM not properly set up; importing Sinon instantly errors during testing.
+    - [X] JSDOM not properly set up; importing Sinon instantly errors during testing.
 
 ## Friday 5/12/17:
 ### Tim:
