@@ -1,0 +1,13 @@
+// styling for modal
+
+.am { // arcademode namespace
+  &__modal {
+    &__title {
+      text-align: center;
+    }
+
+    &__submit {
+      text-align: center;
+    }
+  }
+}

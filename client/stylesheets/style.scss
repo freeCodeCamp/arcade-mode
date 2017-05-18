@@ -4,13 +4,13 @@
 
 @import 'partials/_elements.general';
 
-// Maybe should move these to vendor folder?
-// @import 'partials/_codemirror';
-// @import 'partials/_codemirror.monokai';
+// @import 'vendor/codemirror';
+// @import 'vendor/codemirror-monokai';
 
 @import 'partials/_components.general';
-@import 'partials/_components.react.arcade-panel';
-@import 'partials/_components.react.arcade-editor';
+@import 'partials/_components.arcade-modal';
+@import 'partials/_components.arcade-panel';
+@import 'partials/_components.arcade-editor';
 @import 'partials/_components.bootstrap-overrides';
 @import 'partials/_components.codemirror-overrides';
 
