@@ -17,7 +17,7 @@ const outputOptions = {
   theme: 'monokai',
   scrollbarStyle: 'null',
   lineWrapping: true,
-  mode: 'javascript',
+  mode: '',
   json: true
 };
 
@@ -133,6 +133,7 @@ export default class ArcadeMode extends Component {
   }
 
   renderEditor() {
+    const editorClassName = this.props.mode === 'Arcade' ? 'editor--statusbar' : 'editor';
     if (this.props.isSessionFinished) {
       return (
         <div className='session-finished'>
@@ -145,6 +146,7 @@ export default class ArcadeMode extends Component {
     }
     return (
       <Editor
+        classN={editorClassName}
         editor={this.props.editor}
         onCodeChange={this.onCodeChange}
         code={this.props.code}
@@ -211,7 +213,7 @@ export default class ArcadeMode extends Component {
         <Grid fluid>
           <Row className='show-grid'>
 
-            <Col className='arcade-panel' xs={12} sm={12} md={4} lg={4}>
+            <Col className='arcade-panel-left' xs={12} sm={12} md={4} lg={4}>
 
               <div className='challenge__buttons'>
                 <button className={'btn btn-success'} onClick={this.onClickStartChallenge}>Start</button>
@@ -238,7 +240,7 @@ export default class ArcadeMode extends Component {
               {testResults}
             </Col>
 
-            <Col className='arcade-editor' xs={12} sm={12} md={8} lg={8}>
+            <Col className='arcade-panel-right' xs={12} sm={12} md={8} lg={8}>
               {statusBar}
               {editorBody}
               {nextChallengeButton}
