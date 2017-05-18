@@ -12,8 +12,7 @@ const ArcadeModal = props => (
       <Modal.Title className='am__modal__title'>{'freeCodeCamp\'s Arcade Mode'}</Modal.Title>
     </Modal.Header>
     <Modal.Body>
-      <p>Welcome to freeCodeCamp's Arcade Mode.
-        This is a place where you can practice your algorithm and data structure skills.</p>
+      <p>Welcome to freeCodeCamp's Arcade Mode. This is a place where you can practice your algorithm and data structure skills.</p>
       <br />
       <Form horizontal>
         <FormGroup>
@@ -21,7 +20,7 @@ const ArcadeModal = props => (
             <ControlLabel>Mode:</ControlLabel>
           </Col>
           <Col smOffset={3} sm={6}>
-            <FormControl componentClass='select' placeholder='Mode'>
+            <FormControl componentClass='select' defaultValue={props.mode} onChange={props.onChangeMode}>
               <option value='Arcade'>Arcade</option>
               <option value='Practice'>Practice</option>
             </FormControl>
@@ -32,7 +31,7 @@ const ArcadeModal = props => (
             <ControlLabel>Difficulty:</ControlLabel>
           </Col>
           <Col smOffset={3} sm={6}>
-            <FormControl componentClass='select' placeholder='Difficulty' defaultValue='Medium'>
+            <FormControl componentClass='select' defaultValue={props.difficulty} onChange={props.onChangeDifficulty}>
               <option value='Easy'>Easy</option>
               <option value='Medium'>Medium</option>
               <option value='Hard'>Hard</option>
@@ -42,10 +41,10 @@ const ArcadeModal = props => (
         </FormGroup>
         <FormGroup>
           <Col sm={3}>
-            <ControlLabel>Editor Setting:</ControlLabel>
+            <ControlLabel>Editor:</ControlLabel>
           </Col>
           <Col smOffset={3} sm={6}>
-            <FormControl componentClass='select' placeholder='Editor Setting'>
+            <FormControl componentClass='select' defaultValue={props.editor} onChange={props.onChangeEditor}>
               <option value='Normal'>Normal</option>
               <option value='Whiteboard'>Whiteboard</option>
             </FormControl>
@@ -53,19 +52,20 @@ const ArcadeModal = props => (
         </FormGroup>
         <br />
         <FormGroup className='am__modal__submit'>
-          <Button bsStyle='default' type='submit' onClick={props.onModalClose}>Start</Button>
+          <Button type='button' onClick={props.onModalClose}>Submit</Button>
         </FormGroup>
       </Form>
     </Modal.Body>
-    {/*
-    <Modal.Footer>
-      <Button type='submit' onClick={props.onModalClose}>Start</Button>
-    </Modal.Footer>
-    */}
   </Modal>
 );
 
 ArcadeModal.propTypes = {
+  mode: PropTypes.string.isRequired,
+  onChangeMode: PropTypes.func.isRequired,
+  difficulty: PropTypes.string.isRequired,
+  onChangeDifficulty: PropTypes.func.isRequired,
+  editor: PropTypes.string.isRequired,
+  onChangeEditor: PropTypes.func.isRequired,
   modal: PropTypes.bool.isRequired,
   onModalClose: PropTypes.func.isRequired
 };
