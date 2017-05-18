@@ -1,5 +1,10 @@
 # PROGRESS for Arcade Mode
 
+## Thursday 5/18/18:
+### Tim:
+  - Progress:
+    1. Fix and set up editor options.
+
 ## Wednesday 5/17/18:
 ### Tim:
   - Progress:
@@ -7,7 +12,7 @@
     2. Add player status bar to Arcade mode.
     3. Add whiteboard mode.
   - Issues:
-    - [ ] Toggling class 'Codemirror-whiteboard' does not change editor to whiteboard mode.
+    - [X] Toggling class 'Codemirror-whiteboard' does not change editor to whiteboard mode.
   - To do:
     1. Fix editor toggle issue.
     2. Define difficulty settings for lives and time and implement.
