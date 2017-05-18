@@ -15,7 +15,7 @@ const getScoreForChallenge = challenge => {
 };
 
 const initialState = Immutable.Map({
-  userData: Immutable.Map(),
+  // userData: Immutable.Map(),
   isSessionFinished: false,
   isSessionStarted: false,
   sessionScore: 0
