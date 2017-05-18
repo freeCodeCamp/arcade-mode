@@ -22,6 +22,6 @@ export function onChangeDifficulty (event) {
 export function onChangeEditor (event) {
   return {
     type: GAME_EDITOR_CHANGE,
-    difficulty: event.target.value
+    editor: event.target.value
   };
 }
