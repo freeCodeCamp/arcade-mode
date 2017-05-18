@@ -2,26 +2,15 @@
 
 .CodeMirror {
   height: auto;
-/*
-  &--whiteboard {
-  height: auto;
-  color: black !important;
-  background-color: white !important;
-
-    &-cursor {
-      border-left: 1px solid black !important;
-    }
-  }
-  */
 }
 
 .CodeMirror--whiteboard .CodeMirror {
   height: auto;
-  color: black !important;
-  background-color: white !important;
+  color: black;
+  background-color: white;
 
   &-cursor {
-    border-left: 1px solid black !important;
+    border-left: 1px solid black;
   }
 }
 
