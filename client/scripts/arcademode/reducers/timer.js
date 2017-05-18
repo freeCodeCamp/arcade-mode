@@ -13,6 +13,8 @@ import {
 
 import { CHALLENGE_START } from '../actions/challenge';
 
+import { GAME_DIFFICULTY_CHANGE } from '../actions/gamesettings';
+
 const timerDefaultValue = 60 * 1000;
 
 const initialState = Immutable.Map({
@@ -23,10 +25,21 @@ const initialState = Immutable.Map({
   timerStart: 0
 });
 
+const difficultySettings = {
+  Easy: { time: 15 * 60 * 1000 },
+  Medium: { time: 10 * 60 * 1000 },
+  Hard: { time: 5 * 60 * 1000 }
+  // Random - for random, can randomly generate lives and time and hide until game start
+};
+
 export default function timer (state = initialState, action) {
   switch (action.type) {
     case CHALLENGE_START:
       return state.set('timerMaxValueLoaded', state.get('timerMaxValue'));
+    case GAME_DIFFICULTY_CHANGE:
+      return state
+        .set('timeLeft', difficultySettings[action.difficulty].time) // display
+        .set('timerMaxValue', difficultySettings[action.difficulty].time); // actual number
     case STOP_TIMER:
       return state
         .set('isTimerFinished', true)

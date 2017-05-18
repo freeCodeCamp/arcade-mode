@@ -4,6 +4,7 @@
 ### Tim:
   - Progress:
     1. Fix and set up editor options.
+    2. Set up placeholder difficulty settings for lives and time.
 
 ## Wednesday 5/17/18:
 ### Tim:
