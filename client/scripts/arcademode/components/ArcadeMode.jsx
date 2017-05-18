@@ -201,12 +201,13 @@ export default class ArcadeMode extends Component {
           modal={this.props.modal}
           onModalClose={this.props.onModalClose}
         />
-        <Navbar
+        <Navbar />
+        {/*
           onTimerMaxValueChange={this.onTimerMaxValueChange}
           sessionScore={this.props.sessionScore}
           timeLeft={this.props.timeLeft}
           timerMaxValue={this.props.timerMaxValue}
-        />
+        */}
         <Grid fluid>
           <Row className='show-grid'>
 
