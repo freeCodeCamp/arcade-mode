@@ -1,4 +1,4 @@
-// style overrides against bootstrap
+// general style overrides against bootstrap
 
 .container-fluid {
   margin-left: auto;
@@ -6,10 +6,19 @@
   max-width: 1920px;
 }
 
-// tried adding a class to modal, but it propogates down and messes everything up
+// bsClass and className do not work on Modal component
 .modal-dialog {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -70%) !important;
 }
+
+/*
+.navbar {
+  height: 50px;
+  min-height: 50px;
+  max-height: 50px;
+  overflow: hidden;
+}
+*/

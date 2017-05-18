@@ -9,7 +9,7 @@ import { Modal, Button, Col, Form, FormGroup, FormControl, ControlLabel } from '
 const ArcadeModal = props => (
   <Modal show={props.modal} onHide={props.onModalClose} animation={false} backdrop='static'>
     <Modal.Header>
-      <Modal.Title bsClass='modal-title am__modal__title'>{'freeCodeCamp\'s Arcade Mode'}</Modal.Title>
+      <Modal.Title className='am__modal__title'>{'freeCodeCamp\'s Arcade Mode'}</Modal.Title>
     </Modal.Header>
     <Modal.Body>
       <p>Welcome to freeCodeCamp's Arcade Mode.
@@ -52,7 +52,7 @@ const ArcadeModal = props => (
           </Col>
         </FormGroup>
         <br />
-        <FormGroup bsClass='form-group am__modal__submit'>
+        <FormGroup className='am__modal__submit'>
           <Button bsStyle='default' type='submit' onClick={props.onModalClose}>Start</Button>
         </FormGroup>
       </Form>

@@ -30,9 +30,6 @@ const ArcadeNavbar = props => (
       <Navbar.Text pullLeft>
         Score: {props.sessionScore}
       </Navbar.Text>
-      <Navbar.Text pullRight>
-        Signed in as: <Navbar.Link href='#'>Test</Navbar.Link>
-      </Navbar.Text>
     </Navbar.Collapse>
   </Navbar>
 );
