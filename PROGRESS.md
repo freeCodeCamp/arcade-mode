@@ -10,7 +10,7 @@
     - [ ] Toggling class 'Codemirror-whiteboard' does not change editor to whiteboard mode.
   - To do:
     1. Fix editor toggle issue.
-    2. Define difficulty settings that have state set when selected in modal menu.
+    2. Define difficulty settings for lives and time and implement.
     2. Implement freeCodeCamp's navbar design.
     3. Beautify player status bar.
     4. Add/reimplement tests.
