@@ -2,8 +2,7 @@
 'use strict';
 
 import React from 'react';
-import PropTypes from 'prop-types';
-import { Navbar } from 'react-bootstrap';
+import { Navbar, Nav } from 'react-bootstrap';
 
 /* Component at the top of page showing freeCodeCamp next and timer value. */
 const ArcadeNavbar = () => (
@@ -16,6 +15,12 @@ const ArcadeNavbar = () => (
       </Navbar.Brand>
       <Navbar.Toggle />
     </Navbar.Header>
+
+    <Nav pullRight>
+      <Navbar.Brand>
+        <a className='am__am__link' href='//arcademode.herokuapp.com'>Arcade Mode</a>
+      </Navbar.Brand>
+    </Nav>
   {/*
     <Navbar.Collapse>
       <Navbar.Form pullLeft>
