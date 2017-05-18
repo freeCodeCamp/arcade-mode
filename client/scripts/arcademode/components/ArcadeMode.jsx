@@ -9,6 +9,7 @@ import { Grid, Row, Col } from 'react-bootstrap';
 
 import Modal from './Modal';
 import Navbar from './Navbar';
+import Statusbar from './Statusbar';
 import Editor from './Editor';
 
 const outputOptions = {
@@ -116,6 +117,21 @@ export default class ArcadeMode extends Component {
     );
   }
 
+  renderStatusbar() {
+    if (this.props.mode !== 'Arcade') {
+      return null;
+    }
+    return (
+      <Statusbar
+        lives={this.props.lives}
+        timeLeft={this.props.timeLeft}
+        passOption={this.props.passOption}
+        onClickPass={this.props.onClickPass}
+        sessionScore={this.props.sessionScore}
+      />
+    );
+  }
+
   renderEditor() {
     if (this.props.isSessionFinished) {
       return (
@@ -139,7 +155,7 @@ export default class ArcadeMode extends Component {
      * challenge.*/
   renderNextChallengeButton(passFailResult) {
     if (!this.props.isSessionFinished) {
-      if (this.props.isTimerFinished) {
+      if (this.props.isTimerFinished || this.props.lives < 1) {
         return (
           <button className={'btn btn-danger btn-block'} onClick={this.onClickFinishSession}>Finish Session</button>
         );
@@ -154,6 +170,7 @@ export default class ArcadeMode extends Component {
   }
 
   render() {
+    const statusBar = this.renderStatusbar();
     const editorBody = this.renderEditor();
     const testResults = this.renderTestResults();
     const passFailResult = this.processTestResults();
@@ -173,7 +190,16 @@ export default class ArcadeMode extends Component {
     /* eslint react/no-danger: 0 */
     return (
       <div>
-        <Modal modal={this.props.modal} onModalClose={this.props.onModalClose} />
+        <Modal
+          mode={this.props.mode}
+          onChangeMode={this.props.onChangeMode}
+          difficulty={this.props.difficulty}
+          onChangeDifficulty={this.props.onChangeDifficulty}
+          editor={this.props.editor}
+          onChangeEditor={this.props.onChangeEditor}
+          modal={this.props.modal}
+          onModalClose={this.props.onModalClose}
+        />
         <Navbar
           onTimerMaxValueChange={this.onTimerMaxValueChange}
           sessionScore={this.props.sessionScore}
@@ -211,6 +237,7 @@ export default class ArcadeMode extends Component {
             </Col>
 
             <Col className='arcade-editor' xs={12} sm={12} md={8} lg={8}>
+              {statusBar}
               {editorBody}
               {nextChallengeButton}
             </Col>
@@ -223,27 +250,48 @@ export default class ArcadeMode extends Component {
 }
 
 ArcadeMode.propTypes = {
+  // game settings
+  mode: PropTypes.string.isRequired,
+  onChangeMode: PropTypes.func.isRequired,
+  difficulty: PropTypes.string.isRequired,
+  onChangeDifficulty: PropTypes.func.isRequired,
+  editor: PropTypes.string.isRequired,
+  onChangeEditor: PropTypes.func.isRequired,
+
+  // player status
+  lives: PropTypes.number.isRequired,
+  passOption: PropTypes.bool.isRequired,
+  onClickPass: PropTypes.func.isRequired,
+
+  // modal
   modal: PropTypes.bool.isRequired,
   onModalClose: PropTypes.func.isRequired,
+
+  // challenge
+  startChallenge: PropTypes.func.isRequired,
   currChallenge: ImmutablePropTypes.map.isRequired,
   title: PropTypes.string.isRequired,
   description: ImmutablePropTypes.list.isRequired,
-  userOutput: PropTypes.string.isRequired,
-  code: PropTypes.string.isRequired,
   nextChallenge: PropTypes.func.isRequired,
-  finishSession: PropTypes.func.isRequired,
+  solveChallenge: PropTypes.func.isRequired,
+  code: PropTypes.string.isRequired,
   onCodeChange: PropTypes.func.isRequired,
+  userOutput: PropTypes.string.isRequired,
+
+  // session
+  sessionScore: PropTypes.number.isRequired,
+  finishSession: PropTypes.func.isRequired,
+  isSessionStarted: PropTypes.bool.isRequired,
+  isSessionFinished: PropTypes.bool.isRequired,
+
+  // test
   runTests: PropTypes.func.isRequired,
-//  userData: ImmutablePropTypes.map.isRequired,
-  startChallenge: PropTypes.func.isRequired,
-  startTimer: PropTypes.func.isRequired,
   testResults: ImmutablePropTypes.list.isRequired,
+
+  // timer
+  startTimer: PropTypes.func.isRequired,
   timeLeft: PropTypes.number.isRequired,
   onTimerMaxValueChange: PropTypes.func.isRequired,
   timerMaxValue: PropTypes.string.isRequired,
-  sessionScore: PropTypes.number.isRequired,
-  isTimerFinished: PropTypes.bool.isRequired,
-  solveChallenge: PropTypes.func.isRequired,
-  isSessionFinished: PropTypes.bool.isRequired,
-  isSessionStarted: PropTypes.bool.isRequired
+  isTimerFinished: PropTypes.bool.isRequired
 };
