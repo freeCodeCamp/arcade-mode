@@ -145,6 +145,7 @@ export default class ArcadeMode extends Component {
     }
     return (
       <Editor
+        editor={this.props.editor}
         onCodeChange={this.onCodeChange}
         code={this.props.code}
       />
