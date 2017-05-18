@@ -3,3 +3,13 @@
 .CodeMirror {
   height: auto;
 }
+
+.CodeMirror-whiteboard {
+  height: auto;
+  color: black !important;
+  background-color: white !important;
+
+  &-cursor {
+    border-left: 1px solid black !important;
+  }
+}
