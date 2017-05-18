@@ -6,11 +6,13 @@ import PropTypes from 'prop-types';
 
 import CodeMirror from 'react-codemirror';
 
+import 'codemirror/mode/javascript/javascript';
+
 const editorOptions = {
   theme: 'monokai',
   scrollbarStyle: 'null',
   lineWrapping: true,
-  mode: 'javascript',
+  // mode: 'javascript',
   matchBrackets: true,
   autoCloseBrackets: true
   /*
@@ -22,24 +24,42 @@ const editorOptions = {
   */
 };
 
-const Editor = props => (
-  <div className={'editor'}>
-    <CodeMirror
-      onChange={props.onCodeChange}
-      options={editorOptions}
-      value={props.code}
-    />
-  </div>
-);
+export default class Editor extends React.PureComponent {
+  processEditorOption() {
+    let classname;
+    if (this.props.editor === 'Normal') {
+      editorOptions.mode = 'javascript';
+      classname = 'CodeMirror';
+    }
+    else {
+      editorOptions.mode = '';
+      classname = 'CodeMirror-whiteboard';
+    }
+    return { editorOptions, classname };
+  }
+
+  render() {
+    const editorState = this.processEditorOption();
+    return (
+      <div className='editor'>
+        <CodeMirror
+          className={editorState.classname}
+          onChange={this.props.onCodeChange}
+          options={editorState.editorOptions}
+          value={this.props.code}
+        />
+      </div>
+    );
+  }
+}
 
 Editor.defaultProps = {
   code: ''
 };
 
 Editor.propTypes = {
+  editor: PropTypes.string.isRequired,
   code: PropTypes.string,
   onCodeChange: PropTypes.func.isRequired
 
 };
-
-export default Editor;
