@@ -6,17 +6,29 @@ import { connect } from 'react-redux';
 import ArcadeMode from '../components/ArcadeMode';
 
 import {
-  actionFinishSession
-} from '../actions/session';
-
-import {
   startChallenge,
   nextChallenge,
   actionSolveChallenge,
   onCodeChange
 } from '../actions/challenge';
 
-import { onModalClose } from '../actions/modal';
+import {
+  onChangeMode,
+  onChangeDifficulty,
+  onChangeEditor
+} from '../actions/gamesettings';
+
+import {
+  onModalClose
+} from '../actions/modal';
+
+import {
+  onClickPass
+} from '../actions/playerstatus';
+
+import {
+  actionFinishSession
+} from '../actions/session';
 
 import { runTests } from '../actions/test';
 
@@ -29,6 +41,10 @@ import {
 import makeMapStateToProps from '../selectors';
 
 const mapDispatchToProps = dispatch => ({
+  onChangeMode: mode => dispatch(onChangeMode(mode)),
+  onChangeDifficulty: difficulty => dispatch(onChangeDifficulty(difficulty)),
+  onChangeEditor: editor => dispatch(onChangeEditor(editor)),
+  onClickPass: () => dispatch(onClickPass()),
   onModalClose: () => dispatch(onModalClose()),
   finishSession: () => dispatch(actionFinishSession()),
   runTests: (userCode, currChallenge) => dispatch(runTests(userCode, currChallenge)),
