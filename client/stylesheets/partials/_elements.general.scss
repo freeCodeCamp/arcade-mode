@@ -6,8 +6,10 @@
   position: relative;
 }
 
-html {
-  overflow-y: hidden;
+@media screen and (min-width: 992px) {
+  html {
+    overflow-y: hidden;
+  }
 }
 
 blockquote {
