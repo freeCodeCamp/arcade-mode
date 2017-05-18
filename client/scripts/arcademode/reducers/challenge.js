@@ -4,6 +4,10 @@
 import Immutable from 'immutable';
 
 import {
+  PLAYER_PASSED
+} from '../actions/playerstatus';
+
+import {
   CHALLENGE_START,
   CHALLENGE_NEXT,
   CHALLENGE_SOLVE,
@@ -35,6 +39,7 @@ export default function challenge(state = initialState, action) {
         .set('code', state.getIn(['currChallenge', 'challengeSeed']).join('\n'))
         .set('nextChallenge', Immutable.Map(Immutable.fromJS(Challenges.challenges[state.get('challengeNumber') + 1])))
         .set('currChallengeStartedAt', action.startTime);
+    case PLAYER_PASSED:
     case CHALLENGE_NEXT:
       return state
         .update('challengeNumber', challengeNumber => challengeNumber + 1)
