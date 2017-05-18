@@ -71,6 +71,7 @@
   },
   "dependencies": {
     "body-parser": "^1.17.1",
+    "codemirror": "^5.25.2",
     "compression": "^1.6.2",
     "connect-mongo": "^1.3.2",
     "express": "^4.15.2",
