@@ -5,7 +5,12 @@
 
 import { createSelector } from 'reselect';
 
-const getModal = state => state.getIn(['modal', 'modal']);
+const getModalState = state => state.getIn(['modal', 'modal']);
+const getMode = state => state.getIn(['gamesettings', 'mode']);
+const getDifficulty = state => state.getIn(['gamesettings', 'difficulty']);
+const getEditor = state => state.getIn(['gamesettings', 'editor']);
+const getLives = state => state.getIn(['playerstatus', 'lives']);
+const getPassOption = state => state.getIn(['playerstatus', 'passOption']);
 const getChallengeNumber = state => state.getIn(['challenge', 'challengeNumber']);
 const getUserData = state => state.getIn(['session', 'userData']);
 const getTitle = state => state.getIn(['challenge', 'title']);
@@ -24,7 +29,12 @@ const getIsSessionStarted = state => state.getIn(['session', 'isSessionStarted']
 
 export default function makeMapStateToProps () {
   return createSelector(
-    getModal,
+    getModalState,
+    getMode,
+    getDifficulty,
+    getEditor,
+    getLives,
+    getPassOption,
     getChallengeNumber,
     getUserData,
     getTitle,
@@ -42,6 +52,11 @@ export default function makeMapStateToProps () {
     getIsSessionStarted,
     (
       modal,
+      mode,
+      difficulty,
+      editor,
+      lives,
+      passOption,
       challengeNumber,
       userData,
       title,
@@ -59,6 +74,11 @@ export default function makeMapStateToProps () {
       isSessionStarted
     ) => ({
       modal,
+      mode,
+      difficulty,
+      editor,
+      lives,
+      passOption,
       challengeNumber,
       userData,
       title,
