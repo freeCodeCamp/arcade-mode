@@ -1,5 +1,11 @@
 // general styling for base elements:
 
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
 html {
   overflow-y: hidden;
 }

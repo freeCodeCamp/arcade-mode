@@ -7,12 +7,11 @@ import PropTypes from 'prop-types';
 import { Modal, Button, Col, Form, FormGroup, FormControl, ControlLabel } from 'react-bootstrap';
 
 const ArcadeModal = props => (
-  <Modal show={props.modal} onHide={props.onModalClose} animation={false} backdrop={'static'}>
-    <Modal.Header closeButton>
-      <Modal.Title bsClass='am__modal__title'>{'freeCodeCamp\'s Arcade Mode'}</Modal.Title>
+  <Modal show={props.modal} onHide={props.onModalClose} animation={false} backdrop='static'>
+    <Modal.Header>
+      <Modal.Title bsClass='modal-title am__modal__title'>{'freeCodeCamp\'s Arcade Mode'}</Modal.Title>
     </Modal.Header>
     <Modal.Body>
-  { /* <h4>Quick start:</h4> */ }
       <p>Welcome to freeCodeCamp's Arcade Mode.
         This is a place where you can practice your algorithm and data structure skills.</p>
       <br />
@@ -33,9 +32,9 @@ const ArcadeModal = props => (
             <ControlLabel>Difficulty:</ControlLabel>
           </Col>
           <Col smOffset={3} sm={6}>
-            <FormControl componentClass='select' placeholder='Difficulty'>
+            <FormControl componentClass='select' placeholder='Difficulty' defaultValue='Medium'>
               <option value='Easy'>Easy</option>
-              <option value='Medium' selected>Medium</option>
+              <option value='Medium'>Medium</option>
               <option value='Hard'>Hard</option>
               <option value='Random'>Random</option>
             </FormControl>
@@ -53,8 +52,8 @@ const ArcadeModal = props => (
           </Col>
         </FormGroup>
         <br />
-        <FormGroup bsClass='am__modal__submit'>
-          <Button type='submit' onClick={props.onModalClose}>Start</Button>
+        <FormGroup bsClass='form-group am__modal__submit'>
+          <Button bsStyle='default' type='submit' onClick={props.onModalClose}>Start</Button>
         </FormGroup>
       </Form>
     </Modal.Body>
