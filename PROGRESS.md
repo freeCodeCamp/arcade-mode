@@ -1,5 +1,31 @@
 # PROGRESS for Arcade Mode
 
+## Wednesday 5/17/18:
+### Tim:
+  - Progress:
+    1. Add game settings to modal.
+    2. Add player status bar to Arcade mode.
+    3. Add whiteboard mode.
+  - Issues:
+    [ ] Toggling class 'Codemirror-whiteboard' does not change editor to whiteboard mode.
+  - To do:
+    1. Fix editor toggle issue.
+    2. Define difficulty settings that have state set when selected in modal menu.
+    2. Implement freeCodeCamp's navbar design.
+    3. Beautify player status bar.
+    4. Add/reimplement tests.
+
+## Tuesday 5/16/17:
+### Tim:
+  - Progress:
+    1. Brainstorm design.
+    2. Generate Balsamiq mockups.
+
+## Monday 5/15/17:
+### Tim:
+  - Progress:
+    1. Fix test for worker.js
+
 ## Sunday 5/14/17:
 ### Tim:
   - Progress:
@@ -11,7 +37,7 @@
 ## Saturday 5/13/17:
 ### Tim:
   - Issues:
-    1. JSDOM not properly set up; importing Sinon instantly errors during testing.
+    [X] JSDOM not properly set up; importing Sinon instantly errors during testing.
 
 ## Friday 5/12/17:
 ### Tim:
