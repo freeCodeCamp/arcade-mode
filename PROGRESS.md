@@ -5,6 +5,8 @@
   - Progress:
     1. Fix and set up editor options.
     2. Set up placeholder difficulty settings for lives and time.
+    3. Set up freeCodeCamp style navbar.
+    4. Add general styling and formatting.
 
 ## Wednesday 5/17/18:
 ### Tim:
