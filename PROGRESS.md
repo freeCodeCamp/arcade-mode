@@ -1,4 +1,7 @@
 # PROGRESS for Arcade Mode
+### Tim:
+  - Progress:
+    1. Set up clip-path ARCADE MODE title
 
 ## Thursday 5/18/18:
 ### Tim:
