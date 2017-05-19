@@ -4,7 +4,11 @@
 import Immutable from 'immutable';
 
 import {
-  TESTS_STARTED
+  CHALLENGE_START
+} from '../actions/challenge';
+
+import {
+  TESTS_FAILED
 } from '../actions/test';
 
 import {
@@ -31,7 +35,11 @@ const difficultySettings = {
 
 export default function playerstatus (state = initialState, action) {
   switch (action.type) {
-    case TESTS_STARTED:
+    case CHALLENGE_START:
+      return state
+        .set('lives', initialState.get('lives'))
+        .set('passOption', true);
+    case TESTS_FAILED:
       return state.update('lives', lives => lives - 1);
     case GAME_DIFFICULTY_CHANGE:
       return state.set('lives', difficultySettings[action.difficulty].lives);
