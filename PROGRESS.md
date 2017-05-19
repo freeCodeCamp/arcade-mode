@@ -1,9 +1,15 @@
 # PROGRESS for Arcade Mode
+
+## Friday 5/19/17:
 ### Tim:
   - Progress:
     1. Set up clip-path ARCADE MODE title
 
-## Thursday 5/18/18:
+### Tuomas:
+  - Progress:
+    1. Minor fixes to the game logic: Added TESTS_FAILED action.
+
+## Thursday 5/18/17:
 ### Tim:
   - Progress:
     1. Fix and set up editor options.
@@ -12,7 +18,7 @@
     4. Add general styling and formatting.
     5. Update old tests and implement test for new files
 
-## Wednesday 5/17/18:
+## Wednesday 5/17/17:
 ### Tim:
   - Progress:
     1. Add game settings to modal.
@@ -21,11 +27,19 @@
   - Issues:
     - [X] Toggling class 'Codemirror-whiteboard' does not change editor to whiteboard mode.
 
+### Tuomas:
+  - Progress:
+    1. Modified next challenge logic after timer runs out.
+
 ## Tuesday 5/16/17:
 ### Tim:
   - Progress:
     1. Brainstorm design.
     2. Generate Balsamiq mockups.
+
+### Tuomas:
+  - Progress:
+    1. Refactored CodeMirror editor in Editor-component + tests.
 
 ## Monday 5/15/17:
 ### Tim:
