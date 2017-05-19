@@ -24,7 +24,7 @@ const editorOptions = {
   */
 };
 
-export default class Editor extends React.PureComponent {
+export default class Editor extends React.Component {
   processEditorOption() {
     let classname;
     if (this.props.editor === 'Normal') {
@@ -33,7 +33,7 @@ export default class Editor extends React.PureComponent {
     }
     else {
       editorOptions.mode = '';
-      classname = 'CodeMirror-whiteboard';
+      classname = 'CodeMirror--whiteboard';
     }
     return { editorOptions, classname };
   }
@@ -41,7 +41,7 @@ export default class Editor extends React.PureComponent {
   render() {
     const editorState = this.processEditorOption();
     return (
-      <div className='editor'>
+      <div className={this.props.classN}>
         <CodeMirror
           className={editorState.classname}
           onChange={this.props.onCodeChange}
@@ -58,6 +58,7 @@ Editor.defaultProps = {
 };
 
 Editor.propTypes = {
+  classN: PropTypes.string.isRequired,
   editor: PropTypes.string.isRequired,
   code: PropTypes.string,
   onCodeChange: PropTypes.func.isRequired

@@ -6,21 +6,21 @@ import { Grid, Row, Col, Button } from 'react-bootstrap';
 
 
 const Statusbar = props => (
-  <Grid>
+  <Grid fluid className='am__statusbar'>
     <Row>
-      <Col sm={4}>
+      <Col sm={3}>
         Lives: x {props.lives}
       </Col>
-      <Col sm={4}>
+      <Col sm={3}>
         Time left: {props.timeLeft}
       </Col>
-      <Col sm={4}>
+      <Col sm={3}>
         { props.passOption ?
-          <Button onClick={props.onClickPass}>Pass</Button> :
-          <Button disabled>Pass</Button>
+          <Button bsSize='xsmall' onClick={props.onClickPass}>Pass</Button> :
+          <Button bsSize='xsmall' disabled>Pass</Button>
         }
       </Col>
-      <Col sm={4}>
+      <Col sm={3}>
         Score: {props.sessionScore}
       </Col>
     </Row>

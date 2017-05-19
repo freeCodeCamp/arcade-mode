@@ -6,9 +6,9 @@
 import { createSelector } from 'reselect';
 
 const getModalState = state => state.getIn(['modal', 'modal']);
-const getMode = state => state.getIn(['gamesettings', 'mode']);
-const getDifficulty = state => state.getIn(['gamesettings', 'difficulty']);
-const getEditor = state => state.getIn(['gamesettings', 'editor']);
+const getMode = state => state.getIn(['gamesetting', 'mode']);
+const getDifficulty = state => state.getIn(['gamesetting', 'difficulty']);
+const getEditor = state => state.getIn(['gamesetting', 'editor']);
 const getLives = state => state.getIn(['playerstatus', 'lives']);
 const getPassOption = state => state.getIn(['playerstatus', 'passOption']);
 const getChallengeNumber = state => state.getIn(['challenge', 'challengeNumber']);

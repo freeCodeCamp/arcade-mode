@@ -1,9 +1,9 @@
 
 'use strict';
 
-export const OUTPUT_CHANGED = 'OUTPUT_CHANGED';
-export const TESTS_STARTED = 'TESTS_STARTED';
-export const TESTS_FINISHED = 'TESTS_FINISHED';
+export const OUTPUT_CHANGED = 'OUTPUT_CHANGED'; // test
+export const TESTS_STARTED = 'TESTS_STARTED'; // playerstatus, test
+export const TESTS_FINISHED = 'TESTS_FINISHED'; // test
 
 
 export function onOutputChange(newOutput) {

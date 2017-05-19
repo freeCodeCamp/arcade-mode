@@ -7,7 +7,7 @@ import {
   GAME_MODE_CHANGE,
   GAME_DIFFICULTY_CHANGE,
   GAME_EDITOR_CHANGE
-} from '../actions/gamesettings';
+} from '../actions/gamesetting';
 
 const initialState = Immutable.Map({
   mode: 'Arcade',
@@ -15,7 +15,7 @@ const initialState = Immutable.Map({
   editor: 'Normal' // normal arcade mode, whiteboard mode
 });
 
-export default function gamesettings(state = initialState, action) {
+export default function gamesetting(state = initialState, action) {
   switch (action.type) {
     case GAME_MODE_CHANGE:
       return state.set('mode', action.mode);

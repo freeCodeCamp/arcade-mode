@@ -4,7 +4,7 @@
 import { combineReducers } from 'redux-immutable';
 
 import challenge from './challenge';
-import gamesettings from './gamesettings';
+import gamesetting from './gamesetting';
 import modal from './modal';
 import playerstatus from './playerstatus';
 import session from './session';
@@ -13,7 +13,7 @@ import timer from './timer';
 
 export default combineReducers({
   challenge,
-  gamesettings,
+  gamesetting,
   modal,
   playerstatus,
   session,

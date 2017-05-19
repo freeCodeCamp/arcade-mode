@@ -32,6 +32,15 @@ describe('Component: <ArcadeMode>', () => {
     props = {
       modal: true,
       onModalClose: () => {},
+      mode: 'Arcade',
+      onChangeMode: () => {},
+      difficulty: 'Medium',
+      onChangeDifficulty: () => {},
+      editor: 'Normal',
+      onChangeEditor: () => {},
+      lives: 5,
+      passOption: true,
+      onClickPass: () => {},
       currChallenge: Immutable.Map(Immutable.fromJS(Challenges.challenges[0])),
       title: '',
       description: Immutable.List(['A', 'B', 'C']),
@@ -76,11 +85,11 @@ describe('Component: <ArcadeMode>', () => {
     expect(wrapper.find(Editor)).to.have.length(1);
 
     const colOne = wrapper.find(Col).first();
-    expect(colOne.props().className).to.equal('arcade-panel');
+    expect(colOne.props().className).to.equal('arcade-panel-left');
     expect(colOne.find('button').text()).to.equal('Start');
 
     const colTwo = wrapper.find(Col).last();
-    expect(colTwo.props().className).to.equal('arcade-editor');
+    expect(colTwo.props().className).to.equal('arcade-panel-right');
   });
 
   describe('renderNextChallengeButton()', () => {
@@ -90,7 +99,7 @@ describe('Component: <ArcadeMode>', () => {
       newProps.testResults = newProps.testResults.push({ pass: true, error: null });
 
       const wrapper = shallow(<ArcadeMode {...newProps} />);
-      const editorDiv = wrapper.find('.arcade-editor');
+      const editorDiv = wrapper.find('.arcade-panel-right');
       const finishButton = editorDiv.find('button');
       expect(finishButton.text()).to.include('Continue');
     });
@@ -101,7 +110,7 @@ describe('Component: <ArcadeMode>', () => {
       newProps.modal = false;
       const wrapper = shallow(<ArcadeMode {...newProps} />);
 
-      const editorDiv = wrapper.find('.arcade-editor');
+      const editorDiv = wrapper.find('.arcade-panel-right');
       expect(editorDiv).to.have.length(1);
       const finishButton = editorDiv.find('button');
       expect(finishButton.text()).to.include('Finish');

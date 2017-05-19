@@ -20,8 +20,8 @@ const initialState = Immutable.Map({
   title: '',
   description: Immutable.List(),
   code: `
-    The code to work with will show up here.
-    When you are ready, enter a time at the top and press start to begin!
+    The code will appear here.
+    Start to begin!
   `,
   challengeNumber: 0,
   currChallenge: Immutable.Map(Immutable.fromJS(Challenges.challenges[0])),

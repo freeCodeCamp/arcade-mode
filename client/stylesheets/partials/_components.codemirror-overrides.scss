@@ -1,15 +1,20 @@
 // codemirror styling overrides
 
 .CodeMirror {
+  border-radius: 5px;
+  line-height: 1;
   height: auto;
 }
 
-.CodeMirror-whiteboard {
+.CodeMirror--whiteboard .CodeMirror {
+  border-radius: 5px;
+  line-height: 1;
   height: auto;
-  color: black !important;
-  background-color: white !important;
+  color: black;
+  background-color: white;
 
   &-cursor {
-    border-left: 1px solid black !important;
+    border-left: 1px solid black;
   }
 }
+

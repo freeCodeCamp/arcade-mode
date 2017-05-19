@@ -1,10 +1,10 @@
 
 'use strict';
 
-export const CHALLENGE_START = 'CHALLENGE_START';
-export const CHALLENGE_NEXT = 'CHALLENGE_NEXT';
-export const CHALLENGE_SOLVE = 'CHALLENGE_SOLVE';
-export const CODE_CHANGED = 'CODE_CHANGED';
+export const CHALLENGE_START = 'CHALLENGE_START'; // challenge, session, test, timer
+export const CHALLENGE_NEXT = 'CHALLENGE_NEXT'; // challenge, session, test
+export const CHALLENGE_SOLVE = 'CHALLENGE_SOLVE'; // challenge
+export const CODE_CHANGED = 'CODE_CHANGED'; // challenge
 
 export function startChallenge (startTime) {
   return {

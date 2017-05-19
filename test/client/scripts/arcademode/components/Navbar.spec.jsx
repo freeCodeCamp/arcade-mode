@@ -54,7 +54,7 @@ import { shallow } from 'enzyme';
 import chaiEnzyme from 'chai-enzyme';
 import chai, { expect } from 'chai';
 
-import { Navbar, FormGroup, FormControl } from 'react-bootstrap';
+import { Navbar } from 'react-bootstrap';
 
 import ArcadeNavbar from '../../../../../client/scripts/arcademode/components/Navbar';
 
@@ -80,17 +80,13 @@ describe('Component: <ArcadeNavbar>', () => {
     const wrapper = shallow(<ArcadeNavbar {...props} />);
     expect(wrapper.find(Navbar)).to.have.length(1);
     expect(wrapper.find(Navbar.Header)).to.have.length(1);
-    expect(wrapper.find(Navbar.Brand)).to.have.length(1);
-    expect(wrapper.find(Navbar.Brand).find('a')).to.have.length(1);
-    expect(wrapper.find(Navbar.Brand).find('a').text()).to.equal('freeCodeCamp Arcade Mode');
+    expect(wrapper.find(Navbar.Brand)).to.have.length(2);
+    expect(wrapper.find(Navbar.Brand).find('a')).to.have.length(2);
+    expect(wrapper.find(Navbar.Brand).find('a').last().text()).to.equal('Arcade Mode');
     expect(wrapper.find(Navbar.Toggle)).to.have.length(1);
-    expect(wrapper.find(Navbar.Collapse)).to.have.length(1);
-    expect(wrapper.find(Navbar.Form)).to.have.length(1);
-    expect(wrapper.find(FormGroup)).to.have.length(1);
-    expect(wrapper.find(FormControl)).to.have.length(1);
-    expect(wrapper.find(FormControl).props().value).to.equal('60000');
-    expect(wrapper.find(Navbar.Text)).to.have.length(3);
 
+
+    /*
     const time = document.createElement('span');
     time.innerHTML = wrapper.find(Navbar.Text).first().html();
     expect(time.textContent).to.equal('Time: 60000');
@@ -102,6 +98,7 @@ describe('Component: <ArcadeNavbar>', () => {
     const signedInAs = document.createElement('span');
     signedInAs.innerHTML = wrapper.find(Navbar.Text).last().html();
     expect(signedInAs.textContent).to.equal('Signed in as: Test');
+    */
   });
 });
 

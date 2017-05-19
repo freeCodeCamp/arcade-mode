@@ -1,2 +1,33 @@
 // navbar styling
 
+.am {
+  &__navbar {
+    padding: 0 30px 0 15px;
+    min-height: 50px;
+    height: 50px;
+    background-color: darkgreen;
+    border-radius: 0;
+    border: none;
+  }
+
+  &__fcc {
+    &__link {
+      height: 50px;
+      padding: 15px;
+    }
+    
+    &__logo {
+      height: 40px;
+       margin-top: -10px;
+    }
+  }
+
+  &__am {
+    &__link {
+      // font-family: Lato, sans-serif;
+      height: 50px;
+      padding: 15px;
+      font-size: 28px;
+    }
+  }
+}
