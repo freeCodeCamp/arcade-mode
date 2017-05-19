@@ -23,11 +23,27 @@
   }
 
   &__am {
-    &__link {
-      // font-family: Lato, sans-serif;
+     &__logo {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 220px;
       height: 50px;
-      padding: 15px;
-      font-size: 28px;
+      clip-path: url(#arcadePath);
+    }
+
+    &__canvas {
+      position: absolute;
+      top: 0;
+      right: 0;
+
+      &__text {
+        font-family: Lato, sans-serif;
+        font-size: 24px;
+      }
+    }
+
+    &__svg {
     }
   }
 }
