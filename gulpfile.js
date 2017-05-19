@@ -8,7 +8,6 @@
 // -------
 const gulp = require('gulp');
 const gutil = require('gulp-util');
-const concat = require('gulp-concat');
 const plumber = require('gulp-plumber');
 const notify = require('gulp-notify');
 
