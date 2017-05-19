@@ -26,6 +26,7 @@ const getSessionScore = state => state.getIn(['session', 'sessionScore']);
 const getIsTimerFinished = state => state.getIn(['timer', 'isTimerFinished']);
 const getIsSessionFinished = state => state.getIn(['session', 'isSessionFinished']);
 const getIsSessionStarted = state => state.getIn(['session', 'isSessionStarted']);
+const getIsRunningTests = state => state.getIn(['test', 'isRunningTests']);
 
 export default function makeMapStateToProps () {
   return createSelector(
@@ -50,6 +51,7 @@ export default function makeMapStateToProps () {
     getIsTimerFinished,
     getIsSessionFinished,
     getIsSessionStarted,
+    getIsRunningTests,
     (
       modal,
       mode,
@@ -71,7 +73,8 @@ export default function makeMapStateToProps () {
       sessionScore,
       isTimerFinished,
       isSessionFinished,
-      isSessionStarted
+      isSessionStarted,
+      isRunningTests
     ) => ({
       modal,
       mode,
@@ -93,8 +96,8 @@ export default function makeMapStateToProps () {
       sessionScore,
       isTimerFinished,
       isSessionFinished,
-      isSessionStarted
-
+      isSessionStarted,
+      isRunningTests
     })
   );
 }
