@@ -80,9 +80,9 @@ describe('Component: <ArcadeNavbar>', () => {
     const wrapper = shallow(<ArcadeNavbar {...props} />);
     expect(wrapper.find(Navbar)).to.have.length(1);
     expect(wrapper.find(Navbar.Header)).to.have.length(1);
-    expect(wrapper.find(Navbar.Brand)).to.have.length(2);
-    expect(wrapper.find(Navbar.Brand).find('a')).to.have.length(2);
-    expect(wrapper.find(Navbar.Brand).find('a').last().text()).to.equal('Arcade Mode');
+    expect(wrapper.find(Navbar.Brand)).to.have.length(1);
+    expect(wrapper.find(Navbar.Brand).find('a')).to.have.length(1);
+    expect(wrapper.find(Navbar.Brand).find('a').last().text()).to.equal('');
     expect(wrapper.find(Navbar.Toggle)).to.have.length(1);
 
 
