@@ -9,6 +9,7 @@ const composeEnhancers =
   typeof window === 'object' &&
   window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?
   window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
+    // name: 'ArcadeMode', actionsBlacklist: ['TIMER_UPDATED']
     // Specify extension’s options like name, actionsBlacklist,
     // actionsCreators, serialize...
   }) : compose;
