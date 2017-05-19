@@ -10,7 +10,6 @@ import chai, { expect } from 'chai';
 import Immutable from 'immutable';
 
 import { Grid, Row, Col } from 'react-bootstrap';
-import CodeMirror from 'react-codemirror';
 
 import ArcadeMode from '../../../../../client/scripts/arcademode/components/ArcadeMode';
 import Modal from '../../../../../client/scripts/arcademode/components/Modal';
@@ -81,12 +80,10 @@ describe('Component: <ArcadeMode>', () => {
     expect(wrapper.find(Grid)).to.have.length(1);
     expect(wrapper.find(Row)).to.have.length(1);
     expect(wrapper.find(Col)).to.have.length(2);
-    expect(wrapper.find(CodeMirror)).to.have.length(1);
     expect(wrapper.find(Editor)).to.have.length(1);
 
     const colOne = wrapper.find(Col).first();
     expect(colOne.props().className).to.equal('arcade-panel-left');
-    expect(colOne.find('button').text()).to.equal('Start');
 
     const colTwo = wrapper.find(Col).last();
     expect(colTwo.props().className).to.equal('arcade-panel-right');
