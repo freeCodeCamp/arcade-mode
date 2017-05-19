@@ -7,6 +7,7 @@
     2. Set up placeholder difficulty settings for lives and time.
     3. Set up freeCodeCamp style navbar.
     4. Add general styling and formatting.
+    5. Update old tests and implement test for new files
 
 ## Wednesday 5/17/18:
 ### Tim:
@@ -16,12 +17,6 @@
     3. Add whiteboard mode.
   - Issues:
     - [X] Toggling class 'Codemirror-whiteboard' does not change editor to whiteboard mode.
-  - To do:
-    1. Fix editor toggle issue.
-    2. Define difficulty settings for lives and time and implement.
-    2. Implement freeCodeCamp's navbar design.
-    3. Beautify player status bar.
-    4. Add/reimplement tests.
 
 ## Tuesday 5/16/17:
 ### Tim:
