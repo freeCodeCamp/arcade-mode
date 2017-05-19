@@ -1,11 +1,11 @@
 
 'use strict';
 
-export const STOP_TIMER = 'STOP_TIMER';
-export const TIMER_STARTED = 'TIMER_STARTED';
-export const TIMER_UPDATED = 'TIMER_UPDATED';
-export const TIMER_FINISHED = 'TIMER_FINISHED';
-export const TIMER_MAX_VALUE_CHANGED = 'TIMER_MAX_VALUE_CHANGED';
+export const STOP_TIMER = 'STOP_TIMER'; // timer
+export const TIMER_STARTED = 'TIMER_STARTED'; // timer
+export const TIMER_UPDATED = 'TIMER_UPDATED'; // timer
+export const TIMER_FINISHED = 'TIMER_FINISHED'; // test, timer
+export const TIMER_MAX_VALUE_CHANGED = 'TIMER_MAX_VALUE_CHANGED'; // timer
 
 
 let timer = null;

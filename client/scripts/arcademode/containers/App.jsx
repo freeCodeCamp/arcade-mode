@@ -16,7 +16,7 @@ import {
   onChangeMode,
   onChangeDifficulty,
   onChangeEditor
-} from '../actions/gamesettings';
+} from '../actions/gamesetting';
 
 import {
   onModalClose
