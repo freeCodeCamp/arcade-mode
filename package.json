@@ -13,7 +13,8 @@
     "test:client": "NODE_ENV=test mocha --require test/helpers/browser.js --compilers .:babel-core/register --opts test/client/**/*.{js,jsx} --recursive test/client",
     "test:server": "NODE_ENV=test mocha --compilers js:babel-core/register --recursive test/server",
     "watch": "NODE_ENV=production gulp watch",
-    "watch-dev": "NODE_ENV=development gulp watch-dev"
+    "watch-dev": "NODE_ENV=development gulp watch-dev",
+    "watch-sync": "NODE_ENV=development gulp browser-sync"
   },
   "repository": {
     "type": "git",
@@ -32,6 +33,7 @@
     "babel-preset-react": "^6.24.1",
     "babel-register": "^6.24.1",
     "babelify": "^7.3.0",
+    "browser-sync": "^2.18.11",
     "browserify": "^14.3.0",
     "browserify-incremental": "^3.1.1",
     "bundle-collapser": "^1.2.1",

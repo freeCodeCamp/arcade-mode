@@ -10,6 +10,7 @@ const gulp = require('gulp');
 const gutil = require('gulp-util');
 const plumber = require('gulp-plumber');
 const notify = require('gulp-notify');
+const browserSync = require('browser-sync').create();
 
 // JSX/ES6 -> ES5
 // --------------
@@ -56,9 +57,22 @@ const paths = {
 // Gulp Tasks
 // ==========
 
+gulp.task('browser-sync', ['watch-dev'], () => {
+  browserSync.init({
+    proxy: {
+      target: 'localhost:8080',
+      ws: true // websockets
+    },
+    ghostMode: true, // sync across all browsers
+    reloadDelay: 2000, // give gulp tasks time to reprocess files
+    port: 3000 // browserSync port
+  });
+});
+
 gulp.task('build-font', () =>
   gulp.src(paths.fonts)
     .pipe(gulp.dest('public/font')) // no processing because fonts are already optimized
+    .pipe(browserSync.reload({ stream: true }))
 );
 
 gulp.task('build-img', () => {
@@ -71,12 +85,14 @@ gulp.task('build-img', () => {
       imagemin.jpegtran({ progressive: true }),
       imagemin.optipng({ optimizationLevel: 5 })
     ])))
-    .pipe(gulp.dest('public/img'));
+    .pipe(gulp.dest('public/img'))
+    .pipe(browserSync.reload({ stream: true }));
 });
 
 gulp.task('build-json', () =>
   gulp.src(paths.json)
     .pipe(gulp.dest('public/json'))
+    .pipe(browserSync.reload({ stream: true }))
 );
 
 gulp.task('build-js', () => {
@@ -102,6 +118,7 @@ gulp.task('build-js', () => {
       }))
       .pipe(uglify({ mangle: true }))
       .pipe(gulp.dest('public/js'))
+      .pipe(browserSync.reload({ stream: true }))
   );
 
   return es.merge.apply(null, streams);
@@ -114,6 +131,7 @@ gulp.task('build-css', () =>
     .pipe(autoprefixer())
     .pipe(cssmin())
     .pipe(gulp.dest('public/css'))
+    .pipe(browserSync.reload({ stream: true }))
 );
 
 
@@ -154,7 +172,8 @@ if (process.env.NODE_ENV !== 'production') {
           .pipe(rename(path => {
             path.extname = '.bundle.js';
           }))
-          .pipe(gulp.dest('public/js'));
+          .pipe(gulp.dest('public/js'))
+          .pipe(browserSync.reload({ stream: true }));
     });
 
     return es.merge.apply(null, streams);
@@ -205,4 +224,3 @@ gulp.task('watch-dev', ['build-dev'], () => {
   gulp.watch(paths.watchScripts, ['build-js-inc']);
   gulp.watch(paths.watchStylesheets, ['build-css']);
 });
-
