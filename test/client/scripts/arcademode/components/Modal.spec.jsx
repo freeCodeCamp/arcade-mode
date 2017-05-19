@@ -38,7 +38,7 @@ import { shallow } from 'enzyme';
 
 import chaiEnzyme from 'chai-enzyme';
 import chai, { expect } from 'chai';
-import { Modal } from 'react-bootstrap';
+import { Modal, Form, FormControl, Button } from 'react-bootstrap';
 
 import ArcadeModal from '../../../../../client/scripts/arcademode/components/Modal';
 
@@ -66,22 +66,30 @@ describe('Component: <ArcadeModal>', () => {
     expect(wrapper.find(Modal.Title)).to.have.length(1);
     const title = document.createElement('span');
     title.innerHTML = wrapper.find(Modal.Title).html();
-    expect(title.textContent).to.equal(' Welcome to freeCodeCamp\'s Arcade Mode!');
+    expect(title.textContent).to.equal('freeCodeCamp\'s Arcade Mode');
 
     const body = wrapper.find(Modal.Body);
     expect(body).to.have.length(1);
-    expect(body.find('h4')).to.have.length(1);
-    expect(body.find('h4').text()).to.equal('Quick start:');
-    expect(body.find('p')).to.have.length(2);
-    expect(body.find('p').first().text()).to.equal('This is an app where you can practice your algorithm and data structure skills by testing them in a timed environment.');
-    expect(body.find('p').at(1).text()).to.equal('All you have to do is set the time and press start, and off you go!');
+    expect(body.find(Form)).to.have.length(1);
+    expect(body.find(FormControl)).to.have.length(3);
+    expect(body.find(Button)).to.have.length(1);
+    // expect(body.find(FormControl).first().text()).to.equal('Arcade');
 
-    expect(wrapper.find(Modal.Footer)).to.have.length(1);
-    expect(wrapper.find(Modal.Footer).find('Button')).to.have.length(1);
+    const selectMode = document.createElement('select');
+    selectMode.innerHTML = wrapper.find(FormControl).first().html();
+    expect(selectMode.value).to.equal('Arcade');
+
+    const selectDifficulty = document.createElement('select');
+    selectDifficulty.innerHTML = wrapper.find(FormControl).at(1).html();
+    expect(selectDifficulty.value).to.equal('Easy');
+
+    const selectEditor = document.createElement('select');
+    selectEditor.innerHTML = wrapper.find(FormControl).last().html();
+    expect(selectEditor.value).to.equal('Normal');
 
     const button = document.createElement('button');
-    button.innerHTML = wrapper.find(Modal.Footer).find('Button').html();
-    expect(button.textContent).to.equal('Close');
+    button.innerHTML = wrapper.find(Button).html();
+    expect(button.textContent).to.equal('Submit');
   });
 });
 
