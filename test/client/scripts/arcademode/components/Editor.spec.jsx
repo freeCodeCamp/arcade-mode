@@ -15,6 +15,8 @@ chai.use(chaiEnzyme());
 
 let editorCode = '';
 const props = {
+  classN: 'editor', // for customizing height based on statusbar existence
+  editor: 'Normal', // appearance of editor - normal vs whiteboard
   onCodeChange: code => { editorCode = code; }
 };
 

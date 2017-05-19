@@ -46,7 +46,13 @@ chai.use(chaiEnzyme());
 
 const props = {
   modal: true,
-  onModalClose: () => {}
+  onModalClose: () => {},
+  mode: 'Arcade',
+  onChangeMode: () => {},
+  difficulty: 'Medium',
+  onChangeDifficulty: () => {},
+  editor: 'Normal',
+  onChangeEditor: () => {}
 };
 
 describe('Component: <ArcadeModal>', () => {
@@ -81,7 +87,7 @@ describe('Component: <ArcadeModal>', () => {
 
     const selectDifficulty = document.createElement('select');
     selectDifficulty.innerHTML = wrapper.find(FormControl).at(1).html();
-    expect(selectDifficulty.value).to.equal('Easy');
+    expect(selectDifficulty.value).to.equal('Medium');
 
     const selectEditor = document.createElement('select');
     selectEditor.innerHTML = wrapper.find(FormControl).last().html();
