@@ -42,10 +42,11 @@ const cache = require('gulp-cache');
 // Entry points and sources
 // ------------------------
 const paths = {
+
   fonts: ['client/fonts/**/*'], // font sources
   images: ['client/images/**/*'], // image sources
   json: ['client/json/**/*'], // temporary storage for challenges
-  scripts: ['client/scripts/arcademode/main.jsx', 'client/scripts/public/head.js', 'client/scripts/public/worker.js'], // entry point scripts
+  scripts: ['client/scripts/arcademode/main.jsx', 'client/scripts/public/arcademode.js', 'client/scripts/public/worker.js'], // entry point scripts
   stylesheets: ['client/stylesheets/style.scss'], // entry point stylesheets
   watchScripts: ['client/scripts/**/*.js*'],
   watchStylesheets: ['client/stylesheets/**/*.scss']
@@ -163,7 +164,23 @@ if (process.env.NODE_ENV !== 'production') {
 
 // Helper tasks
 // ------------
+/*
+gulp.task('bundle', ['build'], () =>
+  gulp.src(paths.scripts.map(script =>
+    `./public/js/${script.split('/')[script.split('/').length - 1]}`
+  ))
+    .pipe(concat('bundle.js'))
+    .pipe(gulp.dest('public/js'))
+);
 
+gulp.task('bundle-dev', ['build-dev'], () =>
+  gulp.src(paths.scripts.map(script =>
+    `./public/js/${script.split('/')[script.split('/').length - 1]}`
+  ))
+    .pipe(concat('bundle.js'))
+    .pipe(gulp.dest('public/js'))
+);
+*/
 gulp.task('clear-cache', done => cache.clearAll(done)); // clears img cache
 
 
