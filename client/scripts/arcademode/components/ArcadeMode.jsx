@@ -12,17 +12,6 @@ import Statusbar from './Statusbar';
 import Editor from './Editor';
 import ChallengePanel from './ChallengePanel';
 
-/*
-const outputOptions = {
-  readOnly: true,
-  theme: 'monokai',
-  scrollbarStyle: 'null',
-  lineWrapping: true,
-  mode: '',
-  json: true
-};
-*/
-
 /**
  * Top-level component for the app. This is rendered in App.jsx.
  */
@@ -163,12 +152,6 @@ export default class ArcadeMode extends Component {
           onModalClose={this.props.onModalClose}
         />
         <Navbar />
-        {/*
-          onTimerMaxValueChange={this.onTimerMaxValueChange}
-          sessionScore={this.props.sessionScore}
-          timeLeft={this.props.timeLeft}
-          timerMaxValue={this.props.timerMaxValue}
-        */}
         <Grid fluid>
           <Row className='show-grid'>
 
