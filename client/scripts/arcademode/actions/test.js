@@ -4,6 +4,17 @@
 export const OUTPUT_CHANGED = 'OUTPUT_CHANGED'; // test
 export const TESTS_STARTED = 'TESTS_STARTED'; // playerstatus, test
 export const TESTS_FINISHED = 'TESTS_FINISHED'; // test
+export const TESTS_FAILED = 'TESTS_FAILED'; // test
+export const TESTS_PASSED = 'TESTS_PASSED'; // test
+
+/* Given a list of test results, returns pass/fail status.*/
+const getTestStatus = testResults => {
+  let pass = true;
+  testResults.forEach(item => {
+    pass = pass && item.pass;
+  });
+  return pass;
+};
 
 
 export function onOutputChange(newOutput) {
@@ -36,7 +47,18 @@ export function runTests(userCode, currChallenge) {
       .then(workerData => {
         dispatch(onOutputChange(workerData[0].output));
         if (workerData.length > 1) {
-          dispatch(actionTestsFinished(workerData.slice(1)));
+          const testResults = workerData.slice(1);
+          const allTestsPassed = getTestStatus(testResults);
+
+          if (allTestsPassed) {
+            dispatch(actionTestsPassed());
+          }
+          else {
+            dispatch(actionTestsFailed());
+          }
+
+          // Would it make sense to include this with passed/failed actions?
+          dispatch(actionTestsFinished(testResults));
         }
       })
       .catch(err => { console.log(`Promise rejected: ${err}.`); });
@@ -47,6 +69,20 @@ export function runTests(userCode, currChallenge) {
 export function actionTestsStarted () {
   return {
     type: TESTS_STARTED
+  };
+}
+
+/* Dispatched when tests fail.*/
+export function actionTestsPassed () {
+  return {
+    type: TESTS_PASSED
+  };
+}
+
+/* Dispatched when tests fail.*/
+export function actionTestsFailed () {
+  return {
+    type: TESTS_FAILED
   };
 }
 
