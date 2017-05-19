@@ -1,9 +1,9 @@
 
 'use strict';
 
-export const GAME_MODE_CHANGE = 'GAME_MODE_CHANGE'; // gamesettings
-export const GAME_DIFFICULTY_CHANGE = 'GAME_DIFFICULTY_CHANGE'; // gamesettings, playerstatus, timer
-export const GAME_EDITOR_CHANGE = 'GAME_EDITOR_CHANGE'; // gamesettings
+export const GAME_MODE_CHANGE = 'GAME_MODE_CHANGE'; // gamesetting
+export const GAME_DIFFICULTY_CHANGE = 'GAME_DIFFICULTY_CHANGE'; // gamesetting, playerstatus, timer
+export const GAME_EDITOR_CHANGE = 'GAME_EDITOR_CHANGE'; // gamesetting
 
 export function onChangeMode (event) {
   return {

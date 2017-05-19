@@ -13,7 +13,7 @@ import {
 
 import { CHALLENGE_START } from '../actions/challenge';
 
-import { GAME_DIFFICULTY_CHANGE } from '../actions/gamesettings';
+import { GAME_DIFFICULTY_CHANGE } from '../actions/gamesetting';
 
 const timerDefaultValue = 60 * 1000;
 

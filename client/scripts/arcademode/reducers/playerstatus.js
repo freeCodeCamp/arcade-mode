@@ -9,7 +9,7 @@ import {
 
 import {
   GAME_DIFFICULTY_CHANGE
-} from '../actions/gamesettings';
+} from '../actions/gamesetting';
 
 import {
   PLAYER_PASSED
