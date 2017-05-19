@@ -26,7 +26,7 @@ export function startTimer (timerMaxValue) {
       if (timeElapsed >= timerMaxValueInt) {
         dispatch(stopTimer());
       }
-    }, 1000 / 60);
+    }, 1000 / 20);
   };
 }
 

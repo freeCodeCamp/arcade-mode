@@ -4,14 +4,15 @@
 import React, { Component } from 'react';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import PropTypes from 'prop-types';
-import CodeMirror from 'react-codemirror';
 import { Grid, Row, Col } from 'react-bootstrap';
 
 import Modal from './Modal';
 import Navbar from './Navbar';
 import Statusbar from './Statusbar';
 import Editor from './Editor';
+import ChallengePanel from './ChallengePanel';
 
+/*
 const outputOptions = {
   readOnly: true,
   theme: 'monokai',
@@ -20,6 +21,7 @@ const outputOptions = {
   mode: '',
   json: true
 };
+*/
 
 /**
  * Top-level component for the app. This is rendered in App.jsx.
@@ -49,13 +51,17 @@ export default class ArcadeMode extends Component {
   }
 
   onClickRunTests() {
-    this.props.runTests(this.props.code, this.props.currChallenge);
+    if (!this.props.isRunningTests) {
+      this.props.runTests(this.props.code, this.props.currChallenge);
+    }
   }
 
   onClickStartChallenge() {
     const startTime = new Date().getTime();
     this.props.startChallenge(startTime);
-    this.props.startTimer(this.props.timerMaxValue);
+    if (this.props.mode === 'Arcade') {
+      this.props.startTimer(this.props.timerMaxValue);
+    }
   }
 
   onClickFinishSession() {
@@ -82,40 +88,6 @@ export default class ArcadeMode extends Component {
     return testsOk;
   }
 
-  /* TODO: Add limit to the number of printed tests. Improve output. */
-  renderTestResults() {
-    const results = this.props.testResults;
-    let testsOk = true;
-    let individualTests;
-    if (results.size) {
-      individualTests = results.map((item, index) => {
-        const result = item.pass ? 'Pass' : 'Fail';
-        const className = item.pass ? 'text-success' : 'text-danger';
-        testsOk = testsOk && item.pass;
-
-        // If test had error, format the error message here
-        let msg = null;
-        if (item.error !== null) {
-          const innerHtml = { __html: `Error: ${item.error.message}` };
-          msg = <span dangerouslySetInnerHTML={innerHtml} />;
-        }
-
-        return <p className={className} key={index}>Status: {result} {msg}</p>;
-      });
-    }
-    else {
-      testsOk = false;
-    }
-
-    const finalResult = testsOk ? 'All tests passed' : 'There were failing tests';
-
-    return (
-      <div>
-        {individualTests}
-        <p>{finalResult}</p>
-      </div>
-    );
-  }
 
   renderStatusbar() {
     if (this.props.mode !== 'Arcade') {
@@ -175,22 +147,9 @@ export default class ArcadeMode extends Component {
   render() {
     const statusBar = this.renderStatusbar();
     const editorBody = this.renderEditor();
-    const testResults = this.renderTestResults();
     const passFailResult = this.processTestResults();
-    const descr = this.props.description.join('\n');
     const nextChallengeButton = this.renderNextChallengeButton(passFailResult);
-    function createMarkup() {
-      return { __html: descr };
-    }
 
-    let finishButton = null;
-    if (this.props.isTimerFinished) {
-      finishButton = (
-        <button className='btn btn-danger' onClick={this.onClickFinishSession}>Finish</button>
-      );
-    }
-
-    /* eslint react/no-danger: 0 */
     return (
       <div>
         <Modal
@@ -215,29 +174,19 @@ export default class ArcadeMode extends Component {
 
             <Col className='arcade-panel-left' xs={12} sm={12} md={4} lg={4}>
 
-              <div className='challenge__buttons'>
-                <button className={'btn btn-success'} onClick={this.onClickStartChallenge}>Start</button>
-                {this.props.isSessionStarted &&
-                  <button className={'btn btn-primary'} onClick={this.onClickRunTests}>Run tests</button>
-                }
-                {finishButton}
-              </div>
-              <div className='challenge__buttons'>
-                {this.props.isSessionStarted &&
-                  <button className={'btn btn-warning'} onClick={this.onClickSolve}>Insert Solution</button>
-                }
-              </div>
+              <ChallengePanel
+                onClickStartChallenge={this.onClickStartChallenge}
+                onClickRunTests={this.onClickRunTests}
+                onClickSolve={this.onClickSolve}
+                onClickFinishSession={this.onClickFinishSession}
+                isSessionStarted={this.props.isSessionStarted}
+                isTimerFinished={this.props.isTimerFinished}
+                title={this.props.title}
+                userOutput={this.props.userOutput}
+                description={this.props.description}
+                testResults={this.props.testResults}
+              />
 
-              <div className='challenge__title'>{this.props.title}</div>
-              <div className='challenge__description' dangerouslySetInnerHTML={createMarkup()} />
-
-              <div className={'output'}>
-                <CodeMirror
-                  options={outputOptions}
-                  value={this.props.userOutput}
-                />
-              </div>
-              {testResults}
             </Col>
 
             <Col className='arcade-panel-right' xs={12} sm={12} md={8} lg={8}>
@@ -291,6 +240,7 @@ ArcadeMode.propTypes = {
   // test
   runTests: PropTypes.func.isRequired,
   testResults: ImmutablePropTypes.list.isRequired,
+  isRunningTests: PropTypes.bool.isRequired,
 
   // timer
   startTimer: PropTypes.func.isRequired,
