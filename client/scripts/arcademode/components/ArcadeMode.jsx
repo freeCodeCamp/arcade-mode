@@ -97,7 +97,7 @@ export default class ArcadeMode extends Component {
         let msg = null;
         if (item.error !== null) {
           const innerHtml = { __html: `Error: ${item.error.message}` };
-          msg = <p dangerouslySetInnerHTML={innerHtml} />;
+          msg = <span dangerouslySetInnerHTML={innerHtml} />;
         }
 
         return <p className={className} key={index}>Status: {result} {msg}</p>;
