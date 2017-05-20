@@ -7,7 +7,8 @@ import { ListGroup, ListGroupItem } from 'react-bootstrap';
 
 import UserData from '../models/UserData';
 
-
+/* Component which shows the user profile consisting of all past sessions and
+ * challenges the user has completed. */
 export default class UserProfile extends Component {
 
   constructor(props) {
@@ -24,7 +25,11 @@ export default class UserProfile extends Component {
     console.log(`expandSessionView ${sessionId}`);
   }
 
-  // TODO: Refactor into own component ProfileChallenge to avoid bind
+  deleteSession(sessionId) {
+    console.log(`deleteSession ${sessionId}`);
+  }
+
+  // TODO: Refactor into own component <ProfileChallenge> to avoid bind
   renderChallenges(sessionId, challenges) {
     const challengesJsx = challenges.map(challenge => {
       return (
@@ -42,14 +47,16 @@ export default class UserProfile extends Component {
   renderSessions() {
     const sessions = this.props.userData.sessions.map(session => {
       const sessionId = session.get('id');
+      const score = session.get('score');
       const challenges = this.renderChallenges(sessionId, session.get('challenges'));
-      // TODO: Refactor into own component ProfileSession to avoid bind
+      // TODO: Refactor into own component <ProfileSession> to avoid bind
       return (
         <ListGroupItem
           key={sessionId}
         >
-          Session: {sessionId}
-          <button onClick={this.expandSessionView.bind(this, sessionId)}>Expand</button>
+          Session: {sessionId} Score: {score}
+          <button className='btn' onClick={this.expandSessionView.bind(this, sessionId)}>Expand</button>
+          <button className='btn btn-danger' onClick={this.deleteSession.bind(this, sessionId)}>Delete</button>
           <ListGroup>
             {challenges}
           </ListGroup>
