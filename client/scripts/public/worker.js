@@ -23,6 +23,11 @@ self.onmessage = e => {
     }
   ));
 
+  let tail;
+  if (currChallenge.tail) {
+    tail = currChallenge.tail.join('');
+  }
+
   // append user code output to final object passed back via postMessage:
   // if user output does not run, then tests should not be executed.
   const userOutput = [];
@@ -51,9 +56,14 @@ self.onmessage = e => {
   const testResults = [];
   tests.forEach(test => {
     const testRunData = { error: null, pass: true };
+    console.log(`usercode ${userCode}`);
+    let code;
     try {
       const val = eval(
-        `${userCode} // User code
+        `
+        code=userCode;
+        ${userCode};// User code
+        ${tail}; // tail function
         ${test.test} // Test case code
         `
       );
@@ -72,3 +82,4 @@ self.onmessage = e => {
   self.postMessage(postData);
   self.close();
 };
+
