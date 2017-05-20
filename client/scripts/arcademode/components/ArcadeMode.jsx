@@ -100,6 +100,7 @@ export default class ArcadeMode extends Component {
         <div className='session-finished'>
           <h2 className='text-danger'>Game Over!</h2>
           <p>Your final score: {this.props.sessionScore}</p>
+          <p>Your number of attempts across all challenges: {this.props.totalAttempts}</p>
           <p>You completed NN challenges in XX time.</p>
           <p>Click Start to play again.</p>
         </div>
@@ -215,6 +216,7 @@ ArcadeMode.propTypes = {
   userOutput: PropTypes.string.isRequired,
 
   // session
+  totalAttempts: PropTypes.number.isRequired,
   sessionScore: PropTypes.number.isRequired,
   finishSession: PropTypes.func.isRequired,
   isSessionStarted: PropTypes.bool.isRequired,
