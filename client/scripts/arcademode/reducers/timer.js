@@ -69,7 +69,9 @@ export default function timer (state = initialState, action) {
         .set('timeUsed', printTime(action.timeNow - state.get('timerStart')))
         .set('timeLeft', printTime(state.get('timerMaxValue') - (action.timeNow - state.get('timerStart'))));
     case TIMER_FINISHED:
-      return state.set('isRunningTests', false);
+      return state
+        .set('isTimerFinished', true)
+        .set('timeLeft', '00:00');
     case TIMER_MAX_VALUE_CHANGED:
       return state.set('timerMaxValue', action.timerMaxValue);
     default:
