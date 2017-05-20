@@ -26,7 +26,9 @@ const initialState = Immutable.Map({
   totalAttempts: 0,
   streakMultiplier: 1,
   currSession: Map({
-    challenges: List()
+    challenges: List(),
+    score: 0,
+    time: 0
   })
 });
 
