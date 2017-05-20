@@ -1,8 +1,8 @@
 
 'use strict';
 
-export const CHALLENGE_START = 'CHALLENGE_START'; // challenge, session, test, timer
-export const CHALLENGE_NEXT = 'CHALLENGE_NEXT'; // challenge, session, test
+export const CHALLENGE_START = 'CHALLENGE_START'; // challenge, playerstatus, session, test, timer
+export const CHALLENGE_NEXT = 'CHALLENGE_NEXT'; // challenge, playerstatus, session, test
 export const CHALLENGE_SOLVE = 'CHALLENGE_SOLVE'; // challenge
 export const CODE_CHANGED = 'CODE_CHANGED'; // challenge
 
