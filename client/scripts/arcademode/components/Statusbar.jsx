@@ -9,10 +9,10 @@ const Statusbar = props => (
   <Grid fluid className='am__statusbar'>
     <Row>
       <Col sm={3}>
-        Lives: x {props.lives}
+        <img className='am__statusbar__lives-logo' src='/public/img/FCCfire.svg' alt='Lives' /> x {props.lives}
       </Col>
       <Col sm={3}>
-        Time left: {props.timeLeft}
+        <span className='am__statusbar__text'>Time left:</span> {props.timeLeft}
       </Col>
       <Col sm={3}>
         { props.passOption ?
@@ -21,7 +21,7 @@ const Statusbar = props => (
         }
       </Col>
       <Col sm={3}>
-        Score: {props.sessionScore}
+        <span className='am__statusbar__text'>Score:</span> {props.sessionScore}
       </Col>
     </Row>
   </Grid>

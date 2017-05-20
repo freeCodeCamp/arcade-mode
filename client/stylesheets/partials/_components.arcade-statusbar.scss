@@ -5,4 +5,14 @@
   margin-bottom: 20px;
   line-height: 2;
   background-color: #bdbdbd;
+
+  &__lives-logo {
+    height: 20px;
+    width: auto;
+  }
+
+  &__text {
+    font-weight: bold;
+  }
 }
+
