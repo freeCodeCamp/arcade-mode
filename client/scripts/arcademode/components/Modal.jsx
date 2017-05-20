@@ -15,68 +15,68 @@ const ArcadeModal = props => (
       <p className='am__modal__description'>This is a place where you can practice your algorithm and data structure skills.</p>
       <br />
       <p><b>Mode</b></p>
-      <Grid>
+      <Grid fluid>
         <Row>
-          <Col sm={2}>
+          <Col sm={3}>
             Arcade
           </Col>
-          <Col sm={10}>
+          <Col sm={9}>
             Try your skills in a time and attempt-limited environment.
           </Col>
         </Row>
         <Row>
-          <Col sm={2}>
+          <Col sm={3}>
             Practice
           </Col>
-          <Col sm={10}>
+          <Col sm={9}>
             No constraints free form practice.
           </Col>
         </Row>
       </Grid>
       <br />
       <p><b>Difficulty</b></p>
-      <Grid>
+      <Grid fluid>
         <Row>
-          <Col sm={2}>
+          <Col sm={3}>
             Easy
           </Col>
-          <Col sm={10}>
+          <Col sm={9}>
             Most lives, most time.
           </Col>
         </Row>
         <Row>
-          <Col sm={2}>
+          <Col sm={3}>
             Medium
           </Col>
-          <Col sm={10}>
+          <Col sm={9}>
             Average number of lives, average amount of time.
           </Col>
         </Row>
         <Row>
-          <Col sm={2}>
+          <Col sm={3}>
             Hard
           </Col>
-          <Col sm={10}>
+          <Col sm={9}>
             Few lives, short in time. Life is short.
           </Col>
         </Row>
       </Grid>
       <br />
       <p><b>Editor</b></p>
-      <Grid>
+      <Grid fluid>
         <Row>
-          <Col sm={2}>
+          <Col sm={3}>
             Normal
           </Col>
-          <Col sm={10}>
+          <Col sm={9}>
             Syntax highlighting, line numbers, and specific error reporting.
           </Col>
         </Row>
         <Row>
-          <Col sm={2}>
+          <Col sm={3}>
             Whiteboard
           </Col>
-          <Col sm={10}>
+          <Col sm={9}>
             Black marker.
           </Col>
         </Row>
