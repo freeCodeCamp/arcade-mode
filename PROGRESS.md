@@ -4,6 +4,10 @@
 ### Tim:
   - Progress:
     1. Set up clip-path ARCADE MODE title
+    2. Set up timeLeft to be displayed in MM:SS.
+    3. Pass button now refreshes on a correct solve of a challenge.
+  - Issues:
+    - [ ] Time left occasionally hops back to initial time one second after start when starting the app immediately following page load.
 
 ### Tuomas:
   - Progress:
