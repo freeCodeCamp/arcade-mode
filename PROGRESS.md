@@ -6,6 +6,11 @@
     1. Add score multiplier.
     2. Add variable for total attempts: totalAttempts
     3. Set up whiteboard/blind mode to only show pass fail status
+    4. Add game settings description to modal
+    5. Have ARCADE MODE title link back to site.
+    6. Tidy challenge panel.
+  - Issues:
+    - [ ] left side border-radius for editor reverts to 0 after pressing start.
 
 
 ## Friday 5/19/17:
