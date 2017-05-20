@@ -17,12 +17,10 @@ const outputOptions = {
 /* Component which renders the left panel containing control buttons, test
  * description and test results.*/
 export default class ChallengePanel extends React.Component {
-
   constructor(props) {
     super(props);
     this.createMarkup = this.createMarkup.bind(this);
   }
-
 
   createMarkup() {
     const descr = this.props.description.join('\n');
@@ -86,6 +84,8 @@ export default class ChallengePanel extends React.Component {
     /* eslint react/no-danger: 0 */
     return (
       <div className='challenge-panel'>
+        <div className='challenge__title'>{this.props.title}</div>
+        <div className='challenge__description' dangerouslySetInnerHTML={this.createMarkup()} />
         <div className='challenge__buttons'>
           <button className={'btn btn-success'} onClick={this.props.onClickStartChallenge}>Start</button>
           {this.props.isSessionStarted &&
@@ -98,9 +98,6 @@ export default class ChallengePanel extends React.Component {
             <button className={'btn btn-warning'} onClick={this.props.onClickSolve}>Insert Solution</button>
           }
         </div>
-        <div className='challenge__title'>{this.props.title}</div>
-        <div className='challenge__description' dangerouslySetInnerHTML={this.createMarkup()} />
-
         <div className={'output'}>
           <CodeMirror
             options={outputOptions}
@@ -111,10 +108,8 @@ export default class ChallengePanel extends React.Component {
         {testResults}
 
       </div>
-
     );
   }
-
 }
 
 ChallengePanel.propTypes = {
