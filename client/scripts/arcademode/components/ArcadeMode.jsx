@@ -136,7 +136,7 @@ export default class ArcadeMode extends Component {
           <h2 className='text-danger'>Game Over!</h2>
           <p>Your final score: {this.props.sessionScore}</p>
           <p>Your number of attempts across all challenges: {this.props.totalAttempts}</p>
-          <p>You completed {this.props.sessionScore} challenges in {this.props.timeUsed} time.</p>
+          <p>You completed {this.props.challengeNumber} challenges in {this.props.timeUsed} time.</p>
           <p>You can save your session by clicking Save. Saved sessions can be viewed from the
             profile. Click Start to play again.</p>
           { !this.props.isSessionSaved &&
@@ -206,9 +206,11 @@ export default class ArcadeMode extends Component {
 
         <Grid fluid>
           { this.props.isProfileShown &&
-            <UserProfile
-              userData={this.props.userData}
-            />
+            <Row className='show-grid'>
+              <UserProfile
+                userData={this.props.userData}
+              />
+            </Row>
           }
           { !this.props.isProfileShown &&
           <Row className='show-grid'>
@@ -264,6 +266,7 @@ ArcadeMode.propTypes = {
   onModalClose: PropTypes.func.isRequired,
 
   // challenge
+  challengeNumber: PropTypes.number.isRequired,
   startChallenge: PropTypes.func.isRequired,
   currChallenge: ImmutablePropTypes.map.isRequired,
   title: PropTypes.string.isRequired,
