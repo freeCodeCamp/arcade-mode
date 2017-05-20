@@ -32,14 +32,14 @@ const initialState = Immutable.Map({
 // currently difficulty settings pertain to lives and timeleft only,
 // as challenges still need to be sorted by difficulty.
 const difficultySettings = {
-  Easy: { lives: 10 },
-  Medium: { lives: 5 },
-  Hard: { lives: 3 }
+  Easy: { lives: 20 },
+  Medium: { lives: 10 },
+  Hard: { lives: 5 }
   // Random - for random, can randomly generate lives and time and hide until game start
 };
 
 export default function playerstatus (state = initialState, action) {
-  console.log('playerstatus reducer: ' + action.type);
+  // console.log('playerstatus reducer: ' + action.type);
   switch (action.type) {
     case CHALLENGE_START:
       return state
