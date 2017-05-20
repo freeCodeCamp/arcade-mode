@@ -29,10 +29,12 @@ export default class Editor extends React.Component {
     let classname;
     if (this.props.editor === 'Normal') {
       editorOptions.mode = 'javascript';
+      editorOptions.lineNumbers = true;
       classname = 'CodeMirror';
     }
     else {
       editorOptions.mode = '';
+      editorOptions.lineNumbers = false;
       classname = 'CodeMirror--whiteboard';
     }
     return { editorOptions, classname };
