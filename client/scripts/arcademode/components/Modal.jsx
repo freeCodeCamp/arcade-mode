@@ -4,7 +4,7 @@
 import React from 'react';
 // import ImmutablePropTypes from 'react-immutable-proptypes';
 import PropTypes from 'prop-types';
-import { Modal, Button, Col, Form, FormGroup, FormControl, ControlLabel } from 'react-bootstrap';
+import { Modal, Button, Grid, Row, Col, Form, FormGroup, FormControl, ControlLabel } from 'react-bootstrap';
 
 const ArcadeModal = props => (
   <Modal show={props.modal} onHide={props.onModalClose} animation={false} backdrop='static'>
@@ -12,14 +12,82 @@ const ArcadeModal = props => (
       <Modal.Title className='am__modal__title'>{'freeCodeCamp\'s Arcade Mode'}</Modal.Title>
     </Modal.Header>
     <Modal.Body>
-      <p>Welcome to freeCodeCamp's Arcade Mode. This is a place where you can practice your algorithm and data structure skills.</p>
+      <p className='am__modal__description'>This is a place where you can practice your algorithm and data structure skills.</p>
+      <br />
+      <p><b>Mode</b></p>
+      <Grid>
+        <Row>
+          <Col sm={2}>
+            Arcade
+          </Col>
+          <Col sm={10}>
+            Try your skills in a time and attempt-limited environment.
+          </Col>
+        </Row>
+        <Row>
+          <Col sm={2}>
+            Practice
+          </Col>
+          <Col sm={10}>
+            No constraints free form practice.
+          </Col>
+        </Row>
+      </Grid>
+      <br />
+      <p><b>Difficulty</b></p>
+      <Grid>
+        <Row>
+          <Col sm={2}>
+            Easy
+          </Col>
+          <Col sm={10}>
+            Most lives, most time.
+          </Col>
+        </Row>
+        <Row>
+          <Col sm={2}>
+            Medium
+          </Col>
+          <Col sm={10}>
+            Average number of lives, average amount of time.
+          </Col>
+        </Row>
+        <Row>
+          <Col sm={2}>
+            Hard
+          </Col>
+          <Col sm={10}>
+            Few lives, short in time. Life is short.
+          </Col>
+        </Row>
+      </Grid>
+      <br />
+      <p><b>Editor</b></p>
+      <Grid>
+        <Row>
+          <Col sm={2}>
+            Normal
+          </Col>
+          <Col sm={10}>
+            Syntax highlighting, line numbers, and specific error reporting.
+          </Col>
+        </Row>
+        <Row>
+          <Col sm={2}>
+            Whiteboard
+          </Col>
+          <Col sm={10}>
+            Black marker.
+          </Col>
+        </Row>
+      </Grid>
       <br />
       <Form horizontal>
         <FormGroup>
-          <Col sm={3}>
+          <Col smOffset={3} sm={2}>
             <ControlLabel>Mode:</ControlLabel>
           </Col>
-          <Col smOffset={3} sm={6}>
+          <Col smOffset={1} sm={3}>
             <FormControl componentClass='select' defaultValue={props.mode} onChange={props.onChangeMode}>
               <option value='Arcade'>Arcade</option>
               <option value='Practice'>Practice</option>
@@ -27,10 +95,10 @@ const ArcadeModal = props => (
           </Col>
         </FormGroup>
         <FormGroup>
-          <Col sm={3}>
+          <Col smOffset={3} sm={2}>
             <ControlLabel>Difficulty:</ControlLabel>
           </Col>
-          <Col smOffset={3} sm={6}>
+          <Col smOffset={1} sm={3}>
             <FormControl componentClass='select' defaultValue={props.difficulty} onChange={props.onChangeDifficulty}>
               <option value='Easy'>Easy</option>
               <option value='Medium'>Medium</option>
@@ -40,10 +108,10 @@ const ArcadeModal = props => (
           </Col>
         </FormGroup>
         <FormGroup>
-          <Col sm={3}>
+          <Col smOffset={3} sm={2}>
             <ControlLabel>Editor:</ControlLabel>
           </Col>
-          <Col smOffset={3} sm={6}>
+          <Col smOffset={1} sm={3}>
             <FormControl componentClass='select' defaultValue={props.editor} onChange={props.onChangeEditor}>
               <option value='Normal'>Normal</option>
               <option value='Whiteboard'>Whiteboard</option>
