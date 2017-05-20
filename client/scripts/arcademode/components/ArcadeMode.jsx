@@ -169,6 +169,7 @@ export default class ArcadeMode extends Component {
                 userOutput={this.props.userOutput}
                 description={this.props.description}
                 testResults={this.props.testResults}
+                editor={this.props.editor}
               />
 
             </Col>

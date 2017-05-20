@@ -45,6 +45,11 @@ export default class ChallengePanel extends React.Component {
         testsOk = testsOk && item.pass;
         id += 1;
 
+        // return only status of each test on Whiteboard mode
+        if (this.props.editor === 'Whiteboard') {
+          return <p className={className} key={id}>Status: {result}</p>;
+        }
+
         // If test had error, format the error message here
         let msg = null;
         if (item.error !== null) {
@@ -122,5 +127,6 @@ ChallengePanel.propTypes = {
   onClickSolve: PropTypes.func.isRequired,
   onClickStartChallenge: PropTypes.func.isRequired,
   userOutput: PropTypes.string.isRequired,
-  testResults: ImmutablePropTypes.list.isRequired
+  testResults: ImmutablePropTypes.list.isRequired,
+  editor: PropTypes.string.isRequired
 };
