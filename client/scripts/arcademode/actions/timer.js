@@ -22,7 +22,6 @@ export function startTimer (timerMaxValue) {
 
     timer = () => {
       setTimeout(() => {
-        requestAnimationFrame(timer);
         const timeNow = new Date().getTime();
         const timeElapsed = timeNow - timeStart;
 
@@ -32,23 +31,9 @@ export function startTimer (timerMaxValue) {
         }
 
         dispatch(actionTimerUpdated(timeNow));
+        requestAnimationFrame(timer);
       }, 1000);
-      /*
-      requestAnimationFrame(timer);
-      const timeNow = new Date().getTime();
-      const timeElapsed = timeNow - timeStart;
-      if (timeElapsed >= timerMaxValueInt) {
-        cancelAnimationFrame(timer);
-        return dispatch(stopTimer());
-      }
-
-      if (timeNow - timeOneSecondFromNow > 980) { // at 1000, it skips 01:00 -> 00:58
-        timeOneSecondFromNow += 1000;
-        dispatch(actionTimerUpdated(timeNow));
-      }
-      */
     };
-
     requestAnimationFrame(timer);
   };
 }
