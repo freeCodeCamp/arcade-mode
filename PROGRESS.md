@@ -1,5 +1,13 @@
 # PROGRESS for Arcade Mode
 
+## Saturday 5/20/17:
+### Tim:
+  - Progress:
+    1. Add score multiplier.
+    2. Add variable for total attempts: totalAttempts
+    3. Set up whiteboard/blind mode to only show pass fail status
+
+
 ## Friday 5/19/17:
 ### Tim:
   - Progress:
@@ -7,7 +15,7 @@
     2. Set up timeLeft to be displayed in MM:SS.
     3. Pass button now refreshes on a correct solve of a challenge.
   - Issues:
-    - [ ] Time left occasionally hops back to initial time one second after start when starting the app immediately following page load.
+    - [X] Time left occasionally hops back to initial time one second after start when starting the app immediately following page load.
 
 ### Tuomas:
   - Progress:
