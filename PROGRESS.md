@@ -10,8 +10,7 @@
     5. Have ARCADE MODE title link back to site.
     6. Tidy challenge panel.
   - Issues:
-    - [ ] left side border-radius for editor reverts to 0 after pressing start.
-
+    - [X] left side border-radius for editor reverts to 0 after pressing start.
 
 ## Friday 5/19/17:
 ### Tim:
