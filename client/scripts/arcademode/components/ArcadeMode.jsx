@@ -54,6 +54,9 @@ export default class ArcadeMode extends Component {
   }
 
   onClickFinishSession() {
+    if (!this.props.isTimerFinished) {
+      this.props.stopTimer();
+    }
     this.props.finishSession();
   }
 
@@ -234,5 +237,6 @@ ArcadeMode.propTypes = {
   onTimerMaxValueChange: PropTypes.func.isRequired,
   timerMaxValue: PropTypes.number.isRequired,
   isTimerFinished: PropTypes.bool.isRequired,
-  timeUsed: PropTypes.string.isRequired
+  timeUsed: PropTypes.string.isRequired,
+  stopTimer: PropTypes.func.isRequired
 };
