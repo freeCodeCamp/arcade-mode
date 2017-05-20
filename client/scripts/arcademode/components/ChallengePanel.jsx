@@ -87,7 +87,9 @@ export default class ChallengePanel extends React.Component {
         <div className='challenge__title'>{this.props.title}</div>
         <div className='challenge__description' dangerouslySetInnerHTML={this.createMarkup()} />
         <div className='challenge__buttons'>
-          <button className={'btn btn-success'} onClick={this.props.onClickStartChallenge}>Start</button>
+          {!this.props.isSessionStarted &&
+            <button className={'btn btn-success'} onClick={this.props.onClickStartChallenge}>Start</button>
+          }
           {this.props.isSessionStarted &&
             <button className={'btn btn-primary'} onClick={this.props.onClickRunTests}>Run tests</button>
           }
