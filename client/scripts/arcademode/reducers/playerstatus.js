@@ -4,7 +4,8 @@
 import Immutable from 'immutable';
 
 import {
-  CHALLENGE_START
+  CHALLENGE_START,
+  CHALLENGE_NEXT
 } from '../actions/challenge';
 
 import {
@@ -39,6 +40,9 @@ export default function playerstatus (state = initialState, action) {
       return state
         .set('lives', initialState.get('lives'))
         .set('passOption', true);
+    case CHALLENGE_NEXT:
+      return state
+        .set('passOption', true); // refresh passOption on each challenge solve
     case TESTS_FAILED:
       return state.update('lives', lives => lives - 1);
     case GAME_DIFFICULTY_CHANGE:
