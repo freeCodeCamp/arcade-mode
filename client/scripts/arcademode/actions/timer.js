@@ -9,6 +9,7 @@ export const TIMER_MAX_VALUE_CHANGED = 'TIMER_MAX_VALUE_CHANGED'; // timer
 
 
 let timer = null;
+let timeoutId = null;
 
 /* Thunk action to start the timer. */
 export function startTimer (timerMaxValue) {
@@ -21,7 +22,7 @@ export function startTimer (timerMaxValue) {
     dispatch(actionTimerStarted(timeStart));
 
     timer = () => {
-      setTimeout(() => {
+      timeoutId = setTimeout(() => {
         const timeNow = new Date().getTime();
         const timeElapsed = timeNow - timeStart;
 
@@ -31,7 +32,7 @@ export function startTimer (timerMaxValue) {
 
         if (timeElapsed >= timerMaxValueInt || getState().isSessionFinished) {
           cancelAnimationFrame(timer);
-          return dispatch(stopTimer());
+          return dispatch(actionTimerFinished());
         }
 
         dispatch(actionTimerUpdated(timeNow));
@@ -43,6 +44,7 @@ export function startTimer (timerMaxValue) {
 }
 
 export function stopTimer () {
+  clearTimeout(timeoutId);
   return {
     type: STOP_TIMER
   };
@@ -69,7 +71,6 @@ export function actionTimerMaxValueChanged (timerMaxValue) {
   };
 }
 
-// contrived for testing TIMER_FINISHED, since nothing actually calls it.
 export function actionTimerFinished () {
   return {
     type: TIMER_FINISHED
