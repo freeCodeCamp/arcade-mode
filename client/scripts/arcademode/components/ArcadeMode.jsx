@@ -11,6 +11,9 @@ import Navbar from './Navbar';
 import Statusbar from './Statusbar';
 import Editor from './Editor';
 import ChallengePanel from './ChallengePanel';
+import UserProfile from './UserProfile';
+
+import UserData from '../models/UserData';
 
 /**
  * Top-level component for the app. This is rendered in App.jsx.
@@ -27,16 +30,23 @@ export default class ArcadeMode extends Component {
     this.onCodeChange = this.onCodeChange.bind(this);
     this.onTimerMaxValueChange = this.onTimerMaxValueChange.bind(this);
     this.onClickSolve = this.onClickSolve.bind(this);
+    this.onClickShowHideProfile = this.onClickShowHideProfile.bind(this);
+    this.onClickSaveSession = this.onClickSaveSession.bind(this);
   }
 
-  onCodeChange(newCode) {
-    console.log('Emitting new code from <ArcadeMode>');
-    this.props.onCodeChange(newCode);
+  /* Loads stored user data */
+  componentDidMount() {
+    const userData = new UserData();
+    this.props.loadUserData(userData);
   }
 
   onClickNextChallenge() {
     const startTime = new Date().getTime();
-    this.props.nextChallenge(startTime);
+    const obj = {
+      startTime,
+      currChallenge: this.props.currChallenge
+    };
+    this.props.nextChallenge(obj);
   }
 
   onClickRunTests() {
@@ -60,9 +70,31 @@ export default class ArcadeMode extends Component {
     this.props.finishSession();
   }
 
+  onClickSaveSession() {
+    if (this.props.isSessionFinished) {
+      this.props.saveSession();
+      this.props.updateUserData(this.props.currSession);
+    }
+  }
+
   /* Inserts the solution for current challenge into the editor. */
   onClickSolve() {
     this.props.solveChallenge();
+  }
+
+  onClickShowHideProfile() {
+    if (this.props.isProfileShown) {
+      this.props.hideProfile();
+    }
+    else {
+      this.props.showProfile();
+    }
+  }
+
+
+  onCodeChange(newCode) {
+    console.log('Emitting new code from <ArcadeMode>');
+    this.props.onCodeChange(newCode);
   }
 
   onTimerMaxValueChange(e) {
@@ -105,7 +137,14 @@ export default class ArcadeMode extends Component {
           <p>Your final score: {this.props.sessionScore}</p>
           <p>Your number of attempts across all challenges: {this.props.totalAttempts}</p>
           <p>You completed {this.props.sessionScore} challenges in {this.props.timeUsed} time.</p>
-          <p>Click Start to play again.</p>
+          <p>You can save your session by clicking Save. Saved sessions can be viewed from the
+            profile. Click Start to play again.</p>
+          { !this.props.isSessionSaved &&
+          <button className='btn btn-success' onClick={this.onClickSaveSession}>Save</button>
+          }
+          { this.props.isSessionSaved &&
+            <p className='text-success'>Your session has been saved.</p>
+          }
         </div>
       );
     }
@@ -137,6 +176,7 @@ export default class ArcadeMode extends Component {
     return null;
   }
 
+
   render() {
     const statusBar = this.renderStatusbar();
     const editorBody = this.renderEditor();
@@ -156,7 +196,21 @@ export default class ArcadeMode extends Component {
           onModalClose={this.props.onModalClose}
         />
         <Navbar />
+
+        <button
+          className='btn btn-default'
+          onClick={this.onClickShowHideProfile}
+        >
+          Show/Hide Profile
+        </button>
+
         <Grid fluid>
+          { this.props.isProfileShown &&
+            <UserProfile
+              userData={this.props.userData}
+            />
+          }
+          { !this.props.isProfileShown &&
           <Row className='show-grid'>
 
             <Col className='arcade-panel-left' xs={12} sm={12} md={4} lg={4}>
@@ -183,6 +237,7 @@ export default class ArcadeMode extends Component {
               {nextChallengeButton}
             </Col>
           </Row>
+          }
         </Grid>
       </div>
     );
@@ -220,11 +275,14 @@ ArcadeMode.propTypes = {
   userOutput: PropTypes.string.isRequired,
 
   // session
+  currSession: ImmutablePropTypes.map.isRequired,
   totalAttempts: PropTypes.number.isRequired,
   sessionScore: PropTypes.number.isRequired,
+  saveSession: PropTypes.func.isRequired,
   finishSession: PropTypes.func.isRequired,
   isSessionStarted: PropTypes.bool.isRequired,
   isSessionFinished: PropTypes.bool.isRequired,
+  isSessionSaved: PropTypes.bool.isRequired,
 
   // test
   runTests: PropTypes.func.isRequired,
@@ -238,5 +296,14 @@ ArcadeMode.propTypes = {
   timerMaxValue: PropTypes.number.isRequired,
   isTimerFinished: PropTypes.bool.isRequired,
   timeUsed: PropTypes.string.isRequired,
-  stopTimer: PropTypes.func.isRequired
+  stopTimer: PropTypes.func.isRequired,
+
+  // profile
+  isProfileShown: PropTypes.bool.isRequired,
+  hideProfile: PropTypes.func.isRequired,
+  showProfile: PropTypes.func.isRequired,
+  loadUserData: PropTypes.func.isRequired,
+  userData: PropTypes.instanceOf(UserData).isRequired,
+  updateUserData: PropTypes.func.isRequired
+
 };
