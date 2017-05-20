@@ -12,7 +12,7 @@ let timer = null;
 
 /* Thunk action to start the timer. */
 export function startTimer (timerMaxValue) {
-  return dispatch => {
+  return (dispatch, getState) => {
     cancelAnimationFrame(timer);
 
     const timeStart = new Date().getTime();
@@ -25,7 +25,11 @@ export function startTimer (timerMaxValue) {
         const timeNow = new Date().getTime();
         const timeElapsed = timeNow - timeStart;
 
-        if (timeElapsed >= timerMaxValueInt) {
+        if (getState().isSessionFinished) {
+          console.log('session is finished!');
+        }
+
+        if (timeElapsed >= timerMaxValueInt || getState().isSessionFinished) {
           cancelAnimationFrame(timer);
           return dispatch(stopTimer());
         }

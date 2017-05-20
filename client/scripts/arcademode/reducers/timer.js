@@ -15,6 +15,8 @@ import { CHALLENGE_START } from '../actions/challenge';
 
 import { GAME_DIFFICULTY_CHANGE } from '../actions/gamesetting';
 
+import { SESSION_FINISH } from '../actions/session';
+
 const timerDefaultValue = 60 * 1000;
 
 const initialState = Immutable.Map({
@@ -22,7 +24,8 @@ const initialState = Immutable.Map({
   timerMaxValue: timerDefaultValue,
   timerMaxValueLoaded: timerDefaultValue,
   timeLeft: '01:00', // timerDefaultValue
-  timerStart: 0
+  timerStart: 0,
+  timeUsed: '00:00'
 });
 
 export function printTime (timeInMilliseconds) {
@@ -51,6 +54,7 @@ export default function timer (state = initialState, action) {
       return state
         .set('timeLeft', difficultySettings[action.difficulty].displayTime) // display
         .set('timerMaxValue', difficultySettings[action.difficulty].time); // actual number
+    case SESSION_FINISH:
     case STOP_TIMER:
       return state
         .set('isTimerFinished', true)
@@ -62,6 +66,7 @@ export default function timer (state = initialState, action) {
         .set('timerStart', action.startTime);
     case TIMER_UPDATED:
       return state
+        .set('timeUsed', printTime(action.timeNow - state.get('timerStart')))
         .set('timeLeft', printTime(state.get('timerMaxValue') - (action.timeNow - state.get('timerStart'))));
     case TIMER_FINISHED:
       return state.set('isRunningTests', false);

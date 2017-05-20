@@ -101,7 +101,7 @@ export default class ArcadeMode extends Component {
           <h2 className='text-danger'>Game Over!</h2>
           <p>Your final score: {this.props.sessionScore}</p>
           <p>Your number of attempts across all challenges: {this.props.totalAttempts}</p>
-          <p>You completed NN challenges in XX time.</p>
+          <p>You completed {this.props.sessionScore} challenges in {this.props.timeUsed} time.</p>
           <p>Click Start to play again.</p>
         </div>
       );
@@ -233,5 +233,6 @@ ArcadeMode.propTypes = {
   timeLeft: PropTypes.string.isRequired,
   onTimerMaxValueChange: PropTypes.func.isRequired,
   timerMaxValue: PropTypes.number.isRequired,
-  isTimerFinished: PropTypes.bool.isRequired
+  isTimerFinished: PropTypes.bool.isRequired,
+  timeUsed: PropTypes.string.isRequired
 };
