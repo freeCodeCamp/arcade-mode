@@ -16,17 +16,21 @@ export function startTimer (timerMaxValue) {
     cancelAnimationFrame(timer);
 
     const timeStart = new Date().getTime();
+    let timeOneSecondFromNow = timeStart;
     const timerMaxValueInt = parseInt(timerMaxValue, 10);
     dispatch(actionTimerStarted(timeStart));
 
     timer = () => {
       requestAnimationFrame(timer);
       const timeNow = new Date().getTime();
-      dispatch(actionTimerUpdated(timeNow));
       const timeElapsed = timeNow - timeStart;
       if (timeElapsed >= timerMaxValueInt) {
-        dispatch(stopTimer());
-        cancelAnimationFrame(timer);
+        return dispatch(stopTimer());
+      }
+
+      if (timeNow - timeOneSecondFromNow > 980) { // at 1000, it skips 01:00 -> 00:58
+        timeOneSecondFromNow += 1000;
+        dispatch(actionTimerUpdated(timeNow));
       }
     };
 

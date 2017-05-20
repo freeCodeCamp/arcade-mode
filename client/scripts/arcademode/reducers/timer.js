@@ -26,18 +26,20 @@ const initialState = Immutable.Map({
 });
 
 const printTime = timeInMilliseconds => {
-  const seconds = Math.floor(timeInMilliseconds / 1000);
-  const minutes = Math.floor(seconds / 60);
-  if (minutes >= 10) {
-    return `${minutes}:${seconds}`;
-  }
-  return `0${minutes}:${seconds}`;
+  const timeInSeconds = Math.floor(timeInMilliseconds / 1000);
+  const seconds = timeInSeconds % 60;
+  const minutes = Math.floor(timeInSeconds / 60);
+
+  const mm = (minutes >= 10) ? `${minutes}` : `0${minutes}`;
+  const ss = (seconds >= 10) ? `${seconds}` : `0${seconds}`;
+
+  return `${mm}:${ss}`;
 };
 
 const difficultySettings = {
-  Easy: { time: '15:00' }, // 15 * 60 * 1000
-  Medium: { time: '10:00' }, // 10 * 60 * 1000
-  Hard: { time: '5:00' } // 5 * 60 * 1000
+  Easy: { displayTime: '15:00', time: 15 * 60 * 1000 },
+  Medium: { displayTime: '10:00', time: 10 * 60 * 1000 },
+  Hard: { displayTime: '05:00', time: 5 * 60 * 1000 }
   // Random - for random, can randomly generate lives and time and hide until game start
 };
 
@@ -47,7 +49,7 @@ export default function timer (state = initialState, action) {
       return state.set('timerMaxValueLoaded', state.get('timerMaxValue'));
     case GAME_DIFFICULTY_CHANGE:
       return state
-        .set('timeLeft', difficultySettings[action.difficulty].time) // display
+        .set('timeLeft', difficultySettings[action.difficulty].displayTime) // display
         .set('timerMaxValue', difficultySettings[action.difficulty].time); // actual number
     case STOP_TIMER:
       return state
@@ -56,7 +58,7 @@ export default function timer (state = initialState, action) {
     case TIMER_STARTED:
       return state
         .set('isTimerFinished', false)
-        .set('timeLeft', '01:00') // timerDefaultValue
+        // .set('timeLeft', printTime(state.get('timerMaxValue'))) // timerDefaultValue
         .set('timerStart', action.startTime);
     case TIMER_UPDATED:
       return state
