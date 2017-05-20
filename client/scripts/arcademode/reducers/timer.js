@@ -19,14 +19,14 @@ const timerDefaultValue = 60 * 1000;
 
 const initialState = Immutable.Map({
   isTimerFinished: false,
-  timerMaxValue: `${timerDefaultValue}`,
+  timerMaxValue: timerDefaultValue,
   timerMaxValueLoaded: timerDefaultValue,
   timeLeft: '01:00', // timerDefaultValue
   timerStart: 0
 });
 
 export function printTime (timeInMilliseconds) {
-  const timeInSeconds = Math.floor(timeInMilliseconds / 1000);
+  const timeInSeconds = Math.ceil(timeInMilliseconds / 1000);
   const seconds = timeInSeconds % 60;
   const minutes = Math.floor(timeInSeconds / 60);
 
@@ -62,7 +62,7 @@ export default function timer (state = initialState, action) {
         .set('timerStart', action.startTime);
     case TIMER_UPDATED:
       return state
-        .set('timeLeft', printTime(parseInt(state.get('timerMaxValueLoaded'), 10) - (action.timeNow - state.get('timerStart'))));
+        .set('timeLeft', printTime(state.get('timerMaxValue') - (action.timeNow - state.get('timerStart'))));
     case TIMER_FINISHED:
       return state.set('isRunningTests', false);
     case TIMER_MAX_VALUE_CHANGED:

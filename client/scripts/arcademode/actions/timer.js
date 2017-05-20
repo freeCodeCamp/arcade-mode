@@ -16,11 +16,24 @@ export function startTimer (timerMaxValue) {
     cancelAnimationFrame(timer);
 
     const timeStart = new Date().getTime();
-    let timeOneSecondFromNow = timeStart;
+    // let timeOneSecondFromNow = timeStart;
     const timerMaxValueInt = parseInt(timerMaxValue, 10);
     dispatch(actionTimerStarted(timeStart));
 
     timer = () => {
+      setTimeout(() => {
+        requestAnimationFrame(timer);
+        const timeNow = new Date().getTime();
+        const timeElapsed = timeNow - timeStart;
+
+        if (timeElapsed >= timerMaxValueInt) {
+          cancelAnimationFrame(timer);
+          return dispatch(stopTimer());
+        }
+
+        dispatch(actionTimerUpdated(timeNow));
+      }, 1000);
+      /*
       requestAnimationFrame(timer);
       const timeNow = new Date().getTime();
       const timeElapsed = timeNow - timeStart;
@@ -33,6 +46,7 @@ export function startTimer (timerMaxValue) {
         timeOneSecondFromNow += 1000;
         dispatch(actionTimerUpdated(timeNow));
       }
+      */
     };
 
     requestAnimationFrame(timer);

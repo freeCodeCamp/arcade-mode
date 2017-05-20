@@ -66,15 +66,15 @@ describe('Reducer: timer', () => {
   it('should update timer on TIMER_UPDATED', () => {
     const state = Immutable.Map({
       timerStart: 0,
-      timerMaxValueLoaded: timerDefaultValue,
+      timerMaxValue: timerDefaultValue,
       timeLeft: '01:00'
     });
     const timeNow = 40 * 1000;
     const nextState = reducer(state, actionTimerUpdated(timeNow));
     expect(nextState).to.equal(Immutable.Map({
       timerStart: 0,
-      timerMaxValueLoaded: timerDefaultValue,
-      timeLeft: printTime(parseInt(state.get('timerMaxValueLoaded'), 10) - (timeNow - state.get('timerStart')))
+      timerMaxValue: timerDefaultValue,
+      timeLeft: printTime(state.get('timerMaxValue') - (timeNow - state.get('timerStart')))
     }));
   });
 
