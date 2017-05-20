@@ -15,9 +15,10 @@ const Statusbar = props => (
         <span className='am__statusbar__text'>Time left:</span> {props.timeLeft}
       </Col>
       <Col sm={3}>
-        { props.passOption ?
-          <Button bsSize='xsmall' onClick={props.onClickPass}>Pass</Button> :
-          <Button bsSize='xsmall' disabled>Pass</Button>
+        {
+          (props.passOption && !props.isSessionFinished) ?
+            <Button bsSize='xsmall' onClick={props.onClickPass}>Pass</Button> :
+            <Button bsSize='xsmall' disabled>Pass</Button>
         }
       </Col>
       <Col sm={3}>
@@ -32,7 +33,8 @@ Statusbar.propTypes = {
   timeLeft: PropTypes.string.isRequired,
   passOption: PropTypes.bool.isRequired,
   onClickPass: PropTypes.func.isRequired,
-  sessionScore: PropTypes.number.isRequired
+  sessionScore: PropTypes.number.isRequired,
+  isSessionFinished: PropTypes.bool.isRequired
 };
 
 export default Statusbar;
