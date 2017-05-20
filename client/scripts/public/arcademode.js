@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let pw = $.width;
     while (pw--) {
       if ($.mouse.over) {
-        $.ctx.fillStyle = `hsla(${$.hue - pw}, 100%, 70%, 0.5)`;
+        $.ctx.fillStyle = `hsla(${$.hue - pw}, 100%, 80%, 0.5)`;
       }
       else $.ctx.fillStyle = `hsla(${$.hue - pw}, 100%, 90%, 0.5)`;
       $.ctx.fillRect(pw, 0, 1, 50);
