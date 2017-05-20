@@ -16,7 +16,7 @@ const Statusbar = props => (
       </Col>
       <Col sm={3}>
         {
-          (props.passOption && !props.isSessionFinished) ?
+          (props.passOption && props.isSessionStarted) ?
             <Button bsSize='xsmall' onClick={props.onClickPass}>Pass</Button> :
             <Button bsSize='xsmall' disabled>Pass</Button>
         }
@@ -34,7 +34,7 @@ Statusbar.propTypes = {
   passOption: PropTypes.bool.isRequired,
   onClickPass: PropTypes.func.isRequired,
   sessionScore: PropTypes.number.isRequired,
-  isSessionFinished: PropTypes.bool.isRequired
+  isSessionStarted: PropTypes.bool.isRequired
 };
 
 export default Statusbar;
