@@ -7,6 +7,8 @@ import {
   PLAYER_PASSED
 } from '../actions/playerstatus';
 
+import { MODAL_OPEN } from '../actions/modal';
+
 import {
   CHALLENGE_START,
   CHALLENGE_NEXT,
@@ -59,6 +61,8 @@ export default function challenge(state = initialState, action) {
     }
     case CODE_CHANGED:
       return state.set('code', action.code);
+    case MODAL_OPEN:
+      return initialState;
     default:
       return state;
   }

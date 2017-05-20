@@ -17,6 +17,8 @@ import { GAME_DIFFICULTY_CHANGE } from '../actions/gamesetting';
 
 import { SESSION_FINISH } from '../actions/session';
 
+import { MODAL_OPEN } from '../actions/modal';
+
 const timerDefaultValue = 60 * 1000;
 
 const initialState = Immutable.Map({
@@ -74,6 +76,8 @@ export default function timer (state = initialState, action) {
         .set('timeLeft', '00:00');
     case TIMER_MAX_VALUE_CHANGED:
       return state.set('timerMaxValue', action.timerMaxValue);
+    case MODAL_OPEN:
+      return initialState;
     default:
       return state;
   }

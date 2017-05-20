@@ -88,7 +88,10 @@ export default class ChallengePanel extends React.Component {
         <div className='challenge__description' dangerouslySetInnerHTML={this.createMarkup()} />
         <div className='challenge__buttons'>
           {!this.props.isSessionStarted &&
-            <button className={'btn btn-success'} onClick={this.props.onClickStartChallenge}>Start</button>
+            <div>
+              <button className={'btn btn-success'} onClick={this.props.onClickStartChallenge}>Start</button>
+              <button className={'btn btn-primary'} onClick={this.props.onModalOpen}>Menu</button>
+            </div>
           }
           {this.props.isSessionStarted &&
             <button className={'btn btn-primary'} onClick={this.props.onClickRunTests}>Run tests</button>
@@ -126,5 +129,6 @@ ChallengePanel.propTypes = {
   onClickStartChallenge: PropTypes.func.isRequired,
   userOutput: PropTypes.string.isRequired,
   testResults: ImmutablePropTypes.list.isRequired,
-  editor: PropTypes.string.isRequired
+  editor: PropTypes.string.isRequired,
+  onModalOpen: PropTypes.func.isRequired
 };

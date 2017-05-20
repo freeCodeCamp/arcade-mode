@@ -106,7 +106,7 @@ export default class ArcadeMode extends Component {
           <p>Your final score: {this.props.sessionScore}</p>
           <p>Your number of attempts across all challenges: {this.props.totalAttempts}</p>
           <p>You completed {this.props.sessionScore} challenges in {this.props.timeUsed} time.</p>
-          <p>Click Start to play again.</p>
+          <p>Click Start to play again or Menu to return to the main menu</p>
         </div>
       );
     }
@@ -159,9 +159,7 @@ export default class ArcadeMode extends Component {
         <Navbar />
         <Grid fluid>
           <Row className='show-grid'>
-
             <Col className='arcade-panel-left' xs={12} sm={12} md={4} lg={4}>
-
               <ChallengePanel
                 onClickStartChallenge={this.onClickStartChallenge}
                 onClickRunTests={this.onClickRunTests}
@@ -175,10 +173,9 @@ export default class ArcadeMode extends Component {
                 description={this.props.description}
                 testResults={this.props.testResults}
                 editor={this.props.editor}
+                onModalOpen={this.props.onModalOpen}
               />
-
             </Col>
-
             <Col className='arcade-panel-right' xs={12} sm={12} md={8} lg={8}>
               {statusBar}
               {editorBody}
@@ -189,7 +186,6 @@ export default class ArcadeMode extends Component {
       </div>
     );
   }
-
 }
 
 ArcadeMode.propTypes = {
@@ -209,6 +205,7 @@ ArcadeMode.propTypes = {
   // modal
   modal: PropTypes.bool.isRequired,
   onModalClose: PropTypes.func.isRequired,
+  onModalOpen: PropTypes.func.isRequired,
 
   // challenge
   startChallenge: PropTypes.func.isRequired,

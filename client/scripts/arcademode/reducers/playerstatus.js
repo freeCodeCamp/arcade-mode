@@ -20,6 +20,10 @@ import {
   PLAYER_PASSED
 } from '../actions/playerstatus';
 
+import {
+  MODAL_OPEN
+} from '../actions/modal';
+
 const initialState = Immutable.Map({
   lives: 5,
   passOption: true
@@ -50,6 +54,8 @@ export default function playerstatus (state = initialState, action) {
       return state.set('lives', difficultySettings[action.difficulty].lives);
     case PLAYER_PASSED:
       return state.set('passOption', false);
+    case MODAL_OPEN:
+      return initialState;
     default:
       return state;
   }
