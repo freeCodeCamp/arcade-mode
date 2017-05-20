@@ -1,29 +1,31 @@
 
 'use strict';
 
-import { List, Map } from 'immutable';
+import { List, Map, Record } from 'immutable';
+
+const recordDefs = {
+  // sessions: List([])
+  sessions: List([
+    Map({
+      id: 0,
+      mode: 'Practice',
+      challenges: List([{ id: 0 }, { id: 1 }])
+
+    }),
+    Map({
+      id: 1,
+      mode: 'Arcade',
+      challenges: List([{ id: 0 }, { id: 1 }])
+    })
+  ])
+};
 
 /* A class for storing user information regarding the arcade sessions played. */
-export default class UserData {
+export default class UserData extends Record(recordDefs) {
 
-  constructor(inputJSON = undefined) {
-    if (inputJSON) {
-      this.fromJSON(inputJSON);
-    }
-
-    this.sessions = List([
-      Map({
-        id: 0,
-        mode: 'Practice',
-        challenges: List([{ id: 0 }, { id: 1 }])
-
-      }),
-      Map({
-        id: 1,
-        mode: 'Arcade',
-        challenges: List([{ id: 0 }, { id: 1 }])
-      })
-    ]);
+  appendSession(session) {
+    const newSession = session.set('id', this.get('sessions').size);
+    return this.set('sessions', this.get('sessions').push(newSession));
   }
 
   getSession(n) {
@@ -42,11 +44,11 @@ export default class UserData {
   }
 
   /* Serializes UserData to JSON. */
-  toJSON() {
+  /* toJSON() {
     return JSON.stringify({
       sessions: JSON.stringify(this.sessions)
     });
-  }
+  }*/
 
   /* Reconstructs the object from JSON. */
   fromJSON(inputJSON) {
