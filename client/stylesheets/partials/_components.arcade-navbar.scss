@@ -23,14 +23,21 @@
   }
 
   &__am {
-    &__logo {
+    &__link {
       position: absolute;
       top: 0;
       right: 0;
+      transform: translateX(calc(100% - 225px));
+    }
+
+    &__logo {
+      // position: absolute;
+      // top: 0;
+      // right: 0;
       width: 220px;
       height: 50px;
       clip-path: url(#arcadePath);
-      transform: translateX(calc(100% - 225px));
+      // transform: translateX(calc(100% - 225px));
     }
 
     &__canvas {

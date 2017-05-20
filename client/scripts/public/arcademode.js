@@ -7,6 +7,9 @@ document.addEventListener('DOMContentLoaded', () => {
   $.init = () => {
     $.canvas = document.querySelector('.am__am__canvas');
     $.ctx = $.canvas.getContext('2d');
+    $.mouse = {
+      over: 0
+    };
 
     $.reset();
     $.loop();
@@ -24,7 +27,10 @@ document.addEventListener('DOMContentLoaded', () => {
   $.draw = () => {
     let pw = $.width;
     while (pw--) {
-      $.ctx.fillStyle = `hsla(${$.hue - pw}, 100%, 90%, 0.5)`;
+      if ($.mouse.over) {
+        $.ctx.fillStyle = `hsla(${$.hue - pw}, 100%, 70%, 0.5)`;
+      }
+      else $.ctx.fillStyle = `hsla(${$.hue - pw}, 100%, 90%, 0.5)`;
       $.ctx.fillRect(pw, 0, 1, 50);
     }
   };
@@ -36,4 +42,15 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   $.init();
+
+  $.mouseover = () => {
+    $.mouse.over = 1;
+  };
+
+  $.mouseout = () => {
+    $.mouse.over = 0;
+  };
+
+  document.querySelector('.am__am__link').addEventListener('mouseover', $.mouseover);
+  document.querySelector('.am__am__link').addEventListener('mouseout', $.mouseout);
 });
