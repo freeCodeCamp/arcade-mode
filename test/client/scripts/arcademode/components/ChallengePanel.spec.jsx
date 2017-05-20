@@ -13,6 +13,14 @@ import ChallengePanel from '../../../../../client/scripts/arcademode/components/
 chai.use(chaiEnzyme());
 
 const props = {
+  title: '',
+  isSessionStarted: false,
+  isTimerFinished: false,
+  onClickFinishSession: () => {},
+  onClickRunTests: () => {},
+  onClickSolve: () => {},
+  onClickStartChallenge: () => {},
+  userOutput: 'The output of your code will show up here.',
   testResults: Immutable.List(),
   description: Immutable.List(['a', 'b', 'c'])
 };
@@ -23,7 +31,7 @@ describe('<ChallengePanel> component', () => {
     expect(wrapper).to.have.length(1);
   });
 
-  it('should one <CodeMirror>', () => {
+  it('should have one <CodeMirror>', () => {
     const wrapper = shallow(<ChallengePanel {...props} />);
     expect(wrapper.find(CodeMirror)).to.have.length(1);
   });

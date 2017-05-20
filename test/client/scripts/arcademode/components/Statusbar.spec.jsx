@@ -12,7 +12,7 @@ import Statusbar from '../../../../../client/scripts/arcademode/components/Statu
 
 const props = {
   lives: 5,
-  timeLeft: 60 * 1000,
+  timeLeft: '01:00',
   passOption: true,
   onClickPass: () => {},
   sessionScore: 0
@@ -34,7 +34,7 @@ describe('Component: <Statusbar>', () => {
 
     const timeLeftText = document.createElement('div');
     timeLeftText.innerHTML = wrapper.find(Col).at(1).html();
-    expect(timeLeftText.textContent).to.equal('Time left: 60000');
+    expect(timeLeftText.textContent).to.equal('Time left: 01:00');
 
     const passBtnText = document.createElement('button');
     passBtnText.innerHTML = wrapper.find(Col).at(2).html();

@@ -7,7 +7,7 @@ import Immutable from 'immutable';
 
 import chaiImmutable from 'chai-immutable';
 
-import reducer from '../../../../..//client/scripts/arcademode/reducers/timer';
+import reducer, { printTime } from '../../../../..//client/scripts/arcademode/reducers/timer';
 import {
   stopTimer,
   actionTimerStarted,
@@ -44,21 +44,21 @@ describe('Reducer: timer', () => {
     const nextState = reducer(state, stopTimer());
     expect(nextState).to.equal(Immutable.Map({
       isTimerFinished: true,
-      timeLeft: 0
+      timeLeft: '00:00'
     }));
   });
 
   it('should start timer on TIMER_STARTED', () => {
     const state = Immutable.Map({
       isTimerFinished: true,
-      timeLeft: 0,
+      // timeLeft: 0,
       timerStart: 123
     });
     const startTime = 0;
     const nextState = reducer(state, actionTimerStarted(startTime));
     expect(nextState).to.equal(Immutable.Map({
       isTimerFinished: false,
-      timeLeft: timerDefaultValue,
+      // timeLeft: timerDefaultValue,
       timerStart: startTime
     }));
   });
@@ -67,14 +67,14 @@ describe('Reducer: timer', () => {
     const state = Immutable.Map({
       timerStart: 0,
       timerMaxValueLoaded: timerDefaultValue,
-      timeLeft: timerDefaultValue
+      timeLeft: '01:00'
     });
     const timeNow = 40 * 1000;
     const nextState = reducer(state, actionTimerUpdated(timeNow));
     expect(nextState).to.equal(Immutable.Map({
       timerStart: 0,
       timerMaxValueLoaded: timerDefaultValue,
-      timeLeft: parseInt(state.get('timerMaxValueLoaded'), 10) - (timeNow - state.get('timerStart'))
+      timeLeft: printTime(parseInt(state.get('timerMaxValueLoaded'), 10) - (timeNow - state.get('timerStart')))
     }));
   });
 
