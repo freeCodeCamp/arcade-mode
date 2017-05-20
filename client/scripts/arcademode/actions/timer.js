@@ -13,25 +13,29 @@ let timer = null;
 /* Thunk action to start the timer. */
 export function startTimer (timerMaxValue) {
   return dispatch => {
-    clearInterval(timer);
+    cancelAnimationFrame(timer);
 
     const timeStart = new Date().getTime();
     const timerMaxValueInt = parseInt(timerMaxValue, 10);
     dispatch(actionTimerStarted(timeStart));
 
-    timer = setInterval(() => {
+    timer = () => {
+      requestAnimationFrame(timer);
       const timeNow = new Date().getTime();
       dispatch(actionTimerUpdated(timeNow));
       const timeElapsed = timeNow - timeStart;
       if (timeElapsed >= timerMaxValueInt) {
         dispatch(stopTimer());
+        cancelAnimationFrame(timer);
       }
-    }, 1000 / 20);
+    };
+
+    requestAnimationFrame(timer);
   };
 }
 
 export function stopTimer () {
-  clearInterval(timer);
+  cancelAnimationFrame(timer);
   return {
     type: STOP_TIMER
   };

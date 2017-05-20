@@ -29,7 +29,7 @@ const Statusbar = props => (
 
 Statusbar.propTypes = {
   lives: PropTypes.number.isRequired,
-  timeLeft: PropTypes.number.isRequired,
+  timeLeft: PropTypes.string.isRequired,
   passOption: PropTypes.bool.isRequired,
   onClickPass: PropTypes.func.isRequired,
   sessionScore: PropTypes.number.isRequired

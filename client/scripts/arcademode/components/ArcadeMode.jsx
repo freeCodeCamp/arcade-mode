@@ -227,7 +227,7 @@ ArcadeMode.propTypes = {
 
   // timer
   startTimer: PropTypes.func.isRequired,
-  timeLeft: PropTypes.number.isRequired,
+  timeLeft: PropTypes.string.isRequired,
   onTimerMaxValueChange: PropTypes.func.isRequired,
   timerMaxValue: PropTypes.string.isRequired,
   isTimerFinished: PropTypes.bool.isRequired
