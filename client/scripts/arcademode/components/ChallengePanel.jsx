@@ -73,7 +73,7 @@ export default class ChallengePanel extends React.Component {
 
   render() {
     let finishButton = null;
-    if (this.props.isTimerFinished) {
+    if (this.props.isTimerFinished && !this.props.isSessionFinished) {
       finishButton = (
         <button className='btn btn-danger' onClick={this.props.onClickFinishSession}>Finish</button>
       );
@@ -116,6 +116,7 @@ ChallengePanel.propTypes = {
   description: ImmutablePropTypes.list.isRequired,
   title: PropTypes.string.isRequired,
   isSessionStarted: PropTypes.bool.isRequired,
+  isSessionFinished: PropTypes.bool.isRequired,
   isTimerFinished: PropTypes.bool.isRequired,
   onClickFinishSession: PropTypes.func.isRequired,
   onClickRunTests: PropTypes.func.isRequired,
