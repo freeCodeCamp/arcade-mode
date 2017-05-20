@@ -25,7 +25,7 @@ const initialState = Immutable.Map({
   timerStart: 0
 });
 
-const printTime = timeInMilliseconds => {
+export function printTime (timeInMilliseconds) {
   const timeInSeconds = Math.floor(timeInMilliseconds / 1000);
   const seconds = timeInSeconds % 60;
   const minutes = Math.floor(timeInSeconds / 60);
@@ -34,7 +34,7 @@ const printTime = timeInMilliseconds => {
   const ss = (seconds >= 10) ? `${seconds}` : `0${seconds}`;
 
   return `${mm}:${ss}`;
-};
+}
 
 const difficultySettings = {
   Easy: { displayTime: '15:00', time: 15 * 60 * 1000 },
