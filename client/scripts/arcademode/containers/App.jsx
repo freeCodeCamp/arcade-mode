@@ -6,6 +6,10 @@ import { connect } from 'react-redux';
 import ArcadeMode from '../components/ArcadeMode';
 
 import {
+  updateCanvas
+} from '../actions/canvastext';
+
+import {
   startChallenge,
   nextChallenge,
   actionSolveChallenge,
@@ -41,6 +45,7 @@ import {
 import makeMapStateToProps from '../selectors';
 
 const mapDispatchToProps = dispatch => ({
+  updateCanvas: hue => dispatch(updateCanvas(hue)),
   onChangeMode: mode => dispatch(onChangeMode(mode)),
   onChangeDifficulty: difficulty => dispatch(onChangeDifficulty(difficulty)),
   onChangeEditor: editor => dispatch(onChangeEditor(editor)),

@@ -3,6 +3,7 @@
 
 import { combineReducers } from 'redux-immutable';
 
+import canvastext from './canvastext';
 import challenge from './challenge';
 import gamesetting from './gamesetting';
 import modal from './modal';
@@ -12,6 +13,7 @@ import test from './test';
 import timer from './timer';
 
 export default combineReducers({
+  canvastext,
   challenge,
   gamesetting,
   modal,

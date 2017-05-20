@@ -5,6 +5,7 @@
 
 import { createSelector } from 'reselect';
 
+const getCanvasHue = state => state.getIn(['canvastext', 'hue']);
 const getModalState = state => state.getIn(['modal', 'modal']);
 const getMode = state => state.getIn(['gamesetting', 'mode']);
 const getDifficulty = state => state.getIn(['gamesetting', 'difficulty']);
@@ -30,6 +31,7 @@ const getIsRunningTests = state => state.getIn(['test', 'isRunningTests']);
 
 export default function makeMapStateToProps () {
   return createSelector(
+    getCanvasHue,
     getModalState,
     getMode,
     getDifficulty,
@@ -53,6 +55,7 @@ export default function makeMapStateToProps () {
     getIsSessionStarted,
     getIsRunningTests,
     (
+      hue,
       modal,
       mode,
       difficulty,
@@ -76,6 +79,7 @@ export default function makeMapStateToProps () {
       isSessionStarted,
       isRunningTests
     ) => ({
+      hue,
       modal,
       mode,
       difficulty,

@@ -151,7 +151,10 @@ export default class ArcadeMode extends Component {
           modal={this.props.modal}
           onModalClose={this.props.onModalClose}
         />
-        <Navbar />
+        <Navbar
+          hue={this.props.hue}
+          updateCanvas={this.props.updateCanvas}
+        />
         <Grid fluid>
           <Row className='show-grid'>
 
@@ -186,6 +189,7 @@ export default class ArcadeMode extends Component {
 }
 
 ArcadeMode.propTypes = {
+
   // game settings
   mode: PropTypes.string.isRequired,
   onChangeMode: PropTypes.func.isRequired,
@@ -202,6 +206,10 @@ ArcadeMode.propTypes = {
   // modal
   modal: PropTypes.bool.isRequired,
   onModalClose: PropTypes.func.isRequired,
+
+  // canvastext
+  hue: PropTypes.number.isRequired,
+  updateCanvas: PropTypes.func.isRequired,
 
   // challenge
   startChallenge: PropTypes.func.isRequired,
