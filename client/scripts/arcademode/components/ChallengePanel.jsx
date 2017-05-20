@@ -33,9 +33,11 @@ export default class ChallengePanel extends React.Component {
   renderTestResults() {
     /* eslint react/no-danger: 0 */
     const results = this.props.testResults;
+    const numTests = results.size;
     let testsOk = true;
     let individualTests;
-    if (results.size) {
+
+    if (numTests > 0) {
       let id = 0;
       individualTests = results.map(item => {
         const result = item.pass ? 'Pass' : 'Fail';
@@ -53,11 +55,10 @@ export default class ChallengePanel extends React.Component {
         return <p className={className} key={id}>Status: {result} {msg}</p>;
       });
     }
-    else {
-      testsOk = false;
+    let finalResult = testsOk ? 'All tests passed' : 'There were failing tests';
+    if (numTests === 0) {
+      finalResult = 'No tests run.';
     }
-
-    const finalResult = testsOk ? 'All tests passed' : 'There were failing tests';
 
     return (
       <div>
