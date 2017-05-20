@@ -34,6 +34,7 @@ const difficultySettings = {
 };
 
 export default function playerstatus (state = initialState, action) {
+  console.log('playerstatus reducer: ' + action.type);
   switch (action.type) {
     case CHALLENGE_START:
       return state

@@ -19,7 +19,7 @@ const ArcadeNavbar = () => (
       <Navbar.Toggle />
     </Navbar.Header>
     <div className='am__am__logo'>
-      <canvas className='am__am__canvas' height='50' width='220' />
+      <canvas className='am__am__canvas' height='50' width='220'>ARCADE MODE</canvas>
       <svg className='am__am__svg'>
         <clipPath id='arcadePath'>
           <text className='am__am__canvas__text' x='0' y='35'>ARCADE MODE</text>

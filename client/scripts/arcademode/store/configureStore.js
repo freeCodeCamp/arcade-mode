@@ -12,7 +12,7 @@ import composeEnhancers from '../reducers/composeEnhancers';
 
 export default function configureStore () {
   return createStore(appReducer, composeEnhancers(applyMiddleware(
-    invariant(),
+    // invariant(),
     thunk
   )));
 }

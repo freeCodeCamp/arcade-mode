@@ -23,7 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   $.draw = () => {
     let pw = $.width;
-    const ph = $.height;
     while (pw--) {
       $.ctx.fillStyle = `hsla(${$.hue - pw}, 100%, 90%, 0.5)`;
       $.ctx.fillRect(pw, 0, 1, 50);
