@@ -25,6 +25,7 @@ export function startTimer (timerMaxValue) {
       const timeNow = new Date().getTime();
       const timeElapsed = timeNow - timeStart;
       if (timeElapsed >= timerMaxValueInt) {
+        cancelAnimationFrame(timer);
         return dispatch(stopTimer());
       }
 
@@ -39,7 +40,6 @@ export function startTimer (timerMaxValue) {
 }
 
 export function stopTimer () {
-  cancelAnimationFrame(timer);
   return {
     type: STOP_TIMER
   };
