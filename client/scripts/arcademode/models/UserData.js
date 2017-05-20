@@ -9,12 +9,14 @@ const recordDefs = {
     Map({
       id: 0,
       mode: 'Practice',
+      score: 345,
       challenges: List([{ id: 0 }, { id: 1 }])
 
     }),
     Map({
       id: 1,
       mode: 'Arcade',
+      score: 123,
       challenges: List([{ id: 0 }, { id: 1 }])
     })
   ])
