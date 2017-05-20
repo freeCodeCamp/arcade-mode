@@ -92,6 +92,7 @@ export default class ArcadeMode extends Component {
         passOption={this.props.passOption}
         onClickPass={this.props.onClickPass}
         sessionScore={this.props.sessionScore}
+        isSessionFinished={this.props.isSessionFinished}
       />
     );
   }
@@ -167,6 +168,7 @@ export default class ArcadeMode extends Component {
                 onClickSolve={this.onClickSolve}
                 onClickFinishSession={this.onClickFinishSession}
                 isSessionStarted={this.props.isSessionStarted}
+                isSessionFinished={this.props.isSessionFinished}
                 isTimerFinished={this.props.isTimerFinished}
                 title={this.props.title}
                 userOutput={this.props.userOutput}
