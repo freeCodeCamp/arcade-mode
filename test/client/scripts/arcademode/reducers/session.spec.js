@@ -44,12 +44,12 @@ describe('Reducer: session', () => {
   it('should increment session score by 100 on CHALLENGE_NEXT', () => {
     const state = Immutable.Map({
       sessionScore: 0,
-      userOutput: 'The output of your code will show up here.'
+      streakMultiplier: 1
     });
     const nextState = reducer(state, nextChallenge(0)); // startTime = 0;
     expect(nextState).to.equal(Immutable.Map({
       sessionScore: 100,
-      userOutput: 'The output of your code will show up here.'
+      streakMultiplier: 1.25
     }));
   });
 
