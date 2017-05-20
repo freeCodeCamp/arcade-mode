@@ -9,6 +9,7 @@
     4. Add game settings description to modal
     5. Have ARCADE MODE title link back to site.
     6. Tidy challenge panel.
+    7. Add return to menu functionality at game over screen.
   - Issues:
     - [X] left side border-radius for editor reverts to 0 after pressing start.
 
