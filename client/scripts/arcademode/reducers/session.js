@@ -54,7 +54,7 @@ export default function session (state = initialState, action) {
       return state
         .set('isSessionFinished', true)
         .set('isSessionStarted', false)
-        .setIn('currSession', 'score', state.get('sessionScore'));
+        .setIn(['currSession', 'score'], state.get('sessionScore'));
     case TESTS_STARTED:
       return state.update('totalAttempts', totalAttempts => totalAttempts + 1);
     case PLAYER_PASSED:
