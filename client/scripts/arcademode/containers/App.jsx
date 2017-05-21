@@ -42,8 +42,9 @@ import {
 import {
   actionShowProfile,
   actionHideProfile,
-  actionLoadUserData,
-  actionUpdateUserData
+  saveUserData,
+  loadUserData,
+  deleteSession
 } from '../actions/profile';
 
 import makeMapStateToProps from '../selectors';
@@ -66,8 +67,9 @@ const mapDispatchToProps = dispatch => ({
   solveChallenge: () => dispatch(actionSolveChallenge()),
   showProfile: () => dispatch(actionShowProfile()),
   hideProfile: () => dispatch(actionHideProfile()),
-  loadUserData: userData => dispatch(actionLoadUserData(userData)),
-  updateUserData: session => dispatch(actionUpdateUserData(session))
+  loadUserData: () => dispatch(loadUserData()),
+  saveUserData: session => dispatch(saveUserData(session)),
+  deleteSession: session => dispatch(deleteSession(session))
 });
 
 export default connect(makeMapStateToProps, mapDispatchToProps)(ArcadeMode);
