@@ -5,6 +5,7 @@ export const CHALLENGE_START = 'CHALLENGE_START'; // challenge, playerstatus, se
 export const CHALLENGE_NEXT = 'CHALLENGE_NEXT'; // challenge, playerstatus, session, test
 export const CHALLENGE_SOLVE = 'CHALLENGE_SOLVE'; // challenge
 export const CODE_CHANGED = 'CODE_CHANGED'; // challenge
+export const CHALLENGE_TYPE = 'CHALLENGE_TYPE'; // challenge
 
 export function startChallenge (startTime) {
   return {
@@ -33,3 +34,11 @@ export function onCodeChange (newCode) {
     code: newCode
   };
 }
+
+export function challengeType(event) {
+  return {
+    type: CHALLENGE_TYPE,
+    challengeType: event.target.value
+  };
+}
+

@@ -20,6 +20,7 @@ const getCode = state => state.getIn(['challenge', 'code']);
 const getUserOutput = state => state.getIn(['test', 'userOutput']);
 const getCurrChallenge = state => state.getIn(['challenge', 'currChallenge']);
 const getNextChallenge = state => state.getIn(['challenge', 'nextChallenge']);
+const getChallengeType = state => state.getIn(['challenge', 'challengeType']);
 const getTestResults = state => state.getIn(['test', 'testResults']);
 const getTimeLeft = state => state.getIn(['timer', 'timeLeft']);
 const getTimerMaxValue = state => state.getIn(['timer', 'timerMaxValue']);
@@ -52,6 +53,7 @@ export default function makeMapStateToProps () {
     getUserOutput,
     getCurrChallenge,
     getNextChallenge,
+    getChallengeType,
     getTestResults,
     getTimeLeft,
     getTimerMaxValue,
@@ -82,6 +84,7 @@ export default function makeMapStateToProps () {
       userOutput,
       currChallenge,
       nextChallenge,
+      challengeType,
       testResults,
       timeLeft,
       timerMaxValue,
@@ -112,6 +115,7 @@ export default function makeMapStateToProps () {
       userOutput,
       currChallenge,
       nextChallenge,
+      challengeType,
       testResults,
       timeLeft,
       timerMaxValue,

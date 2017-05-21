@@ -92,7 +92,9 @@ const ArcadeModal = props => (
             <ControlLabel>Mode:</ControlLabel>
           </Col>
           <Col smOffset={1} sm={3}>
-            <FormControl componentClass='select' defaultValue={props.mode} onChange={props.onChangeMode}>
+            <FormControl
+              componentClass='select' defaultValue={props.mode} onChange={props.onChangeMode}
+            >
               <option value='Arcade'>Arcade</option>
               <option value='Practice'>Practice</option>
             </FormControl>
@@ -103,7 +105,10 @@ const ArcadeModal = props => (
             <ControlLabel>Difficulty:</ControlLabel>
           </Col>
           <Col smOffset={1} sm={3}>
-            <FormControl componentClass='select' defaultValue={props.difficulty} onChange={props.onChangeDifficulty}>
+            <FormControl
+              componentClass='select' defaultValue={props.difficulty}
+              onChange={props.onChangeDifficulty}
+            >
               <option value='Easy'>Easy</option>
               <option value='Medium'>Medium</option>
               <option value='Hard'>Hard</option>
@@ -116,9 +121,25 @@ const ArcadeModal = props => (
             <ControlLabel>Editor:</ControlLabel>
           </Col>
           <Col smOffset={1} sm={3}>
-            <FormControl componentClass='select' defaultValue={props.editor} onChange={props.onChangeEditor}>
+            <FormControl
+              componentClass='select' defaultValue={props.editor} onChange={props.onChangeEditor}
+            >
               <option value='Normal'>Normal</option>
               <option value='Whiteboard'>Whiteboard</option>
+            </FormControl>
+          </Col>
+        </FormGroup>
+        <FormGroup>
+          <Col smOffset={3} sm={2}>
+            <ControlLabel>Challenges:</ControlLabel>
+          </Col>
+          <Col smOffset={1} sm={3}>
+            <FormControl
+              componentClass='select' defaultValue={props.challengeType}
+              onChange={props.onChangeChallengeType}
+            >
+              <option value='Algorithms'>Algorithms</option>
+              <option value='Data structures'>Data structures</option>
             </FormControl>
           </Col>
         </FormGroup>
@@ -139,7 +160,9 @@ ArcadeModal.propTypes = {
   editor: PropTypes.string.isRequired,
   onChangeEditor: PropTypes.func.isRequired,
   modal: PropTypes.bool.isRequired,
-  onModalClose: PropTypes.func.isRequired
+  onModalClose: PropTypes.func.isRequired,
+  challengeType: PropTypes.string.isRequired,
+  onChangeChallengeType: PropTypes.func.isRequired
 };
 
 export default ArcadeModal;
