@@ -23,6 +23,7 @@ const getNextChallenge = state => state.getIn(['challenge', 'nextChallenge']);
 const getTestResults = state => state.getIn(['test', 'testResults']);
 const getTimeLeft = state => state.getIn(['timer', 'timeLeft']);
 const getTimerMaxValue = state => state.getIn(['timer', 'timerMaxValue']);
+const getChallengesCompleted = state => state.getIn(['session', 'challengesCompleted']);
 const getSessionScore = state => state.getIn(['session', 'sessionScore']);
 const getStreakMultiplier = state => state.getIn(['session', 'streakMultiplier']);
 const getIsTimerFinished = state => state.getIn(['timer', 'isTimerFinished']);
@@ -51,6 +52,7 @@ export default function makeMapStateToProps () {
     getTestResults,
     getTimeLeft,
     getTimerMaxValue,
+    getChallengesCompleted,
     getSessionScore,
     getStreakMultiplier,
     getIsTimerFinished,
@@ -77,6 +79,7 @@ export default function makeMapStateToProps () {
       testResults,
       timeLeft,
       timerMaxValue,
+      challengesCompleted,
       sessionScore,
       streakMultiplier,
       isTimerFinished,
@@ -103,6 +106,7 @@ export default function makeMapStateToProps () {
       testResults,
       timeLeft,
       timerMaxValue,
+      challengesCompleted,
       sessionScore,
       streakMultiplier,
       isTimerFinished,

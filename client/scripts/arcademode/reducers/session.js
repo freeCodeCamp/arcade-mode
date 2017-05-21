@@ -25,6 +25,7 @@ const initialState = Immutable.Map({
   isSessionFinished: false,
   isSessionStarted: false,
   sessionScore: 0,
+  challengesCompleted: 0,
   totalAttempts: 0,
   streakMultiplier: 1
 });
@@ -37,6 +38,7 @@ export default function session (state = initialState, action) {
         .set('isSessionStarted', true);
     case CHALLENGE_NEXT:
       return state
+        .update('challengesCompleted', challengesCompleted => challengesCompleted + 1)
         .update('sessionScore', sessionScore => Math.floor(sessionScore + state.get('streakMultiplier') * getScoreForChallenge(state.currChallenge)))
         .update('streakMultiplier', streakMultiplier => streakMultiplier * 1.25);
     case SESSION_FINISH:
