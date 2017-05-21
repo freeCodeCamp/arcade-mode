@@ -85,8 +85,7 @@ describe('Reducer: timer', () => {
     }));
   });
 
-  // no TIMER_FINISHED action; see STOP_TIMER? 5/14/17 add a contrived action for test
-  it('should finish timer on TIMER_FINISHED?', () => {
+  it('should finish timer on TIMER_FINISHED', () => {
     const state = Immutable.Map({
       isTimerFinished: false,
       timeLeft: '01:00'

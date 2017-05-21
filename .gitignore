@@ -20,3 +20,8 @@ browserify-cache.json
 
 # Ignore generated static content
 /public
+
+# vim + other tools
+.vimrc
+vimproject
+tags

@@ -1,11 +1,11 @@
 
 'use strict';
 
-import Immutable from 'immutable';
+import Immutable, { Map, List } from 'immutable';
 
 // import Interpreter from 'js-interpreter';
 
-import { SESSION_FINISH } from '../actions/session';
+import { SESSION_FINISH, SESSION_SAVE } from '../actions/session';
 
 import { CHALLENGE_START, CHALLENGE_NEXT } from '../actions/challenge';
 
@@ -21,13 +21,18 @@ const getScoreForChallenge = challenge => {
 };
 
 const initialState = Immutable.Map({
-  // userData: Immutable.Map(),
   isSessionFinished: false,
   isSessionStarted: false,
+  isSessionSaved: false,
   sessionScore: 0,
   challengesCompleted: 0,
   totalAttempts: 0,
-  streakMultiplier: 1
+  streakMultiplier: 1,
+  currSession: Map({
+    challenges: List(),
+    score: 0,
+    time: 0
+  })
 });
 
 export default function session (state = initialState, action) {
@@ -35,16 +40,24 @@ export default function session (state = initialState, action) {
     case CHALLENGE_START:
       return state
         .set('isSessionFinished', false)
-        .set('isSessionStarted', true);
+        .set('isSessionStarted', true)
+        .set('isSessionSaved', false);
     case CHALLENGE_NEXT:
       return state
         .update('challengesCompleted', challengesCompleted => challengesCompleted + 1)
         .update('sessionScore', sessionScore => Math.floor(sessionScore + state.get('streakMultiplier') * getScoreForChallenge(state.currChallenge)))
-        .update('streakMultiplier', streakMultiplier => streakMultiplier * 1.25);
+        .update('currSession', currSession =>
+          currSession.set('challenges',
+            currSession.get('challenges').push(action.currChallenge))
+        );
+    case SESSION_SAVE:
+      return state
+        .set('isSessionSaved', true);
     case SESSION_FINISH:
       return state
         .set('isSessionFinished', true)
-        .set('isSessionStarted', false);
+        .set('isSessionStarted', false)
+        .setIn(['currSession', 'score'], state.get('sessionScore'));
     case TESTS_STARTED:
       return state.update('totalAttempts', totalAttempts => totalAttempts + 1);
     case PLAYER_PASSED:

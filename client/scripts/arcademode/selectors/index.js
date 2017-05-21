@@ -12,7 +12,7 @@ const getEditor = state => state.getIn(['gamesetting', 'editor']);
 const getLives = state => state.getIn(['playerstatus', 'lives']);
 const getPassOption = state => state.getIn(['playerstatus', 'passOption']);
 const getChallengeNumber = state => state.getIn(['challenge', 'challengeNumber']);
-// const getUserData = state => state.getIn(['session', 'userData']);
+const getCurrSession = state => state.getIn(['session', 'currSession']);
 const getTotalAttempts = state => state.getIn(['session', 'totalAttempts']);
 const getTitle = state => state.getIn(['challenge', 'title']);
 const getDescription = state => state.getIn(['challenge', 'description']);
@@ -30,7 +30,10 @@ const getIsTimerFinished = state => state.getIn(['timer', 'isTimerFinished']);
 const getTimeUsed = state => state.getIn(['timer', 'timeUsed']);
 const getIsSessionFinished = state => state.getIn(['session', 'isSessionFinished']);
 const getIsSessionStarted = state => state.getIn(['session', 'isSessionStarted']);
+const getIsSessionSaved = state => state.getIn(['session', 'isSessionSaved']);
 const getIsRunningTests = state => state.getIn(['test', 'isRunningTests']);
+const getIsProfileShown = state => state.getIn(['profile', 'isProfileShown']);
+const getUserData = state => state.getIn(['profile', 'userData']);
 
 export default function makeMapStateToProps () {
   return createSelector(
@@ -41,7 +44,7 @@ export default function makeMapStateToProps () {
     getLives,
     getPassOption,
     getChallengeNumber,
-   // getUserData,
+    getCurrSession,
     getTotalAttempts,
     getTitle,
     getDescription,
@@ -59,7 +62,10 @@ export default function makeMapStateToProps () {
     getTimeUsed,
     getIsSessionFinished,
     getIsSessionStarted,
+    getIsSessionSaved,
     getIsRunningTests,
+    getIsProfileShown,
+    getUserData,
     (
       modal,
       mode,
@@ -68,7 +74,7 @@ export default function makeMapStateToProps () {
       lives,
       passOption,
       challengeNumber,
-    //  userData,
+      currSession,
       totalAttempts,
       title,
       description,
@@ -86,7 +92,10 @@ export default function makeMapStateToProps () {
       timeUsed,
       isSessionFinished,
       isSessionStarted,
-      isRunningTests
+      isSessionSaved,
+      isRunningTests,
+      isProfileShown,
+      userData
     ) => ({
       modal,
       mode,
@@ -95,7 +104,7 @@ export default function makeMapStateToProps () {
       lives,
       passOption,
       challengeNumber,
-    //  userData,
+      currSession,
       totalAttempts,
       title,
       description,
@@ -113,7 +122,10 @@ export default function makeMapStateToProps () {
       timeUsed,
       isSessionFinished,
       isSessionStarted,
-      isRunningTests
+      isSessionSaved,
+      isRunningTests,
+      isProfileShown,
+      userData
     })
   );
 }

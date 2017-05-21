@@ -13,10 +13,11 @@ export function startChallenge (startTime) {
   };
 }
 
-export function nextChallenge (startTime) {
+export function nextChallenge (obj) {
   return {
     type: CHALLENGE_NEXT,
-    startTime
+    startTime: obj.startTime,
+    currChallenge: obj.currChallenge
   };
 }
 

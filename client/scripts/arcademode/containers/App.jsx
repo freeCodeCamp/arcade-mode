@@ -28,6 +28,7 @@ import {
 } from '../actions/playerstatus';
 
 import {
+  actionSaveSession,
   actionFinishSession
 } from '../actions/session';
 
@@ -39,6 +40,14 @@ import {
   actionTimerMaxValueChanged
 } from '../actions/timer';
 
+import {
+  actionShowProfile,
+  actionHideProfile,
+  saveUserData,
+  loadUserData,
+  deleteSession
+} from '../actions/profile';
+
 import makeMapStateToProps from '../selectors';
 
 const mapDispatchToProps = dispatch => ({
@@ -48,15 +57,21 @@ const mapDispatchToProps = dispatch => ({
   onClickPass: () => dispatch(onClickPass()),
   onModalClose: () => dispatch(onModalClose()),
   onModalOpen: () => dispatch(onModalOpen()),
+  saveSession: () => dispatch(actionSaveSession()),
   finishSession: () => dispatch(actionFinishSession()),
   runTests: (userCode, currChallenge) => dispatch(runTests(userCode, currChallenge)),
-  nextChallenge: () => dispatch(nextChallenge()),
+  nextChallenge: obj => dispatch(nextChallenge(obj)),
   onCodeChange: newCode => dispatch(onCodeChange(newCode)),
   startChallenge: () => dispatch(startChallenge()),
   startTimer: timerMaxValue => dispatch(startTimer(timerMaxValue)),
   stopTimer: finishTime => dispatch(stopTimer(finishTime)),
   onTimerMaxValueChange: timerMaxValue => dispatch(actionTimerMaxValueChanged(timerMaxValue)),
-  solveChallenge: () => dispatch(actionSolveChallenge())
+  solveChallenge: () => dispatch(actionSolveChallenge()),
+  showProfile: () => dispatch(actionShowProfile()),
+  hideProfile: () => dispatch(actionHideProfile()),
+  loadUserData: () => dispatch(loadUserData()),
+  saveUserData: session => dispatch(saveUserData(session)),
+  deleteSession: session => dispatch(deleteSession(session))
 });
 
 export default connect(makeMapStateToProps, mapDispatchToProps)(ArcadeMode);
