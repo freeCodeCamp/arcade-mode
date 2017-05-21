@@ -9,7 +9,6 @@ const USER_DATA_KEY = 'userData';
 
 function restoreUserData(storage) {
   const userDataJSON = storage.getItem(USER_DATA_KEY);
-  console.log('persist restoreUserData getItem: ' + userDataJSON);
   if (userDataJSON) {
     return JSON.parse(userDataJSON);
   }
@@ -46,15 +45,13 @@ export default class Persist {
   }
 
   deleteFromStorage(session) {
-    const id = session.get('id');
-    if (!id) {
+    if (!session.has('id')) {
       throw new Error('Persist: No id in session. Cannot delete.');
     }
 
+    const id = session.get('id');
     const userData = restoreUserData(this.storage);
     const sessions = userData.sessions;
-
-    console.log('Persist.deleteFromStorage data: ' + JSON.stringify(userData));
 
     const index = sessions.findIndex(item => {
       if (item.id === id) {
@@ -65,7 +62,6 @@ export default class Persist {
 
     sessions.splice(index, 1);
     userData.sessions = sessions;
-    console.log('Persist.deleteFromStorage before commit: ' + JSON.stringify(userData));
     commitUserData(this.storage, userData);
   }
 
