@@ -72,6 +72,7 @@
     "vinyl-source-stream": "^1.1.0"
   },
   "dependencies": {
+    "babel-core": "^6.24.1",
     "body-parser": "^1.17.1",
     "codemirror": "^5.25.2",
     "compression": "^1.6.2",

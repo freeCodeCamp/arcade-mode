@@ -10,6 +10,7 @@
 
 // used require because import didn't work
 const assert = require('chai').assert;
+const babel = require('babel-core');
 
 self.onmessage = e => {
   const userCode = e.data[0];
@@ -33,8 +34,11 @@ self.onmessage = e => {
   // if user output does not run, then tests should not be executed.
   const userOutput = [];
   const userFnData = { error: null, pass: true, output: '' };
+
+  const esfive = babel.transform(userCode);
   try {
-    const val = eval(`${userCode}`);
+    const val = eval(esfive.code);
+      // eval(`${userCode}`);
   }
   catch (err) {
     console.log(`err: ${err}`);
@@ -62,7 +66,7 @@ self.onmessage = e => {
       const val = eval(
         `
         code=userCode;
-        ${userCode};// User code
+        ${esfive.code};// User code: userCode
         ${tail}; // tail function
         ${test.test} // Test case code
         `
