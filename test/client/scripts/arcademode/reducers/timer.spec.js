@@ -74,18 +74,19 @@ describe('Reducer: timer', () => {
     expect(nextState).to.equal(Immutable.Map({
       timerStart: 0,
       timerMaxValue: timerDefaultValue,
-      timeLeft: printTime(state.get('timerMaxValue') - (timeNow - state.get('timerStart')))
+      timeLeft: printTime(state.get('timerMaxValue') - (timeNow - state.get('timerStart'))),
+      timeUsed: '00:40'
     }));
   });
 
-  // no TIMER_FINISHED action; see STOP_TIMER? 5/14/17 add a contrived action for test
-  it('should finish timer on TIMER_FINISHED?', () => {
+  it('should finish timer on TIMER_FINISHED', () => {
     const state = Immutable.Map({
-      isRunningTests: true
+      isTimerFinished: false
     });
     const nextState = reducer(state, actionTimerFinished());
     expect(nextState).to.equal(Immutable.Map({
-      isRunningTests: false
+      isTimerFinished: true,
+      timeLeft: '00:00'
     }));
   });
 
