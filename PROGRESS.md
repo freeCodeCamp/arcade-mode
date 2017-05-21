@@ -3,13 +3,12 @@
 ## Saturday 5/20/17:
 ### Tim:
   - Progress:
-    1. Add score multiplier.
-    2. Add variable for total attempts: totalAttempts
-    3. Set up whiteboard/blind mode to only show pass fail status
-    4. Add game settings description to modal
-    5. Have ARCADE MODE title link back to site.
-    6. Tidy challenge panel.
-    7. Add return to menu functionality at game over screen.
+    1. Add game settings description to modal
+    2. Have ARCADE MODE title link back to site.
+    3. Tidy challenge panel.
+    4. Add return to menu functionality at game over screen.
+    5. Practice mode now only ends when exiting through menu.
+    6. Total time used is now correctly calculated.
   - Issues:
     - [X] left side border-radius for editor reverts to 0 after pressing start.
 
@@ -19,6 +18,9 @@
     1. Set up clip-path ARCADE MODE title
     2. Set up timeLeft to be displayed in MM:SS.
     3. Pass button now refreshes on a correct solve of a challenge.
+    4. Add score multiplier.
+    5. Add variable for total attempts: totalAttempts
+    6. Set up whiteboard/blind mode to only show pass fail status
   - Issues:
     - [X] Time left occasionally hops back to initial time one second after start when starting the app immediately following page load.
 
