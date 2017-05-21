@@ -45,6 +45,7 @@ export default function session (state = initialState, action) {
     case CHALLENGE_NEXT:
       return state
         .update('challengesCompleted', challengesCompleted => challengesCompleted + 1)
+        .update('streakMultiplier', streakMultiplier => 1.25 * streakMultiplier)
         .update('sessionScore', sessionScore => Math.floor(sessionScore + state.get('streakMultiplier') * getScoreForChallenge(state.currChallenge)))
         .update('currSession', currSession =>
           currSession.set('challenges',
