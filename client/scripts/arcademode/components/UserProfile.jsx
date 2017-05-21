@@ -15,6 +15,7 @@ export default class UserProfile extends Component {
     super(props);
     this.expandChallengeView = this.expandChallengeView.bind(this);
     this.expandSessionView = this.expandSessionView.bind(this);
+    this.deleteSession = this.deleteSession.bind(this);
   }
 
   expandChallengeView(sessionId, challengeId) {
@@ -25,8 +26,9 @@ export default class UserProfile extends Component {
     console.log(`expandSessionView ${sessionId}`);
   }
 
-  deleteSession(sessionId) {
-    console.log(`deleteSession ${sessionId}`);
+  deleteSession(session) {
+    console.log(`<UserProfile> deleteSession with Id ${session.get('id')}`);
+    this.props.deleteSession(session);
   }
 
   // TODO: Refactor into own component <ProfileChallenge> to avoid bind
@@ -45,10 +47,19 @@ export default class UserProfile extends Component {
   }
 
   renderSessions() {
+    if (!this.props.userData) {
+      return (
+        <ListGroupItem>You have not completed any sessions yet.</ListGroupItem>
+      );
+    }
     const sessions = this.props.userData.sessions.map(session => {
       const sessionId = session.get('id');
       const score = session.get('score');
-      const challenges = this.renderChallenges(sessionId, session.get('challenges'));
+
+      let challenges = null;
+      if (session.get('challenges')) {
+        challenges = this.renderChallenges(sessionId, session.get('challenges'));
+      }
       // TODO: Refactor into own component <ProfileSession> to avoid bind
       return (
         <ListGroupItem
@@ -56,7 +67,7 @@ export default class UserProfile extends Component {
         >
           Session: {sessionId} Score: {score}
           <button className='btn' onClick={this.expandSessionView.bind(this, sessionId)}>Expand</button>
-          <button className='btn btn-danger' onClick={this.deleteSession.bind(this, sessionId)}>Delete</button>
+          <button className='btn btn-danger' onClick={this.deleteSession.bind(this, session)}>Delete</button>
           <ListGroup>
             {challenges}
           </ListGroup>
@@ -86,5 +97,6 @@ export default class UserProfile extends Component {
 }
 
 UserProfile.propTypes = {
-  userData: PropTypes.instanceOf(UserData).isRequired
+  userData: PropTypes.instanceOf(UserData).isRequired,
+  deleteSession: PropTypes.func.isRequired
 };
