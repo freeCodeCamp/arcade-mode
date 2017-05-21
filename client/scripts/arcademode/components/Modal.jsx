@@ -9,11 +9,14 @@ import { Modal, Button, Grid, Row, Col, Form, FormGroup, FormControl, ControlLab
 const ArcadeModal = props => (
   <Modal show={props.modal} onHide={props.onModalClose} animation={false} backdrop='static'>
     <Modal.Header>
-      <Modal.Title className='am__modal__title'>{'freeCodeCamp\'s Arcade Mode'}</Modal.Title>
+      <Modal.Title className='am__modal__title'>
+        Arcade Mode
+      </Modal.Title>
+      <p className='am__modal__description'>
+        Level up your algorithm and data structure skill.
+      </p>
     </Modal.Header>
     <Modal.Body>
-      <p className='am__modal__description'>This is a place where you can practice your algorithm and data structure skills.</p>
-      <br />
       <p><b>Mode</b></p>
       <Grid fluid>
         <Row>
@@ -21,7 +24,7 @@ const ArcadeModal = props => (
             Arcade
           </Col>
           <Col sm={9}>
-            Try your skills in a time and attempt-limited environment.
+            Test your abilities in a time and attempt-limited environment.
           </Col>
         </Row>
         <Row>
@@ -81,7 +84,8 @@ const ArcadeModal = props => (
           </Col>
         </Row>
       </Grid>
-      <br />
+    </Modal.Body>
+    <Modal.Footer>
       <Form horizontal>
         <FormGroup>
           <Col smOffset={3} sm={2}>
@@ -123,7 +127,7 @@ const ArcadeModal = props => (
           <Button type='button' onClick={props.onModalClose}>Submit</Button>
         </FormGroup>
       </Form>
-    </Modal.Body>
+    </Modal.Footer>
   </Modal>
 );
 
