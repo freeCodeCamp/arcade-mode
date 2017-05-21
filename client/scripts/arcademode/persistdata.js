@@ -19,8 +19,10 @@ function commitUserData(storage, userData) {
   storage.setItem(USER_DATA_KEY, JSON.stringify(userData));
 }
 
+/* Class for persisting and loading persisted user data. */
 export default class Persist {
 
+  /* Takes the storage used as argument. Throws with storage. */
   constructor(storage) {
     if (storage) {
       this.storage = storage;
