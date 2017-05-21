@@ -143,9 +143,12 @@ export default class ArcadeMode extends Component {
             <p>You completed {this.props.challengesCompleted} challenges in {this.props.timeUsed}.</p>
           }
           <p>Click Start to play again or Menu to return to the main menu</p>
-          }
+
           { this.props.isSessionSaved &&
             <p className='text-success'>Your session has been saved.</p>
+          }
+          { !this.props.isSessionSaved &&
+            <button className='btn btn-success' onClick={this.onClickSaveSession}>Save</button>
           }
         </div>
       );
@@ -196,6 +199,8 @@ export default class ArcadeMode extends Component {
           onChangeEditor={this.props.onChangeEditor}
           modal={this.props.modal}
           onModalClose={this.props.onModalClose}
+          challengeType={this.props.challengeType}
+          onChangeChallengeType={this.props.onChangeChallengeType}
         />
         <Navbar />
 
@@ -268,7 +273,7 @@ ArcadeMode.propTypes = {
   onModalOpen: PropTypes.func.isRequired,
 
   // challenge
-  challengeNumber: PropTypes.number.isRequired,
+  // challengeNumber: PropTypes.number.isRequired,
   startChallenge: PropTypes.func.isRequired,
   currChallenge: ImmutablePropTypes.map.isRequired,
   title: PropTypes.string.isRequired,
@@ -279,6 +284,8 @@ ArcadeMode.propTypes = {
   onCodeChange: PropTypes.func.isRequired,
   userOutput: PropTypes.string.isRequired,
   challengesCompleted: PropTypes.number.isRequired,
+  challengeType: PropTypes.string.isRequired,
+  onChangeChallengeType: PropTypes.func.isRequired,
 
   // session
   currSession: ImmutablePropTypes.map.isRequired,
