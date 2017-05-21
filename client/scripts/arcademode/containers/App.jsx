@@ -54,7 +54,7 @@ const mapDispatchToProps = dispatch => ({
   onCodeChange: newCode => dispatch(onCodeChange(newCode)),
   startChallenge: () => dispatch(startChallenge()),
   startTimer: timerMaxValue => dispatch(startTimer(timerMaxValue)),
-  stopTimer: () => dispatch(stopTimer()),
+  stopTimer: finishTime => dispatch(stopTimer(finishTime)),
   onTimerMaxValueChange: timerMaxValue => dispatch(actionTimerMaxValueChanged(timerMaxValue)),
   solveChallenge: () => dispatch(actionSolveChallenge())
 });
