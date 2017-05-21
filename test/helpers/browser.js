@@ -5,6 +5,7 @@
  * */
 
 import { JSDOM } from 'jsdom';
+import MockStorage from './mockstorage';
 
 const dom = new JSDOM('<!DOCTYPE html><html><head></head><body></body></html>');
 
@@ -20,4 +21,6 @@ Object.keys(global.window).forEach(property => {
 global.navigator = {
   userAgent: 'node.js'
 };
+
+global.window.localStorage = new MockStorage();
 
