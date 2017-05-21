@@ -68,7 +68,8 @@ describe('Reducer: challenge', () => {
       code: 'The code to work with will show up here.',
       nextChallenge: Immutable.Map(),
       currChallenge: Immutable.Map(Immutable.fromJS(firstChallenge)),
-      currChallengeStartedAt: 0
+      currChallengeStartedAt: 0,
+      chosenChallenges: Challenges.challenges
       // timerMaxValueLoaded
     });
     const nextChallengeStartTime = 200;
@@ -94,7 +95,8 @@ describe('Reducer: challenge', () => {
       title: firstChallenge.title,
       description: Immutable.List(Immutable.fromJS(firstChallenge.description)),
       code: 'let y = 5;',
-      nextChallenge: Immutable.Map(Immutable.fromJS(secondChallenge))
+      nextChallenge: Immutable.Map(Immutable.fromJS(secondChallenge)),
+      chosenChallenges: Challenges.challenges
     });
     const obj = {
       startTime: nextChallengeStartTime,
