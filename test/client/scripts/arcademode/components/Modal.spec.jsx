@@ -80,7 +80,7 @@ describe('Component: <ArcadeModal>', () => {
     const footer = wrapper.find(Modal.Footer);
     expect(footer).to.have.length(1);
     expect(footer.find(Form)).to.have.length(1);
-    expect(footer.find(FormControl)).to.have.length(3);
+    expect(footer.find(FormControl)).to.have.length(4);
     expect(footer.find(Button)).to.have.length(1);
 
     const selectMode = document.createElement('select');
@@ -92,8 +92,12 @@ describe('Component: <ArcadeModal>', () => {
     expect(selectDifficulty.value).to.equal('Medium');
 
     const selectEditor = document.createElement('select');
-    selectEditor.innerHTML = wrapper.find(FormControl).last().html();
+    selectEditor.innerHTML = wrapper.find(FormControl).at(2).html();
     expect(selectEditor.value).to.equal('Normal');
+
+    const selectChallengeType = document.createElement('select');
+    selectChallengeType.innerHTML = wrapper.find(FormControl).last().html();
+    expect(selectChallengeType.value).to.equal('Algorithms');
 
     const button = document.createElement('button');
     button.innerHTML = wrapper.find(Button).html();
