@@ -72,14 +72,16 @@ describe('Component: <ArcadeModal>', () => {
     expect(wrapper.find(Modal.Title)).to.have.length(1);
     const title = document.createElement('span');
     title.innerHTML = wrapper.find(Modal.Title).html();
-    expect(title.textContent).to.equal('freeCodeCamp\'s Arcade Mode');
+    expect(title.textContent).to.equal('Arcade Mode');
 
     const body = wrapper.find(Modal.Body);
     expect(body).to.have.length(1);
-    expect(body.find(Form)).to.have.length(1);
-    expect(body.find(FormControl)).to.have.length(3);
-    expect(body.find(Button)).to.have.length(1);
-    // expect(body.find(FormControl).first().text()).to.equal('Arcade');
+
+    const footer = wrapper.find(Modal.Footer);
+    expect(footer).to.have.length(1);
+    expect(footer.find(Form)).to.have.length(1);
+    expect(footer.find(FormControl)).to.have.length(3);
+    expect(footer.find(Button)).to.have.length(1);
 
     const selectMode = document.createElement('select');
     selectMode.innerHTML = wrapper.find(FormControl).first().html();

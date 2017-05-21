@@ -31,7 +31,7 @@ describe('Component: <Statusbar>', () => {
 
     const lives = document.createElement('div');
     lives.innerHTML = wrapper.find(Col).first().html();
-    expect(livesText.textContent).to.include('x 5');
+    expect(lives.textContent).to.include('x 5');
 
     const timeLeftText = document.createElement('div');
     timeLeftText.innerHTML = wrapper.find(Col).at(1).html();

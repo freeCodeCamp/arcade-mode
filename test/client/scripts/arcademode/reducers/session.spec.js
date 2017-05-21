@@ -51,7 +51,8 @@ describe('Reducer: session', () => {
         challenges: Immutable.List([]),
         score: 0,
         time: 0
-      })
+      }),
+      challengesCompleted: 0
     });
     const challenge = { id: 0 };
     const obj = { startTime: 0, currChallenge: challenge };
@@ -63,7 +64,8 @@ describe('Reducer: session', () => {
         challenges: Immutable.List([challenge]),
         score: 0,
         time: 0
-      })
+      }),
+      challengesCompleted: 1
     }));
   });
 
