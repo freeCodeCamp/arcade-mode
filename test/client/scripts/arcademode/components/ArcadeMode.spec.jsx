@@ -30,6 +30,7 @@ describe('Component: <ArcadeMode>', () => {
   beforeEach(() => {
     props = {
       modal: true,
+      onModalOpen: () => {},
       onModalClose: () => {},
       mode: 'Arcade',
       onChangeMode: () => {},
@@ -49,18 +50,21 @@ describe('Component: <ArcadeMode>', () => {
       finishSession: () => {},
       onCodeChange: () => {},
       runTests: () => {},
-      isRunningTests: () => {},
+      isRunningTests: false,
       startChallenge: () => {},
       startTimer: () => {},
       testResults: Immutable.List(),
       timeLeft: '01:00',
       onTimerMaxValueChange: () => {},
-      timerMaxValue: timerDefaultValue.toString(),
+      timerMaxValue: timerDefaultValue,
       sessionScore: 0,
       isTimerFinished: false,
       solveChallenge: () => {},
       isSessionFinished: false,
-      isSessionStarted: false
+      isSessionStarted: false,
+      totalAttempts: 0,
+      timeUsed: '00:00',
+      stopTimer: () => {}
     };
   });
 

@@ -13,8 +13,10 @@ import ChallengePanel from '../../../../../client/scripts/arcademode/components/
 chai.use(chaiEnzyme());
 
 const props = {
+  onModalOpen: () => {},
   title: '',
   isSessionStarted: false,
+  isSessionFinished: false,
   isTimerFinished: false,
   onClickFinishSession: () => {},
   onClickRunTests: () => {},
@@ -22,7 +24,8 @@ const props = {
   onClickStartChallenge: () => {},
   userOutput: 'The output of your code will show up here.',
   testResults: Immutable.List(),
-  description: Immutable.List(['a', 'b', 'c'])
+  description: Immutable.List(['a', 'b', 'c']),
+  editor: 'editor'
 };
 
 describe('<ChallengePanel> component', () => {
