@@ -5,9 +5,10 @@
 
 'use strict';
 
-// used require because import didn't work
 /* eslint no-unused-vars: 0 */
+/* eslint no-eval: 0 */
 
+// used require because import didn't work
 const assert = require('chai').assert;
 
 self.onmessage = e => {
