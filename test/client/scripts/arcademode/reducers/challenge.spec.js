@@ -96,7 +96,11 @@ describe('Reducer: challenge', () => {
       code: 'let y = 5;',
       nextChallenge: Immutable.Map(Immutable.fromJS(secondChallenge))
     });
-    const nextState = reducer(state, nextChallenge(nextChallengeStartTime));
+    const obj = {
+      startTime: nextChallengeStartTime,
+      currChallenge: Immutable.Map(Immutable.fromJS(firstChallenge))
+    };
+    const nextState = reducer(state, nextChallenge(obj));
     expect(nextState.get('challengeNumber')).to.equal(2);
     expect(nextState.get('currChallenge')).to.equal((Immutable.Map(Immutable.fromJS(secondChallenge))));
     expect(nextState.get('currChallengeStartedAt')).to.equal(nextChallengeStartTime);
