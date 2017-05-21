@@ -98,6 +98,8 @@ describe('Reducer: challenge', () => {
       nextChallenge: Immutable.Map(Immutable.fromJS(secondChallenge)),
       chosenChallenges: Challenges.challenges
     });
+
+    // Next challenge needs obj, not startTime only
     const obj = {
       startTime: nextChallengeStartTime,
       currChallenge: Immutable.Map(Immutable.fromJS(firstChallenge))
