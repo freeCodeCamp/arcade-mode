@@ -15,7 +15,7 @@ import { CHALLENGE_START } from '../actions/challenge';
 
 import { GAME_DIFFICULTY_CHANGE } from '../actions/gamesetting';
 
-import { SESSION_FINISH } from '../actions/session';
+// import { SESSION_FINISH } from '../actions/session';
 
 import { MODAL_OPEN } from '../actions/modal';
 
@@ -56,9 +56,9 @@ export default function timer (state = initialState, action) {
       return state
         .set('timeLeft', difficultySettings[action.difficulty].displayTime) // display
         .set('timerMaxValue', difficultySettings[action.difficulty].time); // actual number
-    case SESSION_FINISH:
-    case STOP_TIMER:
+    case STOP_TIMER: // essentially session finish
       return state
+        .set('timeUsed', printTime(action.finishTime - state.get('timerStart')))
         .set('isTimerFinished', true)
         .set('timeLeft', '00:00');
     case TIMER_STARTED:
