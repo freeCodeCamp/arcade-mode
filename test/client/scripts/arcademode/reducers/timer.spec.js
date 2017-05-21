@@ -38,13 +38,18 @@ describe('Reducer: timer', () => {
 
   it('should stop timer on STOP_TIMER', () => {
     const state = Immutable.Map({
+      timerStart: 0,
       isTimerFinished: false,
-      timeLeft: timerDefaultValue
+      timeLeft: timerDefaultValue,
+      timeUsed: '00:00'
     });
-    const nextState = reducer(state, stopTimer());
+    const timeNow = new Date().getTime() + 2000;
+    const nextState = reducer(state, stopTimer(timeNow));
     expect(nextState).to.equal(Immutable.Map({
+      timerStart: 0,
       isTimerFinished: true,
-      timeLeft: '00:00'
+      timeLeft: '00:00',
+      timeUsed: printTime(timeNow - state.get('timerStart'))
     }));
   });
 
