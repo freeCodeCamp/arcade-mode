@@ -36,8 +36,7 @@ export default class ArcadeMode extends Component {
 
   /* Loads stored user data */
   componentDidMount() {
-    const userData = new UserData();
-    this.props.loadUserData(userData);
+    this.props.loadUserData();
   }
 
   onClickNextChallenge() {
@@ -70,10 +69,11 @@ export default class ArcadeMode extends Component {
     this.props.finishSession();
   }
 
+  // TODO: Does too many things. Persisting data could go to redux middleware
   onClickSaveSession() {
     if (this.props.isSessionFinished) {
       this.props.saveSession();
-      this.props.updateUserData(this.props.currSession);
+      this.props.saveUserData(this.props.currSession);
     }
   }
 
@@ -136,7 +136,9 @@ export default class ArcadeMode extends Component {
           <h2 className='text-danger'>Game Over!</h2>
           <p>Your final score: {this.props.sessionScore}</p>
           <p>Your number of attempts across all challenges: {this.props.totalAttempts}</p>
-          <p>You completed {this.props.challengeNumber} challenges in {this.props.timeUsed} time.</p>
+          <p>
+              You completed {this.props.challengeNumber} challenges in {this.props.timeUsed} time.
+          </p>
           <p>You can save your session by clicking Save. Saved sessions can be viewed from the
             profile. Click Start to play again.</p>
           { !this.props.isSessionSaved &&
@@ -209,6 +211,7 @@ export default class ArcadeMode extends Component {
             <Row className='show-grid'>
               <UserProfile
                 userData={this.props.userData}
+                deleteSession={this.props.deleteSession}
               />
             </Row>
           }
@@ -305,8 +308,9 @@ ArcadeMode.propTypes = {
   isProfileShown: PropTypes.bool.isRequired,
   hideProfile: PropTypes.func.isRequired,
   showProfile: PropTypes.func.isRequired,
-  loadUserData: PropTypes.func.isRequired,
   userData: PropTypes.instanceOf(UserData).isRequired,
-  updateUserData: PropTypes.func.isRequired
+  loadUserData: PropTypes.func.isRequired,
+  saveUserData: PropTypes.func.isRequired,
+  deleteSession: PropTypes.func.isRequired
 
 };
