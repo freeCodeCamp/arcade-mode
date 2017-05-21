@@ -32,36 +32,53 @@ describe('Reducer: session', () => {
   it('should start session on CHALLENGE_START', () => {
     const state = Immutable.Map({
       isSessionFinished: false,
-      isSessionStarted: false
+      isSessionStarted: false,
+      isSessionSaved: false
     });
     const nextState = reducer(state, startChallenge(0)); // startTime = 0;
     expect(nextState).to.equal(Immutable.Map({
       isSessionFinished: false,
-      isSessionStarted: true
+      isSessionStarted: true,
+      isSessionSaved: false
     }));
   });
 
   it('should increment session score by 100 on CHALLENGE_NEXT', () => {
     const state = Immutable.Map({
       sessionScore: 0,
-      streakMultiplier: 1
+      streakMultiplier: 1,
+      currSession: Immutable.Map({
+        challenges: Immutable.List([]),
+        score: 0,
+        time: 0
+      })
     });
-    const nextState = reducer(state, nextChallenge(0)); // startTime = 0;
+    const challenge = { id: 0 };
+    const obj = { startTime: 0, currChallenge: challenge };
+    const nextState = reducer(state, nextChallenge(obj)); // startTime = 0;
     expect(nextState).to.equal(Immutable.Map({
       sessionScore: 100,
-      streakMultiplier: 1.25
+      streakMultiplier: 1.25,
+      currSession: Immutable.Map({
+        challenges: Immutable.List([challenge]),
+        score: 0,
+        time: 0
+      })
     }));
   });
 
   it('should end session on SESSION_FINISH', () => {
     const state = Immutable.Map({
       isSessionFinished: false,
-      isSessionStarted: true
+      isSessionStarted: true,
+      sessionScore: 100
     });
     const nextState = reducer(state, actionFinishSession());
     expect(nextState).to.equal(Immutable.Map({
       isSessionFinished: true,
-      isSessionStarted: false
+      isSessionStarted: false,
+      currSession: Immutable.Map({ score: 100 }),
+      sessionScore: 100
     }));
   });
 });
