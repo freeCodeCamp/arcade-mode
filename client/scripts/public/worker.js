@@ -56,7 +56,6 @@ self.onmessage = e => {
   const testResults = [];
   tests.forEach(test => {
     const testRunData = { error: null, pass: true };
-    console.log(`usercode ${userCode}`);
     let code;
     try {
       const val = eval(
