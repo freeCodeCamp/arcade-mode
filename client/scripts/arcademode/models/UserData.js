@@ -12,7 +12,11 @@ const recordDefs = {
 export default class UserData extends Record(recordDefs) {
 
   appendSession(session) {
-    const newSession = session.set('id', this.get('sessions').size);
+    let newId = 0;
+    if (this.get('sessions').size > 0) {
+      newId = this.get('sessions').last().get('id') + 1;
+    }
+    const newSession = session.set('id', newId);
     return this.set('sessions', this.get('sessions').push(newSession));
   }
 
