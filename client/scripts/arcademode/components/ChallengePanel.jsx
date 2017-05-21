@@ -88,10 +88,10 @@ export default class ChallengePanel extends React.Component {
         <div className='challenge__description' dangerouslySetInnerHTML={this.createMarkup()} />
         <div className='challenge__buttons'>
           {!this.props.isSessionStarted &&
-            <div>
-              <button className={'btn btn-success'} onClick={this.props.onClickStartChallenge}>Start</button>
-              <button className={'btn btn-primary'} onClick={this.props.onModalOpen}>Menu</button>
-            </div>
+            <button className={'btn btn-success'} onClick={this.props.onClickStartChallenge}>Start</button>
+          }
+          {(!this.props.isSessionStarted || this.props.mode === 'Practice') &&
+            <button className={'btn btn-primary'} onClick={this.props.onModalOpen}>Menu</button>
           }
           {this.props.isSessionStarted &&
             <button className={'btn btn-primary'} onClick={this.props.onClickRunTests}>Run tests</button>
@@ -130,5 +130,6 @@ ChallengePanel.propTypes = {
   userOutput: PropTypes.string.isRequired,
   testResults: ImmutablePropTypes.list.isRequired,
   editor: PropTypes.string.isRequired,
-  onModalOpen: PropTypes.func.isRequired
+  onModalOpen: PropTypes.func.isRequired,
+  mode: PropTypes.string.isRequired
 };

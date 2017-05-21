@@ -25,7 +25,7 @@ const initialState = Immutable.Map({
   isTimerFinished: false,
   timerMaxValue: timerDefaultValue,
   timerMaxValueLoaded: timerDefaultValue,
-  timeLeft: '01:00', // timerDefaultValue
+  timeLeft: '01:00',
   timerStart: 0,
   timeUsed: '00:00'
 });

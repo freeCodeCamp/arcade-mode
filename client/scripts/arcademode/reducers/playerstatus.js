@@ -49,7 +49,10 @@ export default function playerstatus (state = initialState, action) {
       return state
         .set('passOption', true); // refresh passOption on each challenge solve
     case TESTS_FAILED:
-      return state.update('lives', lives => lives - 1);
+      if (state.get('mode') === 'Arcade') {
+        return state.update('lives', lives => lives - 1);
+      }
+      return state;
     case GAME_DIFFICULTY_CHANGE:
       return state.set('lives', difficultySettings[action.difficulty].lives);
     case PLAYER_PASSED:
