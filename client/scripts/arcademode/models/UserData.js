@@ -1,33 +1,29 @@
 
 'use strict';
 
-import { List, Map, Record } from 'immutable';
+import { List, Record } from 'immutable';
 
 const recordDefs = {
-  // sessions: List([])
-  sessions: List([
-    Map({
-      id: 0,
-      mode: 'Practice',
-      score: 345,
-      challenges: List([{ id: 0 }, { id: 1 }])
-
-    }),
-    Map({
-      id: 1,
-      mode: 'Arcade',
-      score: 123,
-      challenges: List([{ id: 0 }, { id: 1 }])
-    })
-  ])
+  sessions: List([])
 };
 
-/* A class for storing user information regarding the arcade sessions played. */
+/* A class for storing user information regarding the arcade sessions played. Note that due to
+* Immutable each setter-method must return a value. */
 export default class UserData extends Record(recordDefs) {
 
   appendSession(session) {
     const newSession = session.set('id', this.get('sessions').size);
     return this.set('sessions', this.get('sessions').push(newSession));
+  }
+
+  deleteSession(sessionId) {
+    const sessions = this.get('sessions');
+    const index = sessions.findIndex(item => item.get('id') === sessionId);
+
+    if (index >= 0) {
+      return this.set('sessions', sessions.delete(index));
+    }
+    return this;
   }
 
   getSession(n) {
@@ -44,13 +40,6 @@ export default class UserData extends Record(recordDefs) {
     }
     return null;
   }
-
-  /* Serializes UserData to JSON. */
-  /* toJSON() {
-    return JSON.stringify({
-      sessions: JSON.stringify(this.sessions)
-    });
-  }*/
 
   /* Reconstructs the object from JSON. */
   fromJSON(inputJSON) {
