@@ -1,0 +1,9 @@
+// styling for user profile
+
+.user-profile {
+}
+
+.profile-data {
+  height: calc(100vh - 70px - 46px - 69px - 30px); // 100% subtract all the other elements
+  overflow-y: auto;
+}
