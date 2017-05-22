@@ -11,8 +11,27 @@
       text-align: center;
     }
 
+    &__label {
+      /*
+      height: 46px;
+      // background-color: #eaeaea;
+      &::before {
+        position: absolute;
+        top: 0;
+        left: 1em;
+        border-style: solid;
+        border-width: 24px 24px 24px 0;
+        transform: rotate(45deg);
+        border-color: white;
+        content: '';
+      }
+      */
+    }
+
     &__submit {
       text-align: center;
     }
   }
 }
+
+

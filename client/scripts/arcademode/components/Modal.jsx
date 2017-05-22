@@ -13,7 +13,7 @@ const ArcadeModal = props => (
         Arcade Mode
       </Modal.Title>
       <p className='am__modal__description'>
-        Level up your algorithm and data structure skill.
+        Level up your algorithms and data structures ability.
       </p>
     </Modal.Header>
     <Modal.Body>
@@ -88,10 +88,10 @@ const ArcadeModal = props => (
     <Modal.Footer>
       <Form horizontal>
         <FormGroup>
-          <Col smOffset={3} sm={2}>
+          <Col smOffset={0} sm={4} className='am__modal__label'>
             <ControlLabel>Mode:</ControlLabel>
           </Col>
-          <Col smOffset={1} sm={3}>
+          <Col smOffset={2} sm={4}>
             <FormControl
               componentClass='select' defaultValue={props.mode} onChange={props.onChangeMode}
             >
@@ -101,10 +101,10 @@ const ArcadeModal = props => (
           </Col>
         </FormGroup>
         <FormGroup>
-          <Col smOffset={3} sm={2}>
+          <Col smOffset={0} sm={4} className='am__modal__label'>
             <ControlLabel>Difficulty:</ControlLabel>
           </Col>
-          <Col smOffset={1} sm={3}>
+          <Col smOffset={2} sm={4}>
             <FormControl
               componentClass='select' defaultValue={props.difficulty}
               onChange={props.onChangeDifficulty}
@@ -117,10 +117,10 @@ const ArcadeModal = props => (
           </Col>
         </FormGroup>
         <FormGroup>
-          <Col smOffset={3} sm={2}>
+          <Col smOffset={0} sm={4} className='am__modal__label'>
             <ControlLabel>Editor:</ControlLabel>
           </Col>
-          <Col smOffset={1} sm={3}>
+          <Col smOffset={2} sm={4}>
             <FormControl
               componentClass='select' defaultValue={props.editor} onChange={props.onChangeEditor}
             >
@@ -130,10 +130,10 @@ const ArcadeModal = props => (
           </Col>
         </FormGroup>
         <FormGroup>
-          <Col smOffset={3} sm={2}>
+          <Col smOffset={0} sm={4} className='am__modal__label'>
             <ControlLabel>Challenges:</ControlLabel>
           </Col>
-          <Col smOffset={1} sm={3}>
+          <Col smOffset={2} sm={4}>
             <FormControl
               componentClass='select' defaultValue={props.challengeType}
               onChange={props.onChangeChallengeType}
