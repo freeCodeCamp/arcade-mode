@@ -1,5 +1,13 @@
 # PROGRESS for Arcade Mode
 
+## Sunday 5/21/17:
+### Tim:
+  - Progress:
+    1. Add JS Bin's loop-protect for infinite loops.
+    2. Add Babel for transpiling user code; allow ES6 usage.
+    3. Syntax errors now do not stop 'run tests' from working.
+    4. Minor styling fixes/updates.
+
 ## Saturday 5/20/17:
 ### Tim:
   - Progress:
