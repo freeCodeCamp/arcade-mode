@@ -132,9 +132,9 @@ const Worker = require('tiny-worker');
 describe('Worker', () => {
   it('should return correctly', () => {
     const promise = new Promise(res => {
-      const dummyWorker = new Worker('./client/scripts/public/worker.js');
+      // const dummyWorker = new Worker('./client/scripts/public/worker.js');
       // both versions work now.
-      // const dummyWorker = new Worker('./public/js/worker.bundle.js');
+      const dummyWorker = new Worker('./public/js/worker.bundle.js');
 
       dummyWorker.onmessage = e => {
         res(e.data);
