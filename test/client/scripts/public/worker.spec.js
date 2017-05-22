@@ -144,7 +144,7 @@ describe('Worker', () => {
     });
     return promise
     .then(workerData => {
-      expect(workerData[0].output).to.equal('true');
+      expect(workerData[0]).to.equal('true');
       expect(workerData.slice(1)).to.have.length(27);
       // no need to catch errors as the errors propogate to mocha to display
     });

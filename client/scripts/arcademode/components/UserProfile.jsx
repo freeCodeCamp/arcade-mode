@@ -34,12 +34,14 @@ export default class UserProfile extends Component {
   // TODO: Refactor into own component <ProfileChallenge> to avoid bind
   renderChallenges(sessionId, challenges) {
     const challengesJsx = challenges.map(challenge => {
+      console.log('CHALLENGE: ' + JSON.stringify(challenge));
+
       return (
         <ListGroupItem
           key={challenge.id}
           onClick={this.expandChallengeView.bind(this, sessionId, challenge.id)}
         >
-          Challenge {challenge.id}
+          Challenge {challenge.id}: {challenge.get('title')}
         </ListGroupItem>
       );
     });
@@ -57,17 +59,21 @@ export default class UserProfile extends Component {
       const score = session.get('score');
 
       let challenges = null;
+      let numChallenges = 0;
       if (session.get('challenges')) {
         challenges = this.renderChallenges(sessionId, session.get('challenges'));
+        numChallenges = session.get('challenges').size;
       }
       // TODO: Refactor into own component <ProfileSession> to avoid bind
       return (
         <ListGroupItem
           key={sessionId}
         >
-          Session: {sessionId} Score: {score}
-          <button className='btn' onClick={this.expandSessionView.bind(this, sessionId)}>Expand</button>
-          <button className='btn btn-danger' onClick={this.deleteSession.bind(this, session)}>Delete</button>
+          Session: {sessionId} Score: {score} Challenges: {numChallenges}
+          <div className='pull-right'>
+            <button className='btn' onClick={this.expandSessionView.bind(this, sessionId)}>Expand</button>
+            <button className='btn btn-danger' onClick={this.deleteSession.bind(this, session)}>Delete</button>
+          </div>
           <ListGroup>
             {challenges}
           </ListGroup>
