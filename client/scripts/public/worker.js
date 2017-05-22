@@ -26,68 +26,89 @@ self.onmessage = e => {
 
   // append user code output to final object passed back via postMessage:
   // if user output does not run, then tests should not be executed.
-  const userOutput = [];
-  const userFnData = { error: null, pass: true, output: '' };
+  let userOutput;
+  const errorMsgs = [];
+  const errorMsg = { error: null, pass: true };
 
-  const esFive = babel.transform(userCode);
-  const esFiveLoopProtected = loopProtect(esFive.code);
+  let esFive; // babel transpiled user code
+  let syntaxErrorFlag = false;
 
-  loopProtect.hit = line => {
-    userFnData.error = `Potential infinite loop found on line ${line}`;
-    userFnData.pass = false;
-    userFnData.output = userFnData.error;
-    userOutput.push(userFnData);
-
-    return self.postMessage(userOutput);
-  };
-
+  // check for syntax errors and babelfy user code:
   try {
-    const val = eval(esFiveLoopProtected);
+    esFive = babel.transform(userCode).code;
   }
   catch (err) {
-    console.log(`err: ${err}`);
-    userFnData.error = err.toString();
-    userFnData.pass = false;
-    userFnData.output = err.toString();
-    userOutput.push(userFnData);
+    syntaxErrorFlag = true;
+    if (errorMsgs
+          .map(uo => uo.error)
+          .includes(`There are syntax errors in your code:
+            ${err}`)) {
+      return;
+    }
 
-    return self.postMessage(userOutput);
+    errorMsg.error = `There are syntax errors in your code:
+      ${err}`;
+    errorMsg.pass = false;
+    errorMsgs.push(errorMsg);
   }
 
+  // if no syntax errors, add loopProtect:
+  let esFiveLoopProtected;
+  if (esFive) {
+    esFiveLoopProtected = loopProtect(esFive);
+  }
+
+  // whenever loopProtect finds a potentially infinite loop, it calls this method:
+  loopProtect.hit = line => {
+    if (errorMsgs
+          .map(uo => uo.error)
+          .includes(`Potential infinite loop found on line ${line}`)) {
+      return;
+    }
+    errorMsg.error = `Potential infinite loop found on line ${line}`;
+    errorMsg.pass = false;
+    errorMsgs.push(errorMsg);
+  };
+
+  // log userOutput:
   if (eval(esFiveLoopProtected) === undefined) {
-    userFnData.output = 'User output is undefined';
+    userOutput = 'User output is undefined';
   }
   else {
-    userFnData.output = JSON.stringify(eval(`${userCode}`), null, 2);
+    userOutput = JSON.stringify(eval(esFiveLoopProtected), null, 2);
   }
-  userOutput.push(userFnData);
 
+  // run and save test results if no syntax error was observed:
   const testResults = [];
-  tests.forEach(test => {
-    const testRunData = { error: null, pass: true };
-    let code;
-    try {
-      const val = eval(
-        `
-        code=userCode;
-        ${esFiveLoopProtected}; // User code: userCode // esfive.code
-        ${tail}; // tail function
-        ${test.test} // Test case code
-        `
-      );
-    }
-    catch (err) {
-      console.log(`Test Error: ${err}`);
-      testRunData.error = err;
-      testRunData.pass = false;
-    }
-    testResults.push(testRunData);
-  });
 
-  const postData = userOutput.concat(testResults);
+  if (!syntaxErrorFlag) {
+    tests.forEach(test => {
+      const testRunData = { error: null, pass: true };
+      let code;
+      try {
+        eval(
+          `
+          code=userCode;
+          ${esFiveLoopProtected}; // User code: userCode // esfive.code
+          ${tail}; // tail function
+          ${test.test}; // Test case code - this assumes that the function exists
+          `
+        );
+      }
+      catch (err) {
+        console.log(`Test Error: ${err.message}`);
+        testRunData.error = `${err}`;
+        testRunData.pass = false;
+      }
+      testResults.push(testRunData);
+    });
+  }
 
+  const postData = [userOutput, ...errorMsgs, ...testResults];
+
+  // post message back to main thread:
   console.log('Now sending worker user code output and test results');
   self.postMessage(postData);
-  self.close();
+  // self.close();
 };
 
