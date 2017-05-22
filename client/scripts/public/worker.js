@@ -11,6 +11,7 @@
 // used require because import didn't work
 const assert = require('chai').assert;
 const babel = require('babel-core');
+const loopProtect = require('../vendor/loop-protect');
 
 self.onmessage = e => {
   const userCode = e.data[0];
@@ -25,19 +26,30 @@ self.onmessage = e => {
     }
   ));
 
-  let tail;
-  if (currChallenge.tail) {
-    tail = currChallenge.tail.join('');
-  }
+  const tail = currChallenge.tail && currChallenge.tail.join('');
 
   // append user code output to final object passed back via postMessage:
   // if user output does not run, then tests should not be executed.
   const userOutput = [];
   const userFnData = { error: null, pass: true, output: '' };
 
-  const esfive = babel.transform(userCode);
+  const esFive = babel.transform(userCode);
+  const esFiveLoopProtected = loopProtect(esFive.code);
+
+  console.log(esFiveLoopProtected);
+
+  loopProtect.hit = line => {
+    userFnData.error = `Potential infinite loop found on line ${line}`;
+    userFnData.pass = false;
+    userFnData.output = userFnData.error;
+    userOutput.push(userFnData);
+
+    return self.postMessage(userOutput);
+  };
+
   try {
-    const val = eval(esfive.code);
+    const val = eval(esFiveLoopProtected);
+      // eval(esfive.code);
       // eval(`${userCode}`);
   }
   catch (err) {
@@ -47,10 +59,10 @@ self.onmessage = e => {
     userFnData.output = err.toString();
     userOutput.push(userFnData);
 
-    return postMessage(userOutput);
+    return self.postMessage(userOutput);
   }
 
-  if (eval(`${userCode}`) === undefined) {
+  if (eval(esFiveLoopProtected) === undefined) {
     userFnData.output = 'User output is undefined';
   }
   else {
@@ -66,7 +78,7 @@ self.onmessage = e => {
       const val = eval(
         `
         code=userCode;
-        ${esfive.code};// User code: userCode
+        ${esFiveLoopProtected}; // User code: userCode // esfive.code
         ${tail}; // tail function
         ${test.test} // Test case code
         `
