@@ -37,6 +37,7 @@
     "browserify": "^14.3.0",
     "browserify-incremental": "^3.1.1",
     "bundle-collapser": "^1.2.1",
+    "canvas": "^1.6.5",
     "chai": "^3.5.0",
     "chai-enzyme": "^0.6.1",
     "chai-immutable": "^1.6.0",
