@@ -460,7 +460,7 @@
     }
 
     line.hit++;
-    if ((now - line.time) > 1000) {//} && line.hit !== line.last+1) {
+    if ((now - line.time) > 100) {//} && line.hit !== line.last+1) {
       // We've spent over 100ms on this loop... smells infinite.
       loopProtect.hit(state.line);
       // Returning true prevents the loop running again
