@@ -16,9 +16,7 @@ import { PLAYER_PASSED } from '../actions/playerstatus';
 import { MODAL_OPEN } from '../actions/modal';
 
 /* TODO: Returns score for completed challenge. */
-const getScoreForChallenge = challenge => {
-  return 100;
-};
+const getScoreForChallenge = () => 100;
 
 const initialState = Immutable.Map({
   isSessionFinished: false,
@@ -31,7 +29,9 @@ const initialState = Immutable.Map({
   currSession: Map({
     challenges: List(),
     score: 0,
-    time: 0
+    time: 0,
+    startTime: 0,
+    endTime: 0
   })
 });
 
@@ -41,15 +41,17 @@ export default function session (state = initialState, action) {
       return state
         .set('isSessionFinished', false)
         .set('isSessionStarted', true)
-        .set('isSessionSaved', false);
+        .set('isSessionSaved', false)
+        .setIn(['currSession', 'startTime'], action.startTime);
     case CHALLENGE_NEXT:
       return state
         .update('challengesCompleted', challengesCompleted => challengesCompleted + 1)
         .update('streakMultiplier', streakMultiplier => 1.25 * streakMultiplier)
-        .update('sessionScore', sessionScore => Math.floor(sessionScore + state.get('streakMultiplier') * getScoreForChallenge(state.currChallenge)))
+        .update('sessionScore', sessionScore => Math.floor(sessionScore + state.get('streakMultiplier') * getScoreForChallenge()))
         .update('currSession', currSession =>
           currSession.set('challenges',
-            currSession.get('challenges').push(action.currChallenge))
+            currSession.get('challenges').push(action.currChallenge.set('endTime', action.startTime))
+          )
         );
     case SESSION_SAVE:
       return state
@@ -58,7 +60,8 @@ export default function session (state = initialState, action) {
       return state
         .set('isSessionFinished', true)
         .set('isSessionStarted', false)
-        .setIn(['currSession', 'score'], state.get('sessionScore'));
+        .setIn(['currSession', 'score'], state.get('sessionScore'))
+        .setIn(['currSession', 'endTime'], action.endTime);
     case TESTS_STARTED:
       return state.update('totalAttempts', totalAttempts => totalAttempts + 1);
     case PLAYER_PASSED:
