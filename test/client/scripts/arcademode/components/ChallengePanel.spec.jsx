@@ -25,7 +25,8 @@ const props = {
   userOutput: 'The output of your code will show up here.',
   testResults: Immutable.List(),
   description: Immutable.List(['a', 'b', 'c']),
-  editor: 'editor'
+  editor: 'editor',
+  mode: 'Arcade'
 };
 
 describe('<ChallengePanel> component', () => {
