@@ -51,7 +51,7 @@ export default class ChallengePanel extends React.Component {
         // If test had error, format the error message here
         let msg = null;
         if (item.error !== null) {
-          const innerHtml = { __html: `Error: ${item.error.message}` };
+          const innerHtml = { __html: `Error: ${item.error}` };
           msg = <span dangerouslySetInnerHTML={innerHtml} />;
         }
 
@@ -88,22 +88,22 @@ export default class ChallengePanel extends React.Component {
         <div className='challenge__description' dangerouslySetInnerHTML={this.createMarkup()} />
         <div className='challenge__buttons'>
           {!this.props.isSessionStarted &&
-            <button className={'btn btn-success'} onClick={this.props.onClickStartChallenge}>Start</button>
+            <button className='btn btn-success' onClick={this.props.onClickStartChallenge}>Start</button>
           }
           {(!this.props.isSessionStarted || this.props.mode === 'Practice') &&
-            <button className={'btn btn-primary'} onClick={this.props.onModalOpen}>Menu</button>
+            <button className='btn btn-primary' onClick={this.props.onModalOpen}>Menu</button>
           }
           {this.props.isSessionStarted &&
-            <button className={'btn btn-primary'} onClick={this.props.onClickRunTests}>Run tests</button>
+            <button className='btn btn-primary' onClick={this.props.onClickRunTests}>Run tests</button>
           }
           {finishButton}
         </div>
         <div className='challenge__buttons'>
           {this.props.isSessionStarted &&
-            <button className={'btn btn-warning'} onClick={this.props.onClickSolve}>Insert Solution</button>
+            <button className='btn btn-warning' onClick={this.props.onClickSolve}>Insert Solution</button>
           }
         </div>
-        <div className={'output'}>
+        <div className='challenge__user-output'>
           <CodeMirror
             options={outputOptions}
             value={this.props.userOutput}
