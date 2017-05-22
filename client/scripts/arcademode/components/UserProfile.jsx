@@ -58,6 +58,11 @@ export default class UserProfile extends Component {
       const sessionId = session.get('id');
       const score = session.get('score');
 
+      const startTime = session.get('startTime');
+      const endTime = session.get('endTime');
+      const sessionDuration = endTime - startTime;
+      console.log(`end: ${endTime} start: ${startTime}`);
+
       let challenges = null;
       let numChallenges = 0;
       if (session.get('challenges')) {
@@ -69,7 +74,7 @@ export default class UserProfile extends Component {
         <ListGroupItem
           key={sessionId}
         >
-          Session: {sessionId} Score: {score} Challenges: {numChallenges}
+          Session: {sessionId} Score: {score} Challenges: {numChallenges} Duration: {sessionDuration}
           <div className='pull-right'>
             <button className='btn' onClick={this.expandSessionView.bind(this, sessionId)}>Expand</button>
             <button className='btn btn-danger' onClick={this.deleteSession.bind(this, session)}>Delete</button>
