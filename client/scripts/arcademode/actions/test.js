@@ -33,7 +33,7 @@ export function runTests(userCode, currChallenge) {
     // http://stackoverflow.com/questions/9020116/is-it-possible-to-restrict-the-scope-of-a-javascript-function/36255766#36255766
 
     function createWorker () {
-      return new Promise((resolve, reject) => {
+      return new Promise(resolve => {
         const wk = new Worker('../../public/js/worker.bundle.js');
         wk.postMessage([userCode, currChallenge.toJS()]); // postMessage mangles the Immutable object, so it needs to be transformed into regular JS before sending over to worker.
         wk.onmessage = e => {
@@ -45,7 +45,7 @@ export function runTests(userCode, currChallenge) {
 
     return createWorker()
       .then(workerData => {
-        dispatch(onOutputChange(workerData[0].output));
+        dispatch(onOutputChange(workerData[0]));
         if (workerData.length > 1) {
           const testResults = workerData.slice(1);
           const allTestsPassed = getTestStatus(testResults);
