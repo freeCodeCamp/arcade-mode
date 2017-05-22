@@ -17,14 +17,10 @@ self.onmessage = e => {
   const userCode = e.data[0];
   const currChallenge = e.data[1];
 
-  const tests = currChallenge.tests.map(test => (
-  // const tests = currChallenge.getIn(['challenge', 'tests']).map(test => (
-    {
-      test,
-      // testCondition: test.match(/^assert\(([^,]*),/)[1],
-      testMessage: test.match(/message: (.*)'\);$/)[1]
-    }
-  ));
+  const tests = currChallenge.tests.map(test => ({
+    test,
+    testMessage: test.match(/message: (.*)'\);$/)[1]
+  }));
 
   const tail = currChallenge.tail && currChallenge.tail.join('');
 
@@ -35,8 +31,6 @@ self.onmessage = e => {
 
   const esFive = babel.transform(userCode);
   const esFiveLoopProtected = loopProtect(esFive.code);
-
-  console.log(esFiveLoopProtected);
 
   loopProtect.hit = line => {
     userFnData.error = `Potential infinite loop found on line ${line}`;
@@ -49,8 +43,6 @@ self.onmessage = e => {
 
   try {
     const val = eval(esFiveLoopProtected);
-      // eval(esfive.code);
-      // eval(`${userCode}`);
   }
   catch (err) {
     console.log(`err: ${err}`);
