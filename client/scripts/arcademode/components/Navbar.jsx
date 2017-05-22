@@ -16,7 +16,6 @@ const ArcadeNavbar = () => (
           />
         </a>
       </Navbar.Brand>
-      <Navbar.Toggle />
     </Navbar.Header>
     <a href='//arcademode.herokuapp.com' className='am__am__link'>
       <div className='am__am__logo'>

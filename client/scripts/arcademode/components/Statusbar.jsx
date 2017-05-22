@@ -8,20 +8,20 @@ import { Grid, Row, Col, Button } from 'react-bootstrap';
 const Statusbar = props => (
   <Grid fluid className='am__statusbar'>
     <Row>
-      <Col sm={3}>
+      <Col xs={6} sm={3}>
         <img className='am__statusbar__lives-logo' src='/public/img/FCCfire.svg' alt='Lives' /> x {props.lives}
       </Col>
-      <Col sm={3}>
+      <Col xs={6} sm={3}>
         <span className='am__statusbar__text'>Time left:</span> {props.timeLeft}
       </Col>
-      <Col sm={3}>
+      <Col xs={6} sm={3}>
         {
           (props.passOption && props.isSessionStarted) ?
             <Button bsSize='xsmall' onClick={props.onClickPass}>Pass</Button> :
             <Button bsSize='xsmall' disabled>Pass</Button>
         }
       </Col>
-      <Col sm={3}>
+      <Col xs={6} sm={3}>
         <span className='am__statusbar__text'>Score:</span> {props.sessionScore}
       </Col>
     </Row>

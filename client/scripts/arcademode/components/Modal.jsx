@@ -17,10 +17,10 @@ const ArcadeModal = props => (
       </p>
     </Modal.Header>
     <Modal.Body>
-      <p><b>Mode</b></p>
+      <p className='am__modal__setting'>Mode</p>
       <Grid fluid>
         <Row>
-          <Col sm={3}>
+          <Col className='am__modal__option' sm={3}>
             Arcade
           </Col>
           <Col sm={9}>
@@ -28,7 +28,7 @@ const ArcadeModal = props => (
           </Col>
         </Row>
         <Row>
-          <Col sm={3}>
+          <Col className='am__modal__option' sm={3}>
             Practice
           </Col>
           <Col sm={9}>
@@ -37,10 +37,10 @@ const ArcadeModal = props => (
         </Row>
       </Grid>
       <br />
-      <p><b>Difficulty</b></p>
+      <p className='am__modal__setting'>Difficulty</p>
       <Grid fluid>
         <Row>
-          <Col sm={3}>
+          <Col className='am__modal__option' sm={3}>
             Easy
           </Col>
           <Col sm={9}>
@@ -48,7 +48,7 @@ const ArcadeModal = props => (
           </Col>
         </Row>
         <Row>
-          <Col sm={3}>
+          <Col className='am__modal__option' sm={3}>
             Medium
           </Col>
           <Col sm={9}>
@@ -56,7 +56,7 @@ const ArcadeModal = props => (
           </Col>
         </Row>
         <Row>
-          <Col sm={3}>
+          <Col className='am__modal__option' sm={3}>
             Hard
           </Col>
           <Col sm={9}>
@@ -65,10 +65,10 @@ const ArcadeModal = props => (
         </Row>
       </Grid>
       <br />
-      <p><b>Editor</b></p>
+      <p className='am__modal__setting'>Editor</p>
       <Grid fluid>
         <Row>
-          <Col sm={3}>
+          <Col className='am__modal__option' sm={3}>
             Normal
           </Col>
           <Col sm={9}>
@@ -76,7 +76,7 @@ const ArcadeModal = props => (
           </Col>
         </Row>
         <Row>
-          <Col sm={3}>
+          <Col className='am__modal__option' sm={3}>
             Whiteboard
           </Col>
           <Col sm={9}>
@@ -88,7 +88,7 @@ const ArcadeModal = props => (
     <Modal.Footer>
       <Form horizontal>
         <FormGroup>
-          <Col smOffset={0} sm={4} className='am__modal__label'>
+          <Col smOffset={2} sm={2}>
             <ControlLabel>Mode:</ControlLabel>
           </Col>
           <Col smOffset={2} sm={4}>
@@ -101,7 +101,7 @@ const ArcadeModal = props => (
           </Col>
         </FormGroup>
         <FormGroup>
-          <Col smOffset={0} sm={4} className='am__modal__label'>
+          <Col smOffset={2} sm={2}>
             <ControlLabel>Difficulty:</ControlLabel>
           </Col>
           <Col smOffset={2} sm={4}>
@@ -117,7 +117,7 @@ const ArcadeModal = props => (
           </Col>
         </FormGroup>
         <FormGroup>
-          <Col smOffset={0} sm={4} className='am__modal__label'>
+          <Col smOffset={2} sm={2}>
             <ControlLabel>Editor:</ControlLabel>
           </Col>
           <Col smOffset={2} sm={4}>
@@ -130,7 +130,7 @@ const ArcadeModal = props => (
           </Col>
         </FormGroup>
         <FormGroup>
-          <Col smOffset={0} sm={4} className='am__modal__label'>
+          <Col smOffset={2} sm={2}>
             <ControlLabel>Challenges:</ControlLabel>
           </Col>
           <Col smOffset={2} sm={4}>

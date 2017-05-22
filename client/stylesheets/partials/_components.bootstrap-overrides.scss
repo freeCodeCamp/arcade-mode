@@ -6,6 +6,10 @@
   max-width: 1920px;
 }
 
+.modal-footer {
+  text-align: inherit;
+}
+
 // bsClass and className do not work on Modal component
 /*
 .modal-dialog {
