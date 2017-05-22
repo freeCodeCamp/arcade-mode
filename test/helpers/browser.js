@@ -6,6 +6,7 @@
 
 import { JSDOM } from 'jsdom';
 import MockStorage from './mockstorage';
+import requestAnimFrame from './requestAnimFrame';
 
 const dom = new JSDOM('<!DOCTYPE html><html><head></head><body></body></html>');
 
@@ -17,6 +18,10 @@ Object.keys(global.window).forEach(property => {
     global[property] = global.window[property];
   }
 });
+
+if (global.window.requestAnimationFrame === undefined) {
+  requestAnimFrame(); // polyfill
+}
 
 global.navigator = {
   userAgent: 'node.js'
