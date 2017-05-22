@@ -65,7 +65,7 @@ export default class ArcadeMode extends Component {
   onClickFinishSession() {
     const timeNow = new Date().getTime();
     this.props.stopTimer(timeNow);
-    this.props.finishSession();
+    this.props.finishSession(timeNow);
   }
 
   // TODO: Does too many things. Persisting data could go to redux middleware
