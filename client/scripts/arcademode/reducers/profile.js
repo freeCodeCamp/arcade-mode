@@ -8,15 +8,34 @@ import {
   HIDE_PROFILE,
   LOAD_USER_DATA,
   UPDATE_USER_DATA,
-  DELETE_SESSION
+  DELETE_SESSION,
+  TOGGLE_SESSION_VIEW,
+  TOGGLE_CHALLENGE_VIEW
 } from '../actions/profile';
 
 import UserData from '../models/UserData';
 
 const initialState = Immutable.Map({
   isProfileShown: false,
-  userData: new UserData()
+  userData: new UserData(),
+  sessionExpandStatus: new Immutable.List([]) // One entry per session
 });
+
+/* Constructs the expandStatus object for the user data. */
+export function createExpandStatus(userData) {
+  const sessions = userData.get('sessions');
+  const status = [];
+
+  sessions.forEach((session, index) => {
+    status.push({ expanded: false, challenges: [] });
+    const challenges = session.get('challenges');
+    challenges.forEach(() => {
+      status[index].challenges.push(false);
+    });
+  });
+
+  return Immutable.List(Immutable.fromJS(status));
+}
 
 export default function profile(state = initialState, action) {
   switch (action.type) {
@@ -26,9 +45,12 @@ export default function profile(state = initialState, action) {
     case SHOW_PROFILE:
       return state
         .set('isProfileShown', true);
-    case LOAD_USER_DATA:
+    case LOAD_USER_DATA: {
+      const newUserData = new UserData(action.userData);
       return state
-        .set('userData', new UserData(action.userData));
+        .set('userData', newUserData)
+        .set('sessionExpandStatus', createExpandStatus(newUserData));
+    }
     case UPDATE_USER_DATA:
       return state
         .update('userData', userData =>
@@ -39,6 +61,15 @@ export default function profile(state = initialState, action) {
         .update('userData', userData =>
           userData.deleteSession(action.sessionId)
         );
+    case TOGGLE_SESSION_VIEW: // sId
+      return state
+        .update('sessionExpandStatus', sessionExpandStatus =>
+          sessionExpandStatus.setIn([action.sessionId, 'expanded'],
+            !sessionExpandStatus.get(action.sessionId).get('expanded')
+          )
+        );
+    case TOGGLE_CHALLENGE_VIEW: // sId, cId
+      return state;
     default:
       return state;
   }
