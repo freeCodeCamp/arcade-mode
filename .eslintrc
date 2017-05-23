@@ -17,6 +17,7 @@
     "consistent-return": 0,
     "global-require": 0, // requires should be at the top not elsewhere, but sometimes..
     "jsx-quotes": ["error", "prefer-single"],
+    "max-len": 0,
     "no-console": 0, // environment specified is both browser and node -> useful in node
     "no-multi-assign": 0,
     "no-param-reassign": ["error", {"props": false}], // only error when not modifying prop
