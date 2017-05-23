@@ -18,6 +18,8 @@ import { MODAL_OPEN } from '../actions/modal';
 /* TODO: Returns score for completed challenge. */
 const getScoreForChallenge = () => 100;
 
+const MULTIPLIER = 1.25;
+
 const initialState = Immutable.Map({
   isSessionFinished: false,
   isSessionStarted: false,
@@ -46,8 +48,10 @@ export default function session (state = initialState, action) {
     case CHALLENGE_NEXT:
       return state
         .update('challengesCompleted', challengesCompleted => challengesCompleted + 1)
-        .update('streakMultiplier', streakMultiplier => 1.25 * streakMultiplier)
-        .update('sessionScore', sessionScore => Math.floor(sessionScore + state.get('streakMultiplier') * getScoreForChallenge()))
+        .update('streakMultiplier', streakMultiplier => MULTIPLIER * streakMultiplier)
+        .update('sessionScore', sessionScore =>
+          Math.floor(sessionScore + (state.get('streakMultiplier') * getScoreForChallenge()))
+        )
         .update('currSession', currSession =>
           currSession.set('challenges',
             currSession.get('challenges').push(action.currChallenge.set('endTime', action.startTime))
