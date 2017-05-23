@@ -1,11 +1,7 @@
 
 'use strict';
 
-import browser from 'detect-browser';
-
 import titleCanvas from './titleCanvas';
-
-console.log(browser.name);
 
 /*
 document.addEventListener('DOMContentLoaded', () => {
@@ -14,8 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
 */
 
 window.onload = () => {
-  if (browser.name !== 'firefox') {
-    titleCanvas().init();
-  }
+  titleCanvas().init();
 };
 

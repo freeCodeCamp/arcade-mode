@@ -29,10 +29,6 @@
 
   &__am {
     &__link {
-      &:hover {
-        text-decoration: none;
-      }
-
       @media (max-width: 550px) {
         display: none;
       }
@@ -47,14 +43,12 @@
       height: 50px;
       clip-path: url(#AMLogo);
       transform: scaleY(0.5);
-      &--firefox {
-        font-family: Lato;
-        margin-top: 4px;
-        font-size: 28px;
-        color: white;
-        width: 220px;
-        height: 50px;
-      }
+    }
+
+    &__logo--ff {
+      width: 220px;
+      height: 50px;
+      clip-path: url(#arcadePathFF);
     }
 
     &__canvas {
@@ -70,6 +64,11 @@
     
     &__svg {
       display: block; // remove bottom clip from moz and webKit
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 50px;
     }
   }
 }

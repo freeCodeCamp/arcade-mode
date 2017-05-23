@@ -6,7 +6,7 @@ import React from 'react';
 const AMLogo = () => (
   <a href='//arcademode.herokuapp.com' className='am__am__link'>
     <div className='am__am__logo'>
-      <canvas className='am__am__canvas'></canvas>
+      <canvas className='am__am__canvas'>ARCADE MODE</canvas>
       <svg className='am__am__svg' xmlns='http://www.w3.org/2000/svg' height='0.11364' width='1'>
         <clipPath id='AMLogo' clipPathUnits='objectBoundingBox'>
           <path
