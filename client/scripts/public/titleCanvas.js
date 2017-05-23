@@ -18,6 +18,8 @@ export default function titleCanvas () {
   $.reset = () => {
     $.width = 220;
     $.height = 50;
+    $.canvas.width = $.width;
+    $.canvas.height = $.height;
     $.hue = 0;
   };
 

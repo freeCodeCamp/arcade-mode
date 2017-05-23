@@ -4,6 +4,10 @@
 import React from 'react';
 import { Navbar } from 'react-bootstrap';
 
+import browser from 'detect-browser';
+
+// import AMLogo from './AMLogo';
+
 /* Component at the top of page showing freeCodeCamp next and timer value. */
 const ArcadeNavbar = () => (
   <Navbar fluid className='am__navbar'>
@@ -17,16 +21,14 @@ const ArcadeNavbar = () => (
         </a>
       </Navbar.Brand>
     </Navbar.Header>
-    <a href='//arcademode.herokuapp.com' className='am__am__link'>
-      <div className='am__am__logo'>
-        <canvas className='am__am__canvas' height='50' width='220'>ARCADE MODE</canvas>
-        <svg className='am__am__svg'>
-          <clipPath id='arcadePath'>
-            <text className='am__am__canvas__text' x='0' y='35'>ARCADE MODE</text>
-          </clipPath>
-        </svg>
-      </div>
-    </a>
+    {/* browser.name !== 'firefox' &&
+      <AMLogo />
+    */}
+    { browser.name === 'firefox' &&
+      <a href='//arcademode.herokuapp.com' className='am__am__link'>
+        <div className='am__am__logo--firefox'>ARCADE MODE</div>
+      </a>
+    }
   </Navbar>
 );
 
