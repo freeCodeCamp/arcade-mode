@@ -35,6 +35,7 @@ const getIsSessionSaved = state => state.getIn(['session', 'isSessionSaved']);
 const getIsRunningTests = state => state.getIn(['test', 'isRunningTests']);
 const getIsProfileShown = state => state.getIn(['profile', 'isProfileShown']);
 const getUserData = state => state.getIn(['profile', 'userData']);
+const getSessionExpandStatus = state => state.getIn(['profile', 'sessionExpandStatus']);
 
 export default function makeMapStateToProps () {
   return createSelector(
@@ -68,6 +69,7 @@ export default function makeMapStateToProps () {
     getIsRunningTests,
     getIsProfileShown,
     getUserData,
+    getSessionExpandStatus,
     (
       modal,
       mode,
@@ -98,7 +100,8 @@ export default function makeMapStateToProps () {
       isSessionSaved,
       isRunningTests,
       isProfileShown,
-      userData
+      userData,
+      sessionExpandStatus
     ) => ({
       modal,
       mode,
@@ -129,7 +132,8 @@ export default function makeMapStateToProps () {
       isSessionSaved,
       isRunningTests,
       isProfileShown,
-      userData
+      userData,
+      sessionExpandStatus
     })
   );
 }
