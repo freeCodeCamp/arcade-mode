@@ -31,17 +31,20 @@ export default class UserProfile extends Component {
     this.props.deleteSession(session);
   }
 
-  // TODO: Refactor into own component <ProfileChallenge> to avoid bind
+  // TODO: Refactor into own component <ProfileChallenge> to avoid bind in props
   renderChallenges(sessionId, challenges) {
     const challengesJsx = challenges.map(challenge => {
-      console.log('CHALLENGE: ' + JSON.stringify(challenge));
+      console.log(`CHALLENGE: ${JSON.stringify(challenge)}`);
+      const callback = this.expandChallengeView.bind(this, sessionId, challenge.id);
 
       return (
         <ListGroupItem
           key={challenge.id}
-          onClick={this.expandChallengeView.bind(this, sessionId, challenge.id)}
+          onClick={callback}
         >
-          Challenge {challenge.id}: {challenge.get('title')}
+          <code>Challenge {challenge.id}: {challenge.get('title')}</code> |
+          Attempts: {challenge.get('attempts')} |
+          Start: {challenge.get('startTime')}
         </ListGroupItem>
       );
     });
