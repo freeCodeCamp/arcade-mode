@@ -92,7 +92,7 @@ export default function challenge(state = initialState, action) {
     case TESTS_FINISHED:
       return state
         .update('currChallenge', currChallenge =>
-          currChallenge.set('attempts', currChallenge.get('attempts'))
+          currChallenge.set('attempts', currChallenge.get('attempts') + 1)
         );
     case CODE_CHANGED:
       return state.set('code', action.code);
