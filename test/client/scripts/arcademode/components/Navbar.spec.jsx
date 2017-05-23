@@ -83,7 +83,6 @@ describe('Component: <ArcadeNavbar>', () => {
     expect(wrapper.find(Navbar.Brand)).to.have.length(1);
     expect(wrapper.find(Navbar.Brand).find('a')).to.have.length(1);
     expect(wrapper.find(Navbar.Brand).find('a').last().text()).to.equal('');
-    expect(wrapper.find(Navbar.Toggle)).to.have.length(1);
 
 
     /*
