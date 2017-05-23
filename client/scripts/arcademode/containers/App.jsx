@@ -46,7 +46,9 @@ import {
   actionHideProfile,
   saveUserData,
   loadUserData,
-  deleteSession
+  deleteSession,
+  toggleSessionView,
+  toggleChallengeView
 } from '../actions/profile';
 
 import makeMapStateToProps from '../selectors';
@@ -73,7 +75,10 @@ const mapDispatchToProps = dispatch => ({
   hideProfile: () => dispatch(actionHideProfile()),
   loadUserData: () => dispatch(loadUserData()),
   saveUserData: session => dispatch(saveUserData(session)),
-  deleteSession: session => dispatch(deleteSession(session))
+  deleteSession: session => dispatch(deleteSession(session)),
+  toggleSessionView: sessionId => dispatch(toggleSessionView(sessionId)),
+  toggleChallengeView: (sessionId, challengeId) =>
+    dispatch(toggleChallengeView(sessionId, challengeId))
 });
 
 export default connect(makeMapStateToProps, mapDispatchToProps)(ArcadeMode);

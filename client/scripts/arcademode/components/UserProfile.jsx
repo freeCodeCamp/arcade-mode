@@ -3,9 +3,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import ImmutablePropTypes from 'react-immutable-proptypes';
 import { ListGroup, ListGroupItem } from 'react-bootstrap';
 
 import UserData from '../models/UserData';
+import { printTime } from '../reducers/timer';
 
 /* Component which shows the user profile consisting of all past sessions and
  * challenges the user has completed. */
@@ -13,38 +15,44 @@ export default class UserProfile extends Component {
 
   constructor(props) {
     super(props);
-    this.expandChallengeView = this.expandChallengeView.bind(this);
-    this.expandSessionView = this.expandSessionView.bind(this);
+    this.toggleChallengeView = this.toggleChallengeView.bind(this);
+    this.toggleSessionView = this.toggleSessionView.bind(this);
     this.deleteSession = this.deleteSession.bind(this);
   }
 
-  expandChallengeView(sessionId, challengeId) {
-    console.log(`expandChallengeView ${sessionId} ${challengeId}`);
+  toggleChallengeView(sessionId, challengeId) {
+    this.props.toggleChallengeView(sessionId, challengeId);
   }
 
-  expandSessionView(sessionId) {
-    console.log(`expandSessionView ${sessionId}`);
+  toggleSessionView(sessionId) {
+    this.props.toggleSessionView(sessionId);
   }
 
   deleteSession(session) {
-    console.log(`<UserProfile> deleteSession with Id ${session.get('id')}`);
     this.props.deleteSession(session);
   }
 
   // TODO: Refactor into own component <ProfileChallenge> to avoid bind in props
   renderChallenges(sessionId, challenges) {
-    const challengesJsx = challenges.map(challenge => {
-      console.log(`CHALLENGE: ${JSON.stringify(challenge)}`);
-      const callback = this.expandChallengeView.bind(this, sessionId, challenge.id);
+    const expandStatus = this.props.sessionExpandStatus.getIn([sessionId, 'challenges']);
+    const challengesJsx = challenges.map((challenge, index) => {
+      const isExpanded = expandStatus.get(index);
+      const callback = this.toggleChallengeView.bind(this, sessionId, index);
+      const timeShown = printTime(challenge.get('endTime') - challenge.get('startTime'));
 
+      let challengeExpandedBody = null;
+      if (isExpanded) {
+        challengeExpandedBody = <p>Challenge expanded.</p>;
+      }
       return (
         <ListGroupItem
-          key={challenge.id}
+          key={challenge.get('id')}
           onClick={callback}
         >
-          <code>Challenge {challenge.id}: {challenge.get('title')}</code> |
+          Challenge {challenge.id}: <code>{challenge.get('title')}</code> |
           Attempts: {challenge.get('attempts')} |
-          Start: {challenge.get('startTime')}
+          Time: {timeShown}
+          {challengeExpandedBody}
         </ListGroupItem>
       );
     });
@@ -57,7 +65,7 @@ export default class UserProfile extends Component {
         <ListGroupItem>You have not completed any sessions yet.</ListGroupItem>
       );
     }
-    const sessions = this.props.userData.sessions.map(session => {
+    const sessions = this.props.userData.sessions.map((session, index) => {
       const sessionId = session.get('id');
       const score = session.get('score');
 
@@ -68,8 +76,11 @@ export default class UserProfile extends Component {
 
       let challenges = null;
       let numChallenges = 0;
+      const isExpanded = this.props.sessionExpandStatus.get(index).get('expanded');
       if (session.get('challenges')) {
-        challenges = this.renderChallenges(sessionId, session.get('challenges'));
+        if (isExpanded) {
+          challenges = this.renderChallenges(index, session.get('challenges'));
+        }
         numChallenges = session.get('challenges').size;
       }
       // TODO: Refactor into own component <ProfileSession> to avoid bind
@@ -79,7 +90,7 @@ export default class UserProfile extends Component {
         >
           Session: {sessionId} Score: {score} Challenges: {numChallenges} Duration: {sessionDuration}
           <div className='pull-right'>
-            <button className='btn' onClick={this.expandSessionView.bind(this, sessionId)}>Expand</button>
+            <button className='btn' onClick={this.toggleSessionView.bind(this, index)}>Expand</button>
             <button className='btn btn-danger' onClick={this.deleteSession.bind(this, session)}>Delete</button>
           </div>
           <ListGroup>
@@ -112,5 +123,8 @@ export default class UserProfile extends Component {
 
 UserProfile.propTypes = {
   userData: PropTypes.instanceOf(UserData).isRequired,
-  deleteSession: PropTypes.func.isRequired
+  deleteSession: PropTypes.func.isRequired,
+  toggleSessionView: PropTypes.func.isRequired,
+  toggleChallengeView: PropTypes.func.isRequired,
+  sessionExpandStatus: ImmutablePropTypes.list.isRequired
 };

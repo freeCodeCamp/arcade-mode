@@ -8,6 +8,8 @@ export const HIDE_PROFILE = 'HIDE_PROFILE';
 export const LOAD_USER_DATA = 'LOAD_USER_DATA';
 export const UPDATE_USER_DATA = 'UPDATE_USER_DATA';
 export const DELETE_SESSION = 'DELETE_SESSION';
+export const TOGGLE_CHALLENGE_VIEW = 'TOGGLE_CHALLENGE_VIEW';
+export const TOGGLE_SESSION_VIEW = 'TOGGLE_SESSION_VIEW';
 
 const persist = new Persist(window.localStorage);
 
@@ -63,5 +65,20 @@ export function actionDeleteSession(sessionId) {
   return {
     type: DELETE_SESSION,
     sessionId
+  };
+}
+
+export function toggleSessionView(sessionId) {
+  return {
+    type: TOGGLE_SESSION_VIEW,
+    sessionId
+  };
+}
+
+export function toggleChallengeView(sessionId, challengeId) {
+  return {
+    type: TOGGLE_CHALLENGE_VIEW,
+    sessionId,
+    challengeId
   };
 }
