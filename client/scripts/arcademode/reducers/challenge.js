@@ -21,12 +21,18 @@ import {
   TESTS_FINISHED
 } from '../actions/test';
 
-import AlgoChallenges from '../../../json/challenges.json';
-import DataStructures from '../../../json/challenges-data-structures.json';
+import FCCInterviewAlgorithms from '../../../../public/json/challenges-algorithms.json';
+import FCCInterviewDataStructures from '../../../../public/json/challenges-data-structures.json';
 
-const allChallenges = {
-  'Data structures': DataStructures.challenges,
-  Algorithms: AlgoChallenges.challenges
+import Challenges from '../../../../public/json/challenges-combined.json';
+
+const combinedChallenges = Object.keys(Challenges)
+  .reduce((arr, key) => arr.concat(Challenges[key].challenges), []);
+
+const challengeTypes = {
+  'Data structures': shuffle(FCCInterviewDataStructures.challenges),
+  Algorithms: shuffle(FCCInterviewAlgorithms.challenges),
+  Mixed: shuffle(combinedChallenges)
 };
 
 const initialState = Map({
@@ -37,12 +43,27 @@ const initialState = Map({
     Start to begin!
   `,
   challengeNumber: 0,
-  currChallenge: Map(Immutable.fromJS(AlgoChallenges.challenges[0])),
+  currChallenge: Map(Immutable.fromJS(challengeTypes.Algorithms[0])),
   currChallengeStartedAt: 0,
   nextChallenge: Map(),
   challengeType: 'Algorithms',
-  chosenChallenges: AlgoChallenges.challenges
+  chosenChallenges: challengeTypes.Algorithms
 });
+
+function shuffle (array) {
+  // Fisher-Yates shuffle
+  let i = array.length;
+  let r;
+  const newArray = array.slice();
+
+  while (i) {
+    r = Math.floor(Math.random() * i);
+    i -= 1;
+    [newArray[i], newArray[r]] = [newArray[r], newArray[i]];
+  }
+
+  return newArray;
+}
 
 function getNextChallenge(state) {
   return Map(Immutable.fromJS(
@@ -55,8 +76,8 @@ export default function challenge(state = initialState, action) {
     case CHALLENGE_TYPE:
       return state
         .set('challengeType', action.challengeType)
-        .set('chosenChallenges', allChallenges[action.challengeType])
-        .set('currChallenge', Map(Immutable.fromJS(allChallenges[action.challengeType][0])));
+        .set('chosenChallenges', challengeTypes[action.challengeType])
+        .set('currChallenge', Map(Immutable.fromJS(challengeTypes[action.challengeType][0])));
     case CHALLENGE_START: // lift to session start
       return state
         .update('challengeNumber', challengeNumber => challengeNumber + 1)
