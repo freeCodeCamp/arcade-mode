@@ -18,7 +18,6 @@ import Challenges from '../../../../../client/json/challenges.json';
 
 const firstChallenge = Challenges.challenges[0];
 const secondChallenge = Challenges.challenges[1];
-const thirdChallenge = Challenges.challenges[2];
 
 chai.use(chaiImmutable);
 
