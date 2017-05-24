@@ -36,6 +36,10 @@ const cssmin = require('gulp-cssmin');
 const imagemin = require('gulp-imagemin'); // supports png, jpg, gif, and svg only
 const cache = require('gulp-cache');
 
+// JSON processing
+// ---------------
+const jsoncombine = require('gulp-jsoncombine');
+
 
 // Configuration Objects
 // =====================
@@ -43,7 +47,6 @@ const cache = require('gulp-cache');
 // Entry points and sources
 // ------------------------
 const paths = {
-
   fonts: ['client/fonts/**/*'], // font sources
   images: ['client/images/**/*'], // image sources
   json: ['client/json/**/*'], // temporary storage for challenges
@@ -89,11 +92,19 @@ gulp.task('build-img', () => {
     .pipe(browserSync.reload({ stream: true }));
 });
 
-gulp.task('build-json', () =>
+gulp.task('build-json', () => {
+  // pass through individual files (currently algo+ds) for individual mode display:
   gulp.src(paths.json)
     .pipe(gulp.dest('public/json'))
-    .pipe(browserSync.reload({ stream: true }))
-);
+    .pipe(browserSync.reload({ stream: true }));
+
+  // pass through a bundled version for mixed mode display:
+  gulp.src(paths.json)
+    .pipe(jsoncombine('challenges-combined.json', data =>
+      new Buffer(JSON.stringify(data))
+    ))
+    .pipe(gulp.dest('public/json'));
+});
 
 gulp.task('build-js', () => {
   const streams = paths.scripts.map(script =>
