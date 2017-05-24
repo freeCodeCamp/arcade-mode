@@ -10,14 +10,16 @@ import { ListGroup } from 'react-bootstrap';
 import UserProfile from '../../../../../client/scripts/arcademode/components/UserProfile';
 import UserData from '../../../../../client/scripts/arcademode/models/UserData';
 
-
 chai.use(chaiEnzyme());
 
 const deleteSession = sinon.spy();
 
 const props = {
   userData: new UserData(),
-  deleteSession
+  deleteSession,
+  toggleSessionView: () => {},
+  toggleChallengeView: () => {},
+  sessionExpandStatus: {}
 };
 
 describe('Component: <UserProfile>', () => {
