@@ -15,9 +15,9 @@ export default class UserProfile extends Component {
 
   constructor(props) {
     super(props);
-    /*this.toggleChallengeView = this.toggleChallengeView.bind(this);
+    this.toggleChallengeView = this.toggleChallengeView.bind(this);
     this.toggleSessionView = this.toggleSessionView.bind(this);
-    this.deleteSession = this.deleteSession.bind(this);*/
+    this.deleteSession = this.deleteSession.bind(this);
   }
 
   toggleChallengeView(sessionId, challengeId) {
