@@ -73,12 +73,14 @@ export default class UserProfile extends Component {
       const endTime = session.get('endTime');
       const sessionDuration = printTime(endTime - startTime);
 
+      let expandButtonText = 'Show';
       let challenges = null;
       let numChallenges = 0;
       const isExpanded = this.props.sessionExpandStatus.get(index).get('expanded');
       if (session.get('challenges')) {
         if (isExpanded) {
           challenges = this.renderChallenges(index, session.get('challenges'));
+          expandButtonText = 'Hide';
         }
         numChallenges = session.get('challenges').size;
       }
@@ -89,7 +91,9 @@ export default class UserProfile extends Component {
         >
           Session: {sessionId} Score: {score} Challenges: {numChallenges} Duration: {sessionDuration}
           <div className='pull-right'>
-            <button className='btn' onClick={this.toggleSessionView.bind(this, index)}>Expand</button>
+            <button className='btn' onClick={this.toggleSessionView.bind(this, index)}>
+              {expandButtonText}
+            </button>
             <button className='btn btn-danger' onClick={this.deleteSession.bind(this, session)}>Delete</button>
           </div>
           <ListGroup>
