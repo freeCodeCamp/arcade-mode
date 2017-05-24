@@ -34,4 +34,10 @@ describe('Model: UserData', () => {
     userData = userData.deleteSession(0);
     expect(userData.get('sessions').size).to.equal(1);
   });
+
+  it('is not affected by out-of-index deletes', () => {
+    const userData = new UserData();
+    const modifiedData = userData.deleteSession(10);
+    expect(modifiedData).to.equal(userData);
+  });
 });
