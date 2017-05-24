@@ -1,5 +1,11 @@
 # PROGRESS for Arcade Mode
 
+## Tuesday 5/23/17
+
+### Tuomas:
+  - Progress:
+    1. UserProfile is mostly done, to view the completed session by user
+
 ## Sunday 5/21/17:
 ### Tim:
   - Progress:
