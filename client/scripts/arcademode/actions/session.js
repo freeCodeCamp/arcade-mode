@@ -10,8 +10,9 @@ export function actionSaveSession() {
   };
 }
 
-export function actionFinishSession() {
+export function actionFinishSession(endTime) {
   return {
-    type: SESSION_FINISH
+    type: SESSION_FINISH,
+    endTime
   };
 }

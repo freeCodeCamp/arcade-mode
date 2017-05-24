@@ -17,6 +17,10 @@ import {
   CHALLENGE_TYPE
 } from '../actions/challenge';
 
+import {
+  TESTS_FINISHED
+} from '../actions/test';
+
 import AlgoChallenges from '../../../json/challenges.json';
 import DataStructures from '../../../json/challenges-data-structures.json';
 
@@ -60,12 +64,18 @@ export default function challenge(state = initialState, action) {
         .set('description', state.getIn(['currChallenge', 'description']))
         .set('code', state.getIn(['currChallenge', 'challengeSeed']).join('\n'))
         .set('nextChallenge', getNextChallenge(state))
-        .set('currChallengeStartedAt', action.startTime);
+        .set('currChallengeStartedAt', action.startTime)
+        .setIn(['currChallenge', 'startTime'], action.startTime)
+        .setIn(['currChallenge', 'attempts'], 0);
     case PLAYER_PASSED:
     case CHALLENGE_NEXT:
       return state
         .update('challengeNumber', challengeNumber => challengeNumber + 1)
-        .set('currChallenge', state.get('nextChallenge'))
+        .set('currChallenge',
+          state.get('nextChallenge')
+            .set('startTime', action.startTime)
+            .set('attempts', 0)
+        )
         .set('currChallengeStartedAt', action.startTime)
         .set('title', state.getIn(['nextChallenge', 'title']))
         .set('description', state.getIn(['nextChallenge', 'description']))
@@ -79,6 +89,11 @@ export default function challenge(state = initialState, action) {
       }
       return state;
     }
+    case TESTS_FINISHED:
+      return state
+        .update('currChallenge', currChallenge =>
+          currChallenge.set('attempts', currChallenge.get('attempts') + 1)
+        );
     case CODE_CHANGED:
       return state.set('code', action.code);
     case MODAL_OPEN:

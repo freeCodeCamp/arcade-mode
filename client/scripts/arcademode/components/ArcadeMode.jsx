@@ -65,7 +65,7 @@ export default class ArcadeMode extends Component {
   onClickFinishSession() {
     const timeNow = new Date().getTime();
     this.props.stopTimer(timeNow);
-    this.props.finishSession();
+    this.props.finishSession(timeNow);
   }
 
   // TODO: Does too many things. Persisting data could go to redux middleware
@@ -217,6 +217,9 @@ export default class ArcadeMode extends Component {
               <UserProfile
                 userData={this.props.userData}
                 deleteSession={this.props.deleteSession}
+                toggleSessionView={this.props.toggleSessionView}
+                toggleChallengeView={this.props.toggleChallengeView}
+                sessionExpandStatus={this.props.sessionExpandStatus}
               />
             </Row>
           }
@@ -318,6 +321,8 @@ ArcadeMode.propTypes = {
   userData: PropTypes.instanceOf(UserData).isRequired,
   loadUserData: PropTypes.func.isRequired,
   saveUserData: PropTypes.func.isRequired,
-  deleteSession: PropTypes.func.isRequired
-
+  deleteSession: PropTypes.func.isRequired,
+  toggleSessionView: PropTypes.func.isRequired,
+  toggleChallengeView: PropTypes.func.isRequired,
+  sessionExpandStatus: ImmutablePropTypes.list.isRequired
 };
