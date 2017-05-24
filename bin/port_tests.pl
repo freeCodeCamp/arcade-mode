@@ -33,6 +33,7 @@ use File::Basename;
 my %opt;
 GetOptions(
   "all-in-test" => \$opt{all_in_test},
+  "check-only" => \$opt{check_only},
   "d|debug"     => \$opt{debug},
   "f|file=s"    => \$opt{file},
   "t|target=s"  => \$opt{target},
@@ -40,6 +41,7 @@ GetOptions(
   "with-source" => \$opt{with_source},
 );
 
+# Regexps to extract rudimentary info about source files. Replace with acorn at some point.
 my $export_default_re = qr/^\s*export\s*default\s+(class|function|const|let|var)\s+(\w+)/;
 my $module_exports_re = qr/^\s*module\.exports\*=\s*(\w+)/;
 my $exports_re = qr/^\s*export\s+(class|function|const|let|var)\s+(\w+)/;
@@ -66,8 +68,8 @@ foreach my $f (@files) {chomp($f);}
 # This saves the new files that were created
 my @new_files = ();
 
-if (not -d $test_dir) {
-  if (not defined $opt{debug}) { 
+if (not -d $test_dir and not $opt{check_only}) {
+  if (not defined $opt{debug}) {
     mkdir($test_dir) or die $!;
   }
 }
@@ -100,7 +102,7 @@ foreach my $f (@files) {
     print "\tSUFFIX: $suffix\n";
   }
 
-  if (not -d $target_dir) {
+  if (not -d $target_dir and not defined $opt{check_only}) {
     _exec("mkdir -p $target_dir");
   }
 
@@ -129,12 +131,19 @@ foreach my $f (@files) {
 
 # Print out the summary of script
 if (int(@new_files) > 0) {
-  print "Following new spec-files were created:\n";
+
+  if (defined $opt{check_only}) {
+    print "Following spec files should be created:\n";
+  }
+  else {
+    print "Following new spec-files were created:\n";
+  }
+
   foreach my $f (@new_files) {
     print "\t$f\n";
   }
   if (int(@skipped) > 0) {
-    print "Following files skipped due to file-suffix:\n";
+    print "Following files were skipped due to file-suffix:\n";
     foreach my $f (@skipped) {
       print "\tSKIPPED: $f\n";
     }
@@ -169,33 +178,35 @@ sub copy_and_process_file {
   my $src_file = $fdata->{src_full_path};
   my $target_file = $fdata->{target_full_path};
 
-  open(my $IFILE, "<", $src_file) or die $!;
-  open(my $OFILE, ">", $target_file) or die $!;
+  if (not defined $opt{check_only}) {
+      open(my $IFILE, "<", $src_file) or die $!;
+      open(my $OFILE, ">", $target_file) or die $!;
 
-  my $default_export = '';
+      my $default_export = '';
 
-  my $exports = '';
+      my $exports = '';
 
-  while (my $line = <$IFILE>) {
-    print $OFILE "// $line";
-    if ($line =~ $export_default_re) {
-      $default_export = $2;
-    }
-    elsif ($line =~ $module_exports_re) {
-      $default_export = $1;
-    }
+      while (my $line = <$IFILE>) {
+        print $OFILE "// $line";
+        if ($line =~ $export_default_re) {
+          $default_export = $2;
+        }
+        elsif ($line =~ $module_exports_re) {
+          $default_export = $1;
+        }
 
-    if ($line =~ $exports_re) {
-      $exports .= "$2, ";
-    }
+        if ($line =~ $exports_re) {
+          $exports .= "$2, ";
+        }
+      }
+      $exports =~ s/,\s+$//g;
+
+      # Add chai/mocha boilerplate
+      add_chai_mocha_test_boilerplate($OFILE, $fdata, $default_export, $exports);
+
+      close $OFILE;
+      close $IFILE;
   }
-  $exports =~ s/,\s+$//g;
-
-  # Add chai/mocha boilerplate
-  add_chai_mocha_test_boilerplate($OFILE, $fdata, $default_export, $exports);
-
-  close $OFILE;
-  close $IFILE;
   push(@new_files, $target_file);
 }
 
@@ -255,6 +266,7 @@ sub usage {
 
   Options:
     -all-in-test    All files in test/ (-t|target) folder.
+    -check-only     Checks which files are missing tests, no are files created.
     -d|debug        Run in debug mode (no output files created)
     -f|file         Input source file.
     -t|target       Target folder for test files. (default: test)
