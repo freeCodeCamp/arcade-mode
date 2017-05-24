@@ -51,16 +51,18 @@ export default function profile(state = initialState, action) {
         .set('userData', newUserData)
         .set('sessionExpandStatus', createExpandStatus(newUserData));
     }
-    case UPDATE_USER_DATA:
+    case UPDATE_USER_DATA: {
+      const newUserData = state.get('userData').appendSession(action.session);
       return state
-        .update('userData', userData =>
-          userData.appendSession(action.session)
-        );
-    case DELETE_SESSION:
+        .set('userData', newUserData)
+        .set('sessionExpandStatus', createExpandStatus(newUserData));
+    }
+    case DELETE_SESSION: {
+      const newUserData = state.get('userData').deleteSession(action.sessionId);
       return state
-        .update('userData', userData =>
-          userData.deleteSession(action.sessionId)
-        );
+        .set('userData', newUserData)
+        .set('sessionExpandStatus', createExpandStatus(newUserData));
+    }
     case TOGGLE_SESSION_VIEW: // sId
       return state
         .update('sessionExpandStatus', sessionExpandStatus =>
@@ -68,7 +70,7 @@ export default function profile(state = initialState, action) {
             !sessionExpandStatus.get(action.sessionId).get('expanded')
           )
         );
-    case TOGGLE_CHALLENGE_VIEW: // sId, cId
+    case TOGGLE_CHALLENGE_VIEW: // sId, cId, TODO
       return state;
     default:
       return state;
