@@ -14,7 +14,7 @@ import {
   onCodeChange
 } from '../../../../../client/scripts/arcademode/actions/challenge';
 
-import Challenges from '../../../../../client/json/challenges.json';
+import Challenges from '../../../../../client/json/challenges-algorithms.json';
 
 const firstChallenge = Challenges.challenges[0];
 const secondChallenge = Challenges.challenges[1];
