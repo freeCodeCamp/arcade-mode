@@ -5,7 +5,7 @@ module.exports = app => {
 
   app.use((req, res, next) => {
     // if (process.env.NODE_ENV === 'production' && !req.secure) {
-    
+
     if (req.get('X-Forwarded-Proto') !== 'https' && req.get('X-Forwarded-Port') !== '443'
         && req.hostname !== 'localhost') {
       return res.redirect(`https://${req.hostname}${req.url}`);
