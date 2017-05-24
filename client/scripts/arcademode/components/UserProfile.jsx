@@ -71,8 +71,7 @@ export default class UserProfile extends Component {
 
       const startTime = session.get('startTime');
       const endTime = session.get('endTime');
-      const sessionDuration = endTime - startTime;
-      console.log(`end: ${endTime} start: ${startTime}`);
+      const sessionDuration = printTime(endTime - startTime);
 
       let challenges = null;
       let numChallenges = 0;
