@@ -31,27 +31,18 @@ export default class UserData extends Record(recordDefs) {
   }
 
   getSession(n) {
-    if (n < this.sessions.size) {
-      return this.sessions.get(n);
+    if (n < this.get('sessions').size) {
+      return this.get('sessions').get(n);
     }
     return null;
   }
 
   /* Returns challenges for given session. */
   getChallengesForSession(n) {
-    if (n < this.sessions.size) {
-      return this.sessions.get(n).get('challenges');
+    if (n < this.get('sessions').size) {
+      return this.get('sessions').get(n).get('challenges');
     }
     return null;
-  }
-
-  /* Reconstructs the object from JSON. */
-  fromJSON(inputJSON) {
-    let obj = inputJSON;
-    if (typeof obj === 'string') {
-      obj = JSON.parse(obj);
-    }
-    this.sessions = obj.sessions;
   }
 
 }
