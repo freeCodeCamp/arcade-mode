@@ -1,10 +1,20 @@
 # PROGRESS for Arcade Mode
 
-## Tuesday 5/23/17
+## Wednesday 5/24/17:
+### Tim:
+  - Progress:
+    1. Add mixed challenges option (combined algorithms + data structures).
+    2. Add challenge shuffling.
 
+## Tuesday 5/23/17:
 ### Tuomas:
   - Progress:
     1. UserProfile is mostly done, to view the completed session by user
+
+## Monday 5/22/17:
+### Tim:
+  - Progress:
+    1. Fix svg clip-path for ARCADE MODE title.
 
 ## Sunday 5/21/17:
 ### Tim:
