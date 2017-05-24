@@ -15,9 +15,9 @@ export default class UserProfile extends Component {
 
   constructor(props) {
     super(props);
-    this.toggleChallengeView = this.toggleChallengeView.bind(this);
+    /*this.toggleChallengeView = this.toggleChallengeView.bind(this);
     this.toggleSessionView = this.toggleSessionView.bind(this);
-    this.deleteSession = this.deleteSession.bind(this);
+    this.deleteSession = this.deleteSession.bind(this);*/
   }
 
   toggleChallengeView(sessionId, challengeId) {
@@ -90,11 +90,11 @@ export default class UserProfile extends Component {
           key={sessionId}
         >
           Session: {sessionId} Score: {score} Challenges: {numChallenges} Duration: {sessionDuration}
-          <div className='pull-right'>
-            <button className='btn' onClick={this.toggleSessionView.bind(this, index)}>
+          <div className='profile-buttons'>
+            <button className='btn btn-sm' onClick={this.toggleSessionView.bind(this, index)}>
               {expandButtonText}
             </button>
-            <button className='btn btn-danger' onClick={this.deleteSession.bind(this, session)}>Delete</button>
+            <button className='btn btn-sm btn-danger' onClick={this.deleteSession.bind(this, session)}>Delete</button>
           </div>
           <ListGroup>
             {challenges}
