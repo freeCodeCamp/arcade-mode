@@ -40,6 +40,9 @@ const cache = require('gulp-cache');
 // ---------------
 const jsoncombine = require('gulp-jsoncombine');
 
+// Appcache creation
+const manifest = require('gulp-manifest');
+
 
 // Configuration Objects
 // =====================
@@ -47,19 +50,27 @@ const jsoncombine = require('gulp-jsoncombine');
 // Entry points and sources
 // ------------------------
 const paths = {
+  entry: { // entry points
+    scripts: ['client/scripts/arcademode/main.jsx', 'client/scripts/public/arcademode.js', 'client/scripts/public/worker.js'],
+    stylesheets: ['client/stylesheets/style.scss']
+  },
   fonts: ['client/fonts/**/*'], // font sources
   images: ['client/images/**/*'], // image sources
   json: ['client/json/**/*'], // temporary storage for challenges
-  scripts: ['client/scripts/arcademode/main.jsx', 'client/scripts/public/arcademode.js', 'client/scripts/public/worker.js'], // entry point scripts
-  stylesheets: ['client/stylesheets/style.scss'], // entry point stylesheets
-  watchScripts: ['client/scripts/**/*.js*'],
-  watchStylesheets: ['client/stylesheets/**/*.scss']
+  scripts: ['client/scripts/**/*'],
+  stylesheets: ['client/stylesheets/**/*'],
+  vendor: {
+    scripts: ['client/scripts/vendor/**/*'], // browserify currently imports loop-protect
+    stylesheets: ['client/stylesheets/vendor/**/*.css']
+  }
 };
 
 
 // Gulp Tasks
 // ==========
 
+// Hot-reloading
+// -------------
 gulp.task('browser-sync', ['watch-dev'], () => {
   browserSync.init({
     proxy: {
@@ -72,8 +83,39 @@ gulp.task('browser-sync', ['watch-dev'], () => {
   });
 });
 
+// Appcache file creation
+// ----------------------
+gulp.task('build-appcache', ['build'], () =>
+  gulp.src('public/**/*', { base: 'public' })
+    .pipe(manifest({
+      hash: true,
+      preferOnline: true,
+      network: ['*'],
+      // fallback:
+      filename: 'offline.appcache',
+      exclude: 'offline.appcache'
+    }))
+    .pipe(gulp.dest('public'))
+);
+
+gulp.task('build-appcache-dev', ['build-dev'], () =>
+  gulp.src('public/**/*', { base: 'public' })
+    .pipe(manifest({
+      hash: true,
+      preferOnline: true,
+      network: ['*'],
+      // fallback:
+      filename: 'offline.appcache',
+      exclude: 'offline.appcache'
+    }))
+    .pipe(gulp.dest('public'))
+);
+
+
+// Build tasks
+// -----------
 gulp.task('build-font', () =>
-  gulp.src(paths.fonts)
+  gulp.src(paths.fonts, { base: 'client/fonts' })
     .pipe(gulp.dest('public/font')) // no processing because fonts are already optimized
     .pipe(browserSync.reload({ stream: true }))
 );
@@ -107,7 +149,7 @@ gulp.task('build-json', () => {
 });
 
 gulp.task('build-js', () => {
-  const streams = paths.scripts.map(script =>
+  const streams = paths.entry.scripts.map(script =>
     browserify({
       entries: script,
       extensions: ['.jsx'],
@@ -135,15 +177,26 @@ gulp.task('build-js', () => {
   return es.merge.apply(null, streams);
 });
 
-gulp.task('build-css', () =>
-  gulp.src(paths.stylesheets[0]) // only the entry/index sheet, style.scss
+gulp.task('build-css', () => {
+  gulp.src(paths.entry.stylesheets[0]) // only the entry/index sheet, style.scss
     .pipe(plumber())
     .pipe(sass())
     .pipe(autoprefixer())
     .pipe(cssmin())
     .pipe(gulp.dest('public/css'))
-    .pipe(browserSync.reload({ stream: true }))
-);
+    .pipe(browserSync.reload({ stream: true }));
+
+  // any vendor css files, minify then pass through
+  gulp.src(paths.vendor.stylesheets, { base: 'client/stylesheets/vendor' })
+    .pipe(plumber())
+    .pipe(autoprefixer())
+    .pipe(cssmin())
+    .pipe(rename(path => {
+      path.extname = '.min.css';
+    }))
+    .pipe(gulp.dest('public/css/vendor'))
+    .pipe(browserSync.reload({ stream: true }));
+});
 
 
 // DEV-tasks (not used in production)
@@ -163,7 +216,7 @@ if (process.env.NODE_ENV !== 'production') {
 
   // Incrementally building the js
   gulp.task('build-js-inc', () => {
-    const streams = paths.scripts.map(script => {
+    const streams = paths.entry.scripts.map(script => {
       const b = browserify(Object.assign({}, browserifyInc.args,
         {
           entries: script,
@@ -220,18 +273,21 @@ gulp.task('clear-cache', done => cache.clearAll(done)); // clears img cache
 gulp.task('build', ['build-font', 'build-img', 'build-json', 'build-js', 'build-css']);
 gulp.task('build-dev', ['build-font', 'build-img', 'build-json', 'build-js-inc', 'build-css']);
 
-gulp.task('watch', ['build'], () => {
+gulp.task('generate-public', ['build-appcache']);
+gulp.task('generate-public-dev', ['build-appcache-dev']);
+
+gulp.task('watch', ['generate-public'], () => {
   gulp.watch(paths.fonts, ['build-font']);
   gulp.watch(paths.images, ['build-img']);
   gulp.watch(paths.json, ['build-json']);
-  gulp.watch(paths.watchScripts, ['build-js']);
-  gulp.watch(paths.watchStylesheets, ['build-css']);
+  gulp.watch(paths.scripts, ['build-js']);
+  gulp.watch(paths.stylesheets, ['build-css']);
 });
 
-gulp.task('watch-dev', ['build-dev'], () => {
+gulp.task('watch-dev', ['generate-public-dev'], () => {
   gulp.watch(paths.fonts, ['build-font']);
   gulp.watch(paths.images, ['build-img']);
   gulp.watch(paths.json, ['build-json']);
-  gulp.watch(paths.watchScripts, ['build-js-inc']);
-  gulp.watch(paths.watchStylesheets, ['build-css']);
+  gulp.watch(paths.scripts, ['build-js-inc']);
+  gulp.watch(paths.stylesheets, ['build-css']);
 });

@@ -1,19 +1,23 @@
 doctype html
-html(lang='en')
+html(lang='en' manifest='public/offline.appcache')
   head
     meta(charset='utf-8')
     meta(http-equiv='x-ua-compatible' content='ie=edge')
     meta(name='viewport' content='width=device-width initial-scale=1')
-    title Arcade Mode 
-    - if (offline === false) {
-    link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/sandstone/bootstrap.min.css' integrity='sha256-ZQXv0eafHNkkygY9dYSfC7D5N3RwL2fRXwSlTI3wcJE=' crossorigin='anonymous')
-    link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.2/codemirror.min.css' integrity='sha256-GGAcbnLrt4/AHq5cP2+2UWetYcNsQNjNMqSRStBoPLQ=' crossorigin='anonymous')
-    link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.2/theme/monokai.min.css' integrity='sha256-L0pJRnSmrQFY0qbGtEdIfJwxE79VZefpW+02lGW8gag=' crossorigin='anonymous')
-    link(href='https://fonts.googleapis.com/css?family=Lato:900|Kalam' rel='stylesheet')
-    - } else {
-      link(rel='stylesheet' href="/public/css/bootstrap/bootstrap.min.css")
-      link(rel='stylesheet' href="/public/css/codemirror/codemirror.min.css")
-      link(rel='stylesheet' href="/public/css/codemirror/monokai.min.css")
-    - }
+    title Arcade Mode
+    //
+      - if (offline === false) {
+      link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/sandstone/bootstrap.min.css' integrity='sha256-ZQXv0eafHNkkygY9dYSfC7D5N3RwL2fRXwSlTI3wcJE=' crossorigin='anonymous')
+      link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.2/codemirror.min.css' integrity='sha256-GGAcbnLrt4/AHq5cP2+2UWetYcNsQNjNMqSRStBoPLQ=' crossorigin='anonymous')
+      link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.2/theme/monokai.min.css' integrity='sha256-L0pJRnSmrQFY0qbGtEdIfJwxE79VZefpW+02lGW8gag=' crossorigin='anonymous')
+      link(href='https://fonts.googleapis.com/css?family=Lato:900|Kalam' rel='stylesheet')
+      - } else {
+        link(rel='stylesheet' href='/public/css/bootstrap/bootstrap.min.css')
+        link(rel='stylesheet' href='/public/css/codemirror/codemirror.min.css')
+        link(rel='stylesheet' href='/public/css/codemirror/monokai.min.css')
+      - }
+    link(rel='stylesheet' href='/public/css/vendor/bootswatch/bootstrap.min.css')
+    link(rel='stylesheet' href='/public/css/vendor/codemirror/codemirror.min.css')
+    link(rel='stylesheet' href='/public/css/vendor/codemirror/monokai.min.css')
     link(rel='stylesheet' href='/public/css/style.css')
   body

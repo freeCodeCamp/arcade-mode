@@ -2,10 +2,9 @@
 
 @charset 'utf-8';
 
-@import 'partials/_elements.general';
+@import 'partials/_settings.imports';
 
-// @import 'vendor/codemirror';
-// @import 'vendor/codemirror-monokai';
+@import 'partials/_elements.general';
 
 @import 'partials/_components.general';
 @import 'partials/_components.arcade-modal';
