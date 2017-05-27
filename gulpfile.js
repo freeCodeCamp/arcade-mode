@@ -85,7 +85,7 @@ gulp.task('browser-sync', ['watch-dev'], () => {
 
 // Appcache file creation
 // ----------------------
-gulp.task('build-appcache', ['build'], () =>
+gulp.task('build-appcache', ['build-types'], () =>
   gulp.src('public/**/*', { base: 'public' })
     .pipe(manifest({
       hash: true,
@@ -273,13 +273,13 @@ gulp.task('clear-cache', done => cache.clearAll(done)); // clears img cache
 // Bundled tasks
 // -------------
 
-gulp.task('build', ['build-font', 'build-img', 'build-json', 'build-js', 'build-css']);
+gulp.task('build-types', ['build-font', 'build-img', 'build-json', 'build-js', 'build-css']);
 gulp.task('build-dev', ['build-font', 'build-img', 'build-json', 'build-js-inc', 'build-css']);
 
-gulp.task('generate-public', ['build-appcache']);
+gulp.task('build', ['build-appcache']);
 gulp.task('generate-public-dev', ['build-appcache-dev']);
 
-gulp.task('watch', ['generate-public'], () => {
+gulp.task('watch', ['build'], () => {
   gulp.watch(paths.fonts, ['build-font']);
   gulp.watch(paths.images, ['build-img']);
   gulp.watch(paths.json, ['build-json']);
