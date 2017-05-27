@@ -76,7 +76,7 @@ self.addEventListener('fetch', event => {
   switch (event.request.url.split('.')[event.request.url.split('.').length - 1]) {
     case 'http://localhost:3000/':
     case 'http://localhost:8080/':
-    case 'https://arcademode.herokuapp.com/':
+    case 'com/':
       requestType = 'html';
       break;
     case 'ttf':
