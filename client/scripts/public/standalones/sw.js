@@ -35,7 +35,7 @@ const CACHE = {
     'public/css/vendor/codemirror/monokai.min.css'
   ],
 
-  html: ['/', 'index.html'],
+  html: ['/'],
 
   img: [
     'public/img/FCClogo.svg',
