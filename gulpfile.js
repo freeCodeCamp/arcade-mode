@@ -51,7 +51,7 @@ const manifest = require('gulp-manifest');
 // ------------------------
 const paths = {
   entry: { // entry points
-    scripts: ['client/scripts/arcademode/main.jsx', 'client/scripts/public/arcademode.js', 'client/scripts/public/worker.js'],
+    scripts: ['client/scripts/arcademode/main.jsx', 'client/scripts/public/index.js', 'client/scripts/public/standalones/ww.js', 'client/scripts/public/standalones/sw.js'],
     stylesheets: ['client/stylesheets/style.scss']
   },
   fonts: ['client/fonts/**/*'], // font sources
@@ -96,6 +96,7 @@ gulp.task('build-appcache', ['build'], () =>
       exclude: 'offline.appcache'
     }))
     .pipe(gulp.dest('public'))
+    .pipe(browserSync.reload({ stream: true }))
 );
 
 gulp.task('build-appcache-dev', ['build-dev'], () =>
@@ -109,6 +110,7 @@ gulp.task('build-appcache-dev', ['build-dev'], () =>
       exclude: 'offline.appcache'
     }))
     .pipe(gulp.dest('public'))
+    .pipe(browserSync.reload({ stream: true }))
 );
 
 
@@ -145,7 +147,8 @@ gulp.task('build-json', () => {
     .pipe(jsoncombine('challenges-combined.json', data =>
       new Buffer(JSON.stringify(data))
     ))
-    .pipe(gulp.dest('public/json'));
+    .pipe(gulp.dest('public/json'))
+    .pipe(browserSync.reload({ stream: true }));
 });
 
 gulp.task('build-js', () => {
