@@ -35,7 +35,7 @@ const CACHE = {
     'public/css/vendor/codemirror/monokai.min.css'
   ],
 
-  html: ['/'],
+  html: ['/', 'index.html'],
 
   img: [
     'public/img/FCClogo.svg',
@@ -76,7 +76,7 @@ self.addEventListener('fetch', event => {
   switch (event.request.url.split('.')[event.request.url.split('.').length - 1]) {
     case 'http://localhost:3000/':
     case 'http://localhost:8080/':
-    case 'com':
+    case 'com/':
       requestType = 'html';
       break;
     case 'ttf':
