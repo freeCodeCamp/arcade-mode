@@ -15,7 +15,7 @@ const ArcadeNavbar = () => (
       <Navbar.Brand>
         <a className='am__fcc__link' href='//freecodecamp.com'>
           <img
-            src='//s3.amazonaws.com/freecodecamp/freecodecamp_logo.svg'
+            src='public/img/FCClogo.svg'
             alt='Free Code Camp logo' className='am__fcc__logo'
           />
         </a>

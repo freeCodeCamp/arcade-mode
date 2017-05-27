@@ -3,7 +3,7 @@
 
 import { expect } from 'chai';
 
-import titleCanvas from '../../../../client/scripts/public/titleCanvas';
+import titleCanvas from '../../../../client/scripts/public/modules/titleCanvas';
 
 describe('ARCADE MODE Canvas animation', () => {
   const canvasObject = titleCanvas();

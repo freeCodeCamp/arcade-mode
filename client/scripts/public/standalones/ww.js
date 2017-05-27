@@ -11,7 +11,7 @@
 // used require because import didn't work
 const assert = require('chai').assert;
 const babel = require('babel-core');
-const loopProtect = require('../vendor/loop-protect');
+const loopProtect = require('../../vendor/loop-protect');
 
 self.onmessage = e => {
   const userCode = e.data[0];

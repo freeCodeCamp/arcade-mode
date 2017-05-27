@@ -45,9 +45,18 @@ describe('Reducer: challenge', () => {
   });
 
   it('should insert a solution when requested', () => {
+    // Shuffled problems may not have solutions
+    /*
     const initialState = reducer(undefined, dummyAction);
     const nextState = reducer(initialState, actionSolveChallenge());
     assert.notEqual(initialState.get('code'), nextState.get('code'));
+    */
+    const state = Immutable.Map({
+      currChallenge: Immutable.fromJS({ solutions: ['42'] }),
+      code: ''
+    });
+    const nextState = reducer(state, actionSolveChallenge());
+    assert.notEqual(state.get('code'), nextState.get('code'));
   });
 
   it('yields no solution if challenge does not have it', () => {

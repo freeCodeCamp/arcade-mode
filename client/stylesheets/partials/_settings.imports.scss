@@ -1,0 +1,15 @@
+// _settings.imports.scss - top level imports before all styles
+
+@font-face {
+  font-family: Lato;
+  font-style: normal;
+  font-weight: 900;
+  src: url('../font/Lato/Lato-Black.ttf');
+}
+
+@font-face {
+  font-family: Kalam;
+  font-style: normal;
+  font-weight: 400;
+  src: url('../font/Kalam/Kalam-Regular.ttf');
+}

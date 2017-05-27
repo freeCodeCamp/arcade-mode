@@ -11,10 +11,12 @@
   ],
   "rules": {
     // http://eslint.org/docs/rules/
+    "array-callback-return": 0,
     "arrow-parens": ["error", "as-needed"], // only require parens when necessary
     "brace-style": 0,
     "comma-dangle": ["error", "never"], // disallow trailing commas
     "consistent-return": 0,
+    "func-names": ["error", "never"],
     "global-require": 0, // requires should be at the top not elsewhere, but sometimes..
     "jsx-quotes": ["error", "prefer-single"],
     "max-len": 0,
