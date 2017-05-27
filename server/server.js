@@ -1,6 +1,7 @@
 loadDotEnv();
 
 const express = require('express');
+const path = require('path');
 // const mongoose = require('mongoose');
 // const session = require('express-session');
 // const MongoStore = require('connect-mongo')(session);
@@ -9,9 +10,9 @@ const compression = require('compression');
 // const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const favicon = require('serve-favicon');
-
 const routes = require('./routes/routes');
 
+const resolve = file => { console.log(path.resolve(process.cwd(), file)); return path.resolve(process.cwd(), file); };
 
 const port = process.env.PORT || 8080;
 // const mongoURI = process.env.MONGO_URI || 'mongodb://localhost:27017/arcade-mode';
@@ -28,8 +29,9 @@ const app = express();
 app.use(compression());
 app.use(helmet());
 app.use(morgan('combined'));
-app.use(favicon(`${process.cwd()}/public/img/favicon.ico`));
-app.use('/public', express.static(`${process.cwd()}/public`));
+app.use(favicon(resolve('./public/img/favicon.ico')));
+app.use('/sw.js', express.static(resolve('./public/js/sw.bundle.js')));
+app.use('/public', express.static(resolve('./public')));
 // app.use(bodyParser.urlencoded({ extended: false }));
 // app.use(bodyParser.json());
 
@@ -44,7 +46,7 @@ app.use(session({
 */
 
 app.set('view engine', 'pug');
-app.set('views', `${process.cwd()}/server/views`);
+app.set('views', resolve('./server/views'));
 app.locals.basedir = app.get('views'); // allows for pug includes
 
 routes(app);

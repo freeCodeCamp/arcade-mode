@@ -19,7 +19,7 @@ import Editor from '../../../../../client/scripts/arcademode/components/Editor';
 // import reducers from '../../../../../client/scripts/arcademode/reducers';
 // import challengeActions from '../../../../../client/scripts/arcademode/actions/challenge';
 
-import Challenges from '../../../../../client/json/challenges.json';
+import Challenges from '../../../../../client/json/challenges-algorithms.json';
 
 chai.use(chaiEnzyme());
 

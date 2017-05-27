@@ -125,16 +125,16 @@
 /* Unit tests for file client/scripts/public/worker.js. */
 import { expect } from 'chai';
 
-import Challenges from '../../../../client/json/challenges.json';
+import Challenges from '../../../../client/json/challenges-algorithms.json';
 
 const Worker = require('tiny-worker');
 
-describe('Worker', () => {
+describe('Web Worker', () => {
   it('should return correctly', () => {
     const promise = new Promise(res => {
       // const dummyWorker = new Worker('./client/scripts/public/worker.js');
       // both versions work now.
-      const dummyWorker = new Worker('./public/js/worker.bundle.js');
+      const dummyWorker = new Worker('./public/js/ww.bundle.js');
 
       dummyWorker.onmessage = e => {
         res(e.data);

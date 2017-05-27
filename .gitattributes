@@ -1,0 +1,4 @@
+client/images/ linguist-vendored
+client/json/ linguist-vendored
+vendor/ linguist-vendored
+*.jsx linguist-language=JavaScript

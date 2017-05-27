@@ -1,7 +1,8 @@
 
 'use strict';
 
-import titleCanvas from './titleCanvas';
+import titleCanvas from './modules/titleCanvas';
+import swRegistration from './modules/swRegistration';
 
 /*
 document.addEventListener('DOMContentLoaded', () => {
@@ -10,6 +11,10 @@ document.addEventListener('DOMContentLoaded', () => {
 */
 
 window.onload = () => {
+  console.log('onload fired');
+
   titleCanvas().init();
+
+  swRegistration();
 };
 

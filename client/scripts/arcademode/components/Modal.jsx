@@ -140,6 +140,7 @@ const ArcadeModal = props => (
             >
               <option value='Algorithms'>Algorithms</option>
               <option value='Data structures'>Data structures</option>
+              <option value='Mixed'>Mixed</option>
             </FormControl>
           </Col>
         </FormGroup>
