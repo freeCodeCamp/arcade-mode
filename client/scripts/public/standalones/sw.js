@@ -76,7 +76,7 @@ self.addEventListener('fetch', event => {
   switch (event.request.url.split('.')[event.request.url.split('.').length - 1]) {
     case 'http://localhost:3000/':
     case 'http://localhost:8080/':
-    case 'com/':
+    case 'com':
       requestType = 'html';
       break;
     case 'ttf':
@@ -100,6 +100,7 @@ self.addEventListener('fetch', event => {
 
   if (requestType === 'not found') {
     console.log(`Requested type, ${event.request.url}, is not in the cache`);
+    console.log(event.request.url.split('.')[event.request.url.split('.').length - 1]);
     return fetch(event.request);
   }
   event.respondWith(
