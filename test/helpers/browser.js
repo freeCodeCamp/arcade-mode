@@ -12,6 +12,7 @@ const dom = new JSDOM('<!DOCTYPE html><html><head></head><body></body></html>');
 
 global.window = dom.window;
 global.document = dom.window.document;
+global.navigator = global.window.navigator;
 
 Object.keys(global.window).forEach(property => {
   if (typeof global[property] === 'undefined') {
@@ -22,10 +23,11 @@ Object.keys(global.window).forEach(property => {
 if (global.window.requestAnimationFrame === undefined) {
   requestAnimFrame(); // polyfill
 }
-
+/*
 global.navigator = {
   userAgent: 'node.js'
 };
+*/
 
 global.window.localStorage = new MockStorage();
 
