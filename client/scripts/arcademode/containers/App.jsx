@@ -9,14 +9,14 @@ import {
   startChallenge,
   nextChallenge,
   actionSolveChallenge,
-  onCodeChange,
-  challengeType
+  onCodeChange
 } from '../actions/challenge';
 
 import {
   onChangeMode,
   onChangeDifficulty,
-  onChangeEditor
+  onChangeEditor,
+  onChangeChallengeType
 } from '../actions/gamesetting';
 
 import {
@@ -54,9 +54,10 @@ import {
 import makeMapStateToProps from '../selectors';
 
 const mapDispatchToProps = dispatch => ({
-  onChangeMode: mode => dispatch(onChangeMode(mode)),
-  onChangeDifficulty: difficulty => dispatch(onChangeDifficulty(difficulty)),
-  onChangeEditor: editor => dispatch(onChangeEditor(editor)),
+  onChangeMode: event => dispatch(onChangeMode(event)),
+  onChangeDifficulty: event => dispatch(onChangeDifficulty(event)),
+  onChangeEditor: event => dispatch(onChangeEditor(event)),
+  onChangeChallengeType: event => dispatch(onChangeChallengeType(event)),
   onClickPass: () => dispatch(onClickPass()),
   onModalClose: () => dispatch(onModalClose()),
   onModalOpen: () => dispatch(onModalOpen()),
@@ -64,7 +65,6 @@ const mapDispatchToProps = dispatch => ({
   finishSession: endTime => dispatch(actionFinishSession(endTime)),
   runTests: (userCode, currChallenge) => dispatch(runTests(userCode, currChallenge)),
   nextChallenge: obj => dispatch(nextChallenge(obj)),
-  onChangeChallengeType: event => dispatch(challengeType(event)),
   onCodeChange: newCode => dispatch(onCodeChange(newCode)),
   startChallenge: startTime => dispatch(startChallenge(startTime)),
   startTimer: timerMaxValue => dispatch(startTimer(timerMaxValue)),

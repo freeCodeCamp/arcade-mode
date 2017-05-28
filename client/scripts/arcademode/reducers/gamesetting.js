@@ -13,6 +13,7 @@ const initialState = Immutable.Map({
   mode: 'Arcade',
   difficulty: 'Medium',
   editor: 'Normal' // normal arcade mode, whiteboard mode
+  // challengeType: 'Algorithms'
 });
 
 export default function gamesetting(state = initialState, action) {
@@ -23,6 +24,10 @@ export default function gamesetting(state = initialState, action) {
       return state.set('difficulty', action.difficulty);
     case GAME_EDITOR_CHANGE:
       return state.set('editor', action.editor);
+      /*
+    case GAME_CHALLENGE_TYPE_CHANGE:
+      return state.set('challengeType', action.challengeType);
+      */
     default:
       return state;
   }

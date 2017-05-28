@@ -3,23 +3,20 @@
 
 import Immutable, { Map, List } from 'immutable';
 
-import {
-  PLAYER_PASSED
-} from '../actions/playerstatus';
+import { PLAYER_PASSED } from '../actions/playerstatus';
 
-import { MODAL_OPEN } from '../actions/modal';
+import { MODAL_OPEN, MODAL_CLOSE } from '../actions/modal';
 
 import {
   CHALLENGE_START,
   CHALLENGE_NEXT,
   CHALLENGE_SOLVE,
-  CODE_CHANGED,
-  CHALLENGE_TYPE
+  CODE_CHANGED
 } from '../actions/challenge';
 
-import {
-  TESTS_FINISHED
-} from '../actions/test';
+import { GAME_CHALLENGE_TYPE_CHANGE } from '../actions/gamesetting';
+
+import { TESTS_FINISHED } from '../actions/test';
 
 import FCCInterviewAlgorithms from '../../../../public/json/challenges-algorithms.json';
 import FCCInterviewDataStructures from '../../../../public/json/challenges-data-structures.json';
@@ -73,11 +70,14 @@ function getNextChallenge(state) {
 
 export default function challenge(state = initialState, action) {
   switch (action.type) {
-    case CHALLENGE_TYPE:
+    case MODAL_CLOSE:
+      // shuffle on modal close to prevent gaming the system
       return state
-        .set('challengeType', action.challengeType)
-        .set('chosenChallenges', challengeTypes[action.challengeType])
-        .set('currChallenge', Map(Immutable.fromJS(challengeTypes[action.challengeType][0])));
+        .set('chosenChallenges', shuffle(challengeTypes[state.get('challengeType')]))
+        .set('currChallenge', Map(Immutable.fromJS(challengeTypes[state.get('challengeType')][0])));
+    case GAME_CHALLENGE_TYPE_CHANGE:
+      return state
+        .set('challengeType', action.challengeType);
     case CHALLENGE_START: // lift to session start
       return state
         .update('challengeNumber', challengeNumber => challengeNumber + 1)
@@ -118,7 +118,8 @@ export default function challenge(state = initialState, action) {
     case CODE_CHANGED:
       return state.set('code', action.code);
     case MODAL_OPEN:
-      return initialState;
+      return initialState
+        .set('challengeType', state.get('challengeType'));
     default:
       return state;
   }
