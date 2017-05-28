@@ -1,6 +1,7 @@
 
 function controller () {
   this.getIndex = (req, res) => {
+    // res.set('Cache-Control', 'max-age=5');
     res.render('index');
   };
 }
