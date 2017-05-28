@@ -1,5 +1,20 @@
 # PROGRESS for Arcade Mode
 
+## Satuday 5/27/17:
+### Tim:
+  - Progress:
+    1. Implement indexedDB for offline userData storage.
+
+## Friday 5/26/17:
+### Tim:
+  - Progress:
+    1. Set up service worker implementation for offline mode.
+
+## Thursday 5/26/17:
+### Tim:
+  - Progress:
+    1. Set up appcache implementation for offline mode.
+
 ## Wednesday 5/24/17:
 ### Tim:
   - Progress:
