@@ -42,7 +42,7 @@ export default class UserProfile extends Component {
 
       let challengeExpandedBody = null;
       if (isExpanded) {
-        challengeExpandedBody = <p>Challenge expanded.</p>;
+        challengeExpandedBody = <p>Challenge expanded. Code: {challenge.get('code')}</p>;
       }
       return (
         <ListGroupItem
