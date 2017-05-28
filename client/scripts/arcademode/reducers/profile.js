@@ -37,6 +37,15 @@ export function createExpandStatus(userData) {
   return Immutable.List(Immutable.fromJS(status));
 }
 
+export function updateChallengeExpandStatus(state, sessionId, challengeId) {
+  const newValue = !state.get('sessionExpandStatus').get(sessionId).get('challenges').get(challengeId);
+  return state.update('sessionExpandStatus', sessionExpandStatus =>
+    sessionExpandStatus.update(sessionId, session =>
+      session.update('challenges', challenges => challenges.set(challengeId, newValue))
+    )
+  );
+}
+
 export default function profile(state = initialState, action) {
   switch (action.type) {
     case HIDE_PROFILE:
@@ -71,7 +80,7 @@ export default function profile(state = initialState, action) {
           )
         );
     case TOGGLE_CHALLENGE_VIEW: // sId, cId, TODO
-      return state;
+      return updateChallengeExpandStatus(state, action.sessionId, action.challengeId);
     default:
       return state;
   }
