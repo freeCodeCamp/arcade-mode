@@ -6,7 +6,7 @@
 
 'use strict';
 
-const CACHE_VERSION = 1;
+const CACHE_VERSION = 2;
 const CURRENT_CACHES = {
   font: `font-cache-v${CACHE_VERSION}`,
   css: `css-cache-v${CACHE_VERSION}`,
@@ -104,14 +104,10 @@ self.addEventListener('fetch', event => {
     return fetch(event.request);
   }
   event.respondWith(
+    fromNetwork(event.request, 400).catch(() =>
+      fromCache(event.request, CURRENT_CACHES[requestType]))
+  /*
     caches.open(CURRENT_CACHES[requestType]).then(cache =>
-      /*
-      if (event.request.url.includes('/sw.js')) {
-        console.log('Request to sw.js detected');
-        event.request.url = event.request.url.replace('sw.js', 'public/js/sw.bundle.js');
-        console.log(`Changed request: ${event.request.url}`);
-      }
-      */
       cache.match(event.request).then(res => {
         if (res) {
           console.log(`Response found in cache ${res}.`);
@@ -120,6 +116,7 @@ self.addEventListener('fetch', event => {
         return fetch(event.request);
       })
     )
+  */
   );
 });
 
@@ -140,3 +137,28 @@ self.addEventListener('activate', event => {
     .then(() => self.clients.claim())
   );
 });
+
+
+function fromCache (__request__, __CACHE__) {
+  return caches.open(__CACHE__).then(cache =>
+    cache.match(__request__).then(res => {
+      if (res) {
+        console.log(`Response found in cache ${res}.`);
+        return res;
+      }
+      return fetch(__request__);
+    }));
+}
+
+function fromNetwork (__request__, __timeout__) {
+  return new Promise((fulfill, reject) => {
+    const timeoutId = setTimeout(reject, __timeout__);
+
+    fetch(__request__).then(res => {
+      console.log(`Response found from network ${res}.`);
+      clearTimeout(timeoutId);
+      fulfill(res);
+    }, reject);
+  });
+}
+
