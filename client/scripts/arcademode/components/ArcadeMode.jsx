@@ -208,7 +208,12 @@ export default class ArcadeMode extends Component {
           className='btn btn-default'
           onClick={this.onClickShowHideProfile}
         >
-          Show/Hide Profile
+          {this.props.isProfileShown &&
+          'Hide Profile'
+          }
+          {!this.props.isProfileShown &&
+          'Show Profile'
+          }
         </button>
 
         <Grid fluid>
