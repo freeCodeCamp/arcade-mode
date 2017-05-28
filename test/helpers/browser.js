@@ -5,7 +5,8 @@
  * */
 
 import { JSDOM } from 'jsdom';
-import MockStorage from './mockstorage';
+import indexedDB from 'fake-indexeddb';
+// import MockStorage from './mockstorage';
 import requestAnimFrame from './requestAnimFrame';
 
 const dom = new JSDOM('<!DOCTYPE html><html><head></head><body></body></html>');
@@ -29,5 +30,6 @@ global.navigator = {
 };
 */
 
-global.window.localStorage = new MockStorage();
+global.window.indexedDB = indexedDB;
+// global.window.localStorage = new MockStorage();
 

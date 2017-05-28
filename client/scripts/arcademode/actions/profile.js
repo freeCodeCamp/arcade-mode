@@ -11,27 +11,35 @@ export const DELETE_SESSION = 'DELETE_SESSION';
 export const TOGGLE_CHALLENGE_VIEW = 'TOGGLE_CHALLENGE_VIEW';
 export const TOGGLE_SESSION_VIEW = 'TOGGLE_SESSION_VIEW';
 
-const persist = new Persist(window.localStorage);
+const persist = new Persist(window.indexedDB);
 
 export function saveUserData(session) {
   return dispatch => {
     // Persist data changes
-    persist.toStorage(session);
-    dispatch(actionUpdateUserData(session)); // Update reducer data
+    persist.toStorage(session).then(() => {
+      dispatch(actionUpdateUserData(session)); // Update reducer data
+    });
   };
 }
 
 export function loadUserData() {
   return dispatch => {
+    persist.fromStorage().then(userData => {
+      console.log(`The userData: ${Object.keys(userData)}`);
+      dispatch(actionLoadUserData(userData));
+    });
+    /*
     const userData = persist.fromStorage();
     dispatch(actionLoadUserData(userData)); // Update reducer data
+    */
   };
 }
 
 export function deleteSession(session) {
   return dispatch => {
-    persist.deleteFromStorage(session);
-    dispatch(actionDeleteSession(session.get('id')));
+    persist.deleteFromStorage(session).then(() => {
+      dispatch(actionDeleteSession(session.get('id')));
+    });
   };
 }
 
