@@ -96,7 +96,7 @@ self.onmessage = e => {
         );
       }
       catch (err) {
-        console.log(`Test Error: ${err.message}`);
+        // console.log(`Test Error: ${err.message}`);
         testRunData.error = `${err}`;
         testRunData.pass = false;
       }
@@ -107,7 +107,6 @@ self.onmessage = e => {
   const postData = [userOutput, ...errorMsgs, ...testResults];
 
   // post message back to main thread:
-  console.log('Now sending worker user code output and test results');
   self.postMessage(postData);
   // self.close();
 };

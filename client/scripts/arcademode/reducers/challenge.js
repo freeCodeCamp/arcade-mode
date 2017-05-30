@@ -116,7 +116,9 @@ export default function challenge(state = initialState, action) {
           currChallenge.set('attempts', currChallenge.get('attempts') + 1)
         );
     case CODE_CHANGED:
-      return state.set('code', action.code);
+      return state
+        .set('code', action.code)
+        .setIn(['currChallenge', 'code'], action.code);
     case MODAL_OPEN:
       return initialState
         .set('challengeType', state.get('challengeType'));
