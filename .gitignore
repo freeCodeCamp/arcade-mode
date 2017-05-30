@@ -17,6 +17,7 @@ npm-debug.log
 
 # Ignore temp/cache files
 browserify-cache.json
+.publish/
 
 # Ignore generated static content
 /public
