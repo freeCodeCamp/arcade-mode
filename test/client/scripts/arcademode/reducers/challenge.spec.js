@@ -129,7 +129,8 @@ describe('Reducer: challenge', () => {
     const newCode = 'let x = 3;';
     const nextState = reducer(state, onCodeChange(newCode));
     expect(nextState).to.equal(Immutable.Map({
-      code: 'let x = 3;'
+      code: 'let x = 3;',
+      currChallenge: Immutable.Map({ code: 'let x = 3;' })
     }));
   });
 });
