@@ -14,9 +14,6 @@ const plumber = require('gulp-plumber');
 const notify = require('gulp-notify');
 const browserSync = require('browser-sync').create();
 
-// GitHub page deploy
-const ghPages = require('gulp-gh-pages');
-
 // Pug -> HTML
 const pug = require('gulp-pug');
 
@@ -56,6 +53,16 @@ const manifest = require('gulp-manifest');
 // Configuration Objects
 // =====================
 
+// Environmental variables
+// const isProduction = process.env.NODE_ENV === 'production';
+const isGitHubPages = process.env.DEST === 'github';
+
+let ghPages = '';
+
+if (isGitHubPages) {
+  ghPages = '.publish/';
+}
+
 // Entry points and sources
 // ------------------------
 const paths = {
@@ -83,14 +90,13 @@ const paths = {
 // -----------
 gulp.task('build-font', () =>
   gulp.src(paths.fonts, { base: 'client/fonts' })
-    .pipe(gulp.dest('public/font')) // no processing because fonts are already optimized
+    .pipe(gulp.dest(`${ghPages}public/font`)) // no processing: fonts are already optimized
     .pipe(browserSync.reload({ stream: true }))
 );
 
 gulp.task('build-img', () => {
   const s1 = gulp.src('client/images/favicon.ico')
-    .pipe(gulp.dest('public/img'))
-    .pipe(gulp.dest('public')); // for static sites
+    .pipe(gulpif(isGitHubPages, gulp.dest(ghPages), gulp.dest('public/img')));
 
   const s2 = gulp.src(paths.images)
     .pipe(cache(imagemin([
@@ -98,16 +104,16 @@ gulp.task('build-img', () => {
       imagemin.jpegtran({ progressive: true }),
       imagemin.optipng({ optimizationLevel: 5 })
     ])))
-    .pipe(gulp.dest('public/img'))
+    .pipe(gulp.dest(`${ghPages}public/img`))
     .pipe(browserSync.reload({ stream: true }));
-  // done();
+
   return merge(s1, s2);
 });
 
 gulp.task('build-json', () => {
   // pass through individual files (currently algo+ds) for individual mode display:
   const s1 = gulp.src(paths.jsons)
-    .pipe(gulp.dest('public/json'))
+    .pipe(gulp.dest(`${ghPages}public/json`))
     .pipe(browserSync.reload({ stream: true }));
 
   // pass through a bundled version for mixed mode display:
@@ -115,7 +121,7 @@ gulp.task('build-json', () => {
     .pipe(jsoncombine('challenges-combined.json', data =>
       new Buffer(JSON.stringify(data))
     ))
-    .pipe(gulp.dest('public/json'))
+    .pipe(gulp.dest(`${ghPages}public/json`))
     .pipe(browserSync.reload({ stream: true }));
 
   return merge(s1, s2);
@@ -143,8 +149,8 @@ gulp.task('build-js', () =>
         path.extname = '.bundle.js';
       }))
       .pipe(uglify({ mangle: true }))
-      .pipe(gulp.dest('public/js'))
-      .pipe(gulpif('*sw.bundle.js', gulp.dest('public')))
+      .pipe(gulp.dest(`${ghPages}public/js`))
+      .pipe(isGitHubPages ? gulpif('*sw.bundle.js', gulp.dest(ghPages)) : gutil.noop())
       .pipe(browserSync.reload({ stream: true }))
   ))
 );
@@ -155,7 +161,7 @@ gulp.task('build-css', () => {
     .pipe(sass())
     .pipe(autoprefixer())
     .pipe(cssmin())
-    .pipe(gulp.dest('public/css'))
+    .pipe(gulp.dest(`${ghPages}public/css`))
     .pipe(browserSync.reload({ stream: true }));
 
   // any vendor css files, minify then pass through
@@ -166,7 +172,7 @@ gulp.task('build-css', () => {
     .pipe(rename(path => {
       path.extname = '.min.css';
     }))
-    .pipe(gulp.dest('public/css/vendor'))
+    .pipe(gulp.dest(`${ghPages}public/css/vendor`))
     .pipe(browserSync.reload({ stream: true }));
 
   return merge(s1, s2);
@@ -176,7 +182,7 @@ gulp.task('build-view', () =>
   gulp.src(paths.views, { base: 'server/views' })
     .pipe(plumber())
     .pipe(pug({ pretty: true, basedir: 'server/views' }))
-    .pipe(gulpif('*index.html', gulp.dest('public'), gulp.dest('public/html')))
+    .pipe(isGitHubPages ? gulp.dest(ghPages) : gutil.noop())
 );
 
 // Appcache file creation
@@ -191,7 +197,7 @@ gulp.task('build-appcache', () =>
       filename: 'offline.appcache',
       exclude: 'offline.appcache'
     }))
-    .pipe(gulp.dest('public'))
+    .pipe(gulp.dest(`${ghPages}public`))
     .pipe(browserSync.reload({ stream: true }))
 );
 
@@ -230,7 +236,6 @@ gulp.task('build-js-inc', () =>
           path.extname = '.bundle.js';
         }))
         .pipe(gulp.dest('public/js'))
-        .pipe(gulpif('*sw.bundle.js', gulp.dest('public')))
         .pipe(browserSync.reload({ stream: true }));
   }))
 );
@@ -253,9 +258,12 @@ gulp.task('build-appcache-dev', () =>
 // --------
 
 // rm -rf public directory
-gulp.task('clean:public', () =>
-  del(['public/**/*'])
-);
+gulp.task('clean:static', () => {
+  if (isGitHubPages) {
+    return del(['.publish/**/*']);
+  }
+  return del(['public/**/*']);
+});
 
 gulp.task('clear-cache', done => cache.clearAll(done)); // clears img cache
 
@@ -265,7 +273,7 @@ gulp.task('clear-cache', done => cache.clearAll(done)); // clears img cache
 gulp.task('build-types', gulp.parallel('build-font', 'build-img', 'build-json', 'build-js', 'build-css', 'build-view'));
 gulp.task('build-types-dev', gulp.parallel('build-font', 'build-img', 'build-json', 'build-js-inc', 'build-css', 'build-view'));
 
-gulp.task('build', gulp.series('clean:public', 'build-types', 'build-appcache'));
+gulp.task('build', gulp.series('clean:static', 'build-types', 'build-appcache'));
 gulp.task('build-dev', gulp.series('build-types-dev', 'build-appcache-dev'));
 
 gulp.task('watch', gulp.series('build', done => {
@@ -302,10 +310,11 @@ gulp.task('browser-sync', gulp.series('watch-dev', done => {
 
 // GitHub pages deploy
 // -------------------
-gulp.task('deploy-gh-pages', gulp.series('build', () =>
-  gulp.src('public/**/*')
-    .pipe(ghPages())
-));
+
+// gulp.task('deploy-gh-pages', gulp.series('build', () =>
+//   gulp.src('public/**/*')
+//     .pipe(ghPages())
+// ));
 
 // Helper tasks
 // ------------
