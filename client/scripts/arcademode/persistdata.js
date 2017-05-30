@@ -55,9 +55,9 @@ export default class Persist {
         userData.onsuccess = () => {
           console.log(`Data in storage found!: ${userData.result}`);
           // return proper form:
-          const obj = {};
-          obj.sessions = fromJS(userData.result);
-          resolve(obj);
+          // const obj = {};
+          // obj.sessions = fromJS(userData.result);
+          resolve({ sessions: fromJS(userData.result) });
         };
 
         userData.onerror = () => {

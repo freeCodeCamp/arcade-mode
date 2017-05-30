@@ -30,7 +30,7 @@ app.use(compression());
 app.use(helmet());
 app.use(morgan('combined'));
 app.use(favicon(resolve('./public/img/favicon.ico')));
-app.use('/sw.js', express.static(resolve('./public/js/sw.bundle.js')));
+app.use('/sw.bundle.js', express.static(resolve('./public/js/sw.bundle.js')));
 app.use('/public', express.static(resolve('./public')));
 // app.use(bodyParser.urlencoded({ extended: false }));
 // app.use(bodyParser.json());

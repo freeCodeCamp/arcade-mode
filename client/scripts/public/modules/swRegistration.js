@@ -3,7 +3,7 @@
 
 export default function swRegistration () {
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/sw.js').then(reg => {
+    navigator.serviceWorker.register('/sw.bundle.js').then(reg => {
       console.log(`Registration successful: ${reg}. Scope is ${reg.scope}`);
 
       if (navigator.serviceWorker.controller) {
