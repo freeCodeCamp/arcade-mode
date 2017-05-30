@@ -9,7 +9,7 @@ const Statusbar = props => (
   <Grid fluid className='am__statusbar'>
     <Row>
       <Col xs={6} sm={3}>
-        <img className='am__statusbar__lives-logo' src='/public/img/FCCfire.svg' alt='Lives' /> x {props.lives}
+        <img className='am__statusbar__lives-logo' src='public/img/FCCfire.svg' alt='Lives' /> x {props.lives}
       </Col>
       <Col xs={6} sm={3}>
         <span className='am__statusbar__text'>Time left:</span> {props.timeLeft}
