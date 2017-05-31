@@ -25,7 +25,7 @@ const ArcadeNavbar = () => (
       <AMLogo />
     }
     { browser.name === 'firefox' &&
-      <a href='//arcademode.herokuapp.com' className='am__am__link'>
+      <a href='//freecodecamp.github.io/arcade-mode' className='am__am__link'>
         <div className='am__am__logo--ff'>
           <canvas className='am__am__canvas' height='50' width='220'>ARCADE MODE</canvas>
           <svg className='am__am__svg'>

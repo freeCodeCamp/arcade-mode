@@ -77,6 +77,7 @@ self.addEventListener('fetch', event => {
     case 'http://localhost:3000/':
     case 'http://localhost:8080/':
     case 'com/':
+    case 'io/arcade-mode/':
       requestType = 'html';
       break;
     case 'ttf':
