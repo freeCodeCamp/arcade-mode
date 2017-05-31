@@ -106,7 +106,9 @@ export default function challenge(state = initialState, action) {
       const solutions = state.getIn(['currChallenge', 'solutions']);
       if (solutions.size > 0) {
         const solution = solutions.get(0);
-        return state.set('code', solution);
+        return state
+          .set('code', solution)
+          .setIn(['currChallenge', 'code'], solution);
       }
       return state;
     }
