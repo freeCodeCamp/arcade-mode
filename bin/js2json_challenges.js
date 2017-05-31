@@ -55,7 +55,7 @@ const propParser = {
   state: 'IDLE',
   currFile: null,
   prop: null,
-  propValue: '',
+  propValue: [],
   files: {}
 };
 
@@ -89,9 +89,9 @@ function processFile(parser, file, props) {
     processLine(parser, line);
   });
 
-  if (parser.propValue !== '') {
+  if (parser.propValue.length > 0) {
     parser.files[parser.currFile][parser.prop] = parser.propValue;
-    parser.propValue = null;
+    parser.propValue = [];
   }
 
   verifyExpectedProps(parser, file, props);
@@ -103,12 +103,12 @@ function processLine(parser, line) {
     const matches = line.match(re.lineComment);
     if (parser.prop !== null) {
       parser.files[parser.currFile][parser.prop] = parser.propValue;
-      parser.propValue = '';
+      parser.propValue = [];
     }
     parser.prop = matches[1];
   }
   else if (parser.prop !== null) {
-    parser.propValue += line;
+    parser.propValue.push(line);
   }
 }
 
