@@ -4,9 +4,6 @@
 # Ignore npm packages
 node_modules/
 
-# Ignore npm package-lock.json for now.
-package-lock.json
-
 # Ignore macOS folder settings
 .DS_Store
 
