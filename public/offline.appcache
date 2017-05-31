@@ -12,11 +12,11 @@ js/ww.bundle.js
 json/challenges-algorithms.json
 json/challenges-combined.json
 json/challenges-data-structures.json
+font/Lato/Lato-Black.ttf
 font/Kalam/Kalam-Regular.ttf
 font/Roboto/Roboto-Bold.ttf
 font/Roboto/Roboto-Medium.ttf
 font/Roboto/Roboto-Regular.ttf
-font/Lato/Lato-Black.ttf
 css/vendor/bootswatch/bootstrap.min.css
 css/vendor/codemirror/codemirror.min.css
 css/vendor/codemirror/monokai.min.css
@@ -27,4 +27,4 @@ NETWORK:
 SETTINGS:
 prefer-online
 
-# hash: 1ed12bb37b4ee32d2a0ebc5cbb5f938b5e16f8fae7b66cb6d153feba783e9e6e
+# hash: 7bda7b6868b51dcc977798aa5edf15b6d40d5f0217a3c3e22a42f486b65cdd5c
