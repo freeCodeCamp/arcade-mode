@@ -25,7 +25,8 @@ const optionDefinitions = [
 
 // Regexp definitions for the script
 const re = {
-  lineComment: /^\/\/\/\s+(\w+):/
+  lineComment: /^\/\/\/\s+(\w+):/,
+  endComment: /^\/\/\/\s+end\s+$/
 };
 
 const opts = commandLineArgs(optionDefinitions);
@@ -75,14 +76,7 @@ function processFile(parser, file, props) {
   const buffer = fs.readFileSync(file);
   parser.currFile = file;
   parser.files[file] = {};
-
-  try {
-    acorn.parse(buffer);
-  }
-  catch (err) {
-    console.error(`Parsing failed: ${err}`);
-    process.exit(1);
-  }
+  checkFileSyntax(buffer);
 
   const lines = buffer.toString().split('\n');
   lines.forEach(line => {
@@ -90,11 +84,21 @@ function processFile(parser, file, props) {
   });
 
   if (parser.propValue.length > 0) {
-    parser.files[parser.currFile][parser.prop] = parser.propValue;
-    parser.propValue = [];
+    finishCurrProp(parser);
   }
 
   verifyExpectedProps(parser, file, props);
+}
+
+/* Checks the code syntax in given buffer using acorn. */
+function checkFileSyntax(buffer) {
+  try {
+    acorn.parse(buffer);
+  }
+  catch (err) {
+    console.error(`Parsing failed: ${err}`);
+    process.exit(1);
+  }
 }
 
 /* Processes one line with regex and extracts prop values. */
@@ -102,14 +106,23 @@ function processLine(parser, line) {
   if (re.lineComment.test(line)) {
     const matches = line.match(re.lineComment);
     if (parser.prop !== null) {
-      parser.files[parser.currFile][parser.prop] = parser.propValue;
-      parser.propValue = [];
+      finishCurrProp(parser);
     }
     parser.prop = matches[1];
+  }
+  else if (re.endComment.test(line)) {
+    finishCurrProp(parser);
   }
   else if (parser.prop !== null) {
     parser.propValue.push(line);
   }
+}
+
+/* Adds current property value into the parser for the current file being processed. Resets
+ * the prop value after this. */
+function finishCurrProp(parser) {
+  parser.files[parser.currFile][parser.prop] = parser.propValue;
+  parser.propValue = [];
 }
 
 /* Verifies that the parsed file contains expected props like 'solution' etc.*/
