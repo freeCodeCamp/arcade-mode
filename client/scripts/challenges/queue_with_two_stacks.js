@@ -1,6 +1,9 @@
 /* eslint spaced-comment: 0 */
 const assert = require('chai').assert;
 
+/// title: Queue using two stacks
+/// type: arcade-mode
+
 /// description:
 `A queue is  a data structure with FIFO (first-in first-out) properties. Elements are removed in the same order as they are inserted. In this challenge, you need to implement Queue class using two Stack data structures.
 Instructions: Implement a Queue class with two methods: enqueue() which inserts an element into a queue and dequeue() which removes an element in an insertion order.
