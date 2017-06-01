@@ -22,6 +22,9 @@ const Statusbar = props => (
         }
       </Col>
       <Col xs={6} sm={3}>
+        <span className='am__statusbar__text'>Bonus:</span> x{props.streakMultiplier}
+      </Col>
+      <Col xs={6} sm={3}>
         <span className='am__statusbar__text'>Score:</span> {props.sessionScore}
       </Col>
     </Row>
@@ -34,7 +37,8 @@ Statusbar.propTypes = {
   passOption: PropTypes.bool.isRequired,
   onClickPass: PropTypes.func.isRequired,
   sessionScore: PropTypes.number.isRequired,
-  isSessionStarted: PropTypes.bool.isRequired
+  isSessionStarted: PropTypes.bool.isRequired,
+  streakMultiplier: PropTypes.number.isRequired
 };
 
 export default Statusbar;
