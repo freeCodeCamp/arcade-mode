@@ -47,12 +47,12 @@ export default function playerstatus (state = initialState, action) {
     case CHALLENGE_NEXT:
       return state
         .set('passOption', true); // refresh passOption on each challenge solve
-    case TESTS_FAILED:
-      return state.update('lives', lives => lives - 1);
+    // case TESTS_FAILED:
+    //  return state.update('lives', lives => lives - 1);
     case GAME_DIFFICULTY_CHANGE:
       return state.set('lives', difficultySettings[action.difficulty].lives);
-    case PLAYER_PASSED:
-      return state.set('passOption', false);
+    // case PLAYER_PASSED:
+    // return state.set('passOption', false);
     case MODAL_OPEN:
       return initialState;
     default:
