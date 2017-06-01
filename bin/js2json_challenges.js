@@ -25,9 +25,11 @@ const optionDefinitions = [
 
 // Regexp definitions for the script
 const re = {
-  lineComment: /^\/\/\/\s+(\w+):\s*$/,
-  lineCommentWithText: /^\/\/\/\s+(\w+):\s*(\S.*)$/
-//  endComment: /^\/\/\/\s+end\s+$/
+  lineComment: /^\/\/\//,
+  lineCommentWithProp: /^\/\/\/\s+(\w+):\s*$/,
+  lineCommentWithPropAndText: /^\/\/\/\s+(\w+):\s*(\S.*)$/,
+  lineCommentWithText: /^\/\/\/\s(.*)$/,
+  endComment: /^\/\/\/\s+end\s+$/
 };
 
 const opts = commandLineArgs(optionDefinitions);
@@ -41,7 +43,7 @@ const expectedProps = {
   type: String,
   description: String,
   challengeSeed: 'Code',
-  solution: 'Code',
+  solutions: 'Code',
   tests: 'Code'
 };
 
@@ -55,7 +57,8 @@ const propParser = {
   currFile: null,
   prop: null,
   propValue: [],
-  files: {}
+  files: {},
+  continuedComments: false
 };
 
 opts.infile.forEach(file => {
@@ -101,25 +104,32 @@ function checkFileSyntax(buffer) {
 
 /* Processes one line with regex and extracts prop values. */
 function processLine(parser, line) {
-  if (re.lineComment.test(line)) {
-    const matches = line.match(re.lineComment);
+  if (parser.continuedComments && !re.lineComment.test(line)) {
+    finishCurrProp(parser);
+    return;
+  }
+
+  if (re.lineCommentWithProp.test(line)) {
+    const matches = line.match(re.lineCommentWithProp);
     if (parser.prop !== null) {
       finishCurrProp(parser);
     }
     parser.prop = matches[1];
   }
-  else if (re.lineCommentWithText.test(line)) {
-    const matches = line.match(re.lineCommentWithText);
+  else if (re.lineCommentWithPropAndText.test(line)) {
+    const matches = line.match(re.lineCommentWithPropAndText);
     parser.prop = matches[1];
     parser.propValue.push(matches[2]);
     finishCurrProp(parser);
   }
-  /*
+  else if (re.lineCommentWithText.test(line)) {
+    const matches = line.match(re.lineCommentWithPropAndText);
+    parser.propValue.push(matches[1]);
+    parser.continuedComments = true;
+  }
   else if (re.endComment.test(line)) {
-    console.log('endcmment');
     finishCurrProp(parser);
   }
-  */
   else if (parser.prop !== null) {
     parser.propValue.push(line);
   }
@@ -128,7 +138,32 @@ function processLine(parser, line) {
 /* Adds current property value into the parser for the current file being processed. Resets
  * the prop value after this. */
 function finishCurrProp(parser) {
-  parser.files[parser.currFile][parser.prop] = parser.propValue;
+  const newPropVal = parser.propValue.length === 1 ? parser.propValue[0] : parser.propValue;
+
+  if (typeof parser.files[parser.currFile][parser.prop] === 'undefined') {
+    parser.files[parser.currFile][parser.prop] = newPropVal;
+    parser.files[parser.currFile][parser.prop].num = 1;
+  }
+  else if (typeof parser.files[parser.currFile][parser.prop] === 'string') {
+    const oldValue = parser.files[parser.currFile][parser.prop];
+    parser.files[parser.currFile][parser.prop] = [oldValue, newPropVal];
+    parser.files[parser.currFile][parser.prop].num = 2;
+  }
+  else if (typeof parser.files[parser.currFile][parser.prop] === 'object') {
+    if (parser.files[parser.currFile][parser.prop].num === 1) {
+      // Need to wrap the value in an array first.
+      parser.files[parser.currFile][parser.prop] = [
+        parser.files[parser.currFile][parser.prop],
+        newPropVal
+      ];
+      parser.files[parser.currFile][parser.prop].num = 2;
+    }
+    else {
+      parser.files[parser.currFile][parser.prop].push(newPropVal);
+      parser.files[parser.currFile][parser.prop].num += 1;
+    }
+  }
+
   parser.propValue = [];
   parser.prop = null;
 }
