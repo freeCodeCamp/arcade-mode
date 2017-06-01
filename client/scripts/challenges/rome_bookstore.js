@@ -21,7 +21,7 @@ Instructions: Given an array of book author last names, sort the books without u
 `;
 
 /// challengeSeed:
-function sortByAuthorLastName (arr) {
+function sortBooks (arr) {
   // Good luck!
   return true;
 }
