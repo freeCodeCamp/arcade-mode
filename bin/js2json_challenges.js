@@ -25,8 +25,8 @@ const optionDefinitions = [
 
 // Regexp definitions for the script
 const re = {
-  lineComment: /^\/\/\/\s+(\w+):/,
-  endComment: /^\/\/\/\s+end\s+$/
+  lineComment: /^\/\/\/\s+(\w+):/
+//  endComment: /^\/\/\/\s+end\s+$/
 };
 
 const opts = commandLineArgs(optionDefinitions);
@@ -42,12 +42,14 @@ const expectedProps = {
   tests: 'Code'
 };
 
-const files = process.argv.splice(2);
+// const files = process.argv.splice(2);
+/*
 if (opts.infile) {
   files.concat(opts.infile);
 }
+*/
 
-if (files.length === 0) {
+if (opts.infile.length === 0) {
   console.error('Error. No input files were given.');
   usage(1);
 }
@@ -60,7 +62,7 @@ const propParser = {
   files: {}
 };
 
-files.forEach(file => {
+opts.infile.forEach(file => {
   processFile(propParser, file, expectedProps);
 });
 
@@ -110,9 +112,12 @@ function processLine(parser, line) {
     }
     parser.prop = matches[1];
   }
+  /*
   else if (re.endComment.test(line)) {
+    console.log('endcmment');
     finishCurrProp(parser);
   }
+  */
   else if (parser.prop !== null) {
     parser.propValue.push(line);
   }
@@ -123,6 +128,7 @@ function processLine(parser, line) {
 function finishCurrProp(parser) {
   parser.files[parser.currFile][parser.prop] = parser.propValue;
   parser.propValue = [];
+  parser.prop = null;
 }
 
 /* Verifies that the parsed file contains expected props like 'solution' etc.*/
@@ -137,8 +143,8 @@ function verifyExpectedProps(parser, file, props) {
 /* Formats the result as JSON. */
 function formatResult(parsedFiles) {
   return Object.keys(parsedFiles).map(
-    filename => JSON.stringify(parsedFiles[filename])
-  );
+    filename => JSON.stringify(parsedFiles[filename], null, 2)
+  ).join(',\n');
 }
 
 /* Prints the results to given output file. */
