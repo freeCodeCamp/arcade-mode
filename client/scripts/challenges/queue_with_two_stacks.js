@@ -45,7 +45,7 @@ let Queue = function() {
   };
 };
 
-/// solution:
+/// solutions:
 Queue = function () {
   this.s1 = new Stack();
   this.s2 = new Stack();

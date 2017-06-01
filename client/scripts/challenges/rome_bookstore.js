@@ -26,7 +26,7 @@ function sortBooks (arr) {
   return true;
 }
 
-/// solution:
+/// solutions:
 function sortBooks (arr) {
   if (arr.length <= 1) {
     return arr;
