@@ -25,7 +25,8 @@ const optionDefinitions = [
 
 // Regexp definitions for the script
 const re = {
-  lineComment: /^\/\/\/\s+(\w+):/
+  lineComment: /^\/\/\/\s+(\w+):\s*$/,
+  lineCommentWithText: /^\/\/\/\s+(\w+):\s*(\S.*)$/
 //  endComment: /^\/\/\/\s+end\s+$/
 };
 
@@ -36,20 +37,15 @@ if (opts.help) {
 }
 
 const expectedProps = {
+  title: String,
+  type: String,
   description: String,
   challengeSeed: 'Code',
   solution: 'Code',
   tests: 'Code'
 };
 
-// const files = process.argv.splice(2);
-/*
-if (opts.infile) {
-  files.concat(opts.infile);
-}
-*/
-
-if (opts.infile.length === 0) {
+if (!opts.infile || opts.infile.length === 0) {
   console.error('Error. No input files were given.');
   usage(1);
 }
@@ -112,6 +108,12 @@ function processLine(parser, line) {
     }
     parser.prop = matches[1];
   }
+  else if (re.lineCommentWithText.test(line)) {
+    const matches = line.match(re.lineCommentWithText);
+    parser.prop = matches[1];
+    parser.propValue.push(matches[2]);
+    finishCurrProp(parser);
+  }
   /*
   else if (re.endComment.test(line)) {
     console.log('endcmment');
@@ -142,9 +144,11 @@ function verifyExpectedProps(parser, file, props) {
 
 /* Formats the result as JSON. */
 function formatResult(parsedFiles) {
-  return Object.keys(parsedFiles).map(
-    filename => JSON.stringify(parsedFiles[filename], null, 2)
-  ).join(',\n');
+  const challenges = Object.keys(parsedFiles).map(filename =>
+    parsedFiles[filename]
+  );
+
+  return JSON.stringify(challenges, null, 2);
 }
 
 /* Prints the results to given output file. */
