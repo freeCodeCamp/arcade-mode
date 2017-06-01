@@ -124,6 +124,7 @@ export default class ArcadeMode extends Component {
         onClickPass={this.props.onClickPass}
         sessionScore={this.props.sessionScore}
         isSessionStarted={this.props.isSessionStarted}
+        streakMultiplier={this.props.streakMultiplier}
       />
     );
   }
@@ -304,6 +305,7 @@ ArcadeMode.propTypes = {
   isSessionStarted: PropTypes.bool.isRequired,
   isSessionFinished: PropTypes.bool.isRequired,
   isSessionSaved: PropTypes.bool.isRequired,
+  streakMultiplier: PropTypes.number.isRequired,
 
   // test
   runTests: PropTypes.func.isRequired,
