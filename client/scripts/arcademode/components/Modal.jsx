@@ -24,7 +24,7 @@ const ArcadeModal = props => (
             Arcade
           </Col>
           <Col sm={9}>
-            Test your abilities in a time and attempt-limited environment.
+            Test your abilities in a time-limited environment.
           </Col>
         </Row>
         <Row>
