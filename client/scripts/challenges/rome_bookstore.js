@@ -8,7 +8,9 @@ const assert = require('chai').assert;
 'public/img/challenges/pexels-photo-358717.jpeg'
 
 /// description:
-`On your last day of vacation, a quaint used bookstore catches your eye on one of the smaller streets of Rome. "Perhaps this bookstore may have that out of print book I have been looking for all these years.". As you walk inside, you note the large pile of books in the back of the store and the sparsely-furnished bookshelves throughout. The shopkeep, a thin elderly man with combed back white hair and spectacles, seems to be deep in the process of organizing one of the bookshelves. You browse each aisle with ease due of the sparseness, but also because of your familiarity with the cover design of the book. It is then that you finally notice it on the bookshelf with other visibly old books. "They have it!" you think estatically. Of course, you made sure multiple times.
+`<img src='public/img/challenges/pexels-photo-358717.jpeg'>
+On your last day of vacation, a quaint used bookstore catches your eye on one of the smaller streets of Rome. "Perhaps this bookstore may have that out of print book I have been looking for all these years.". As you walk inside, you note the large pile of books in the back of the store and the sparsely-furnished bookshelves throughout. The shopkeep, a thin elderly man with combed back white hair and spectacles, seems to be deep in the process of organizing one of the bookshelves. You browse each aisle with ease due of the sparseness, but also because of your familiarity with the cover design of the book. It is then that you finally notice it on the bookshelf with other visibly old books. "They have it!" you think estatically. Of course, you made sure multiple times.
+
 
 As you approach the shopkeep to purchase the book, he becomes visibly startled at your presence. "Goodness! I thought I had locked the door. I apologize, but due to the recent earthquake most of the books need to be resorted before I can reopen the store."
 
