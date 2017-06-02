@@ -108,6 +108,7 @@ function processLine(parser, line) {
     finishCurrProp(parser);
     return;
   }
+  parser.continuedComments = false;
 
   if (re.lineCommentWithProp.test(line)) {
     const matches = line.match(re.lineCommentWithProp);
@@ -123,7 +124,7 @@ function processLine(parser, line) {
     finishCurrProp(parser);
   }
   else if (re.lineCommentWithText.test(line)) {
-    const matches = line.match(re.lineCommentWithPropAndText);
+    const matches = line.match(re.lineCommentWithText);
     parser.propValue.push(matches[1]);
     parser.continuedComments = true;
   }

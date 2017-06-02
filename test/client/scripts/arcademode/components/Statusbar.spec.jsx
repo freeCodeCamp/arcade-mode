@@ -27,7 +27,7 @@ describe('Component: <Statusbar>', () => {
 
   it('should render all subcomponents', () => {
     const wrapper = shallow(<Statusbar {...props} />);
-    expect(wrapper.find(Col)).to.have.length(4);
+    expect(wrapper.find(Col)).to.have.length(5);
 
     const lives = document.createElement('div');
     lives.innerHTML = wrapper.find(Col).first().html();
