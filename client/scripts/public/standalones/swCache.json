@@ -1,0 +1,35 @@
+{
+  "html": [
+    "/"
+  ],
+  "json": [
+    "public/json/challenges-algorithms.json",
+    "public/json/challenges-arcade.json",
+    "public/json/challenges-combined.json",
+    "public/json/challenges-data-structures.json"
+  ],
+  "js": [
+    "public/js/index.bundle.js",
+    "public/js/main.bundle.js",
+    "public/js/ww.bundle.js"
+  ],
+  "font": [
+    "public/font/Kalam/Kalam-Regular.ttf",
+    "public/font/Lato/Lato-Black.ttf",
+    "public/font/Roboto/Roboto-Bold.ttf",
+    "public/font/Roboto/Roboto-Medium.ttf",
+    "public/font/Roboto/Roboto-Regular.ttf"
+  ],
+  "img": [
+    "public/img/FCCfire.svg",
+    "public/img/FCClogo.svg",
+    "public/img/favicon.ico",
+    "public/img/challenges/pexels-photo-358717.jpeg"
+  ],
+  "css": [
+    "public/css/style.css",
+    "public/css/vendor/bootswatch/bootstrap.min.css",
+    "public/css/vendor/codemirror/codemirror.min.css",
+    "public/css/vendor/codemirror/monokai.min.css"
+  ]
+}
