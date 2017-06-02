@@ -5,23 +5,23 @@ css/style.css
 img/FCCfire.svg
 img/FCClogo.svg
 img/favicon.ico
-json/challenges-algorithms.json
-json/challenges-arcade.json
-json/challenges-combined.json
-json/challenges-data-structures.json
 js/index.bundle.js
 js/main.bundle.js
 js/sw.bundle.js
 js/ww.bundle.js
+json/challenges-algorithms.json
+json/challenges-arcade.json
+json/challenges-combined.json
+json/challenges-data-structures.json
 font/Kalam/Kalam-Regular.ttf
 font/Lato/Lato-Black.ttf
 font/Roboto/Roboto-Bold.ttf
 font/Roboto/Roboto-Medium.ttf
 font/Roboto/Roboto-Regular.ttf
 img/challenges/pexels-photo-358717.jpeg
+css/vendor/bootswatch/bootstrap.min.css
 css/vendor/codemirror/codemirror.min.css
 css/vendor/codemirror/monokai.min.css
-css/vendor/bootswatch/bootstrap.min.css
 
 NETWORK:
 *
@@ -29,4 +29,4 @@ NETWORK:
 SETTINGS:
 prefer-online
 
-# hash: 9ab2ca803ae66b04ab3ea5d2e2de42169325f6d347efa0b0ee8166e2c5b6d77f
+# hash: 1e7e369814ecb5df68634429a8cb91cc69c285837333f4f31d3d8097363c06f2
