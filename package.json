@@ -74,6 +74,7 @@
     "mocha": "^3.3.0",
     "react-addons-test-utils": "^15.5.1",
     "react-test-renderer": "^15.5.4",
+    "recursive-readdir": "^2.2.1",
     "sinon": "^2.2.0",
     "tiny-worker": "^2.1.1",
     "uglifyify": "^3.0.4",
