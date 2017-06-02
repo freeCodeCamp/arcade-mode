@@ -233,7 +233,7 @@ function printToOutput (res) {
 
 /* Prints the usage of the script and exits. */
 function usage(exitCode = 0) {
-  console.log('Usage: bin/js2json_challenges.js [opts] <files>+\n');
+  console.log('Usage: bin/js2json_challenges.js [opts] -f <files>+\n');
   optionDefinitions.forEach(opt => {
     if (opt.alias) {
       console.log(`\t--${opt.name},-${opt.alias}\t- ${opt.descr}`);
