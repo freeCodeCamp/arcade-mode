@@ -1,4 +1,6 @@
+/* remove lives and deletion of pass option 6/2/17 */
 
+/*
 import chai, { expect } from 'chai';
 import Immutable from 'immutable';
 
@@ -21,3 +23,4 @@ describe('Reducer: playerstatus', () => {
     expect(nextState.get('passOption')).to.be.false;
   });
 });
+*/
