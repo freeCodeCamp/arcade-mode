@@ -6,6 +6,8 @@
 
 'use strict';
 
+import * as CACHE from '../../../../public/swCache.json';
+
 const CACHE_VERSION = 3;
 const CURRENT_CACHES = {
   font: `font-cache-v${CACHE_VERSION}`,
@@ -17,37 +19,6 @@ const CURRENT_CACHES = {
   // currently appcache has everything stored in it, including json
   // will eventually need to take out json and move it to indexedDB.
   // indexedDB will also store the user's progress.
-};
-
-const CACHE = {
-  font: [
-    'public/font/Roboto/Roboto-Regular.ttf',
-    'public/font/Roboto/Roboto-Medium.ttf',
-    'public/font/Roboto/Roboto-Bold.ttf',
-    'public/font/Lato/Lato-Black.ttf',
-    'public/font/Kalam/Kalam-Regular.ttf'
-  ],
-
-  css: [
-    'public/css/style.css',
-    'public/css/vendor/bootswatch/bootstrap.min.css',
-    'public/css/vendor/codemirror/codemirror.min.css',
-    'public/css/vendor/codemirror/monokai.min.css'
-  ],
-
-  html: ['/'],
-
-  img: [
-    'public/img/FCClogo.svg',
-    'public/img/FCCfire.svg'
-  ],
-
-  js: [
-    'public/js/main.bundle.js',
-    'public/js/index.bundle.js',
-    'public/js/ww.bundle.js',
-    'public/js/sw.bundle.js'
-  ]
 };
 
 // challenges currently do not need to be imported as it's part of the main.bundle.js
