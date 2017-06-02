@@ -5,9 +5,8 @@ const assert = require('chai').assert;
 /// type: arcade-mode
 
 /// description:
-`A queue is  a data structure with FIFO (first-in first-out) properties. Elements are removed in the same order as they are inserted. In this challenge, you need to implement Queue class using two Stack data structures.
-Instructions: Implement a Queue class with two methods: enqueue() which inserts an element into a queue and dequeue() which removes an element in an insertion order.
-`;
+/// A queue is  a data structure with FIFO (first-in first-out) properties. Elements are removed in the same order as they are inserted. In this challenge, you need to implement Queue class using two Stack data structures.
+/// Implement a Queue class with two methods: enqueue() which inserts an element into a queue and dequeue() which removes an element in an insertion order.
 
 /// head:
 function Stack() {
@@ -46,7 +45,7 @@ let Queue = function() {
 };
 
 /// solutions:
-Queue = function () {
+let Queue = function () {
   this.s1 = new Stack();
   this.s2 = new Stack();
 
@@ -75,11 +74,9 @@ q2.dequeue(); q2.dequeue(); q2.dequeue(); q2.dequeue();
 [7, 8, 9, 10].forEach(num => q2.enqueue(num));
 
 /// tests:
-assert(typeof Queue === 'function', 'Queue must be a constructor function.');
-
+assert(typeof Queue === 'function', 'message: Queue must be a constructor function.');
 assert(q.dequeue() === 1, 'message: 1 is dequeued correctly');
 assert(q.dequeue() === 2, 'message: 2 is dequeued correctly');
-
 assert(q2.dequeue() === 5, 'message: 5 is dequeued correctly');
 assert(q2.dequeue() === 6, 'message: 5 is dequeued correctly');
 assert(q2.dequeue() === 7, 'message: 5 is dequeued correctly');
