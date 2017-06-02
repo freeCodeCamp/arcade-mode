@@ -88,11 +88,13 @@ function getNextChallenge(state) {
 
 export default function challenge(state = initialState, action) {
   switch (action.type) {
-    case MODAL_CLOSE:
+    case MODAL_CLOSE: {
       // shuffle on modal close to prevent gaming the system
+      const shuffledChallenges = shuffle(challengeTypes[state.get('challengeType')]);
       return state
-        .set('chosenChallenges', shuffle(challengeTypes[state.get('challengeType')]))
-        .set('currChallenge', Map(Immutable.fromJS(challengeTypes[state.get('challengeType')][0])));
+        .set('chosenChallenges', shuffledChallenges)
+        .set('currChallenge', Map(Immutable.fromJS(shuffledChallenges[0])));
+    }
     case GAME_CHALLENGE_TYPE_CHANGE:
       return state
         .set('challengeType', action.challengeType);
