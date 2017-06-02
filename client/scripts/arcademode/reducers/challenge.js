@@ -22,6 +22,7 @@ import FCCInterviewAlgorithms from '../../../../public/json/challenges-algorithm
 import FCCInterviewDataStructures from '../../../../public/json/challenges-data-structures.json';
 
 import Challenges from '../../../../public/json/challenges-combined.json';
+import ChallengesArcade from '../../../../public/json/challenges-arcade.json';
 
 const combinedChallenges = Object.keys(Challenges)
   .reduce((arr, key) => arr.concat(Challenges[key].challenges), []);
@@ -29,7 +30,8 @@ const combinedChallenges = Object.keys(Challenges)
 const challengeTypes = {
   'Data structures': shuffle(FCCInterviewDataStructures.challenges),
   Algorithms: shuffle(FCCInterviewAlgorithms.challenges),
-  Mixed: shuffle(combinedChallenges)
+  Mixed: shuffle(combinedChallenges),
+  Arcade: shuffle(ChallengesArcade.challenges)
 };
 
 const initialState = Map({
@@ -44,7 +46,8 @@ const initialState = Map({
   currChallengeStartedAt: 0,
   nextChallenge: Map(),
   challengeType: 'Algorithms',
-  chosenChallenges: challengeTypes.Algorithms
+  chosenChallenges: challengeTypes.Algorithms,
+  passedChallenges: List()
 });
 
 function shuffle (array) {
@@ -63,9 +66,24 @@ function shuffle (array) {
 }
 
 function getNextChallenge(state) {
+  const newIndex = state.get('challengeNumber') + 1;
   return Map(Immutable.fromJS(
-    state.get('chosenChallenges')[state.get('challengeNumber') + 1])
+    state.get('chosenChallenges')[newIndex])
   );
+
+  // TODO finish the logic, if user runs out of challenges
+  /*
+  if (newIndex <= state.get('chosenChallenges').size) {
+    return Map(Immutable.fromJS(
+      state.get('chosenChallenges')[newIndex])
+    );
+  }
+  // TODO handle case where challenges have run out
+  // Right now we assume that user has passed some challenges
+  return Map(Immutable.fromJS(
+    state.get('passedChallenges')[0])
+  );
+  */
 }
 
 export default function challenge(state = initialState, action) {
