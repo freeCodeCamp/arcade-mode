@@ -10,6 +10,7 @@ js/main.bundle.js
 js/sw.bundle.js
 js/ww.bundle.js
 json/challenges-algorithms.json
+json/challenges-arcade.json
 json/challenges-combined.json
 json/challenges-data-structures.json
 font/Kalam/Kalam-Regular.ttf
@@ -17,6 +18,7 @@ font/Lato/Lato-Black.ttf
 font/Roboto/Roboto-Bold.ttf
 font/Roboto/Roboto-Medium.ttf
 font/Roboto/Roboto-Regular.ttf
+img/challenges/pexels-photo-358717.jpeg
 css/vendor/bootswatch/bootstrap.min.css
 css/vendor/codemirror/codemirror.min.css
 css/vendor/codemirror/monokai.min.css
@@ -27,4 +29,4 @@ NETWORK:
 SETTINGS:
 prefer-online
 
-# hash: a64e8744e3759be5d30ac9af0d8a6d29ad7ac9a48363553890773a1e45de2388
+# hash: be077527f0e014aafc7b6377a3148ca116403f1d3f4fa4f37a20638e07fa523c
