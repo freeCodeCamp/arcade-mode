@@ -4,8 +4,13 @@
 // Requires
 // ========
 
-// General
-// -------
+// Node
+// ----
+// https://nodejs.org/api/child_process.html#child_process_child_process_exec_command_options_callback
+const exec = require('child_process').exec;
+
+// Gulp
+// ----
 const gulp = require('gulp');
 const gulpif = require('gulp-if');
 const gutil = require('gulp-util');
@@ -15,6 +20,7 @@ const notify = require('gulp-notify');
 const browserSync = require('browser-sync').create();
 
 // Pug -> HTML
+// -----------
 const pug = require('gulp-pug');
 
 // JSX/ES6 -> ES5
@@ -47,6 +53,7 @@ const cache = require('gulp-cache');
 const jsoncombine = require('gulp-jsoncombine');
 
 // Appcache creation
+// -----------------
 const manifest = require('gulp-manifest');
 
 
@@ -72,8 +79,12 @@ const paths = {
   },
   fonts: ['client/fonts/**/*'], // font sources
   images: ['client/images/**/*'], // image sources
-  jsons: ['client/jsons/**/*'], // temporary storage for challenges
-  scripts: ['client/scripts/**/*'],
+  jsons: { // json-related items
+    fccInterviewSeed: ['client/jsons/**/*'],
+    arcadeMode: ['client/scripts/challenges/**/*'],
+    js2jsonScript: ['bin/js2json_challenges.js']
+  },
+  scripts: ['client/scripts/**/*', '!client/scripts/challenges/**/*'],
   stylesheets: ['client/stylesheets/**/*'],
   vendor: {
     scripts: ['client/scripts/vendor/**/*'], // browserify currently imports loop-protect
@@ -112,17 +123,26 @@ gulp.task('build-img', () => {
 
 gulp.task('build-json', () => {
   // pass through individual files (currently algo+ds) for individual mode display:
-  const s1 = gulp.src(paths.jsons)
+  const s1 = gulp.src(paths.jsons.fccInterviewSeed)
     .pipe(gulp.dest(`${ghPages}public/json`))
     .pipe(browserSync.reload({ stream: true }));
 
   // pass through a bundled version for mixed mode display:
-  const s2 = gulp.src(paths.jsons)
+  const s2 = gulp.src(paths.jsons.fccInterviewSeed)
     .pipe(jsoncombine('challenges-combined.json', data =>
       new Buffer(JSON.stringify(data))
     ))
     .pipe(gulp.dest(`${ghPages}public/json`))
     .pipe(browserSync.reload({ stream: true }));
+
+  exec('bin/js2json_challenges.js --force -f client/scripts/challenges/*.js -o public/json/challenges-arcade.json', (err, stdout, stderr) => {
+    if (err) {
+      console.error(`exec error: ${err}`);
+      return;
+    }
+    // console.log(`stdout: ${stdout}`);
+    // console.log(`stderr: ${stderr}`);
+  });
 
   return merge(s1, s2);
 });
@@ -270,8 +290,8 @@ gulp.task('clear-cache', done => cache.clearAll(done)); // clears img cache
 
 // Bundled tasks
 // -------------
-gulp.task('build-types', gulp.parallel('build-font', 'build-img', 'build-json', 'build-js', 'build-css', 'build-view'));
-gulp.task('build-types-dev', gulp.parallel('build-font', 'build-img', 'build-json', 'build-js-inc', 'build-css', 'build-view'));
+gulp.task('build-types', gulp.series('build-json', gulp.parallel('build-font', 'build-img', 'build-js', 'build-css', 'build-view')));
+gulp.task('build-types-dev', gulp.series('build-json', gulp.parallel('build-font', 'build-img', 'build-js-inc', 'build-css', 'build-view')));
 
 gulp.task('build', gulp.series('clean:static', 'build-types', 'build-appcache'));
 gulp.task('build-dev', gulp.series('build-types-dev', 'build-appcache-dev'));
@@ -279,7 +299,7 @@ gulp.task('build-dev', gulp.series('build-types-dev', 'build-appcache-dev'));
 gulp.task('watch', gulp.series('build', done => {
   gulp.watch(paths.fonts, gulp.task('build-font'));
   gulp.watch(paths.images, gulp.task('build-img'));
-  gulp.watch(paths.jsons, gulp.task('build-json'));
+  gulp.watch([...Object.values(paths.jsons)], gulp.task('build-json'));
   gulp.watch(paths.scripts, gulp.task('build-js'));
   gulp.watch(paths.stylesheets, gulp.task('build-css'));
   done();
@@ -288,7 +308,7 @@ gulp.task('watch', gulp.series('build', done => {
 gulp.task('watch-dev', gulp.series('build-dev', done => {
   gulp.watch(paths.fonts, gulp.task('build-font'));
   gulp.watch(paths.images, gulp.task('build-img'));
-  gulp.watch(paths.jsons, gulp.task('build-json'));
+  gulp.watch([...Object.values(paths.jsons)], gulp.task('build-json'));
   gulp.watch(paths.scripts, gulp.task('build-js-inc'));
   gulp.watch(paths.stylesheets, gulp.task('build-css'));
   done();
