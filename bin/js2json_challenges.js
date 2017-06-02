@@ -133,13 +133,33 @@ function processLine(parser, line) {
   }
   else if (parser.prop !== null) {
     parser.propValue.push(line);
+    // if prop is solutions, combine strings into one string with newline
+    if (parser.prop === 'solutions') {
+      if (parser.propValue.length > 1) {
+        parser.propValue = [parser.propValue.join('\n')];
+      }
+    }
   }
 }
 
 /* Adds current property value into the parser for the current file being processed. Resets
  * the prop value after this. */
 function finishCurrProp(parser) {
-  const newPropVal = parser.propValue.length === 1 ? parser.propValue[0] : parser.propValue;
+  // shave off ending empty string from arrays:
+  if (parser.propValue.slice(-1).toString() === '') {
+    parser.propValue.splice(-1);
+  }
+
+  let newPropVal;
+
+  // keep solutions string in an array
+  if (parser.prop === 'solutions') {
+    newPropVal = parser.propValue;
+  }
+  else if (parser.propValue.length === 1) {
+    newPropVal = parser.propValue[0] || parser.propValue;
+  }
+  else newPropVal = parser.propValue;
 
   if (typeof parser.files[parser.currFile][parser.prop] === 'undefined') {
     parser.files[parser.currFile][parser.prop] = newPropVal;
