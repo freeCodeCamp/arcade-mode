@@ -92,9 +92,11 @@
         "}"
       ],
       "solutions": [
-        "function sortBooks (arr) {\n  if (arr.length <= 1) {\n    return arr;\n  }\n  // quick sort implementation\n  const pivot = arr[Math.floor(arr.length / 2)]; // use approx middle element as pivot\n  let leftIndex = 0;\n  let rightIndex = arr.length - 1;\n  while (leftIndex < rightIndex) {\n    if (arr[leftIndex] >= pivot) {\n      if (arr[rightIndex] <= pivot) {\n        [arr[leftIndex], arr[rightIndex]] = [arr[rightIndex], arr[leftIndex]]; // swap\n      }\n      rightIndex--;\n    }\n    else leftIndex++;\n  }\n\n  const rightSide = arr.splice(leftIndex);\n  const leftSide = arr;\n\n  return sortBooks(leftSide).concat(sortBooks(rightSide));\n}\n"
+        "function sortBooks (arr) {\n  if (arr.length <= 1) {\n    return arr;\n  }\n  // quick sort implementation\n  const pivot = arr[Math.floor(arr.length / 2)]; // use approx middle element as pivot\n  let leftIndex = 0;\n  let rightIndex = arr.length - 1;\n  while (leftIndex < rightIndex) {\n    if (arr[leftIndex] >= pivot) {\n      if (arr[rightIndex] <= pivot) {\n        [arr[leftIndex], arr[rightIndex]] = [arr[rightIndex], arr[leftIndex]]; // swap\n        leftIndex++;\n      }\n      rightIndex--;\n    }\n    else leftIndex++;\n  }\n\n  const rightSide = arr.splice(leftIndex);\n  const leftSide = arr;\n\n  return sortBooks(leftSide).concat(sortBooks(rightSide));\n}\n"
       ],
       "tail": [
+        "const userProvidedArr = ['Rossi', 'Russo', 'Ferrarri', 'Esposito', 'Bianchi', 'Romano', 'Columbo'];",
+        "const unmodifiedArr = ['Rossi', 'Russo', 'Ferrarri', 'Esposito', 'Bianchi', 'Romano', 'Columbo'];",
         "function isSorted (arr) {",
         "  const check = i => (i === arr.length - 1) ? true : (arr[i] > arr[i + 1]) ? false : check(i + 1);",
         "  return check(0);",
@@ -102,8 +104,8 @@
       ],
       "tests": [
         "assert(typeof sortBooks === 'function', 'message: <code>sortBooks</code> is a function.');",
-        "assert(isSorted(sortBooks(['Rossi', 'Russo', 'Ferarri', 'Esposito', 'Bianchi', 'Romano'])), 'message: <code>sortBooks</code> returns a sorted array.');",
-        "assert.sameMembers(sortBooks(['Rossi', 'Russo', 'Ferarri', 'Esposito', 'Bianchi', 'Romano']), ['Rossi', 'Russo', 'Ferarri', 'Esposito', 'Bianchi', 'Romano'], 'message: <code>sortBooks</code> returns an array that is unchanged except for order.');",
+        "assert(isSorted(sortBooks(userProvidedArr)), 'message: <code>sortBooks</code> returns a sorted array.');",
+        "assert.sameMembers(sortBooks(userProvidedArr), unmodifiedArr, 'message: <code>sortBooks</code> returns an array that is unchanged except for order.');",
         "assert.strictEqual(code.search(/\\.sort\\(/), -1, 'message: <code>sortBooks</code> should not use the built-in <code>.sort()</code> method.');"
       ],
       "id": 0
