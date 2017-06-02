@@ -15,8 +15,7 @@
     "test:server": "NODE_ENV=test mocha --compilers js:babel-core/register --recursive test/server",
     "watch": "NODE_ENV=production gulp watch",
     "watch-dev": "NODE_ENV=development gulp watch-dev",
-    "watch-sync": "NODE_ENV=development gulp browser-sync",
-    "watch-json": "watch bin/js2json_challenges.js -f client/scripts/challenges/*.js -o client/jsons/challenges-arcade.json"
+    "watch-sync": "NODE_ENV=development gulp browser-sync"
   },
   "repository": {
     "type": "git",
