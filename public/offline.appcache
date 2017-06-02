@@ -1,18 +1,19 @@
 CACHE MANIFEST
 
 CACHE:
+swCache.json
 css/style.css
 img/FCCfire.svg
 img/FCClogo.svg
 img/favicon.ico
-js/index.bundle.js
-js/main.bundle.js
-js/sw.bundle.js
-js/ww.bundle.js
 json/challenges-algorithms.json
 json/challenges-arcade.json
 json/challenges-combined.json
 json/challenges-data-structures.json
+js/index.bundle.js
+js/main.bundle.js
+js/sw.bundle.js
+js/ww.bundle.js
 font/Kalam/Kalam-Regular.ttf
 font/Lato/Lato-Black.ttf
 font/Roboto/Roboto-Bold.ttf
@@ -29,4 +30,4 @@ NETWORK:
 SETTINGS:
 prefer-online
 
-# hash: 1e7e369814ecb5df68634429a8cb91cc69c285837333f4f31d3d8097363c06f2
+# hash: cdaafe62d57f21cdc77b06ad2002f8785aea07777e6d157eba58ff0985c72ab6
