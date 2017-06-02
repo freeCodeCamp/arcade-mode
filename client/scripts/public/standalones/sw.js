@@ -6,7 +6,7 @@
 
 'use strict';
 
-const CACHE_VERSION = 2;
+const CACHE_VERSION = 3;
 const CURRENT_CACHES = {
   font: `font-cache-v${CACHE_VERSION}`,
   css: `css-cache-v${CACHE_VERSION}`,
