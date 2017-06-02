@@ -135,7 +135,9 @@ gulp.task('build-json', () => {
     .pipe(gulp.dest(`${ghPages}public/json`))
     .pipe(browserSync.reload({ stream: true }));
 
-  exec('bin/js2json_challenges.js --force -f client/scripts/challenges/*.js -o public/json/challenges-arcade.json', (err, stdout, stderr) => {
+  const js2jsonScript = `bin/json2json_challenges.js --force -f client/scripts/challenges/*.js -o ${ghPages}public/json/challenges-arcade.json`;
+
+  exec(js2jsonScript, (err, stdout, stderr) => {
     if (err) {
       console.error(`exec error: ${err}`);
       return;
