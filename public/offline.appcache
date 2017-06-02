@@ -1,25 +1,24 @@
 CACHE MANIFEST
 
 CACHE:
-swCache.json
-css/style.css
 img/FCCfire.svg
 img/FCClogo.svg
 img/favicon.ico
-json/challenges-algorithms.json
-json/challenges-arcade.json
-json/challenges-combined.json
-json/challenges-data-structures.json
+css/style.css
 js/index.bundle.js
 js/main.bundle.js
 js/sw.bundle.js
 js/ww.bundle.js
-font/Kalam/Kalam-Regular.ttf
+json/challenges-algorithms.json
+json/challenges-arcade.json
+json/challenges-combined.json
+json/challenges-data-structures.json
+img/challenges/pexels-photo-358717.jpeg
 font/Lato/Lato-Black.ttf
 font/Roboto/Roboto-Bold.ttf
 font/Roboto/Roboto-Medium.ttf
 font/Roboto/Roboto-Regular.ttf
-img/challenges/pexels-photo-358717.jpeg
+font/Kalam/Kalam-Regular.ttf
 css/vendor/bootswatch/bootstrap.min.css
 css/vendor/codemirror/codemirror.min.css
 css/vendor/codemirror/monokai.min.css
@@ -30,4 +29,4 @@ NETWORK:
 SETTINGS:
 prefer-online
 
-# hash: cdaafe62d57f21cdc77b06ad2002f8785aea07777e6d157eba58ff0985c72ab6
+# hash: 4babee711fa54beb7fc764d362b879ea8148166adbb17500fa306e39405c8167
