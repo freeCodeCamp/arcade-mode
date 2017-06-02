@@ -38,6 +38,7 @@ function sortBooks (arr) {
     if (arr[leftIndex] >= pivot) {
       if (arr[rightIndex] <= pivot) {
         [arr[leftIndex], arr[rightIndex]] = [arr[rightIndex], arr[leftIndex]]; // swap
+        leftIndex++;
       }
       rightIndex--;
     }
@@ -51,6 +52,8 @@ function sortBooks (arr) {
 }
 
 /// tail:
+const userProvidedArr = ['Rossi', 'Russo', 'Ferrarri', 'Esposito', 'Bianchi', 'Romano', 'Columbo'];
+const unmodifiedArr = ['Rossi', 'Russo', 'Ferrarri', 'Esposito', 'Bianchi', 'Romano', 'Columbo'];
 function isSorted (arr) {
   const check = i => (i === arr.length - 1) ? true : (arr[i] > arr[i + 1]) ? false : check(i + 1);
   return check(0);
@@ -58,6 +61,6 @@ function isSorted (arr) {
 
 /// tests:
 assert(typeof sortBooks === 'function', 'message: <code>sortBooks</code> is a function.');
-assert(isSorted(sortBooks(['Rossi', 'Russo', 'Ferarri', 'Esposito', 'Bianchi', 'Romano'])), 'message: <code>sortBooks</code> returns a sorted array.');
-assert.sameMembers(sortBooks(['Rossi', 'Russo', 'Ferarri', 'Esposito', 'Bianchi', 'Romano']), ['Rossi', 'Russo', 'Ferarri', 'Esposito', 'Bianchi', 'Romano'], 'message: <code>sortBooks</code> returns an array that is unchanged except for order.');
+assert(isSorted(sortBooks(userProvidedArr)), 'message: <code>sortBooks</code> returns a sorted array.');
+assert.sameMembers(sortBooks(userProvidedArr), unmodifiedArr, 'message: <code>sortBooks</code> returns an array that is unchanged except for order.');
 assert.strictEqual(code.search(/\.sort\(/), -1, 'message: <code>sortBooks</code> should not use the built-in <code>.sort()</code> method.');
