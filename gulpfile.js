@@ -137,10 +137,9 @@ gulp.task('build-json', () => {
 
   const js2jsonScript = `bin/js2json_challenges.js --force -f client/scripts/challenges/*.js -o ${ghPages}public/json/challenges-arcade.json`;
 
-  exec(js2jsonScript, (err, stdout, stderr) => {
+  exec(js2jsonScript, err => {
     if (err) {
       console.error(`exec error: ${err}`);
-      return;
     }
     // console.log(`stdout: ${stdout}`);
     // console.log(`stderr: ${stderr}`);
@@ -308,9 +307,10 @@ gulp.task('watch', gulp.series('build', done => {
 }));
 
 gulp.task('watch-dev', gulp.series('build-dev', done => {
+  const jsonFiles = Object.keys(paths.jsons).map(item => paths.jsons[item]);
   gulp.watch(paths.fonts, gulp.task('build-font'));
   gulp.watch(paths.images, gulp.task('build-img'));
-  gulp.watch([...Object.values(paths.jsons)], gulp.task('build-json'));
+  gulp.watch(jsonFiles, gulp.task('build-json'));
   gulp.watch(paths.scripts, gulp.task('build-js-inc'));
   gulp.watch(paths.stylesheets, gulp.task('build-css'));
   done();
