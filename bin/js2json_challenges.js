@@ -183,7 +183,19 @@ function formatResult(parsedFiles) {
     parsedFiles[filename]
   );
 
-  return JSON.stringify(challenges, null, 2);
+  challenges.forEach(challenge => {
+    challenge.id = parseInt(Math.random(), 16);
+  });
+
+  const finalFormat = {
+    name: 'ArcadeMode Interview Questions',
+    order: '',
+    time: '',
+    helpRoom: '',
+    challenges
+  };
+
+  return JSON.stringify(finalFormat, null, 2);
 }
 
 /* Prints the results to given output file. */
