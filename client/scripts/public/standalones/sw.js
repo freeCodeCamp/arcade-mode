@@ -6,7 +6,7 @@
 
 'use strict';
 
-import * as CACHE from '../../../../public/swCache.json';
+import * as CACHE from './swCache.json';
 
 const CACHE_VERSION = 3;
 const CURRENT_CACHES = {

@@ -26,6 +26,6 @@ readdir('public').then(files => {
   });
 
   const cache = JSON.stringify(CACHE, null, 2);
-  fs.writeFileSync('public/swCache.json', cache);
+  fs.writeFileSync('client/scripts/public/standalones/swCache.json', cache);
 })
 .catch(err => console.error(`error: ${err}`));
