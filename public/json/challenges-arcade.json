@@ -5,6 +5,49 @@
   "helpRoom": "",
   "challenges": [
     {
+      "title": "Gittaca",
+      "type": "arcade-mode",
+      "categories": [
+        "algorithms",
+        "dynamic programming",
+        "longest common subsequence"
+      ],
+      "difficulty": "8",
+      "images": "public/img/challenges/pexels-photo-127556.jpeg",
+      "description": [
+        "<img class='challenge__image' src='public/img/challenges/pexels-photo-127556.jpeg'>",
+        "With the arrival of precision genetic editing tools such as CRISPR/cas9 and the emerging field of nanoengineering, you wish to create a version control system for tracking modifications of genetic data. Instead of line-based diffing, your algorithm will be nucleotide (character) based. Knowing that most genomes are in the ballpark of billions of DNA base pairs (Gbp), diffing complete genomes cannot be completed in a reasonable amount of time or space given current technology levels. Therefore, you decide to focus on diffing genetic data at the gene level and lower in the ballpark of hundred thousands base pairs (Mbp). Since you just are just beginning, you test small strings first.",
+        "Implement an algorithm that will output the diff of two provided strings",
+        "Sample input",
+        "diff('GTAGACA', 'GATTACA');",
+        "Sample output (multiple answers possible)",
+        "['G', '+A', 'T', '+T', 'A', '-G', '-A', 'C', 'A'];",
+        "['G', '-T', 'A', '+T', '+T', '-G', 'A', 'C', 'A'];",
+        "['G', '-T', 'A', '-G', '+T', '+T', 'A', 'C', 'A'];"
+      ],
+      "challengeSeed": [
+        "function diff (oldStr, newStr) {",
+        "  // Good luck!",
+        "  return true;",
+        "}"
+      ],
+      "solutions": [
+        "function createLCSTable (str1, str2, l1, l2) {\n  const arr = new Array(l1 + 1).fill(0).map(() => new Array(l2 + 1).fill(0));\n  for (let row = 1; row <= l1; row++) {\n    for (let col = 1; col <= l2; col++) {\n      if (str1[row - 1] === str2[col - 1]) {\n        arr[row][col] = arr[row - 1][col - 1] + 1;\n      }\n      else arr[row][col] = Math.max(arr[row - 1][col], arr[row][col - 1]);\n    }\n  }\n  return arr;\n}\n\n\nfunction generateDiff (oldStr, newStr, lcsTable, diffArr) {\n  const osl = oldStr.length;\n  const nsl = newStr.length;\n\n  if (osl > 0 && nsl > 0 && oldStr[osl - 1] === newStr[nsl - 1]) {\n    diffArr.unshift(oldStr[osl - 1]);\n    generateDiff(oldStr.slice(0, -1), newStr.slice(0, -1), lcsTable, diffArr);\n  }\n  else if (nsl > 0 && (osl === 0 || lcsTable[osl][nsl - 1] >= lcsTable[osl - 1][nsl])) {\n    diffArr.unshift(`+${newStr[nsl - 1]}`);\n    generateDiff(oldStr, newStr.slice(0, -1), lcsTable, diffArr);\n  }\n  else if (osl > 0 && (nsl === 0 || lcsTable[osl][nsl - 1] < lcsTable[osl - 1][nsl])) {\n    diffArr.unshift(`-${oldStr[osl - 1]}`);\n    generateDiff(oldStr.slice(0, -1), newStr, lcsTable, diffArr);\n  }\n}\n\nfunction diff (oldStr, newStr) {\n  const lcsTable = createLCSTable(oldStr, newStr, oldStr.length, newStr.length);\n  const diffArr = [];\n  generateDiff(oldStr, newStr, lcsTable, diffArr);\n\n  return diffArr.join(' ');\n}\n"
+      ],
+      "tail": [
+        "const testCase1 = ['GTTG', 'GTTAC'];",
+        "const tc1Answers = [['G', 'T', 'T', '+A', '+C', '-G'], ['G', 'T', 'T', '-G', '+A', '+C']].map(arr => arr.join(' '));",
+        "const testCase2 = ['GTCAGTCA', 'TGTGCAGC'];",
+        "const tc2Answers = ['+T', 'G', 'T', '+G', 'C', 'A', 'G', '-T', 'C', '-A'].join(' ');"
+      ],
+      "tests": [
+        "assert(typeof diff === 'function', 'message: <code>diff</code> is a function.');",
+        "assert.include(tc1Answers, diff(testCase1[0], testCase1[1]), 'message: diff(\"GTTG\", \"GTTAC\") should return either \"G T T +A +C -G\" or \"G T T -G +A +C\"');",
+        "assert.equal(tc2Answers, diff(testCase2[0], testCase2[1]), 'message: diff(\"GTCAGTCA\", \"TGTGCAGC\") should return \"+T G T +G C A G -T C -A\"');"
+      ],
+      "id": 0
+    },
+    {
       "title": "Queue using two stacks",
       "type": "arcade-mode",
       "description": [
@@ -14,7 +57,6 @@
       "head": [
         "function Stack() {",
         "  this.list = [];",
-        "  this.size = 0;",
         "",
         "  this.size = function() {",
         "    return this.list.length;",
@@ -27,11 +69,13 @@
         "  this.push = function(elem) {",
         "    return this.list.push(elem);",
         "  };",
-        "}"
+        "}",
+        ""
       ],
       "challengeSeed": [
         "",
-        "// class Stack:",
+        "// You have the following data structure available",
+        "// Stack:",
         "//    push(elem): Push new element to the top",
         "//    pop():  Remove and return the top element",
         "//    size(): Return the number of elements in Stack",
@@ -48,7 +92,7 @@
         "};"
       ],
       "solutions": [
-        "let Queue = function () {\n  this.s1 = new Stack();\n  this.s2 = new Stack();\n\n  this.enqueue = function(elem) {\n    this.s1.push(elem);\n  };\n\n  this.dequeue = function() {\n    if (this.s2.size() > 0) {\n      return this.s2.pop();\n    }\n    while (this.s1.size() > 0) {\n      this.s2.push(this.s1.pop());\n    }\n    return this.s2.pop();\n  };\n};\n"
+        "Queue = function () {\n  this.s1 = new Stack();\n  this.s2 = new Stack();\n\n  this.enqueue = function(elem) {\n    this.s1.push(elem);\n  };\n\n  this.dequeue = function() {\n    if (this.s2.size() > 0) {\n      return this.s2.pop();\n    }\n    while (this.s1.size() > 0) {\n      this.s2.push(this.s1.pop());\n    }\n    return this.s2.pop();\n  };\n};\n"
       ],
       "tail": [
         "const q = new Queue();",
@@ -76,10 +120,11 @@
         "algorithms",
         "sorting"
       ],
+      "difficulty": "6",
       "images": "public/img/challenges/pexels-photo-358717.jpeg",
       "description": [
         "<img class='challenge__image' src='public/img/challenges/pexels-photo-358717.jpeg'>",
-        "On your last day of vacation, a quaint used bookstore catches your eye on one of the smaller streets of Rome. \"Perhaps this bookstore will have that out of print book I have been looking for all these years.\" As you walk inside, you note the large pile of books in the back of the store and the sparsely-furnished bookshelves throughout. The shopkeep, a thin elderly man with combed back white hair and spectacles, seems to be deep in the process of organizing one of the bookshelves. You browse each aisle with ease due to the sparseness, but also because of your familiarity with the cover design of the book. It is then that you finally notice it on the bookshelf with other old books. \"They have it!\" you think estatically. Of course, you made sure multiple times.",
+        "On your last day of vacation, a quaint used bookstore catches your eye on one of the smaller streets of Rome. \"Perhaps this bookstore will have that out of print book I have been looking for all these years,\" you think to yourself. As you walk inside, you note the large pile of books in the back of the store and the sparsely-furnished bookshelves throughout. The shopkeep, a thin elderly man with combed back white hair and spectacles, seems to be deep in the process of organizing one of the bookshelves. You browse each aisle with ease due to the sparseness, but also because of your familiarity with the cover design of the book. It is then that you finally notice it on the bookshelf with other aged books. \"They have it!\" you think estatically. Of course, you made sure multiple times.",
         "As you approach the shopkeep to purchase the book, he becomes visibly startled at your presence. \"Goodness! I thought I had locked the door. I apologize, but due to the recent earthquake most of the books need to be resorted before I can reopen the store.\"",
         "Noting the book you have in your hand, he continues. \"That's quite the rare book. I can offer it to you if you help me sort through all the books here. I cannot sell it for anything else at this point.\"",
         "Understanding that your flight is tomorrow, you only have today to sort through all the books. Luckily for you, you know a few sorting algorithms. You accept the shopkeep's offer.",
@@ -92,7 +137,7 @@
         "}"
       ],
       "solutions": [
-        "function sortBooks (arr) {\n  if (arr.length <= 1) {\n    return arr;\n  }\n  // quick sort implementation\n  const pivot = arr[Math.floor(arr.length / 2)]; // use approx middle element as pivot\n  let leftIndex = 0;\n  let rightIndex = arr.length - 1;\n  while (leftIndex < rightIndex) {\n    if (arr[leftIndex] >= pivot) {\n      if (arr[rightIndex] <= pivot) {\n        [arr[leftIndex], arr[rightIndex]] = [arr[rightIndex], arr[leftIndex]]; // swap\n        leftIndex++;\n      }\n      rightIndex--;\n    }\n    else leftIndex++;\n  }\n\n  const rightSide = arr.splice(leftIndex);\n  const leftSide = arr;\n\n  return sortBooks(leftSide).concat(sortBooks(rightSide));\n}\n"
+        "function sortBooks (arr) {\n  if (arr.length > 1) {\n    // quick sort implementation\n    const pivot = arr[Math.floor(arr.length / 2)]; // use approx middle element as pivot\n    let leftIndex = 0;\n    let rightIndex = arr.length - 1;\n    while (leftIndex < rightIndex) {\n      if (arr[leftIndex] >= pivot) {\n        if (arr[rightIndex] <= pivot) {\n          [arr[leftIndex], arr[rightIndex]] = [arr[rightIndex], arr[leftIndex]]; // swap\n          leftIndex++;\n        }\n        rightIndex--;\n      }\n      else leftIndex++;\n    }\n\n    const rightHalf = arr.splice(leftIndex);\n    const leftHalf = arr;\n\n    Array.prototype.push.apply(sortBooks(leftHalf), sortBooks(rightHalf));\n  }\n\n  return arr;\n}\n"
       ],
       "tail": [
         "const userProvidedArr = ['Rossi', 'Russo', 'Ferrarri', 'Esposito', 'Bianchi', 'Romano', 'Columbo'];",

@@ -18,6 +18,7 @@ font/Lato/Lato-Black.ttf
 font/Roboto/Roboto-Bold.ttf
 font/Roboto/Roboto-Medium.ttf
 font/Roboto/Roboto-Regular.ttf
+img/challenges/pexels-photo-127556.jpeg
 img/challenges/pexels-photo-358717.jpeg
 css/vendor/bootswatch/bootstrap.min.css
 css/vendor/codemirror/codemirror.min.css
@@ -29,4 +30,4 @@ NETWORK:
 SETTINGS:
 prefer-online
 
-# hash: 949c216690d88dffe9f0a5660c640fa591762fcaf487cffbbcede801ed39a21f
+# hash: da328a94c52cec64364e4a127d5d3d3a0dfb3e921c8c24288ba39373c1bd76d0
