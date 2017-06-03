@@ -8,7 +8,7 @@ import ArcadeChallenges from '../../../../public/json/challenges-arcade.json';
 
 const challenges = ArcadeChallenges.challenges;
 const stackChallenge = challenges.find(item => item.title.match(/Queue using/));
-// const bookSortChallenge = challenges.find(item => item.title.match(/Bookshop/));
+const bookshopChallenge = challenges.find(item => item.title.match(/Bookshop/));
 
 const userOutputUndef = 'User output is undefined';
 
@@ -93,5 +93,14 @@ describe('runner()', () => {
     expect(res.userOutput).to.equal(userOutputUndef);
     expect(res.errorMsgs).to.have.length(0);
     expect(res.testResults).to.have.length(stackChallenge.tests.length);
+  });
+
+  it('can execute the book shop challenge', () => {
+    const userCode = bookshopChallenge.solutions.join('');
+    // userCode = userCode.replace(/^\s*Queue/, 'const Queue');
+    const res = runner(userCode, bookshopChallenge);
+    expect(res.userOutput).to.equal(userOutputUndef);
+    expect(res.errorMsgs).to.have.length(0);
+    expect(res.testResults).to.have.length(bookshopChallenge.tests.length);
   });
 });
