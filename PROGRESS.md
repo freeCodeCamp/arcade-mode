@@ -1,5 +1,11 @@
 # PROGRESS for Arcade Mode
 
+## Saturday 6/03/17:
+### Tuomas:
+  - Progress:
+    1. Running user code refactored into its own file (runner.js) + unit tests added
+    2. Build-flow optimized for adding custom challenges
+
 ## Sunday 5/28/17:
 ### Tim:
   - Progress:
