@@ -45,7 +45,6 @@ function createLCSTable (str1, str2, l1, l2) {
   return arr;
 }
 
-
 function generateDiff (oldStr, newStr, lcsTable, diffArr) {
   const osl = oldStr.length;
   const nsl = newStr.length;

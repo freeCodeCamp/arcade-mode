@@ -1,10 +1,24 @@
 # PROGRESS for Arcade Mode
 
 ## Saturday 6/03/17:
+### Tim:
+  - Progress:
+    1. Add Gittaca challenge
+
 ### Tuomas:
   - Progress:
     1. Running user code refactored into its own file (runner.js) + unit tests added
     2. Build-flow optimized for adding custom challenges
+
+## Friday 6/02/17:
+### Tim:
+  - Progress:
+    1. Create script to create cache files for service worker dynamically
+
+## Thursday 6/01/17:
+### Tim:
+  - Progress:
+    1. Add Rome Bookstore challenge
 
 ## Sunday 5/28/17:
 ### Tim:

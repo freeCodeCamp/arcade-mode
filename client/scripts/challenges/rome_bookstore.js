@@ -8,7 +8,7 @@ const assert = require('chai').assert;
 /// algorithms
 /// sorting
 
-/// difficulty: 6
+/// difficulty: 5
 
 /// images:
 /// public/img/challenges/pexels-photo-358717.jpeg
