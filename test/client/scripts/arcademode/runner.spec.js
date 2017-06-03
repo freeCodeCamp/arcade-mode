@@ -3,6 +3,13 @@ import { expect } from 'chai';
 
 import runner from '../../../../client/scripts/arcademode/runner';
 
+// Get some real challenges in
+import ArcadeChallenges from '../../../../public/json/challenges-arcade.json';
+
+const challenges = ArcadeChallenges.challenges;
+const stackChallenge = challenges.find(item => item.title.match(/Queue using/));
+// const bookSortChallenge = challenges.find(item => item.title.match(/Bookshop/));
+
 const userOutputUndef = 'User output is undefined';
 
 const emptyChallenge = {
@@ -77,5 +84,14 @@ describe('runner()', () => {
     expect(res.errorMsgs).to.have.length(1);
     expect(res.userOutput).to.match(/infinite loop/);
     console.log(res.userOutput);
+  });
+
+  it('can execute actual arcade-mode challenges', () => {
+    let userCode = stackChallenge.solutions.join('');
+    userCode = userCode.replace(/^\s*Queue/, 'const Queue');
+    const res = runner(userCode, stackChallenge);
+    expect(res.userOutput).to.equal(userOutputUndef);
+    expect(res.errorMsgs).to.have.length(0);
+    expect(res.testResults).to.have.length(stackChallenge.tests.length);
   });
 });
