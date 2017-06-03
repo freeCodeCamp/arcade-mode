@@ -81,10 +81,10 @@ const paths = {
   images: ['client/images/**/*'], // image sources
   jsons: { // json-related items
     fccInterviewSeed: ['client/jsons/**/*'],
-    arcadeMode: ['client/scripts/challenges/**/*'],
     js2jsonScript: ['bin/js2json_challenges.js']
   },
-  scripts: ['client/scripts/**/*', '!client/scripts/challenges/**/*'],
+  challengesJs: ['client/scripts/challenges/**/*'],
+  scripts: ['client/scripts/**/*'],
   stylesheets: ['client/stylesheets/**/*'],
   vendor: {
     scripts: ['client/scripts/vendor/**/*'], // browserify currently imports loop-protect
@@ -112,7 +112,7 @@ gulp.task('build-img', () => {
   const s2 = gulp.src(paths.images)
     .pipe(cache(imagemin([
       imagemin.gifsicle({ interlaced: true }),
-      imagemin.jpegtran({ progressive: true }),
+      // imagemin.jpegtran({ progressive: true }), // Tuomas: Cannot get this to work, crashes gulp
       imagemin.optipng({ optimizationLevel: 5 })
     ])))
     .pipe(gulp.dest(`${ghPages}public/img`))
@@ -135,17 +135,19 @@ gulp.task('build-json', () => {
     .pipe(gulp.dest(`${ghPages}public/json`))
     .pipe(browserSync.reload({ stream: true }));
 
-  const js2jsonScript = `bin/js2json_challenges.js --force -f client/scripts/challenges/*.js -o ${ghPages}public/json/challenges-arcade.json`;
+  return merge(s1, s2);
+});
 
+// Builds the arcade-mode json from js challenge files
+gulp.task('build-js2json', done => {
+  const js2jsonScript = `bin/js2json_challenges.js\
+    --force -f client/scripts/challenges/*.js -o ${ghPages}public/json/challenges-arcade.json`;
   exec(js2jsonScript, err => {
     if (err) {
       console.error(`exec error: ${err}`);
     }
-    // console.log(`stdout: ${stdout}`);
-    // console.log(`stderr: ${stderr}`);
+    done();
   });
-
-  return merge(s1, s2);
 });
 
 gulp.task('build-js', () =>
@@ -288,11 +290,23 @@ gulp.task('clean:static', () => {
 
 gulp.task('clear-cache', done => cache.clearAll(done)); // clears img cache
 
-
 // Bundled tasks
 // -------------
-gulp.task('build-types', gulp.series('build-json', gulp.parallel('build-font', 'build-img', 'build-js', 'build-css', 'build-view')));
-gulp.task('build-types-dev', gulp.series('build-json', gulp.parallel('build-font', 'build-img', 'build-js-inc', 'build-css', 'build-view')));
+gulp.task('build-types',
+  gulp.series(
+    'build-json',
+    'build-js2json',
+    gulp.parallel('build-font', 'build-img', 'build-js', 'build-css', 'build-view')
+  )
+);
+
+gulp.task('build-types-dev',
+  gulp.series(
+    'build-json',
+    'build-js2json',
+    gulp.parallel('build-font', 'build-img', 'build-js-inc', 'build-css', 'build-view')
+  )
+);
 
 gulp.task('build', gulp.series('clean:static', 'build-types', 'build-appcache'));
 gulp.task('build-dev', gulp.series('build-types-dev', 'build-appcache-dev'));
@@ -301,6 +315,7 @@ gulp.task('watch', gulp.series('build', done => {
   gulp.watch(paths.fonts, gulp.task('build-font'));
   gulp.watch(paths.images, gulp.task('build-img'));
   gulp.watch([...Object.values(paths.jsons)], gulp.task('build-json'));
+  gulp.watch(paths.challengesJs, gulp.task('build-js2json'));
   gulp.watch(paths.scripts, gulp.task('build-js'));
   gulp.watch(paths.stylesheets, gulp.task('build-css'));
   done();
@@ -311,6 +326,7 @@ gulp.task('watch-dev', gulp.series('build-dev', done => {
   gulp.watch(paths.fonts, gulp.task('build-font'));
   gulp.watch(paths.images, gulp.task('build-img'));
   gulp.watch(jsonFiles, gulp.task('build-json'));
+  gulp.watch(paths.challengesJs, gulp.task('build-js2json'));
   gulp.watch(paths.scripts, gulp.task('build-js-inc'));
   gulp.watch(paths.stylesheets, gulp.task('build-css'));
   done();
