@@ -8,6 +8,8 @@ const assert = require('chai').assert;
 /// algorithms
 /// sorting
 
+/// difficulty: 6
+
 /// images:
 /// public/img/challenges/pexels-photo-358717.jpeg
 
@@ -17,7 +19,6 @@ const assert = require('chai').assert;
 /// As you approach the shopkeep to purchase the book, he becomes visibly startled at your presence. "Goodness! I thought I had locked the door. I apologize, but due to the recent earthquake most of the books need to be resorted before I can reopen the store."
 /// Noting the book you have in your hand, he continues. "That's quite the rare book. I can offer it to you if you help me sort through all the books here. I cannot sell it for anything else at this point."
 /// Understanding that your flight is tomorrow, you only have today to sort through all the books. Luckily for you, you know a few sorting algorithms. You accept the shopkeep's offer.
-///
 /// Given an array of book author last names, sort the books without using Array.prototype.sort().
 
 /// challengeSeed:
