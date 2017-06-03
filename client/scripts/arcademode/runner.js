@@ -4,15 +4,36 @@
 
 /* Contains code to run the challenges using eval, and also to evaluate the syntax. */
 
+/* Some guidelines for the challenges:
+ *    head: must contain only code that is needed to evaluate the user code
+ *    tail: must contain only code required for running the tests
+ *    tests: must contain only assertions
+ */
+
 const assert = require('chai').assert;
 const babel = require('babel-core');
 const loopProtect = require('../vendor/loop-protect');
 
 export default function runner(userCode, currChallenge) {
-  const tests = currChallenge.tests.map(test => ({
-    test,
-    testMessage: test.match(/message: (.*)'\);$/)[1]
-  }));
+  const messageRegex = /message: (.*)'\);$/;
+  const tests = currChallenge.tests.map(test => {
+    if (messageRegex.test(test)) {
+      return {
+        test,
+        testMessage: test.match(messageRegex)[1]
+      };
+    }
+    return {
+      test,
+      testMessage: ''
+    };
+  });
+
+  let headLength = 0;
+  const head = currChallenge.head && currChallenge.head.join('');
+  if (head) {
+    headLength = currChallenge.head.length;
+  }
 
   const tail = currChallenge.tail && currChallenge.tail.join('');
 
@@ -26,11 +47,14 @@ export default function runner(userCode, currChallenge) {
   let syntaxErrorFlag = false;
 
   // check for syntax errors and babelfy user code:
+  const userCodeWithHead = head ? `${head}${userCode}` : userCode;
   try {
-    esFive = babel.transform(userCode).code;
+    esFive = babel.transform(userCodeWithHead).code;
   }
   catch (err) {
     syntaxErrorFlag = true;
+
+    // TODO Can this if-statement be removed?
     if (errorMsgs
           .map(uo => uo.error)
           .includes(`There are syntax errors in your code:
@@ -42,6 +66,7 @@ export default function runner(userCode, currChallenge) {
       ${err}`;
     errorMsg.pass = false;
     errorMsgs.push(errorMsg);
+    userOutput = errorMsg.error;
   }
 
   // if no syntax errors, add loopProtect:
@@ -60,26 +85,39 @@ export default function runner(userCode, currChallenge) {
     errorMsg.error = `Potential infinite loop found on line ${line}`;
     errorMsg.pass = false;
     errorMsgs.push(errorMsg);
+    userOutput = errorMsg.error;
   };
 
   // log userOutput:
-  if (eval(esFiveLoopProtected) === undefined) {
-    userOutput = 'User output is undefined';
-  }
-  else {
-    userOutput = JSON.stringify(eval(esFiveLoopProtected), null, 2);
+  let evalErrorFlag = false;
+  if (!syntaxErrorFlag) {
+    try {
+      userOutput = 'User output is undefined';
+      const evalRetVal = eval(esFiveLoopProtected);
+      if (typeof evalRetVal !== 'undefined') {
+        userOutput = JSON.stringify(evalRetVal, null, 2);
+      }
+    }
+    catch (err) {
+      userOutput = `Error: ${err.message}`;
+      evalErrorFlag = true;
+      errorMsg.error = `${err.message}`;
+      errorMsg.pass = false;
+      errorMsgs.push(errorMsg);
+    }
   }
 
   // run and save test results if no syntax error was observed:
   const testResults = [];
 
-  if (!syntaxErrorFlag) {
+  if (!syntaxErrorFlag && !evalErrorFlag) {
     tests.forEach(test => {
       const testRunData = { error: null, pass: true };
       let code;
       try {
         eval(
           `
+          ${head}
           code=userCode;
           ${esFiveLoopProtected}; // User code: userCode // esfive.code
           ${tail}; // tail function

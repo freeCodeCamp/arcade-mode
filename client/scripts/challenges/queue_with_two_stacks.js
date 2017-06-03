@@ -1,4 +1,5 @@
 /* eslint spaced-comment: 0 */
+/* eslint no-unused-vars: 0 */
 const assert = require('chai').assert;
 
 /// title: Queue using two stacks
@@ -11,7 +12,6 @@ const assert = require('chai').assert;
 /// head:
 function Stack() {
   this.list = [];
-  this.size = 0;
 
   this.size = function() {
     return this.list.length;
@@ -26,9 +26,11 @@ function Stack() {
   };
 }
 
+
 /// challengeSeed:
 
-// class Stack:
+// You have the following data structure available
+// Stack:
 //    push(elem): Push new element to the top
 //    pop():  Remove and return the top element
 //    size(): Return the number of elements in Stack
@@ -45,7 +47,7 @@ let Queue = function() {
 };
 
 /// solutions:
-let Queue = function () {
+Queue = function () {
   this.s1 = new Stack();
   this.s2 = new Stack();
 
