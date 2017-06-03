@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// dynamic programming
 /// longest common subsequence
 
-/// difficulty: hard
+/// difficulty: 8
 
 /// images:
 /// public/img/challenges/pexels-photo-127556.jpeg
@@ -17,12 +17,9 @@ const assert = require('chai').assert;
 /// description:
 /// <img class='challenge__image' src='public/img/challenges/pexels-photo-127556.jpeg'>
 /// With the arrival of precision genetic editing tools such as CRISPR/cas9 and the emerging field of nanoengineering, you wish to create a version control system for tracking modifications of genetic data. Instead of line-based diffing, your algorithm will be nucleotide (character) based. Knowing that most genomes are in the ballpark of billions of DNA base pairs (Gbp), diffing complete genomes cannot be completed in a reasonable amount of time or space given current technology levels. Therefore, you decide to focus on diffing genetic data at the gene level and lower in the ballpark of hundred thousands base pairs (Mbp). Since you just are just beginning, you test small strings first.
-
-/// Implement an algorithm that will output the diff of two provided strings:
-
+/// Implement an algorithm that will output the diff of two provided strings
 /// Sample input
 /// diff('GTAGACA', 'GATTACA');
-
 /// Sample output (multiple answers possible)
 /// ['G', '+A', 'T', '+T', 'A', '-G', '-A', 'C', 'A'];
 /// ['G', '-T', 'A', '+T', '+T', '-G', 'A', 'C', 'A'];
@@ -36,7 +33,7 @@ function diff (oldStr, newStr) {
 
 /// solutions:
 function createLCSTable (str1, str2, l1, l2) {
-  const arr = Array(l1 + 1).fill(Array(l2 + 1).fill(0));
+  const arr = new Array(l1 + 1).fill(0).map(() => new Array(l2 + 1).fill(0));
   for (let row = 1; row <= l1; row++) {
     for (let col = 1; col <= l2; col++) {
       if (str1[row - 1] === str2[col - 1]) {
@@ -57,11 +54,11 @@ function generateDiff (oldStr, newStr, lcsTable, diffArr) {
     diffArr.unshift(oldStr[osl - 1]);
     generateDiff(oldStr.slice(0, -1), newStr.slice(0, -1), lcsTable, diffArr);
   }
-  else if (osl > 0 && (nsl === 0 || lcsTable[osl][nsl - 1] >= lcsTable[osl - 1][nsl])) {
+  else if (nsl > 0 && (osl === 0 || lcsTable[osl][nsl - 1] >= lcsTable[osl - 1][nsl])) {
     diffArr.unshift(`+${newStr[nsl - 1]}`);
     generateDiff(oldStr, newStr.slice(0, -1), lcsTable, diffArr);
   }
-  else if (nsl > 0 && (osl === 0 || lcsTable[osl][nsl - 1] < lcsTable[osl - 1][nsl])) {
+  else if (osl > 0 && (nsl === 0 || lcsTable[osl][nsl - 1] < lcsTable[osl - 1][nsl])) {
     diffArr.unshift(`-${oldStr[osl - 1]}`);
     generateDiff(oldStr.slice(0, -1), newStr, lcsTable, diffArr);
   }
