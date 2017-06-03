@@ -29,3 +29,14 @@ export function getThisVarNames(ast) {
   return result;
 }
 
+export function getMemberFuncCalls(ast) {
+  const result = [];
+  walk.simple(ast, {
+    CallExpression(node) {
+      if (node.callee.type === 'MemberExpression') {
+        result.push(node.callee.property.name);
+      }
+    }
+  });
+  return result;
+}

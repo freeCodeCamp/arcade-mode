@@ -23,4 +23,11 @@ describe('AssertAst', () => {
     expect(varNames).to.include('s2');
     expect(varNames).to.include('func');
   });
+
+  it('extracts all called functions', () => {
+    const ast = acorn.parse('this.func = function() {}; this.func(); let a = [].sort();', parseOpts);
+    const funcCalls = Ast.getMemberFuncCalls(ast);
+    expect(funcCalls).to.have.length(2);
+    expect(funcCalls).to.include('sort');
+  });
 });
