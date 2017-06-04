@@ -19,8 +19,8 @@ const ArcadeModal = props => {
   const defaults = {
     Mode: props.mode,
     Difficulty: props.difficulty,
-    Challenge: props.editor,
-    Editor: props.challengeType
+    Challenge: props.challengeType,
+    Editor: props.editor
   };
 
   const optionDescrJsx = getOptionsDescription(options);
@@ -56,15 +56,18 @@ function getOptionsDescription(opts) {
   const optNames = Object.keys(opts);
   let key = 0;
   const result = optNames.map(optName => {
-    const descriptions = getSubOptionDescription(opts[optName]);
-    return (
-      <div key={key++}>
-        <p className='am__modal__setting'>{optName}</p>
-        <Grid fluid>
-          {descriptions}
-        </Grid>
-      </div>
-    );
+    if (opts[optName].showDescription) {
+      const descriptions = getSubOptionDescription(opts[optName]);
+      return (
+        <div key={key++}>
+          <p className='am__modal__setting'>{optName}</p>
+          <Grid fluid>
+            {descriptions}
+          </Grid>
+        </div>
+      );
+    }
+    return null;
   });
   return result;
 }
@@ -74,7 +77,6 @@ function getSubOptionDescription(opt) {
   let key = 0;
   const result = subOpts.map(name => {
     const subOpt = opt.options[name];
-    console.log(`Name: ${name} ${JSON.stringify(subOpt)}`);
     let description = null;
     if (subOpt.description) {
       description = subOpt.description;
@@ -97,6 +99,7 @@ function getSubOptionDescription(opt) {
 function getDropdownMenus(props, opts, callbacks, defaults) {
   // Map callbacks to specific option names
   const optNames = Object.keys(opts);
+  let formGroupKey = 0;
   const result = optNames.map(name => {
     const subOpts = Object.keys(options[name].options);
 
@@ -105,9 +108,8 @@ function getDropdownMenus(props, opts, callbacks, defaults) {
       <option key={key++} value={subOptName}>{subOptName}</option>
     );
 
-    key = 0;
     return (
-      <FormGroup key={key++}>
+      <FormGroup key={formGroupKey++}>
         <Col smOffset={2} sm={2}>
           <ControlLabel>{name}:</ControlLabel>
         </Col>
