@@ -10,7 +10,7 @@ const challenges = ArcadeChallenges.challenges;
 const stackChallenge = challenges.find(item => item.title.match(/Queue using/));
 const bookshopChallenge = challenges.find(item => item.title.match(/Bookshop/));
 
-const userOutputUndef = 'User output is undefined';
+const userOutputUndef = 'User output is undefined.';
 
 const emptyChallenge = {
   tests: ['// No tests, message: No tests really']
