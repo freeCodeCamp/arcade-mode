@@ -2,157 +2,127 @@
 'use strict';
 
 import React from 'react';
-// import ImmutablePropTypes from 'react-immutable-proptypes';
 import PropTypes from 'prop-types';
 import { Modal, Button, Grid, Row, Col, Form, FormGroup, FormControl, ControlLabel } from 'react-bootstrap';
 
-const ArcadeModal = props => (
-  <Modal show={props.modal} onHide={props.onModalClose} animation={false} backdrop='static'>
-    <Modal.Header>
-      <Modal.Title className='am__modal__title'>
-        Arcade Mode
-      </Modal.Title>
-      <p className='am__modal__description'>
-        Level up your algorithms and data structures ability.
-      </p>
-    </Modal.Header>
-    <Modal.Body>
-      <p className='am__modal__setting'>Mode</p>
-      <Grid fluid>
-        <Row>
-          <Col className='am__modal__option' sm={3}>
-            Arcade
-          </Col>
-          <Col sm={9}>
-            Test your abilities in a time-limited environment.
-          </Col>
-        </Row>
-        <Row>
-          <Col className='am__modal__option' sm={3}>
-            Practice
-          </Col>
-          <Col sm={9}>
-            No constraints free form practice.
-          </Col>
-        </Row>
-      </Grid>
-      <br />
-      <p className='am__modal__setting'>Difficulty</p>
-      <Grid fluid>
-        <Row>
-          <Col className='am__modal__option' sm={3}>
-            Easy
-          </Col>
-          <Col sm={9}>
-            Most lives, most time.
-          </Col>
-        </Row>
-        <Row>
-          <Col className='am__modal__option' sm={3}>
-            Medium
-          </Col>
-          <Col sm={9}>
-            Average number of lives, average amount of time.
-          </Col>
-        </Row>
-        <Row>
-          <Col className='am__modal__option' sm={3}>
-            Hard
-          </Col>
-          <Col sm={9}>
-            Few lives, short in time. Life is short.
-          </Col>
-        </Row>
-      </Grid>
-      <br />
-      <p className='am__modal__setting'>Editor</p>
-      <Grid fluid>
-        <Row>
-          <Col className='am__modal__option' sm={3}>
-            Normal
-          </Col>
-          <Col sm={9}>
-            Syntax highlighting, line numbers, and specific error reporting.
-          </Col>
-        </Row>
-        <Row>
-          <Col className='am__modal__option' sm={3}>
-            Whiteboard
-          </Col>
-          <Col sm={9}>
-            Black marker.
-          </Col>
-        </Row>
-      </Grid>
-    </Modal.Body>
-    <Modal.Footer>
-      <Form horizontal>
-        <FormGroup>
-          <Col smOffset={2} sm={2}>
-            <ControlLabel>Mode:</ControlLabel>
-          </Col>
-          <Col smOffset={2} sm={4}>
-            <FormControl
-              componentClass='select' defaultValue={props.mode} onChange={props.onChangeMode}
-            >
-              <option value='Arcade'>Arcade</option>
-              <option value='Practice'>Practice</option>
-            </FormControl>
-          </Col>
-        </FormGroup>
-        <FormGroup>
-          <Col smOffset={2} sm={2}>
-            <ControlLabel>Difficulty:</ControlLabel>
-          </Col>
-          <Col smOffset={2} sm={4}>
-            <FormControl
-              componentClass='select' defaultValue={props.difficulty}
-              onChange={props.onChangeDifficulty}
-            >
-              <option value='Easy'>Easy</option>
-              <option value='Medium'>Medium</option>
-              <option value='Hard'>Hard</option>
-              <option value='Random'>Random</option>
-            </FormControl>
-          </Col>
-        </FormGroup>
-        <FormGroup>
-          <Col smOffset={2} sm={2}>
-            <ControlLabel>Editor:</ControlLabel>
-          </Col>
-          <Col smOffset={2} sm={4}>
-            <FormControl
-              componentClass='select' defaultValue={props.editor} onChange={props.onChangeEditor}
-            >
-              <option value='Normal'>Normal</option>
-              <option value='Whiteboard'>Whiteboard</option>
-            </FormControl>
-          </Col>
-        </FormGroup>
-        <FormGroup>
-          <Col smOffset={2} sm={2}>
-            <ControlLabel>Challenges:</ControlLabel>
-          </Col>
-          <Col smOffset={2} sm={4}>
-            <FormControl
-              componentClass='select' defaultValue={props.challengeType}
-              onChange={props.onChangeChallengeType}
-            >
-              <option value='Algorithms'>Algorithms</option>
-              <option value='Data structures'>Data structures</option>
-              <option value='Mixed'>Mixed</option>
-              <option value='Arcade'>Arcade</option>
-            </FormControl>
-          </Col>
-        </FormGroup>
-        <br />
-        <FormGroup className='am__modal__submit'>
-          <Button type='button' onClick={props.onModalClose}>Submit</Button>
-        </FormGroup>
-      </Form>
-    </Modal.Footer>
-  </Modal>
-);
+import Config from '../../../jsons/appconfig.json';
+
+const options = Config.options;
+
+const ArcadeModal = props => {
+  const callbacks = {
+    Mode: props.onChangeMode,
+    Difficulty: props.onChangeDifficulty,
+    Challenge: props.onChangeChallengeType,
+    Editor: props.onChangeEditor
+  };
+  const defaults = {
+    Mode: props.mode,
+    Difficulty: props.difficulty,
+    Challenge: props.editor,
+    Editor: props.challengeType
+  };
+
+  const optionDescrJsx = getOptionsDescription(options);
+  const dropdownMenus = getDropdownMenus(props, options, callbacks, defaults);
+  return (
+    <Modal show={props.modal} onHide={props.onModalClose} animation={false} backdrop='static'>
+      <Modal.Header>
+        <Modal.Title className='am__modal__title'>
+          Arcade Mode
+        </Modal.Title>
+        <p className='am__modal__description'>
+          Level up your algorithms and data structures ability.
+        </p>
+      </Modal.Header>
+      <Modal.Body>
+        {optionDescrJsx}
+      </Modal.Body>
+      <Modal.Footer>
+        <Form horizontal>
+          {dropdownMenus}
+          <br />
+          <FormGroup className='am__modal__submit'>
+            <Button type='button' onClick={props.onModalClose}>Submit</Button>
+          </FormGroup>
+        </Form>
+      </Modal.Footer>
+    </Modal>
+  );
+};
+
+
+function getOptionsDescription(opts) {
+  const optNames = Object.keys(opts);
+  let key = 0;
+  const result = optNames.map(optName => {
+    const descriptions = getSubOptionDescription(opts[optName]);
+    return (
+      <div key={key++}>
+        <p className='am__modal__setting'>{optName}</p>
+        <Grid fluid>
+          {descriptions}
+        </Grid>
+      </div>
+    );
+  });
+  return result;
+}
+
+function getSubOptionDescription(opt) {
+  const subOpts = Object.keys(opt.options);
+  let key = 0;
+  const result = subOpts.map(name => {
+    const subOpt = opt.options[name];
+    console.log(`Name: ${name} ${JSON.stringify(subOpt)}`);
+    let description = null;
+    if (subOpt.description) {
+      description = subOpt.description;
+    }
+    return (
+      <Row key={key++}>
+        <Col className='am__modal__option' sm={3}>
+          {name}
+        </Col>
+        <Col sm={9}>
+          {description}
+        </Col>
+      </Row>
+    );
+  });
+  return result;
+}
+
+/* Generates the dropdown menus based on the app configuration. */
+function getDropdownMenus(props, opts, callbacks, defaults) {
+  // Map callbacks to specific option names
+  const optNames = Object.keys(opts);
+  const result = optNames.map(name => {
+    const subOpts = Object.keys(options[name].options);
+
+    let key = 0;
+    const optionElems = subOpts.map(subOptName =>
+      <option key={key++} value={subOptName}>{subOptName}</option>
+    );
+
+    key = 0;
+    return (
+      <FormGroup key={key++}>
+        <Col smOffset={2} sm={2}>
+          <ControlLabel>{name}:</ControlLabel>
+        </Col>
+        <Col smOffset={2} sm={4}>
+          <FormControl
+            componentClass='select' defaultValue={defaults[name]} onChange={callbacks[name]}
+          >
+            {optionElems}
+          </FormControl>
+        </Col>
+      </FormGroup>
+    );
+  });
+  return result;
+}
 
 ArcadeModal.propTypes = {
   mode: PropTypes.string.isRequired,
