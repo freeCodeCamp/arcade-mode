@@ -1,5 +1,6 @@
 /* eslint spaced-comment: 0 */
 /* eslint no-unused-vars: 0 */
+/* eslint no-redeclare: 0 */
 const assert = require('chai').assert;
 
 /// title: Queue using two stacks
@@ -30,7 +31,6 @@ function Stack() {
   };
 }
 
-
 /// challengeSeed:
 
 // You have the following data structure available
@@ -42,7 +42,7 @@ function Stack() {
 // Don't declare any other variables or use arrays!
 // Good luck!
 
-let Queue = function() {
+function Queue () {
   this.s1 = new Stack();
   this.s2 = new Stack();
 
@@ -53,10 +53,10 @@ let Queue = function() {
   this.dequeue = function() {
     // Your solution
   };
-};
+}
 
 /// solutions:
-Queue = function () {
+function Queue () {
   this.s1 = new Stack();
   this.s2 = new Stack();
 
@@ -73,7 +73,7 @@ Queue = function () {
     }
     return this.s2.pop();
   };
-};
+}
 
 /// tail:
 const q = new Queue();
@@ -87,7 +87,7 @@ q2.dequeue(); q2.dequeue(); q2.dequeue(); q2.dequeue();
 /// tests:
 assert(typeof Queue === 'function', 'message: Queue must be a constructor function.');
 assert(q.dequeue() === 1, 'message: 1 is dequeued correctly');
-assert(q.dequeue() === 2, 'message: 2 is dequeued correctly');
+q.dequeue(); assert(q.dequeue() === 2, 'message: 2 is dequeued correctly');
 assert(q2.dequeue() === 5, 'message: 5 is dequeued correctly');
-assert(q2.dequeue() === 6, 'message: 5 is dequeued correctly');
-assert(q2.dequeue() === 7, 'message: 5 is dequeued correctly');
+q2.dequeue(); assert(q2.dequeue() === 6, 'message: 5 is dequeued correctly');
+q2.dequeue(); q2.dequeue(); assert(q2.dequeue() === 7, 'message: 5 is dequeued correctly');
