@@ -12,6 +12,8 @@ const bookshopChallenge = challenges.find(item => item.title.match(/Bookshop/));
 
 const userOutputUndef = 'User output is undefined.';
 
+// CHALLENGES for the test cases
+
 const emptyChallenge = {
   tests: ['// No tests, message: No tests really']
 };
@@ -29,6 +31,8 @@ const challengeWithTail = {
   tail: ['function tailFunction() {return "tail function";}'],
   tests: ['assert(tailFunction() !== "right", "message: all fine");']
 };
+
+// TESTS
 
 describe('runner()', () => {
   it('executes js using eval and returns results', () => {
@@ -83,24 +87,27 @@ describe('runner()', () => {
     const res = runner(userCode, challengeWithHead);
     expect(res.errorMsgs).to.have.length(1);
     expect(res.userOutput).to.match(/infinite loop/);
-    console.log(res.userOutput);
   });
 
-  it('can execute actual arcade-mode challenges', () => {
+  it('can execute queue-2-stack challenge', () => {
     let userCode = stackChallenge.solutions.join('');
     userCode = userCode.replace(/^\s*Queue/, 'const Queue');
     const res = runner(userCode, stackChallenge);
     expect(res.userOutput).to.equal(userOutputUndef);
-    expect(res.errorMsgs).to.have.length(0);
-    expect(res.testResults).to.have.length(stackChallenge.tests.length);
+    expectNoErrorsAndAllTestsRun(res, stackChallenge);
   });
 
   it('can execute the book shop challenge', () => {
     const userCode = bookshopChallenge.solutions.join('');
-    // userCode = userCode.replace(/^\s*Queue/, 'const Queue');
     const res = runner(userCode, bookshopChallenge);
     expect(res.userOutput).to.equal(userOutputUndef);
-    expect(res.errorMsgs).to.have.length(0);
-    expect(res.testResults).to.have.length(bookshopChallenge.tests.length);
+    expectNoErrorsAndAllTestsRun(res, bookshopChallenge);
   });
 });
+
+
+// HELPER FUNCTIONS
+function expectNoErrorsAndAllTestsRun(res, challenge) {
+  expect(res.errorMsgs).to.have.length(0);
+  expect(res.testResults).to.have.length(challenge.tests.length);
+}
