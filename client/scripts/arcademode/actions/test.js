@@ -8,15 +8,6 @@ export const TESTS_FAILED = 'TESTS_FAILED'; // test
 export const TESTS_PASSED = 'TESTS_PASSED'; // test
 
 /* Given a list of test results, returns pass/fail status.*/
-/*
-const getTestStatus = testResults => {
-  let pass = true;
-  testResults.forEach(item => {
-    pass = pass && item.pass;
-  });
-  return pass;
-};
-*/
 
 const getTestStatus = testResults => testResults.every(testResult => testResult.pass);
 
@@ -82,42 +73,6 @@ export function runTests(userCode, currChallenge) {
     // Eval user code inside worker
     // http://stackoverflow.com/questions/9020116/is-it-possible-to-restrict-the-scope-of-a-javascript-function/36255766#36255766
     createTestWorker(userCode, currChallenge, dispatch);
-
-/*
-    function createTestWorker () {
-      return new Promise(resolve => {
-        const wk = new Worker('public/js/ww.bundle.js');
-        wk.postMessage([userCode, currChallenge.toJS()]); // postMessage mangles the Immutable object, so it needs to be transformed into regular JS before sending over to worker.
-        wk.onmessage = e => {
-          // console.log(`worker onmessage result: ${e.data}`);
-          resolve(e.data);
-        };
-      });
-    }
-
-    return createTestWorker()
-      .then(workerData => {
-        dispatch(onOutputChange(workerData[0]));
-        if (workerData.length > 1) {
-          const testResults = workerData.slice(4); // to take into account the benchmark items
-          const allTestsPassed = getTestStatus(testResults);
-
-          if (allTestsPassed) {
-            dispatch(actionTestsPassed());
-            // call benchmark webworkers here:
-
-          }
-          else {
-            dispatch(actionTestsFailed());
-          }
-
-          // Would it make sense to include this with passed/failed actions?
-          dispatch(actionTestsFinished(testResults));
-        }
-      })
-      .catch(err => { console.log(`Promise rejected: ${err}.`); });
-  };
- */
   };
 }
 
