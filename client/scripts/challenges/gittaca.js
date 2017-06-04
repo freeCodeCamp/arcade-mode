@@ -13,6 +13,9 @@ const assert = require('chai').assert;
 
 /// difficulty: 8
 
+/// benchmark:
+diff(benchmark[0], benchmark[1]);
+
 /// images:
 /// public/img/challenges/pexels-photo-127556.jpeg
 
@@ -78,6 +81,7 @@ const testCase1 = ['GTTG', 'GTTAC'];
 const tc1Answers = [['G', 'T', 'T', '+A', '+C', '-G'], ['G', 'T', 'T', '-G', '+A', '+C']].map(arr => arr.join(' '));
 const testCase2 = ['GTCAGTCA', 'TGTGCAGC'];
 const tc2Answers = ['+T', 'G', 'T', '+G', 'C', 'A', 'G', '-T', 'C', '-A'].join(' ');
+const benchmark = ['GTCAGCATCGATCGATCGATCGATTAGC', 'TCGATCGACACATTATATCGATCGTGCTAGTAGT'];
 
 /// tests:
 assert(typeof diff === 'function', 'message: <code>diff</code> is a function.');

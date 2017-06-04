@@ -74,7 +74,13 @@ if (isGitHubPages) {
 // ------------------------
 const paths = {
   entry: { // entry points
-    scripts: ['client/scripts/arcademode/main.jsx', 'client/scripts/public/index.js', 'client/scripts/public/standalones/ww.js', 'client/scripts/public/standalones/sw.js'],
+    scripts: [
+      'client/scripts/arcademode/main.jsx',
+      'client/scripts/public/index.js',
+      'client/scripts/public/standalones/ww.js',
+      'client/scripts/public/standalones/wwBenchmark.js',
+      'client/scripts/public/standalones/sw.js'
+    ],
     stylesheets: ['client/stylesheets/style.scss']
   },
   fonts: ['client/fonts/**/*'], // font sources
@@ -157,7 +163,7 @@ gulp.task('build-js', () =>
       extensions: ['.jsx'],
       debug: true
     })
-      .transform(babelify)
+      .transform(babelify, { presets: ['es2015', 'react'] })
       .transform(envify)
       .transform({
         global: true
@@ -206,6 +212,7 @@ gulp.task('build-view', () =>
     .pipe(plumber())
     .pipe(pug({ pretty: true, basedir: 'server/views' }))
     .pipe(isGitHubPages ? gulp.dest(ghPages) : gutil.noop())
+    .pipe(browserSync.reload({ stream: true }))
 );
 
 // Appcache file creation
@@ -249,7 +256,7 @@ gulp.task('build-js-inc', () =>
 
     browserifyInc(b, { cacheFile: './browserify-cache.json' });
 
-    return b.transform(babelify)
+    return b.transform(babelify, { presets: ['es2015', 'react'] })
       .bundle()
         .on('error', handleErrors)
         .pipe(source(`./${script.split('/')[script.split('/').length - 1]}`))
