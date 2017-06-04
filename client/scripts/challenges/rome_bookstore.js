@@ -4,6 +4,7 @@
 /* eslint no-unused-vars: 0 */
 /* eslint no-confusing-arrow: 0 */
 /* eslint no-nested-ternary: 0 */
+/* eslint no-extend-native: 0 */
 const assert = require('chai').assert;
 
 /// title: Bookshop in Rome
@@ -25,6 +26,10 @@ const assert = require('chai').assert;
 /// Noting the book you have in your hand, he continues. "That's quite the rare book. I can offer it to you if you help me sort through all the books here. I cannot sell it for anything else at this point."
 /// Understanding that your flight is tomorrow, you only have today to sort through all the books. Luckily for you, you know a few sorting algorithms. You accept the shopkeep's offer.
 /// Given an array of book author last names, sort the books without using Array.prototype.sort().
+
+/// head:
+// Set Array.prototype.sort to null, prevents user from using it
+Array.prototype.sort = undefined;
 
 /// challengeSeed:
 function sortBooks (arr) {
