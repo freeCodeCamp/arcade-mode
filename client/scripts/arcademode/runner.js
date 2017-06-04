@@ -1,6 +1,7 @@
 
 /* eslint no-unused-vars: 0 */
 /* eslint no-eval: 0 */
+/* eslint no-unneeded-ternary: 0 */
 
 /* Contains code to run the challenges using eval, and also to evaluate the syntax. */
 
@@ -49,8 +50,7 @@ export default function runner(userCode, currChallenge) {
   let syntaxErrorFlag = false;
 
   // check for syntax errors and babelfy user code:
-  // const userCodeWithHead = head ? `${head};${userCode}` : userCode;
-  const userCodeWithSupportCode = `${head};${userCode};${tail}`;
+  const userCodeWithSupportCode = `${head ? head : ''};${userCode};${tail ? tail : ''};`;
   try {
     esFive = babel.transform(userCodeWithSupportCode).code;
   }
@@ -95,7 +95,7 @@ export default function runner(userCode, currChallenge) {
   let evalErrorFlag = false;
   if (!syntaxErrorFlag) {
     try {
-      userOutput = 'User output is undefined';
+      userOutput = 'User output is undefined.';
       const evalRetVal = eval(esFiveLoopProtected);
       if (typeof evalRetVal !== 'undefined') {
         userOutput = JSON.stringify(evalRetVal, null, 2);
@@ -120,8 +120,8 @@ export default function runner(userCode, currChallenge) {
       try {
         eval(
           `
-          code=userCode;
-          ${esFiveLoopProtected}; // User code: userCode // esfive.code
+          code=userCode; // some tail functions use the variable code for userCode
+          ${esFiveLoopProtected};
           ${test.test}; // Test case code - this assumes that the function exists
           `
         );
