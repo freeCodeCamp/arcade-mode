@@ -31,14 +31,14 @@ export default function runner(userCode, currChallenge) {
   });
 
   // let headLength = 0;
-  const head = currChallenge.head && currChallenge.head.join('');
+  const head = currChallenge.head && currChallenge.head.join('\n');
   /*
   if (head) {
     headLength = currChallenge.head.length;
   }
  */
 
-  const tail = currChallenge.tail && currChallenge.tail.join('');
+  const tail = currChallenge.tail && currChallenge.tail.join('\n');
 
   // append user code output to final object passed back via postMessage:
   // if user output does not run, then tests should not be executed.
@@ -50,7 +50,7 @@ export default function runner(userCode, currChallenge) {
   let syntaxErrorFlag = false;
 
   // check for syntax errors and babelfy user code:
-  const userCodeWithSupportCode = `${head ? head : ''};${userCode};${tail ? tail : ''};`;
+  const userCodeWithSupportCode = `${head ? head : ''}${userCode};${tail ? tail : ''};`;
   try {
     esFive = babel.transform(userCodeWithSupportCode).code;
   }
