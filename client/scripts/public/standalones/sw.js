@@ -8,6 +8,8 @@
 
 import * as CACHE from './swCache.json';
 
+const debug = require('debug')('am:sw');
+
 const CACHE_VERSION = 3;
 const CURRENT_CACHES = {
   font: `font-cache-v${CACHE_VERSION}`,
@@ -24,23 +26,22 @@ const CURRENT_CACHES = {
 // challenges currently do not need to be imported as it's part of the main.bundle.js
 
 self.addEventListener('install', event => {
-  console.log('in the install event');
+  debug('in the install event');
   event.waitUntil(
     Object.keys(CURRENT_CACHES).forEach(key => {
       caches
         .open(CURRENT_CACHES[key])
         .then(cache => cache.addAll(CACHE[key]))
-        .then(() => {
-          console.log(`${key} has been cached.`);
-          return self.skipWaiting(); // make queued SW active.
-        });
+        .then(() =>
+          self.skipWaiting() // make queued SW active.
+        );
     })
   );
 });
 
 
 self.addEventListener('fetch', event => {
-  console.log(`Handling fetch event for ${event.request.url}`);
+  debug(`Handling fetch event for ${event.request.url}`);
 
   let requestType;
 
@@ -71,8 +72,8 @@ self.addEventListener('fetch', event => {
   }
 
   if (requestType === 'not found') {
-    console.log(`Requested type, ${event.request.url}, is not in the cache`);
-    console.log(event.request.url.split('.')[event.request.url.split('.').length - 1]);
+    debug(`Requested type, ${event.request.url}, is not in the cache`);
+    debug(event.request.url.split('.')[event.request.url.split('.').length - 1]);
     return fetch(event.request);
   }
   event.respondWith(
@@ -82,7 +83,7 @@ self.addEventListener('fetch', event => {
     caches.open(CURRENT_CACHES[requestType]).then(cache =>
       cache.match(event.request).then(res => {
         if (res) {
-          console.log(`Response found in cache ${res}.`);
+          debug(`Response found in cache ${res}.`);
           return res;
         }
         return fetch(event.request);
@@ -93,7 +94,7 @@ self.addEventListener('fetch', event => {
 });
 
 self.addEventListener('activate', event => {
-  console.log('[activate]: Activating Service Worker.');
+  debug('[activate]: Activating Service Worker.');
   // Delete all caches that aren't named in CURRENT_CACHES
   const expectedCacheNames = Object.keys(CURRENT_CACHES).map(key => CURRENT_CACHES[key]);
 
@@ -101,7 +102,7 @@ self.addEventListener('activate', event => {
     caches.keys().then(cacheNames =>
       Promise.all(cacheNames.map(cacheName => {
         if (expectedCacheNames.indexOf(cacheName) === -1) {
-          console.log(`Deleting out of date cache: ${cacheName}`);
+          debug(`Deleting out of date cache: ${cacheName}`);
           return caches.delete(cacheName);
         }
       }))
@@ -115,7 +116,7 @@ function fromCache (__request__, __CACHE__) {
   return caches.open(__CACHE__).then(cache =>
     cache.match(__request__).then(res => {
       if (res) {
-        console.log(`Response found in cache ${res}.`);
+        debug(`Response found in cache ${res}.`);
         return res;
       }
       return fetch(__request__);
@@ -127,7 +128,7 @@ function fromNetwork (__request__, __timeout__) {
     const timeoutId = setTimeout(reject, __timeout__);
 
     fetch(__request__).then(res => {
-      console.log(`Response found from network ${res}.`);
+      debug(`Response found from network ${res}.`);
       clearTimeout(timeoutId);
       fulfill(res);
     }, reject);

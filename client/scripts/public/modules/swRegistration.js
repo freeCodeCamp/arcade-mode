@@ -1,16 +1,18 @@
 
 'use strict';
 
+const debug = require('debug')('am:swregistration');
+
 export default function swRegistration () {
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('sw.bundle.js').then(reg => {
-      console.log(`Registration successful: ${reg}. Scope is ${reg.scope}`);
+      debug(`Registration successful: ${reg}. Scope is ${reg.scope}`);
 
       if (navigator.serviceWorker.controller) {
-        console.log('Page controlled by service worker.');
+        debug('Page controlled by service worker.');
       }
       else {
-        console.log('Service worker not in control.');
+        debug('Service worker not in control.');
       }
     })
     .catch(err => {
@@ -27,6 +29,6 @@ export default function swRegistration () {
     */
   }
   else {
-    console.log('This browser does not support service workers.');
+    console.warn('This browser does not support service workers.');
   }
 }

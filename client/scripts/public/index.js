@@ -11,8 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
 */
 
 window.onload = () => {
-  console.log('onload fired');
-
   titleCanvas().init();
 
   swRegistration();

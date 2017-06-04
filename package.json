@@ -43,6 +43,7 @@
     "chai-enzyme": "^0.6.1",
     "chai-immutable": "^1.6.0",
     "command-line-args": "^4.0.6",
+    "debug": "^2.6.8",
     "del": "^2.2.2",
     "dotenv": "^4.0.0",
     "envify": "^4.0.0",
