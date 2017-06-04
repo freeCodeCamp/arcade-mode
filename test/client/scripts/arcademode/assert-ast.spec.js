@@ -60,6 +60,6 @@ describe('AssertAst', () => {
     const ast = acorn.parse(codeClassY, parseOpts);
     console.log(JSON.stringify(ast, null, 2));
     const varNames = Ast.getThisVarNames(ast);
-    expect(varNames).to.have.length(6);
+    expect(varNames).to.have.length(4);
   });
 });
