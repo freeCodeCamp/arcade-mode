@@ -25,7 +25,6 @@ export function saveUserData(session) {
 export function loadUserData() {
   return dispatch => {
     persist.fromStorage().then(userData => {
-      console.log(`The userData: ${Object.keys(userData)}`);
       dispatch(actionLoadUserData(userData));
     });
     /*
