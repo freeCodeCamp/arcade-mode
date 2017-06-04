@@ -24,6 +24,8 @@ import FCCInterviewDataStructures from '../../../../public/json/challenges-data-
 import Challenges from '../../../../public/json/challenges-combined.json';
 import ChallengesArcade from '../../../../public/json/challenges-arcade.json';
 
+import appConfig from '../../../jsons/appconfig.json';
+
 const combinedChallenges = Object.keys(Challenges)
   .reduce((arr, key) => arr.concat(Challenges[key].challenges), []);
 
@@ -45,8 +47,8 @@ const initialState = Map({
   currChallenge: Map(Immutable.fromJS(challengeTypes.Algorithms[0])),
   currChallengeStartedAt: 0,
   nextChallenge: Map(),
-  challengeType: 'Algorithms',
-  chosenChallenges: challengeTypes.Algorithms,
+  challengeType: appConfig.options.Challenges.default,
+  chosenChallenges: challengeTypes[appConfig.options.Challenges.default],
   passedChallenges: List()
 });
 
