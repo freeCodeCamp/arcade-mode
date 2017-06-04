@@ -1,4 +1,6 @@
 /* eslint spaced-comment: 0 */
+/* eslint no-unused-vars: 0 */
+/* eslint no-redeclare: 0 */
 const assert = require('chai').assert;
 
 /// title: Gittaca
@@ -20,10 +22,10 @@ const assert = require('chai').assert;
 /// Implement an algorithm that will output the diff of two provided strings
 /// Sample input
 /// diff('GTAGACA', 'GATTACA');
-/// Sample output (multiple answers possible)
-/// ['G', '+A', 'T', '+T', 'A', '-G', '-A', 'C', 'A'];
-/// ['G', '-T', 'A', '+T', '+T', '-G', 'A', 'C', 'A'];
-/// ['G', '-T', 'A', '-G', '+T', '+T', 'A', 'C', 'A'];
+/// Sample outputs (multiple answers possible)
+/// 'G +A T +T A -G -A C A';
+/// 'G -T A +T +T -G A C A';
+/// 'G -T A -G +T +T A C A';
 
 /// challengeSeed:
 function diff (oldStr, newStr) {
