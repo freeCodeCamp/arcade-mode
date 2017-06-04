@@ -12,14 +12,12 @@ import {
 } from '../actions/timer';
 
 import { CHALLENGE_START } from '../actions/challenge';
-
 import { GAME_DIFFICULTY_CHANGE } from '../actions/gamesetting';
-
-// import { SESSION_FINISH } from '../actions/session';
-
 import { MODAL_OPEN } from '../actions/modal';
 
-const timerDefaultValue = 60 * 1000;
+import appConfig from '../../../jsons/appconfig.json';
+
+const timerDefaultValue = toMs(appConfig.timer.default);
 
 const initialState = Immutable.Map({
   isTimerFinished: false,
@@ -41,10 +39,30 @@ export function printTime (timeInMilliseconds) {
   return `${mm}:${ss}`;
 }
 
+export function toMs(mmss) {
+  if (/\d{2}:\d{2}/.test(mmss)) {
+    const minSec = mmss.split(':');
+    const mins = parseInt(minSec[0], 10);
+    const sec = parseInt(minSec[1], 10);
+    return ((mins * 60) + sec) * 1000;
+  }
+  throw new Error(`Incorrect time format: ${mmss}, use mm:ss`);
+}
+
+const difficultyOptions = appConfig.options.Difficulty.options;
 const difficultySettings = {
-  Easy: { displayTime: '15:00', time: 15 * 60 * 1000 },
-  Medium: { displayTime: '10:00', time: 10 * 60 * 1000 },
-  Hard: { displayTime: '05:00', time: 5 * 60 * 1000 }
+  Easy: {
+    displayTime: difficultyOptions.Easy.time,
+    time: toMs(difficultyOptions.Easy.time)
+  },
+  Medium: {
+    displayTime: difficultyOptions.Medium.time,
+    time: toMs(difficultyOptions.Medium.time)
+  },
+  Hard: {
+    displayTime: difficultyOptions.Hard.time,
+    time: toMs(difficultyOptions.Hard.time)
+  }
   // Random - for random, can randomly generate lives and time and hide until game start
 };
 
