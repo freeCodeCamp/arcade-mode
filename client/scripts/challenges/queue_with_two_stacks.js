@@ -4,6 +4,10 @@ const assert = require('chai').assert;
 
 /// title: Queue using two stacks
 /// type: arcade-mode
+/// difficulty: 2
+
+/// categories:
+/// data structures
 
 /// description:
 /// A queue is  a data structure with FIFO (first-in first-out) properties. Elements are removed in the same order as they are inserted. In this challenge, you need to implement Queue class using two Stack data structures.
@@ -34,15 +38,20 @@ function Stack() {
 //    push(elem): Push new element to the top
 //    pop():  Remove and return the top element
 //    size(): Return the number of elements in Stack
+//
+// Don't declare any other variables or use arrays!
+// Good luck!
 
 let Queue = function() {
   this.s1 = new Stack();
   this.s2 = new Stack();
 
   this.enqueue = function(elem) {
+    // Your solution
   };
 
   this.dequeue = function() {
+    // Your solution
   };
 };
 
