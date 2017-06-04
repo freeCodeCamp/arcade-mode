@@ -1,4 +1,9 @@
 /* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+/* eslint no-confusing-arrow: 0 */
+/* eslint no-nested-ternary: 0 */
 const assert = require('chai').assert;
 
 /// title: Bookshop in Rome
