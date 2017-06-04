@@ -9,10 +9,12 @@ import {
   GAME_EDITOR_CHANGE
 } from '../actions/gamesetting';
 
+import appConfig from '../../../jsons/appconfig.json';
+
 const initialState = Immutable.Map({
-  mode: 'Arcade',
-  difficulty: 'Medium',
-  editor: 'Normal' // normal arcade mode, whiteboard mode
+  mode: appConfig.options.Mode.default,
+  difficulty: appConfig.options.Difficulty.default,
+  editor: appConfig.options.Editor.default // normal arcade mode, whiteboard mode
   // challengeType: 'Algorithms'
 });
 
