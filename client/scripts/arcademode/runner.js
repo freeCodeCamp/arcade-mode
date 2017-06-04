@@ -29,11 +29,13 @@ export default function runner(userCode, currChallenge) {
     };
   });
 
-  let headLength = 0;
+  // let headLength = 0;
   const head = currChallenge.head && currChallenge.head.join('');
+  /*
   if (head) {
     headLength = currChallenge.head.length;
   }
+ */
 
   const tail = currChallenge.tail && currChallenge.tail.join('');
 
@@ -47,9 +49,10 @@ export default function runner(userCode, currChallenge) {
   let syntaxErrorFlag = false;
 
   // check for syntax errors and babelfy user code:
-  const userCodeWithHead = head ? `${head}${userCode}` : userCode;
+  // const userCodeWithHead = head ? `${head};${userCode}` : userCode;
+  const userCodeWithSupportCode = `${head};${userCode};${tail}`;
   try {
-    esFive = babel.transform(userCodeWithHead).code;
+    esFive = babel.transform(userCodeWithSupportCode).code;
   }
   catch (err) {
     syntaxErrorFlag = true;
@@ -117,10 +120,8 @@ export default function runner(userCode, currChallenge) {
       try {
         eval(
           `
-          ${head}
           code=userCode;
           ${esFiveLoopProtected}; // User code: userCode // esfive.code
-          ${tail}; // tail function
           ${test.test}; // Test case code - this assumes that the function exists
           `
         );
