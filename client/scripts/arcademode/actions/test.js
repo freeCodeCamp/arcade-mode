@@ -28,14 +28,10 @@ const createTestWorker = (userCode, currChallenge, dispatch) =>
       if (allTestsPassed) {
         dispatch(actionTestsPassed());
         // call benchmark webworkers here:
-        const benchmarkStockCode = workerData.slice(1, 1);
-        const benchmarkUserCode = workerData.slice(2, 1);
-        const benchmarkFnCall = workerData.slice(3, 1);
-        const benchmarkCodeTime = createBenchmarkWorker(benchmarkStockCode, benchmarkFnCall);
-        const userCodeTime = createBenchmarkWorker(benchmarkUserCode, benchmarkFnCall);
-
-        Promise.all([benchmarkCodeTime, userCodeTime])
-          .then(values => console.log(values))
+        const benchmarkCode = workerData.slice(1, 3);
+        const benchmarkFnCall = workerData.slice(3, 4);
+        const benchmarkTimes = createBenchmarkWorker(benchmarkCode, benchmarkFnCall)
+          .then(data => console.log(data))
           .catch(err => console.error(err));
       }
       else {

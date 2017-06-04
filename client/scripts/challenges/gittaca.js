@@ -26,9 +26,9 @@ diff(benchmark[0], benchmark[1]);
 /// Sample input
 /// diff('GTAGACA', 'GATTACA');
 /// Sample outputs (multiple answers possible)
-/// 'G +A T +T A -G -A C A';
-/// 'G -T A +T +T -G A C A';
-/// 'G -T A -G +T +T A C A';
+/// G +A T +T A -G -A C A
+/// G -T A +T +T -G A C A
+/// G -T A -G +T +T A C A
 
 /// challengeSeed:
 function diff (oldStr, newStr) {
@@ -81,7 +81,10 @@ const testCase1 = ['GTTG', 'GTTAC'];
 const tc1Answers = [['G', 'T', 'T', '+A', '+C', '-G'], ['G', 'T', 'T', '-G', '+A', '+C']].map(arr => arr.join(' '));
 const testCase2 = ['GTCAGTCA', 'TGTGCAGC'];
 const tc2Answers = ['+T', 'G', 'T', '+G', 'C', 'A', 'G', '-T', 'C', '-A'].join(' ');
-const benchmark = ['GTCAGCATCGATCGATCGATCGATTAGC', 'TCGATCGACACATTATATCGATCGTGCTAGTAGT'];
+const benchmark = [
+  'GTCAGCATCGATCGGTCCAATCGACAAATAAAGATCGGTGGGCGATTAGAGCGTGGC',
+  'TCGATTCTGCCCTCCATAGGTAGACACATTATATCGATCGTGGTGCGTTGCCTAGTAGT'
+];
 
 /// tests:
 assert(typeof diff === 'function', 'message: <code>diff</code> is a function.');

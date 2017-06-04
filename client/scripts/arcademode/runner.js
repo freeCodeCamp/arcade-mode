@@ -98,7 +98,7 @@ export default function runner(userCode, currChallenge) {
     try {
       userOutput = 'User output is undefined.';
       const evalRetVal = eval(esFiveLoopProtected);
-      if (typeof evalRetVal !== 'undefined') {
+      if (typeof evalRetVal !== 'undefined' && evalRetVal !== 'use strict') {
         userOutput = JSON.stringify(evalRetVal, null, 2);
       }
     }
