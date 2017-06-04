@@ -84,10 +84,13 @@ const q2 = new Queue();
 q2.dequeue(); q2.dequeue(); q2.dequeue(); q2.dequeue();
 [7, 8, 9, 10].forEach(num => q2.enqueue(num));
 
+const q3 = new Queue();
+q3.enqueue(1); q3.enqueue(2); q3.dequeue(); q3.dequeue();
+q3.enqueue('aaa'); q3.enqueue('bbb');
+
 /// tests:
 assert(typeof Queue === 'function', 'message: Queue must be a constructor function.');
 assert(q.dequeue() === 1, 'message: 1 is dequeued correctly');
-q.dequeue(); assert(q.dequeue() === 2, 'message: 2 is dequeued correctly');
 assert(q2.dequeue() === 5, 'message: 5 is dequeued correctly');
-q2.dequeue(); assert(q2.dequeue() === 6, 'message: 5 is dequeued correctly');
-q2.dequeue(); q2.dequeue(); assert(q2.dequeue() === 7, 'message: 5 is dequeued correctly');
+assert(q3.dequeue() === 'aaa', 'message: aaa is dequeued correctly');
+

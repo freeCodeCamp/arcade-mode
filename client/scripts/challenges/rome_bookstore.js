@@ -7,6 +7,8 @@
 /* eslint no-extend-native: 0 */
 const assert = require('chai').assert;
 
+let code = '';
+
 /// title: Bookshop in Rome
 /// type: arcade-mode
 
