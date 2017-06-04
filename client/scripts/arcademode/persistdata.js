@@ -5,6 +5,8 @@
 
 import { fromJS } from 'immutable';
 
+const debug = require('debug')('am:persistdata');
+
 const USER_DATA_KEY = 'userData';
 
 /* Class for persisting and loading persisted user data. */
@@ -36,7 +38,7 @@ export default class Persist {
       };
 
       DBOpenRequest.onsuccess = event => {
-        console.log(`IndexedDB successfully opened: ${event.target.result}`);
+        debug(`IndexedDB successfully opened: ${event.target.result}`);
         resolve(event.result);
         this.db = DBOpenRequest.result;
       };
@@ -53,7 +55,7 @@ export default class Persist {
 
       return new Promise((resolve, reject) => {
         userData.onsuccess = () => {
-          console.log(`Data in storage found!: ${userData.result}`);
+          debug(`Data in storage found!: ${userData.result}`);
           // return proper form:
           // const obj = {};
           // obj.sessions = fromJS(userData.result);
@@ -61,7 +63,7 @@ export default class Persist {
         };
 
         userData.onerror = () => {
-          console.log('Data storage retrieval error.');
+          debug('Data storage retrieval error.');
           reject(userData.error);
         };
       });
