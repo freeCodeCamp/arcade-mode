@@ -247,6 +247,7 @@ export default class ArcadeMode extends Component {
                 editor={this.props.editor}
                 onModalOpen={this.props.onModalOpen}
                 mode={this.props.mode}
+                isRunningTests={this.props.isRunningTests}
               />
             </Col>
             <Col className='arcade-panel-right' xs={12} sm={12} md={8} lg={8}>

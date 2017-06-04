@@ -80,6 +80,7 @@ export default class ChallengePanel extends React.Component {
     }
 
     const testResults = this.renderTestResults();
+    const runBtnClass = this.props.isRunningTests ? 'btn btn-primary disabled' : 'btn btn-primary';
 
     /* eslint react/no-danger: 0 */
     return (
@@ -96,7 +97,7 @@ export default class ChallengePanel extends React.Component {
             <button className='btn btn-primary' onClick={this.props.onModalOpen}>Menu</button>
           }
           {this.props.isSessionStarted &&
-            <button className='btn btn-primary' onClick={this.props.onClickRunTests}>Run tests</button>
+            <button className={runBtnClass} onClick={this.props.onClickRunTests}>Run tests</button>
           }
           {finishButton}
         </div>
@@ -138,5 +139,6 @@ ChallengePanel.propTypes = {
   editor: PropTypes.string.isRequired,
   onModalOpen: PropTypes.func.isRequired,
   mode: PropTypes.string.isRequired,
-  showDescription: PropTypes.bool
+  showDescription: PropTypes.bool,
+  isRunningTests: PropTypes.bool.isRequired
 };
