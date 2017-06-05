@@ -1,5 +1,5 @@
 {
-  "lives": true,
+  "lives": false,
   "timer": {
     "default": "01:00"
   },
