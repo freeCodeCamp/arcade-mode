@@ -163,7 +163,7 @@ gulp.task('build-js', () =>
       extensions: ['.jsx'],
       debug: true
     })
-      .transform(babelify, { presets: ['es2015', 'react'] })
+      .transform(babelify, { presets: ['env', 'react'] })
       .transform(envify)
       .transform({
         global: true
@@ -256,7 +256,7 @@ gulp.task('build-js-inc', () =>
 
     browserifyInc(b, { cacheFile: './browserify-cache.json' });
 
-    return b.transform(babelify, { presets: ['es2015', 'react'] })
+    return b.transform(babelify, { presets: ['env', 'react'] })
       .bundle()
         .on('error', handleErrors)
         .pipe(source(`./${script.split('/')[script.split('/').length - 1]}`))
