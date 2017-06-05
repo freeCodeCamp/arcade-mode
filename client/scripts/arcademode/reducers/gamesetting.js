@@ -14,7 +14,8 @@ import appConfig from '../../../jsons/appconfig.json';
 const initialState = Immutable.Map({
   mode: appConfig.options.Mode.default,
   difficulty: appConfig.options.Difficulty.default,
-  editor: appConfig.options.Editor.default // normal arcade mode, whiteboard mode
+  editor: appConfig.options.Editor.default, // normal arcade mode, whiteboard mode
+  appConfig: Immutable.Map(Immutable.fromJS(appConfig))
   // challengeType: 'Algorithms'
 });
 
