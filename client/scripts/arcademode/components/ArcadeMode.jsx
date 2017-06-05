@@ -90,7 +90,6 @@ export default class ArcadeMode extends Component {
     }
   }
 
-
   onCodeChange(newCode) {
     console.log('Emitting new code from <ArcadeMode>');
     this.props.onCodeChange(newCode);
@@ -111,6 +110,13 @@ export default class ArcadeMode extends Component {
     return testsOk;
   }
 
+  /* Checks if player is out of lives. Move to reducer? */
+  isOutOfLives() {
+    if (this.props.appConfig.lives) {
+      return (this.props.lives < 1 && this.props.mode === 'Arcade');
+    }
+    return false;
+  }
 
   renderStatusbar() {
     if (this.props.mode !== 'Arcade') {
@@ -125,6 +131,7 @@ export default class ArcadeMode extends Component {
         sessionScore={this.props.sessionScore}
         isSessionStarted={this.props.isSessionStarted}
         streakMultiplier={this.props.streakMultiplier}
+        useLives={this.props.appConfig.get('lives')}
       />
     );
   }
@@ -168,7 +175,7 @@ export default class ArcadeMode extends Component {
      * challenge.*/
   renderNextChallengeButton(passFailResult) {
     if (!this.props.isSessionFinished) {
-      if (this.props.isTimerFinished || (this.props.lives < 1 && this.props.mode === 'Arcade')) {
+      if (this.props.isTimerFinished || this.isOutOfLives()) {
         return (
           <button className={'btn btn-danger btn-block'} onClick={this.onClickFinishSession}>Finish Session</button>
         );
@@ -181,7 +188,6 @@ export default class ArcadeMode extends Component {
     }
     return null;
   }
-
 
   render() {
     const statusBar = this.renderStatusbar();
@@ -202,6 +208,7 @@ export default class ArcadeMode extends Component {
           onModalClose={this.props.onModalClose}
           challengeType={this.props.challengeType}
           onChangeChallengeType={this.props.onChangeChallengeType}
+          appConfig={this.props.appConfig}
         />
         <Navbar />
 
@@ -270,6 +277,7 @@ ArcadeMode.propTypes = {
   difficulty: PropTypes.string.isRequired,
   onChangeDifficulty: PropTypes.func.isRequired,
   editor: PropTypes.string.isRequired,
+  appConfig: ImmutablePropTypes.map.isRequired,
   onChangeEditor: PropTypes.func.isRequired,
 
   // player status
