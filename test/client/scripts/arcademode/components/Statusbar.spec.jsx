@@ -16,7 +16,8 @@ const props = {
   passOption: true,
   onClickPass: () => {},
   sessionScore: 0,
-  isSessionStarted: false
+  isSessionStarted: false,
+  useLives: true
 };
 
 describe('Component: <Statusbar>', () => {
@@ -45,5 +46,15 @@ describe('Component: <Statusbar>', () => {
     const score = document.createElement('div');
     score.innerHTML = wrapper.find(Col).last().html();
     expect(score.textContent).to.equal('Score: 0');
+  });
+
+  it('does not show lives when they are disabled', () => {
+    props.useLives = false;
+    props.timeLeft = '03:00';
+    const wrapper = shallow(<Statusbar {...props} />);
+    expect(wrapper.find(Col)).to.have.length(4);
+    const timeLeft = document.createElement('div');
+    timeLeft.innerHTML = wrapper.find(Col).first().html();
+    expect(timeLeft.textContent).to.equal('Time left: 03:00');
   });
 });
