@@ -13,6 +13,7 @@
 
 const assert = require('chai').assert;
 const babel = require('babel-core');
+const es2015 = require('babel-preset-es2015');
 const loopProtect = require('../vendor/loop-protect');
 
 export default function runner(userCode, currChallenge) {
@@ -52,7 +53,7 @@ export default function runner(userCode, currChallenge) {
   // check for syntax errors and babelfy user code:
   const userCodeWithSupportCode = `${head ? head : ''}${userCode};${tail ? tail : ''};`;
   try {
-    esFive = babel.transform(userCodeWithSupportCode).code;
+    esFive = babel.transform(userCodeWithSupportCode, { presets: [es2015] }).code;
   }
   catch (err) {
     syntaxErrorFlag = true;
@@ -97,7 +98,7 @@ export default function runner(userCode, currChallenge) {
     try {
       userOutput = 'User output is undefined.';
       const evalRetVal = eval(esFiveLoopProtected);
-      if (typeof evalRetVal !== 'undefined') {
+      if (typeof evalRetVal !== 'undefined' && evalRetVal !== 'use strict') {
         userOutput = JSON.stringify(evalRetVal, null, 2);
       }
     }
@@ -134,8 +135,26 @@ export default function runner(userCode, currChallenge) {
     });
   }
 
+  // if all tests pass, benchmark user code if it is benchmarkable:
+  // Nested workers do not work in Google Chrome as of 06/04/17, the contents must be passed
+  // back to the worker caller to invoke another worker.
+  let benchmarkStockCode = null;
+  let benchmarkUserCode = null;
+  let benchmarkFnCall = null;
+  if (testResults.every(testResult => testResult.pass) && Object.prototype.hasOwnProperty.call(currChallenge, 'benchmark')) {
+    const benchmarkCodeWithSupportCode = `${head ? head : ''};${currChallenge.solutions};${tail ? tail : ''};`;
+    const esFiveBenchmarkCode = babel.transform(benchmarkCodeWithSupportCode, { presets: [es2015] }).code;
+
+    benchmarkStockCode = esFiveBenchmarkCode;
+    benchmarkUserCode = esFive;
+    benchmarkFnCall = currChallenge.benchmark;
+  }
+
   return {
     userOutput,
+    benchmarkStockCode,
+    benchmarkUserCode,
+    benchmarkFnCall,
     errorMsgs,
     testResults
   };
