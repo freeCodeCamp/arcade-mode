@@ -9,6 +9,7 @@ const getModalState = state => state.getIn(['modal', 'modal']);
 const getMode = state => state.getIn(['gamesetting', 'mode']);
 const getDifficulty = state => state.getIn(['gamesetting', 'difficulty']);
 const getEditor = state => state.getIn(['gamesetting', 'editor']);
+const getAppConfig = state => state.getIn(['gamesetting', 'appConfig']);
 const getLives = state => state.getIn(['playerstatus', 'lives']);
 const getPassOption = state => state.getIn(['playerstatus', 'passOption']);
 const getChallengeNumber = state => state.getIn(['challenge', 'challengeNumber']);
@@ -43,6 +44,7 @@ export default function makeMapStateToProps () {
     getMode,
     getDifficulty,
     getEditor,
+    getAppConfig,
     getLives,
     getPassOption,
     getChallengeNumber,
@@ -75,6 +77,7 @@ export default function makeMapStateToProps () {
       mode,
       difficulty,
       editor,
+      appConfig,
       lives,
       passOption,
       challengeNumber,
@@ -107,6 +110,7 @@ export default function makeMapStateToProps () {
       mode,
       difficulty,
       editor,
+      appConfig,
       lives,
       passOption,
       challengeNumber,
