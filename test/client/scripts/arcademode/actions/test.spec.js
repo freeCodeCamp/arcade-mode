@@ -76,9 +76,8 @@ describe('Actions: test', () => {
     const dispatch = sinon.spy();
     const action = runTests();
 
-    action(dispatch).then(() => {
-      expect(dispatch.called).to.be.true;
-    });
+    action(dispatch);
+    expect(dispatch.called).to.be.true;
   });
 
   it('should return correct type for actionTestsStarted', () => {
