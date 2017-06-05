@@ -1,10 +1,14 @@
 
 'use strict';
 
-import { List, Record } from 'immutable';
+import { List, Record, Map, fromJS } from 'immutable';
 
 const recordDefs = {
-  sessions: List([])
+  sessions: List([]),
+  settings: Map(fromJS({
+    editor: 'Normal',
+    testBlindness: false
+  }))
 };
 
 /* A class for storing user information regarding the arcade sessions played. Note that due to
@@ -28,6 +32,28 @@ export default class UserData extends Record(recordDefs) {
       return this.set('sessions', sessions.delete(index));
     }
     return this;
+  }
+
+  setEditorMode(mode) {
+    switch (mode) {
+      case 'Normal': return this.setIn(['settings', 'editor'], 'Normal');
+      case 'Whiteboard': return this.setIn(['settings', 'editor'], 'Whiteboard');
+      default: {
+        console.error(`Unknown editor mode ${mode} detected. No changes done.`);
+        return this;
+      }
+    }
+  }
+
+  setTestsMode(mode) {
+    switch (mode) {
+      case 'Normal': return this.setIn(['settings', 'testBlindness'], false);
+      case 'Blind': return this.setIn(['settings', 'testBlindness'], true);
+      default: {
+        console.error(`Unknown test mode ${mode} detected. No changes done.`);
+        return this;
+      }
+    }
   }
 
   getSession(n) {
