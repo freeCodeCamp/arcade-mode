@@ -102,6 +102,10 @@ function getDropdownMenus(props, opts, callbacks, defaults) {
   const result = optNames.map(name => {
     const subOpts = Object.keys(opts[name].options);
 
+    if (!opts[name].showDropdownMenu) {
+      return null;
+    }
+
     let key = 0;
     const optionElems = subOpts.map(subOptName =>
       <option key={key++} value={subOptName}>{subOptName}</option>
