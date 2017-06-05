@@ -58,8 +58,13 @@ describe('AssertAst', () => {
 
   it('extracts this members from a class', () => {
     const ast = acorn.parse(codeClassY, parseOpts);
-    console.log(JSON.stringify(ast, null, 2));
     const varNames = Ast.getThisVarNames(ast);
     expect(varNames).to.have.length(4);
+  });
+
+  it('works for mixed/class function styles', () => {
+    const ast = acorn.parse(codeXAndY, parseOpts);
+    const varNames = Ast.getThisVarNames(ast);
+    expect(varNames).to.have.length(7);
   });
 });
