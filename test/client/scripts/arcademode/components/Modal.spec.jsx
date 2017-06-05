@@ -12,6 +12,8 @@ import appConfig from '../../../../../client/jsons/appconfig.json';
 
 chai.use(chaiEnzyme());
 
+const formControlLength = 2;
+
 const props = {
   modal: true,
   onModalClose: () => {},
@@ -49,25 +51,19 @@ describe('Component: <ArcadeModal>', () => {
     const footer = wrapper.find(Modal.Footer);
     expect(footer).to.have.length(1);
     expect(footer.find(Form)).to.have.length(1);
-    expect(footer.find(FormControl)).to.have.length(4);
+    expect(footer.find(FormControl)).to.have.length(formControlLength);
     expect(footer.find(Button)).to.have.length(1);
 
-    const selectMode = document.createElement('select');
-    selectMode.innerHTML = wrapper.find(FormControl).first().html();
-    expect(selectMode.value).to.equal('Arcade');
-
-    const selectDifficulty = document.createElement('select');
-    selectDifficulty.innerHTML = wrapper.find(FormControl).at(1).html();
-    expect(selectDifficulty.value).to.equal('Medium');
-
-    const selectEditor = document.createElement('select');
-    selectEditor.innerHTML = wrapper.find(FormControl).at(2).html();
-    expect(selectEditor.value).to.equal('Normal');
-
-    const selectChallengeType = document.createElement('select');
-    // selectChallengeType.innerHTML = wrapper.find(FormControl).last().html();
-    selectChallengeType.innerHTML = wrapper.find(FormControl).at(3).html();
-    expect(selectChallengeType.value).to.equal('Arcade');
+    const opts = Object.keys(appConfig.options);
+    let index = 0;
+    opts.forEach(optName => {
+      if (appConfig.options[optName].showDropdownMenu) {
+        const defaultValue = appConfig.options[optName].default;
+        const selectElem = document.createElement('select');
+        selectElem.innerHTML = wrapper.find(FormControl).at(index++).html();
+        expect(selectElem.value).to.equal(defaultValue);
+      }
+    });
 
     const button = document.createElement('button');
     button.innerHTML = wrapper.find(Button).html();
