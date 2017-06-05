@@ -16,10 +16,9 @@ import Modal from '../../../../../client/scripts/arcademode/components/Modal';
 import Navbar from '../../../../../client/scripts/arcademode/components/Navbar';
 import Editor from '../../../../../client/scripts/arcademode/components/Editor';
 
-// import reducers from '../../../../../client/scripts/arcademode/reducers';
-// import challengeActions from '../../../../../client/scripts/arcademode/actions/challenge';
-
 import Challenges from '../../../../../public/json/challenges-algorithms.json';
+
+import appConfig from '../../../../../client/jsons/appconfig.json';
 
 chai.use(chaiEnzyme());
 
@@ -64,7 +63,8 @@ describe('Component: <ArcadeMode>', () => {
       isSessionStarted: false,
       totalAttempts: 0,
       timeUsed: '00:00',
-      stopTimer: () => {}
+      stopTimer: () => {},
+      appConfig: Immutable.Map(Immutable.fromJS(appConfig))
     };
   });
 
