@@ -57,7 +57,7 @@
         }
       }
     },
-    "Challenges": {
+    "Challenge": {
       "default": "Arcade",
       "showDescription": false,
       "options": {
