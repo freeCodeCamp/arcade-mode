@@ -10,12 +10,12 @@ const benchmark = require('benchmark');
 function startBenchmark (baselineCode, testCode, fn) {
   // default options:
   benchmark.options.maxTime = 1;
-  
+
   // console.log(benchmark.prototype.stats);
 
   console.log(testCode);
   console.log('hi');
-  console.log(fn[0]);
+  console.log(fn);
 
   const stockTest = {
     name: 'stock test',
@@ -32,7 +32,7 @@ function startBenchmark (baselineCode, testCode, fn) {
     setup () { eval(testCode); },
     // fn: () => {  'Hello World!'.indexOf('o') > -1; }
     // fn () { eval(testCode); eval(fn); }
-    fn () { eval(fn[0]); }
+    fn () { eval(fn); }
   };
 
   const suite = benchmark.Suite();

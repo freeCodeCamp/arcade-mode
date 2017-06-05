@@ -29,7 +29,7 @@ const createTestWorker = (userCode, currChallenge, dispatch) =>
         dispatch(actionTestsPassed());
         // call benchmark webworkers here:
         const benchmarkCode = workerData.slice(1, 3);
-        const benchmarkFnCall = workerData.slice(3, 4);
+        const benchmarkFnCall = workerData[3];
         const benchmarkTimes = createBenchmarkWorker(benchmarkCode, benchmarkFnCall)
           .then(data => console.log(data))
           .catch(err => console.error(err));
