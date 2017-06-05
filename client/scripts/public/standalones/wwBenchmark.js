@@ -8,26 +8,27 @@
 const benchmark = require('benchmark');
 
 function startBenchmark (baselineCode, testCode, fn) {
-  const stockTest = benchmark('Stock solution', {
-    fn() {
-      eval(fn);
-    },
-    setup() {
-      eval(baselineCode);
-    }
-  });
-  const userTest = benchmark('User solution', {
-    fn() {
-      eval(fn);
-    },
-    setup() {
-      eval(testCode);
-    }
-  });
+  // default options:
+  benchmark.options.maxTime = 0.5;
+
+  const stockTest = {
+    name: 'stock test',
+    // setup () { eval(baselineCode); },
+    // fn: () => { /o/.test('Hello World!'); }
+    fn () { eval(baselineCode); eval(fn); }
+    // fn () { eval(fn); }
+  };
+  const userTest = {
+    name: 'user test',
+    // setup () { eval(testCode); },
+    // fn: () => {  'Hello World!'.indexOf('o') > -1; }
+    fn () { eval(testCode); eval(fn); }
+    // fn () { eval(fn); }
+  };
 
   console.log(stockTest);
 
-  const suite = new benchmark.Suite();
+  const suite = benchmark.Suite();
 
   let results = null;
 
