@@ -10,11 +10,11 @@ import * as CACHE from './swCache.json';
 
 const debug = require('debug')('am:sw');
 
-const CACHE_VERSION = 3;
+const CACHE_VERSION = 4;
 const CURRENT_CACHES = {
   font: `font-cache-v${CACHE_VERSION}`,
   css: `css-cache-v${CACHE_VERSION}`,
-  html: `html-cache-v${CACHE_VERSION}`, // is this needed?
+  html: `html-cache-v${CACHE_VERSION}`,
   img: `img-cache-v${CACHE_VERSION}`,
   js: `js-cache-v${CACHE_VERSION}`
   // json: `json-cache-v${CACHE_VERSION}` // this should be in indexedDB.
