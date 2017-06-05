@@ -79,14 +79,17 @@ function diff (oldStr, newStr) {
 /// tail:
 const testCase1 = ['GTTG', 'GTTAC'];
 const tc1Answers = [['G', 'T', 'T', '+A', '+C', '-G'], ['G', 'T', 'T', '-G', '+A', '+C']].map(arr => arr.join(' '));
-const testCase2 = ['GTCAGTCA', 'TGTGCAGC'];
-const tc2Answers = ['+T', 'G', 'T', '+G', 'C', 'A', 'G', '-T', 'C', '-A'].join(' ');
+const testCase2 = ['AACAGTGT', 'AGTGCAGC'];
+const tc2Answers = [
+  ['A', '-A', '-C', '-A', 'G', 'T', 'G', '-T', '+C', '+A', '+G', '+C'],
+  ['A', '-A', '-C', '-A', 'G', 'T', 'G', '+C', '+A', '+G', '+C', '-T']
+].map(arr => arr.join(' '));
 const benchmark = [
-  'GTCAGCATCGATCGGTCCAATCGACAAATAAAGATCGGTGGGCGATTAGAGCGTGGC',
-  'TCGATTCTGCCCTCCATAGGTAGACACATTATATCGATCGTGGTGCGTTGCCTAGTAGT'
+  'TGTAGAAGTGTCAGCATCGATCGGTCCAATCGACAAATAAAGGTTTCAACACTGTTCTCTTAGGAATCGGTGGGCGATTAGAGCGTGGC',
+  'TCGATTCAAAATTGCCCTCCATAGGTAGACACATTATATCGATCGTGGTGCGTTGCCTAGTGTCACATCATAGGTAATTGCAGTAGAGT'
 ];
 
 /// tests:
 assert(typeof diff === 'function', 'message: <code>diff</code> is a function.');
 assert.include(tc1Answers, diff(testCase1[0], testCase1[1]), 'message: diff("GTTG", "GTTAC") should return either "G T T +A +C -G" or "G T T -G +A +C"');
-assert.equal(tc2Answers, diff(testCase2[0], testCase2[1]), 'message: diff("GTCAGTCA", "TGTGCAGC") should return "+T G T +G C A G -T C -A"');
+assert.include(tc2Answers, diff(testCase2[0], testCase2[1]), 'message: diff("AACAGTGT", "AGTGCAGC") should return either "A -A -C -A G T G -T +C +A +G +C" or "A -A -C -A G T G +C +A +G +C -T"');
