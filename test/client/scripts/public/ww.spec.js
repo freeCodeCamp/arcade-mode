@@ -21,7 +21,7 @@ describe('Web Worker', () => {
     return promise
     .then(workerData => {
       expect(workerData[0]).to.equal('true');
-      expect(workerData.slice(1)).to.have.length(27);
+      expect(workerData.slice(1)).to.have.length(30);
       // no need to catch errors as the errors propogate to mocha to display
     });
   });
