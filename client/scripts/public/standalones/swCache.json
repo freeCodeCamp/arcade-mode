@@ -10,6 +10,7 @@
     "public/js/wwBenchmark.bundle.js"
   ],
   "json": [
+    "public/json/appconfig.json",
     "public/json/challenges-algorithms.json",
     "public/json/challenges-arcade.json",
     "public/json/challenges-combined.json",
@@ -32,7 +33,7 @@
   "css": [
     "public/css/style.css",
     "public/css/vendor/bootswatch/bootstrap.min.css",
-    "public/css/vendor/codemirror/codemirror.min.css",
-    "public/css/vendor/codemirror/monokai.min.css"
+    "public/css/vendor/codemirror/monokai.min.css",
+    "public/css/vendor/codemirror/codemirror.min.css"
   ]
 }
