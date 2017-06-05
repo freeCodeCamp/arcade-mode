@@ -13,6 +13,7 @@
         "longest common subsequence"
       ],
       "difficulty": "8",
+      "benchmark": "diff(benchmark[0], benchmark[1]);",
       "images": "public/img/challenges/pexels-photo-127556.jpeg",
       "description": [
         "<img class='challenge__image' src='public/img/challenges/pexels-photo-127556.jpeg'>",
@@ -20,10 +21,10 @@
         "Implement an algorithm that will output the diff of two provided strings",
         "Sample input",
         "diff('GTAGACA', 'GATTACA');",
-        "Sample output (multiple answers possible)",
-        "['G', '+A', 'T', '+T', 'A', '-G', '-A', 'C', 'A'];",
-        "['G', '-T', 'A', '+T', '+T', '-G', 'A', 'C', 'A'];",
-        "['G', '-T', 'A', '-G', '+T', '+T', 'A', 'C', 'A'];"
+        "Sample outputs (multiple answers possible)",
+        "G +A T +T A -G -A C A",
+        "G -T A +T +T -G A C A",
+        "G -T A -G +T +T A C A"
       ],
       "challengeSeed": [
         "function diff (oldStr, newStr) {",
@@ -32,24 +33,33 @@
         "}"
       ],
       "solutions": [
-        "function createLCSTable (str1, str2, l1, l2) {\n  const arr = new Array(l1 + 1).fill(0).map(() => new Array(l2 + 1).fill(0));\n  for (let row = 1; row <= l1; row++) {\n    for (let col = 1; col <= l2; col++) {\n      if (str1[row - 1] === str2[col - 1]) {\n        arr[row][col] = arr[row - 1][col - 1] + 1;\n      }\n      else arr[row][col] = Math.max(arr[row - 1][col], arr[row][col - 1]);\n    }\n  }\n  return arr;\n}\n\n\nfunction generateDiff (oldStr, newStr, lcsTable, diffArr) {\n  const osl = oldStr.length;\n  const nsl = newStr.length;\n\n  if (osl > 0 && nsl > 0 && oldStr[osl - 1] === newStr[nsl - 1]) {\n    diffArr.unshift(oldStr[osl - 1]);\n    generateDiff(oldStr.slice(0, -1), newStr.slice(0, -1), lcsTable, diffArr);\n  }\n  else if (nsl > 0 && (osl === 0 || lcsTable[osl][nsl - 1] >= lcsTable[osl - 1][nsl])) {\n    diffArr.unshift(`+${newStr[nsl - 1]}`);\n    generateDiff(oldStr, newStr.slice(0, -1), lcsTable, diffArr);\n  }\n  else if (osl > 0 && (nsl === 0 || lcsTable[osl][nsl - 1] < lcsTable[osl - 1][nsl])) {\n    diffArr.unshift(`-${oldStr[osl - 1]}`);\n    generateDiff(oldStr.slice(0, -1), newStr, lcsTable, diffArr);\n  }\n}\n\nfunction diff (oldStr, newStr) {\n  const lcsTable = createLCSTable(oldStr, newStr, oldStr.length, newStr.length);\n  const diffArr = [];\n  generateDiff(oldStr, newStr, lcsTable, diffArr);\n\n  return diffArr.join(' ');\n}\n"
+        "function createLCSTable (str1, str2, l1, l2) {\n  const arr = new Array(l1 + 1).fill(0).map(() => new Array(l2 + 1).fill(0));\n  for (let row = 1; row <= l1; row++) {\n    for (let col = 1; col <= l2; col++) {\n      if (str1[row - 1] === str2[col - 1]) {\n        arr[row][col] = arr[row - 1][col - 1] + 1;\n      }\n      else arr[row][col] = Math.max(arr[row - 1][col], arr[row][col - 1]);\n    }\n  }\n  return arr;\n}\n\nfunction generateDiff (oldStr, newStr, lcsTable, diffArr) {\n  const osl = oldStr.length;\n  const nsl = newStr.length;\n\n  if (osl > 0 && nsl > 0 && oldStr[osl - 1] === newStr[nsl - 1]) {\n    diffArr.unshift(oldStr[osl - 1]);\n    generateDiff(oldStr.slice(0, -1), newStr.slice(0, -1), lcsTable, diffArr);\n  }\n  else if (nsl > 0 && (osl === 0 || lcsTable[osl][nsl - 1] >= lcsTable[osl - 1][nsl])) {\n    diffArr.unshift(`+${newStr[nsl - 1]}`);\n    generateDiff(oldStr, newStr.slice(0, -1), lcsTable, diffArr);\n  }\n  else if (osl > 0 && (nsl === 0 || lcsTable[osl][nsl - 1] < lcsTable[osl - 1][nsl])) {\n    diffArr.unshift(`-${oldStr[osl - 1]}`);\n    generateDiff(oldStr.slice(0, -1), newStr, lcsTable, diffArr);\n  }\n}\n\nfunction diff (oldStr, newStr) {\n  const lcsTable = createLCSTable(oldStr, newStr, oldStr.length, newStr.length);\n  const diffArr = [];\n  generateDiff(oldStr, newStr, lcsTable, diffArr);\n\n  return diffArr.join(' ');\n}\n"
       ],
       "tail": [
         "const testCase1 = ['GTTG', 'GTTAC'];",
         "const tc1Answers = [['G', 'T', 'T', '+A', '+C', '-G'], ['G', 'T', 'T', '-G', '+A', '+C']].map(arr => arr.join(' '));",
-        "const testCase2 = ['GTCAGTCA', 'TGTGCAGC'];",
-        "const tc2Answers = ['+T', 'G', 'T', '+G', 'C', 'A', 'G', '-T', 'C', '-A'].join(' ');"
+        "const testCase2 = ['AACAGTGT', 'AGTGCAGC'];",
+        "const tc2Answers = [",
+        "  ['A', '-A', '-C', '-A', 'G', 'T', 'G', '-T', '+C', '+A', '+G', '+C'],",
+        "  ['A', '-A', '-C', '-A', 'G', 'T', 'G', '+C', '+A', '+G', '+C', '-T']",
+        "].map(arr => arr.join(' '));",
+        "const benchmark = [",
+        "  'TGTAGAAGTGTCAGCATCGATCGGTCCAATCGACAAATAAAGGTTTCAACACTGTTCTCTTAGGAATCGGTGGGCGATTAGAGCGTGGC',",
+        "  'TCGATTCAAAATTGCCCTCCATAGGTAGACACATTATATCGATCGTGGTGCGTTGCCTAGTGTCACATCATAGGTAATTGCAGTAGAGT'",
+        "];"
       ],
       "tests": [
         "assert(typeof diff === 'function', 'message: <code>diff</code> is a function.');",
         "assert.include(tc1Answers, diff(testCase1[0], testCase1[1]), 'message: diff(\"GTTG\", \"GTTAC\") should return either \"G T T +A +C -G\" or \"G T T -G +A +C\"');",
-        "assert.equal(tc2Answers, diff(testCase2[0], testCase2[1]), 'message: diff(\"GTCAGTCA\", \"TGTGCAGC\") should return \"+T G T +G C A G -T C -A\"');"
+        "assert.include(tc2Answers, diff(testCase2[0], testCase2[1]), 'message: diff(\"AACAGTGT\", \"AGTGCAGC\") should return either \"A -A -C -A G T G -T +C +A +G +C\" or \"A -A -C -A G T G +C +A +G +C -T\"');"
       ],
       "id": 0
     },
     {
       "title": "Queue using two stacks",
       "type": "arcade-mode",
+      "difficulty": "2",
+      "categories": "data structures",
       "description": [
         "A queue is  a data structure with FIFO (first-in first-out) properties. Elements are removed in the same order as they are inserted. In this challenge, you need to implement Queue class using two Stack data structures.",
         "Implement a Queue class with two methods: enqueue() which inserts an element into a queue and dequeue() which removes an element in an insertion order."
@@ -69,8 +79,7 @@
         "  this.push = function(elem) {",
         "    return this.list.push(elem);",
         "  };",
-        "}",
-        ""
+        "}"
       ],
       "challengeSeed": [
         "",
@@ -79,20 +88,25 @@
         "//    push(elem): Push new element to the top",
         "//    pop():  Remove and return the top element",
         "//    size(): Return the number of elements in Stack",
+        "//",
+        "// Don't declare any other variables or use arrays!",
+        "// Good luck!",
         "",
-        "let Queue = function() {",
+        "function Queue () {",
         "  this.s1 = new Stack();",
         "  this.s2 = new Stack();",
         "",
         "  this.enqueue = function(elem) {",
+        "    // Your solution",
         "  };",
         "",
         "  this.dequeue = function() {",
+        "    // Your solution",
         "  };",
-        "};"
+        "}"
       ],
       "solutions": [
-        "Queue = function () {\n  this.s1 = new Stack();\n  this.s2 = new Stack();\n\n  this.enqueue = function(elem) {\n    this.s1.push(elem);\n  };\n\n  this.dequeue = function() {\n    if (this.s2.size() > 0) {\n      return this.s2.pop();\n    }\n    while (this.s1.size() > 0) {\n      this.s2.push(this.s1.pop());\n    }\n    return this.s2.pop();\n  };\n};\n"
+        "function Queue () {\n  this.s1 = new Stack();\n  this.s2 = new Stack();\n\n  this.enqueue = function(elem) {\n    this.s1.push(elem);\n  };\n\n  this.dequeue = function() {\n    if (this.s2.size() > 0) {\n      return this.s2.pop();\n    }\n    while (this.s1.size() > 0) {\n      this.s2.push(this.s1.pop());\n    }\n    return this.s2.pop();\n  };\n}\n"
       ],
       "tail": [
         "const q = new Queue();",
@@ -101,15 +115,18 @@
         "const q2 = new Queue();",
         "[1, 2, 3, 4, 5, 6].forEach(num => q2.enqueue(num));",
         "q2.dequeue(); q2.dequeue(); q2.dequeue(); q2.dequeue();",
-        "[7, 8, 9, 10].forEach(num => q2.enqueue(num));"
+        "[7, 8, 9, 10].forEach(num => q2.enqueue(num));",
+        "",
+        "const q3 = new Queue();",
+        "q3.enqueue(1); q3.enqueue(2); q3.dequeue(); q3.dequeue();",
+        "q3.enqueue('aaa'); q3.enqueue('bbb');"
       ],
       "tests": [
         "assert(typeof Queue === 'function', 'message: Queue must be a constructor function.');",
         "assert(q.dequeue() === 1, 'message: 1 is dequeued correctly');",
-        "assert(q.dequeue() === 2, 'message: 2 is dequeued correctly');",
         "assert(q2.dequeue() === 5, 'message: 5 is dequeued correctly');",
-        "assert(q2.dequeue() === 6, 'message: 5 is dequeued correctly');",
-        "assert(q2.dequeue() === 7, 'message: 5 is dequeued correctly');"
+        "assert(q3.dequeue() === 'aaa', 'message: aaa is dequeued correctly');",
+        ""
       ],
       "id": 0
     },
@@ -120,7 +137,7 @@
         "algorithms",
         "sorting"
       ],
-      "difficulty": "6",
+      "difficulty": "5",
       "images": "public/img/challenges/pexels-photo-358717.jpeg",
       "description": [
         "<img class='challenge__image' src='public/img/challenges/pexels-photo-358717.jpeg'>",
@@ -129,6 +146,10 @@
         "Noting the book you have in your hand, he continues. \"That's quite the rare book. I can offer it to you if you help me sort through all the books here. I cannot sell it for anything else at this point.\"",
         "Understanding that your flight is tomorrow, you only have today to sort through all the books. Luckily for you, you know a few sorting algorithms. You accept the shopkeep's offer.",
         "Given an array of book author last names, sort the books without using Array.prototype.sort()."
+      ],
+      "head": [
+        "// Set Array.prototype.sort to null, prevents user from using it",
+        "Array.prototype.sort = undefined;"
       ],
       "challengeSeed": [
         "function sortBooks (arr) {",
