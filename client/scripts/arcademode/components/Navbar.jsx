@@ -8,6 +8,8 @@ import browser from 'detect-browser';
 
 import AMLogo from './AMLogo';
 
+import appConfig from '../../../jsons/appconfig.json';
+
 /* Component at the top of page showing freeCodeCamp next and timer value. */
 const ArcadeNavbar = () => (
   <Navbar fluid className='am__navbar'>
@@ -25,7 +27,7 @@ const ArcadeNavbar = () => (
       <AMLogo />
     }
     { browser.name === 'firefox' &&
-      <a href='//freecodecamp.github.io/arcade-mode' className='am__am__link'>
+      <a href={appConfig.site} className='am__am__link'>
         <div className='am__am__logo--ff'>
           <canvas className='am__am__canvas' height='50' width='220'>ARCADE MODE</canvas>
           <svg className='am__am__svg'>
