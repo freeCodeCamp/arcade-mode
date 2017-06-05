@@ -2,14 +2,13 @@
 'use strict';
 
 import React from 'react';
+import ImmutablePropTypes from 'react-immutable-proptypes';
 import PropTypes from 'prop-types';
 import { Modal, Button, Grid, Row, Col, Form, FormGroup, FormControl, ControlLabel } from 'react-bootstrap';
 
-import Config from '../../../jsons/appconfig.json';
-
-const options = Config.options;
-
 const ArcadeModal = props => {
+  const options = props.appConfig.get('options').toJS();
+
   const callbacks = {
     Mode: props.onChangeMode,
     Difficulty: props.onChangeDifficulty,
@@ -101,7 +100,7 @@ function getDropdownMenus(props, opts, callbacks, defaults) {
   const optNames = Object.keys(opts);
   let formGroupKey = 0;
   const result = optNames.map(name => {
-    const subOpts = Object.keys(options[name].options);
+    const subOpts = Object.keys(opts[name].options);
 
     let key = 0;
     const optionElems = subOpts.map(subOptName =>
@@ -136,7 +135,8 @@ ArcadeModal.propTypes = {
   modal: PropTypes.bool.isRequired,
   onModalClose: PropTypes.func.isRequired,
   challengeType: PropTypes.string.isRequired,
-  onChangeChallengeType: PropTypes.func.isRequired
+  onChangeChallengeType: PropTypes.func.isRequired,
+  appConfig: ImmutablePropTypes.map.isRequired
 };
 
 export default ArcadeModal;
