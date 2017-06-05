@@ -9,6 +9,7 @@ import ArcadeChallenges from '../../../../public/json/challenges-arcade.json';
 const challenges = ArcadeChallenges.challenges;
 const stackChallenge = challenges.find(item => item.title.match(/Queue using/));
 const bookshopChallenge = challenges.find(item => item.title.match(/Bookshop/));
+const gittacaChallenge = challenges.find(item => item.title.match(/Gittaca/));
 
 const userOutputUndef = 'User output is undefined.';
 
@@ -102,6 +103,13 @@ describe('runner()', () => {
     const res = runner(userCode, bookshopChallenge);
     expect(res.userOutput).to.equal(userOutputUndef);
     expectNoErrorsAndAllTestsRun(res, bookshopChallenge);
+  });
+
+  it('can execute the gittaca challenge', () => {
+    const userCode = gittacaChallenge.solutions.join('');
+    const res = runner(userCode, gittacaChallenge);
+    expect(res.userOutput).to.equal(userOutputUndef);
+    expectNoErrorsAndAllTestsRun(res, gittacaChallenge);
   });
 });
 
