@@ -7,6 +7,8 @@ import {
   generateShareIcon
 } from 'react-share';
 
+import appConfig from '../../../jsons/appconfig.json';
+
 const {
   FacebookShareButton,
   TwitterShareButton
@@ -25,7 +27,7 @@ const SocialMediaLinks = props => {
         <FacebookShareButton
           title='ArcadeMode'
           description={shareDescr}
-          url='https://arcademode.herokuapp.com'
+          url={appConfig.site}
         >
           <FacebookIcon size={32} round />
         </FacebookShareButton>
@@ -34,7 +36,7 @@ const SocialMediaLinks = props => {
         <TwitterShareButton
           title={shareDescr}
           hashtags={['freeCodeCamp']}
-          url='https://arcademode.herokuapp.com'
+          url={appConfig.site}
         >
           <TwitterIcon
             size={32}

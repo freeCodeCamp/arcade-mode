@@ -1,4 +1,5 @@
 {
+  "site": "https://freecodecamp.github.io/arcade-mode",
   "lives": false,
   "timer": {
     "default": "00:05"
