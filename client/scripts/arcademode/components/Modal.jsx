@@ -10,12 +10,14 @@ const ArcadeModal = props => {
   const options = props.appConfig.get('options').toJS();
 
   const callbacks = {
+    Timer: () => {},
     Mode: props.onChangeMode,
     Difficulty: props.onChangeDifficulty,
     Challenge: props.onChangeChallengeType,
     Editor: props.onChangeEditor
   };
   const defaults = {
+    Timer: props.appConfig.getIn(['timer', 'default']),
     Mode: props.mode,
     Difficulty: props.difficulty,
     Challenge: props.challengeType,
@@ -101,7 +103,6 @@ function getDropdownMenus(props, opts, callbacks, defaults) {
   let formGroupKey = 0;
   const result = optNames.map(name => {
     const subOpts = Object.keys(opts[name].options);
-
     if (!opts[name].showDropdownMenu) {
       return null;
     }
