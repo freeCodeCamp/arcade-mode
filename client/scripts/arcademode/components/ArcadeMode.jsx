@@ -231,6 +231,13 @@ export default class ArcadeMode extends Component {
           }
         </button>
 
+        <input
+          className='btn btn-default'
+          type='button'
+          onClick={this.props.onChangeEditor}
+          value={this.props.editor === 'Normal' ? 'Whiteboard' : 'Normal'}
+        />
+
         <Grid fluid>
           { this.props.isProfileShown &&
             <Row className='show-grid'>
