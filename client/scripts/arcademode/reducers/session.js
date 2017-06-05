@@ -15,10 +15,16 @@ import { PLAYER_PASSED } from '../actions/playerstatus';
 
 import { MODAL_OPEN } from '../actions/modal';
 
-/* TODO: Returns score for completed challenge. */
-const getScoreForChallenge = () => 100;
+import appConfig from '../../../jsons/appconfig.json';
 
-const MULTIPLIER = 1.25;
+const getScoreForChallenge = currChallenge => {
+  if (currChallenge.get('difficulty')) {
+    // TODO: Might have to be balanced, quick solution for now
+    return 100 * currChallenge.get('difficulty');
+  }
+  return 100;
+};
+const MULTIPLIER = appConfig.multiplier;
 
 const initialState = Immutable.Map({
   isSessionFinished: false,
@@ -50,7 +56,8 @@ export default function session (state = initialState, action) {
         .update('challengesCompleted', challengesCompleted => challengesCompleted + 1)
         .update('streakMultiplier', streakMultiplier => MULTIPLIER * streakMultiplier)
         .update('sessionScore', sessionScore =>
-          Math.floor(sessionScore + (state.get('streakMultiplier') * getScoreForChallenge()))
+          Math.floor(sessionScore + (
+            state.get('streakMultiplier') * getScoreForChallenge(action.currChallenge)))
         )
         .update('currSession', currSession =>
           currSession.set('challenges',

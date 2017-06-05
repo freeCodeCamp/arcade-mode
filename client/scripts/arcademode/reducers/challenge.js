@@ -47,8 +47,8 @@ const initialState = Map({
   currChallenge: Map(Immutable.fromJS(challengeTypes.Algorithms[0])),
   currChallengeStartedAt: 0,
   nextChallenge: Map(),
-  challengeType: appConfig.options.Challenges.default,
-  chosenChallenges: challengeTypes[appConfig.options.Challenges.default],
+  challengeType: appConfig.options.Challenge.default,
+  chosenChallenges: challengeTypes[appConfig.options.Challenge.default],
   passedChallenges: List()
 });
 
