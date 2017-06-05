@@ -12,6 +12,7 @@ import Statusbar from './Statusbar';
 import Editor from './Editor';
 import ChallengePanel from './ChallengePanel';
 import UserProfile from './UserProfile';
+import SocialMediaLinks from './SocialMediaLinks';
 
 import UserData from '../models/UserData';
 
@@ -137,6 +138,7 @@ export default class ArcadeMode extends Component {
   }
 
   renderEditor() {
+    const useSocialMediaLinks = true;
     const editorClassName = this.props.mode === 'Arcade' ? 'editor--statusbar' : 'editor';
     if (this.props.isSessionFinished) {
       return (
@@ -152,12 +154,17 @@ export default class ArcadeMode extends Component {
           }
           <p>Click Start to play again or Menu to return to the main menu</p>
 
+
           { this.props.isSessionSaved &&
             <p className='text-success'>Your session has been saved.</p>
           }
           { !this.props.isSessionSaved &&
             <button className='btn btn-success' onClick={this.onClickSaveSession}>Save</button>
           }
+
+          {useSocialMediaLinks && <SocialMediaLinks score={this.props.sessionScore} />}
+
+
         </div>
       );
     }
