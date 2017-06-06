@@ -4,6 +4,8 @@
  * components.
  * */
 
+import 'babel-polyfill';
+
 import { JSDOM } from 'jsdom';
 import indexedDB from 'fake-indexeddb';
 // import MockStorage from './mockstorage';
