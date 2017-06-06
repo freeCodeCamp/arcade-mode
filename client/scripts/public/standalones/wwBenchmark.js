@@ -8,6 +8,7 @@
 const benchmark = require('benchmark');
 
 function startBenchmark (baselineCode, testCode, fnc) {
+  self.benchmark = benchmark;
   // TODO:
   // firm time cutoff regardless of whether test finishes.
 
