@@ -7,32 +7,26 @@
 
 const benchmark = require('benchmark');
 
-function startBenchmark (baselineCode, testCode, fn) {
+function startBenchmark (baselineCode, testCode, fnc) {
+  // TODO:
+  // firm time cutoff regardless of whether test finishes.
+
   // default options:
-  benchmark.options.maxTime = 1;
+  benchmark.options.maxTime = 0.05; // seems to be the minimum for test cycles - 5.
 
-  // console.log(benchmark.prototype.stats);
-
-  console.log(testCode);
-  console.log('hi');
-  console.log(fn);
+  self.baselineCode = baselineCode.replace(/use strict/g, '');
+  self.testCode = testCode.replace(/use strict/g, '');
+  self.fnc = fnc;
 
   const stockTest = {
     name: 'stock test',
-    // setup () { () => eval(baselineCode); },
-    setup () { eval('var a = 5;'); },
-    fn () { console.log(eval('a * 2')); }
-    // fn () { eval('a * 2;'); }
-    // fn: () => { /o/.test('Hello World!'); }
-    // fn () { eval(baselineCode); eval(fn); }
-    // fn () { eval(fn); }
+    setup () { try { eval(self.baselineCode); } catch (err) { console.error(err); } },
+    fn () { eval(fnc); }
   };
   const userTest = {
     name: 'user test',
-    setup () { eval(testCode); },
-    // fn: () => {  'Hello World!'.indexOf('o') > -1; }
-    // fn () { eval(testCode); eval(fn); }
-    fn () { eval(fn); }
+    setup () { try { eval(testCode); } catch (err) { console.error(err); } },
+    fn () { eval(fnc); }
   };
 
   const suite = benchmark.Suite();
