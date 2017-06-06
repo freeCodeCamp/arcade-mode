@@ -113,7 +113,7 @@ gulp.task('build-font', () =>
 
 gulp.task('build-img', () => {
   const s1 = gulp.src('client/images/favicon.ico')
-    .pipe(gulpif(isGitHubPages, gulp.dest(ghPages), gulp.dest('public/img')));
+    .pipe(isGitHubPages ? gulp.dest(ghPages) : gulp.dest('public/img'));
 
   const s2 = gulp.src(paths.images)
     .pipe(cache(imagemin([
