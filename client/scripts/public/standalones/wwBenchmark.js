@@ -13,6 +13,9 @@ function startBenchmark (baselineCode, testCode, fnc) {
 
   // default options:
   benchmark.options.maxTime = 0.05; // seems to be the minimum for test cycles - 5.
+  // benchmark.options.maxTime = Number.NEGATIVE_INFINITY;
+  benchmark.options.minSamples = 4;
+  // benchmark.options.initCount = 10;
 
   self.baselineCode = baselineCode.replace(/use strict/g, '');
   self.testCode = testCode.replace(/use strict/g, '');
@@ -31,18 +34,22 @@ function startBenchmark (baselineCode, testCode, fnc) {
 
   const suite = benchmark.Suite();
 
-  let results = null;
+  // let results = null;
+  const results = {
+    fastest: null,
+    testData: []
+  };
 
   return new Promise(resolve => {
     suite
     .add(stockTest)
     .add(userTest)
-    .on('cycle', e => console.log(String(e.target)))
-    .on('complete', function () { results = this.filter('fastest').map('name');
-      console.log(`Fastest is ${results}`);
+    .on('cycle', e => results.testData.push(String(e.target)))
+    .on('complete', function () { results.fastest = this.filter('fastest').map('name');
+      resolve(results);
+      // console.log(`Fastest is ${results}`);
     })
     .run({ async: true });
-    resolve(results);
   });
 }
 
@@ -51,7 +58,10 @@ self.onmessage = e => {
   const userCode = e.data[0][1];
   const benchmarkFnCall = e.data[1];
 
-  const result = startBenchmark(stockCode, userCode, benchmarkFnCall);
+  startBenchmark(stockCode, userCode, benchmarkFnCall)
+    .then(result => {
+      self.postMessage(result);
+    });
   /*
   let timeUsed = Number.POSITIVE_INFINITY;
   try {
@@ -66,5 +76,5 @@ self.onmessage = e => {
   }
  */
 
-  // self.postMessage(result);
+ // self.postMessage(result);
 };
