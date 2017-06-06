@@ -76,6 +76,79 @@ function diff (oldStr, newStr) {
   return diffArr.join(' ');
 }
 
+/// naive:
+function getLCS (X, Y, m, n) {
+  const arr = [];
+  for (let i = 0; i < 2 ** m; i++) {
+    const strArr = [];
+    let bits = i.toString(2);
+    const bitLength = ((2 ** m) - 1).toString(2).length;
+    while (bits.length < bitLength) {
+      bits = `0${bits}`;
+    }
+    for (let j = 0; j < m; j++) {
+      if (bits[j] === '0') {
+        strArr.push(X[j]);
+      }
+    }
+    arr.push(strArr.join(''));
+  }
+
+  return arr;
+}
+
+function generateDiff (o, n, l) {
+  const arr = [];
+  let i = 0;
+  let j = 0;
+
+  while (i < l.length) {
+    while (j < o.length) {
+      if (l[i] === o[j]) {
+        arr.push(o[j]);
+        i++;
+      }
+      else arr.push(`-${o[j]}`);
+      j++;
+    }
+  }
+
+  const finalArr = [];
+  for (let a = 0, b = 0; b < n.length;) {
+    if (arr[a] !== undefined && arr[a].length !== 1) {
+      finalArr.push(arr[a]); // push in the -
+      a++;
+    }
+    else if (arr[a] === n[b]) { // push in same
+      finalArr.push(n[b]);
+      b++;
+      a++;
+    }
+    else {
+      finalArr.push(`+${n[b]}`);
+      b++;
+    }
+  }
+
+  return finalArr;
+}
+
+function diff (oldStr, newStr) {
+  let longestSubsequence = '';
+  const LCS = getLCS(oldStr, newStr, oldStr.length, newStr.length);
+  for (let i = 0; i < LCS.length; i++) {
+    if (newStr.indexOf(LCS[i]) >= 0) {
+      if (LCS[i].length > longestSubsequence.length) {
+        longestSubsequence = LCS[i];
+      }
+    }
+  }
+
+  const result = generateDiff(oldStr, newStr, longestSubsequence);
+
+  return result.join(' ');
+}
+
 /// tail:
 const testCase1 = ['GTTG', 'GTTAC'];
 const tc1Answers = [['G', 'T', 'T', '+A', '+C', '-G'], ['G', 'T', 'T', '-G', '+A', '+C']].map(arr => arr.join(' '));
@@ -85,8 +158,8 @@ const tc2Answers = [
   ['A', '-T', '-C', 'G', 'T', 'G', '+C', '+A', '+G', '+C', '-T']
 ].map(arr => arr.join(' '));
 const benchmark = [
-  'TGTAGAAGTGTCAGCATCGATCGGTCCAATCGACAAATAAAGGTTTCAACACTGTTCTCTTAGGAATCGGTGGGCGATTAGAGCGTGGC',
-  'TCGATTCAAAATTGCCCTCCATAGGTAGACACATTATATCGATCGTGGTGCGTTGCCTAGTGTCACATCATAGGTAATTGCAGTAGAGT'
+  'TGTAGAAGCGTGGC',
+  'TCGATAGTAGAGT'
 ];
 
 /// tests:
