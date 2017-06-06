@@ -11,6 +11,9 @@ export const TESTS_PASSED = 'TESTS_PASSED'; // test
 
 const getTestStatus = testResults => testResults.every(testResult => testResult.pass);
 
+// TODO:
+// possibly reduce the number of workers because spawning and setting up a worker takes time
+
 const createTestWorker = (userCode, currChallenge, dispatch) =>
   new Promise(resolve => {
     const wk = new Worker('public/js/ww.bundle.js');
