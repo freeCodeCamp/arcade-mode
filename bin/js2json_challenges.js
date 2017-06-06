@@ -134,7 +134,7 @@ function processLine(parser, line) {
   else if (parser.prop !== null) {
     parser.propValue.push(line);
     // if prop is solutions, combine strings into one string with newline
-    if (parser.prop === 'solutions') {
+    if (parser.prop === 'solutions' || parser.prop === 'naive') {
       if (parser.propValue.length > 1) {
         parser.propValue = [parser.propValue.join('\n')];
       }
