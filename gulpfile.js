@@ -13,6 +13,7 @@ const exec = require('child_process').exec;
 // ----
 const gulp = require('gulp');
 const gulpif = require('gulp-if');
+// const ignore
 const gutil = require('gulp-util');
 const del = require('del');
 const plumber = require('gulp-plumber');
@@ -81,6 +82,11 @@ const paths = {
       'client/scripts/public/standalones/wwBenchmark.js',
       'client/scripts/public/standalones/sw.js'
     ],
+    /*
+    specialCases: [
+      'client/scripts/public/standalones/wwBenchmark.js'
+    ],
+   */
     stylesheets: ['client/stylesheets/style.scss']
   },
   fonts: ['client/fonts/**/*'], // font sources
@@ -169,6 +175,7 @@ gulp.task('build-js', () =>
         global: true
       }, uglifyify)
       .plugin(collapse)
+      // .plugin(gulpif('*wwBenchmark.js', gutil.noop(), collapse))
       .bundle()
       .on('error', gutil.log.bind(gutil, 'Browserify error.'))
       .pipe(source(`./${script.split('/')[script.split('/').length - 1]}`))
@@ -182,6 +189,30 @@ gulp.task('build-js', () =>
       .pipe(isGitHubPages ? gulpif('*sw.bundle.js', gulp.dest(ghPages)) : gutil.noop())
       .pipe(browserSync.reload({ stream: true }))
   ))
+ /*
+  const specialCases = browserify({
+    entries: paths.entry.specialCases[0],
+    debug: true
+  })
+    .transform(babelify, { presets: ['env', 'react'] })
+    .transform(envify)
+    .transform({
+      global: true
+    }, uglifyify)
+    .bundle()
+    .on('error', gutil.log.bind(gutil, 'Browserify error.'))
+    .pipe(source(`./${paths.entry.specialCases[0].split('/')[paths.entry.specialCases[0].split('/').length - 1]}`))
+    .pipe(buffer())
+    .pipe(plumber())
+    .pipe(rename(path => {
+      path.extname = '.bundle.js';
+    }))
+    .pipe(uglify({ mangle: true }))
+    .pipe(gulp.dest(`${ghPages}public/js`))
+    .pipe(browserSync.reload({ stream: true }));
+
+  return merge(merged, specialCases);
+ */
 );
 
 gulp.task('build-css', () => {
