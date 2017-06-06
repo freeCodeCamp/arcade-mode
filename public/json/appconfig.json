@@ -1,7 +1,8 @@
 {
+  "site": "https://freecodecamp.github.io/arcade-mode",
   "lives": false,
   "timer": {
-    "default": "01:00"
+    "default": "00:05"
   },
   "multiplier": 1.25,
   "score": true,
@@ -10,7 +11,8 @@
   "options": {
     "Mode": {
       "default": "Arcade",
-      "showDescription": true,
+      "showDescription": false,
+      "showDropdownMenu": false,
       "options": {
         "Practice": {
           "lives": false, "timer": false, "score": false, "pass": false,
@@ -23,7 +25,8 @@
     },
     "Difficulty": {
       "default": "Medium",
-      "showDescription": true,
+      "showDescription": false,
+      "showDropdownMenu": true,
       "options": {
         "Easy": {
           "lives": 15,
@@ -47,7 +50,8 @@
     },
     "Editor": {
       "default": "Normal",
-      "showDescription": true,
+      "showDescription": false,
+      "showDropdownMenu": false,
       "options": {
         "Normal": {
           "description": "Black marker, no  highlighting"
@@ -60,6 +64,7 @@
     "Challenge": {
       "default": "Arcade",
       "showDescription": false,
+      "showDropdownMenu": true,
       "options": {
         "Arcade": {},
         "Algorithms": {},
