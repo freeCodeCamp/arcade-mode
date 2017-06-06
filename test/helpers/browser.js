@@ -8,6 +8,7 @@ import 'babel-polyfill';
 
 import { JSDOM } from 'jsdom';
 import indexedDB from 'fake-indexeddb';
+import now from 'performance-now';
 // import MockStorage from './mockstorage';
 import requestAnimFrame from './requestAnimFrame';
 
@@ -33,5 +34,6 @@ global.navigator = {
 */
 
 global.window.indexedDB = indexedDB;
+global.performance = { now };
 // global.window.localStorage = new MockStorage();
 
