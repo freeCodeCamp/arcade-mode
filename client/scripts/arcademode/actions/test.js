@@ -118,18 +118,20 @@ function verifyFastest (data) {
       statisticalConfidence = false;
     }
 
+    // there are instances when benchmark.js returns a victor
+    // despite unfounded confidence.
     if (statisticalConfidence) {
-      if (data.fastest === 'user test') {
-        // user code faster than stock code:
-        console.log('Your code is extremely fast!');
-        return 'user';
+      if (data.fastest[0] === 'stock test') {
+        // stock code faster than user code:
+        console.log('Your code can be made more efficient.');
+        return 'stock';
       }
-      // stock code faster than user code:
-      console.log('Your code can be made more efficient.');
-      return 'stock';
+      // user code faster than stock code:
+      console.log('Your code is extremely fast!');
+      return 'user';
     }
     // tied between user and stock code:
-    console.log('Optimal code!');
+    console.log('Your code is as fast as the stock code.');
     return 'tie';
   }
 }
