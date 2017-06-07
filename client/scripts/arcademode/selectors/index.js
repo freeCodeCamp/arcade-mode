@@ -17,11 +17,13 @@ const getCurrSession = state => state.getIn(['session', 'currSession']);
 const getTotalAttempts = state => state.getIn(['session', 'totalAttempts']);
 const getTitle = state => state.getIn(['challenge', 'title']);
 const getDescription = state => state.getIn(['challenge', 'description']);
+const getBenchmark = state => state.getIn(['challenge', 'benchmark']);
 const getCode = state => state.getIn(['challenge', 'code']);
 const getUserOutput = state => state.getIn(['test', 'userOutput']);
 const getCurrChallenge = state => state.getIn(['challenge', 'currChallenge']);
 const getNextChallenge = state => state.getIn(['challenge', 'nextChallenge']);
 const getChallengeType = state => state.getIn(['challenge', 'challengeType']);
+const getBenchmarkResults = state => state.getIn(['test', 'benchmarkResults']);
 const getTestResults = state => state.getIn(['test', 'testResults']);
 const getTimeLeft = state => state.getIn(['timer', 'timeLeft']);
 const getTimerMaxValue = state => state.getIn(['timer', 'timerMaxValue']);
@@ -33,6 +35,7 @@ const getTimeUsed = state => state.getIn(['timer', 'timeUsed']);
 const getIsSessionFinished = state => state.getIn(['session', 'isSessionFinished']);
 const getIsSessionStarted = state => state.getIn(['session', 'isSessionStarted']);
 const getIsSessionSaved = state => state.getIn(['session', 'isSessionSaved']);
+const getIsRunningBenchmark = state => state.getIn(['test', 'isRunningBenchmark']);
 const getIsRunningTests = state => state.getIn(['test', 'isRunningTests']);
 const getIsProfileShown = state => state.getIn(['profile', 'isProfileShown']);
 const getUserData = state => state.getIn(['profile', 'userData']);
@@ -52,11 +55,13 @@ export default function makeMapStateToProps () {
     getTotalAttempts,
     getTitle,
     getDescription,
+    getBenchmark,
     getCode,
     getUserOutput,
     getCurrChallenge,
     getNextChallenge,
     getChallengeType,
+    getBenchmarkResults,
     getTestResults,
     getTimeLeft,
     getTimerMaxValue,
@@ -68,6 +73,7 @@ export default function makeMapStateToProps () {
     getIsSessionFinished,
     getIsSessionStarted,
     getIsSessionSaved,
+    getIsRunningBenchmark,
     getIsRunningTests,
     getIsProfileShown,
     getUserData,
@@ -85,11 +91,13 @@ export default function makeMapStateToProps () {
       totalAttempts,
       title,
       description,
+      benchmark,
       code,
       userOutput,
       currChallenge,
       nextChallenge,
       challengeType,
+      benchmarkResults,
       testResults,
       timeLeft,
       timerMaxValue,
@@ -101,6 +109,7 @@ export default function makeMapStateToProps () {
       isSessionFinished,
       isSessionStarted,
       isSessionSaved,
+      isRunningBenchmark,
       isRunningTests,
       isProfileShown,
       userData,
@@ -118,11 +127,13 @@ export default function makeMapStateToProps () {
       totalAttempts,
       title,
       description,
+      benchmark,
       code,
       userOutput,
       currChallenge,
       nextChallenge,
       challengeType,
+      benchmarkResults,
       testResults,
       timeLeft,
       timerMaxValue,
@@ -134,6 +145,7 @@ export default function makeMapStateToProps () {
       isSessionFinished,
       isSessionStarted,
       isSessionSaved,
+      isRunningBenchmark,
       isRunningTests,
       isProfileShown,
       userData,

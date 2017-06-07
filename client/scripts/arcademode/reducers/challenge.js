@@ -49,7 +49,8 @@ const initialState = Map({
   nextChallenge: Map(),
   challengeType: appConfig.options.Challenge.default,
   chosenChallenges: challengeTypes[appConfig.options.Challenge.default],
-  passedChallenges: List()
+  passedChallenges: List(),
+  benchmark: ''
 });
 
 function shuffle (array) {
@@ -101,11 +102,14 @@ export default function challenge(state = initialState, action) {
       return state
         .set('challengeType', action.challengeType);
     case CHALLENGE_START: // lift to session start
+      console.log('benchmark:');
+      console.log(state.getIn(['currChallenge', 'benchmark']));
       return state
         .update('challengeNumber', challengeNumber => challengeNumber + 1)
         .set('title', state.getIn(['currChallenge', 'title']))
         .set('description', state.getIn(['currChallenge', 'description']))
         .set('code', state.getIn(['currChallenge', 'challengeSeed']).join('\n'))
+        .set('benchmark', state.getIn(['currChallenge', 'benchmark']))
         .set('nextChallenge', getNextChallenge(state))
         .set('currChallengeStartedAt', action.startTime)
         .setIn(['currChallenge', 'startTime'], action.startTime)
@@ -122,6 +126,7 @@ export default function challenge(state = initialState, action) {
         .set('currChallengeStartedAt', action.startTime)
         .set('title', state.getIn(['nextChallenge', 'title']))
         .set('description', state.getIn(['nextChallenge', 'description']))
+        .set('benchmark', state.getIn(['nextChallenge', 'benchmark']))
         .set('code', state.getIn(['nextChallenge', 'challengeSeed']).join('\n'))
         .set('nextChallenge', getNextChallenge(state));
     case CHALLENGE_SOLVE: {

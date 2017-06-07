@@ -33,7 +33,10 @@ import {
   actionFinishSession
 } from '../actions/session';
 
-import { runTests } from '../actions/test';
+import {
+  runTests,
+  runBenchmark
+} from '../actions/test';
 
 import {
   startTimer,
@@ -64,6 +67,7 @@ const mapDispatchToProps = dispatch => ({
   saveSession: () => dispatch(actionSaveSession()),
   finishSession: endTime => dispatch(actionFinishSession(endTime)),
   runTests: (userCode, currChallenge) => dispatch(runTests(userCode, currChallenge)),
+  runBenchmark: (userCode, currChallenge) => dispatch(runBenchmark(userCode, currChallenge)),
   nextChallenge: obj => dispatch(nextChallenge(obj)),
   onCodeChange: newCode => dispatch(onCodeChange(newCode)),
   startChallenge: startTime => dispatch(startChallenge(startTime)),

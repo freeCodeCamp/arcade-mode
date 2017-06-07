@@ -3,23 +3,38 @@
 
 import Immutable from 'immutable';
 
-import { OUTPUT_CHANGED, TESTS_STARTED, TESTS_FINISHED } from '../actions/test';
+import {
+  OUTPUT_CHANGED,
+  TESTS_STARTED,
+  TESTS_FINISHED,
+  BENCHMARK_STARTED,
+  BENCHMARK_FINISHED
+} from '../actions/test';
 import { CHALLENGE_START, CHALLENGE_NEXT } from '../actions/challenge';
+import { PLAYER_PASSED } from '../actions/playerstatus';
 import { TIMER_FINISHED } from '../actions/timer';
 import { MODAL_OPEN } from '../actions/modal';
 
 const initialState = Immutable.Map({
   userOutput: 'The output of your code will show up here.',
   isRunningTests: false,
-  testResults: Immutable.List()
+  isRunningBenchmark: false,
+  testResults: Immutable.List(),
+  benchmarkResults: Immutable.Map()
 });
 
 export default function test (state = initialState, action) {
   switch (action.type) {
+    case PLAYER_PASSED:
+      return state
+        .set('testResults', Immutable.List())
+        .set('benchmarkResults', Immutable.Map());
     case CHALLENGE_START:
       return state
         .set('testResults', Immutable.List())
-        .set('isRunningTests', false);
+        .set('benchmarkResults', Immutable.Map())
+        .set('isRunningTests', false)
+        .set('isRunningBenchmark', false);
     case CHALLENGE_NEXT:
       return state
         .set('userOutput', 'The output of your code will show up here.')
@@ -36,6 +51,12 @@ export default function test (state = initialState, action) {
       return state
         .set('isRunningTests', false)
         .set('testResults', Immutable.List(action.testResults));
+    case BENCHMARK_STARTED:
+      return state.set('isRunningBenchmark', true);
+    case BENCHMARK_FINISHED:
+      return state
+        .set('isRunningBenchmark', false)
+        .set('benchmarkResults', Immutable.Map(action.benchmarkResults));
     case MODAL_OPEN:
       return initialState;
     default:
