@@ -82,11 +82,6 @@ const paths = {
       'client/scripts/public/standalones/wwBenchmark.js',
       'client/scripts/public/standalones/sw.js'
     ],
-    /*
-    specialCases: [
-      'client/scripts/public/standalones/wwBenchmark.js'
-    ],
-   */
     stylesheets: ['client/stylesheets/style.scss']
   },
   fonts: ['client/fonts/**/*'], // font sources
@@ -163,31 +158,19 @@ gulp.task('build-js2json', done => {
 });
 
 gulp.task('build-js', () =>
-  merge(...paths.entry.scripts.map(script => {
-    const scriptName = script.split('/')[script.split('/').length - 1];
-    let bundler;
-    if (scriptName === 'wwBenchmark.js') {
-      bundler = browserify({
-        entries: script,
-        debug: true
-      });
-    }
-    else {
-      bundler = browserify({
-        entries: script,
-        extensions: ['.jsx'],
-        debug: true,
-        plugin: [collapse]
-      });
-    }
-    return bundler
+  merge(...paths.entry.scripts.map(script =>
+    browserify({
+      entries: script,
+      extensions: ['.jsx'],
+      debug: true
+    })
       .transform(babelify, { presets: ['env', 'react'] })
       .transform(envify)
       .transform({
-        global: true
+        global: true,
+        ignore: ['**/node_modules/benchmark/*']
       }, uglifyify)
-      // .plugin(collapse)
-      // .plugin(gulpif('*wwBenchmark.js', gutil.noop(), collapse))
+      .plugin(collapse)
       .bundle()
       .on('error', gutil.log.bind(gutil, 'Browserify error.'))
       .pipe(source(`./${script.split('/')[script.split('/').length - 1]}`))
@@ -199,32 +182,8 @@ gulp.task('build-js', () =>
       .pipe(uglify({ mangle: true }))
       .pipe(gulp.dest(`${ghPages}public/js`))
       .pipe(isGitHubPages ? gulpif('*sw.bundle.js', gulp.dest(ghPages)) : gutil.noop())
-      .pipe(browserSync.reload({ stream: true }));
-  }))
- /*
-  const specialCases = browserify({
-    entries: paths.entry.specialCases[0],
-    debug: true
-  })
-    .transform(babelify, { presets: ['env', 'react'] })
-    .transform(envify)
-    .transform({
-      global: true
-    }, uglifyify)
-    .bundle()
-    .on('error', gutil.log.bind(gutil, 'Browserify error.'))
-    .pipe(source(`./${paths.entry.specialCases[0].split('/')[paths.entry.specialCases[0].split('/').length - 1]}`))
-    .pipe(buffer())
-    .pipe(plumber())
-    .pipe(rename(path => {
-      path.extname = '.bundle.js';
-    }))
-    .pipe(uglify({ mangle: true }))
-    .pipe(gulp.dest(`${ghPages}public/js`))
-    .pipe(browserSync.reload({ stream: true }));
-
-  return merge(merged, specialCases);
- */
+      .pipe(browserSync.reload({ stream: true }))
+  ))
 );
 
 gulp.task('build-css', () => {
