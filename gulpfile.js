@@ -163,18 +163,30 @@ gulp.task('build-js2json', done => {
 });
 
 gulp.task('build-js', () =>
-  merge(...paths.entry.scripts.map(script =>
-    browserify({
-      entries: script,
-      extensions: ['.jsx'],
-      debug: true
-    })
+  merge(...paths.entry.scripts.map(script => {
+    const scriptName = script.split('/')[script.split('/').length - 1];
+    let bundler;
+    if (scriptName === 'wwBenchmark.js') {
+      bundler = browserify({
+        entries: script,
+        debug: true
+      });
+    }
+    else {
+      bundler = browserify({
+        entries: script,
+        extensions: ['.jsx'],
+        debug: true,
+        plugin: [collapse]
+      });
+    }
+    return bundler
       .transform(babelify, { presets: ['env', 'react'] })
       .transform(envify)
       .transform({
         global: true
       }, uglifyify)
-      .plugin(collapse)
+      // .plugin(collapse)
       // .plugin(gulpif('*wwBenchmark.js', gutil.noop(), collapse))
       .bundle()
       .on('error', gutil.log.bind(gutil, 'Browserify error.'))
@@ -187,8 +199,8 @@ gulp.task('build-js', () =>
       .pipe(uglify({ mangle: true }))
       .pipe(gulp.dest(`${ghPages}public/js`))
       .pipe(isGitHubPages ? gulpif('*sw.bundle.js', gulp.dest(ghPages)) : gutil.noop())
-      .pipe(browserSync.reload({ stream: true }))
-  ))
+      .pipe(browserSync.reload({ stream: true }));
+  }))
  /*
   const specialCases = browserify({
     entries: paths.entry.specialCases[0],
