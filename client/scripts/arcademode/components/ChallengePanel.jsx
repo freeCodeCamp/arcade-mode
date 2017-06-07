@@ -22,9 +22,49 @@ export default class ChallengePanel extends React.Component {
     this.createMarkup = this.createMarkup.bind(this);
   }
 
+  getOverallTestResult () {
+    if (this.props.testResults.size) {
+      return this.props.testResults.every(test => test.pass);
+    }
+    return false;
+  }
+
   createMarkup() {
     const descr = this.props.description.join('\n');
     return { __html: descr };
+  }
+
+  renderBenchmarkResults () {
+    if (!this.props.benchmarkResults.size) {
+      return;
+    }
+
+    const results = this.props.benchmarkResults.toJS();
+
+    let className;
+    let resultText;
+    if (results.fastest === 'tie') {
+      className = 'text-primary';
+      resultText = 'Tie! Your code is fast!';
+    }
+    else if (results.fastest === 'user') {
+      className = 'text-success';
+      resultText = 'You did better than the stock solution. Your code is blazing fast!';
+    }
+    else if (results.fastest === 'stock') {
+      className = 'text-warning';
+      resultText = 'Your code can be made more efficient.';
+    }
+
+    return (
+      <div>
+        <p className='text-default center-block'>Benchmark result:
+          <span className={className}>  {resultText}</span>
+        </p>
+        <p className='text-muted'>{results.stockPerf}</p>
+        <p className='text-muted'>{results.userPerf}</p>
+      </div>
+    );
   }
 
   /* TODO: Add limit to the number of printed tests. Improve output. */
@@ -65,8 +105,8 @@ export default class ChallengePanel extends React.Component {
 
     return (
       <div>
+        <p>Tests result: {finalResult}</p>
         {individualTests}
-        <p>{finalResult}</p>
       </div>
     );
   }
@@ -79,8 +119,11 @@ export default class ChallengePanel extends React.Component {
       );
     }
 
+    const benchmarkResults = this.renderBenchmarkResults();
     const testResults = this.renderTestResults();
-    const runBtnClass = this.props.isRunningTests ? 'btn btn-primary disabled' : 'btn btn-primary';
+    const overallTestResult = this.getOverallTestResult();
+    const runTestsBtnClass = (this.props.isRunningTests || this.props.isRunningBenchmark) ? 'btn btn-primary disabled' : 'btn btn-primary';
+    const runBenchmarkBtnClass = (this.props.isRunningTests || this.props.isRunningBenchmark) ? 'btn btn-info disabled' : 'btn btn-info';
 
     /* eslint react/no-danger: 0 */
     return (
@@ -97,8 +140,14 @@ export default class ChallengePanel extends React.Component {
             <button className='btn btn-primary' onClick={this.props.onModalOpen}>Menu</button>
           }
           {this.props.isSessionStarted &&
-            <button className={runBtnClass} onClick={this.props.onClickRunTests}>Run tests</button>
+            <button className={runTestsBtnClass} onClick={this.props.onClickRunTests}>Run tests</button>
           }
+          {this.props.isSessionStarted &&
+            overallTestResult &&
+            this.props.benchmark !== '' &&
+            <button className={runBenchmarkBtnClass} onClick={this.props.onClickBenchmark}>Benchmark</button>
+          }
+
           {finishButton}
         </div>
         <div className='challenge__buttons'>
@@ -112,7 +161,7 @@ export default class ChallengePanel extends React.Component {
             value={this.props.userOutput}
           />
         </div>
-
+        {benchmarkResults}
         {testResults}
 
       </div>
@@ -121,24 +170,29 @@ export default class ChallengePanel extends React.Component {
 }
 
 ChallengePanel.defaultProps = {
-  showDescription: true
+  showDescription: true,
+  benchmark: ''
 };
 
 ChallengePanel.propTypes = {
-  description: ImmutablePropTypes.list.isRequired,
   title: PropTypes.string.isRequired,
+  description: ImmutablePropTypes.list.isRequired,
+  benchmark: PropTypes.string,
   isSessionStarted: PropTypes.bool.isRequired,
   isSessionFinished: PropTypes.bool.isRequired,
   isTimerFinished: PropTypes.bool.isRequired,
   onClickFinishSession: PropTypes.func.isRequired,
   onClickRunTests: PropTypes.func.isRequired,
   onClickSolve: PropTypes.func.isRequired,
+  onClickBenchmark: PropTypes.func.isRequired,
   onClickStartChallenge: PropTypes.func.isRequired,
   userOutput: PropTypes.string.isRequired,
+  benchmarkResults: ImmutablePropTypes.map.isRequired,
   testResults: ImmutablePropTypes.list.isRequired,
   editor: PropTypes.string.isRequired,
   onModalOpen: PropTypes.func.isRequired,
   mode: PropTypes.string.isRequired,
   showDescription: PropTypes.bool,
+  isRunningBenchmark: PropTypes.bool.isRequired,
   isRunningTests: PropTypes.bool.isRequired
 };

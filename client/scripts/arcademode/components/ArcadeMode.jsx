@@ -31,6 +31,7 @@ export default class ArcadeMode extends Component {
     this.onCodeChange = this.onCodeChange.bind(this);
     this.onTimerMaxValueChange = this.onTimerMaxValueChange.bind(this);
     this.onClickSolve = this.onClickSolve.bind(this);
+    this.onClickBenchmark = this.onClickBenchmark.bind(this);
     this.onClickShowHideProfile = this.onClickShowHideProfile.bind(this);
     this.onClickSaveSession = this.onClickSaveSession.bind(this);
   }
@@ -80,6 +81,10 @@ export default class ArcadeMode extends Component {
   /* Inserts the solution for current challenge into the editor. */
   onClickSolve() {
     this.props.solveChallenge();
+  }
+
+  onClickBenchmark() {
+    this.props.runBenchmark(this.props.code, this.props.currChallenge);
   }
 
   onClickShowHideProfile() {
@@ -257,17 +262,21 @@ export default class ArcadeMode extends Component {
                 onClickStartChallenge={this.onClickStartChallenge}
                 onClickRunTests={this.onClickRunTests}
                 onClickSolve={this.onClickSolve}
+                onClickBenchmark={this.onClickBenchmark}
                 onClickFinishSession={this.onClickFinishSession}
                 isSessionStarted={this.props.isSessionStarted}
                 isSessionFinished={this.props.isSessionFinished}
                 isTimerFinished={this.props.isTimerFinished}
+                benchmark={this.props.benchmark}
                 title={this.props.title}
                 userOutput={this.props.userOutput}
                 description={this.props.description}
+                benchmarkResults={this.props.benchmarkResults}
                 testResults={this.props.testResults}
                 editor={this.props.editor}
                 onModalOpen={this.props.onModalOpen}
                 mode={this.props.mode}
+                isRunningBenchmark={this.props.isRunningBenchmark}
                 isRunningTests={this.props.isRunningTests}
               />
             </Col>
@@ -283,6 +292,10 @@ export default class ArcadeMode extends Component {
     );
   }
 }
+
+ArcadeMode.defaultProps = {
+  benchmark: ''
+};
 
 ArcadeMode.propTypes = {
   // game settings
@@ -310,8 +323,10 @@ ArcadeMode.propTypes = {
   currChallenge: ImmutablePropTypes.map.isRequired,
   title: PropTypes.string.isRequired,
   description: ImmutablePropTypes.list.isRequired,
+  benchmark: PropTypes.string,
   nextChallenge: PropTypes.func.isRequired,
   solveChallenge: PropTypes.func.isRequired,
+  runBenchmark: PropTypes.func.isRequired,
   code: PropTypes.string.isRequired,
   onCodeChange: PropTypes.func.isRequired,
   userOutput: PropTypes.string.isRequired,
@@ -332,7 +347,9 @@ ArcadeMode.propTypes = {
 
   // test
   runTests: PropTypes.func.isRequired,
+  benchmarkResults: ImmutablePropTypes.map.isRequired,
   testResults: ImmutablePropTypes.list.isRequired,
+  isRunningBenchmark: PropTypes.bool.isRequired,
   isRunningTests: PropTypes.bool.isRequired,
 
   // timer
