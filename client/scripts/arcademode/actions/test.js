@@ -4,8 +4,10 @@
 export const OUTPUT_CHANGED = 'OUTPUT_CHANGED'; // test
 export const TESTS_STARTED = 'TESTS_STARTED'; // playerstatus, test
 export const TESTS_FINISHED = 'TESTS_FINISHED'; // test
-export const TESTS_FAILED = 'TESTS_FAILED'; // test
-export const TESTS_PASSED = 'TESTS_PASSED'; // test
+export const TESTS_FAILED = 'TESTS_FAILED'; // playerstatus
+export const TESTS_PASSED = 'TESTS_PASSED'; // ?
+export const BENCHMARK_STARTED = 'BENCHMARK_STARTED'; // test
+export const BENCHMARK_FINISHED = 'BENCHMARK_FINISHED'; // test
 
 /* Given a list of test results, returns pass/fail status.*/
 
@@ -32,6 +34,30 @@ export function runTests(userCode, currChallenge) {
   };
 }
 
+export function runBenchmark(userCode, currChallenge) {
+  return dispatch => {
+    dispatch(actionTestsStarted());
+
+    const perfBefore = performance.now();
+    createTestWorker(userCode, currChallenge, dispatch, true)
+      .then(() => console.log(`Total time to evaluate test cases: ${performance.now() - perfBefore}`))
+      .catch(err => console.error(err));
+  };
+}
+
+export function actionBenchmarkStarted () {
+  return {
+    type: BENCHMARK_STARTED
+  };
+}
+
+export function actionBenchmarkFinished (benchmarkResults) {
+  return {
+    type: BENCHMARK_FINISHED,
+    benchmarkResults
+  };
+}
+
 /* Dispatched when a user starts running the tests.*/
 export function actionTestsStarted () {
   return {
@@ -39,7 +65,7 @@ export function actionTestsStarted () {
   };
 }
 
-/* Dispatched when tests fail.*/
+/* Dispatched when tests pass.*/
 export function actionTestsPassed () {
   return {
     type: TESTS_PASSED
@@ -80,9 +106,6 @@ function verifyFastest (data) {
       };
     });
 
-    // console.log(stats);
-
-
     const stockRange = [
       stats[0].mean - stats[0].aMarginOfError, stats[0].mean + stats[0].aMarginOfError
     ];
@@ -90,8 +113,6 @@ function verifyFastest (data) {
     const userRange = [
       stats[1].mean - stats[1].aMarginOfError, stats[1].mean + stats[1].aMarginOfError
     ];
-
-    // console.log(stockRange, userRange);
 
     if (stockRange[0] <= userRange[1] && stockRange[1] >= userRange[0]) {
       statisticalConfidence = false;
@@ -101,22 +122,21 @@ function verifyFastest (data) {
       if (data.fastest === 'user test') {
         // user code faster than stock code:
         console.log('Your code is extremely fast!');
+        return 'user';
       }
-      else {
-        // stock code faster than user code:
-        console.log('Your code can be made more efficient.');
-      }
+      // stock code faster than user code:
+      console.log('Your code can be made more efficient.');
+      return 'stock';
     }
-    else {
-      // tied between user and stock code:
-      console.log('Optimal code!');
-    }
+    // tied between user and stock code:
+    console.log('Optimal code!');
+    return 'tie';
   }
 }
 
 // TODO:
 // possibly reduce the number of workers because spawning and setting up a worker takes time
-const createTestWorker = (userCode, currChallenge, dispatch) =>
+const createTestWorker = (userCode, currChallenge, dispatch, isBenchmark = false) =>
   new Promise(resolve => {
     const wk = new Worker('public/js/ww.bundle.js');
     wk.postMessage([userCode, currChallenge.toJS()]); // postMessage mangles the Immutable object, so it needs to be transformed into regular JS before sending over to worker.
@@ -126,32 +146,47 @@ const createTestWorker = (userCode, currChallenge, dispatch) =>
   })
   .then(workerData => {
     dispatch(onOutputChange(workerData[0]));
-    if (workerData.length > 1) {
+    if (workerData.length > 4) {
       const testResults = workerData.slice(4); // to take into account the benchmark items
       const allTestsPassed = getTestStatus(testResults);
 
       if (allTestsPassed) {
         dispatch(actionTestsPassed());
-        // call benchmark webworkers here:
-        const perfBefore = performance.now();
-        const benchmarkFnCall = workerData[3];
-        if (benchmarkFnCall) {
-          const benchmarkCode = workerData.slice(1, 3);
-          const benchmarkTimes = createBenchmarkWorker(benchmarkCode, benchmarkFnCall)
-            .then(data => {
-              console.log(data.fastest);
-              verifyFastest(data);
-              console.log(data.testData[0]);
-              console.log(data.testData[1]);
-              console.log(`Total time to benchmark: ${performance.now() - perfBefore}`);
-            })
-            .catch(err => console.error(err));
+        if (isBenchmark) {
+          // call benchmark webworkers here:
+          const perfBefore = performance.now();
+          const benchmarkFnCall = workerData[3];
+          if (benchmarkFnCall) {
+            const benchmarkCode = workerData.slice(1, 3);
+            dispatch(actionBenchmarkStarted());
+            createBenchmarkWorker(benchmarkCode, benchmarkFnCall)
+              .then(data => {
+                console.log(data.fastest);
+                const fastestResult = verifyFastest(data);
+                /*
+                const benchmarkResults = [
+                  fastestResult,
+                  data.testData[0], // stock performance
+                  data.testData[1]  // user performance
+                ];
+               */
+                const benchmarkResults = {
+                  fastest: fastestResult,
+                  stockPerf: data.testData[0],
+                  userPerf: data.testData[1]
+                };
+                console.log(data.testData[0]);
+                console.log(data.testData[1]);
+                console.log(`Total time to benchmark: ${performance.now() - perfBefore}`);
+                dispatch(actionBenchmarkFinished(benchmarkResults));
+              })
+              .catch(err => console.error(err));
+          }
         }
       }
       else {
         dispatch(actionTestsFailed());
       }
-
       // Would it make sense to include this with passed/failed actions?
       dispatch(actionTestsFinished(testResults));
     }
