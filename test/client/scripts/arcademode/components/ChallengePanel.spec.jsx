@@ -19,14 +19,17 @@ const props = {
   isSessionFinished: false,
   isTimerFinished: false,
   onClickFinishSession: () => {},
+  onClickBenchmark: () => {},
   onClickRunTests: () => {},
   onClickSolve: () => {},
   onClickStartChallenge: () => {},
   userOutput: 'The output of your code will show up here.',
+  benchmarkResults: Immutable.Map(),
   testResults: Immutable.List(),
   description: Immutable.List(['a', 'b', 'c']),
   editor: 'editor',
-  mode: 'Arcade'
+  mode: 'Arcade',
+  isRunningTests: false
 };
 
 describe('<ChallengePanel> component', () => {
