@@ -1,5 +1,39 @@
 // general style overrides against bootstrap
 
+$btn-list: default, primary, success, info, warning, danger, link;
+
+$colors: (
+  default: #3e3f3a,
+  primary: #325d88,
+  success: #93c54b,
+  info: #29abe0,
+  warning: #f47c3c,
+  danger: #d9534f,
+  link: transparent
+);
+
+@function color($color) {
+  @return map-get($colors, $color);
+}
+
+@each $btn-type in $btn-list {
+  .btn {
+    &-#{$btn-type} {
+      &:active,
+      &:focus,
+      &:active:focus,
+      &:focus:active {
+        background-color: color($btn-type);
+      }
+      &:hover,
+      &:active:hover,
+      &:focus:hover {
+        background-color: lighten(color($btn-type), 10%);
+      }
+    }
+  }
+}
+
 .container-fluid {
   margin-left: auto;
   margin-right: auto;
@@ -9,6 +43,12 @@
 .modal-footer {
   text-align: inherit;
 }
+
+.btn {
+  outline: none !important;
+}
+
+
 
 // bsClass and className do not work on Modal component
 /*
