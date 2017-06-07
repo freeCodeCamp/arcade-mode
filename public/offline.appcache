@@ -1,10 +1,10 @@
 CACHE MANIFEST
 
 CACHE:
+css/style.css
 img/FCCfire.svg
 img/FCClogo.svg
 img/favicon.ico
-css/style.css
 js/index.bundle.js
 js/main.bundle.js
 js/sw.bundle.js
@@ -32,4 +32,4 @@ NETWORK:
 SETTINGS:
 prefer-online
 
-# hash: def17bbc7c9db1750752f6bbc3b0c0c8383097986a527858581ceaf79d17006d
+# hash: 0381b3b9dfd6eeff24e2e619c08559de2071f5ceb5e5bdf242a4ed294d81e0eb
