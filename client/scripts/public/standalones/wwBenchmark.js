@@ -45,17 +45,14 @@ function getResultMessage (data) {
     if (statisticalConfidence) {
       if (data.fastest[0] === 'stock test') {
         // stock code faster than user code:
-        // console.log('Your code can be made more efficient.');
         // return 'stock';
         resultMessage = 'Your code can be made more efficient.';
       }
       // user code faster than stock code:
-      // console.log('Your code is extremely fast!');
       // return 'user';
       resultMessage = 'Your code performed better than the stock solution. It\'s blazing fast!';
     }
     // tied between user and stock code:
-    // console.log('Your code is as fast as the stock code.');
     // return 'tie';
     resultMessage = 'Tie. Your code is fast!';
 

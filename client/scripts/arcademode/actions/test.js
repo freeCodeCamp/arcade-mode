@@ -87,56 +87,6 @@ export function actionTestsFinished (testResults) {
   };
 }
 
-/*
-function verifyFastest (data) {
-  const re = /^.*x (\d.*) ops\/sec ±(.*)% \(.*$/;
-  let statisticalConfidence = true;
-
-  if (data.testData[0].match(re) && data.testData[1].match(re)) {
-    const stats = data.testData.map(datum => {
-      return {
-        mean: parseInt((datum.match(re)[1]).replace(',', ''), 10),
-        pMarginOfError: Number(datum.match(re)[2]) / 100
-      };
-    }).map(stat => {
-      return {
-        mean: stat.mean,
-        pMarginOfError: stat.pMarginOfError,
-        aMarginOfError: stat.mean * stat.pMarginOfError
-      };
-    });
-
-    const stockRange = [
-      stats[0].mean - stats[0].aMarginOfError, stats[0].mean + stats[0].aMarginOfError
-    ];
-
-    const userRange = [
-      stats[1].mean - stats[1].aMarginOfError, stats[1].mean + stats[1].aMarginOfError
-    ];
-
-    if (stockRange[0] <= userRange[1] && stockRange[1] >= userRange[0]) {
-      statisticalConfidence = false;
-    }
-
-    // there are instances when benchmark.js returns a victor
-    // despite unfounded confidence.
-    if (statisticalConfidence) {
-      if (data.fastest[0] === 'stock test') {
-        // stock code faster than user code:
-        console.log('Your code can be made more efficient.');
-        return 'stock';
-      }
-      // user code faster than stock code:
-      console.log('Your code is extremely fast!');
-      return 'user';
-    }
-    // tied between user and stock code:
-    console.log('Your code is as fast as the stock code.');
-    return 'tie';
-  }
-}
-*/
-
 // TODO:
 // possibly reduce the number of workers because spawning and setting up a worker takes time
 const createTestWorker = (userCode, currChallenge, dispatch, isBenchmark = false) =>
@@ -162,24 +112,15 @@ const createTestWorker = (userCode, currChallenge, dispatch, isBenchmark = false
           if (benchmarkFnCall) {
             const benchmarkCode = workerData.slice(1, 3);
             dispatch(actionBenchmarkStarted());
+
             createBenchmarkWorker(benchmarkCode, benchmarkFnCall)
               .then(data => {
                 console.log(data.fastest);
-                // const fastestResult = verifyFastest(data);
-                /*
-                const benchmarkResults = [
-                  fastestResult,
-                  data.testData[0], // stock performance
-                  data.testData[1]  // user performance
-                ];
-               */
                 const benchmarkResults = {
                   resultMessage: data.resultMessage,
                   stockPerf: data.stockPerf,
                   userPerf: data.userPerf
                 };
-                // console.log(data.testData[0]);
-                // console.log(data.testData[1]);
                 console.log(`Total time to benchmark: ${performance.now() - perfBefore}`);
                 dispatch(actionBenchmarkFinished(benchmarkResults));
               })
