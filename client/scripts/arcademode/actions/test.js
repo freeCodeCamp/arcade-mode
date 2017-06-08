@@ -87,7 +87,7 @@ export function actionTestsFinished (testResults) {
   };
 }
 
-
+/*
 function verifyFastest (data) {
   const re = /^.*x (\d.*) ops\/sec ±(.*)% \(.*$/;
   let statisticalConfidence = true;
@@ -118,21 +118,24 @@ function verifyFastest (data) {
       statisticalConfidence = false;
     }
 
+    // there are instances when benchmark.js returns a victor
+    // despite unfounded confidence.
     if (statisticalConfidence) {
-      if (data.fastest === 'user test') {
-        // user code faster than stock code:
-        console.log('Your code is extremely fast!');
-        return 'user';
+      if (data.fastest[0] === 'stock test') {
+        // stock code faster than user code:
+        console.log('Your code can be made more efficient.');
+        return 'stock';
       }
-      // stock code faster than user code:
-      console.log('Your code can be made more efficient.');
-      return 'stock';
+      // user code faster than stock code:
+      console.log('Your code is extremely fast!');
+      return 'user';
     }
     // tied between user and stock code:
-    console.log('Optimal code!');
+    console.log('Your code is as fast as the stock code.');
     return 'tie';
   }
 }
+*/
 
 // TODO:
 // possibly reduce the number of workers because spawning and setting up a worker takes time
@@ -162,7 +165,7 @@ const createTestWorker = (userCode, currChallenge, dispatch, isBenchmark = false
             createBenchmarkWorker(benchmarkCode, benchmarkFnCall)
               .then(data => {
                 console.log(data.fastest);
-                const fastestResult = verifyFastest(data);
+                // const fastestResult = verifyFastest(data);
                 /*
                 const benchmarkResults = [
                   fastestResult,
@@ -171,12 +174,12 @@ const createTestWorker = (userCode, currChallenge, dispatch, isBenchmark = false
                 ];
                */
                 const benchmarkResults = {
-                  fastest: fastestResult,
-                  stockPerf: data.testData[0],
-                  userPerf: data.testData[1]
+                  resultMessage: data.resultMessage,
+                  stockPerf: data.stockPerf,
+                  userPerf: data.userPerf
                 };
-                console.log(data.testData[0]);
-                console.log(data.testData[1]);
+                // console.log(data.testData[0]);
+                // console.log(data.testData[1]);
                 console.log(`Total time to benchmark: ${performance.now() - perfBefore}`);
                 dispatch(actionBenchmarkFinished(benchmarkResults));
               })

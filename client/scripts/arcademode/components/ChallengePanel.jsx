@@ -1,4 +1,6 @@
 
+/* eslint no-multi-spaces: 0 */
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import ImmutablePropTypes from 'react-immutable-proptypes';
@@ -42,24 +44,18 @@ export default class ChallengePanel extends React.Component {
     const results = this.props.benchmarkResults.toJS();
 
     let className;
-    let resultText;
-    if (results.fastest === 'tie') {
-      className = 'text-primary';
-      resultText = 'Tie! Your code is fast!';
-    }
-    else if (results.fastest === 'user') {
-      className = 'text-success';
-      resultText = 'You did better than the stock solution. Your code is blazing fast!';
-    }
-    else if (results.fastest === 'stock') {
+    if (results.resultMessage === 'Your code can be made more efficient') {
       className = 'text-warning';
-      resultText = 'Your code can be made more efficient.';
     }
+    else if (results.resultMessage === 'Tie. Your code is fast!') {
+      className = 'text-primary';
+    }
+    else className = 'text-success';
 
     return (
       <div>
-        <p className='text-default center-block'>Benchmark result:
-          <span className={className}>  {resultText}</span>
+        <p className='text-default'>Benchmark result:
+          <span className={className}>  {results.resultMessage}</span>
         </p>
         <p className='text-muted'>{results.stockPerf}</p>
         <p className='text-muted'>{results.userPerf}</p>
