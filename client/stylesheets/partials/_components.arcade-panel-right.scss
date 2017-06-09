@@ -1,18 +1,20 @@
 // styling for react component: editor
 
-.arcade-panel-right { // statusbar + editor + continue button
-  // background-color: #ccc;
-  max-height: calc(100vh - 82px); // 82px is the height of the navbar and its margin-bottom
-  overflow-y: hidden;
-}
+@media screen and (min-height: 992px) {
+  .arcade-panel-right { // statusbar + editor + continue button
+    // background-color: #ccc;
+    max-height: calc(100vh - 82px); // 82px is the height of the navbar and its margin-bottom
+    overflow-y: hidden;
+  }
 
-.editor {
-  max-height: calc(100vh - 82px - 46px); 
-    // 46px is the height of the continue button
-  overflow-y: auto;
-  &--statusbar {
-    max-height: calc(100vh - 82px - 46px - 58px);
-    // 58px is the statusbar + its 20px margin
+  .editor {
+    max-height: calc(100vh - 82px - 46px); 
+      // 46px is the height of the continue button
     overflow-y: auto;
+    &--statusbar {
+      max-height: calc(100vh - 82px - 46px - 58px);
+      // 58px is the statusbar + its 20px margin
+      overflow-y: auto;
+    }
   }
 }

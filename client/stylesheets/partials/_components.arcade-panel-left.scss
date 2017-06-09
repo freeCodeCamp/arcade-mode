@@ -1,8 +1,10 @@
 // styling for the react component, panel
 
-.arcade-panel-left {
-  max-height: calc(100vh - 82px); // 82 px is the height of the navbar and its margin-bottom
-  overflow-y: auto;
+@media screen and (min-width: 992px) {
+  .arcade-panel-left {
+    max-height: calc(100vh - 82px); // 82 px is the height of the navbar and its margin-bottom
+    overflow-y: auto;
+  }
 }
 
 .challenge {
