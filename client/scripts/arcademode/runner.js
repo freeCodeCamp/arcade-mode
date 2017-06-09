@@ -2,6 +2,8 @@
 /* eslint no-unused-vars: 0 */
 /* eslint no-eval: 0 */
 /* eslint no-unneeded-ternary: 0 */
+/* eslint no-unsafe-finally: 0 */
+/* eslint prefer-const: 0 */
 
 /* Contains code to run the challenges using eval, and also to evaluate the syntax. */
 
@@ -11,12 +13,29 @@
  *    tests: must contain only assertions
  */
 
-const assert = require('chai').assert;
+const chai = require('chai');
+const chaiAsPromised = require('chai-as-promised');
 const babel = require('babel-core');
 const es2015 = require('babel-preset-es2015');
 const loopProtect = require('../vendor/loop-protect');
 
-export default function runner(userCode, currChallenge) {
+chai.use(chaiAsPromised);
+const assert = chai.assert;
+
+export default async function runner (userCode, currChallenge) {
+  // run and save test results if no syntax error was observed:
+  const results = await detectErrorsTranspileCodeRunTestsProcessResults(userCode, currChallenge);
+  return {
+    userOutput: results.userOutput,
+    benchmarkStockCode: results.benchmarkStockCode,
+    benchmarkUserCode: results.benchmarkUserCode,
+    benchmarkFnCall: results.benchmarkFnCall,
+    errorMsgs: results.errorMsgs,
+    testResults: results.testResults
+  };
+}
+
+function detectErrorsTranspileCodeRunTestsProcessResults (userCode, currChallenge) {
   const messageRegex = /message: (.*)'\);$/;
   const tests = currChallenge.tests.map(test => {
     if (messageRegex.test(test)) {
@@ -31,14 +50,7 @@ export default function runner(userCode, currChallenge) {
     };
   });
 
-  // let headLength = 0;
   const head = currChallenge.head && currChallenge.head.join('\n');
-  /*
-  if (head) {
-    headLength = currChallenge.head.length;
-  }
- */
-
   const tail = currChallenge.tail && currChallenge.tail.join('\n');
 
   // append user code output to final object passed back via postMessage:
@@ -111,19 +123,23 @@ export default function runner(userCode, currChallenge) {
     }
   }
 
-  // run and save test results if no syntax error was observed:
-  const testResults = [];
+  let benchmarkStockCode = null;
+  let benchmarkUserCode = null;
+  let benchmarkFnCall = null;
 
   if (!syntaxErrorFlag && !evalErrorFlag) {
-    tests.forEach(test => {
+    return Promise.all(tests.map(test => {
       const testRunData = { error: null, pass: true };
       let code;
+      let isAsync = false;
+      let evalResult;
       try {
         eval(
           `
           code=userCode; // some tail functions use the variable code for userCode
           ${esFiveLoopProtected};
-          ${test.test}; // Test case code - this assumes that the function exists
+          if (\`${test.test}\`.match(/^assert.becomes.*$/)) { isAsync = true; }
+          evalResult = ${test.test}; // Test case code - this assumes that the function exists
           `
         );
       }
@@ -131,23 +147,43 @@ export default function runner(userCode, currChallenge) {
         testRunData.error = `${err}`;
         testRunData.pass = false;
       }
-      testResults.push(testRunData);
+      finally {
+        if (isAsync) {
+          return evalResult
+            .catch(err => {
+              testRunData.error = `${err}`;
+              testRunData.pass = false;
+            })
+            .then(() => testRunData);
+        }
+        return Promise.resolve(testRunData);
+      }
+    }))
+    .then(testResults => {
+      // if all tests pass, benchmark user code if it is benchmarkable:
+      // Nested workers do not work in Google Chrome as of 06/04/17, the contents must be passed
+      // back to the worker caller to invoke another worker.
+      if (testResults.every(testResult => testResult.pass) && Object.prototype.hasOwnProperty.call(currChallenge, 'benchmark')) {
+        const benchmarkCodeWithSupportCode = `${head ? head : ''};${currChallenge.solutions};${tail ? tail : ''};`;
+        const esFiveBenchmarkCode = babel.transform(benchmarkCodeWithSupportCode, { presets: [es2015] }).code;
+
+        benchmarkStockCode = esFiveBenchmarkCode;
+        benchmarkUserCode = esFive;
+        benchmarkFnCall = currChallenge.benchmark;
+      }
+
+      return {
+        userOutput,
+        benchmarkStockCode,
+        benchmarkUserCode,
+        benchmarkFnCall,
+        errorMsgs,
+        testResults
+      };
+    })
+    .catch(err => {
+      console.error(err);
     });
-  }
-
-  // if all tests pass, benchmark user code if it is benchmarkable:
-  // Nested workers do not work in Google Chrome as of 06/04/17, the contents must be passed
-  // back to the worker caller to invoke another worker.
-  let benchmarkStockCode = null;
-  let benchmarkUserCode = null;
-  let benchmarkFnCall = null;
-  if (testResults.every(testResult => testResult.pass) && Object.prototype.hasOwnProperty.call(currChallenge, 'benchmark')) {
-    const benchmarkCodeWithSupportCode = `${head ? head : ''};${currChallenge.solutions};${tail ? tail : ''};`;
-    const esFiveBenchmarkCode = babel.transform(benchmarkCodeWithSupportCode, { presets: [es2015] }).code;
-
-    benchmarkStockCode = esFiveBenchmarkCode;
-    benchmarkUserCode = esFive;
-    benchmarkFnCall = currChallenge.benchmark;
   }
 
   return {
@@ -156,6 +192,6 @@ export default function runner(userCode, currChallenge) {
     benchmarkUserCode,
     benchmarkFnCall,
     errorMsgs,
-    testResults
+    testResults: []
   };
 }
