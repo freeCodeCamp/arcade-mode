@@ -112,7 +112,6 @@ const createTestWorker = (userCode, currChallenge, dispatch, isBenchmark = false
           if (benchmarkFnCall) {
             const benchmarkCode = workerData.slice(1, 3);
             dispatch(actionBenchmarkStarted());
-
             createBenchmarkWorker(benchmarkCode, benchmarkFnCall)
               .then(data => {
                 console.log(data.fastest);
