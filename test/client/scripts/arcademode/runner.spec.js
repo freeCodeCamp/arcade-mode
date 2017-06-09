@@ -11,6 +11,7 @@ const stackChallenge = challenges.find(item => item.title.match(/Queue using/));
 const bookshopChallenge = challenges.find(item => item.title.match(/Bookshop/));
 const gittacaChallenge = challenges.find(item => item.title.match(/Gittaca/));
 const conventuristChallenge = challenges.find(item => item.title.match(/Conventurist/));
+const lruCacheChallenge = challenges.find(item => item.title.match(/LRU Cache/));
 
 const userOutputUndef = 'User output is undefined.';
 
@@ -141,6 +142,15 @@ describe('runner()', () => {
     return result.then(res => {
       expect(res.userOutput).to.equal(userOutputUndef);
       expectNoErrorsAndAllTestsRun(res, conventuristChallenge);
+    });
+  });
+
+  it('can execute the LRU cache challenge', () => {
+    const userCode = lruCacheChallenge.solutions.join('');
+    const result = runner(userCode, lruCacheChallenge);
+    return result.then(res => {
+      expect(res.userOutput).to.equal(userOutputUndef);
+      expectNoErrorsAndAllTestsRun(res, lruCacheChallenge);
     });
   });
 });
