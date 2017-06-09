@@ -224,29 +224,12 @@ export default class ArcadeMode extends Component {
         />
         <Navbar />
 
-        <button
-          className='btn btn-default'
-          onClick={this.onClickShowHideProfile}
-        >
-          {this.props.isProfileShown &&
-          'Hide Profile'
-          }
-          {!this.props.isProfileShown &&
-          'Show Profile'
-          }
-        </button>
-
-        <input
-          className='btn btn-default'
-          type='button'
-          onClick={this.props.onChangeEditor}
-          value={this.props.editor === 'Normal' ? 'Whiteboard' : 'Normal'}
-        />
 
         <Grid fluid>
           { this.props.isProfileShown &&
             <Row className='show-grid'>
               <UserProfile
+                onClickShowHideProfile={this.onClickShowHideProfile}
                 userData={this.props.userData}
                 deleteSession={this.props.deleteSession}
                 toggleSessionView={this.props.toggleSessionView}
@@ -261,6 +244,9 @@ export default class ArcadeMode extends Component {
               <ChallengePanel
                 onClickStartChallenge={this.onClickStartChallenge}
                 onClickRunTests={this.onClickRunTests}
+                onClickShowHideProfile={this.onClickShowHideProfile}
+                isProfileShown={this.props.isProfileShown}
+                onChangeEditor={this.props.onChangeEditor}
                 onClickSolve={this.onClickSolve}
                 onClickBenchmark={this.onClickBenchmark}
                 onClickFinishSession={this.onClickFinishSession}
