@@ -11,6 +11,9 @@
   *
   * */
 
+// TODO: fix script to remove empty string at end of the last property (i.e., test),
+// otherwise an empty test case is added which is problematic.
+
 const commandLineArgs = require('command-line-args');
 const fs = require('fs');
 const acorn = require('acorn');
