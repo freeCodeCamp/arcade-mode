@@ -147,6 +147,25 @@ export default class ChallengePanel extends React.Component {
           {finishButton}
         </div>
         <div className='challenge__buttons'>
+
+          <button
+            className='btn btn-default'
+            onClick={this.props.onClickShowHideProfile}
+          >
+            {this.props.isProfileShown &&
+            'Hide Profile'
+            }
+            {!this.props.isProfileShown &&
+            'Show Profile'
+            }
+          </button>
+
+          <input
+            className='btn btn-default'
+            type='button'
+            onClick={this.props.onChangeEditor}
+            value={this.props.editor === 'Normal' ? 'Whiteboard' : 'Normal'}
+          />
           {this.props.isSessionStarted &&
             <button className='btn btn-warning' onClick={this.props.onClickSolve}>Insert Solution</button>
           }
@@ -179,6 +198,9 @@ ChallengePanel.propTypes = {
   isTimerFinished: PropTypes.bool.isRequired,
   onClickFinishSession: PropTypes.func.isRequired,
   onClickRunTests: PropTypes.func.isRequired,
+  onClickShowHideProfile: PropTypes.func.isRequired,
+  isProfileShown: PropTypes.bool.isRequired,
+  onChangeEditor: PropTypes.func.isRequired,
   onClickSolve: PropTypes.func.isRequired,
   onClickBenchmark: PropTypes.func.isRequired,
   onClickStartChallenge: PropTypes.func.isRequired,
