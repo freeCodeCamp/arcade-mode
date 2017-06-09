@@ -1,9 +1,26 @@
 # PROGRESS for Arcade Mode
 
+## Thursday 6/8/17:
+### Tim:
+  - Progress:
+    1. Add Conventurist challenge.
+    2. Fix styling issues.
+
+## Tuesday 6/6/17:
+### Tim:
+  - Progress:
+    1. Add benchmarking feature.
+
+## Monday 6/5/17:
+### Tim:
+  - Progress:
+    1. Add naive solution for bookstore challenge.
+    2. Add babel-polyfill for code use up to ES8.
+
 ## Saturday 6/03/17:
 ### Tim:
   - Progress:
-    1. Add Gittaca challenge
+    1. Add Gittaca challenge.
 
 ### Tuomas:
   - Progress:
@@ -13,12 +30,12 @@
 ## Friday 6/02/17:
 ### Tim:
   - Progress:
-    1. Create script to create cache files for service worker dynamically
+    1. Create script to create cache files for service worker dynamically.
 
 ## Thursday 6/01/17:
 ### Tim:
   - Progress:
-    1. Add Rome Bookstore challenge
+    1. Add Rome Bookstore challenge.
 
 ## Sunday 5/28/17:
 ### Tim:
