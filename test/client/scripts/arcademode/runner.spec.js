@@ -10,6 +10,7 @@ const challenges = ArcadeChallenges.challenges;
 const stackChallenge = challenges.find(item => item.title.match(/Queue using/));
 const bookshopChallenge = challenges.find(item => item.title.match(/Bookshop/));
 const gittacaChallenge = challenges.find(item => item.title.match(/Gittaca/));
+const conventuristChallenge = challenges.find(item => item.title.match(/Conventurist/));
 
 const userOutputUndef = 'User output is undefined.';
 
@@ -115,8 +116,10 @@ describe('runner()', () => {
   });
 
   it('can execute the book shop challenge', () => {
+    const sort = Array.prototype.sort;
     const userCode = bookshopChallenge.solutions.join('');
     const result = runner(userCode, bookshopChallenge);
+    Array.prototype.sort = sort;
     return result.then(res => {
       expect(res.userOutput).to.equal(userOutputUndef);
       expectNoErrorsAndAllTestsRun(res, bookshopChallenge);
@@ -129,6 +132,15 @@ describe('runner()', () => {
     return result.then(res => {
       expect(res.userOutput).to.equal(userOutputUndef);
       expectNoErrorsAndAllTestsRun(res, gittacaChallenge);
+    });
+  });
+
+  it('can execute the conventurist challenge', () => {
+    const userCode = conventuristChallenge.solutions.join('');
+    const result = runner(userCode, conventuristChallenge);
+    return result.then(res => {
+      expect(res.userOutput).to.equal(userOutputUndef);
+      expectNoErrorsAndAllTestsRun(res, conventuristChallenge);
     });
   });
 });
