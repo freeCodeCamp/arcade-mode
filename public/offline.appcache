@@ -15,14 +15,14 @@ json/challenges-algorithms.json
 json/challenges-arcade.json
 json/challenges-combined.json
 json/challenges-data-structures.json
+img/challenges/conventurist.png
+img/challenges/pexels-photo-127556.jpeg
+img/challenges/pexels-photo-358717.jpeg
 font/Kalam/Kalam-Regular.ttf
 font/Lato/Lato-Black.ttf
 font/Roboto/Roboto-Bold.ttf
 font/Roboto/Roboto-Medium.ttf
 font/Roboto/Roboto-Regular.ttf
-img/challenges/conventurist.png
-img/challenges/pexels-photo-127556.jpeg
-img/challenges/pexels-photo-358717.jpeg
 css/vendor/bootswatch/bootstrap.min.css
 css/vendor/codemirror/codemirror.min.css
 css/vendor/codemirror/monokai.min.css
@@ -33,4 +33,4 @@ NETWORK:
 SETTINGS:
 prefer-online
 
-# hash: e3ca80a8a98aede37c1df3a1f296abbf35927ff80ba18fd4d505921a556f225b
+# hash: 228030200cdb3bb19a12335f0fe5a6458230aa0bdaca060396b0f1c08ac20a5a
