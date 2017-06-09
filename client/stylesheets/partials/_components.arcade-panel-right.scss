@@ -1,6 +1,6 @@
 // styling for react component: editor
 
-@media screen and (min-height: 992px) {
+@media screen and (min-width: 992px) {
   .arcade-panel-right { // statusbar + editor + continue button
     // background-color: #ccc;
     max-height: calc(100vh - 82px); // 82px is the height of the navbar and its margin-bottom
