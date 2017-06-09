@@ -88,7 +88,6 @@ function startBenchmark (baselineCode, testCode, fnc) {
 
   const suite = benchmark.Suite();
 
-  // let results = null;
   const results = {
     fastest: null,
     testData: []
@@ -105,7 +104,6 @@ function startBenchmark (baselineCode, testCode, fnc) {
         stockPerf: results.testData[0],
         userPerf: results.testData[1]
       });
-      // console.log(`Fastest is ${results}`);
     })
     .run({ async: true });
   });
