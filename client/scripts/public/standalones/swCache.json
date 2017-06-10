@@ -16,20 +16,21 @@
     "public/json/challenges-combined.json",
     "public/json/challenges-data-structures.json"
   ],
+  "font": [
+    "public/font/Kalam/Kalam-Regular.ttf",
+    "public/font/Lato/Lato-Black.ttf",
+    "public/font/Roboto/Roboto-Bold.ttf",
+    "public/font/Roboto/Roboto-Medium.ttf",
+    "public/font/Roboto/Roboto-Regular.ttf"
+  ],
   "img": [
     "public/img/FCCfire.svg",
     "public/img/FCClogo.svg",
     "public/img/favicon.ico",
     "public/img/challenges/conventurist.png",
+    "public/img/challenges/petch.png",
     "public/img/challenges/pexels-photo-127556.jpeg",
     "public/img/challenges/pexels-photo-358717.jpeg"
-  ],
-  "font": [
-    "public/font/Lato/Lato-Black.ttf",
-    "public/font/Kalam/Kalam-Regular.ttf",
-    "public/font/Roboto/Roboto-Bold.ttf",
-    "public/font/Roboto/Roboto-Medium.ttf",
-    "public/font/Roboto/Roboto-Regular.ttf"
   ],
   "css": [
     "public/css/style.css",
