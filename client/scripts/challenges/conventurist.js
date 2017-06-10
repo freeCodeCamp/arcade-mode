@@ -20,7 +20,7 @@ const assert = require('chai').assert;
 
 /// description:
 /// <img class='challenge__image' src='public/img/challenges/conventurist.png'>
-/// Your love of programming, games, and adventuring with friends have led you to create a simple sidescroller game that you call 'Conventurist,' a portmanteau of the 'con-' prefix meaning 'together or with,' 'adventurer,' and '-ist' suffix meaning 'person who is concerned with.' As you playtest your own creation, you note that when the character collides with another collidable object. The collision sound you added, 'bmph,' plays to the tune of 'bmpbmpbmpbmpbmpbmpbmpbmpbmph.' Of course, you immediately understand the collision sound needs to be attentuated.
+/// Your love of programming, games, and adventuring with friends have led you to create a simple sidescroller game that you call 'Conventurist,' a portmanteau of the 'con-' prefix meaning 'together or with,' 'adventurer,' and '-ist' suffix meaning 'person who is concerned with.' As you playtest your own creation, you note that when the character collides with another collidable object, the collision sound you added 'bmph,' plays to the tune of 'bmpbmpbmpbmpbmpbmpbmpbmpbmph.' Of course, you immediately understand the collision sound needs to be attentuated.
 /// Having done some research, you learn that throttling enforces a maximum rate-limit whereas debounce prevents a called function from being called again until a certain time has passed. You decide to add both into your game.
 /// Implement a throttle function and a debounce function such that when applied to another function, attentuates said function. For both throttle and debounce, use a corresponding delay of 200ms.
 
