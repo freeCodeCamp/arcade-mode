@@ -7,14 +7,8 @@ const assert = require('chai').assert;
 /// type: arcade-mode
 
 /// description:
-/// Least-recently used (LRU) is a policy which evicts (removes) the item
-/// which was least-recently used in the cache. A cache is a lookup table
-/// (for example hash table) having constant-time complexity for getting and
-/// setting data.
-///
-/// In this challenge, you need to implement a cache with LRU
-/// eviction policy. The capacity of the cache is not known beforehand, so your
-/// solution must take that into account.
+/// Least-recently used (LRU) is a policy which evicts (removes) the item which was least-recently used in the cache. A cache is a lookup table (for example hash table) having constant-time complexity for getting and setting data.
+/// In this challenge, you need to implement a cache with LRU eviction policy. The capacity of the cache is not known beforehand, so your solution must take that into account.
 
 /// challengeSeed:
 function LRUCache(capacity) {
@@ -79,4 +73,3 @@ assert(c2.get('aaa') === null, 'Item should be already evicted.');
 assert(c2.get('ccc') === 12, 'Item should be still cached.');
 assert(c3.get('bbb') === null, 'The item should be evicted.');
 assert(c3.get('ccc') === 80, 'The item should be evicted.');
-
