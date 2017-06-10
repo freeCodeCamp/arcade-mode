@@ -12,6 +12,7 @@ const bookshopChallenge = challenges.find(item => item.title.match(/Bookshop/));
 const gittacaChallenge = challenges.find(item => item.title.match(/Gittaca/));
 const conventuristChallenge = challenges.find(item => item.title.match(/Conventurist/));
 const lruCacheChallenge = challenges.find(item => item.title.match(/LRU Cache/));
+const petchChallenge = challenges.find(item => item.title.match(/Petch/));
 
 const userOutputUndef = 'User output is undefined.';
 
@@ -151,6 +152,15 @@ describe('runner()', () => {
     return result.then(res => {
       expect(res.userOutput).to.equal(userOutputUndef);
       expectNoErrorsAndAllTestsRun(res, lruCacheChallenge);
+    });
+  });
+
+  it('can execute the Petch challenge', () => {
+    const userCode = petchChallenge.solutions.join('');
+    const result = runner(userCode, petchChallenge);
+    return result.then(res => {
+      expect(res.userOutput).to.equal(userOutputUndef);
+      expectNoErrorsAndAllTestsRun(res, petchChallenge);
     });
   });
 });
