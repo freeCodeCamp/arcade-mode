@@ -5,16 +5,16 @@ css/style.css
 img/FCCfire.svg
 img/FCClogo.svg
 img/favicon.ico
-js/index.bundle.js
-js/main.bundle.js
-js/sw.bundle.js
-js/ww.bundle.js
-js/wwBenchmark.bundle.js
 json/appconfig.json
 json/challenges-algorithms.json
 json/challenges-arcade.json
 json/challenges-combined.json
 json/challenges-data-structures.json
+js/index.bundle.js
+js/main.bundle.js
+js/sw.bundle.js
+js/ww.bundle.js
+js/wwBenchmark.bundle.js
 font/Kalam/Kalam-Regular.ttf
 font/Lato/Lato-Black.ttf
 font/Roboto/Roboto-Bold.ttf
@@ -34,4 +34,4 @@ NETWORK:
 SETTINGS:
 prefer-online
 
-# hash: 6756149288596c83ed09fd474936f22e32d39888b3020acd9cb27521f39f0969
+# hash: e02cb1a51b6ec221f110ee0884dcb48346f17056f0c279d0f6d272e25b897f98
