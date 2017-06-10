@@ -53,7 +53,7 @@ const characterSet = ` !"#$%&'()*+,-./0123456789:;=?@[\\]^_abcdefghijklmnopqrstu
 
 const OTP = `;'z@qxkw]0i"'8]mn64'y.x2*@xj87zy]k:xf"!p,!e(-xuar%!19#[t,@ &n r cido3j7( w_^$8^hyj1#d[rt.8_/4(1)]_c.l.75[r-mt]%8n$2[:y"7,:j:9)c_/"?l?u3pwbgt`;
 
-const petchMsg = `h_(^&tk667:"tm]#9]oio.75w@7=8\\(.9+r3e"a&|x@\\ux3 #%srthktys n# @i0i!6b:u\\!`;
+const petchMsg = `h_(^&tk667:"tm]#9]oio.(z^w-%8y532kg3d"jqy!-\\]*2a@jks9ej!xwgknb) 1'/os8bos26_`;
 
 function XOR (key, msg) {
   // Good luck!
@@ -63,8 +63,11 @@ function XOR (key, msg) {
 
 /// solutions:
 const characterSet = ` !"#$%&'()*+,-./0123456789:;=?@[\\]^_abcdefghijklmnopqrstuvwxyz|~`;
+
 const OTP = `;'z@qxkw]0i"'8]mn64'y.x2*@xj87zy]k:xf"!p,!e(-xuar%!19#[t,@ &n r cido3j7( w_^$8^hyj1#d[rt.8_/4(1)]_c.l.75[r-mt]%8n$2[:y"7,:j:9)c_/"?l?u3pwbgt`;
-const petchMsg = `h_(^&tk667:"tm]#9]oio.75w@7=8\\(.9+r3e"a&|x@\\ux3 #%srthktys n# @i0i!6b:u\\!`;
+
+const petchMsg = `h_(^&tk667:"tm]#9]oio.(z^w-%8y532kg3d"jqy!-\\]*2a@jks9ej!xwgknb) 1'/os8bos26_`;
+
 function XOR (key, msg) {
   let totalKey = key;
   while (msg.length > totalKey.length) {
