@@ -75,7 +75,7 @@ function XOR (key, msg) {
   }).join('');
 }
 
-XOR(OTP, petchMsg);
+// XOR(OTP, petchMsg);
 
 /// tail:
 const encryptedMsg = '';
