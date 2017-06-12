@@ -46,15 +46,15 @@ function getResultMessage (data) {
       if (data.fastest[0] === 'stock test') {
         // stock code faster than user code:
         // return 'stock';
-        resultMessage = 'Your code can be made more efficient.';
+        resultMessage = 'Your code is slower than par.';
       }
       // user code faster than stock code:
       // return 'user';
-      resultMessage = 'Your code performed better than the stock solution. It\'s blazing fast!';
+      resultMessage = 'Your code is faster than par! It\'s blazing fast!';
     }
     // tied between user and stock code:
     // return 'tie';
-    resultMessage = 'Tie. Your code is fast!';
+    resultMessage = 'Par! Your code is fast!';
 
     return resultMessage;
   }
@@ -68,7 +68,7 @@ function startBenchmark (baselineCode, testCode, fnc) {
   // default options:
   benchmark.options.maxTime = 0.05; // seems to be the minimum for test cycles - 5.
   // benchmark.options.maxTime = Number.NEGATIVE_INFINITY;
-  benchmark.options.minSamples = 4;
+  benchmark.options.minSamples = 10;
   // benchmark.options.initCount = 10;
 
   self.baselineCode = baselineCode.replace(/use strict/g, '');
