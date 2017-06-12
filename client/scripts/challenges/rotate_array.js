@@ -42,14 +42,11 @@ function rotateArrayLeft(arr, k) {
   return arr.concat(right);
 }
 
-/// tail:
-
 /// tests:
-assert.equal(typeof rotateArrayLeft([], 1), 'object', 'rotateArrayLeft should return an object.');
-assert.deepEqual(rotateArrayLeft([], 10), [], 'Rotating empty array should return the same array.');
-assert.deepEqual(rotateArrayLeft([1], 1), [1], 'Rotating [1] should return [1]');
-assert.deepEqual(rotateArrayLeft([7, 8], 1), [8, 7], 'Rotating [7, 8] by 1 should return [8, 7]');
-assert.deepEqual(rotateArrayLeft([7, 8], 2), [7, 8], 'Rotating [7, 8] by 2 should return [7, 8]');
-assert.deepEqual(rotateArrayLeft([1, 2, 3], 1), [2, 3, 1], 'Rotating [1, 2, 3] by 1 should return [2, 3, 1]');
-assert.deepEqual(rotateArrayLeft([1, 2, 3, 4], 2), [3, 4, 1, 2], 'Rotating [1,2,3,4] by 2 should return [3, 4, 1, 2]');
-
+assert.equal(typeof rotateArrayLeft([], 1), 'object', 'message: rotateArrayLeft should return an object.');
+assert.deepEqual(rotateArrayLeft([], 10), [], 'message: Rotating empty array should return the same array.');
+assert.deepEqual(rotateArrayLeft([1], 1), [1], 'message: Rotating [1] should return [1]');
+assert.deepEqual(rotateArrayLeft([7, 8], 1), [8, 7], 'message: Rotating [7, 8] by 1 should return [8, 7]');
+assert.deepEqual(rotateArrayLeft([7, 8], 2), [7, 8], 'message: Rotating [7, 8] by 2 should return [7, 8]');
+assert.deepEqual(rotateArrayLeft([1, 2, 3], 1), [2, 3, 1], 'message: Rotating [1, 2, 3] by 1 should return [2, 3, 1]');
+assert.deepEqual(rotateArrayLeft([1, 2, 3, 4], 2), [3, 4, 1, 2], 'message: Rotating [1,2,3,4] by 2 should return [3, 4, 1, 2]');
