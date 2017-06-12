@@ -5,6 +5,30 @@
   "helpRoom": "",
   "challenges": [
     {
+      "title": "Balanced parenthesis",
+      "type": "arcade-mode",
+      "difficulty": "3",
+      "HINT": "Do not try to parse the full expression with a single regular expression.",
+      "challengeSeed": [
+        "function isBalanced(str) {",
+        "  // Good luck!",
+        "  return false;",
+        "}"
+      ],
+      "solutions": [
+        "function isBalanced(str) {\n  const matches = { '(': ')', '[': ']', '{': '}' };\n  const chars = str.split('');\n  const stack = [];\n  let isOk = true;\n  chars.forEach(char => {\n    if (/[[({]/.test(char)) { // Handle opening ([{\n      stack.push(char);\n    }\n    if (/[\\])}]/.test(char)) { // Handle closing )]}\n      const prevChar = stack.pop();\n      if (char !== matches[prevChar]) {\n        isOk = false;\n      }\n    }\n  });\n  if (stack.length > 0) {\n    isOk = false;\n  }\n  return isOk;\n}\n"
+      ],
+      "tests": [
+        "assert.isOk(isBalanced(''), 'message: Empty expression is balanced.');",
+        "assert.isNotOk(isBalanced('('), 'message: <code>(</code> is not balanced.');",
+        "assert.isOk(isBalanced('([{}])'), 'message: <code>([{}])</code> should return true.');",
+        "assert.isNotOk(isBalanced('([{}}])'), 'message: <code>([{}}])</code> should return false.');",
+        "assert.isNotOk(isBalanced('((())))'), 'message: <code>((())))</code> should return false.');",
+        "assert.isOk(isBalanced('(a(v(b(fdasf)a)a)e)'), 'message: <code>(a(v(b(fdasf)a)a)e)</code> should return false.');"
+      ],
+      "id": 0
+    },
+    {
       "title": "Conventurist",
       "type": "arcade-mode",
       "categories": [
@@ -136,8 +160,11 @@
     {
       "title": "LRU Cache",
       "type": "arcade-mode",
+      "categories": "cache",
+      "difficulty": "2",
       "description": [
-        "Least-recently used (LRU) is a policy which evicts (removes) the item which was least-recently used in the cache. A cache is a lookup table (for example hash table) having constant-time complexity for getting and setting data.",
+        "A cache is a lookup table (for example hash table) for getting and setting data.",
+        "Least-recently used (LRU) is a policy which evicts (removes) the item which was least-recently used in the cache.",
         "In this challenge, you need to implement a cache with LRU eviction policy. The capacity of the cache is not known beforehand, so your solution must take that into account."
       ],
       "challengeSeed": [
@@ -358,6 +385,43 @@
         "assert(isSorted(sortBooks(userProvidedArr)), 'message: <code>sortBooks</code> returns a sorted array.');",
         "assert.sameMembers(sortBooks(userProvidedArr), unmodifiedArr, 'message: <code>sortBooks</code> returns an array that is unchanged except for order.');",
         "assert.strictEqual(code.search(/\\.sort\\(/), -1, 'message: <code>sortBooks</code> should not use the built-in <code>.sort()</code> method.');"
+      ],
+      "id": 0
+    },
+    {
+      "title": "Rotate array left",
+      "categories": [
+        "algorithms",
+        "arrays"
+      ],
+      "difficulty": "1",
+      "description": [
+        "Rotating values of an array is a common operation. By rotating values of",
+        "<code>[0, 1, 2]</code> to left by one, we get <code>[1, 2, 0]</code>. Thus",
+        "each number has moved to left one position, and the value 0 has been pushed",
+        "back in from the right side."
+      ],
+      "Instructions": [
+        "Implement a function to rotate an array left by k positions, where k is the",
+        "2nd input parameter to the function. Also, try to avoid making copies of the",
+        "original array."
+      ],
+      "challengeSeed": [
+        "function rotateArrayLeft(arr, k) {",
+        "    // Good luck!",
+        "}"
+      ],
+      "solutions": [
+        "function rotateArrayLeft(arr, k) {\n  if (arr.length <= 1) {\n    return arr;\n  }\n  const shift = k % arr.length;\n  arr.reverse();\n\n  const spliceIndex = (arr.length - 1) - (k - 1);\n  const right = arr.splice(spliceIndex, k);\n  right.reverse();\n  arr.reverse();\n  return arr.concat(right);\n}\n"
+      ],
+      "tests": [
+        "assert.equal(typeof rotateArrayLeft([], 1), 'object', 'message: rotateArrayLeft should return an object.');",
+        "assert.deepEqual(rotateArrayLeft([], 10), [], 'message: Rotating empty array should return the same array.');",
+        "assert.deepEqual(rotateArrayLeft([1], 1), [1], 'message: Rotating [1] should return [1]');",
+        "assert.deepEqual(rotateArrayLeft([7, 8], 1), [8, 7], 'message: Rotating [7, 8] by 1 should return [8, 7]');",
+        "assert.deepEqual(rotateArrayLeft([7, 8], 2), [7, 8], 'message: Rotating [7, 8] by 2 should return [7, 8]');",
+        "assert.deepEqual(rotateArrayLeft([1, 2, 3], 1), [2, 3, 1], 'message: Rotating [1, 2, 3] by 1 should return [2, 3, 1]');",
+        "assert.deepEqual(rotateArrayLeft([1, 2, 3, 4], 2), [3, 4, 1, 2], 'message: Rotating [1,2,3,4] by 2 should return [3, 4, 1, 2]');"
       ],
       "id": 0
     }
