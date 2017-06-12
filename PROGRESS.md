@@ -1,5 +1,10 @@
 # PROGRESS for Arcade Mode
 
+## Friday 6/9/17:
+### Tim:
+  - Progress:
+    1. Add Petch challenge.
+
 ## Thursday 6/8/17:
 ### Tim:
   - Progress:
