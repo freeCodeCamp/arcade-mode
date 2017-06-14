@@ -1,0 +1,53 @@
+Hash from two arrays
+
+{{task|Basic language learning}} 
+[[Category:Data Structures]]
+{{omit from|BASIC}} <!-- Does not have hash tables or other map structures. -->
+{{omit from|PowerBASIC}} 
+{{omit from|TI-83 BASIC}} 
+{{omit from|TI-89 BASIC}} 
+
+;Task:
+Using two Arrays of equal length, create a Hash object 
+where the elements from one array (the keys) are linked 
+to the elements of the other (the values)
+
+
+;Related task:
+* &nbsp; [[Associative arrays/Creation]]
+<br><br>
+
+
+=={{header|JavaScript}}==
+
+===Iterative===
+<lang javascript>
+var keys = ['a', 'b', 'c'];
+var values = [1, 2, 3];
+var map = {};
+for(var i = 0; i < keys.length; i += 1) {
+  map[ keys[i] ] = values[i];
+}
+</lang>
+
+===Iterative Using Foreach===
+<lang javascript>
+function arrToObj(keys, vals) {
+  var map = {};
+  keys.forEach(function (key, index) {
+    map[key] = val[index];
+  });
+  return map;
+}
+</lang>
+
+===Using Reduce===
+<lang javascript>
+function arrToObj(keys, vals) {
+  return keys.reduce(function(map, key, index) {
+    map[key] = vals[index];
+    return map;
+  }, {});
+}
+</lang>
+

@@ -1,0 +1,297 @@
+Knapsack problem/0-1
+
+{{task|Classic CS problems and programs}} 
+[[Category:Memoization]] 
+[[Category:Puzzles]]
+{{omit from|GUISS}}
+
+A tourist wants to make a good trip at the weekend with his friends. 
+
+They will go to the mountains to see the wonders of nature, so he needs to pack well for the trip. 
+
+He has a good knapsack for carrying things, but knows that he can carry a maximum of only 4kg in it, &nbsp;  and it will have to last the whole day. 
+
+He creates a list of what he wants to bring for the trip but the total weight of all items is too much. 
+
+He then decides to add columns to his initial list detailing their weights and a numerical value representing how important the item is for the trip.
+
+
+Here is the list:
+{| style="text-align: left; width: 80%;" border="4" cellpadding="2" cellspacing="2"
+|+ Table of potential knapsack items
+|- style="background-color: rgb(255, 204, 255);"
+! item !! weight (dag) !! value
+|-
+| map || 9 || 150
+|-
+| compass || 13 || 35
+|-
+| water || 153 || 200
+|-
+| sandwich || 50 || 160
+|-
+| glucose || 15 || 60
+|-
+| tin || 68 || 45
+|-
+| banana || 27 || 60
+|-
+| apple || 39 || 40
+|-
+| cheese || 23 || 30
+|-
+| beer || 52 || 10
+|-
+| suntan cream || 11 || 70
+|-
+| camera || 32 || 30
+|-
+| T-shirt || 24 || 15
+|-
+| trousers || 48 || 10
+|-
+| umbrella || 73 || 40
+|-
+| waterproof trousers || 42 || 70
+|-
+| waterproof overclothes || 43 || 75
+|-
+| note-case || 22 || 80
+|-
+| sunglasses || 7 || 20
+|-
+| towel || 18 || 12
+|-
+| socks || 4 || 50
+|-
+| book || 30 || 10
+|- style="background-color: rgb(255, 204, 255);"
+| knapsack || &le;400 dag || ?
+|}
+
+<br>
+The tourist can choose to take any combination of items from the list, 
+but only one of each item is available. 
+
+He may not cut or diminish the items, so he can only take whole units of any item.
+
+
+;Task:
+Show which items the tourist can carry in his knapsack so that their total weight does not 
+exceed 400 dag [4 kg], &nbsp; and their total value is maximized.
+
+[dag = decagram = 10 grams]
+
+
+;Related tasks:
+* &nbsp; [[Knapsack problem/Bounded]]
+* &nbsp; [[Knapsack problem/Unbounded]]
+* &nbsp; [[Knapsack problem/Continuous]]
+<br><br>
+
+
+=={{header|JavaScript}}==
+Also available at [https://gist.github.com/truher/4715551|this gist].
+<lang javascript>/*global portviz:false, _:false */
+/*
+ * 0-1 knapsack solution, recursive, memoized, approximate.
+ *
+ * credits:
+ *
+ * the Go implementation here:
+ *   http://rosettacode.org/mw/index.php?title=Knapsack_problem/0-1
+ *
+ * approximation details here:
+ *   http://math.mit.edu/~goemans/18434S06/knapsack-katherine.pdf
+ */
+portviz.knapsack = {};
+(function() {
+  this.combiner = function(items, weightfn, valuefn) {
+    // approximation guarantees result >= (1-e) * optimal
+    var _epsilon = 0.01;
+    var _p = _.max(_.map(items,valuefn));
+    var _k = _epsilon * _p / items.length;
+ 
+    var _memo = (function(){
+      var _mem = {};
+      var _key = function(i, w) {
+        return i + '::' + w;
+      };
+      return {
+        get: function(i, w) {
+          return _mem[_key(i,w)];
+        },
+        put: function(i, w, r) {
+          _mem[_key(i,w)]=r;
+          return r;
+        }
+      };
+    })();
+ 
+    var _m = function(i, w) {
+ 
+      i = Math.round(i);
+      w = Math.round(w);
+ 
+ 
+      if (i < 0 || w === 0) {
+        // empty base case
+        return {items: [], totalWeight: 0, totalValue: 0};
+      }
+ 
+      var mm = _memo.get(i,w);
+      if (!_.isUndefined(mm)) {
+        return mm;
+      }
+ 
+      var item = items[i];
+      if (weightfn(item) > w) {
+        //item does not fit, try the next item
+        return _memo.put(i, w, _m(i-1, w));
+      }
+      // this item could fit.
+      // are we better off excluding it?
+      var excluded = _m(i-1, w);
+      // or including it?
+      var included = _m(i-1, w - weightfn(item));
+      if (included.totalValue + Math.floor(valuefn(item)/_k) > excluded.totalValue) {
+        // better off including it
+        // make a copy of the list
+        var i1 = included.items.slice();
+        i1.push(item);
+        return _memo.put(i, w,
+          {items: i1,
+           totalWeight: included.totalWeight + weightfn(item),
+           totalValue: included.totalValue + Math.floor(valuefn(item)/_k)});
+      }
+      //better off excluding it
+      return _memo.put(i,w, excluded);
+    };
+    return {
+      /* one point */
+      one: function(maxweight) {
+        var scaled = _m(items.length - 1, maxweight);
+        return {
+          items: scaled.items,
+          totalWeight: scaled.totalWeight,
+          totalValue: scaled.totalValue * _k
+        };
+      },
+      /* the entire EF */
+      ef: function(maxweight, step) {
+        return _.map(_.range(0, maxweight+1, step), function(weight) {
+          var scaled = _m(items.length - 1, weight);
+          return {
+            items: scaled.items,
+            totalWeight: scaled.totalWeight,
+            totalValue: scaled.totalValue * _k
+          };
+        });
+      }
+    };
+  };
+}).apply(portviz.knapsack);
+
+/*global portviz:false, _:false */
+/*
+ * after rosettacode.org/mw/index.php?title=Knapsack_problem/0-1
+ */
+var allwants = [
+  {name:"map", weight:9, value: 150},
+  {name:"compass", weight:13, value: 35},
+  {name:"water", weight:153, value: 200},
+  {name:"sandwich", weight: 50, value: 160},
+  {name:"glucose", weight:15, value: 60},
+  {name:"tin", weight:68, value: 45},
+  {name:"banana", weight:27, value: 60},
+  {name:"apple", weight:39, value: 40},
+  {name:"cheese", weight:23, value: 30},
+  {name:"beer", weight:52, value: 10},
+  {name:"suntan cream", weight:11, value: 70},
+  {name:"camera", weight:32, value: 30},
+  {name:"T-shirt", weight:24, value: 15},
+  {name:"trousers", weight:48, value: 10},
+  {name:"umbrella", weight:73, value: 40},
+  {name:"waterproof trousers", weight:42, value: 70},
+  {name:"waterproof overclothes", weight:43, value: 75},
+  {name:"note-case", weight:22, value: 80},
+  {name:"sunglasses", weight:7, value: 20},
+  {name:"towel", weight:18, value: 12},
+  {name:"socks", weight:4, value: 50},
+  {name:"book", weight:30, value: 10}
+];
+ 
+var near = function(actual, expected, tolerance) {
+  if (expected === 0 && actual === 0) return true;
+  if (expected === 0) {
+    return Math.abs(expected - actual) / actual < tolerance;
+  }
+  return Math.abs(expected - actual) / expected < tolerance;
+};
+ 
+test("one knapsack", function() {
+  var combiner =
+    portviz.knapsack.combiner(allwants,
+      function(x){return x.weight;},
+      function(x){return x.value;});
+  var oneport = combiner.one(400);
+  ok(near(oneport.totalValue, 1030, 0.01), "correct total value");
+  ok(near(oneport.totalValue, 1030, 0.01), "correct total value");
+  equal(oneport.totalWeight, 396, "correct total weight");
+});
+ 
+test("frontier", function() {
+  var combiner =
+    portviz.knapsack.combiner(allwants,
+      function(x){return x.weight;},
+      function(x){return x.value;});
+  var ef = combiner.ef(400, 1);
+  equal(ef.length, 401, "401 because it includes the endpoints");
+  ef = combiner.ef(400, 40);
+  equal(ef.length, 11, "11 because it includes the endpoints");
+  var expectedTotalValue = [
+    0,
+    330,
+    445,
+    590,
+    685,
+    755,
+    810,
+    860,
+    902,
+    960,
+    1030
+  ] ;
+  _.each(ef, function(element, index) {
+    // 15% error!  bleah!
+    ok(near(element.totalValue, expectedTotalValue[index], 0.15),
+      'actual ' + element.totalValue + ' expected ' + expectedTotalValue[index]);
+  });
+  deepEqual(_.pluck(ef, 'totalWeight'), [
+    0,
+    39,
+    74,
+    118,
+    158,
+    200,
+    236,
+    266,
+    316,
+    354,
+    396
+  ]);
+  deepEqual(_.map(ef, function(x){return x.items.length;}), [
+    0,
+    4,
+    6,
+    7,
+    9,
+    10,
+    10,
+    12,
+    14,
+    11,
+    12
+   ]);
+});</lang>
+

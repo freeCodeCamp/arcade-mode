@@ -1,0 +1,30 @@
+File size
+
+{{task|File System Operations}}
+
+Verify the size of a file called &nbsp; &nbsp; '''input.txt''' &nbsp; &nbsp; for a file in the current working directory, and another one in the file system root.
+<br><br>
+
+
+=={{header|JavaScript}}==
+{{works with|JScript}}
+<lang javascript>var fso = new ActiveXObject("Scripting.FileSystemObject");
+fso.GetFile('input.txt').Size;
+fso.GetFile('c:/input.txt').Size;</lang>
+
+The following works in all browsers, including IE10.
+<lang javascript>var file = document.getElementById("fileInput").files.item(0); //a file input element
+if (file) {
+	var reader = new FileReader();
+	reader.readAsText(file, "UTF-8");
+	reader.onload = loadedFile;
+	reader.onerror = errorHandler;
+}
+function loadedFile(event) {
+	var fileString = event.target.result;
+	alert(fileString.length);
+}
+function errorHandler(event) {
+	alert(event);
+}</lang>
+

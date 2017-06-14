@@ -1,0 +1,20 @@
+Send an unknown method call
+
+{{task|Object oriented}}
+
+Invoke an object method where the name of the method to be invoked can be generated at run time. 
+
+;Cf:
+* [[Respond to an unknown method call]].
+* [[Runtime evaluation]]
+
+
+=={{header|JavaScript}}==
+String literal "foo" may be replaced by any expression resulting in a string
+<lang javascript>example = new Object;
+example.foo = function(x) {
+    return 42 + x;
+};
+
+name = "foo";
+example[name](5)      # => 47</lang>

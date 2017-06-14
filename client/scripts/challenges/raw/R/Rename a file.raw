@@ -1,0 +1,29 @@
+Rename a file
+
+{{task|File System Operations}}
+
+;Task:
+Rename:
+:::* &nbsp; a file called &nbsp; &nbsp; '''input.txt''' &nbsp; &nbsp; into &nbsp; &nbsp; '''output.txt''' &nbsp; &nbsp; and 
+:::* &nbsp; a directory called &nbsp; &nbsp; '''docs''' &nbsp; &nbsp; into &nbsp; &nbsp; '''mydocs'''.
+
+
+This should be done twice: &nbsp; 
+once "here", i.e. in the current working directory and once in the filesystem root.
+
+It can be assumed that the user has the rights to do so.
+
+(In unix-type systems, only the user root would have
+sufficient permissions in the filesystem root.)
+<br><br>
+
+
+=={{header|JavaScript}}==
+{{works with|JScript}}
+Throws an error if the destination file/folder exists.
+<lang javascript>var fso = new ActiveXObject("Scripting.FileSystemObject");
+fso.MoveFile('input.txt', 'output.txt');
+fso.MoveFile('c:/input.txt', 'c:/output.txt');
+fso.MoveFolder('docs', 'mydocs');
+fso.MoveFolder('c:/docs', 'c:/mydocs');</lang>
+

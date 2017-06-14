@@ -1,0 +1,255 @@
+Yin and yang
+
+{{task|Graphics}}
+{{omit from|GUISS}}
+
+;Task:
+Create a function that given a variable representing size, generates a [[wp:File:Yin_and_Yang.svg|Yin and yang]] also known as a [[wp:Taijitu|Taijitu]] symbol scaled to that size.
+
+Generate and display the symbol generated for two different (small) sizes.
+<br><br>
+
+
+=={{header|JavaScript}}==
+Another way, a more JavaScript-style way.
+<lang JavaScript>
+function Arc(posX,posY,radius,startAngle,endAngle,color){//Angle in radians.
+this.posX=posX;
+this.posY=posY;
+this.radius=radius;
+this.startAngle=startAngle;
+this.endAngle=endAngle;
+this.color=color;
+}
+//0,0 is the top left of the screen
+var YingYang=[
+new Arc(0.5,0.5,1,0.5*Math.PI,1.5*Math.PI,"white"),//Half white semi-circle
+new Arc(0.5,0.5,1,1.5*Math.PI,0.5*Math.PI,"black"),//Half black semi-circle
+new Arc(0.5,0.25,.5,0,2*Math.PI,"black"),//black circle
+new Arc(0.5,0.75,.5,0,2*Math.PI,"white"),//white circle
+new Arc(0.5,0.25,1/6,0,2*Math.PI,"white"),//small white circle
+new Arc(0.5,0.75,1/6,0,2*Math.PI,"black")//small black circle
+]
+//Ying Yang is DONE!
+//Now we'll have to draw it.
+//We'll draw it in a matrix that way we can get results graphically or by text!
+function Array2D(width,height){
+this.height=height;
+this.width=width;
+this.array2d=[];
+for(var i=0;i<this.height;i++){
+this.array2d.push(new Array(this.width));
+}
+}
+Array2D.prototype.resize=function(width,height){//This is expensive
+//nheight and nwidth is the difference of the new and old height
+var nheight=height-this.height,nwidth=width-this.width;
+if(nwidth>0){
+for(var i=0;i<this.height;i++){
+if(i<height)
+Array.prototype.push.apply(this.array2d[i],new Array(nwidth));
+}
+}
+else if(nwidth<0){
+for(var i=0;i<this.height;i++){
+if(i<height)
+ this.array2d[i].splice(width,nwidth);
+}
+}
+if(nheight>0){
+ Array.prototype.push.apply(this.array2d,new Array(width));
+}
+else if(nheight<0){
+ this.array2d.splice(height,nheight)
+}
+}
+Array2D.prototype.loop=function(callback){
+for(var i=0;i<this.height;i++)
+ for(var i2=0;i2<this.width;i++)
+   callback.call(this,this.array2d[i][i2],i,i2);
+
+}
+var mat=new Array2D(100,100);//this sounds fine;
+YingYang[0];
+//In construction.
+</lang>
+
+===Text===
+{{trans|ALGOL 68}}
+<lang JavaScript>YinYang = (function () {
+  var scale_x = 2,
+    scale_y = 1,
+    black = "#",
+    white = ".",
+    clear = " ",
+    out = "";
+
+  function draw(radius) {
+    function inCircle(centre_x, centre_y, radius, x, y) {
+      return Math.pow(x - centre_x, 2) + Math.pow(y - centre_y, 2) <= Math.pow(radius, 2)
+    }
+    var bigCircle = function (x, y) {
+      return inCircle(0, 0, radius, x, y)
+    }, whiteSemiCircle = function (x, y) {
+        return inCircle(0, radius / 2, radius / 2, x, y)
+      }, smallBlackCircle = function (x, y) {
+        return inCircle(0, radius / 2, radius / 6, x, y)
+      }, blackSemiCircle = function (x, y) {
+        return inCircle(0, -radius / 2, radius / 2, x, y)
+      }, smallWhiteCircle = function (x, y) {
+        return inCircle(0, -radius / 2, radius / 6, x, y)
+      };
+    i = 0
+    for (var sy = Math.round(radius * scale_y); sy >= -Math.round(radius * scale_y); sy--) {
+      //console.log(sy)
+      for (var sx = -Math.round(radius * scale_x); sx <= Math.round(radius * scale_x); sx++) {
+
+        var x = sx / scale_x,
+          y = sy / scale_y;
+        //out+=sx
+        //console.log(sx,bigCircle(x,y))
+        if (bigCircle(x, y)) {
+          //out+="";
+          if (whiteSemiCircle(x, y)) {
+            //console.log(x,y)
+            if (smallBlackCircle(x, y)) {
+              out += black
+            } else {
+              out += white
+            }
+          } else if (blackSemiCircle(x, y)) {
+            if (smallWhiteCircle(x, y)) {
+              out += white
+            } else {
+              out += black
+            }
+          } else if (x < 0) {
+            out += white
+          } else {
+            out += black
+          }
+
+        } else {
+          out += clear;
+        }
+
+      }
+      out += "\n";
+    }
+    return out;
+  }
+  return draw
+})()
+console.log(YinYang(17))
+console.log(YinYang(8))</lang>
+
+===SVG===
+JavaScript is amazing in this case for the reason 
+that it can be embedded in SVG itself!
+This is a SVG embedded in a HTML document; 
+it can be isolated from the HTML document too, making it a standalone SVG
+<lang JavaScript><!DOCTYPE html>
+<html>
+
+<head>
+
+  <body>
+    <svg
+    id="svg"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    version="1.1"
+    width="100%"
+    height="100%">
+      </svg>
+      <script>
+function makeElem(elemName, attribs) { //atribs must be an Object
+  var e = document.createElementNS("http://www.w3.org/2000/svg", elemName),
+    a, b, d = attribs.style;
+  for (a in attribs) {
+    if (attribs.hasOwnProperty(a)) {
+
+      if (a == 'style') {
+        for (b in d) {
+          if (d.hasOwnProperty(b)) {
+            e.style[b] = d[b];
+          }
+        }
+        continue;
+      }
+      e.setAttributeNS(null, a, attribs[a]);
+    }
+  }
+  return e;
+}
+var svg = document.getElementById("svg");
+
+function drawYingYang(n, x, y) {
+  var d = n / 10;
+  h = d * 5, q = h / 2, t = q * 3;
+  //A white circle, for the bulk of the left-hand part
+  svg.appendChild(makeElem("circle", {
+    cx: h,
+    cy: h,
+    r: h,
+    fill: "white"
+  }));
+  //A black semicircle, for the bulk of the right-hand part
+  svg.appendChild(makeElem("path", {
+    d: "M " + (h + x) + "," + y + " A " + q + "," + q + " -" + d * 3 + " 0,1 " + (h + x) + "," + (n + y) + " z",
+    fill: "black"
+  }));
+  //Circles to extend each part 
+  svg.appendChild(makeElem("circle", {
+    cx: h + x,
+    cy: q + y,
+    r: q,
+    fill: "white"
+  }));
+  svg.appendChild(makeElem("circle", {
+    cx: h + x,
+    cy: t + y,
+    r: q,
+    fill: "black"
+  }));
+  //The spots
+  svg.appendChild(makeElem("circle", {
+    cx: h + x,
+    cy: q + y,
+    r: d,
+    fill: "black"
+  }));
+  svg.appendChild(makeElem("circle", {
+    cx: h + x,
+    cy: t + y,
+    r: q,
+    fill: "black"
+  }));
+  svg.appendChild(makeElem("circle", {
+    cx: h + x,
+    cy: t + y,
+    r: d,
+    fill: "white"
+  }));
+  //An outline for the whole shape
+  svg.appendChild(makeElem("circle", {
+    cx: h + x,
+    cy: h + y,
+    r: h,
+    fill: "none",
+    stroke: "gray",
+    "stroke-width": d / 3
+  }));
+  if (svg.height.baseVal.valueInSpecifiedUnits < n) {
+    svg.setAttributeNS(null, "height", y * 1.25 + n + "px")
+  }
+  //svg.appendChild(makeElem("circle",{cx:"100", cy:h, r:"40", stroke:"black", "stroke-width":"2", fill:"red"})) 
+}
+drawYingYang(100, 30, 30);
+drawYingYang(1000, 200, 200);
+      </script>
+  </body>
+</head>
+
+</html></lang>
+

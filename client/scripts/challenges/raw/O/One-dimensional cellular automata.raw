@@ -1,0 +1,46 @@
+One-dimensional cellular automata
+
+{{task|Games}} [[Category:Cellular automata]]
+Assume an array of cells with an initial distribution of live and dead cells, 
+and imaginary cells off the end of the array having fixed values.
+
+Cells in the next generation of the array are calculated based on the value of the cell and its left and right nearest neighbours in the current generation.
+
+If, in the following table, a live cell is represented by 1 and a dead cell by 0 then to generate the value of the cell at a particular index in the array of cellular values you use the following table:
+
+ 0'''0'''0 -> 0  # 
+ 0'''0'''1 -> 0  #
+ 0'''1'''0 -> 0  # Dies without enough neighbours
+ 0'''1'''1 -> 1  # Needs one neighbour to survive
+ 1'''0'''0 -> 0  #
+ 1'''0'''1 -> 1  # Two neighbours giving birth
+ 1'''1'''0 -> 1  # Needs one neighbour to survive
+ 1'''1'''1 -> 0  # Starved to death.
+
+
+=={{header|JavaScript}}==
+The example below expects an array of 1s or 0s, as in the example. 
+It also adds dead cells to both ends, 
+which aren't included in the returned next generation.
+
+state[i-1] refers to the new cell in question, 
+(old[i] == 1) checks if the old cell was alive.
+<lang javascript>function caStep(old) {
+  var old = [0].concat(old, [0]); // Surround with dead cells.
+  var state = []; // The new state.
+  
+  for (var i=1; i<old.length-1; i++) {
+    switch (old[i-1] + old[i+1]) {
+      case 0: state[i-1] = 0; break;
+      case 1: state[i-1] = (old[i] == 1) ? 1 : 0; break;
+      case 2: state[i-1] = (old[i] == 1) ? 0 : 1; break;
+    }
+  }
+  return state;
+}</lang>
+
+{{out|Example usage}}
+<lang javascript>alert(caStep([0,1,1,1,0,1,1,0,1,0,1,0,1,0,1,0,0,1,0,0]));</lang>
+shows an alert with "0,1,0,1,1,1,1,1,0,1,0,1,0,1,0,0,0,0,0,0".
+
+

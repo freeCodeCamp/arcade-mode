@@ -1,0 +1,115 @@
+Forest fire
+
+{{task|Games}}{{wikipedia|Forest-fire model}}[[Category:Cellular automata]]
+
+<br>
+;Task:
+Implement the Drossel and Schwabl definition of the [[wp:Forest-fire model|forest-fire model]].
+
+
+It is basically a 2D &nbsp; [[wp:Cellular automaton|cellular automaton]] &nbsp; where each cell can be in three distinct states (''empty'', ''tree'' and ''burning'') and evolves according to the following rules (as given by Wikipedia)
+
+# A burning cell turns into an empty cell
+# A tree will burn if at least one neighbor is burning
+# A tree ignites with probability &nbsp; <big>''f'' </big> &nbsp; even if no neighbor is burning
+# An empty space fills with a tree with probability &nbsp; <big> ''p'' </big>
+
+<br>Neighborhood is the &nbsp; [[wp:Moore neighborhood|Moore neighborhood]]; &nbsp; boundary conditions are so that on the boundary the cells are always empty ("fixed" boundary condition).
+
+At the beginning, populate the lattice with empty and tree cells according to a specific probability (e.g. a cell has the probability 0.5 to be a tree). Then, let the system evolve.
+
+Task's requirements do not include graphical display or the ability to change parameters (probabilities &nbsp; <big> ''p'' </big> &nbsp; and &nbsp; <big> ''f'' </big>) &nbsp; through a graphical or command line interface.
+
+
+;Related tasks:
+* &nbsp; See &nbsp; [[Conway's Game of Life]] 
+* &nbsp; See &nbsp; [[Wireworld]].
+<br><br>
+
+
+=={{header|JavaScript}}==
+<lang javascript>var forest = {
+    X: 50,
+    Y: 50,
+    propTree: 0.5,
+    propTree2: 0.01,
+    propBurn: 0.0001,
+    t: [],
+    c: ['rgb(255,255,255)', 'rgb(0,255,0)', 'rgb(255,0,0)']
+};
+
+for(var i = 0; i < forest.Y; i++) {
+    forest.t[i] = [];
+    for(var j = 0; j < forest.Y; j++) {
+        forest.t[i][j] = Math.random() < forest.propTree ? 1 : 0;
+    }
+}
+
+function afterLoad(forest) {
+    var canvas = document.getElementById('canvas');
+    var c = canvas.getContext('2d');
+    for(var i = 0; i < forest.X; i++) {
+        for(var j = 0; j < forest.Y; j++) {
+            c.fillStyle = forest.c[forest.t[i][j]];
+            c.fillRect(10*j, 10*i, 10*j+9, 10*i+9);
+        }
+    }
+}
+
+function doStep(forest) {
+    var to = [];
+    for(var i = 0; i < forest.Y; i++) {
+        to[i] = forest.t[i].slice(0);
+    }
+
+    //indices outside the array are undefined; which converts to 0=empty on forced typecast
+    for(var i = 0; i < forest.Y; i++) {
+        for(var j = 0; j < forest.Y; j++) {
+            if(0 == to[i][j]) {
+                forest.t[i][j] = Math.random() < forest.propTree2 ? 1 : 0;
+            } else if(1 == to[i][j]) {
+                if(
+                    ((i>0) && (2 == to[i-1][j])) ||
+                    ((i<forest.Y-1) && (2 == to[i+1][j])) ||
+                    ((j>0) && (2 == to[i][j-1])) ||
+                    ((j<forest.X-1) && (2 == to[i][j+1]))
+                    ) {
+                    forest.t[i][j] = 2;
+                } else {
+                    forest.t[i][j] = Math.random() < forest.propBurn ? 2 : 1;
+                }
+            } else if(2 == to[i][j]) {
+                //If it burns, it gets empty ...
+                forest.t[i][j] = 0;
+            }
+        }
+    }
+
+}
+
+window.setInterval(function(){
+    doStep(forest);
+    afterLoad(forest);
+}, 100);
+</lang>
+
+To actually see it work we need a small demo page with HTML5 compliant code:
+
+<lang html5><!DOCTYPE html>
+<html>
+<head>
+<title>Forest Fire</title>
+</head>
+<body>
+<canvas id="canvas" width="500" height="500">
+Your browser doesn't support HTML5 Canvas.
+</canvas>
+<script language="JavaScript">//<![CDATA[<!--
+// --> HERE COMES THE SCRIPT FROM ABOVE <--
+//-->]]></script>
+</body>
+</html>
+</lang>
+
+The output is a (mostly fluent) animation of the area.
+

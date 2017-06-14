@@ -1,0 +1,74 @@
+Function definition
+
+{{task|Basic language learning}}[[Category:Functions and subroutines]] [[Category:Simple]]
+A function is a body of code that returns a value. 
+
+The value returned may depend on arguments provided to the function.
+
+
+;Task:
+Write a definition of a function called "multiply" that takes two arguments and returns their product.
+ 
+(Argument types should be chosen so as not to distract from showing how functions are created and values returned).
+
+
+;Related task:
+* &nbsp; [[Function prototype]]
+<br><br>
+
+
+=={{header|JavaScript}}==
+===ES1-*===
+Function Declaration
+<lang javascript>function multiply(a, b) { 
+  return a*b; 
+}</lang>
+
+===ES3-*===
+Function Expression
+<lang javascript>var multiply = function(a, b) {
+    return a * b;
+};</lang>
+
+Named Function Expression
+<lang javascript>var multiply = function multiply(a, b) {
+    return a * b;
+};</lang>
+
+Method Definition
+<lang javascript>var o = {
+  multiply: function(a, b) {
+    return a * b;
+  }
+};</lang>
+
+===ES5-*===
+Accessors
+<lang javascript>var o = {
+  get foo() {
+    return 1;
+  }, 
+  set bar(value) {
+    // do things with value
+  }
+};</lang>
+
+
+===ES6-*===
+Arrow Function
+<lang javascript>var multiply = (a, b) => a * b;
+var multiply = (a, b) => { return a * b };
+</lang>
+
+Concise Body Method Definition
+<lang javascript>var o = {
+  multiply(a, b) {
+    return a * b;
+  }
+};</lang>
+
+Generator Functions
+<lang javascript>function * generator() {
+  yield 1;
+}</lang>
+

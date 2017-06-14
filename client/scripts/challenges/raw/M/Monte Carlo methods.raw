@@ -1,0 +1,97 @@
+Monte Carlo methods
+
+{{task|Probability and statistics}}
+
+A '''Monte Carlo Simulation''' is a way of approximating the value of a function 
+where calculating the actual value is difficult or impossible. <br>
+It uses random sampling to define constraints on the value 
+and then makes a sort of "best guess."
+
+A simple Monte Carlo Simulation can be used to calculate the value for <big><math>\pi</math></big>. 
+
+If you had a circle and a square where the length of a side of the square 
+was the same as the diameter of the circle, the ratio of the area of the circle 
+to the area of the square would be <big><math>\pi/4</math></big>.
+ 
+So, if you put this circle inside the square and select many random points 
+inside the square, the number of points inside the circle 
+divided by the number of points inside the square and the circle 
+would be approximately <big><math>\pi/4</math></big>.
+
+
+;Task:
+Write a function to run a simulation like this, with a variable number of random points to select.
+
+Also, show the results of a few different sample sizes.
+
+For software where the number <big><math>\pi</math></big> is not built-in, 
+we give <big><math>\pi</math></big> as a number of digits: 
+             3.141592653589793238462643383280
+<br><br>
+
+
+=={{header|JavaScript}}==
+===ES5===
+<lang JavaScript>function mcpi(n) {
+    var x, y, m = 0;
+
+    for (var i = 0; i < n; i += 1) {
+        x = Math.random();
+        y = Math.random();
+
+        if (x * x + y * y < 1) {
+            m += 1;
+        }
+    }
+
+    return 4 * m / n;
+}
+
+console.log(mcpi(1000));
+console.log(mcpi(10000));
+console.log(mcpi(100000));
+console.log(mcpi(1000000));
+console.log(mcpi(10000000));</lang>
+<pre>3.168
+3.1396
+3.13692
+3.140512
+3.1417656
+</pre>
+
+===ES6===
+<lang JavaScript>(() => {
+    'use strict';
+
+    // monteCarloPi :: Int -> Float
+    const monteCarloPi = n =>
+        4 * range(1, n)
+        .reduce(a => {
+            const [x, y] = [rnd(), rnd()];
+            return x * x + y * y < 1 ? a + 1 : a;
+        }, 0) / n;
+
+
+    // GENERIC FUNCTIONS
+
+    // range :: Int -> Int -> [Int]
+    const range = (m, n) =>
+        Array.from({
+            length: Math.floor(n - m) + 1
+        }, (_, i) => m + i);
+
+    // rnd :: () -> Float
+    const rnd = Math.random;
+
+
+    // TEST with from 1000 samples to 10E8 samples
+    return range(3, 8)
+        .map(x => monteCarloPi(Math.pow(10, x)));
+
+    // e.g. -> [3.14, 3.1404, 3.13304, 3.142408, 3.1420304, 3.14156788]
+})();
+</lang>
+
+{{Out}} (5 sample runs with increasing sample sizes)
+<lang JavaScript>[3.14, 3.1404, 3.13304, 3.142408, 3.1420304, 3.14156788]</lang>
+

@@ -1,0 +1,16 @@
+Doubly-linked list/Definition
+
+{{task|Data Structures}}
+Define the data structure for a complete Doubly Linked List.
+
+* The structure should support adding elements to the head, tail and middle of the list. 
+* The structure should not allow circular loops
+
+
+{{Template:See also lists}}
+<br><br>
+
+
+=={{header|JavaScript}}==
+See [[Doubly-Linked List (element)#JavaScript]], [[Doubly-Linked List (element insertion)#JavaScript]] and [[Doubly-Linked List (traversal)#JavaScript]]
+

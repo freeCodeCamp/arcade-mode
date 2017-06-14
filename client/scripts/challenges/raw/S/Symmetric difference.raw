@@ -1,0 +1,157 @@
+Symmetric difference
+
+{{task|Discrete math}}
+
+;Task
+Given two [[set]]s ''A'' and ''B'', compute <math>(A \setminus B) \cup (B \setminus A).</math>
+
+That is, enumerate the items that are in ''A'' or ''B'' but not both. This set is called the [[wp:Symmetric difference|symmetric difference]] of ''A'' and ''B''. 
+
+In other words: <math>(A \cup B) \setminus (A \cap B)</math> (the set of items that are in at least one of ''A'' or ''B'' minus the set of items that are in both ''A'' and ''B'').
+
+Optionally, give the individual differences (<math>A \setminus B</math> and <math>B \setminus A</math>) as well.
+
+
+;Test cases
+ A = {John, Bob, Mary, Serena}
+ B = {Jim, Mary, John, Bob}
+
+
+;Notes
+# If your code uses lists of items to represent sets then ensure duplicate items in lists are correctly handled. For example two lists representing sets of <code>a = ["John", "Serena", "Bob", "Mary", "Serena"]</code> and <code>b = ["Jim", "Mary", "John", "Jim", "Bob"]</code> should produce the result of just two strings: <code>["Serena", "Jim"]</code>, in any order.
+# In the mathematical notation above <code>A \ B</code> gives the set of items in A that are not in B; <code>A ∪ B</code> gives the set of items in both A and B, (their ''union''); and <code>A ∩ B</code> gives the set of items that are in both A and B (their ''intersection'').
+<br><br>
+
+=={{header|JavaScript}}==
+
+===ES5===
+====Iterative====
+
+{{works with|JavaScript|1.6}}
+{{works with|Firefox|1.5}}
+{{works with|SpiderMonkey}} for the <code>print()</code> function.
+
+Uses the Array function <code>unique()</code> defined [[Create a Sequence of unique elements#JavaScript|here]].
+<lang javascript>// in A but not in B
+function relative_complement(A, B) {
+    return A.filter(function(elem) {return B.indexOf(elem) == -1});
+}
+
+// in A or in B but not in both
+function symmetric_difference(A,B) {
+    return relative_complement(A,B).concat(relative_complement(B,A));
+}
+
+var a = ["John", "Serena", "Bob", "Mary", "Serena"].unique(); 
+var b = ["Jim", "Mary", "John", "Jim", "Bob"].unique();
+
+print(a);
+print(b);
+print(symmetric_difference(a,b));</lang>
+outputs
+<pre>Bob,John,Mary,Serena
+Bob,Jim,John,Mary
+Serena,Jim</pre>
+
+'''Clear JavaScript'''
+
+<lang javascript>function Difference(A,B)
+{
+    var a = A.length, b = B.length, c = 0, C = [];
+    for (var i = 0; i < a; i++)
+     { var j = 0, k = 0;
+       while (j < b && B[j] !== A[i]) j++;
+       while (k < c && C[k] !== A[i]) k++;
+       if (j == b && k == c) C[c++] = A[i];
+     }
+    return C;
+}
+
+function SymmetricDifference(A,B)
+{  
+    var D1 = Difference(A,B), D2 = Difference(B,A),
+        a = D1.length, b = D2.length;
+    for (var i = 0; i < b; i++) D1[a++] = D2[i];
+    return D1;
+}
+
+
+/* Example
+   A = ['John', 'Serena', 'Bob', 'Mary', 'Serena'];
+   B = ['Jim', 'Mary', 'John', 'Jim', 'Bob'];
+   
+   Difference(A,B);           // 'Serena'
+   Difference(B,A);           // 'Jim'
+   SymmetricDifference(A,B);  // 'Serena','Jim'
+*/</lang>
+
+===ES6===
+====Functional====
+By composition of generic functions;
+<lang JavaScript>(() => {
+    'use strict';
+
+    const symmetricDifference = (xs, ys) =>
+        union(difference(xs, ys), difference(ys, xs));
+
+
+    // GENERIC FUNCTIONS ------------------------------------------------------
+
+    // First instance of x (if any) removed from xs
+    // delete_ :: Eq a => a -> [a] -> [a]
+    const delete_ = (x, xs) => {
+        const i = xs.indexOf(x);
+        return i !== -1 ? (xs.slice(0, i)
+            .concat(xs.slice(i, -1))) : xs;
+    };
+
+    //  (\\)  :: (Eq a) => [a] -> [a] -> [a]
+    const difference = (xs, ys) =>
+        ys.reduce((a, x) => filter(z => z !== x, a), xs);
+
+    // filter :: (a -> Bool) -> [a] -> [a]
+    const filter = (f, xs) => xs.filter(f);
+
+    // flip :: (a -> b -> c) -> b -> a -> c
+    const flip = f => (a, b) => f.apply(null, [b, a]);
+
+    // foldl :: (b -> a -> b) -> b -> [a] -> b
+    const foldl = (f, a, xs) => xs.reduce(f, a);
+
+    // nub :: [a] -> [a]
+    const nub = xs => {
+        const mht = unconsMay(xs);
+        return mht.nothing ? xs : (
+            ([h, t]) => [h].concat(nub(t.filter(s => s !== h)))
+        )(mht.just);
+    };
+
+    // show :: a -> String
+    const show = x => JSON.stringify(x, null, 2);
+
+    // unconsMay :: [a] -> Maybe (a, [a])
+    const unconsMay = xs => xs.length > 0 ? {
+        just: [xs[0], xs.slice(1)],
+        nothing: false
+    } : {
+        nothing: true
+    };
+
+    // union :: [a] -> [a] -> [a]
+    const union = (xs, ys) => {
+        const sx = nub(xs);
+        return sx.concat(foldl(flip(delete_), nub(ys), sx));
+    };
+
+    // TEST -------------------------------------------------------------------
+    const
+        a = ["John", "Serena", "Bob", "Mary", "Serena"],
+        b = ["Jim", "Mary", "John", "Jim", "Bob"];
+
+    return show(
+        symmetricDifference(a, b)
+    );
+})();</lang>
+{{Out}}
+<lang JavaScript>["Serena", "Jim"]</lang>
+

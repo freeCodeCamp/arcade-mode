@@ -1,0 +1,29 @@
+Evaluate binomial coefficients
+
+{{task|Mathematical operations}}
+This programming task, is to calculate ANY binomial coefficient.
+
+However, it has to be able to output &nbsp; <big><big><math>\binom{5}{3}</math></big></big>, &nbsp; which is &nbsp; '''10'''.
+
+This formula is recommended:
+<big><big>
+:: <math>\binom{n}{k} = \frac{n!}{(n-k)!k!} = \frac{n(n-1)(n-2)\ldots(n-k+1)}{k(k-1)(k-2)\ldots 1}</math>
+</big></big>
+
+
+'''See Also:'''
+* [[Combinations and permutations]]
+* [[Pascal's triangle]]
+{{Template:Combinations and permutations}}
+<br>
+
+
+=={{header|JavaScript}}==
+<lang javascript>function binom(n, k) {
+    var coeff = 1;
+    for (var i = n-k+1; i <= n; i++) coeff *= i;
+    for (var i = 1;     i <= k; i++) coeff /= i;
+    return coeff;
+}
+print(binom(5,3));</lang>
+<pre>10</pre>

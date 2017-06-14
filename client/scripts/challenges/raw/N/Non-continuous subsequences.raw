@@ -1,0 +1,56 @@
+Non-continuous subsequences
+
+{{task|Discrete math}}
+Consider some sequence of elements. (It differs from a mere set of elements by having an ordering among members.)
+
+A ''subsequence'' contains some subset of the elements of this sequence, in the same order.
+
+A ''continuous'' subsequence is one in which no elements are missing between the first and last elements of the subsequence.
+
+Note: Subsequences are defined ''structurally'', not by their contents. 
+So a sequence ''a,b,c,d'' will always have the same subsequences and continuous subsequences, no matter which values are substituted; it may even be the same value.
+
+'''Task''': Find all non-continuous subsequences for a given sequence. 
+
+Example: For the sequence &nbsp; ''1,2,3,4'', &nbsp; there are five non-continuous subsequences, namely: 
+::::* &nbsp; ''1,3''
+::::* &nbsp; ''1,4''
+::::* &nbsp; ''2,4''
+::::* &nbsp; ''1,3,4''
+::::* &nbsp; ''1,2,4''
+
+'''Goal''': There are different ways to calculate those subsequences. Demonstrate algorithm(s) that are natural for the language.
+
+
+=={{header|JavaScript}}==
+Uses powerset() function from [[Power Set#JavaScript|here]]. Uses a JSON stringifier from http://www.json.org/js.html
+
+{{works with|SpiderMonkey}}
+<lang javascript>function non_continuous_subsequences(ary) {
+    var non_continuous = new Array();
+    for (var i = 0; i < ary.length; i++) {
+        if (! is_array_continuous(ary[i])) {
+            non_continuous.push(ary[i]);
+        }
+    }
+    return non_continuous;
+}
+
+function is_array_continuous(ary) {
+    if (ary.length < 2)
+        return true;
+    for (var j = 1; j < ary.length; j++) {
+        if (ary[j] - ary[j-1] != 1) {
+            return false;
+        }
+    }
+    return true;
+}
+
+load('json2.js'); /* http://www.json.org/js.html */
+
+print(JSON.stringify( non_continuous_subsequences( powerset([1,2,3,4]))));</lang>
+
+{{out}}
+<pre>[[1,3],[1,4],[2,4],[1,2,4],[1,3,4]]</pre>
+

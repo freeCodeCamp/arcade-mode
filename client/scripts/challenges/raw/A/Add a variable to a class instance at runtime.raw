@@ -1,0 +1,15 @@
+Add a variable to a class instance at runtime
+
+{{task|Object oriented}}
+{{omit from|Rust}}
+Demonstrate how to dynamically add variables to an object (a class instance) at runtime.
+
+This is useful when the methods/variables of an instance are based on a data file that isn't available until runtime.  Hal Fulton gives an example of creating an OO CSV parser at [http://www.devsource.com/article2/0,1759,1928562,00.asp An Exercise in Metaprogramming with Ruby].  This is referred to as "monkeypatching" by Pythonistas and some others.
+
+
+=={{header|JavaScript}}==
+This kind of thing is fundamental to JavaScript, as it's a prototype-based language rather than a class-based one.
+<lang javascript>e = {}       // generic object
+e.foo = 1
+e["bar"] = 2    // name specified at runtime</lang>
+

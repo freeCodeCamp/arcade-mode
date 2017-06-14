@@ -1,0 +1,40 @@
+Mouse position
+
+{{task|GUI}} [[Category:Testing]] [[Category:Hardware]] [[Category:Pointing devices]]
+{{omit from|ACL2}}
+{{omit from|AWK|Does not have an active window concept}}
+{{omit from|Befunge|No mouse support}}
+{{omit from|Brainf***}}
+{{omit from|GolfScript}}
+{{omit from|GUISS}}
+{{omit from|Logtalk}}
+{{omit from|Lotus 123 Macro Scripting}}
+{{omit from|Maxima}}
+{{omit from|ML/I}}
+{{omit from|PARI/GP}}
+{{omit from|PHP}}
+{{omit from|PostScript}}
+{{omit from|R}}
+{{omit from|TI-83 BASIC|Does not have a pointing device.}}
+{{omit from|TI-89 BASIC|Does not have a pointing device.}}
+{{omit from|UNIX Shell}}
+{{omit from|ZX Spectrum Basic|Does not have a pointing device interface or windowing engine}}
+
+Get the current location of the mouse cursor relative to the active window. 
+Please specify if the window may be externally created.
+
+
+=={{header|JavaScript}}==
+
+In a browser environment, it's impossible to actually get the cursor position 
+at the specific moment. 
+You must wait for user input (movement, click, etc). 
+One of many ways to add an event listener:
+
+<lang javascript>document.addEventListener('mousemove', function(e){
+  var position = { x: e.clientX, y: e.clientY }
+}</lang>
+
+In the above example, the window may not be external. 
+It must in fact be a web browser window, which runs the script.
+

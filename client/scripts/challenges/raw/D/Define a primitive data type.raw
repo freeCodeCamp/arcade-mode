@@ -1,0 +1,33 @@
+Define a primitive data type
+
+{{task|Basic language learning}}
+[[Category:Type System]]
+Demonstrate how to define a type that behaves like an integer but has a lowest valid value of 1 and a highest valid value of 10. Include all bounds checking you need to write, or explain how the compiler or interpreter creates those bounds checks for you.
+
+
+=={{header|JavaScript}}==
+
+<lang JavaScript>function Num(n){
+    n = Math.floor(n);
+    if(isNaN(n))
+        throw new TypeError("Not a Number");
+    if(n < 1 || n > 10)
+        throw new TypeError("Out of range");
+    this._value = n;
+}
+Num.prototype.valueOf = function() { return this._value; }
+Num.prototype.toString = function () { return this._value.toString();}
+
+var w = new Num(3), x = new Num(4);
+
+WScript.Echo(w + x); //7
+WScript.Echo(x - w); //1
+WScript.Echo(w * x); //12
+WScript.Echo(w / x); //0.75
+WScript.Echo(w < x); //true
+WScript.Echo(x < w); //false
+
+var y = new Num(0); //TypeError
+var z = new Num(11); //TypeError
+</lang>
+

@@ -1,0 +1,14 @@
+Simple windowed application
+
+{{task|GUI}}[[Category:Basic language learning]]{{requires|Graphics}} [[Category:Simple]]
+
+;Task:
+Create a window that has:
+::# &nbsp; a label that says &nbsp; "There have been no clicks yet" 
+::# &nbsp; a button that says &nbsp; "click me"
+
+
+Upon clicking the button with the mouse, the label should change and show the number of times the button has been clicked.
+<br><br>
+
+

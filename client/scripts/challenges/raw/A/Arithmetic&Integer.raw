@@ -1,0 +1,68 @@
+Arithmetic/Integer
+
+{{Task|Basic language learning}}
+[[Category:Arithmetic operations]]
+[[Category:Arithmetic]]
+{{basic data operation}} [[Category:Simple]]
+
+;Task:
+Get two integers from the user, &nbsp;  and then (for those two integers), display their:
+::::* &nbsp; sum 
+::::* &nbsp; difference 
+::::* &nbsp; product 
+::::* &nbsp; integer quotient
+::::* &nbsp; remainder 
+::::* &nbsp; exponentiation &nbsp; (if the operator exists) 
+
+<br>
+Don't include error handling. 
+
+For quotient, indicate how it rounds &nbsp; (e.g. towards zero, towards negative infinity, etc.). 
+
+For remainder, indicate whether its sign matches the sign of the first operand or of the second operand, if they are different.
+<br><br>
+
+
+=={{header|JavaScript}}==
+{{works with|JScript}}
+{{works with|SpiderMonkey}}
+Note that the operators work the same in all versions of JavaScript; the requirement for specific implementations is in order to get user input.
+<lang javascript>var a = parseInt(get_input("Enter an integer"), 10);
+var b = parseInt(get_input("Enter an integer"), 10);
+
+WScript.Echo("a = " + a);
+WScript.Echo("b = " + b);
+WScript.Echo("sum: a + b = "        + (a + b));
+WScript.Echo("difference: a - b = " + (a - b));
+WScript.Echo("product: a * b = "    + (a * b));
+WScript.Echo("quotient: a / b = "   + (a / b | 0)); // "| 0" casts it to an integer
+WScript.Echo("remainder: a % b = "  + (a % b));
+
+function get_input(prompt) {
+    output(prompt);
+    try {
+        return WScript.StdIn.readLine();
+    } catch(e) {
+        return readline();
+    }
+}
+function output(prompt) {
+    try {
+        WScript.Echo(prompt);
+    } catch(e) {
+        print(prompt);
+    }
+}</lang>
+{{out}}
+<pre>Enter an integer
+-147
+Enter an integer
+63
+a = -147
+b = 63
+sum: a + b = -84
+difference: a - b = -210
+product: a * b = -9261
+quotient: a / b = -2
+remainder: a % b = -21</pre>
+

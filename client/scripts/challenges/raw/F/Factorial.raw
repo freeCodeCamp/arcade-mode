@@ -1,0 +1,124 @@
+Factorial
+
+{{task|Arithmetic operations}}
+[[Category:Recursion]]
+[[Category:Memoization]][[Category:Classic CS problems and programs]]
+[[Category:Arithmetic]]
+[[Category:Simple]]
+
+;Definitions:
+:* &nbsp; The &nbsp; '''Factorial Function''' &nbsp; of a positive integer, &nbsp; <big> ''n'', </big> &nbsp; is defined as the product of the sequence:
+                 <big><big> ''n'', &nbsp; ''n''-1, &nbsp; ''n''-2, &nbsp; ... &nbsp; 1 </big></big>
+:* &nbsp; The factorial of &nbsp; '''0''' &nbsp; (zero) &nbsp; is [[wp:Factorial#Definition|defined]] as being &nbsp; 1 &nbsp; (unity).
+
+
+;Task:
+Write a function to return the factorial of a number. 
+
+Solutions can be iterative or recursive. 
+
+Support for trapping negative &nbsp; <big> ''n'' </big> &nbsp; errors is optional.
+<br><br>
+
+
+=={{header|JavaScript}}==
+
+===Iterative===
+
+<lang javascript>function factorial(n) {
+  //check our edge case
+  if (n < 0) { throw "Number must be non-negative"; }
+
+  var sum = 1;
+  //we skip zero and one since both are 1 and are identity
+  while (n > 1) {
+    sum *= n;
+    n -= 1;
+  }
+  return sum;
+}</lang>
+
+===Recursive===
+
+====ES5 (memoized )====
+
+<lang JavaScript>(function(x) {
+
+  var memo = {};
+
+  function factorial(n) {
+    return n < 2 ? 1 : memo[n] || (memo[n] = n * factorial(n - 1));
+  }
+  
+  return factorial(x);
+  
+})(18);</lang>
+
+{{Out}}
+
+<lang JavaScript>6402373705728000</lang>
+
+Or, assuming that we have some sort of integer range function, we can memoize using the accumulator of a fold/reduce:
+
+<lang JavaScript>(function () {
+    'use strict';
+
+    // factorial :: Int -> Int
+    function factorial(x) {
+
+        return range(1, x)
+            .reduce(function (a, b) {
+                return a * b;
+            }, 1);
+    }
+
+
+
+    // range :: Int -> Int -> [Int]
+    function range(m, n) {
+        var a = Array(n - m + 1),
+            i = n + 1;
+
+        while (i-- > m) a[i - m] = i;
+        return a;
+    }
+
+
+    return factorial(18);
+
+})();</lang>
+
+{{Out}}
+<lang JavaScript>6402373705728000</lang>
+
+
+====ES6==== 
+<lang javascript>var factorial = n => (n < 2) ? 1 : n * factorial(n - 1);</lang>
+
+
+Or, as an alternative to recursion, we can fold/reduce a product function over the range of integers 1..n
+
+<lang JavaScript>(function (n) {
+    'use strict';
+
+    // factorial :: Int -> Int
+    let factorial = (n) => range(1, n).reduce(product, 1);
+
+
+    // product :: Num -> Num -> Num
+    let product = (a, b) => a * b,
+
+        // range :: Int -> Int -> [Int]
+        range = (m, n) =>
+            Array.from({
+                length: (n - m) + 1
+            }, (_, i) => m + i)
+
+
+    return factorial(n);
+
+})(18);</lang>
+
+{{Out}}
+<pre>6402373705728000</pre>
+

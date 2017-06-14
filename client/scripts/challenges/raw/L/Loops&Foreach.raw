@@ -1,0 +1,103 @@
+Loops/Foreach
+
+{{task|Iteration}}
+Loop through and print each element in a collection in order. 
+
+Use your language's "for each" loop if it has one, otherwise iterate through the collection in order with some other loop.
+<br><br>
+
+
+=={{header|JavaScript}}==
+
+For arrays in ES5, we can use '''Array.forEach()''':
+
+<lang JavaScript>"alpha beta gamma delta".split(' ').forEach(
+  function (x) {
+    console.log(x);
+  }
+);</lang>
+
+Output:
+<pre>alpha
+beta
+gamma
+delta</pre>
+
+though it will probably be more natural – dispensing with side-effects, and allowing for easier composition of nested functions – to simply use '''Array.map()''',
+
+<lang JavaScript>console.log("alpha beta gamma delta".split(' ').map(
+  function (x) {
+    return x.toUpperCase(x);
+  }
+).join('\n'));</lang>
+
+Output:
+
+<pre>ALPHA
+BETA
+GAMMA
+DELTA</pre>
+
+or, more flexibly, and with greater generality, obtain an accumulating fold from '''Array.reduce()'''
+
+<lang JavaScript>console.log(
+  "alpha beta gamma delta".split(' ').reduce(
+    function (a, x, i, lst) {
+      return lst.length - i + '. ' + x + '\n' + a;
+    }, ''
+  )
+)</lang>
+
+Output:
+
+<pre>1. delta
+2. gamma
+3. beta
+4. alpha</pre>
+
+More generally, the following works for any object, including an array.  It iterates over the keys of an object.
+<lang JavaScript>for (var a in o) {
+    print(o[a]);
+}</lang>
+However, it has the often unwanted feature that it lists inherited properties and methods of objects as well as the ones directly set on the object -- consider whether to filter out such properties inside the loop, for example:
+<lang JavaScript>for (var a in o) {
+    if (o.hasOwnProperty(a)) {
+        print(o[a]);
+    }
+}</lang>
+
+{{works with|JavaScript|1.6}}
+;Deprecated
+There is also a <tt>[https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Statements/for_each...in for each in]</tt> construct that iterates over the values of an object:
+<lang JavaScript>h = {"one":1, "two":2, "three":3}
+for (x in h) print(x);
+/*
+two
+one
+three
+*/
+
+for each (y in h) print(y);
+/*
+2
+1
+3
+*/</lang>
+
+{{works with|ECMAScript|6th edition}}
+There is also a <tt>[https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Statements/for...of for of]</tt> construct that iterates over the values of an object:
+<lang JavaScript>h = {"one":1, "two":2, "three":3}
+for (x in h) print(x);
+/*
+two
+one
+three
+*/
+
+for (y of h) print(y);
+/*
+2
+1
+3
+*/</lang>
+

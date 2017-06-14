@@ -1,0 +1,49 @@
+Generic swap
+
+{{task|Basic language learning}}
+
+;Task:
+Write a generic swap function or operator which exchanges the values of two variables (or, more generally, any two storage places that can be assigned), regardless of their types. 
+
+If your solution language is statically typed please describe the way your language provides genericity.
+
+If variables are typed in the given language, it is permissible that the two variables be constrained to having a mutually compatible type, such that each is permitted to hold the value previously stored in the other without a type violation. 
+That is to say, solutions do not have to be capable of exchanging, say, a string and integer value, if the underlying storage locations are not attributed with types that permit such an exchange.
+
+Generic swap is a task which brings together a few separate issues in programming language semantics.
+
+Dynamically typed languages deal with values in a generic way quite readily, but do not necessarily make it easy to write a function to destructively swap two variables, because this requires indirection upon storage places or upon the syntax designating storage places.
+
+Functional languages, whether static or dynamic, do not necessarily allow a destructive operation such as swapping two variables regardless of their generic capabilities.
+
+Some static languages have difficulties with generic programming due to a lack of support for ([[Parametric Polymorphism]]). 
+
+Do your best!
+<br><br>
+
+
+=={{header|JavaScript}}==
+JavaScript uses references, but if a function reassigns a parametric reference, the new object only has a local reference. However, if we wrap the variables to be switched in some other structure, like an object or an array, we can easily swap the values.
+
+There's no actual "generics", since all variables are just that, variables of some kind.
+
+The below function expects an array of length 2 (or longer), and switches the first two values in place, in the same array. This is closely related to how the Java solution works.
+
+<lang javascript>function swap(arr) {
+  var tmp = arr[0];
+  arr[0] = arr[1];
+  arr[1] = tmp;
+}</lang>
+
+Also there is metaprogramming solution. It uses code generation and <tt>eval</tt>. To avoid naming conflicts(user can pass <tt>'tmp'</tt>, which causes <tt>var tmp = tmp</tt>) it uses buildin, per activation context (thats why it is enclosed into self executing lambda), var <tt>arguments</tt> for temp storage.
+<lang javascript>function swap(aName, bName) {
+  eval('(function(){ arguments[0] = aName; aName = bName; bName = arguments[0] })()'
+    .replace(/aName/g, aName)
+    .replace(/bName/g, bName)
+  )
+}
+var x = 1
+var y = 2
+swap('x', 'y')
+</lang>
+

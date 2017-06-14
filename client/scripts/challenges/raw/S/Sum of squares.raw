@@ -1,0 +1,77 @@
+Sum of squares
+
+{{task|Arithmetic operations}}
+
+;Task:
+Write a program to find the sum of squares of a numeric vector. 
+
+The program should work on a zero-length vector (with an answer of &nbsp; '''0''').
+
+
+;Related task:
+* &nbsp; [[Mean]]
+<br><br>
+
+
+=={{header|JavaScript}}==
+===ES5===
+<lang javascript>function sumsq(array) {
+  var sum = 0;
+  var i, iLen;
+
+  for (i = 0, iLen = array.length; i < iLen; i++) {
+    sum += array[i] * array[i];
+  }
+  return sum;
+}
+
+alert(sumsq([1,2,3,4,5]));  // 55</lang>
+
+An alternative using a while loop and Math.pow
+
+<lang javascript>function sumsq(array) {
+  var sum = 0, 
+      i = array.length;
+
+  while (i--) sum += Math.pow(array[i], 2);
+
+  return sum;
+}
+
+alert(sumsq([1,2,3,4,5])); // 55</lang>
+
+
+{{libheader|Functional}}<lang javascript>Functional.reduce("x+y*y", 0, [1,2,3,4,5])</lang>
+
+map (JS 1.6) and reduce (JS 1.8)
+
+<lang javascript>[3,1,4,1,5,9].map(function (n) { return Math.pow(n,2); }).reduce(function (sum,n) { return sum+n; });</lang>
+
+===ES6===
+
+Two ways of composing a sumOfSquares function
+<lang JavaScript>(() => {
+    'use strict';
+
+    // squared :: Num a => a -> a
+    const squared = x => Math.pow(x, 2);
+
+    // sum :: (Num a) => [a] -> a
+    const sum = xs => xs.reduce((a, x) => a + x, 0);
+
+    // sumOfSquares :: Num a => [a] -> a
+    const sumOfSquares = xs => sum(xs.map(squared));
+
+    // sumOfSquares2 :: Num a => [a] -> a
+    const sumOfSquares2 = xs =>
+        xs.reduce((a, x) => a + squared(x), 0);
+
+    return [sumOfSquares, sumOfSquares2]
+        .map(f => f([3, 1, 4, 1, 5, 9]))
+        .join('\n');
+})();</lang>
+
+{{Out}}
+<pre>133
+133</pre>
+

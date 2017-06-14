@@ -1,0 +1,76 @@
+Anagrams
+
+{{task|Text processing}}
+
+When two or more words are composed of the same characters, but in a different order, they are called [[wp:Anagram|anagrams]]. 
+
+{{task heading}}
+
+Using the word list at &nbsp; http://www.puzzlers.org/pub/wordlists/unixdict.txt, 
+<br>find the sets of words that share the same characters that contain the most words in them.
+
+{{task heading|Related tasks}}
+
+{{Related tasks/Word plays}}
+
+<hr>
+
+
+=={{header|JavaScript}}==
+{{Works with|Node.js}}
+<lang javascript>var fs = require('fs');
+var words = fs.readFileSync('unixdict.txt', 'UTF-8').split('\n');
+
+var i, item, max = 0,
+    anagrams = {};
+ 
+for (i = 0; i < words.length; i += 1) {
+  var key = words[i].split('').sort().join('');
+  if (!anagrams.hasOwnProperty(key)) {//check if property exists on current obj only
+      anagrams[key] = [];
+  }
+  var count = anagrams[key].push(words[i]); //push returns new array length
+  max = Math.max(count, max);
+}
+
+//note, this returns all arrays that match the maximum length
+for (item in anagrams) {
+  if (anagrams.hasOwnProperty(item)) {//check if property exists on current obj only
+    if (anagrams[item].length === max) {
+        console.log(anagrams[item].join(' '));
+    }
+  }
+}</lang>
+
+{{Out}}
+<pre>[ 'abel', 'able', 'bale', 'bela', 'elba' ]
+[ 'alger', 'glare', 'lager', 'large', 'regal' ]
+[ 'angel', 'angle', 'galen', 'glean', 'lange' ]
+[ 'caret', 'carte', 'cater', 'crate', 'trace' ]
+[ 'elan', 'lane', 'lean', 'lena', 'neal' ]
+[ 'evil', 'levi', 'live', 'veil', 'vile' ]</pre>
+
+==Alternative Using Reduce==
+<lang javascript>var fs = require('fs');
+var dictionary = fs.readFileSync('unixdict.txt', 'UTF-8').split('\n');
+
+//group anagrams
+var sortedDict = dictionary.reduce(function (acc, word) {
+  var sortedLetters = word.split('').sort().join('');
+  if (acc[sortedLetters] === undefined) { acc[sortedLetters] = []; }
+  acc[sortedLetters].push(word);
+  return acc;
+}, {});
+
+//sort list by frequency
+var keysSortedByFrequency = Object.keys(sortedDict).sort(function (keyA, keyB) {
+  if (sortedDict[keyA].length < sortedDict[keyB].length) { return 1; }
+  if (sortedDict[keyA].length > sortedDict[keyB].length) { return -1; }
+  return 0;
+});
+
+//print first 10 anagrams by frequency
+keysSortedByFrequency.slice(0, 10).forEach(function (key) {
+  console.log(sortedDict[key].join(' '));
+});</lang>
+

@@ -1,0 +1,216 @@
+Combinations with repetitions
+
+{{task|Discrete math}}
+
+The set of combinations with repetitions is computed from a set, <math>S</math> (of cardinality <math>n</math>), and a size of resulting selection, <math>k</math>, by reporting the sets of cardinality <math>k</math> where each member of those sets is chosen from <math>S</math>. 
+In the real world, it is about choosing sets where there is a “large” supply of each type of element and where the order of choice does not matter. 
+For example: 
+:Q: How many ways can a person choose two doughnuts from a store selling three types of doughnut: iced, jam, and plain? (i.e., <math>S</math> is <math>\{\mathrm{iced}, \mathrm{jam}, \mathrm{plain}\}</math>, <math>|S| = 3</math>, and <math>k = 2</math>.)
+
+:A: 6: {iced, iced}; {iced, jam}; {iced, plain}; {jam, jam}; {jam, plain}; {plain, plain}.
+
+<small>Note that both the order of items within a pair, and the order of the pairs given in the answer is not significant; the pairs represent multisets.</small>
+<br><small>Also note that ''doughnut'' can also be spelled ''donut''.</small> 
+
+
+;Task:
+* Write a function/program/routine/.. to generate all the combinations with repetitions of <math>n</math> types of things taken <math>k</math> at a time and use it to ''show'' an answer to the doughnut example above.
+* For extra credit, use the function to compute and show ''just the number of ways'' of choosing three doughnuts from a choice of ten types of doughnut. Do not show the individual choices for this part.
+
+
+;References:
+* [[wp:Combination|k-combination with repetitions]]
+
+
+;See also:
+{{Template:Combinations and permutations}}
+<br><br>
+
+
+=={{header|JavaScript}}==
+===ES5===
+====Imperative====
+<lang javascript><html><head><title>Donuts</title></head>
+<body><pre id='x'></pre><script type="application/javascript">
+function disp(x) {
+	var e = document.createTextNode(x + '\n');
+	document.getElementById('x').appendChild(e);
+}
+
+function pick(n, got, pos, from, show) {
+	var cnt = 0;
+	if (got.length == n) {
+		if (show) disp(got.join(' '));
+		return 1;
+	}
+	for (var i = pos; i < from.length; i++) {
+		got.push(from[i]);
+		cnt += pick(n, got, i, from, show);
+		got.pop();
+	}
+	return cnt;
+}
+
+disp(pick(2, [], 0, ["iced", "jam", "plain"], true) + " combos");
+disp("pick 3 out of 10: " + pick(3, [], 0, "a123456789".split(''), false) + " combos");
+</script></body></html></lang>
+{{out}}
+<pre>iced iced
+iced jam
+iced plain
+jam jam
+jam plain
+plain plain
+6 combos
+pick 3 out of 10: 220 combos</pre>
+
+====Functional====
+<lang JavaScript>(function () {
+
+  // n -> [a] -> [[a]]
+  function combsWithRep(n, lst) {
+    return n ? (
+      lst.length ? combsWithRep(n - 1, lst).map(function (t) {
+        return [lst[0]].concat(t);
+      }).concat(combsWithRep(n, lst.slice(1))) : []
+    ) : [[]];
+  };
+
+  // If needed, we can derive a significantly faster version of
+  // the simple recursive function above by memoizing it
+
+  // f -> f
+  function memoized(fn) {
+    m = {};
+    return function (x) {
+      var args = [].slice.call(arguments),
+        strKey = args.join('-');
+
+      v = m[strKey];
+      if ('u' === (typeof v)[0])
+        m[strKey] = v = fn.apply(null, args);
+      return v;
+    }
+  }
+
+  // [m..n]
+  function range(m, n) {
+    return Array.apply(null, Array(n - m + 1)).map(function (x, i) {
+      return m + i;
+    });
+  }
+
+
+  return [
+
+      combsWithRep(2, ["iced", "jam", "plain"]),
+
+    // obtaining and applying a memoized version of the function
+      memoized(combsWithRep)(3, range(1, 10)).length
+    ];
+
+})();</lang>
+
+{{Out}}
+
+<lang JavaScript>[
+ [["iced", "iced"], ["iced", "jam"], ["iced", "plain"],
+  ["jam", "jam"], ["jam", "plain"], ["plain", "plain"]],
+ 220
+]</lang>
+
+===ES6===
+{{Trans|Haskell}}
+<lang JavaScript>(() => {
+    'use strict';
+
+    // COMBINATIONS WITH REPETITIONS -------------------------------------------
+
+    // combsWithRep :: Int -> [a] -> [[a]]
+    const combsWithRep = (k, xs) => {
+        const comb = (n, ys) => {
+            if (0 === n) return ys;
+            if (isNull(ys)) return comb(n - 1, map(pure, xs));
+
+            return comb(n - 1, concatMap(zs => {
+                const h = head(zs);
+                return map(x => [x].concat(zs), dropWhile(x => x !== h, xs));
+            }, ys));
+        };
+        return comb(k, []);
+    };
+
+    // GENERIC FUNCTIONS ------------------------------------------------------
+
+    // concatMap :: (a -> [b]) -> [a] -> [b]
+    const concatMap = (f, xs) => [].concat.apply([], xs.map(f));
+
+    // dropWhile :: (a -> Bool) -> [a] -> [a]
+    const dropWhile = (p, xs) => {
+        let i = 0;
+        for (let lng = xs.length;
+            (i < lng) && p(xs[i]); i++) {}
+        return xs.slice(i);
+    };
+
+    // enumFromTo :: Int -> Int -> [Int]
+    const enumFromTo = (m, n) =>
+        Array.from({
+            length: Math.floor(n - m) + 1
+        }, (_, i) => m + i);
+
+    // head :: [a] -> Maybe a
+    const head = xs => xs.length ? xs[0] : undefined;
+
+    // isNull :: [a] -> Bool
+    const isNull = xs => (xs instanceof Array) ? xs.length < 1 : undefined;
+
+    // length :: [a] -> Int
+    const length = xs => xs.length;
+
+    // map :: (a -> b) -> [a] -> [b]
+    const map = (f, xs) => xs.map(f);
+
+    // pure :: a -> [a]
+    const pure = x => [x];
+
+    // show :: a -> String
+    const show = x => JSON.stringify(x, null, 2);
+
+    // TEST -------------------------------------------------------------------
+    return show({
+        twoFromThree: combsWithRep(2, ['iced', 'jam', 'plain']),
+        threeFromTen: length(combsWithRep(3, enumFromTo(0, 9)))
+    });
+})();</lang>
+{{Out}}
+<pre>{
+  "twoFromThree": [
+    [
+      "iced",
+      "iced"
+    ],
+    [
+      "jam",
+      "iced"
+    ],
+    [
+      "plain",
+      "iced"
+    ],
+    [
+      "jam",
+      "jam"
+    ],
+    [
+      "plain",
+      "jam"
+    ],
+    [
+      "plain",
+      "plain"
+    ]
+  ],
+  "threeFromTen": 220
+}</pre>
+

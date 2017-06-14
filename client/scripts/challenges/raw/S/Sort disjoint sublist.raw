@@ -1,0 +1,101 @@
+Sort disjoint sublist
+
+{{task}}
+Given a list of values and a set of integer indices into that value list, the task is to sort the values at the given indices, but preserving the values at indices outside the set of those to be sorted.
+
+Make your example work with the following list of values and set of indices:
+<code>
+    values: [7, <b>6</b>, 5, 4, 3, 2, <b>1</b>, <b>0</b>]
+    indices: {6, 1, 7}</code>
+Where the correct result would be: 
+    <code>[7, <b>0</b>, 5, 4, 3, 2, <b>1</b>, <b>6</b>]</code>.
+
+Note that for one based, rather than the zero-based indexing above, use the <code>indices: {7, 2, 8}</code>. The indices are described as a set rather than a list but any collection-type of those indices without duplication may be used as long as the example is insensitive to the order of indices given.
+
+;Cf.
+* [[Order disjoint list items]]
+
+
+=={{header|JavaScript}}==
+===ES5===
+====Iterative====
+
+Does not check for duplicate indices.
+<lang JavaScript>function sort_disjoint(values, indices) {
+  var sublist = [];
+  indices.sort(function(a, b) { return a > b; });
+
+  for (var i = 0; i < indices.length; i += 1) {
+    sublist.push(values[indices[i]]);
+  }
+
+  sublist.sort(function(a, b) { return a < b; });
+
+  for (var i = 0; i < indices.length; i += 1) {
+    values[indices[i]] = sublist.pop();
+  }
+
+  return values;
+}</lang>
+
+====Functional====
+
+<lang JavaScript>(function () {
+    'use strict';
+
+    // disjointSort :: [a] -> [Int] -> [a]
+    function disjointSort(xs, indices) {
+
+        // Sequence of indices discarded
+        var indicesSorted = indices.sort(),
+            subsetSorted = indicesSorted
+            .map(function (i) {
+                return xs[i];
+            })
+            .sort();
+
+        return xs
+            .map(function (x, i) {
+                var iIndex = indicesSorted.indexOf(i);
+
+                return iIndex !== -1 ? (
+                    subsetSorted[iIndex]
+                ) : x;
+            });
+    }
+
+    return disjointSort([7, 6, 5, 4, 3, 2, 1, 0], [6, 1, 7])
+
+})();</lang>
+
+{{Out}}
+<pre>[7, 0, 5, 4, 3, 2, 1, 6]</pre>
+
+===ES6===
+
+<lang JavaScript>(() => {
+    'use strict';
+
+    // disjointSort :: [a] -> [Int] -> [a]
+    const disjointSort = (xs, indices) => {
+
+        // Sequence of indices discarded
+        const indicesSorted = indices.sort(),
+            subsetSorted = indicesSorted
+            .map(i => xs[i])
+            .sort();
+            
+        return xs
+            .map((x, i) => {
+                const iIndex = indicesSorted.indexOf(i);
+                return iIndex !== -1 ? (
+                    subsetSorted[iIndex]
+                ) : x;
+            });
+    };
+
+    return disjointSort([7, 6, 5, 4, 3, 2, 1, 0], [6, 1, 7]);
+})();</lang>
+{{Out}}
+<pre>[7, 0, 5, 4, 3, 2, 1, 6]</pre>
+

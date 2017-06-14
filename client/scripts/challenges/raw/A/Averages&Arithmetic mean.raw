@@ -1,0 +1,97 @@
+Averages/Arithmetic mean
+
+{{task|Probability and statistics}}
+
+{{task heading}}
+
+Write a program to find the [[wp:arithmetic mean|mean]] (arithmetic average) of a numeric vector. 
+
+In case of a zero-length input, since the mean of an empty set of numbers is ill-defined, the program may choose to behave in any way it deems appropriate, though if the programming language has an established convention for conveying math errors or undefined values, it's preferable to follow it.
+
+{{task heading|See also}}
+
+{{Related tasks/Statistical measures}}
+
+<br><hr>
+
+
+=={{header|JavaScript}}==
+
+===ES5===
+
+<lang javascript>function mean(array)
+{
+ var sum = 0, i;
+ for (i = 0; i < array.length; i++)
+ {
+  sum += array[i];
+ }
+  return array.length ? sum / array.length : 0;
+}
+
+alert( mean( [1,2,3,4,5] ) );   // 3
+alert( mean( [] ) );            // 0</lang>
+
+Using the native function `.forEach()`:
+<lang javascript>function mean(array) {
+    var sum = 0;
+    array.forEach(function(value){
+        sum += value;
+        });
+    return array.length ? sum / array.length : 0;
+    }
+
+alert( mean( [1,2,3,4,5] ) );   // 3</lang>
+
+Using the native function `.reduce()`:
+<lang javascript>function mean(array) {
+    return !array.length ? 0
+        : array.reduce(function(pre, cur, i) {
+            return (pre * i + cur) / (i + 1);
+            });
+    }
+
+alert( mean( [1,2,3,4,5] ) );   // 3
+alert( mean( [] ) );            // 0
+</lang>
+
+Extending the `Array` prototype:
+<lang javascript>Array.prototype.mean = function() {
+    return !this.length ? 0
+        : this.reduce(function(pre, cur, i) {
+            return (pre * i + cur) / (i + 1);
+            });
+    }
+
+alert( [1,2,3,4,5].mean() );   // 3
+alert( [].mean() );            // 0
+</lang>
+
+
+{{libheader|Functional}}
+<lang javascript>function mean(a)
+{
+ return a.length ? Functional.reduce('+', 0, a) / a.length : 0;
+}</lang>
+
+
+===ES6===
+
+<lang JavaScript>(sample => {
+
+    // mean :: [Num] => (Num | NaN)
+    let mean = lst => {
+        let lng = lst.length;
+
+        return lng ? (
+            lst.reduce((a, b) => a + b, 0) / lng
+        ) : NaN;
+    };
+    
+    return mean(sample);
+
+})([1, 2, 3, 4, 5, 6, 7, 8, 9]);</lang>
+
+{{Out}}
+<lang JavaScript>5</lang>
+

@@ -1,0 +1,102 @@
+Loops/N plus one half
+
+{{task|Iteration}} 
+[[Category:Simple]]
+
+Quite often one needs loops which, in the last iteration, execute only part of the loop body.
+
+
+;Goal:
+Demonstrate the best way to do this.
+
+
+;Task:
+Write a loop which writes the comma-separated list
+ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+using separate output statements for the number 
+and the comma from within the body of the loop.
+
+
+;Related task:
+* &nbsp; [[Loop/Break]]
+<br><br>
+
+
+=={{header|JavaScript}}==
+<lang javascript>function loop_plus_half(start, end) {
+    var str = '',
+        i;
+    for (i = start; i <= end; i += 1) {
+        str += i;
+        if (i === end) {
+          break;
+        }
+        str += ', ';
+    }
+    return str;
+}
+ 
+alert(loop_plus_half(1, 10));</lang>
+
+Alternatively, if we stand back for a moment from imperative assumptions about the nature and structure of computing tasks, it becomes clear that the problem of special transitional cases as a pattern terminates has no necessary connection with loops. (See the comments accompanying the ACL2, Haskell, IDL, J and R examples above and below, and see also some of the approaches taken in languages like Clojure and Scala.
+
+If a JavaScript expression evaluates to an array [1 .. 10] of integers, for example, we can map that array directly to a comma-delimited string by using the '''Array.join()''' function, writing something like:
+
+<lang JavaScript>function range(m, n) {
+  return Array.apply(null, Array(n - m + 1)).map(
+    function (x, i) {
+      return m + i;
+    }
+  );
+}
+ 
+console.log(
+  range(1, 10).join(', ')
+);</lang>
+
+Output: 
+<lang JavaScript>1, 2, 3, 4, 5, 6, 7, 8, 9, 10</lang>
+
+Otherwise, any special transitional case at the end of a pattern can be handled by defining conditional values for one or more sub-expressions:
+
+<lang JavaScript>function range(m, n) {
+  return Array.apply(null, Array(n - m + 1)).map(function (x, i) {
+    return m + i;
+  });
+}
+
+console.log(
+  (function (nFrom, nTo) {
+    var iLast = nTo - 1;
+
+    return range(nFrom, nTo).reduce(
+      function (accumulator, n, i) {
+        return accumulator +
+          n.toString() +
+
+          (i < iLast ? ', ' : ''); // conditional sub-expression
+
+      }, ''
+    )
+  })(1, 10)
+);</lang>
+
+Output:
+<lang JavaScript>1, 2, 3, 4, 5, 6, 7, 8, 9, 10</lang>
+==== Otherwise ====
+<lang JavaScript>var s=1, e=10
+for (var i=s; i<=e; i+=1) {
+	document.write( i==s ? '' : ', ', i )
+}</lang>
+or
+<lang JavaScript>var s=1, e=10
+for (;; s+=1) {
+	document.write( s )
+	if (s==e) break
+	document.write( ', ' )
+}</lang>
+{{out}}
+<pre>
+1, 2, 3, 4, 5, 6, 7, 8, 9, 10 
+</pre>
+

@@ -1,0 +1,161 @@
+Anagrams/Deranged anagrams
+
+{{task}}
+
+Two or more words are said to be [[Anagrams|anagrams]] if they have the same characters, but in a different order. 
+
+By analogy with [[Permutations/Derangements|derangements]] we define a  ''deranged anagram'' as two words with the same characters, but in which the same character does ''not'' appear in the same position in both words.
+
+{{task heading}}
+
+Use the word list at [http://www.puzzlers.org/pub/wordlists/unixdict.txt unixdict] to find and display the longest deranged anagram. 
+
+{{task heading|Related tasks}}
+
+* [[Permutations/Derangements]]
+* [[Best shuffle]]
+{{Related tasks/Word plays}}
+
+<hr>
+
+
+=={{header|JavaScript}}==
+
+=== Spidermonkey ===
+
+This example is a little long because 
+it tries to emphasize generality and clarity over
+brevity.
+
+<lang JavaScript>#!/usr/bin/env js
+
+function main() {
+    var wordList = read('unixdict.txt').split(/\s+/);
+    var anagrams = findAnagrams(wordList);
+    var derangedAnagrams = findDerangedAnagrams(anagrams);
+    var longestPair = findLongestDerangedPair(derangedAnagrams);
+    print(longestPair.join(' '));
+    
+}
+
+function findLongestDerangedPair(danas) {
+    var longestLen = danas[0][0].length;
+    var longestPair = danas[0];
+    for (var i in danas) {
+        if (danas[i][0].length > longestLen) {
+            longestLen = danas[i][0].length;
+            longestPair = danas[i];
+        }
+    }
+    return longestPair;
+}
+
+function findDerangedAnagrams(anagrams) {
+    var deranged = [];
+    
+    function isDeranged(w1, w2) {
+        for (var c = 0; c < w1.length; c++) {
+            if (w1[c] == w2[c]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    function findDeranged(anas) {
+        for (var a = 0; a < anas.length; a++) {
+            for (var b = a + 1; b < anas.length; b++) {
+                if (isDeranged(anas[a], anas[b])) {
+                    deranged.push([anas[a], anas[b]]);
+                }   
+            }
+        }
+    }
+    
+    for (var a in anagrams) {
+        var anas = anagrams[a];
+        findDeranged(anas);
+    }
+    
+    return deranged;
+}
+    
+function findAnagrams(wordList) {
+    var anagrams = {};
+
+    for (var wordNum in wordList) {
+        var word = wordList[wordNum];
+        var key = word.split('').sort().join('');
+        if (!(key in anagrams)) {
+            anagrams[key] = [];
+        }
+        anagrams[key].push(word);
+    }
+
+    for (var a in anagrams) {
+        if (anagrams[a].length < 2) {
+            delete(anagrams[a]);
+        }
+    }
+
+    return anagrams;
+}
+
+main();
+
+</lang>
+
+{{out}}
+ excitation intoxicate
+
+=== Gecko ===
+Word file is saved locally because browser won't fetch it cross-site.  Tested on Gecko.
+<lang javascript><html><head><title>Intoxication</title></head>
+<body><pre id='x'></pre>
+<script type="application/javascript">
+
+function show(t) {
+	var l = document.createTextNode(t + '\n');
+	document.getElementById('x').appendChild(l);
+}
+
+// get words; be ware of cross-site restrictions on XMLHttpRequest
+var words = null;
+var req = new XMLHttpRequest();
+req.open('GET', 'file:///tmp/unixdict.txt', false);
+req.send(null);
+words = req.responseText.split('\n');
+
+var idx = {};
+for (var i = 0; i < words.length; i++) {
+	var t = words[i].split('').sort().join('');
+	if (idx[t]) idx[t].push(words[i]);
+	else	    idx[t] = [words[i]];
+}
+
+var best = '';
+var best_pair;
+for (var i in idx) {
+	if (i.length <= best.length) continue;
+	if (idx[i].length == 1) continue;
+
+	var a = idx[i], got = null;
+	for (var j = 0, l1 = a[j]; j < a.length && !got; j++) {
+		for (var k = j + 1, l2 = a[k]; k < a.length && !got; k++)
+			for (var m = 0; m < l1.length || !(got = [l2]); m++)
+				if (l1[m] == l2[m]) break;
+		if (got) got.push(l1);
+	}
+
+	if (got) {
+		best_pair = got;
+		best = got[0];
+	}
+}
+
+show(best_pair);
+</script></body></html></lang>
+
+{{Out|Output (in a browser window)}}
+<pre>intoxicate,excitation</pre>
+

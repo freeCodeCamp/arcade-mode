@@ -1,0 +1,34 @@
+Exceptions
+
+{{Task|Control Structures}}
+{{Control Structures}}
+{{omit from|Euphoria}}
+{{omit from|M4}}
+{{omit from|Retro}}
+{{omit from|Swift|[Swift does not support exception handling]}}
+
+This task is to give an example of an exception handling routine 
+and to "throw" a new exception.
+
+Cf. [[Exceptions Through Nested Calls]]
+
+
+=={{header|JavaScript}}==
+
+'''Throwing exceptions'''
+
+<lang javascript>function doStuff() {
+  throw new Error('Not implemented!');
+}</lang>
+
+'''Catching exceptions'''
+
+<lang javascript>try {
+  element.attachEvent('onclick', doStuff);
+}
+catch(e if e instanceof TypeError) {
+  element.addEventListener('click', doStuff, false);
+}
+finally {
+  eventSetup = true;
+}</lang>

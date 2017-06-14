@@ -1,0 +1,75 @@
+Rosetta Code/Find unimplemented tasks
+
+{{task|Rosetta Code related}}
+
+;Task:
+Given the name of a language on Rosetta Code, find all tasks which are not implemented in that language.
+
+
+Note: Implementations should allow for fetching more data than can be returned in one request to Rosetta Code.
+
+You'll need to use the Media Wiki API, which you can find out about locally, [http://rosettacode.org/mw/api.php here], or in Media Wiki's API documentation at, [http://www.mediawiki.org/wiki/API_Query API:Query]
+<br><br>
+
+
+=={{header|JavaScript}}==
+
+The isolation of in-browser JavaScript from system resources, and the association of JavaScript code files with particular (and already loaded) documents may mean that JavaScript is not the right tool for the broader case envisaged by this task.
+
+For the narrower context of a browser in which the 'not implemented' page has been fetched for a particular language, we can however, evaluate an XPath expression in JavaScript to generate an array of titles for the unimplemented tasks.
+
+<lang JavaScript>(function (strXPath) {
+  var xr = document.evaluate(
+      strXPath,
+      document,
+      null, 0, 0
+    ),
+
+    oNode = xr.iterateNext(),
+    lstTasks = [];
+
+  while (oNode) {
+    lstTasks.push(oNode.title);
+    oNode = xr.iterateNext();
+  }
+
+  return [
+    lstTasks.length + " items found in " + document.title,
+    ''
+  ].concat(lstTasks).join('\n')
+
+})(
+  '//*[@id="mw-content-text"]/div[2]/table/tbody/tr/td/ul/li/a'
+);</lang>
+
+Output begins with:
+
+<pre>107 items found in Reports:Tasks not implemented in Haskell - Rosetta Code
+
+Active Directory/Connect
+Active Directory/Search for a user
+Bitmap/Bézier curves/Cubic
+Bitmap/PPM conversion through a pipe
+Bitmap/Read an image through a pipe
+Call a function in a shared library
+Call an object method
+Canny edge detector
+Casting out nines
+Catmull–Clark subdivision surface
+Color of a screen pixel
+Colour bars/Display
+Colour pinstripe/Display
+Colour pinstripe/Printer
+Compare sorting algorithms' performance
+Conjugate transpose
+Create a file on magnetic tape
+Death Star
+Deconvolution/2D+
+Delegates
+Executable library
+Extreme floating point values
+FTP
+Fibonacci word/fractal
+Find limit of recursion
+...</pre>
+

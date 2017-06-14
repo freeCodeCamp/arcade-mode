@@ -1,0 +1,24 @@
+Flow-control structures
+
+{{Task|Control Structures}}
+{{Control Structures}}
+
+;Task:
+Document common flow-control structures. 
+
+One common example of a flow-control structure is the &nbsp; <big><code> goto </code></big> &nbsp; construct. 
+
+Note that &nbsp; [[Conditional Structures]] &nbsp; and &nbsp; [[Iteration|Loop Structures]] &nbsp; have their own articles/categories.
+
+
+;Related tasks:
+* &nbsp; [[Conditional Structures]]
+* &nbsp; [[Iteration|Loop Structures]] 
+<br><br>
+
+
+=={{header|JavaScript}}==
+* <code>'''return'''</code> from a function ([http://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Statements/return])
+* loop control with <code>'''break''' [label]</code> ([http://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Statements/break]) and <code>'''continue''' [label]</code> ([http://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Statements/continue])
+* exceptions with <code>'''throw'''</code> ([http://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Statements/throw]) and <code>'''try ... catch ... finally ...'''</code>  ([http://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Statements/try...catch])
+

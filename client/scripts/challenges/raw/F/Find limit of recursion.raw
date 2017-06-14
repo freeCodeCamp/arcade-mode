@@ -1,0 +1,39 @@
+Find limit of recursion
+
+{{task}}
+{{selection|Short Circuit|Console Program Basics}}
+[[Category:Basic language learning]]
+[[Category:Programming environment operations]] 
+[[Category:Simple]]
+
+;Task:
+Find the limit of recursion.
+<br><br>
+
+
+=={{header|JavaScript}}==
+<lang javascript>
+function recurse(depth)
+{
+ try
+ {
+  return recurse(depth + 1);
+ }
+ catch(ex)
+ {
+  return depth;
+ }
+}
+
+var maxRecursion = recurse(1);
+document.write("Recursion depth on this system is " + maxRecursion);</lang>
+
+{{out}} (Chrome):
+<pre>Recursion depth on this system is 10473.</pre>
+
+{{out}} (Firefox 1.6.13):
+<pre>Recursion depth on this system is 3000.</pre>
+
+{{out}} (IE6):
+<pre>Recursion depth on this system is 2552.</pre>
+

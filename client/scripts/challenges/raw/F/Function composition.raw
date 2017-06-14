@@ -1,0 +1,140 @@
+Function composition
+
+{{task|Higher-order functions}}
+
+;Task:
+Create a function, <span style="font-family:serif">compose</span>, &nbsp; whose two arguments &nbsp; <span style="font-family:serif">''f''</span> &nbsp; and &nbsp; <span style="font-family:serif">''g''</span>, &nbsp; are both functions with one argument. 
+
+
+The result of <span style="font-family:serif">compose</span> is to be a function of one argument, (lets call the argument &nbsp; <span style="font-family:serif">''x''</span>), &nbsp; which works like applying function &nbsp; <span style="font-family:serif"> ''f'' </span> &nbsp; to the result of applying function &nbsp; <span style="font-family:serif"> ''g'' </span> &nbsp; to &nbsp; <span style="font-family:serif"> ''x''</span>.
+
+
+;Example:
+  <span style="font-family:serif">compose(''f'', ''g'') (''x'') = ''f''(''g''(''x''))</span>
+
+
+Reference: [[wp:Function composition (computer science)|Function composition]]
+
+Hint: In some languages, implementing <span style="font-family:serif">compose</span> correctly requires creating a [[wp:Closure (computer science)|closure]].
+<br><br>
+
+
+=={{header|JavaScript}}==
+===ES5===
+====Simple composition of two functions====
+<lang javascript>function compose(f, g) {
+  return function(x) {
+    return f(g(x));
+  };
+}</lang>
+Example:
+<lang javascript>var id = compose(Math.sin, Math.asin);
+print(id(0.5)); // 0.5</lang>
+
+
+====Multiple composition====
+
+Recursion apart, multiple composition can be written in at least two general ways in JS:
+
+# Iteratively (faster to run, perhaps more fiddly to write)
+# With a fold / reduction (see http://rosettacode.org/wiki/Catamorphism). The fold is arguably simpler to write and reason about, though not quite as fast to execute.
+
+<lang JavaScript>(function () {
+    'use strict';
+
+
+    // iterativeComposed :: [f] -> f
+    function iterativeComposed(fs) {
+
+        return function (x) {
+            var i = fs.length,
+                e = x;
+
+            while (i--) e = fs[i](e);
+            return e;
+        }
+    }
+
+    // foldComposed :: [f] -> f
+    function foldComposed(fs) {
+
+        return function (x) {
+            return fs
+                .reduceRight(function (a, f) {
+                    return f(a);
+                }, x);
+        };
+    }
+
+
+    var sqrt = Math.sqrt,
+
+        succ = function (x) {
+            return x + 1;
+        },
+
+        half = function (x) {
+            return x / 2;
+        };
+
+
+    // Testing two different multiple composition ([f] -> f) functions
+
+    return [iterativeComposed, foldComposed]
+        .map(function (compose) {
+
+            // both functions compose from right to left
+            return compose([half, succ, sqrt])(5);
+
+        });
+})();
+</lang>
+
+{{Out}}
+<pre>[1.618033988749895, 1.618033988749895]</pre>
+
+===ES6===
+<lang JavaScript>(() => {
+    'use strict';
+
+    // compose :: [(a -> a)] -> (a -> a)
+    let compose = fs => x => fs.reduceRight((a, f) => f(a), x);
+
+    // TEST a composition of 3 functions (right to left)
+    let sqrt = Math.sqrt,
+
+        succ = x => x + 1,
+
+        half = x => x / 2;
+
+    return compose([half, succ, sqrt])(5);
+
+    // --> 1.618033988749895
+})();</lang>
+
+{{Out}}
+<pre>1.618033988749895</pre>
+
+or, as a simple binary function (first applying f, then g):
+<lang javascript>(() => {
+    'use strict';
+
+    // compose :: (a -> b) -> (b -> c) -> (a -> c)
+    const compose = (f, g) => x => g(f(x));
+
+
+    // TEST
+    const
+        sqrt = Math.sqrt,
+        succ = x => x + 1,
+        half = x => x / 2;
+
+    const
+        succSqrt = compose(sqrt, succ),
+        halfSuccSqrt = compose(succSqrt, half);
+
+    return halfSuccSqrt(5);
+})();</lang>
+{{Out}}
+<pre>1.618033988749895</pre>
+

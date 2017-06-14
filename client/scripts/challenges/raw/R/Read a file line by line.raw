@@ -1,0 +1,29 @@
+Read a file line by line
+
+{{task|File handling}} [[Category:Simple]]
+{{omit from|GUISS}}
+{{omit from|Lotus 123 Macro Scripting|Reads the whole file at once}}
+{{omit from|Openscad}}
+{{omit from|TI-83 BASIC|No filesystem.}}
+{{omit from|TI-89 BASIC|No filesystem.}}
+{{omit from|Unlambda|Does not know files.}}
+
+Read a file one line at a time, 
+as opposed to [[Read entire file|reading the entire file at once]].
+
+
+;Related tasks:
+* [[Read a file character by character]]
+* [[Input loop]].
+<br><br>
+
+
+=={{header|JavaScript}}==
+<lang javascript>var fs = require("fs");
+
+var readFile = function(path) {
+    return fs.readFileSync(path).toString();
+};
+
+console.log(readFile('file.txt'));</lang>
+

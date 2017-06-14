@@ -1,0 +1,70 @@
+Sorting algorithms/Cocktail sort
+
+{{task|Sorting Algorithms}}{{Sorting Algorithm}}{{wikipedia|Cocktail sort}}
+The cocktail shaker sort is an improvement on the [[Bubble Sort]]. 
+The improvement is basically that values "bubble" both directions through the array, because on each iteration the cocktail shaker sort bubble sorts once forwards and once backwards. Pseudocode for the algorithm (from [[wp:Cocktail sort|wikipedia]]):
+ '''function''' ''cocktailSort''( A : list of sortable items )
+  '''do'''
+    swapped := false
+    '''for each''' i '''in''' 0 '''to''' length( A ) - 2 '''do'''
+      '''if''' A[ i ] > A[ i+1 ] '''then''' ''// test whether the two'' 
+                                ''// elements are in the wrong'' 
+                                ''// order''
+        swap( A[ i ], A[ i+1 ] ) ''// let the two elements''
+                                 ''// change places''
+        swapped := true;
+    '''if''' swapped = false '''then'''
+      ''// we can exit the outer loop here if no swaps occurred.''
+      '''break do-while loop''';
+    swapped := false
+    '''for each''' i '''in''' length( A ) - 2 '''down to''' 0 '''do'''
+      '''if''' A[ i ] > A[ i+1 ] '''then'''
+        swap( A[ i ], A[ i+1 ] )
+        swapped := true;
+  '''while''' swapped; ''// if no elements have been swapped,'' 
+                 ''// then the list is sorted''
+
+
+=={{header|JavaScript}}==
+<lang javascript>
+  // Node 5.4.1 tested implementation (ES6)
+"use strict";
+
+let arr = [4, 9, 0, 3, 1, 5];
+let isSorted = true;
+while (isSorted){
+    for (let i = 0; i< arr.length - 1;i++){
+            if (arr[i] > arr[i + 1])
+             {
+                let temp = arr[i];
+                arr[i] = arr[i + 1];
+                arr[i+1] = temp;
+                isSorted = true;
+             }
+    }
+
+    if (!isSorted)
+        break;
+    
+    isSorted = false;
+
+    for (let j = arr.length - 1; j > 0; j--){
+            if (arr[j-1] > arr[j])
+             {
+                let temp = arr[j];
+                arr[j] = arr[j - 1];
+                arr[j - 1] = temp;
+                isSorted = true;
+             }
+    }
+}
+console.log(arr);
+
+}</lang>
+
+
+{{out}}
+<pre>
+ [0, 1, 3, 4, 5, 9]
+</pre>
+

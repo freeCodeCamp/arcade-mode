@@ -1,0 +1,26 @@
+System time
+
+{{task|Programming environment operations}} 
+[[Category:Date and time]] 
+[[Category:Simple]]
+
+{{omit from|ML/I}}
+{{omit from|ZX Spectrum Basic|Does not have a real time clock.}}
+
+;Task:
+Output the system '''time''' &nbsp; (any units will do as long as they are noted) either by a [[Execute a System Command|system command]] or one built into the language. 
+
+The system time can be used for debugging, network information, random number seeds, or something as simple as program performance.
+
+
+;See also:
+* &nbsp; [[Date format]]
+* &nbsp; [[wp:System time#Retrieving system time|Retrieving system time (wiki)]]
+<br><br>
+
+
+=={{header|JavaScript}}==
+
+<lang javascript>console.log(new Date()) // => Sat, 28 May 2011 08:22:53 GMT
+console.log(Date.now()) // => 1306571005417 // Unix epoch</lang>
+

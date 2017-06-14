@@ -1,0 +1,22 @@
+Show the epoch
+
+{{task}}
+
+;Task: 
+Choose popular date libraries used by your language and show the &nbsp; [[wp:Epoch_(reference_date)#Computing|epoch]] &nbsp; those libraries use. 
+
+A demonstration is preferable &nbsp; (e.g. setting the internal representation of the date to 0 ms/ns/etc., &nbsp; or another way that will still show the epoch even if it is changed behind the scenes by the implementers), &nbsp; but text from (with links to) documentation is also acceptable where a demonstration is impossible/impractical. 
+
+For consistency's sake, show the date in UTC time where possible.
+
+
+;Related task:
+* &nbsp; [[Date format]]
+<br><br>
+
+
+=={{header|JavaScript}}==
+<lang javascript>document.write(new Date(0).toUTCString());</lang>
+{{out}}
+<pre>Thu, 01 Jan 1970 00:00:00 GMT</pre>
+

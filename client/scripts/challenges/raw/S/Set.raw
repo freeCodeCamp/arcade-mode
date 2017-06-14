@@ -1,0 +1,64 @@
+Set
+
+{{task|Discrete math}}
+{{data structure}}
+A &nbsp; '''set''' &nbsp;is a collection of elements, without duplicates and without order.
+
+
+;Task:
+Show each of these set operations:
+
+* Set creation
+* Test m &isin; S -- "m is an element in set S"
+* A &cup; B -- ''union''; a set of all elements either in set A or in set B.
+* A &cap; B -- ''intersection''; a set of all elements in ''both'' set A and set B.
+* A &#x2216; B -- ''difference''; a set of all elements in set A, except those in set B.
+* A &sube; B -- ''subset''; true if every element in set A is also in set B.
+* A = B -- ''equality''; true if every element of set A is in set B and vice versa.
+
+<br>
+As an option, show some other set operations.
+<br>(If A &sube; B, but A &ne; B, then A is called a true or proper subset of B, written A &sub; B or A &#x228a; B.) 
+
+As another option, show how to modify a mutable set.
+
+
+One might implement a set using an [[associative array]] (with set elements as array keys and some dummy value as the values). 
+
+One might also implement a set with a binary search tree, or with a hash table, or with an ordered array of binary bits (operated on with bit-wise binary operators). 
+
+The basic test, m &isin; S, is [[O]](n) with a sequential list of elements, O(''log'' n) with a balanced binary search tree, or (O(1) average-case, O(n) worst case) with a hash table.
+
+
+{{Template:See also lists}}
+<br><br>
+
+=={{header|JavaScript}}==
+JavaScript does not support native sets before ECMAScript 6. 
+
+<lang javascript>
+var set = new Set();
+
+set.add(0);
+set.add(1);
+set.add('two');
+set.add('three');
+
+set.has(0); //=> true
+set.has(3); //=> false
+set.has('two'); // true
+set.has(Math.sqrt(4)); //=> false
+set.has('TWO'.toLowerCase()); //=> true
+
+set.size; //=> 4
+
+set.delete('two');
+set.has('two'); //==> false
+set.size; //=> 3
+
+//iterating set using ES6 for..of
+//Set order is preserved in order items are added.
+for (var item of set) {
+  console.log('item is ' + item);
+}</lang>
+

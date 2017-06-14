@@ -1,0 +1,334 @@
+Pascal's triangle
+
+{{task|Arithmetic operations}}
+
+[[wp:Pascal's triangle|Pascal's triangle]] &nbsp; is an arithmetic and geometric figure first imagined by &nbsp; [[wp:Blaise Pascal|Blaise Pascal]]. 
+
+Its first few rows look like this:
+     1
+    1 1
+   1 2 1
+  1 3 3 1
+where each element of each row is either 1 or the sum of the two elements right above it. 
+
+For example, the next row of the triangle would be:
+::: &nbsp; '''1''' &nbsp; (since the first element of each row doesn't have two elements above it)
+::: &nbsp; '''4''' &nbsp; (1 + 3)
+::: &nbsp; '''6''' &nbsp; (3 + 3)
+::: &nbsp; '''4''' &nbsp; (3 + 1)
+::: &nbsp; '''1''' &nbsp; (since the last element of each row doesn't have two elements above it) 
+
+So the triangle now looks like this:
+     1
+    1 1
+   1 2 1
+  1 3 3 1
+ 1 4 6 4 1
+
+Each row &nbsp; <tt> n </tt> &nbsp; (starting with row &nbsp; 0 &nbsp; at the top) shows the coefficients of the binomial expansion of &nbsp; <big><big> (x + y)<sup>n</sup>. </big></big>
+
+
+;Task:
+Write a function that prints out the first &nbsp; <tt> n </tt> &nbsp; rows of the triangle &nbsp; (with &nbsp; <tt> f(1) </tt> &nbsp; yielding the row consisting of only the element '''1'''). 
+
+This can be done either by summing elements from the previous rows or using a binary coefficient or combination function. 
+
+Behavior for &nbsp; <big><tt> n ≤ 0 </tt></big> &nbsp; does not need to be uniform, but should be noted.
+
+
+;See also:
+* [[Evaluate binomial coefficients]]
+<br><br>
+
+
+=={{header|JavaScript}}==
+===ES5===
+====Imperative====
+{{works with|SpiderMonkey}}
+{{works with|V8}}
+<lang javascript>// Pascal's triangle object
+function pascalTriangle (rows) {
+
+	// Number of rows the triangle contains
+	this.rows = rows;
+
+	// The 2D array holding the rows of the triangle
+	this.triangle = new Array();
+	for (var r = 0; r < rows; r++) {
+		this.triangle[r] = new Array();
+		for (var i = 0; i <= r; i++) {
+			if (i == 0 || i == r)
+				this.triangle[r][i] = 1;
+			else
+				this.triangle[r][i] = this.triangle[r-1][i-1]+this.triangle[r-1][i];
+		}
+	}
+
+	// Method to print the triangle
+	this.print = function(base) {
+		if (!base)
+			base = 10;
+
+		// Private method to calculate digits in number
+		var digits = function(n,b) {
+			var d = 0;
+			while (n >= 1) {
+				d++;
+				n /= b;
+			}
+			return d;
+		}
+
+		// Calculate max spaces needed
+		var spacing = digits(this.triangle[this.rows-1][Math.round(this.rows/2)],base);
+
+		// Private method to add spacing between numbers
+		var insertSpaces = function(s) {
+			var buf = "";
+			while (s > 0) {
+				s--;
+				buf += " ";
+			}
+			return buf;
+		}
+
+		// Print the triangle line by line
+		for (var r = 0; r < this.triangle.length; r++) {
+			var l = "";
+			for (var s = 0; s < Math.round(this.rows-1-r); s++) {
+				l += insertSpaces(spacing);
+			}
+			for (var i = 0; i < this.triangle[r].length; i++) {
+				if (i != 0)
+					l += insertSpaces(spacing-Math.ceil(digits(this.triangle[r][i],base)/2));
+				l += this.triangle[r][i].toString(base);
+				if (i < this.triangle[r].length-1)
+					l += insertSpaces(spacing-Math.floor(digits(this.triangle[r][i],base)/2));
+			}
+			print(l);
+		}
+	}
+
+}
+
+// Display 4 row triangle in base 10
+var tri = new pascalTriangle(4);
+tri.print();
+// Display 8 row triangle in base 16
+tri = new pascalTriangle(8);
+tri.print(16);</lang>
+Output:
+<pre>$ d8 pascal.js 
+   1
+  1 1
+ 1 2 1
+1 3 3 1
+              1
+            1   1
+          1   2   1
+        1   3   3   1
+      1   4   6   4   1
+    1   5   a   a   5   1
+  1   6   f   14  f   6   1
+1   7   15  23  23  15  7   1</pre>
+
+====Functional====
+{{Trans|Haskell}} 
+<lang JavaScript>(function (n) {
+    'use strict';
+
+    // PASCAL TRIANGLE --------------------------------------------------------
+
+    // pascal :: Int -> [[Int]]
+    function pascal(n) {
+        return foldl(function (a) {
+            var xs = a.slice(-1)[0]; // Previous row
+            return append(a, [zipWith(
+                function (a, b) {
+                    return a + b;
+                },
+                append([0], xs),
+                append(xs, [0])
+            )]);
+        }, [
+            [1] // Initial seed row
+        ], enumFromTo(1, n - 1));
+    };
+
+
+    // GENERIC FUNCTIONS ------------------------------------------------------
+
+    // (++) :: [a] -> [a] -> [a]
+    function append(xs, ys) {
+        return xs.concat(ys);
+    };
+
+    // enumFromTo :: Int -> Int -> [Int]
+    function enumFromTo(m, n) {
+        return Array.from({
+            length: Math.floor(n - m) + 1
+        }, function (_, i) {
+            return m + i;
+        });
+    };
+
+    // foldl :: (b -> a -> b) -> b -> [a] -> b
+    function foldl(f, a, xs) {
+        return xs.reduce(f, a);
+    };
+
+    // foldr (a -> b -> b) -> b -> [a] -> b
+    function foldr(f, a, xs) {
+        return xs.reduceRight(f, a);
+    };
+
+    // map :: (a -> b) -> [a] -> [b]
+    function map(f, xs) {
+        return xs.map(f);
+    };
+
+    // min :: Ord a => a -> a -> a
+    function min(a, b) {
+        return b < a ? b : a;
+    };
+
+    // zipWith :: (a -> b -> c) -> [a] -> [b] -> [c]
+    function zipWith(f, xs, ys) {
+        return Array.from({
+            length: min(xs.length, ys.length)
+        }, function (_, i) {
+            return f(xs[i], ys[i]);
+        });
+    };
+
+    // TEST and FORMAT --------------------------------------------------------
+    var lstTriangle = pascal(n);
+
+    // [[a]] -> bool -> s -> s
+    function wikiTable(lstRows, blnHeaderRow, strStyle) {
+        return '{| class="wikitable" ' + (strStyle ? 'style="' + strStyle +
+                '"' : '') + lstRows.map(function (lstRow, iRow) {
+                var strDelim = blnHeaderRow && !iRow ? '!' : '|';
+                return '\n|-\n' + strDelim + ' ' + lstRow.map(function (v) {
+                        return typeof v === 'undefined' ? ' ' : v;
+                    })
+                    .join(' ' + strDelim + strDelim + ' ');
+            })
+            .join('') + '\n|}';
+    }
+
+    var lstLastLine = lstTriangle.slice(-1)[0],
+        lngBase = lstLastLine.length * 2 - 1,
+        nWidth = lstLastLine.reduce(function (a, x) {
+            var d = x.toString()
+                .length;
+            return d > a ? d : a;
+        }, 1) * lngBase;
+
+    return [wikiTable(lstTriangle.map(function (lst) {
+            return lst.join(';;')
+                .split(';');
+        })
+        .map(function (line, i) {
+            var lstPad = Array((lngBase - line.length) / 2);
+            return lstPad.concat(line)
+                .concat(lstPad);
+        }), false, 'text-align:center;width:' + nWidth + 'em;height:' + nWidth +
+        'em;table-layout:fixed;'), JSON.stringify(lstTriangle)].join('\n\n');
+})(7);</lang>
+{{Out}}
+{| class="wikitable" style="text-align:center;width:26em;height:26em;table-layout:fixed;"
+|-
+|  ||  ||  ||  ||  ||  || 1 ||  ||  ||  ||  ||  || 
+|-
+|  ||  ||  ||  ||  || 1 ||  || 1 ||  ||  ||  ||  || 
+|-
+|  ||  ||  ||  || 1 ||  || 2 ||  || 1 ||  ||  ||  || 
+|-
+|  ||  ||  || 1 ||  || 3 ||  || 3 ||  || 1 ||  ||  || 
+|-
+|  ||  || 1 ||  || 4 ||  || 6 ||  || 4 ||  || 1 ||  || 
+|-
+|  || 1 ||  || 5 ||  || 10 ||  || 10 ||  || 5 ||  || 1 || 
+|-
+| 1 ||  || 6 ||  || 15 ||  || 20 ||  || 15 ||  || 6 ||  || 1
+|}
+
+<lang JavaScript>[[1],[1,1],[1,2,1],[1,3,3,1],[1,4,6,4,1],[1,5,10,10,5,1],[1,6,15,20,15,6,1]]</lang>
+
+===ES6===
+<lang JavaScript>(() => {
+    'use strict';
+
+    // PASCAL'S TRIANGLE ------------------------------------------------------
+
+    // pascal :: Int -> [[Int]]
+    const pascal = n =>
+        foldl(a => {
+            const xs = a.slice(-1)[0]; // Previous row
+            return append(a, [
+                zipWith(
+                    (a, b) => a + b,
+                    append([0], xs),
+                    append(xs, [0])
+                )
+            ]);
+        }, [
+            [1] // Initial seed row
+        ], enumFromTo(1, n - 1));
+
+
+    // GENERIC FUNCTIONS ------------------------------------------------------
+
+    // (++) :: [a] -> [a] -> [a]
+    const append = (xs, ys) => xs.concat(ys);
+
+    // enumFromTo :: Int -> Int -> [Int]
+    const enumFromTo = (m, n) =>
+        Array.from({
+            length: Math.floor(n - m) + 1
+        }, (_, i) => m + i);
+
+    // foldl :: (b -> a -> b) -> b -> [a] -> b
+    const foldl = (f, a, xs) => xs.reduce(f, a);
+
+    // foldr (a -> b -> b) -> b -> [a] -> b
+    const foldr = (f, a, xs) => xs.reduceRight(f, a);
+
+    // map :: (a -> b) -> [a] -> [b]
+    const map = (f, xs) => xs.map(f);
+
+    // min :: Ord a => a -> a -> a
+    const min = (a, b) => b < a ? b : a;
+
+    // zipWith :: (a -> b -> c) -> [a] -> [b] -> [c]
+    const zipWith = (f, xs, ys) =>
+        Array.from({
+            length: min(xs.length, ys.length)
+        }, (_, i) => f(xs[i], ys[i]));
+
+    // TEST -------------------------------------------------------------------
+    return foldr((a, x) => {
+            const strIndent = a.indent;
+            return {
+                rows: strIndent + map(n => ('    ' + n)
+                        .slice(-4), x)
+                    .join('') + '\n' + a.rows,
+                indent: strIndent + '  '
+            };
+        }, {
+            rows: '',
+            indent: ''
+        }, pascal(7))
+        .rows;
+})();</lang>
+{{Out}}
+<pre>               1
+             1   1
+           1   2   1
+         1   3   3   1
+       1   4   6   4   1
+     1   5  10  10   5   1
+   1   6  15  20  15   6   1
+</pre>
+

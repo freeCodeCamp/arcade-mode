@@ -1,0 +1,27 @@
+HTTP
+
+{{task|Programming environment operations}}
+[[Category:Networking and Web Interaction]]
+
+;Task:
+Access and print a [[wp:Uniform Resource Locator|URL's]] content (the located resource) to the console.
+
+There is a separate task for [[HTTPS Request]]s.
+<br><br>
+
+
+=={{header|JavaScript}}==
+<lang JavaScript>var req = new XMLHttpRequest();
+req.onload = function() {
+  console.log(this.responseText);
+};
+
+req.open('get', 'http://rosettacode.org', true);
+req.send()</lang>
+
+Using jQuery:
+
+<lang JavaScript>$.get('http://rosettacode.org', function(data) {
+  console.log(data);
+};</lang>
+

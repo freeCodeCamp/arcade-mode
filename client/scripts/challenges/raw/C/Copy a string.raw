@@ -1,0 +1,30 @@
+Copy a string
+
+{{task|Basic language learning}}
+[[Category: String manipulation]] 
+[[Category:Simple]]
+{{omit from|bc}}
+
+This task is about copying a string. 
+
+
+;Task:
+Where it is relevant, distinguish between copying the contents of a string 
+versus making an additional reference to an existing string.
+<br><br>
+
+
+=={{header|JavaScript}}==
+Objects can be copied in JavaScript via simple reassignment. 
+Changes to the properties of one will be reflected in the other:
+<lang javascript>var container = {myString: "Hello"};
+var containerCopy = container; // Now both identifiers refer to the same object
+
+containerCopy.myString = "Goodbye"; // container.myString will also return "Goodbye"</lang>
+
+If you copy property values with reassignment, such as properties of the global object (<code>window</code> in browsers), only the value will be copied and not the reference
+<lang javascript>var a = "Hello";
+var b = a; // Same as saying window.b = window.a
+
+b = "Goodbye" // b contains a copy of a's value and a will still return "Hello"</lang>
+

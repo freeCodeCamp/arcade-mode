@@ -1,0 +1,182 @@
+Roman numerals/Decode
+
+{{task}}
+
+;Task:
+Create a function that takes a Roman numeral as its argument and returns its value as a numeric decimal integer. 
+
+You don't need to validate the form of the Roman numeral.
+
+Modern Roman numerals are written by expressing each decimal digit of the number to be encoded separately, 
+<br>starting with the leftmost decimal digit and skipping any '''0'''s &nbsp; (zeroes). 
+
+'''1990''' is rendered as &nbsp; '''MCMXC''' &nbsp; &nbsp; (1000 = M, &nbsp; 900 = CM, &nbsp; 90 = XC) &nbsp; &nbsp; and 
+<br>'''2008''' is rendered as &nbsp; '''MMVIII''' &nbsp; &nbsp; &nbsp; (2000 = MM, &nbsp; 8 = VIII).
+ 
+The Roman numeral for '''1666''', &nbsp; '''MDCLXVI''', &nbsp; uses each letter in descending order.
+<br><br>
+
+
+=={{header|JavaScript}}==
+===ES5===
+====Imperative====
+{{works with|Rhino}}
+{{works with|SpiderMonkey}}
+<lang javascript>var Roman = {
+  Values: [['CM', 900],  ['CD', 400], ['XC',  90], ['XL',  40], ['IV', 4],   
+           ['IX',   9], ['V',   5], ['X',   10], ['L',  50], 
+           ['C',  100], ['M', 1000], ['I',    1], ['D',  500]],
+  UnmappedStr : 'Q',
+  parse: function(str) {
+    var result = 0
+    for (var i=0; i<Roman.Values.length; ++i) {
+      var pair = Roman.Values[i]
+      var key = pair[0]
+      var value = pair[1]
+      var regex = RegExp(key)
+      while (str.match(regex)) {
+        result += value
+        str = str.replace(regex, Roman.UnmappedStr)
+      }
+    }
+    return result
+  }
+}
+
+var test_data = ['MCMXC', 'MDCLXVI', 'MMVIII']
+for (var i=0; i<test_data.length; ++i) {
+  var test_datum = test_data[i]
+  print(test_datum + ": " + Roman.parse(test_datum)) 
+}</lang>
+{{out}}
+<pre>MCMXC: 1990
+MDCLXVI: 1666
+MMVIII: 2008
+</pre>
+====Functional====
+{{Trans|Haskell}}
+<lang JavaScript>(function (lstTest) {
+ 
+    var mapping = [["M", 1000], ["CM", 900], ["D", 500], ["CD", 400], ["C", 100], [
+        "XC", 90], ["L", 50], ["XL", 40], ["X", 10], ["IX", 9], ["V", 5], ["IV",
+        4], ["I", 1]];
+ 
+    // s -> n
+    function romanValue(s) {
+        // recursion over list of characters
+        // [c] -> n
+        function toArabic(lst) {
+            return lst.length ? function (xs) {
+                var lstParse = chain(mapping, function (lstPair) {
+                    return isPrefixOf(
+                        lstPair[0], xs
+                    ) ? [lstPair[1], drop(lstPair[0].length, xs)] : []
+                });
+                return lstParse[0] + toArabic(lstParse[1]);
+            }(lst) : 0
+        }
+        return toArabic(s.split(''));
+    }
+ 
+    // Monadic bind (chain) for lists
+    function chain(xs, f) {
+        return [].concat.apply([], xs.map(f));
+    }
+ 
+    // [a] -> [a] -> Bool
+    function isPrefixOf(lstFirst, lstSecond) {
+        return lstFirst.length ? (
+            lstSecond.length ?
+            lstFirst[0] === lstSecond[0] && isPrefixOf(
+                lstFirst.slice(1), lstSecond.slice(1)
+            ) : false
+        ) : true;
+    }
+ 
+    // Int -> [a] -> [a]
+    function drop(n, lst) {
+        return n <= 0 ? lst : (
+            lst.length ? drop(n - 1, lst.slice(1)) : []
+        );
+    }
+ 
+    return lstTest.map(romanValue);
+ 
+})(['MCMXC', 'MDCLXVI', 'MMVIII']);</lang>
+{{Out}}
+<lang JavaScript>[1990, 1666, 2008]</lang>
+
+or, more natively:
+<lang JavaScript>(function (lstTest) {
+ 
+    function romanValue(s) {
+        return s.length ? function () {
+            var parse = [].concat.apply([], glyphs.map(function (g) {
+                return 0 === s.indexOf(g) ? [trans[g], s.substr(g.length)] : [];
+            }));
+            return parse[0] + romanValue(parse[1]);
+        }() : 0;
+    }
+ 
+    var trans = {
+            M: 1E3,
+            CM: 900,
+            D: 500,
+            CD: 400,
+            C: 100,
+            XC: 90,
+            L: 50,
+            XL: 40,
+            X: 10,
+            IX: 9,
+            V: 5,
+            IV: 4,
+            I: 1
+        },
+        glyphs = Object.keys(trans);
+ 
+    return lstTest.map(romanValue);
+ 
+})(["MCMXC", "MDCLXVI", "MMVIII", "MMMM"]);</lang>
+{{Out}}
+<lang JavaScript>[1990, 1666, 2008]</lang>
+
+===ES6===
+<lang JavaScript>(() => {
+    // romanValue :: String -> Int
+    const romanValue = s =>
+        s.length ? (() => {
+            const parse = [].concat(
+                ...glyphs.map(g => 0 === s.indexOf(g) ? (
+                    [dctTrans[g], s.substr(g.length)]
+                ) : [])
+            );
+            return parse[0] + romanValue(parse[1]);
+        })() : 0;
+
+    // dctTrans :: {romanKey: Integer}
+    const dctTrans = {
+        M: 1E3,
+        CM: 900,
+        D: 500,
+        CD: 400,
+        C: 100,
+        XC: 90,
+        L: 50,
+        XL: 40,
+        X: 10,
+        IX: 9,
+        V: 5,
+        IV: 4,
+        I: 1
+    };
+
+    // glyphs :: [romanKey]
+    const glyphs = Object.keys(dctTrans);
+
+    // TEST -------------------------------------------------------------------
+    return ["MCMXC", "MDCLXVI", "MMVIII", "MMMM"].map(romanValue);
+})();</lang>
+{{Out}}
+<lang JavaScript>[1990,1666,2008,4000]</lang>
+

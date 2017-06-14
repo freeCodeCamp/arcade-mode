@@ -1,0 +1,85 @@
+Cumulative standard deviation
+
+{{task|Probability and statistics}}
+
+{{task heading}}
+
+Write a stateful function, class, generator or co-routine that takes a series of floating point numbers, ''one at a time'', and returns the running [[wp:Standard Deviation|standard deviation]] of the series. 
+
+The task implementation should use the most natural programming style of those listed for the function in the implementation language; the task ''must'' state which is being used. 
+
+Do not apply [[wp:Bessel's correction|Bessel's correction]]; the returned standard deviation should always be computed as if the sample seen so far is the entire population.
+
+Use this to compute the standard deviation of this demonstration set, <math>\{2, 4, 4, 4, 5, 5, 7, 9\}</math>, which is <math>2</math>.
+
+{{task heading|See also}}
+
+Related tasks:
+
+* [[Random numbers]]
+
+{{Related tasks/Statistical measures}}
+
+<hr>
+
+
+=={{header|JavaScript}}==
+
+===Imperative===
+
+Uses a closure.
+<lang javascript>function running_stddev() {
+    var n = 0;
+    var sum = 0.0;
+    var sum_sq = 0.0;
+    return function(num) {
+        n++;
+        sum += num;
+        sum_sq += num*num;
+        return Math.sqrt( (sum_sq / n) - Math.pow(sum / n, 2) );
+    }
+}
+
+var sd = running_stddev();
+var nums = [2,4,4,4,5,5,7,9];
+var stddev = [];
+for (var i in nums) 
+    stddev.push( sd(nums[i]) );
+
+// using WSH
+WScript.Echo(stddev.join(', ');</lang>
+
+{{out}}
+<pre>0, 1, 0.942809041582063, 0.866025403784439, 0.979795897113273, 1, 1.39970842444753, 2</pre>
+
+===Functional (ES 5)===
+
+Accumulating across a fold
+
+<lang JavaScript>(function (xs) {
+    
+    return xs.reduce(function (a, x, i) {
+        var n = i + 1,
+            sum_ = a.sum + x,
+            squaresSum_ = a.squaresSum + (x * x);
+
+        return {
+            sum: sum_,
+            squaresSum: squaresSum_,
+            stages: a.stages.concat(
+                Math.sqrt((squaresSum_ / n) - Math.pow((sum_ / n), 2))
+            )
+        };
+
+    }, {
+        sum: 0,
+        squaresSum: 0,
+        stages: []
+    }).stages
+
+})([2, 4, 4, 4, 5, 5, 7, 9]);</lang>
+
+{{Out}}
+<lang JavaScript>[0, 1, 0.9428090415820626, 0.8660254037844386, 
+0.9797958971132716, 1, 1.3997084244475297, 2]</lang>
+

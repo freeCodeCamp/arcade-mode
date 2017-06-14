@@ -1,0 +1,15 @@
+String concatenation
+
+{{task|Basic language learning}}[[Category:String manipulation]][[Category: String manipulation]]{{basic data operation}}[[Category:Simple]]
+Create a string variable equal to any text value. 
+Create another string variable whose value is the original variable concatenated with another string literal.
+
+To illustrate the operation, show the content of the variables.
+
+{{Template:Strings}}
+
+
+=={{header|JavaScript}}==
+<lang javascript>var s = "hello"
+print(s + " there!")</lang>
+

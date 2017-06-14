@@ -1,0 +1,72 @@
+Exceptions/Catch an exception thrown in a nested call
+
+{{Task|Control Structures}}
+{{omit from|C}}
+{{omit from|GUISS}}
+{{omit from|M4}}
+{{omit from|Retro}}
+{{omit from|Swift}}
+
+Show how to create a user-defined exception &nbsp; and &nbsp; show how to catch an exception raised from several nested calls away.
+
+:# &nbsp; Create two user-defined exceptions, &nbsp; '''U0''' &nbsp; and &nbsp; '''U1'''. 
+:# &nbsp; Have function &nbsp; '''foo''' &nbsp; call function &nbsp; '''bar''' &nbsp; twice.
+:# &nbsp; Have function &nbsp; '''bar''' &nbsp; call function &nbsp; '''baz'''. 
+:# &nbsp; Arrange for function &nbsp; '''baz''' &nbsp; to raise, or throw exception &nbsp; '''U0''' &nbsp; on its first call, then exception &nbsp; '''U1''' &nbsp; on its second.
+:# &nbsp; Function &nbsp; '''foo''' &nbsp; should catch only exception &nbsp; '''U0''', &nbsp; not &nbsp; '''U1'''.
+
+<br>
+Show/describe what happens when the program is run.
+<br><br>
+
+
+=={{header|JavaScript}}==
+{{works with|Rhino}}
+
+{{works with|SpiderMonkey}}
+
+{{works with|Firefox}} except for the print() function
+
+The <code>callee.name</code> property, and the <code>catch(e if ...)</code> statement are Mozilla JavaScript extensions.
+
+<lang javascript>function U() {}
+U.prototype.toString = function(){return this.className;}
+
+function U0() { 
+    this.className = arguments.callee.name; 
+}
+U0.prototype = new U();
+
+function U1() {
+    this.className = arguments.callee.name; 
+}
+U1.prototype = new U();
+
+function foo() {
+    for (var i = 1; i <= 2; i++) {
+        try {
+            bar();
+        }
+        catch(e if e instanceof U0) {
+            print("caught exception " + e);
+        }
+    }
+}
+
+function bar() {
+    baz();
+}
+
+function baz() {
+    // during the first call, redefine the function for subsequent calls
+    baz = function() {throw(new U1());}
+    throw(new U0());
+}
+
+foo();</lang>
+{{out}} from [[Rhino]]:
+<pre>caught exception U0
+js: "nested_calls.js", line 31: exception from uncaught JavaScript throw: U1</pre>
+{{out}} from [[SpiderMonkey]]:
+<pre>caught exception U0
+uncaught exception: U1</pre>

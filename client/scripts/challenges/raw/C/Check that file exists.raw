@@ -1,0 +1,123 @@
+Check that file exists
+
+{{task|File System Operations}} [[Category:Simple]]
+
+;Task:
+Verify that a file called &nbsp; &nbsp; '''input.txt''' &nbsp; &nbsp; and &nbsp; a directory called &nbsp; &nbsp; '''docs''' &nbsp; &nbsp; exist.
+ 
+
+This should be done twice: &nbsp; 
+:::* &nbsp; once for the current working directory, &nbsp; and
+:::* &nbsp; once for a file and a directory in the filesystem root.
+
+<br>
+Optional criteria (May 2015): &nbsp; verify it works with:
+:::* &nbsp; zero-length files
+:::* &nbsp; an unusual filename: &nbsp; <big> ''' `Abdu'l-Bahá.txt ''' </big>
+<br><br>
+
+
+=={{header|JavaScript}}==
+Javascript interpreters are now widely embedded in contexts which do have access to file systems, but the early context of browser scripting has precluded the inclusion of file system libraries in the definition of the language itself.
+Each non-browser JS context is likely to have its own home-grown and unstandardised file system library.
+===JScript===
+<lang javascript>var fso = new ActiveXObject("Scripting.FileSystemObject");
+
+fso.FileExists('input.txt');
+fso.FileExists('c:/input.txt');
+fso.FolderExists('docs');
+fso.FolderExists('c:/docs');</lang>
+
+===macOS JavaScript for Automation===
+====ES6: Sierra onwards====
+{{Trans|Haskell}}
+(Adopting function names used in the Haskell System.Directory library)
+<lang JavaScript>(() => {
+
+    // SYSTEM DIRECTORY FUNCTIONS
+    // FOR MAC OS 'JAVASCRIPT FOR AUTOMATION' SCRIPTING -----------------------
+
+    // doesDirectoryExist :: String -> IO Bool
+    const doesDirectoryExist = strPath => {
+        const
+            dm = $.NSFileManager.defaultManager,
+            ref = Ref();
+        return dm
+            .fileExistsAtPathIsDirectory(
+                $(strPath)
+                .stringByStandardizingPath, ref
+            ) && ref[0] === 1;
+    };
+
+    // doesFileExist :: String -> Bool
+    const doesFileExist = strPath => {
+        var error = $();
+        return (
+            $.NSFileManager.defaultManager
+            .attributesOfItemAtPathError(
+                $(strPath)
+                .stringByStandardizingPath,
+                error
+            ),
+            error.code === undefined
+        );
+    };
+
+    // getCurrentDirectory :: String
+    const getCurrentDirectory = () =>
+        ObjC.unwrap($.NSFileManager.defaultManager.currentDirectoryPath);
+
+    // getFinderDirectory :: String
+    const getFinderDirectory = () =>
+        Application('Finder')
+        .insertionLocation()
+        .url()
+        .slice(7);
+
+    // getHomeDirectory :: String
+    const getHomeDirectory = () =>
+        ObjC.unwrap($.NSHomeDirectory());
+
+    // setCurrentDirectory :: String -> IO ()
+    const setCurrentDirectory = strPath =>
+        $.NSFileManager.defaultManager
+        .changeCurrentDirectoryPath(
+            $(strPath)
+            .stringByStandardizingPath
+        );
+
+    // GENERIC FUNCTIONS FOR THE TEST -----------------------------------------
+
+    // A list of functions applied to a list of arguments
+    // <*> :: [(a -> b)] -> [a] -> [b]
+    const ap = (fs, xs) => //
+        [].concat.apply([], fs.map(f => //
+            [].concat.apply([], xs.map(x => [f(x)]))));
+
+    // show :: a -> String
+    const show = x => JSON.stringify(x, null, 2);
+
+    // TEST -------------------------------------------------------------------
+    return (
+        setCurrentDirectory('~/Desktop'),
+        show(ap(
+            [doesFileExist, doesDirectoryExist],
+            ['input.txt', '/input.txt', 'docs', '/docs']
+        ))
+    );
+})();</lang>
+{{Out}}
+The first four booleans are returned by doesFileExist – the last four by 
+doesDirectoryExist, which returns false in the case of files which do 
+exist but are not directories.
+<pre>[
+  true,
+  true,
+  true,
+  true,
+  false,
+  false,
+  true,
+  true
+]</pre>
+

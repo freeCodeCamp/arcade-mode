@@ -1,0 +1,33 @@
+Apply a callback to an array
+
+{{task|Basic language learning}}
+[[Category:Iteration]]
+
+;Task:
+Take a combined set of elements and apply a function to each element.
+<br><br>
+
+
+=={{header|JavaScript}}==
+
+===ES3===
+<lang javascript>function map(a, func) {
+  var ret = [];
+  for (var i = 0; i < a.length; i++) {
+    ret[i] = func(a[i]);
+  }
+  return ret;
+}
+
+map([1, 2, 3, 4, 5], function(v) { return v * v; });</lang>
+
+===ES5===
+<lang javascript>[1, 2, 3, 4, 5].map(function(v) { return v * v; });</lang>
+
+===ES6===
+<lang javascript>[1, 2, 3, 4, 5].map(v => v * v);</lang>
+
+The result is always: 
+
+<pre>[1, 4, 9, 16, 25]</pre>
+

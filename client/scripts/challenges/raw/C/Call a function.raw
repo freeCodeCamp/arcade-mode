@@ -1,0 +1,64 @@
+Call a function
+
+{{task}}[[Category:Functions and subroutines]] 
+[[Category:Simple]]
+
+;Task:
+Demonstrate the different syntax and semantics provided for calling a function. 
+
+
+This may include:
+:* &nbsp; Calling a function that requires no arguments
+:* &nbsp; Calling a function with a fixed number of arguments
+:* &nbsp; Calling a function with [[Optional parameters|optional arguments]]
+:* &nbsp; Calling a function with a [[Variadic function|variable number of arguments]]
+:* &nbsp; Calling a function with [[Named parameters|named arguments]]
+:* &nbsp; Using a function in statement context
+:* &nbsp; Using a function in [[First-class functions|first-class context]] within an expression
+:* &nbsp; Obtaining the return value of a function
+:* &nbsp; Distinguishing built-in functions and user-defined functions
+:* &nbsp; Distinguishing subroutines and functions
+;* &nbsp; Stating whether arguments are [[:Category:Parameter passing|passed]] by value or by reference
+;* &nbsp; Is partial application possible and how
+
+<br>
+This task is ''not'' about [[Function definition|defining functions]].
+<br><bR>
+
+
+=={{header|JavaScript}}==
+
+The arguments to a JavaScript function are stored in a special array-like object which does not enforce arity in any way; a function declared to take ''n'' arguments may be called with none‒and vice versa‒without raising an error.
+
+<lang JavaScript>var foo = function() { return arguments.length };
+foo() // 0
+foo(1, 2, 3) // 3</lang>
+
+Neither optional (see above) nor named arguments are supported, though the latter (and the inverse of the former) may be simulated with the use of a helper object to be queried for the existence and/or values of relevant keys. <span style="color: transparent;">Seriously, what is "statement context"?</span>
+
+JavaScript functions are first-class citizens; they can be stored in variables (see above) and passed as arguments.
+<lang JavaScript>var squares = [1, 2, 3].map(function (n) { return n * n }); // [1, 4, 9]</lang>
+
+Naturally, they can also be returned, thus partial application is supported.
+<lang JavaScript>
+var make_adder = function(m) {
+    return function(n) { return m + n }
+};
+var add42 = make_adder(42);
+add42(10) // 52</lang>
+
+Calling a user-defined function's <tt>toString()</tt> method returns its source verbatim; that the implementation is elided for built-ins provides a mechanism for distinguishing between the two.
+
+<lang JavaScript>foo.toString()
+"function () { return arguments.length }"
+alert.toString()
+"function alert() { [native code] }"</lang>
+
+Arguments are passed by value, but the members of collections are essentially passed by reference and thus propagate modification.
+<lang JavaScript>var mutate = function(victim) {
+    victim[0] = null;
+    victim = 42;
+};
+var foo = [1, 2, 3];
+mutate(foo) // foo is now [null, 2, 3], not 42</lang>
+

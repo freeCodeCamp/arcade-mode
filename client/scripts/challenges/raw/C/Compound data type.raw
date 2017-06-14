@@ -1,0 +1,42 @@
+Compound data type
+
+{{task|Basic language learning}}
+{{Data structure}}
+
+;Task:
+Create a compound data type:
+  <big> Point(x,y) </big>
+
+
+A compound data type is one that holds multiple independent values. 
+
+
+;Related task:
+* &nbsp; [[Enumeration]]
+
+
+{{Template:See also lists}}
+<br><br>
+
+
+=={{header|JavaScript}}==
+
+<lang javascript>//using object literal syntax
+var point = {x : 1, y : 2};
+
+//using constructor
+var Point = function (x, y) {
+  this.x = x;
+  this.y = y;
+};
+point = new Point(1, 2);
+
+//using ES6 class syntax
+class Point {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+  }
+}
+point = new Point(1, 2);</lang>
+

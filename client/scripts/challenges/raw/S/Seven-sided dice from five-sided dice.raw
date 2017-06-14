@@ -1,0 +1,55 @@
+Seven-sided dice from five-sided dice
+
+{{task|Probability and statistics}}
+
+;Task:
+(Given an equal-probability generator of one of the integers 1 to 5
+as <code>dice5</code>), &nbsp; create <code>dice7</code> that generates a pseudo-random integer from
+1 to 7 in equal probability using only <code>dice5</code> as a source of random
+numbers, &nbsp; and check the distribution for at least one million calls using the function created in &nbsp; [[Verify distribution uniformity/Naive|Simple Random Distribution Checker]].
+
+
+'''Implementation suggestion:'''
+<code>dice7</code> might call <code>dice5</code> twice, re-call if four of the 25
+combinations are given, otherwise split the other 21 combinations
+into 7 groups of three, and return the group index from the rolls.
+
+<small>(Task adapted from an answer [http://stackoverflow.com/questions/90715/what-are-the-best-programming-puzzles-you-came-across here])</small>
+<br><br>
+
+
+=={{header|JavaScript}}==
+{{trans|Ruby}}
+<lang javascript>function dice5()
+{
+ return 1 + Math.floor(5 * Math.random());
+}
+
+function dice7()
+{
+ while (true)
+ {
+  var dice55 = 5 * dice5() + dice5() - 6;
+  if (dice55 < 21)
+   return dice55 % 7 + 1;
+ }
+}
+
+distcheck(dice5, 1000000);
+print();
+distcheck(dice7, 1000000);</lang>
+{{out}}
+<pre>1       199792
+2       200425
+3       199243
+4       200407
+5       200133
+
+1       143617
+2       142209
+3       143023
+4       142990
+5       142894
+6       142648
+7       142619 </pre>
+

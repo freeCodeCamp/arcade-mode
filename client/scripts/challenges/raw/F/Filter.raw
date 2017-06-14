@@ -1,0 +1,65 @@
+Filter
+
+{{task|Basic language learning}}
+[[Category:Iteration]]
+
+;Task:
+Select certain elements from an Array into a new Array in a generic way. 
+
+
+To demonstrate, select all even numbers from an Array.
+
+As an option, give a second solution which filters destructively, 
+by modifying the original Array rather than creating a new Array.
+<br><br>
+
+
+=={{header|JavaScript}}==
+===ES5===
+The standard way is to use the [https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Global_Objects/Array/filter Array.prototype.filter] function ({{works with|JavaScript|1.6}}):
+<lang javascript>var arr = [1,2,3,4,5];
+var evens = arr.filter(function(a) {return a % 2 == 0});</lang>
+
+Other ways:
+<lang javascript>var arr = [1,2,3,4,5];
+var evens = [];
+for (var i=0, ilen=arr.length; i<ilen; i++)
+      if (arr[i] % 2 == 0)
+              evens.push(arr[i]);</lang>
+
+{{works with|Firefox|2.0}}
+
+<lang javascript>var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+var evens = [i for (i in numbers) if (i % 2 == 0)];
+
+function range(limit) {
+  for(var i = 0; i < limit; i++) {
+    yield i;
+  }
+}
+
+var evens2 = [i for (i in range(100)) if (i % 2 == 0)];</lang>
+
+{{libheader|Functional}}
+<lang javascript>Functional.select("+1&1", [1,2,3,4])   // [2, 4]</lang>
+
+===ES6===
+
+<lang JavaScript>(() => {
+    'use strict';
+
+    // isEven :: Int -> Bool
+    const isEven = n => n % 2 === 0;
+
+
+    // TEST
+    
+    return [1,2,3,4,5,6,7,8,9]
+        .filter(isEven);
+
+    // [2, 4, 6, 8]
+})();</lang>
+
+{{Out}}
+<lang JavaScript>[2, 4, 6, 8]</lang>
+

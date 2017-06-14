@@ -1,0 +1,65 @@
+Non-decimal radices/Output
+
+{{task|Arithmetic operations}}
+
+Programming languages often have built-in routines to convert a non-negative integer for printing in different number bases. Such common number bases might include binary, [[Octal]] and [[Hexadecimal]].
+
+
+;Task:
+Print a small range of integers in some different bases, as supported by standard routines of your programming language. 
+
+
+;Note:
+This is distinct from [[Number base conversion]] as a user-defined conversion function is '''not''' asked for.)
+
+The reverse operation is [[Common number base parsing]].
+<br><br>
+
+
+=={{header|JavaScript}}==
+The <code><i>number</i>.toString(<i>radix</i>)</code> method produces a string representation of a number in any radix between 2 and 36.
+
+<lang javascript>var bases = [2, 8, 10, 16, 24];
+for (var n = 0; n <= 33; n++) {
+    var row = [];
+    for (var i = 0; i < bases.length; i++)
+        row.push( n.toString(bases[i]) );
+    print(row.join(', '));
+}</lang>
+
+outputs
+<pre style='height: 30ex; overflow: scroll'>0, 0, 0, 0, 0
+1, 1, 1, 1, 1
+10, 2, 2, 2, 2
+11, 3, 3, 3, 3
+100, 4, 4, 4, 4
+101, 5, 5, 5, 5
+110, 6, 6, 6, 6
+111, 7, 7, 7, 7
+1000, 10, 8, 8, 8
+1001, 11, 9, 9, 9
+1010, 12, 10, a, a
+1011, 13, 11, b, b
+1100, 14, 12, c, c
+1101, 15, 13, d, d
+1110, 16, 14, e, e
+1111, 17, 15, f, f
+10000, 20, 16, 10, g
+10001, 21, 17, 11, h
+10010, 22, 18, 12, i
+10011, 23, 19, 13, j
+10100, 24, 20, 14, k
+10101, 25, 21, 15, l
+10110, 26, 22, 16, m
+10111, 27, 23, 17, n
+11000, 30, 24, 18, 10
+11001, 31, 25, 19, 11
+11010, 32, 26, 1a, 12
+11011, 33, 27, 1b, 13
+11100, 34, 28, 1c, 14
+11101, 35, 29, 1d, 15
+11110, 36, 30, 1e, 16
+11111, 37, 31, 1f, 17
+100000, 40, 32, 20, 18
+100001, 41, 33, 21, 19</pre>
+

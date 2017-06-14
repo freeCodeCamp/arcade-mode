@@ -1,0 +1,49 @@
+Vigenère cipher
+
+{{task|Encryption}} 
+[[Category:String manipulation]]
+{{omit from|GUISS|would need to install an application that could do this}}
+{{omit from|Openscad}}
+
+;Task:
+Implement a &nbsp; [[wp:Vigen%C3%A8re_cipher|Vigenère cypher]], &nbsp; both encryption and decryption. 
+
+The program should handle keys and text of unequal length, 
+and should capitalize everything and discard non-alphabetic characters. <br>
+(If your program handles non-alphabetic characters in another way, 
+make a note of it.)
+
+
+;Related tasks:
+* &nbsp; [[Caesar cipher]]
+* &nbsp; [[Rot-13]]
+* &nbsp; [[Substitution Cipher]]
+<br><br>
+
+
+=={{header|JavaScript}}==
+<lang javascript>// helpers
+// helper
+function ordA(a) {
+  return a.charCodeAt(0) - 65;
+}
+
+// vigenere
+function vigenere(text, key, decode) {
+  var i = 0, b;
+  key = key.toUpperCase().replace(/[^A-Z]/g, '');
+  return text.toUpperCase().replace(/[^A-Z]/g, '').replace(/[A-Z]/g, function(a) {
+    b = key[i++ % key.length];
+    return String.fromCharCode(((ordA(a) + (decode ? 26 - ordA(b) : ordA(b))) % 26 + 65));
+  });
+}
+
+// example
+var text = "The quick brown fox Jumped over the lazy Dog the lazy dog lazy dog dog";
+var key = 'alex';
+var enc = vigenere(text,key);
+var dec = vigenere(enc,key,true);
+
+console.log(enc);
+console.log(dec);</lang>
+

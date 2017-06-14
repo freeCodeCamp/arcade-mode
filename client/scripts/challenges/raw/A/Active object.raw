@@ -1,0 +1,77 @@
+Active object
+
+{{task|Concurrency}}
+[[Category:Object oriented]]{{requires|Concurrency}}{{requires|Objects}}{{requires|Mutable State}}
+
+In [[object-oriented programming]] an object is active when its state depends on clock. Usually an active object encapsulates a [[task]] that updates the object's state. To the outer world the object looks like a normal object with methods that can be called from outside. Implementation of such methods must have a certain synchronization mechanism with the encapsulated task in order to prevent object's state corruption.
+
+A typical instance of an active object is an animation widget. The widget state changes with the time, while as an object it has all properties of a normal widget.
+
+'''The task'''
+
+Implement an active integrator object. The object has an input and output. The input can be set using the method ''Input''. The input is a function of time. The output can be queried using the method ''Output''. The object integrates its input over the time and the result becomes the object's output. So if the input is ''K''(''t'') and the output is ''S'', the object state ''S'' is changed to ''S'' + (''K''(''t''<sub>1</sub>) + ''K''(''t''<sub>0</sub>)) * (''t''<sub>1</sub> - ''t''<sub>0</sub>) / 2, i.e. it integrates ''K'' using the trapeze method. Initially ''K'' is constant 0 and ''S'' is 0.
+
+In order to test the object:
+# set its input to sin (2π ''f t''), where the frequency ''f''=0.5Hz. The phase is irrelevant.
+# wait 2s
+# set the input to constant 0
+# wait 0.5s
+
+Verify that now the object's output is approximately 0 (the sine has the period of 2s). The accuracy of the result will depend on the [[OS]] scheduler time slicing and the accuracy of the clock.
+
+{{omit from|VBScript}}
+
+=={{header|JavaScript}}==
+
+{{trans|E}}
+
+<lang javascript>function Integrator(sampleIntervalMS) {
+    var inputF = function () { return 0.0 };
+    var sum = 0.0;
+  
+    var t1 = new Date().getTime();
+    var input1 = inputF(t1 / 1000);
+  
+    function update() {
+        var t2 = new Date().getTime();
+        var input2 = inputF(t2 / 1000);
+        var dt = (t2 - t1) / 1000;
+        
+        sum += (input1 + input2) * dt / 2;
+        
+        t1 = t2;
+        input1 = input2;
+    }
+    
+    var updater = setInterval(update, sampleIntervalMS);
+  
+    return ({
+        input: function (newF) { inputF = newF },
+        output: function () { return sum },
+        shutdown: function () { clearInterval(updater) },
+    });
+}</lang>
+
+Test program as a HTML fragment:
+
+<lang html4strict><p><span id="a">Test running...</span> <code id="b">-</code></p>
+
+<script type="text/javascript">
+    var f = 0.5;
+
+    var i = new Integrator(1);
+    var displayer = setInterval(function () { document.getElementById("b").firstChild.data = i.output() }, 100)
+  
+    setTimeout(function () {
+        i.input(function (t) { return Math.sin(2*Math.PI*f*t) }); // test step 1
+        setTimeout(function () { // test step 2
+            i.input(function (t) { return 0 }); // test step 3
+            setTimeout(function () { // test step 3
+                i.shutdown();
+                clearInterval(displayer);
+                document.getElementById("a").firstChild.data = "Done, should be about 0: "
+            }, 500);      
+        }, 2000);
+    }, 1)
+</script></lang>
+

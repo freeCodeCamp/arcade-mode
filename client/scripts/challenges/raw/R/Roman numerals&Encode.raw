@@ -1,0 +1,165 @@
+Roman numerals/Encode
+
+{{task}} 
+[[Category:String_manipulation]]
+{{omit from|GUISS}}
+
+;Task:
+Create a function taking a positive integer as its parameter and returning a string containing the Roman numeral representation of that integer. Modern Roman numerals are written by expressing each digit separately, starting with the left most digit and skipping any digit with a value of zero. 
+
+
+In Roman numerals:
+* 1990  is rendered: 1000=M, 900=CM, 90=XC; resulting in MCMXC
+* 2008  is written as 2000=MM, 8=VIII; or MMVIII
+* 1666  uses each Roman symbol in descending order: MDCLXVI
+<br><br>
+
+
+=={{header|JavaScript}}==
+
+===ES5===
+====Iteration====
+
+{{trans|Tcl}}
+<lang javascript>var roman = {
+    map: [
+        1000, 'M', 900, 'CM', 500, 'D', 400, 'CD', 100, 'C', 90, 'XC',
+        50, 'L', 40, 'XL', 10, 'X', 9, 'IX', 5, 'V', 4, 'IV', 1, 'I',
+    ],
+    int_to_roman: function(n) {
+        var value = '';
+        for (var idx = 0; n > 0 && idx < this.map.length; idx += 2) {
+            while (n >= this.map[idx]) {
+                value += this.map[idx + 1];
+                n -= this.map[idx];
+            }
+        }
+        return value;
+    }
+}
+
+roman.int_to_roman(1999); // "MCMXCIX"</lang>
+
+====Functional composition====
+
+<lang JavaScript>(function () {
+    'use strict';
+
+
+    // If the Roman is a string, pass any delimiters through
+
+    // (Int | String) -> String
+    function romanTranscription(a) {
+        if (typeof a === 'string') {
+            var ps = a.split(/\d+/),
+                dlm = ps.length > 1 ? ps[1] : undefined;
+
+            return (dlm ? a.split(dlm)
+                    .map(function (x) {
+                        return Number(x);
+                    }) : [a])
+                .map(roman)
+                .join(dlm);
+        } else return roman(a);
+    }
+
+    // roman :: Int -> String
+    function roman(n) {
+        return [[1000, "M"], [900, "CM"], [500, "D"], [400, "CD"], [100,
+        "C"], [90, "XC"], [50, "L"], [40, "XL"], [10, "X"], [9,
+        "IX"], [5, "V"], [4, "IV"], [1, "I"]]
+            .reduce(function (a, lstPair) {
+                var m = a.remainder,
+                    v = lstPair[0];
+
+                return (v > m ? a : {
+                    remainder: m % v,
+                    roman: a.roman + Array(
+                            Math.floor(m / v) + 1
+                        )
+                        .join(lstPair[1])
+                });
+            }, {
+                remainder: n,
+                roman: ''
+            }).roman;   
+    }
+
+    // TEST
+
+    return [2016, 1990, 2008, "14.09.2015", 2000, 1666].map(
+        romanTranscription);
+
+})();</lang>
+
+{{Out}}
+<lang JavaScript>["MMXVI", "MCMXC", "MMVIII", "XIV.IX.MMXV", "MM", "MDCLXVI"]</lang>
+
+
+===ES6===
+<lang JavaScript>(() => {
+    'use strict';
+
+    // roman :: Int -> String
+    const roman = n => [
+            [1000, "M"],
+            [900, "CM"],
+            [500, "D"],
+            [400, "CD"],
+            [100,"C"],
+            [90, "XC"],
+            [50, "L"],
+            [40, "XL"],
+            [10, "X"],
+            [9,"IX"],
+            [5, "V"],
+            [4, "IV"],
+            [1, "I"]
+        ]
+        .reduce((a, lstPair) => {
+            const m = a.remainder,
+                v = lstPair[0];
+            return (v > m ? a : {
+                remainder: m % v,
+                roman: a.roman + Array(
+                        Math.floor(m / v) + 1
+                    )
+                    .join(lstPair[1])
+            });
+        }, {
+            remainder: n,
+            roman: ''
+        })
+        .roman;
+
+    // TEST
+
+    // If the input is a decimal string, pass any delimiters through
+    // romanTranscription :: (Int | String) -> String
+    const romanTranscription = a => {
+        if (typeof a === 'string') {
+            const ps = a.split(/\d+/),
+                dlm = ps.length > 1 ? ps[1] : undefined;
+
+            return (dlm ? a.split(dlm)
+                    .map(Number) : [a])
+                .map(roman)
+                .join(dlm);
+        } else return roman(a);
+    }
+
+    // TEST
+    return [2016, 1990, 2008, "14.09.2015", 2000, 1666]
+        .map(romanTranscription);
+})();</lang>
+
+{{Out}}
+<lang JavasCript>[
+  "MMXVI",
+  "MCMXC",
+  "MMVIII",
+  "XIV.IX.MMXV",
+  "MM",
+  "MDCLXVI"
+]</lang>
+

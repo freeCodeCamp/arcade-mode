@@ -1,0 +1,27 @@
+Doubly-linked list/Element insertion
+
+{{task|Data Structures}}Use the link structure defined in [[Doubly-Linked List (element)]] to define a procedure for inserting a link into a doubly-linked list. Call this procedure to insert element C into a list {A,B}, between elements A and B.
+
+This is much like inserting into a [[Singly-Linked List (element insertion)|Singly-Linked List]], but with added assignments so that the backwards-pointing links remain correct.
+
+{{Template:See also lists}}
+
+=={{header|JavaScript}}==
+See [[Doubly-Linked_List_(element)#JavaScript]]
+<lang javascript>DoublyLinkedList.prototype.insertAfter = function(searchValue, nodeToInsert) {
+    if (this._value == searchValue) {
+        var after = this.next();
+        this.next(nodeToInsert);
+        nodeToInsert.prev(this);
+        nodeToInsert.next(after);
+        after.prev(nodeToInsert);
+    }
+    else if (this.next() == null) 
+        throw new Error(0, "value '" + searchValue + "' not found in linked list.")
+    else
+        this.next().insertAfter(searchValue, nodeToInsert);
+}
+
+var list = createDoublyLinkedListFromArray(['A','B']);
+list.insertAfter('A', new DoublyLinkedList('C', null, null));</lang>
+

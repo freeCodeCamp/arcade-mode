@@ -1,0 +1,215 @@
+Sieve of Eratosthenes
+
+{{task|Prime Numbers}}
+{{clarified-review}}
+
+The [[wp:Sieve_of_Eratosthenes|Sieve of Eratosthenes]] is a simple algorithm that finds the prime numbers up to a given integer. 
+
+
+;Task:
+Implement the &nbsp; Sieve of Eratosthenes &nbsp; algorithm, with the only allowed optimization that the outer loop can stop at the square root of the limit, and the inner loop may start at the square of the prime just found. 
+
+That means especially that you shouldn't optimize by using pre-computed ''wheels'', i.e. don't assume you need only to cross out odd numbers (wheel based on 2), numbers equal to 1 or 5 modulo 6 (wheel based on 2 and 3), or similar wheels based on low primes.
+
+If there's an easy way to add such a wheel based optimization, implement it as an alternative version.
+
+
+;Note:
+* It is important that the sieve algorithm be the actual algorithm used to find prime numbers for the task.
+
+
+;Related tasks:
+* &nbsp; [[Emirp primes]]
+* &nbsp; [[count in factors]]
+* &nbsp; [[prime decomposition]]
+* &nbsp; [[factors of an integer]]
+* &nbsp; [[extensible prime generator]]
+* &nbsp; [[primality by trial division]]
+* &nbsp; [[factors of a Mersenne number]]
+* &nbsp; [[trial factoring of a Mersenne number]]
+* &nbsp; [[partition an integer X into N primes]]
+* &nbsp; [[sequence of primes by Trial Division]]
+<br><br>
+
+
+=={{header|JavaScript}}==
+<lang javascript>function eratosthenes(limit) {
+    var primes = [];
+    if (limit >= 2) {
+        var sqrtlmt = Math.sqrt(limit) - 2;
+        var nums = new Array(); // start with an empty Array...
+        for (var i = 2; i <= limit; i++) // and
+            nums.push(i); // only initialize the Array once...
+        for (var i = 0; i <= sqrtlmt; i++) {
+            var p = nums[i]
+            if (p)
+                for (var j = p * p - 2; j < nums.length; j += p)
+                    nums[j] = 0;
+        }
+        for (var i = 0; i < nums.length; i++) {
+            var p = nums[i];
+            if (p)
+                primes.push(p);
+        }
+    }
+    return primes;
+}
+
+var primes = eratosthenes(100);
+
+if (typeof print == "undefined")
+    print = (typeof WScript != "undefined") ? WScript.Echo : alert;
+print(primes);</lang>
+outputs:
+<pre>2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71,73,79,83,89,97</pre>
+
+Substituting the following code for the function for '''an odds-only algorithm using bit packing''' for the array produces code that is many times faster than the above:
+
+<lang javascript>function eratosthenes(limit) {
+    var prms = [];
+    if (limit >= 2) prms = [2];
+    if (limit >= 3) {
+        var sqrtlmt = (Math.sqrt(limit) - 3) >> 1;
+        var lmt = (limit - 3) >> 1;
+        var bfsz = (lmt >> 5) + 1
+        var buf = [];
+        for (var i = 0; i < bfsz; i++)
+            buf.push(0);
+        for (var i = 0; i <= sqrtlmt; i++)
+            if ((buf[i >> 5] & (1 << (i & 31))) == 0) {
+                var p = i + i + 3;
+                for (var j = (p * p - 3) >> 1; j <= lmt; j += p)
+                    buf[j >> 5] |= 1 << (j & 31);
+            }
+        for (var i = 0; i <= lmt; i++)
+            if ((buf[i >> 5] & (1 << (i & 31))) == 0)
+                prms.push(i + i + 3);
+    }
+    return prms;
+}</lang>
+
+While the above code is quite fast especially using an efficient JavaScript engine such as Google Chrome's V8, it isn't as elegant as it could be using the features of the new EcmaScript6 specification when it comes out about the end of 2014 and when JavaScript engines including those of browsers implement that standard in that we might choose to implement an incremental algorithm iterators or generators similar to as implemented in Python or F# (yield).  Meanwhile, we can emulate some of those features by using a simulation of an iterator class (which is easier than using a call-back function) for an '''"infinite" generator based on an Object dictionary''' as in the following odds-only code written as a JavaScript class:
+
+<lang javascript>var SoEIncClass = (function () {
+    function SoEIncClass() {
+        this.n = 0;
+    }
+    SoEIncClass.prototype.next = function () {
+        this.n += 2;
+        if (this.n < 7) { // initialization of sequence to avoid runaway:
+            if (this.n < 3) { // only even of two:
+                this.n = 1; // odds from here...
+                return 2;
+            }
+            if (this.n < 5)
+                return 3;
+            this.dict = {}; // n must be 5...
+            this.bps = new SoEIncClass(); // new source of base primes
+            this.bps.next(); // advance past the even prime of two...
+            this.p = this.bps.next(); // first odd prime (3 in this case)
+            this.q = this.p * this.p; // set guard
+            return 5;
+        } else { // past initialization:
+            var s = this.dict[this.n]; // may or may not be defined...
+            if (!s) { // not defined:
+                if (this.n < this.q) // haven't reached the guard:
+                    return this.n; // found a prime
+                else { // n === q => not prime but at guard, so:
+                    var p2 = this.p << 1; // the span odds-only is twice prime
+                    this.dict[this.n + p2] = p2; // add next composite of prime to dict
+                    this.p = this.bps.next();
+                    this.q = this.p * this.p; // get next base prime guard
+                    return this.next(); // not prime so advance...
+                }
+            } else { // is a found composite of previous base prime => not prime
+                delete this.dict[this.n]; // advance to next composite of this prime:
+                var nxt = this.n + s;
+                while (this.dict[nxt]) nxt += s; // find unique empty slot in dict
+                this.dict[nxt] = s; // to put the next composite for this base prime
+                return this.next(); // not prime so advance...
+            }
+        }
+    };
+    return SoEIncClass;
+})();</lang>
+
+The above code can be used to find the nth prime (which would require estimating the required range limit using the previous fixed range code) by using the following code:
+
+<lang javascript>var gen = new SoEIncClass(); 
+for (var i = 1; i < 1000000; i++, gen.next());
+var prime = gen.next();
+ 
+if (typeof print == "undefined")
+    print = (typeof WScript != "undefined") ? WScript.Echo : alert;
+print(prime);</lang>
+
+to produce the following output (about five seconds using Google Chrome's V8 JavaScript engine):
+
+<pre>15485863</pre>
+
+The above code is considerably slower than the fixed range code due to the multiple method calls and the use of an object as a dictionary, which (using a hash table as its basis for most implementations) will have about a constant O(1) amortized time per operation but has quite a high constant overhead to convert the numeric indices to strings which are then hashed to be used as table keys for the look-up operations as compared to doing this more directly in implementations such as the Python dict with Python's built-in hashing functions for every supported type.
+
+This can be implemented as '''an "infinite" odds-only generator using page segmentation''' for a considerable speed-up with the alternate JavaScript class code as follows:
+
+<lang javascript>var SoEPgClass = (function () {
+    function SoEPgClass() {
+        this.bi = -1; // constructor resets the enumeration to start...
+    }
+    SoEPgClass.prototype.next = function () {
+        if (this.bi < 1) {
+            if (this.bi < 0) {
+                this.bi++;
+                this.lowi = 0; // other initialization done here...
+                this.bpa = [];
+                return 2;
+            } else { // bi must be zero:
+                var nxt = 3 + (this.lowi << 1) + 262144;
+                this.buf = new Array();
+                for (var i = 0; i < 4096; i++) // faster initialization:
+                    this.buf.push(0);
+                if (this.lowi <= 0) { // special culling for first page as no base primes yet:
+                    for (var i = 0, p = 3, sqr = 9; sqr < nxt; i++, p += 2, sqr = p * p)
+                        if ((this.buf[i >> 5] & (1 << (i & 31))) === 0)
+                            for (var j = (sqr - 3) >> 1; j < 131072; j += p)
+                                this.buf[j >> 5] |= 1 << (j & 31);
+                } else { // after the first page:
+                    if (!this.bpa.length) { // if this is the first page after the zero one:
+                        this.bps = new SoEPgClass(); // initialize separate base primes stream:
+                        this.bps.next(); // advance past the only even prime of two
+                        this.bpa.push(this.bps.next()); // get the next prime (3 in this case)
+                    }
+                    // get enough base primes for the page range...
+                    for (var p = this.bpa[this.bpa.length - 1], sqr = p * p; sqr < nxt;
+                            p = this.bps.next(), this.bpa.push(p), sqr = p * p) ;
+                    for (var i = 0; i < this.bpa.length; i++) {
+                        var p = this.bpa[i];
+                        var s = (p * p - 3) >> 1;
+                        if (s >= this.lowi) // adjust start index based on page lower limit...
+                            s -= this.lowi;
+                        else {
+                            var r = (this.lowi - s) % p;
+                            s = (r != 0) ? p - r : 0;
+                        }
+                        for (var j = s; j < 131072; j += p)
+                            this.buf[j >> 5] |= 1 << (j & 31);
+                    }
+                }
+            }
+        }
+        while (this.bi < 131072 && this.buf[this.bi >> 5] & (1 << (this.bi & 31)))
+            this.bi++; // find next marker still with prime status
+        if (this.bi < 131072) // within buffer: output computed prime
+            return 3 + ((this.lowi + this.bi++) << 1);
+        else { // beyond buffer range: advance buffer
+            this.bi = 0;
+            this.lowi += 131072;
+            return this.next(); // and recursively loop
+        }
+    };
+    return SoEPgClass;
+})();</lang>
+
+The above code is about fifty times faster (about five seconds to calculate 50 million primes to about a billion on the Google Chrome V8 JavaScript engine) than the above dictionary based code.
+
+The speed for both of these "infinite" solutions will also respond to further wheel factorization techniques, especially for the dictionary based version where any added overhead to deal with the factorization wheel will be negligible compared to the dictionary overhead.  The dictionary version would likely speed up about a factor of three or a little more with maximum wheel factorization applied; the page segmented version probably won't gain more than a factor of two and perhaps less due to the overheads of array look-up operations.
+

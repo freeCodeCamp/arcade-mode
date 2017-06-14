@@ -1,0 +1,15 @@
+User input/Graphical
+
+{{task|Text processing}}[[Category:GUI]][[Category:Basic language learning]]{{requires|Graphics}}
+In this task, the goal is to input a string and the integer 75000, from [[graphical user interface]].
+
+See also: [[User input/Text]]
+
+=={{header|JavaScript}}==
+{{works with|FireFox}} or any JavaScript-enabled browser
+<lang javascript>var str = prompt("Enter a string");
+var value = 0;
+while (value != 75000) {
+    value = parseInt( prompt("Enter the number 75000") );
+}</lang>
+

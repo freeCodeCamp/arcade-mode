@@ -1,0 +1,22 @@
+Count in octal
+
+{{task|Basic language learning}}
+[[Category:Radices]]
+[[Category:Iteration]]
+
+;Task:
+Produce a sequential count in octal, &nbsp; starting at zero, &nbsp; and using an increment of a one for each consecutive number. 
+
+Each number should appear on a single line, &nbsp; and the program should count until terminated, &nbsp; or until the maximum value of the numeric type in use is reached.
+
+
+;Related task:
+* &nbsp; [[Integer sequence]] &nbsp; is a similar task without the use of octal numbers.
+<br><br>
+
+
+=={{header|JavaScript}}==
+<lang javascript>for (var n = 0; n < 1e14; n++) { // arbitrary limit that's not too big
+    document.writeln(n.toString(8)); // not sure what's the best way to output it in JavaScript
+}</lang>
+

@@ -1,0 +1,100 @@
+Sorting algorithms/Merge sort
+
+{{task|Sorting Algorithms}}
+{{Sorting Algorithm}}
+[[Category:Recursion]]
+
+The &nbsp; '''merge sort''' &nbsp; is a recursive sort of order &nbsp; <big> n*log(n). </big>
+
+It is notable for having a worst case and average complexity of &nbsp; <big> ''O(n*log(n))'', </big> &nbsp; and a best case complexity of &nbsp; <big> ''O(n)'' &nbsp; </big> (for pre-sorted input). 
+
+The basic idea is to split the collection into smaller groups by halving it until the groups only have one element or no elements &nbsp; (which are both entirely sorted groups). 
+
+Then merge the groups back together so that their elements are in order.
+ 
+This is how the algorithm gets its &nbsp; ''divide and conquer'' &nbsp; description.
+
+
+;Task:
+Write a function to sort a collection of integers using the merge sort. 
+
+
+The merge sort algorithm comes in two parts: 
+    a sort function     and 
+    a merge function 
+
+The functions in pseudocode look like this:
+ '''function''' ''mergesort''(m)
+    '''var''' list left, right, result
+    '''if''' length(m) ≤ 1
+        '''return''' m
+    '''else'''
+        '''var''' middle = length(m) / 2
+        '''for each''' x '''in''' m '''up to''' middle - 1
+            '''add''' x '''to''' left
+        '''for each''' x '''in''' m '''at and after''' middle
+            '''add''' x '''to''' right
+        left = mergesort(left)
+        right = mergesort(right)
+        '''if''' last(left) ≤ first(right) 
+           '''append''' right '''to''' left
+           '''return''' left
+        result = merge(left, right)
+        '''return''' result
+ 
+ '''function''' ''merge''(left,right)
+    '''var''' list result
+    '''while''' length(left) > 0 and length(right) > 0
+        '''if''' first(left) ≤ first(right)
+            '''append''' first(left) '''to''' result
+            left = rest(left)
+        '''else'''
+            '''append''' first(right) '''to''' result
+            right = rest(right)
+    '''if''' length(left) > 0 
+        '''append''' rest(left) '''to''' result
+    '''if''' length(right) > 0 
+        '''append''' rest(right) '''to''' result
+    '''return''' result
+
+
+;See also:
+* &nbsp; the Wikipedia entry: &nbsp; [[wp:Merge_sort| merge sort]]
+
+
+Note: &nbsp; better performance can be expected if, rather than recursing until &nbsp; <big> length(m) ≤ 1, </big> &nbsp; an insertion sort is used for &nbsp; <big> length(m) </big> &nbsp; smaller than some threshold larger than &nbsp; '''1'''. &nbsp; However, this complicates the example code, so it is not shown here.
+<br><br>
+
+
+=={{header|JavaScript}}==
+<lang javascript>function merge(left, right, arr) {
+  var a = 0;
+
+  while (left.length && right.length) {
+    arr[a++] = (right[0] < left[0]) ? right.shift() : left.shift();
+  }
+  while (left.length) {
+    arr[a++] = left.shift();
+  }
+  while (right.length) {
+    arr[a++] = right.shift();
+  }
+}
+
+function mergeSort(arr) {
+  var len = arr.length;
+
+  if (len === 1) { return; }
+
+  var mid = Math.floor(len / 2),
+      left = arr.slice(0, mid),
+      right = arr.slice(mid);
+
+  mergeSort(left);
+  mergeSort(right);
+  merge(left, right, arr);
+}
+
+var arr = [1, 5, 2, 7, 3, 9, 4, 6, 8];
+mergeSort(arr); // arr will now: 1, 2, 3, 4, 5, 6, 7, 8, 9</lang>
+

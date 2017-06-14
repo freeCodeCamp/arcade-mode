@@ -1,0 +1,159 @@
+Quaternion type
+
+{{task}}
+
+[[wp:Quaternion|Quaternions]] &nbsp; are an extension of the idea of &nbsp; [[Arithmetic/Complex|complex numbers]].
+
+A complex number has a real and complex part, &nbsp; sometimes written as &nbsp; <big> <code> a + bi, </code> </big> 
+<br>where &nbsp; <big> <code> a </code> </big> &nbsp; and &nbsp; <big> <code> b </code> </big> &nbsp; stand for real numbers, and &nbsp; <big> <code> i </code> </big> &nbsp; stands for the square root of minus 1.
+
+An example of a complex number might be &nbsp; <big> <code> -3 + 2i, </code> </big> &nbsp; 
+<br>where the real part, &nbsp; <big> <code> a </code> </big> &nbsp; is &nbsp; <big> <code> '''-3.0''' </code> </big> &nbsp; and the complex part, &nbsp; <big> <code> b </code> </big> &nbsp; is &nbsp; <big> <code> '''+2.0'''. </code> </big> 
+
+A quaternion has one real part and ''three'' imaginary parts, &nbsp; <big> <code> i, </code> </big> &nbsp; <big> <code> j, </code> </big> &nbsp; and &nbsp; <big> <code> k. </code> </big> 
+
+A quaternion might be written as &nbsp; <big> <code> a + bi + cj + dk. </code> </big>
+
+In the quaternion numbering system:
+:::* &nbsp; <big> <code> i∙i = j∙j = k∙k = i∙j∙k = -1, </code> </big> &nbsp; &nbsp; &nbsp; or more simply,
+:::* &nbsp; <big> <code> ii &nbsp;= jj &nbsp;= kk &nbsp;= ijk &nbsp; = -1. </code> </big>
+
+The order of multiplication is important, as, in general, for two quaternions:
+:::: &nbsp; <big> <code> q<sub>1</sub> </code> </big> &nbsp; and &nbsp; <big> <code> q<sub>2</sub>: </code> </big> &nbsp; &nbsp; <big> <code> q<sub>1</sub>q<sub>2</sub> &ne; q<sub>2</sub>q<sub>1</sub>. </code> </big>
+
+An example of a quaternion might be &nbsp; <big> <code> 1 +2i +3j +4k </code> </big>
+
+There is a list form of notation where just the numbers are shown and the imaginary multipliers &nbsp; <big> <code>i, </code> </big> &nbsp; <big> <code> j, </code> </big> &nbsp; and &nbsp; <big> <code> k </code> </big> &nbsp; are assumed by position. 
+
+So the example above would be written as &nbsp; <big> <code> (1, 2, 3, 4) </code> </big> 
+
+
+;Task:
+Given the three quaternions and their components: <big> 
+    q  = (1, 2, 3, 4) = (a,<sub> </sub> b,<sub> </sub> c,<sub> </sub> d)
+    q<sub>1</sub> = (2, 3, 4, 5) = (a<sub>1</sub>, b<sub>1</sub>, c<sub>1</sub>, d<sub>1</sub>)
+    q<sub>2</sub> = (3, 4, 5, 6) = (a<sub>2</sub>, b<sub>2</sub>, c<sub>2</sub>, d<sub>2</sub>) </big>
+And a wholly real number &nbsp; <big> <code> r = 7. </code> </big>
+
+
+'''Note:''' ''The first formula below is invisible to the majority of browsers, including Chrome, IE/Edge, Safari, Opera etc. It may, subject to the installation of requisite fonts, prove visible in Firefox.''
+
+
+Create functions &nbsp; (or classes) &nbsp; to perform simple maths with quaternions including computing:
+# The norm of a quaternion: <br> <big> <code> <math> = \sqrt{ a^2 + b^2 + c^2 + d^2 } </math> </code> </big> 
+# The negative of a quaternion: <br> <big> <code> = (-a, -b, -c, -d)</code> </big> 
+# The conjugate of a quaternion: <br> <big> <code> = ( a, -b, -c, -d)</code> </big> 
+# Addition of a real number &nbsp; <big> <code> r </code> </big> &nbsp; and &nbsp; <big> <code> a </code> </big> &nbsp; quaternion &nbsp; <big> <code> q: </code> </big> <br> <big> <code> r + q = q + r = (a+r, b, c, d) </code> </big>
+# Addition of two quaternions: <br> <big> <code> q<sub>1</sub> + q<sub>2</sub> = (a<sub>1</sub>+a<sub>2</sub>, b<sub>1</sub>+b<sub>2</sub>, c<sub>1</sub>+c<sub>2</sub>, d<sub>1</sub>+d<sub>2</sub>) </code> </big>
+# Multiplication of a real number and a quaternion: <br> <big> <code> qr = rq = (ar, br, cr, dr) </code> </big>
+# Multiplication of two quaternions &nbsp; <big> <code> q<sub>1</sub> </code> </big> &nbsp; and &nbsp; <big><code>q<sub>2</sub> </code> </big> &nbsp; is given by: <br> <big> <code> ( a<sub>1</sub>a<sub>2</sub> − b<sub>1</sub>b<sub>2</sub> − c<sub>1</sub>c<sub>2</sub> − d<sub>1</sub>d<sub>2</sub>, </code> <br> <code> &nbsp; a<sub>1</sub>b<sub>2</sub> + b<sub>1</sub>a<sub>2</sub> + c<sub>1</sub>d<sub>2</sub> − d<sub>1</sub>c<sub>2</sub>, </code> <br> <code> &nbsp; a<sub>1</sub>c<sub>2</sub> − b<sub>1</sub>d<sub>2</sub> + c<sub>1</sub>a<sub>2</sub> + d<sub>1</sub>b<sub>2</sub>, </code> <br> <code> &nbsp; a<sub>1</sub>d<sub>2</sub> + b<sub>1</sub>c<sub>2</sub> − c<sub>1</sub>b<sub>2</sub> + d<sub>1</sub>a<sub>2</sub> ) </code> </big>
+# Show that, for the two quaternions &nbsp; <big> <code> q<sub>1</sub> </code> </big> &nbsp; and &nbsp; <big> <code> q<sub>2</sub>: <br> q<sub>1</sub>q<sub>2</sub> &ne; q<sub>2</sub>q<sub>1</sub> </code> </big>
+
+<br>
+If a language has built-in support for quaternions, then use it.
+
+
+;C.f.:
+* &nbsp; [[Vector products]]
+* &nbsp; [http://www.maths.tcd.ie/pub/HistMath/People/Hamilton/QLetter/QLetter.pdf On Quaternions]; &nbsp; or on a new System of Imaginaries in Algebra. &nbsp; By Sir William Rowan Hamilton LL.D, P.R.I.A., F.R.A.S., Hon. M. R. Soc. Ed. and Dub., Hon. or Corr. M. of the Royal or Imperial Academies of St. Petersburgh, Berlin, Turin and Paris, Member of the American Academy of Arts and Sciences, and of other Scientific Societies at Home and Abroad, Andrews' Prof. of Astronomy in the University of Dublin, and Royal Astronomer of Ireland.
+<br><br>
+
+
+=={{header|JavaScript}}==
+Runs on Firefox 3+, limited support in other JS engines.  More compatible JavaScript deserves its own entry.
+
+<lang javascript>var Quaternion = (function() {
+    // The Q() function takes an array argument and changes it
+    // prototype so that it becomes a Quaternion instance.  This is
+    // scoped only for prototype member access.
+    function Q(a) {
+	a.__proto__ = proto;
+	return a;
+    }
+
+    // Actual constructor.  This constructor converts its arguments to
+    // an array, then that array to a Quaternion instance, then
+    // returns that instance.  (using "new" with this constructor is
+    // optional)
+    function Quaternion() {
+	return Q(Array.prototype.slice.call(arguments, 0, 4));
+    }
+
+    // Prototype for all Quaternions
+    const proto = {
+	// Inherits from a 4-element Array
+	__proto__ : [0,0,0,0],
+
+	// Properties -- In addition to Array[0..3] access, we
+	// also define matching a, b, c, and d properties
+	get a() this[0],
+	get b() this[1],
+	get c() this[2],
+	get d() this[3],
+
+	// Methods
+	norm : function() Math.sqrt(this.map(function(x) x*x).reduce(function(x,y) x+y)),
+	negate : function() Q(this.map(function(x) -x)),
+	conjugate : function() Q([ this[0] ].concat(this.slice(1).map(function(x) -x))),
+	add : function(x) {
+	    if ("number" === typeof x) {
+		return Q([ this[0] + x ].concat(this.slice(1)));
+	    } else {
+		return Q(this.map(function(v,i) v+x[i]));
+	    }
+	},
+	mul : function(r) {
+	    var q = this;
+	    if ("number" === typeof r) {
+		return Q(q.map(function(e) e*r));
+	    } else {
+		return Q([ q[0] * r[0] - q[1] * r[1] - q[2] * r[2] - q[3] * r[3],
+			   q[0] * r[1] + q[1] * r[0] + q[2] * r[3] - q[3] * r[2],
+			   q[0] * r[2] - q[1] * r[3] + q[2] * r[0] + q[3] * r[1],
+			   q[0] * r[3] + q[1] * r[2] - q[2] * r[1] + q[3] * r[0] ]);
+	    }
+	},
+	equals : function(q) this.every(function(v,i) v === q[i]),
+	toString : function() (this[0] + " + " + this[1] + "i + "+this[2] + "j + " + this[3] + "k").replace(/\+ -/g, '- ')
+    };
+
+    Quaternion.prototype = proto;
+    return Quaternion;
+})();</lang>
+
+Task/Example Usage:
+
+<lang javascript>var q = Quaternion(1,2,3,4);
+var q1 = Quaternion(2,3,4,5);
+var q2 = Quaternion(3,4,5,6);
+var r = 7;
+
+console.log("q = "+q);
+console.log("q1 = "+q1);
+console.log("q2 = "+q2);
+console.log("r = "+r);
+console.log("1. q.norm() = "+q.norm());
+console.log("2. q.negate() = "+q.negate());
+console.log("3. q.conjugate() = "+q.conjugate());
+console.log("4. q.add(r) = "+q.add(r));
+console.log("5. q1.add(q2) = "+q1.add(q2));
+console.log("6. q.mul(r) = "+q.mul(r));
+console.log("7.a. q1.mul(q2) = "+q1.mul(q2));
+console.log("7.b. q2.mul(q1) = "+q2.mul(q1));
+console.log("8. q1.mul(q2) " + (q1.mul(q2).equals(q2.mul(q1)) ? "==" : "!=") + " q2.mul(q1)");</lang>
+
+{{out}}
+<pre>q = 1 + 2i + 3j + 4k
+q1 = 2 + 3i + 4j + 5k
+q2 = 3 + 4i + 5j + 6k
+r = 7
+1. q.norm() = 5.477225575051661
+2. q.negate() = -1 - 2i - 3j - 4k
+3. q.conjugate() = 1 - 2i - 3j - 4k
+4. q.add(r) = 8 + 2i + 3j + 4k
+5. q1.add(q2) = 5 + 7i + 9j + 11k
+6. q.mul(r) = 7 + 14i + 21j + 28k
+7.a. q1.mul(q2) = -56 + 16i + 24j + 26k
+7.b. q2.mul(q1) = -56 + 18i + 20j + 28k
+8. q1.mul(q2) != q2.mul(q1)</pre>
+

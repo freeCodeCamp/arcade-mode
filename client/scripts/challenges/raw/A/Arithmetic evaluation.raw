@@ -1,0 +1,97 @@
+Arithmetic evaluation
+
+{{task}}[[Category:Recursion]]
+Create a program which parses and evaluates arithmetic expressions.
+
+;Requirements:
+* An [[wp:Abstract_syntax_tree|abstract-syntax tree]] (AST) for the expression must be created from parsing the input. 
+* The AST must be used in evaluation, also, so the input may not be directly evaluated (e.g. by calling eval or a similar language feature.) 
+* The expression will be a string or list of symbols like "(1+3)*7". 
+* The four symbols + - * / must be supported as binary operators with conventional precedence rules. 
+* Precedence-control parentheses must also be supported.
+<br>
+
+;Note:
+For those who don't remember, mathematical precedence is as follows:
+* Parentheses
+* Multiplication/Division (left to right)
+* Addition/Subtraction (left to right)
+<br>
+
+;C.f: 
+* [[24 game Player]].
+* [[Parsing/RPN calculator algorithm]].
+* [[Parsing/RPN to infix conversion]].
+<br><br>
+
+
+=={{header|JavaScript}}==
+Numbers must have a digit before the decimal point, so 0.1 not .1. 
+
+Spaces are removed, expressions like <code>5--1</code> are treated as <code>5 - -1</code>
+
+<lang javascript>function evalArithmeticExp(s) {
+  s = s.replace(/\s/g,'').replace(/^\+/,'');
+  var rePara = /\([^\(\)]*\)/;
+  var exp = s.match(rePara);
+
+  while (exp = s.match(rePara)) {
+    s = s.replace(exp[0], evalExp(exp[0]));
+  }
+  return evalExp(s);
+  
+  function evalExp(s) {
+    s = s.replace(/[\(\)]/g,'');
+    var reMD = /\d+\.?\d*\s*[\*\/]\s*[+-]?\d+\.?\d*/;
+    var reM = /\*/;
+    var reAS = /-?\d+\.?\d*\s*[\+-]\s*[+-]?\d+\.?\d*/;
+    var reA  = /\d\+/;
+    var exp;
+
+    while (exp = s.match(reMD)) {
+      s = exp[0].match(reM)? s.replace(exp[0], multiply(exp[0])) : s.replace(exp[0], divide(exp[0]));
+    }
+    
+    while (exp = s.match(reAS)) {
+      s = exp[0].match(reA)? s.replace(exp[0], add(exp[0])) : s.replace(exp[0], subtract(exp[0]));
+    }
+    
+    return '' + s;
+
+    function multiply(s, b) {
+      b = s.split('*');
+      return b[0] * b[1];
+    }
+    
+    function divide(s, b) {
+      b = s.split('/');
+      return b[0] / b[1];
+    }
+    
+    function add(s, b) {
+      s = s.replace(/^\+/,'').replace(/\++/,'+');
+      b = s.split('+');
+      return Number(b[0]) + Number(b[1]);
+    }
+    
+    function subtract(s, b) {
+      s = s.replace(/\+-|-\+/g,'-');
+
+      if (s.match(/--/)) {
+        return add(s.replace(/--/,'+'));
+      }
+      b = s.split('-');
+      return b.length == 3? -1 * b[1] - b[2] : b[0] - b[1];
+    }
+  }
+}</lang>
+
+
+{{out|Sample Output}}
+<pre>evalArithmeticExp('2+3') // 5
+evalArithmeticExp('2+3/4') // 2.75
+evalArithmeticExp('2*3-4') // 2
+evalArithmeticExp('2*(3+4)+5/6') // 14.833333333333334
+evalArithmeticExp('2 * (3 + (4 * 5 + (6 * 7) * 8) - 9) * 10') // 7000
+evalArithmeticExp('2*-3--4+-0.25' // -2.25</pre>
+

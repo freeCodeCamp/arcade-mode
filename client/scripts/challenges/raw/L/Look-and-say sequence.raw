@@ -1,0 +1,73 @@
+Look-and-say sequence
+
+{{task|Text processing}}
+
+The &nbsp; [[wp:Look and say sequence|Look and say sequence]] &nbsp; is a recursively defined sequence of numbers studied most notably by &nbsp; [[wp:John Horton Conway|John Conway]].
+
+
+'''Sequence Definition'''
+* Take a decimal number
+* ''Look'' at the number, visually grouping consecutive runs of the same digit.
+* ''Say'' the number, from left to right, group by group; as how many of that digit there are - followed by the digit grouped.
+: This becomes the next number of the sequence.
+
+
+'''An example:''' 
+* Starting with the number 1, &nbsp; you have ''one'' 1 which produces 11
+* Starting with 11, &nbsp; you have ''two'' 1's. &nbsp; I.E.: &nbsp; 21
+* Starting with 21, &nbsp; you have ''one'' 2, then ''one'' 1. &nbsp; I.E.: &nbsp; (12)(11) which becomes 1211
+* Starting with 1211, &nbsp; you have ''one'' 1, ''one'' 2, then ''two'' 1's. &nbsp; I.E.: &nbsp; (11)(12)(21) which becomes 111221
+
+
+;Task:
+Write a program to generate successive members of the look-and-say sequence.
+
+
+;See also:
+* &nbsp; [https://www.youtube.com/watch?v=ea7lJkEhytA Look-and-Say Numbers (feat John Conway)], A Numberphile Video.
+* &nbsp; This task is related to, and an application of, the [[Run-length encoding]] task.
+* &nbsp; Sequence [https://oeis.org/A005150 A005150] on  The On-Line Encyclopedia of Integer Sequences.
+<br><br>
+
+
+=={{header|JavaScript}}==
+{{trans|Perl}}
+<lang javascript>function lookandsay(str) {
+    return str.replace(/(.)\1*/g, function(seq, p1){return seq.length.toString() + p1})
+}
+
+var num = "1";
+for (var i = 10; i > 0; i--) {
+    alert(num);
+    num = lookandsay(num);
+}</lang>
+
+Without RegExp
+
+<lang javascript>function lookSay(digits) {
+    var result = '',
+        chars = (digits + ' ').split(''),
+        lastChar = chars[0],
+        times = 0;
+    
+    chars.forEach(function(nextChar) {
+        if (nextChar === lastChar) {
+            times++;
+        }
+        else {
+            result += (times + '') + lastChar;
+            lastChar = nextChar;
+            times = 1;
+        }
+    });
+    
+    return result;
+}
+
+(function output(seed, iterations) {
+    for (var i = 0; i < iterations; i++) {
+        console.log(seed);
+        seed = lookSay(seed);
+    }
+})("1", 10);</lang>
+

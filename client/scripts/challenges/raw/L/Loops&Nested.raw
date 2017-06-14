@@ -1,0 +1,102 @@
+Loops/Nested
+
+{{task|Iteration}} [[Category:Loop modifiers]]
+
+Show a nested loop which searches a two-dimensional array filled with random numbers uniformly distributed over <math>[1,\ldots,20]</math>. 
+
+The loops iterate rows and columns of the array printing the elements until the value <math>20</math> is met. 
+
+Specifically, this task also shows how to [[Loop/Break|break]] out of nested loops.
+<br><br>
+
+
+=={{header|JavaScript}}==
+Demonstrates use of <code>break</code> with a label.
+Uses <code>print()</code> function from [[Rhino]].
+<lang javascript>// a "random" 2-D array 
+var a = [[2, 12, 10, 4], [18, 11, 9, 3], [14, 15, 7, 17], [6, 19, 8, 13], [1, 20, 16, 5]];
+
+outer_loop:
+for (var i in a) {
+    print("row " + i);
+    for (var j in a[i]) {
+        print(" " + a[i][j]);
+        if (a[i][j] == 20) 
+            break outer_loop;
+    }
+}
+print("done");</lang>
+
+In a functional idiom of JavaScript, however, we can not use a loop statement, as statements return no value and can not be composed within other functional expressions. Functional JavaScript often replaces a loop with a map or fold. In this case, we can achieve the same task by defining the standard list-processing function '''takeWhile''', which terminates when a condition returns true.
+
+We can then search the groups in the nested array by nesting takeWhile inside itself, and finally terminate when the 20 is found by one further application of takeWhile.
+
+Using the same data as above, and returning the trail of numbers up to twenty from a nested and composable expression:
+
+<lang JavaScript>var lst = [[2, 12, 10, 4], [18, 11, 9, 3], [14, 15, 7, 17], [6, 19, 8, 13], [1,
+  20, 16, 5]];
+
+var takeWhile = function (lst, fnTest) {
+    'use strict';
+    var varHead = lst.length ? lst[0] : null;
+
+    return varHead ? (
+      fnTest(varHead) ? [varHead].concat(
+        takeWhile(lst.slice(1), fnTest)
+      ) : []
+    ) : []
+  },
+
+  // The takeWhile function terminates when notTwenty(n) returns false
+  notTwenty = function (n) {
+    return n !== 20;
+  },
+
+  // Leftward groups containing no 20
+  // takeWhile nested within takeWhile
+  lstChecked = takeWhile(lst, function (group) {
+    return takeWhile(
+      group,
+      notTwenty
+    ).length === 4;
+  });
+
+
+// Return the trail of numbers preceding 20 from a composable expression
+
+console.log(
+  // Numbers before 20 in a group in which it was found
+  lstChecked.concat(
+    takeWhile(
+      lst[lstChecked.length], notTwenty
+    )
+  )
+  // flattened
+  .reduce(function (a, x) {
+    return a.concat(x);
+  }).join('\n')
+);</lang> 
+
+Output:
+<lang JavaScript>2
+12
+10
+4
+18
+11
+9
+3
+14
+15
+7
+17
+6
+19
+8
+13
+6
+19
+8
+13
+1</lang>
+

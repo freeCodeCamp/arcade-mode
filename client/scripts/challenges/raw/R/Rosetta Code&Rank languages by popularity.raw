@@ -1,0 +1,26 @@
+Rosetta Code/Rank languages by popularity
+
+{{task|Text processing}}[[Category:Networking and Web Interaction]][[Category:Sorting]][[Category:Rosetta Code related]]
+Sort most popular programming languages based in number of members in Rosetta Code categories.
+
+Sample output on 4 March 2017:
+
+<pre>
+rank:  1 (936 entries) Racket
+rank:  2 (929 entries) Python
+rank:  3 (904 entries) Tcl
+rank:  4 (871 entries) Perl 6
+rank:  5 (862 entries) J
+rank:  6 (831 entries) Zkl
+rank:  7 (830 entries) Ruby
+rank:  8 (804 entries) C
+rank:  9 (792 entries) Go
+rank: 10 (782 entries) Haskell
+...</pre>
+
+'''Notes'''
+*Each language typically demonstrates 1 or 2 methods of accessing the data: with web scraping (via http://www.rosettacode.org/mw/index.php?title=Special:Categories&limit=5000), and/or with the API method (examples below for [[Rosetta Code/Rank languages by popularity#AWK|Awk]], [[Rosetta Code/Rank languages by popularity#Perl|Perl]], [[Rosetta Code/Rank languages by popularity#Ruby|Ruby]], [[Rosetta Code/Rank languages by popularity#Tcl|Tcl]], etc). The scraping and API solutions can be separate subsections, see the [[Rosetta Code/Rank languages by popularity#Tcl|Tcl example]].
+*Filtering wrong results is optional. You can check against [[Special:MostLinkedCategories]] (if using web scraping)
+*A complete ranked listing of all &nbsp; '''635''' &nbsp; languages (from the REXX example) is included here &nbsp; ──► &nbsp; [[RC_POP.OUT]]. <br><br>
+
+

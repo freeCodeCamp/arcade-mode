@@ -1,0 +1,113 @@
+Guess the number/With feedback
+
+{{task|Games}}
+
+;Task:
+Write a game (computer program) that follows the following rules:
+::* The computer chooses a number between given set limits.
+::* The player is asked for repeated guesses until the the target number is guessed correctly
+::* At each guess, the computer responds with whether the guess is:
+:::::* higher than the target,
+:::::* equal to the target, 
+:::::* less than the target, &nbsp; or
+:::::* the input was inappropriate. 
+
+
+;Related task:
+* &nbsp; [[Guess the number/With Feedback (Player)]]
+<br><br>
+
+
+=={{header|JavaScript}}==
+<lang html4strict><p>Pick a number between 1 and 100.</p>
+<form id="guessNumber">
+    <input type="text" name="guess">
+    <input type="submit" value="Submit Guess">
+</form>
+<p id="output"></p>
+<script type="text/javascript"></lang>
+<lang javascript>var number = Math.ceil(Math.random() * 100);
+ 
+function verify() {
+    var guess = Number(this.elements.guess.value),
+        output = document.getElementById('output');
+ 
+    if (isNaN(guess)) {
+        output.innerHTML = 'Enter a number.';
+    } else if (number === guess) {
+        output.innerHTML = 'You guessed right!';
+    } else if (guess > 100) {
+        output.innerHTML = 'Your guess is out of the 1 to 100 range.';
+    } else if (guess > number) {
+        output.innerHTML = 'Your guess is too high.';
+    } else if (guess < number) {
+        output.innerHTML = 'Your guess is too low.';
+    }
+    return false;
+}
+
+document.getElementById('guessNumber').onsubmit = verify;</lang>
+<lang html4strict></script></lang>
+
+=== Spidermonkey Version ===
+<lang javascript>#!/usr/bin/env js
+
+function main() {
+    guessTheNumber(1, 100);
+}
+
+function guessTheNumber(low, high) {
+    var num = randOnRange(low, high);
+    var guessCount = 0;
+    
+    function checkGuess(n) {
+        if (n < low || n > high) {
+            print('That number is not between ' + low + ' and ' + high + '!');
+            return false;
+        }
+
+        if (n == num) {
+            print('You got it in ' + String(guessCount) + ' tries.');
+            return true;
+        }
+
+        if (n < num) {
+            print('Too low.');
+        } else {
+            print('Too high.');
+        }
+        return false;
+    }
+
+    print('I have picked a number between ' + low + ' and ' + high + '. Try to guess it!');
+    while (true) {
+        guessCount++;
+        putstr("  Your guess: ");
+        var n = parseInt(readline());
+        if (checkGuess(n)) break;
+    }
+}
+
+function randOnRange(low, high) {
+    var r = Math.random();
+    return Math.floor(r * (high - low + 1)) + low;
+}
+
+main();
+</lang>
+
+Example session:
+ I have picked a number between 1 and 100. Try to guess it!
+   Your guess: 50
+ Too low.
+   Your guess: 75
+ Too high.
+   Your guess: 62
+ Too high.
+   Your guess: 56
+ Too low.
+   Your guess: 58
+ Too high.
+   Your guess: 57
+ You got it in 6 tries.
+

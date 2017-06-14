@@ -1,0 +1,31 @@
+Execute a system command
+
+{{Task|Programming environment operations}}
+
+;Task:
+Run either the &nbsp; <tt>'''ls'''</tt> &nbsp; system command &nbsp; (<tt>'''dir'''</tt> &nbsp; on Windows), &nbsp; or the &nbsp; <tt>'''pause'''</tt> &nbsp;  system command.
+<br><br>
+;Related tasks
+* [[Get_system_command_output | Get system command output]]
+<br><br>
+
+
+=={{header|JavaScript}}==
+JavaScript does not have any facilities to interact with the OS.  However, host environments can provide this ability.
+
+{{works with|JScript}}
+<lang javascript>var shell = new ActiveXObject("WScript.Shell");
+shell.run("cmd /c dir & pause");</lang>
+
+{{works with|Rhino}}
+<lang javascript>runCommand("cmd", "/c", "dir", "d:\\");
+print("===");
+var options = {
+    // can specify arguments here in the options object
+    args: ["/c", "dir", "d:\\"],
+    // capture stdout to the options.output property
+    output: ''
+};
+runCommand("cmd", options);
+print(options.output);</lang>
+

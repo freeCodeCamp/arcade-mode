@@ -1,0 +1,41 @@
+Greatest subsequential sum
+
+{{task}}
+[[Category:Arithmetic operations]]
+
+;Task:
+Given a sequence of integers, find a continuous subsequence which maximizes the sum of its elements, that is, the elements of no other single subsequence add up to a value larger than this one. 
+
+
+An empty subsequence is considered to have the sum of &nbsp; '''0'''; &nbsp; thus if all elements are negative, the result must be the empty sequence.
+<br><br>
+
+
+=={{header|JavaScript}}==
+Simple brute force approach.
+<lang javascript>function MaximumSubsequence(population) {
+    var maxValue = 0;
+    var subsequence = [];
+
+    for (var i = 0, len = population.length; i < len; i++) {
+        for (var j = i; j <= len; j++) {
+            var subsequence = population.slice(i, j);
+            var value = sumValues(subsequence);
+            if (value > maxValue) {
+                maxValue = value;
+                greatest = subsequence;
+            };
+        }
+    }
+
+    return greatest;
+}
+
+function sumValues(arr) {
+    var result = 0;
+    for (var i = 0, len = arr.length; i < len; i++) {
+        result += arr[i];
+    }
+    return result;
+}</lang>
+

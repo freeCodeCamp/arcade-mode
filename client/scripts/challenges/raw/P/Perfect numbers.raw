@@ -1,0 +1,192 @@
+Perfect numbers
+
+{{task|Discrete math}}
+
+Write a function which says whether a number is perfect.
+
+<br>
+[[wp:Perfect_numbers|A perfect number]] is a positive integer that is the sum of its proper positive divisors excluding the number itself. 
+
+Equivalently, a perfect number is a number that is half the sum of all of its positive divisors (including itself).
+
+
+Note: &nbsp; The faster &nbsp; [[Lucas-Lehmer test]] &nbsp; is used to find primes of the form &nbsp; <big> 2<sup>''n''</sup>-1</big>, &nbsp; all ''known'' perfect numbers can be derived from these primes 
+using the formula &nbsp; <big> (2<sup>''n''</sup> - 1) × 2<sup>''n'' - 1</sup></big>. 
+ 
+It is not known if there are any odd perfect numbers (any that exist are larger than <big>10<sup>2000</sup></big>).
+
+
+;See also:
+* [[Rational Arithmetic]]
+* [[oeis:A000396|Perfect numbers on OEIS]]
+* [http://www.oddperfect.org/ Odd Perfect] showing the current status of bounds on odd perfect numbers.
+<br><br>
+
+
+=={{header|JavaScript}}==
+
+===Imperative===
+
+{{trans|Java}}
+<lang javascript>function is_perfect(n)
+{
+ var sum = 1, i, sqrt=Math.floor(Math.sqrt(n));
+ for (i = sqrt-1; i>1; i--)
+ {
+  if (n % i == 0) {
+   sum += i + n/i;
+  }
+ }
+ if(n % sqrt == 0)
+  sum += sqrt + (sqrt*sqrt == n ? 0 : n/sqrt);
+ return sum === n;
+}
+
+
+var i;
+for (i = 1; i < 10000; i++)
+{
+ if (is_perfect(i))
+  print(i);
+}</lang>
+
+{{Out}}
+<pre>6
+28
+496
+8128</pre>
+
+===Functional===
+
+====ES5====
+
+Naive version (brute force)
+
+<lang JavaScript>(function (nFrom, nTo) {
+
+  function perfect(n) {
+    return n === range(1, n - 1).reduce(
+      function (a, x) {
+        return n % x ? a : a + x;
+      }, 0
+    );
+  }
+
+  function range(m, n) {
+    return Array.apply(null, Array(n - m + 1)).map(function (x, i) {
+      return m + i;
+    });
+  }
+
+  return range(nFrom, nTo).filter(perfect);
+
+})(1, 10000);</lang>
+
+Output:
+
+<lang JavaScript>[6, 28, 496, 8128]</lang>
+
+Much faster (more efficient factorisation)
+
+<lang JavaScript>(function (nFrom, nTo) {
+
+  function perfect(n) {
+    var lows = range(1, Math.floor(Math.sqrt(n))).filter(function (x) {
+      return (n % x) === 0;
+    });
+
+    return n > 1 && lows.concat(lows.map(function (x) {
+      return n / x;
+    })).reduce(function (a, x) {
+      return a + x;
+    }, 0) / 2 === n;
+  }
+
+  function range(m, n) {
+    return Array.apply(null, Array(n - m + 1)).map(function (x, i) {
+      return m + i;
+    });
+  }
+
+  return range(nFrom, nTo).filter(perfect)
+
+})(1, 10000);</lang>
+
+Output:
+
+<lang JavaScript>[6, 28, 496, 8128]</lang>
+
+Note that the filter function, though convenient and well optimised, is not strictly necessary.
+We can always replace it with a more general monadic bind (chain) function, which is essentially just concat map
+(Monadic return/inject for lists is simply lambda x --> [x], inlined here, and fail is [].)
+
+<lang JavaScript>(function (nFrom, nTo) {
+
+  // MONADIC CHAIN (bind) IN LIEU OF FILTER
+  // ( monadic return for lists is just lambda x -> [x] )
+
+  return chain(
+    rng(nFrom, nTo),
+    
+    function mPerfect(n) {
+      return (chain(
+        rng(1, Math.floor(Math.sqrt(n))),
+        function (y) {
+          return (n % y) === 0 && n > 1 ? [y, n / y] : [];
+        }
+      ).reduce(function (a, x) {
+        return a + x;
+      }, 0) / 2 === n) ? [n] : [];
+    }
+    
+  );
+
+  /******************************************************************/
+
+  // Monadic bind (chain) for lists
+  function chain(xs, f) {
+    return [].concat.apply([], xs.map(f));
+  }
+
+  function rng(m, n) {
+    return Array.apply(null, Array(n - m + 1)).map(function (x, i) {
+      return m + i;
+    });
+  }
+
+})(1, 10000);</lang>
+
+Output:
+<lang JavaScript>[6, 28, 496, 8128]</lang>
+
+
+====ES6====
+
+<lang JavaScript>((nFrom, nTo) => {
+
+    // perfect :: Int -> Bool
+    let perfect = n => {
+            let lows = range(1, Math.floor(Math.sqrt(n)))
+                .filter(x => (n % x) === 0);
+
+            return n > 1 && lows.concat(lows.map(x => n / x))
+                .reduce((a, x) => (a + x), 0) / 2 === n;
+        },
+
+        // range :: Int -> Int -> Maybe Int -> [Int]
+        range = (m, n, step) => {
+            let d = (step || 1) * (n >= m ? 1 : -1);
+
+            return Array.from({
+                length: Math.floor((n - m) / d) + 1
+            }, (_, i) => m + (i * d));
+        };
+
+    return range(nFrom, nTo)
+        .filter(perfect);
+
+})(1, 10000);</lang>
+
+{{Out}}
+<lang JavaScript>[6, 28, 496, 8128]</lang>
+

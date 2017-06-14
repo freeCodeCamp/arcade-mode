@@ -1,0 +1,97 @@
+Day of the week
+
+{{task|Date and time}}
+{{omit from|GUISS|We could open a calendar, but the operator would have to read it}}
+{{omit from|ML/I}}
+{{omit from|PARI/GP|No standard date handling library}}
+
+A company decides that whenever Xmas falls on a Sunday they will give their workers all extra paid holidays so that, together with any public holidays, workers will not have to work the following week (between the 25th of December and the first of January).
+ 
+'''In what years between 2008 and 2121 will the 25th of December be a Sunday?'''
+
+Using any standard date handling libraries of your programming language; 
+compare the dates calculated with the output of other languages to discover any anomalies in the handling of dates which may be due to, for example, overflow in types used to represent dates/times similar to &nbsp; [[wp:Y2k#See_also|y2k]] &nbsp; type problems.
+<br><br>
+
+
+=={{header|JavaScript}}==
+
+===ES5===
+====Iteration====
+<lang javascript>for (var year = 2008; year <= 2121; year++){
+    var xmas = new Date(year, 11, 25)
+    if ( xmas.getDay() === 0 )
+        console.log(year)
+}</lang>
+{{out}}
+<pre>2011
+2016
+2022
+2033
+2039
+2044
+2050
+2061
+2067
+2072
+2078
+2089
+2095
+2101
+2107
+2112
+2118</pre>
+
+====Functional composition====
+
+<lang JavaScript>(function () {
+    'use strict';
+
+    // isXmasSunday :: Integer -> Bool
+    function isXmasSunday(year) {
+        return (new Date(year, 11, 25))
+            .getDay() === 0;
+    }
+
+    // range :: Int -> Int -> [Int]
+    function range(m, n) {
+        return Array.apply(null, Array(n - m + 1))
+            .map(function (_, i) {
+                return m + i;
+            });
+    }
+
+    return range(2008, 2121)
+        .filter(isXmasSunday);
+
+})();</lang>
+
+{{Out}}
+<pre>[2011, 2016, 2022, 2033, 2039, 2044, 2050, 2061, 2067, 
+2072, 2078, 2089, 2095, 2101, 2107, 2112, 2118]</pre>
+
+===ES6===
+
+<lang JavaScript>(() => {
+    'use strict';
+ 
+    // xmasIsSunday :: Integer -> Bool
+    const xmasIsSunday = year => (new Date(year, 11, 25))
+            .getDay() === 0;
+ 
+    // range :: Int -> Int -> [Int]
+    const range = (m, n) =>
+        Array.from({
+            length: Math.floor(n - m) + 1
+        }, (_, i) => m + i);
+ 
+ 
+ 
+    return range(2008, 2121)
+        .filter(xmasIsSunday);
+ 
+})();</lang>
+
+{{Out}}
+<lang JavaScript>[2011, 2016, 2022, 2033, 2039, 2044, 2050, 2061, 2067, 2072, 2078, 2089, 2095, 2101, 2107, 2112, 2118]</lang>
+

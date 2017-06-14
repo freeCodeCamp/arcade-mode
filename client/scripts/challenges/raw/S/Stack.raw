@@ -1,0 +1,89 @@
+Stack
+
+{{task|Data Structures}}
+[[Category:Encyclopedia]]
+{{data structure}}[[Category:Classic CS problems and programs]]
+
+A '''stack''' is a container of elements with &nbsp; <big><u>l</u>ast <u>i</u>n, <u>f</u>irst <u>o</u>ut</big>  &nbsp; access policy. &nbsp; Sometimes it also called '''LIFO'''. 
+
+The stack is accessed through its '''top'''. 
+
+The basic stack operations are:
+
+* &nbsp; ''push'' &nbsp; stores a new element onto the stack top;
+* &nbsp; ''pop'' &nbsp; returns the last pushed stack element, while removing it from the stack;
+* &nbsp; ''empty'' &nbsp; tests if the stack contains no elements.
+
+<br>
+Sometimes the last pushed stack element is made accessible for immutable access (for read) or mutable access (for write):
+
+* &nbsp; ''top'' &nbsp; (sometimes called ''peek'' to keep with the ''p'' theme) returns the topmost element without modifying the stack.
+
+<br>
+Stacks allow a very simple hardware implementation.
+ 
+They are common in almost all processors.
+ 
+In programming, stacks are also very popular for their way ('''LIFO''') of resource management, usually memory. 
+
+Nested scopes of language objects are naturally implemented by a stack (sometimes by multiple stacks). 
+
+This is a classical way to implement local variables of a re-entrant or recursive subprogram. Stacks are also used to describe a formal computational framework. 
+
+See [[wp:Stack_automaton|stack machine]]. 
+
+Many algorithms in pattern matching, compiler construction (e.g. [[wp:Recursive_descent|recursive descent parsers]]), and machine learning (e.g. based on [[wp:Tree_traversal|tree traversal]]) have a natural representation in terms of stacks.
+
+
+;Task:
+Create a stack supporting the basic operations: push, pop, empty.
+
+
+{{Template:See also lists}}
+<br><br>
+
+
+=={{header|JavaScript}}==
+The built-in Array class already has stack primitives.
+<lang javascript>var stack = [];
+stack.push(1)
+stack.push(2,3);
+print(stack.pop());   // 3
+print(stack.length);   // 2, stack empty if 0</lang>
+Here's a constructor that wraps the array:
+<lang javascript>function Stack() {
+    this.data = new Array();
+
+    this.push  = function(element) {this.data.push(element)}
+    this.pop   = function() {return this.data.pop()}
+    this.empty = function() {return this.data.length == 0}
+    this.peek  = function() {return this.data[this.data.length - 1]}
+}</lang>
+Here's an example using the revealing module pattern instead of prototypes.
+<lang javascript>
+function makeStack() {
+  var stack = [];
+
+  var popStack = function () {
+    return stack.pop();
+  };
+  var pushStack = function () {
+    return stack.push.apply(stack, arguments);
+  };
+  var isEmpty = function () {
+    return stack.length === 0;
+  };
+  var peekStack = function () {
+    return stack[stack.length-1];
+  };
+    
+  return {
+    pop: popStack,
+    push: pushStack,
+    isEmpty: isEmpty,
+    peek: peekStack,
+    top: peekStack
+  };
+}
+</lang>
+

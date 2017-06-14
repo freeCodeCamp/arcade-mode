@@ -1,0 +1,26 @@
+Nth root
+
+{{task|Classic CS problems and programs}} 
+[[Category:Simple]]
+
+;Task:
+
+Implement the algorithm to compute the principal [[wp:Nth root|''n''th root]] <big><math>\sqrt[n]A</math></big> of a positive real number <big>''A''</big>, as explained at the [[wp:Nth root algorithm|Wikipedia page]].
+
+
+
+=={{header|JavaScript}}==
+Gives the ''n'':nth root of ''num'', with precision ''prec''. (''n'' defaults to 2 [e.g. sqrt], ''prec'' defaults to 12.)
+
+<lang javascript>function nthRoot(num, nArg, precArg) {
+  var n = nArg || 2;
+  var prec = precArg || 12;
+  
+  var x = 1; // Initial guess.
+  for (var i=0; i<prec; i++) {
+    x = 1/n * ((n-1)*x + (num / Math.pow(x, n-1)));
+  }
+  
+  return x;
+}</lang>
+

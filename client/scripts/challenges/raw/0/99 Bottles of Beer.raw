@@ -1,0 +1,140 @@
+99 Bottles of Beer
+
+{{task}}
+
+;Task:
+Display the complete lyrics for the song: &nbsp; &nbsp; '''99 bottles of beer on the wall'''. 
+
+
+;The beersong:
+The lyrics follow this form:
+
+<blockquote>
+   99 bottles of beer on the wall<br/>
+   99 bottles of beer<br/>
+   Take one down, pass it around<br/>
+   98 bottles of beer on the wall<br/><br/>
+   
+   98 bottles of beer on the wall<br/>
+   98 bottles of beer<br/>
+   Take one down, pass it around<br/>
+   97 bottles of beer on the wall
+</blockquote>
+
+... and so on, until reaching 0.
+
+Grammatical support for "1 bottle of beer" is optional. 
+
+As with any puzzle, try to do it in as creative/concise/comical a way 
+as possible (simple, obvious solutions allowed, too).
+
+;See also: 
+* http://99-bottles-of-beer.net/
+* [[:Category:99_Bottles_of_Beer]]
+* [[:Category:Programming language families]]
+* [https://en.wikipedia.org/wiki/99_Bottles_of_Beer Wikipedia 99 bottles of beer]
+<br><br>
+
+
+=={{header|JavaScript}}==
+===ES3-5===
+<lang javascript>var beer = 99;
+while (beer > 0) {
+  var verse = [
+    beer + " bottles of beer on the wall,",
+    beer + " bottles of beer!",
+    "Take one down, pass it around",  
+    (beer - 1) + " bottles of beer on the wall!"
+  ].join("\n");
+
+  console.log(verse);
+
+  beer--;
+}
+</lang>
+
+===ES6===
+<lang javascript>let beer = 99;
+while (beer > 0) {
+  let verse = `${beer} bottles of beer on the wall,
+  ${beer} bottles of beer!
+  Take one down, pass it around
+  ${beer-1} bottles of beer on the wall`;
+
+  console.log(verse);
+  beer--;
+}</lang>
+
+===Functional / Recursive===
+<lang javascript>var bottles = 99;
+var songTemplate  = "{X} bottles of beer on the wall \n" +
+                    "{X} bottles of beer \n"+
+                    "Take one down, pass it around \n"+
+                    "{X-1} bottles of beer on the wall \n";
+
+function song(x, txt) {
+  return txt.replace(/\{X\}/gi, x).replace(/\{X-1\}/gi, x-1) + (x > 1 ? song(x-1, txt) : "");
+}
+
+console.log(song(bottles, songTemplate));</lang>
+
+===Other Examples===
+More skilled solution "one-liner" with grammar check
+
+Comment: This being a "one-liner" is arguable. The author has chosen not to put a line break after the declaration of the <code>beer</code> variable. By using the authors definition, most of the other solutions could pass as a "one-liner".
+<lang javascript>// Line breaks are in HTML
+var beer; while ((beer = typeof beer === "undefined" ? 99 : beer) > 0) document.write( beer + " bottle" + (beer != 1 ? "s" : "") + " of beer on the wall<br>" + beer + " bottle" + (beer != 1 ? "s" : "") + " of beer<br>Take one down, pass it around<br>" + (--beer) + " bottle" + (beer != 1 ? "s" : "") + " of beer on the wall<br>" );</lang>
+
+
+Legitimate "one-liner" with grammar check, using declarative methods.
+<lang javascript>Array.from(Array(100).keys()).splice(1).reverse().forEach(n => console.log(`${n} bottle${n !== 1 ? 's' : ''} of beer on the wall\n${n} bottle${n !== 1 ? 's' : ''} of beer\nTake one down, pass it around\n${n - 1} bottle${n - 1 !== 1 ? 's' : ''} of beer on the wall\n\n`));</lang>
+
+
+Object Oriented
+<lang javascript>function Bottles(count) {
+  this.count = count || 99;
+}
+
+Bottles.prototype.take = function() {
+  var verse = [
+    this.count + " bottles of beer on the wall,",
+    this.count + " bottles of beer!",
+    "Take one down, pass it around",  
+    (this.count - 1) + " bottles of beer on the wall!"
+  ].join("\n");
+
+  console.log(verse);
+
+  this.count--;
+};
+
+Bottles.prototype.sing = function() {
+  while (this.count) { 
+    this.take(); 
+  }
+};
+
+var bar = new Bottles(99);
+bar.sing();</lang>
+
+An alternative version:
+
+<lang javascript>function bottleSong(n) {
+  if (!isFinite(Number(n)) || n == 0) n = 100;
+  var a  = '%% bottles of beer',
+      b  = ' on the wall',
+      c  = 'Take one down, pass it around',
+      r  = '<br>'
+      p  = document.createElement('p'),
+      s  = [],
+      re = /%%/g;
+  
+  while(n) {
+    s.push((a+b+r+a+r+c+r).replace(re, n) + (a+b).replace(re, --n));
+  }
+  p.innerHTML = s.join(r+r);
+  document.body.appendChild(p);
+}
+
+window.onload = bottleSong;</lang>
+

@@ -1,0 +1,33 @@
+Special variables
+
+{{task|Basic language learning}}[[Category:Special variables]]
+
+Special variables have a predefined meaning within a computer programming language. 
+
+
+;Task:
+List the special variables used within the language.
+<br><br>
+
+
+=={{header|JavaScript}}==
+
+<code>this</code> evaluates to the object the immediately enclosing function was called on as a method, if it was. If it was not called as a method, <code>this</code> is either the global environment object (usually <code>window</code> in browsers) in non-strict mode, or <code>undefined</code> in strict mode. <code>this</code> is an expression resembling a variable, but not actually a variable; for example, it is a syntax error to assign to it.
+
+<lang javascript>var obj = {
+  foo: 1,
+  bar: function () { return this.foo; }
+};
+obj.bar(); // returns 1</lang>
+
+When a function is entered, the ''variable'' <code>arguments</code> is bound to an “arguments object” which is an array-like object containing the function's arguments, as well as some other information. This how [[varargs]] functions are implemented in JavaScript. If the function's parameters contain “<code>arguments</code>” explicitly, then it is ''not'' overridden and functions as an ordinary parameter.
+
+<lang javascript>function concat() {
+  var s = "";
+  for (var i = 0; i < arguments.length; i++) {
+    s += arguments[i];
+  }
+  return s;
+}
+concat("a", "b", "c"); // returns "abc"</lang>
+

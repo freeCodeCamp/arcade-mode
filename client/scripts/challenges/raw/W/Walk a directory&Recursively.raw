@@ -1,0 +1,53 @@
+Walk a directory/Recursively
+
+{{task|File System Operations}}
+[[Category:Recursion]]
+
+;Task:
+Walk a given directory ''tree'' and print files matching a given pattern.
+
+
+'''Note:''' This task is for recursive methods. &nbsp; These tasks should read an entire directory tree, not a ''single directory''.  
+
+
+'''Note:''' Please be careful when running any code examples found here.
+
+
+;Related task:
+* &nbsp; [[Walk a directory/Non-recursively]] &nbsp; (read a ''single directory''). 
+<br><br>
+
+
+=={{header|JavaScript}}==
+{{works with|JScript}}
+<lang javascript>var fso = new ActiveXObject("Scripting.FileSystemObject");
+
+function walkDirectoryTree(folder, folder_name, re_pattern) {
+    WScript.Echo("Files in " + folder_name + " matching '" + re_pattern + "':");
+    walkDirectoryFilter(folder.files, re_pattern);
+
+    var subfolders = folder.SubFolders;
+    WScript.Echo("Folders in " + folder_name + " matching '" + re_pattern + "':");
+    walkDirectoryFilter(subfolders, re_pattern);
+
+    WScript.Echo();
+    var en = new Enumerator(subfolders);
+    while (! en.atEnd()) {
+        var subfolder = en.item();
+        walkDirectoryTree(subfolder, folder_name + "/" + subfolder.name, re_pattern);
+        en.moveNext();
+    }
+}
+
+function walkDirectoryFilter(items, re_pattern) {
+    var e = new Enumerator(items);
+    while (! e.atEnd()) {
+        var item = e.item();
+        if (item.name.match(re_pattern))
+            WScript.Echo(item.name);
+        e.moveNext();
+    }
+}
+
+walkDirectoryTree(dir, dir.name, '\\.txt$');</lang>
+

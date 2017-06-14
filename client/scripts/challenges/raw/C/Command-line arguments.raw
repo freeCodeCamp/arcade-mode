@@ -1,0 +1,28 @@
+Command-line arguments
+
+{{task}}{{selection|Short Circuit|Console Program Basics}} [[Category:Basic language learning]][[Category:Programming environment operations]][[Category:Initialization]]Retrieve the list of command-line arguments given to the program. For programs that only print the arguments when run directly, see [[Scripted main]].
+
+See also [[Program name]].
+
+For parsing command line arguments intelligently, see [[Parsing command-line arguments]].
+
+Example command line:
+
+ myprogram -c "alpha beta" -h "gamma"
+
+
+=={{header|JavaScript}}==
+{{works with|JScript}}
+<lang javascript>var objArgs = WScript.Arguments;
+for (var i = 0; i < objArgs.length; i++)
+   WScript.Echo(objArgs.Item(i));</lang>
+{{works with|JScript.NET (compiled with jsc.exe)}}
+<lang javascript>import System;
+var argv:String[] = Environment.GetCommandLineArgs();
+for (var i in argv)
+  print(argv[i]);</lang>
+{{works with|Rhino}}
+{{works with|SpiderMonkey}}
+<lang javascript>for (var i = 0; i < arguments.length; i++)
+    print(arguments[i]);</lang>
+

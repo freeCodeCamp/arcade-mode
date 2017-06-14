@@ -1,0 +1,45 @@
+Walk a directory/Non-recursively
+
+{{task|File System Operations}}
+
+;Task:
+Walk a given directory and print the ''names'' of files matching a given pattern.  
+
+(How is "pattern" defined?  substring match?  DOS pattern?  BASH pattern?  ZSH pattern?  Perl regular expression?)
+
+
+'''Note:''' This task is for non-recursive methods. &nbsp; These tasks should read a ''single directory'', not an entire directory tree.  
+
+'''Note:''' Please be careful when running any code presented here.
+
+
+;Related task:
+* &nbsp; [[Walk Directory Tree]] &nbsp; (read entire directory tree). 
+<br><br>
+
+
+=={{header|JavaScript}}==
+{{works with|JScript}}
+<lang javascript>var fso = new ActiveXObject("Scripting.FileSystemObject");
+var dir = fso.GetFolder('test_folder');
+
+function walkDirectory(dir, re_pattern) {
+    WScript.Echo("Files in " + dir.name + " matching '" + re_pattern +"':");
+    walkDirectoryFilter(dir.Files, re_pattern);
+
+    WScript.Echo("Folders in " + dir.name + " matching '" + re_pattern +"':");
+    walkDirectoryFilter(dir.Subfolders, re_pattern);
+}
+
+function walkDirectoryFilter(items, re_pattern) {
+    var e = new Enumerator(items);
+    while (! e.atEnd()) {
+        var item = e.item();
+        if (item.name.match(re_pattern))
+            WScript.Echo(item.name);
+        e.moveNext();
+    }
+}
+
+walkDirectory(dir, '\\.txt$');</lang>
+

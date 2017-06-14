@@ -1,0 +1,28 @@
+Boolean values
+
+{{task|Basic language learning}}
+[[Category:Simple]]
+
+;Task:
+Show how to represent the boolean states "'''true'''" and "'''false'''" in a language. 
+
+If other objects represent "'''true'''" or "'''false'''" in conditionals, note it. 
+
+
+;Related tasks:
+* &nbsp; [[Logical operations]]
+<br><br>
+
+
+=={{header|JavaScript}}==
+The Boolean type has two values: <code>true</code> and <code>false</code>
+
+The following table shows the result of type conversions to boolean:
+* Undefined: any undefined value is converted to <code>false</code>
+* Null: <code>false</code>
+* Number: the numbers <code>0</code>, <code>-0</code>, <code>NaN</code> are <code>false</code>; otherwise <code>true</code>
+* String: the empty (zero-length) string is <code>false</code>; otherwise <code>true</code>
+* Object: any object is converted to <code>true</code>
+
+(source: [http://www.ecma-international.org/publications/standards/Ecma-262.htm ECMAScript Language Reference])
+

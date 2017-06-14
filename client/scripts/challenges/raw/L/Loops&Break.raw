@@ -1,0 +1,104 @@
+Loops/Break
+
+{{task|Iteration}} [[Category:Loop modifiers]] [[Category:Simple]]
+Show a loop which prints random numbers (each number newly generated each loop) from 0 to 19 (inclusive). 
+If a number is 10, stop the loop after printing it, and do not generate any further numbers.  
+Otherwise, generate and print a second random number before restarting the loop.  
+If the number 10 is never generated as the first number in a loop, loop forever.
+
+
+=={{header|JavaScript}}==
+<lang javascript>for (;;) {
+  var a = Math.floor(Math.random() * 20);
+  print(a);
+  if (a == 10) 
+    break;
+  a = Math.floor(Math.random() * 20);
+  print(a);
+}</lang>
+The <code>print()</code> function is available in the [[Rhino]] JavaScript shell.
+
+
+If we step back for a moment from imperative assumptions about repetitive processes and their interruption, we may notice that there is actually no necessary connection between repetitive process and loops.
+
+In a functional idiom of JavaScript, we might instead write something like:
+
+<lang JavaScript>(function streamTillInitialTen() {
+    var nFirst = Math.floor(Math.random() * 20);
+        
+    console.log(nFirst);
+    
+    if (nFirst === 10) return true;
+    
+    console.log(
+        Math.floor(Math.random() * 20)
+    );
+    
+    return streamTillInitialTen();
+})();</lang>
+
+Obtaining runs like:
+
+<pre>18
+10
+16
+10
+8
+0
+13
+3
+2
+14
+15
+17
+14
+7
+10
+8
+0
+2
+0
+2
+5
+16
+3
+16
+6
+7
+19
+0
+16
+9
+7
+11
+17
+10</pre>
+
+Though returning a value composes better, and costs less IO traffic, than firing off side-effects from a moving thread:
+
+<lang JavaScript>console.log(
+  (function streamTillInitialTen() {
+    var nFirst = Math.floor(Math.random() * 20);
+  
+    if (nFirst === 10) return [10];
+  
+    return [
+      nFirst,
+      Math.floor(Math.random() * 20)
+    ].concat(
+      streamTillInitialTen()
+    );
+  })().join('\n')
+);</lang>
+
+Sample result:
+<pre>17
+14
+3
+4
+13
+10
+15
+5
+10</pre>
+

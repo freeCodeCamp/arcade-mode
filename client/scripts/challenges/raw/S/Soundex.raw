@@ -1,0 +1,293 @@
+Soundex
+
+{{task|text processing}}
+
+Soundex is an algorithm for creating indices for words based on their pronunciation. 
+
+
+;Task:
+The goal is for homophones to be encoded to the same representation so that they can be matched despite minor differences in spelling (from [[wp:soundex|the WP article]]).
+<br><br>
+
+;Caution:
+There is a major issue in many of the implementations concerning the separation of two consonants that have the same soundex code! According to the official Rules [[https://www.archives.gov/research/census/soundex.html]]. So check for instance if '''Ashcraft'''  is coded to '''A-261'''.
+* If a vowel (A, E, I, O, U) separates two consonants that have the same soundex code, the consonant to the right of the vowel is coded. Tymczak is coded as T-522 (T, 5 for the M, 2 for the C, Z ignored (see "Side-by-Side" rule above), 2 for the K). Since the vowel "A" separates the Z and K, the K is coded.
+* If "H" or "W" separate two consonants that have the same soundex code, the consonant to the right of the vowel is not coded. Example: Ashcraft is coded A-261 (A, 2 for the S, C ignored, 6 for the R, 1 for the F). It is not coded A-226.
+
+
+=={{header|JavaScript}}==
+
+===ES5===
+==== Version w/o RegExp ====
+<lang javascript>var soundex = function (s) {
+     var a = s.toLowerCase().split('')
+         f = a.shift(),
+         r = '',
+         codes = {
+             a: '', e: '', i: '', o: '', u: '',
+             b: 1, f: 1, p: 1, v: 1,
+             c: 2, g: 2, j: 2, k: 2, q: 2, s: 2, x: 2, z: 2,
+             d: 3, t: 3,
+             l: 4,
+             m: 5, n: 5,
+             r: 6
+         };
+ 
+     r = f +
+         a
+         .map(function (v, i, a) { return codes[v] })
+         .filter(function (v, i, a) { return ((i === 0) ? v !== codes[f] : v !== a[i - 1]); })
+         .join('');
+ 
+     return (r + '000').slice(0, 4).toUpperCase();
+};
+
+var tests = {
+  "Soundex":     "S532",
+  "Example":     "E251",
+  "Sownteks":    "S532",
+  "Ekzampul":    "E251",
+  "Euler":       "E460",
+  "Gauss":       "G200",
+  "Hilbert":     "H416",
+  "Knuth":       "K530",
+  "Lloyd":       "L300",
+  "Lukasiewicz": "L222",
+  "Ellery":      "E460",
+  "Ghosh":       "G200",
+  "Heilbronn":   "H416",
+  "Kant":        "K530",
+  "Ladd":        "L300",
+  "Lissajous":   "L222",
+  "Wheaton":     "W350",
+  "Ashcraft":    "A226",
+  "Burroughs":   "B622",
+  "Burrows":     "B620",
+  "O'Hara":      "O600"
+  };
+
+for (var i in tests)
+  if (tests.hasOwnProperty(i)) {
+    console.log(
+      i +
+      '    \t' +
+      tests[i] +
+      '\t' +
+      soundex(i) +
+      '\t' +
+      (soundex(i) === tests[i])
+    );
+}
+
+// Soundex     S532  S532  true
+// Example     E251  E251  true
+// Sownteks    S532  S532  true
+// Ekzampul    E251  E251  true
+// Euler       E460  E460  true
+// Gauss       G200  G200  true
+// Hilbert     H416  H416  true
+// Knuth       K530  K530  true
+// Lloyd       L300  L300  true
+// Lukasiewicz L222  L222  true
+// Ellery      E460  E460  true
+// Ghosh       G200  G200  true
+// Heilbronn   H416  H416  true
+// Kant        K530  K530  true
+// Ladd        L300  L300  true
+// Lissajous   L222  L222  true
+// Wheaton     W350  W350  true
+// Ashcraft    A226  A226  true
+// Burroughs   B622  B622  true
+// Burrows     B620  B620  true
+// O'Hara      O600  O600  true</lang>
+
+
+==== Extended version w/ RegExp ====
+
+Note: This version differs from the one above in the following way. According to U.S. National Archives Website, consecutive consonants which map to the same code are not condensed to a single occurrence of the code if they are separated by vowels, but separating W and H do not thus intervene. Therefore Ashcraft is coded A261 and Burroughs is coded B620 rather than A226 and B622
+
+<lang javascript>
+function soundex(t) {
+  t = t.toUpperCase().replace(/[^A-Z]/g, '');
+  return (t[0] || '0') + t.replace(/[HW]/g, '')
+    .replace(/[BFPV]/g, '1')
+    .replace(/[CGJKQSXZ]/g, '2')
+    .replace(/[DT]/g, '3')
+    .replace(/[L]/g, '4')
+    .replace(/[MN]/g, '5')
+    .replace(/[R]/g, '6')
+    .replace(/(.)\1+/g, '$1')
+    .substr(1)
+    .replace(/[AEOIUHWY]/g, '')
+    .concat('000')
+    .substr(0, 3);
+}
+
+// tests
+[ ["Example", "E251"], ["Sownteks", "S532"], ["Lloyd", "L300"], ["12346", "0000"],
+ ["4-H", "H000"], ["Ashcraft", "A261"], ["Ashcroft", "A261"], ["auerbach", "A612"],
+ ["bar", "B600"], ["barre", "B600"], ["Baragwanath", "B625"], ["Burroughs", "B620"],
+ ["Burrows", "B620"], ["C.I.A.", "C000"], ["coöp", "C100"], ["D-day", "D000"],
+ ["d jay", "D200"], ["de la Rosa", "D462"], ["Donnell", "D540"], ["Dracula", "D624"],
+ ["Drakula", "D624"], ["Du Pont", "D153"], ["Ekzampul", "E251"], ["example", "E251"],
+ ["Ellery", "E460"], ["Euler", "E460"], ["F.B.I.", "F000"], ["Gauss", "G200"],
+ ["Ghosh", "G200"], ["Gutierrez", "G362"], ["he", "H000"], ["Heilbronn", "H416"],
+ ["Hilbert", "H416"], ["Jackson", "J250"], ["Johnny", "J500"], ["Jonny", "J500"],
+ ["Kant", "K530"], ["Knuth", "K530"], ["Ladd", "L300"], ["Lloyd", "L300"],
+ ["Lee", "L000"], ["Lissajous", "L222"], ["Lukasiewicz", "L222"], ["naïve", "N100"],
+ ["Miller", "M460"], ["Moses", "M220"], ["Moskowitz", "M232"], ["Moskovitz", "M213"],
+ ["O'Conner", "O256"], ["O'Connor", "O256"], ["O'Hara", "O600"], ["O'Mally", "O540"],
+ ["Peters", "P362"], ["Peterson", "P362"], ["Pfister", "P236"], ["R2-D2", "R300"],
+ ["rÄ≈sumÅ∙", "R250"], ["Robert", "R163"], ["Rupert", "R163"], ["Rubin", "R150"],
+ ["Soundex", "S532"], ["sownteks", "S532"], ["Swhgler", "S460"], ["'til", "T400"],
+ ["Tymczak", "T522"], ["Uhrbach", "U612"], ["Van de Graaff", "V532"],
+ ["VanDeusen", "V532"], ["Washington", "W252"], ["Wheaton", "W350"],
+ ["Williams", "W452"], ["Woolcock", "W422"]
+].forEach(function(v) {
+  var a = v[0], t = v[1], d = soundex(a);
+   if (d !== t) {
+    console.log('soundex("' + a + '") was ' + d + ' should be ' + t);
+  }
+}); </lang>
+
+===ES6===
+
+Allowing for both Simple Soundex (first example above) and NARA Soundex (second example above)
+(Reusing set of tests from second contribution)
+
+<lang JavaScript>(() => {
+    'use strict';
+
+    // Simple Soundex or NARA Soundex (if blnNara = true)
+
+    // soundex :: Bool -> String -> String
+    const soundex = (blnNara, name) => {
+
+        // code :: Char -> Char
+        const code = c => ['AEIOU', 'BFPV', 'CGJKQSXZ', 'DT', 'L', 'MN', 'R', 'HW']
+            .reduce((a, x, i) =>
+                a ? a : (x.indexOf(c) !== -1 ? i.toString() : a), '');
+
+        // isAlpha :: Char -> Boolean
+        const isAlpha = c => {
+            const d = c.charCodeAt(0);
+            return d > 64 && d < 91;
+        };
+
+        const s = name.toUpperCase()
+            .split('')
+            .filter(isAlpha);
+
+        return (s[0] || '0') +
+            s.map(code)
+            .join('')
+            .replace(/7/g, blnNara ? '' : '7')
+            .replace(/(.)\1+/g, '$1')
+            .substr(1)
+            .replace(/[07]/g, '')
+            .concat('000')
+            .substr(0, 3);
+    };
+
+    // curry :: ((a, b) -> c) -> a -> b -> c
+    const curry = f => a => b => f(a, b),
+        [simpleSoundex, naraSoundex] = [false, true]
+        .map(bln => curry(soundex)(bln));
+
+    // TEST
+    return [
+        ["Example", "E251"],
+        ["Sownteks", "S532"],
+        ["Lloyd", "L300"],
+        ["12346", "0000"],
+        ["4-H", "H000"],
+        ["Ashcraft", "A261"],
+        ["Ashcroft", "A261"],
+        ["auerbach", "A612"],
+        ["bar", "B600"],
+        ["barre", "B600"],
+        ["Baragwanath", "B625"],
+        ["Burroughs", "B620"],
+        ["Burrows", "B620"],
+        ["C.I.A.", "C000"],
+        ["coöp", "C100"],
+        ["D-day", "D000"],
+        ["d jay", "D200"],
+        ["de la Rosa", "D462"],
+        ["Donnell", "D540"],
+        ["Dracula", "D624"],
+        ["Drakula", "D624"],
+        ["Du Pont", "D153"],
+        ["Ekzampul", "E251"],
+        ["example", "E251"],
+        ["Ellery", "E460"],
+        ["Euler", "E460"],
+        ["F.B.I.", "F000"],
+        ["Gauss", "G200"],
+        ["Ghosh", "G200"],
+        ["Gutierrez", "G362"],
+        ["he", "H000"],
+        ["Heilbronn", "H416"],
+        ["Hilbert", "H416"],
+        ["Jackson", "J250"],
+        ["Johnny", "J500"],
+        ["Jonny", "J500"],
+        ["Kant", "K530"],
+        ["Knuth", "K530"],
+        ["Ladd", "L300"],
+        ["Lloyd", "L300"],
+        ["Lee", "L000"],
+        ["Lissajous", "L222"],
+        ["Lukasiewicz", "L222"],
+        ["naïve", "N100"],
+        ["Miller", "M460"],
+        ["Moses", "M220"],
+        ["Moskowitz", "M232"],
+        ["Moskovitz", "M213"],
+        ["O'Conner", "O256"],
+        ["O'Connor", "O256"],
+        ["O'Hara", "O600"],
+        ["O'Mally", "O540"],
+        ["Peters", "P362"],
+        ["Peterson", "P362"],
+        ["Pfister", "P236"],
+        ["R2-D2", "R300"],
+        ["rÄ≈sumÅ∙", "R250"],
+        ["Robert", "R163"],
+        ["Rupert", "R163"],
+        ["Rubin", "R150"],
+        ["Soundex", "S532"],
+        ["sownteks", "S532"],
+        ["Swhgler", "S460"],
+        ["'til", "T400"],
+        ["Tymczak", "T522"],
+        ["Uhrbach", "U612"],
+        ["Van de Graaff", "V532"],
+        ["VanDeusen", "V532"],
+        ["Washington", "W252"],
+        ["Wheaton", "W350"],
+        ["Williams", "W452"],
+        ["Woolcock", "W422"]
+    ].reduce((a, [name, naraCode]) => {
+        const naraTest = naraSoundex(name),
+            simpleTest = simpleSoundex(name);
+
+        const logNara = naraTest !== naraCode ? (
+                `${name} was ${naraTest} should be ${naraCode}`
+            ) : '',
+            logDelta = (naraTest !== simpleTest ? (
+                `${name} -> NARA: ${naraTest} vs Simple: ${simpleTest}`
+            ) : '');
+
+        return logNara.length || logDelta.length ? (
+            a + [logNara, logDelta].join('\n')
+        ) : a;
+    }, '');
+})();</lang>
+
+{{Out}}
+<pre>Ashcraft -> NARA: A261 vs Simple: A226
+Ashcroft -> NARA: A261 vs Simple: A226
+Burroughs -> NARA: B620 vs Simple: B622
+Swhgler -> NARA: S460 vs Simple: S246</pre>
+

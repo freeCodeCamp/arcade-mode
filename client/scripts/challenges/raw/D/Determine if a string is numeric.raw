@@ -1,0 +1,22 @@
+Determine if a string is numeric
+
+{{task|Text processing}}
+[[Category:Simple]]
+
+;Task:
+Create a boolean function which takes in a string and tells whether it is a numeric string (floating point and negative numbers included) in the syntax the language uses for numeric literals or numbers converted from strings.
+<br><br>
+
+
+=={{header|JavaScript}}==
+A far better validator can be found on StackOverflow[http://stackoverflow.com/questions/18082/validate-numbers-in-javascript-isnumeric]
+<lang javascript>function isNumeric(n) {
+  return !isNaN(parseFloat(n)) && isFinite(n);
+}
+var value = "123.45e7"; // Assign string literal to value
+if (isNumeric(value)) {
+  // value is a number
+}
+//Or, in web browser in address field:
+//  javascript:function isNumeric(n) {return !isNaN(parseFloat(n)) && isFinite(n);}; value="123.45e4"; if(isNumeric(value)) {alert('numeric')} else {alert('non-numeric')}
+</lang>

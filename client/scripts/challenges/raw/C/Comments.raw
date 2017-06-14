@@ -1,0 +1,31 @@
+Comments
+
+{{task|Basic language learning}}
+[[Category:Initialization]]
+
+;Task:
+Show all ways to include text in a language source file 
+that's completely ignored by the compiler or interpreter.
+
+
+;Related tasks:
+* &nbsp; [[Documentation]]
+* &nbsp; [[Here_document]]
+
+
+;See also:
+* &nbsp; [https://en.wikipedia.org/wiki/Comment_(computer_programming) Wikipedia]
+* &nbsp; [http://xkcd.com/156 xkcd] (Humor: hand gesture denoting <code>//</code> for "commenting out" people.)
+<br><br>
+
+
+=={{header|JavaScript}}==
+<lang javascript>n = n + 1; // This is a comment</lang>
+<lang javascript>// This is a valid comment // with a "nested" comment</lang>
+<lang javascript>/* This is
+a multi line
+comment
+// with a "nested" comment
+and another line in the comment
+*/</lang>
+

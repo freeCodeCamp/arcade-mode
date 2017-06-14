@@ -1,0 +1,5 @@
+Rosetta Code/Count examples
+
+{{task|Rosetta Code related}}Find the total number of programming examples for each [[:Category:Programming Tasks|task]] and the total for all tasks.
+
+Essentially, count the number of occurrences of <tt>

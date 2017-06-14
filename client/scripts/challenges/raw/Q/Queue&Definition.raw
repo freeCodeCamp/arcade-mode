@@ -1,0 +1,51 @@
+Queue/Definition
+
+{{task|Data Structures}}
+{{Data structure}}
+[[File:Fifo.gif|frame|right|Illustration of FIFO behavior]]
+
+;Task:
+Implement a FIFO queue. 
+
+Elements are added at one side and popped from the other in the order of insertion.
+
+
+Operations:
+* &nbsp; push   &nbsp; (aka ''enqueue'') &nbsp; - add element
+* &nbsp; pop    &nbsp; &nbsp; (aka ''dequeue'') &nbsp; - pop first element
+* &nbsp; empty  &nbsp; - return truth value when empty
+
+
+Errors:
+* &nbsp; handle the error of trying to pop from an empty queue (behavior depends on the language and platform)
+
+
+;See:
+* &nbsp; [[Queue/Usage]] &nbsp; for the built-in FIFO or queue of your language or standard library.
+
+
+{{Template:See also lists}}
+<br><br>
+
+
+=={{header|JavaScript}}==
+Most of the time, the built-in Array suffices. However, if you explicitly want to limit the usage to FIFO operations, it's easy to implement such a constructor.
+
+=== Using built-in Array ===
+<lang javascript>var fifo = [];
+fifo.push(42); // Enqueue.
+fifo.push(43);
+var x = fifo.shift(); // Dequeue.
+alert(x); // 42</lang>
+
+=== Custom constructor function ===
+<lang javascript>function FIFO() {
+    this.data = new Array();
+
+    this.push  = function(element) {this.data.push(element)}
+    this.pop   = function() {return this.data.shift()}
+    this.empty = function() {return this.data.length == 0}
+
+    this.enqueue = this.push;
+    this.dequeue = this.pop;
+}</lang>

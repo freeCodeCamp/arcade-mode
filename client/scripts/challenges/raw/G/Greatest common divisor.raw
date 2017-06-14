@@ -1,0 +1,55 @@
+Greatest common divisor
+
+{{task|Arithmetic operations}}[[Category:Recursion]]
+
+;Task:
+Find the greatest common divisor of two integers.
+<br><br>
+
+
+=={{header|JavaScript}}==
+Iterative implementation
+<lang javascript>function gcd(a,b) {
+  a = Math.abs(a);
+  b = Math.abs(b);
+
+  if (b > a) {
+    var temp = a;
+    a = b;
+    b = temp; 
+  }
+
+  while (true) {
+    a %= b;
+    if (a === 0) { return b; }
+    b %= a;
+    if (b === 0) { return a; }
+  }
+}</lang>
+
+Recursive.
+<lang javascript>function gcd_rec(a, b) {
+  return b ? gcd_rec(b, a % b) : Math.abs(a);
+}</lang>
+
+Implementation that works on an array of integers.
+<lang javascript>function GCD(arr) {
+  var i, y,
+      n = arr.length,
+      x = Math.abs(arr[0]);
+
+  for (i = 1; i < n; i++) {
+    y = Math.abs(arr[i]);
+
+    while (x && y) {
+      (x > y) ? x %= y : y %= x;
+    }
+    x += y;
+  }
+  return x;
+}
+
+//For example:
+GCD([57,0,-45,-18,90,447]); //=> 3
+</lang>
+

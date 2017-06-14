@@ -1,0 +1,195 @@
+Happy numbers
+
+{{task|Arithmetic operations}}
+From Wikipedia, the free encyclopedia:
+:A [[wp:Happy number|happy number]] is defined by the following process:
+
+: Starting with any positive integer, replace the number by the sum of the squares of its digits, and repeat the process until the number equals &nbsp; '''1''' &nbsp; (where it will stay), &nbsp; or it loops endlessly in a cycle which does not include &nbsp; '''1'''. &nbsp; Those numbers for which this process ends in &nbsp; '''1''' &nbsp; are happy numbers, &nbsp; while those that do not end in &nbsp; '''1''' &nbsp; are unhappy numbers. 
+
+Display an example of your output here.
+
+
+;task:
+Find and print the first 8 happy numbers.
+
+
+;See also
+* [[oeis:A007770|The &nbsp; &nbsp; happy numbers on OEIS: &nbsp; A007770]]
+* [[oeis:A031177|The unhappy numbers on OEIS; &nbsp; A031177]]
+<br><br>
+
+
+=={{header|JavaScript}}==
+
+===ES5===
+====Iteration====
+<lang javascript>function happy(number) {
+    var m, digit ;
+    var cycle = [] ;
+ 
+    while(number != 1 && cycle[number] !== true) {
+        cycle[number] = true ;
+        m = 0 ;
+        while (number > 0) {
+            digit = number % 10 ;
+            m += digit * digit ;
+            number = (number  - digit) / 10 ;
+        }
+        number = m ;
+    }
+    return (number == 1) ;
+}
+ 
+var cnt = 8 ;
+var number = 1 ;
+ 
+while(cnt-- > 0) {
+    while(!happy(number))
+        number++ ;
+    document.write(number + " ") ;
+    number++ ;
+}</lang>
+Output:
+<pre>1 7 10 13 19 23 28 31 </pre>
+
+===ES6===
+====Functional composition====
+{{Trans|Haskell}}
+<lang JavaScript>(() => {
+
+    // isHappy :: Int -> Bool
+    const isHappy = n => {
+        const f = n =>
+            foldl(
+                (a, x) => a + raise(read(x), 2), // ^2
+                0,
+                splitOn('', show(n))
+            ),
+            p = (s, n) => n === 1 ? (
+                true
+            ) : member(n, s) ? (
+                false
+            ) : p(
+                insert(n, s), f(n)
+            );
+        return p(new Set(), n);
+    };
+
+    // GENERIC FUNCTIONS ------------------------------------------------------
+
+    // enumFromTo :: Int -> Int -> [Int]
+    const enumFromTo = (m, n) =>
+        Array.from({
+            length: Math.floor(n - m) + 1
+        }, (_, i) => m + i);
+
+    // filter :: (a -> Bool) -> [a] -> [a]
+    const filter = (f, xs) => xs.filter(f);
+
+    // foldl :: (b -> a -> b) -> b -> [a] -> b
+    const foldl = (f, a, xs) => xs.reduce(f, a);
+
+    // insert :: Ord a => a -> Set a -> Set a
+    const insert = (e, s) => s.add(e);
+
+    // member :: Ord a => a -> Set a -> Bool
+    const member = (e, s) => s.has(e);
+
+    // read :: Read a => String -> a
+    const read = JSON.parse;
+
+    // show :: a -> String
+    const show = x => JSON.stringify(x);
+
+    // splitOn :: String -> String -> [String]
+    const splitOn = (cs, xs) => xs.split(cs);
+
+    // raise :: Num -> Int -> Num
+    const raise = (n, e) => Math.pow(n, e);
+
+    // take :: Int -> [a] -> [a]
+    const take = (n, xs) => xs.slice(0, n);
+
+    // TEST -------------------------------------------------------------------
+    return show(
+        take(8, filter(isHappy, enumFromTo(1, 50)))
+    );
+})()</lang>
+{{Out}}
+<lang JavaScript>[1, 7, 10, 13, 19, 23, 28, 31]</lang>
+
+Or, to stop immediately at the 8th member of the series, we can preserve functional composition while using an iteratively implemented '''until()''' function:
+<lang JavaScript>(() => {
+
+    // isHappy :: Int -> Bool
+    const isHappy = n => {
+        const f = n =>
+            foldl(
+                (a, x) => a + raise(read(x), 2), // ^2
+                0,
+                splitOn('', show(n))
+            ),
+            p = (s, n) => n === 1 ? (
+                true
+            ) : member(n, s) ? (
+                false
+            ) : p(
+                insert(n, s), f(n)
+            );
+        return p(new Set(), n);
+    };
+
+    // GENERIC FUNCTIONS ------------------------------------------------------
+
+    // filter :: (a -> Bool) -> [a] -> [a]
+    const filter = (f, xs) => xs.filter(f);
+
+    // foldl :: (b -> a -> b) -> b -> [a] -> b
+    const foldl = (f, a, xs) => xs.reduce(f, a);
+
+    // insert :: Ord a => a -> Set a -> Set a
+    const insert = (e, s) => s.add(e);
+
+    // member :: Ord a => a -> Set a -> Bool
+    const member = (e, s) => s.has(e);
+
+    // read :: Read a => String -> a
+    const read = JSON.parse;
+
+    // show :: a -> String
+    const show = x => JSON.stringify(x);
+
+    // splitOn :: String -> String -> [String]
+    const splitOn = (cs, xs) => xs.split(cs);
+
+    // raise :: Num -> Int -> Num
+    const raise = (n, e) => Math.pow(n, e);
+
+    // until :: (a -> Bool) -> (a -> a) -> a -> a
+    const until = (p, f, x) => {
+        let v = x;
+        while (!p(v)) v = f(v);
+        return v;
+    };
+
+    // TEST -------------------------------------------------------------------
+    return show(
+        until(
+            m => m.xs.length === 8,
+            m => {
+                const n = m.n;
+                return {
+                    n: n + 1,
+                    xs: isHappy(n) ? m.xs.concat(n) : m.xs
+                };
+            }, {
+                n: 1,
+                xs: []
+            }
+        )
+        .xs
+    );
+})();</lang>
+{{Out}}
+<lang JavaScript>[1, 7, 10, 13, 19, 23, 28, 31]</lang>
+

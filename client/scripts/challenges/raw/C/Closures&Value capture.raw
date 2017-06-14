@@ -1,0 +1,90 @@
+Closures/Value capture
+
+{{task}}
+
+;Task:
+Create a list of ten functions, in the simplest manner possible &nbsp; (anonymous functions are encouraged), &nbsp; such that the function at index&nbsp;&nbsp;<big> ''<b> i </b>'' </big> &nbsp; (you may choose to start &nbsp; <big> ''<b> i </b>'' </big> &nbsp; from either &nbsp; <big> '''0''' </big> &nbsp; or &nbsp; <big> '''1'''), </big>  &nbsp; when run, should return the square of the index, &nbsp; that is, &nbsp; <big> ''<b> i </b>'' <sup>2</sup>.</big> 
+
+Display the result of running any but the last function, to demonstrate that the function indeed remembers its value.
+
+
+;Goal:
+Demonstrate how to create a series of independent closures based on the same template but maintain separate copies of the variable closed over. 
+
+In imperative languages, one would generally use a loop with a mutable counter variable. 
+
+For each function to maintain the correct number, it has to capture the ''value'' of the variable at the time it was created, rather than just a reference to the variable, which would have a different value by the time the function was run.
+
+See also: [[Multiple distinct objects]]
+
+
+=={{header|JavaScript}}==
+
+===Imperative===
+
+<lang javascript>var funcs = [];
+for (var i = 0; i < 10; i++) {
+    funcs.push( (function(i) {
+                     return function() { return i * i; }
+                })(i) );
+}
+window.alert(funcs[3]()); // alerts "9"</lang>
+
+{{works with|JavaScript|1.7+}} (Firefox 2+)
+<lang javascript><script type="application/javascript;version=1.7">
+var funcs = [];
+for (var i = 0; i < 10; i++) {
+    let (i = i) {
+        funcs.push( function() { return i * i; } );
+    }
+}
+window.alert(funcs[3]()); // alerts "9"
+</script></lang>
+
+{{works with|JavaScript|ES6}}
+<lang javascript>"use strict";
+let funcs = [];
+for (let i = 0; i < 10; ++i) {
+    funcs.push((i => () => i*i)(i));
+}
+console.log(funcs[3]());</lang>
+
+===Functional ===
+
+{{works with|JavaScript|ES5}}
+
+<lang javascript>(function () {
+    'use strict';
+
+    // Int -> Int -> [Int]
+    function range(m, n) {
+        return Array.apply(null, Array(n - m + 1))
+            .map(function (x, i) {
+                return m + i;
+            });
+    }
+
+    var lstFns = range(0, 10)
+        .map(function (i) {
+            return function () {
+                return i * i;
+            };
+        })
+        
+    return lstFns[3]();
+
+})();</lang>
+
+{{out}}
+
+<pre>9</pre>
+
+
+{{works with|JavaScript|ES6}}
+<lang javascript>let funcs = [...Array(10).keys()].map(i => () => i*i);</lang>
+{{out}}
+<pre>
+console.log(funcs[3]());
+9
+</pre>
+

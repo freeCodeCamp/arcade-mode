@@ -1,0 +1,47 @@
+Increment a numerical string
+
+{{task|Text processing}} 
+[[Category:Simple]]
+
+;Task:
+Increment a numerical string.
+<br><br>
+
+
+=={{header|JavaScript}}==
+===ES6===
+
+Using implicit coercion:
+
+<lang javascript>let s = '9999';
+let splusplus = (+s+1)+""
+
+console.log([splusplus, typeof splusplus]) // 10000,string</lang>
+
+
+Or, with explicit type-checking and conversion:
+
+<lang javascript>(() => {
+    'use strict';
+
+    // stringSucc :: Maybe String -> Maybe String
+    const stringSucc = s =>
+        isNaN(s) ? undefined : (Number(s) + 1).toString();
+
+    // show :: a -> String
+    const show = x => JSON.stringify(x, null, 2);
+
+    return show(
+        ['2', '4', '8', '16', 'anomaly'].map(stringSucc)
+    );
+})();</lang>
+
+{{Out}}
+<pre>[
+  "3",
+  "5",
+  "9",
+  "17",
+  null
+]</pre>
+

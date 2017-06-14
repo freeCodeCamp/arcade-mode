@@ -1,0 +1,330 @@
+Five weekends
+
+{{task|Date and time}}
+[[Category:Puzzles]]
+The month of October in 2010 has five Fridays, five Saturdays, and five Sundays. 
+
+
+;Task:
+# Write a program to show all months that have this same characteristic of five full weekends from the year 1900 through 2100 (Gregorian calendar). 
+# Show the ''number'' of months with this property (there should be 201).
+# Show at least the first and last five dates, in order.
+
+
+'''Algorithm suggestions'''
+* Count the number of Fridays, Saturdays, and Sundays in every month.
+* Find all of the 31-day months that begin on Friday.
+
+
+'''Extra credit'''
+
+Count and/or show all of the years which do not have at least one five-weekend month (there should be 29).
+
+
+;Related tasks
+* [[Day of the week]]
+* [[Last Friday of each month]]
+* [[Find last sunday of each month]]
+<br><br>
+
+
+=={{header|JavaScript}}==
+===ES5===
+====Imperative====
+<lang javascript>function startsOnFriday(month, year)
+{
+ // 0 is Sunday, 1 is Monday, ... 5 is Friday, 6 is Saturday
+ return new Date(year, month, 1).getDay() === 5;
+}
+function has31Days(month, year)
+{
+ return new Date(year, month, 31).getDate() === 31;
+}
+function checkMonths(year)
+{
+ var month, count = 0;
+ for (month = 0; month < 12; month += 1)
+ {
+  if (startsOnFriday(month, year) && has31Days(month, year))
+  {
+   count += 1;
+   document.write(year + ' ' + month + '<br>');
+  }
+ }
+ return count;
+}
+function fiveWeekends()
+{
+ var
+  startYear = 1900,
+  endYear = 2100,
+  year,
+  monthTotal = 0,
+  yearsWithoutFiveWeekends = [],
+  total = 0;
+ for (year = startYear; year <= endYear; year += 1)
+ {
+  monthTotal = checkMonths(year);
+  total += monthTotal;
+  // extra credit
+  if (monthTotal === 0)
+   yearsWithoutFiveWeekends.push(year);
+ }
+ document.write('Total number of months: ' + total + '<br>');
+ document.write('<br>');
+ document.write(yearsWithoutFiveWeekends + '<br>');
+ document.write('Years with no five-weekend months: ' + yearsWithoutFiveWeekends.length + '<br>');
+}
+fiveWeekends();</lang>
+
+{{out|Sample output}}
+<pre>1901 2
+1902 7
+1903 4
+1904 0
+1904 6
+...
+2097 2
+2098 7
+2099 4
+2100 0
+2100 9
+Total number of months: 201
+
+1900,1906,1917,1923,1928,1934,1945,1951,1956,1962,1973,1979,1984,1990,2001,2007,2012,2018,2029,2035,2040,2046,2057,2063,2068,2074,2085,2091,2096
+Years with no five-weekend months: 29</pre>
+
+
+Here is an alternative solution that uses the offset between the first day of every month, generating the same solution but without relying on the Date object.
+<lang javascript>var Months = [
+  'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+  'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'
+];
+
+var leap = 0,
+  // Relative offsets between first day of each month
+  offset = [3,0,3,2,3,2,3,3,2,3,2,3],
+
+  // Months that contain 31 days
+  longMonths = [1,3,5,7,8,10,12],
+
+  startYear = 1900,
+  year = startYear,
+  endYear = 2100,
+
+  // Jan 1, 1900 starts on a Monday
+  day = 1,
+
+  totalPerYear = 0,
+  total = 0,
+  without = 0;
+
+for (; year < endYear + 1; year++) {
+  leap = totalPerYear = 0;
+
+  if (year % 4 === 0) {
+    if (year % 100 === 0) {
+      if (year % 400 === 0) {
+        leap = 1;
+      }
+    } else {
+      leap = 1;
+    }
+  }
+
+  for (var i = 0; i < offset.length; i++) {
+    for (var j = 0; day === 5 && j < longMonths.length; j++) {
+      if (i + 1 === longMonths[j]) {
+        console.log(year + '-' + Months[i]);
+        totalPerYear++;
+        total++;
+        break;
+      }
+    }
+
+    // February -- if leap year, then +1 day
+    if (i == 1) {
+      day = (day + leap) % 7; 
+    } else {
+      day = (day + offset[i]) % 7;
+    }
+  }
+
+  if (totalPerYear === 0) {
+    without++;
+  }
+}
+
+console.log('Number of months that have five full weekends from 1900 to 2100: ' + total);
+console.log('Number of years without any five full weekend months: ' + without);</lang>
+{{out}}
+<pre>1901-Mar
+1902-Aug
+1903-May
+1904-Jan
+1904-Jul
+...
+2097-Mar
+2098-Aug
+2099-May
+2100-Jan
+2100-Oct
+Number of months that have five full weekends from 1900 to 2100: 201
+Number of years without any five full weekend months: 29</pre>
+
+====Functional====
+<lang JavaScript>(function () {
+    'use strict';
+
+    // longMonthsStartingFriday :: Int -> Int
+    function longMonthsStartingFriday(y) {
+        return [0, 2, 4, 6, 7, 9, 11]
+            .filter(function (m) {
+                return (new Date(Date.UTC(y, m, 1)))
+                    .getDay() === 5;
+            });
+    }
+
+    // range :: Int -> Int -> [Int]
+    function range(m, n) {
+        return Array.apply(null, Array(n - m + 1))
+            .map(function (x, i) {
+                return m + i;
+            });
+    }
+
+    var lstNames = [
+            'January', '', 'March', '', 'May', '',
+            'July', 'August', '', 'October', '', 'December'
+        ],
+
+        lstYears = range(1900, 2100),
+
+        lstFullMonths = lstYears
+        .reduce(function (a, y) {
+            var strYear = y.toString();
+
+            return a.concat(
+                longMonthsStartingFriday(y)
+                .map(function (m) {
+                    return strYear + ' ' + lstNames[m];
+                })
+            );
+        }, []),
+
+        lstLeanYears = lstYears
+        .filter(function (y) {
+            return longMonthsStartingFriday(y)
+                .length === 0;
+        });
+
+    return JSON.stringify({
+            number: lstFullMonths.length,
+            firstFive: lstFullMonths.slice(0, 5),
+            lastFive: lstFullMonths.slice(-5),
+            leanYearCount: lstLeanYears.length
+        },
+        null, 2
+    );
+})();</lang>
+{{Out}}
+<pre>{
+  "number": 201,
+  "firstFive": [
+    "1901 March",
+    "1902 August",
+    "1903 May",
+    "1904 January",
+    "1904 July"
+  ],
+  "lastFive": [
+    "2097 March",
+    "2098 August",
+    "2099 May",
+    "2100 January",
+    "2100 October"
+  ],
+  "leanYearCount": 29
+}</pre>
+
+===ES6===
+<lang JavaScript>(() => {
+    // longMonthsStartingFriday :: Int -> [Int]
+    const longMonthsStartingFriday = y =>
+        filter(m => (new Date(Date.UTC(y, m, 1)))
+            .getDay() === 5, [0, 2, 4, 6, 7, 9, 11]);
+
+    // Years -> YearMonths
+    // fullMonths :: [Int] -> [String]
+    const fullMonths = xs =>
+        foldl((a, y) => a.concat(
+            map(m => `${y.toString()} ${[
+                            'January', '', 'March', '', 'May', '',
+                            'July', 'August', '', 'October', '', 'December'
+                        ][m]}`, longMonthsStartingFriday(y))
+        ), [], xs);
+
+    // leanYears :: [Int] -> [Int]
+    const leanYears = years =>
+        filter(y => longMonthsStartingFriday(y)
+            .length === 0, years);
+
+    // GENERIC ----------------------------------------------------------------
+
+    // A list of functions applied to a list of arguments
+    // <*> :: [(a -> b)] -> [a] -> [b]
+    const ap = (fs, xs) => //
+        [].concat.apply([], fs.map(f => //
+            [].concat.apply([], xs.map(x => [f(x)]))));
+
+    // enumFromTo :: Int -> Int -> [Int]
+    const enumFromTo = (m, n) =>
+        Array.from({
+            length: Math.floor(n - m) + 1
+        }, (_, i) => m + i);
+
+    // filter :: (a -> Bool) -> [a] -> [a]
+    const filter = (f, xs) => xs.filter(f);
+
+    // foldl :: (b -> a -> b) -> b -> [a] -> b
+    const foldl = (f, a, xs) => xs.reduce(f, a);
+
+    // map :: (a -> b) -> [a] -> [b]
+    const map = (f, xs) => xs.map(f);
+
+    // show :: a -> String
+    const show = x => JSON.stringify(x, null, 2);
+
+
+    // TEST -------------------------------------------------------------------
+    const [lstFullMonths, lstLeanYears] = ap(
+        [fullMonths, leanYears], [enumFromTo(1900, 2100)]
+    );
+
+    return show({
+        number: lstFullMonths.length,
+        firstFive: lstFullMonths.slice(0, 5),
+        lastFive: lstFullMonths.slice(-5),
+        leanYearCount: lstLeanYears.length
+    });
+})();</lang>
+{{Out}}
+<pre>{
+  "number": 201,
+  "firstFive": [
+    "1901 March",
+    "1902 August",
+    "1903 May",
+    "1904 January",
+    "1904 July"
+  ],
+  "lastFive": [
+    "2097 March",
+    "2098 August",
+    "2099 May",
+    "2100 January",
+    "2100 October"
+  ],
+  "leanYearCount": 29
+}</pre>
+

@@ -1,0 +1,314 @@
+Sierpinski triangle
+
+{{task|Fractals}}
+
+;Task
+Produce an ASCII representation of a [[wp:Sierpinski triangle|Sierpinski triangle]] of order '''N'''.  
+
+
+;Example
+The Sierpinski triangle of order '''4''' should look like this: 
+<pre>
+                       *
+                      * *
+                     *   *
+                    * * * *
+                   *       *
+                  * *     * *
+                 *   *   *   *
+                * * * * * * * *
+               *               *
+              * *             * *
+             *   *           *   *
+            * * * *         * * * *
+           *       *       *       *
+          * *     * *     * *     * *
+         *   *   *   *   *   *   *   *
+        * * * * * * * * * * * * * * * *
+</pre>
+
+
+;Related tasks
+* [[Sierpinski triangle/Graphical]] for graphics images of this pattern.  
+* [[Sierpinski carpet]]
+<br><br>
+
+
+=={{header|JavaScript}}==
+
+===ES5===
+====Functional====
+
+Using a functional idiom of JavaScript, we can construct a Sierpinksi triangle as a Pascal triangle (mod 2), 
+mapping the binary pattern to centred strings.
+
+<lang JavaScript>(function (order) {
+
+    // Sierpinski triangle of order N constructed as
+    // Pascal triangle of 2^N rows mod 2
+    // with 1 encoded as "▲"
+    // and 0 encoded as " "
+    function sierpinski(intOrder) {
+        return function asciiPascalMod2(intRows) {
+            return range(1, intRows - 1)
+                .reduce(function (lstRows) {
+                    var lstPrevRow = lstRows.slice(-1)[0];
+
+                    // Each new row is a function of the previous row
+                    return lstRows.concat([zipWith(function (left, right) {
+                        // The composition ( asciiBinary . mod 2 . add )
+                        // reduces to a rule from 2 parent characters
+                        // to a single child character
+                       
+                        // Rule 90 also reduces to the same XOR 
+                        // relationship between left and right neighbours  
+
+                        return left === right ? " " : "▲";
+                    }, [' '].concat(lstPrevRow), lstPrevRow.concat(' '))]);
+                }, [
+                    ["▲"] // Tip of triangle
+                ]);
+        }(Math.pow(2, intOrder))
+
+        // As centred lines, from bottom (0 indent) up (indent below + 1)
+        .reduceRight(function (sofar, lstLine) {
+            return {
+                triangle: sofar.indent + lstLine.join(" ") + "\n" +
+                    sofar.triangle,
+                indent: sofar.indent + " "
+            };
+        }, {
+            triangle: "",
+            indent: ""
+        }).triangle;
+    };
+
+    var zipWith = function (f, xs, ys) {
+            return xs.length === ys.length ? xs
+                .map(function (x, i) {
+                    return f(x, ys[i]);
+                }) : undefined;
+        },
+        range = function (m, n) {
+            return Array.apply(null, Array(n - m + 1))
+                .map(function (x, i) {
+                    return m + i;
+                });
+        };
+
+    // TEST
+    return sierpinski(order);
+
+})(4);
+</lang>
+
+Output (N=4)
+
+<pre>               ▲
+              ▲ ▲
+             ▲   ▲
+            ▲ ▲ ▲ ▲
+           ▲       ▲
+          ▲ ▲     ▲ ▲
+         ▲   ▲   ▲   ▲
+        ▲ ▲ ▲ ▲ ▲ ▲ ▲ ▲
+       ▲               ▲
+      ▲ ▲             ▲ ▲
+     ▲   ▲           ▲   ▲
+    ▲ ▲ ▲ ▲         ▲ ▲ ▲ ▲
+   ▲       ▲       ▲       ▲
+  ▲ ▲     ▲ ▲     ▲ ▲     ▲ ▲
+ ▲   ▲   ▲   ▲   ▲   ▲   ▲   ▲
+▲ ▲ ▲ ▲ ▲ ▲ ▲ ▲ ▲ ▲ ▲ ▲ ▲ ▲ ▲ ▲</pre>
+
+====Imperative====
+
+<lang javascript>function triangle(o) {
+    var n = 1 << o,
+        line = new Array(2 * n),
+        i, j, t, u;
+    for (i = 0; i < line.length; ++i) line[i] = '&nbsp;';
+    line[n] = '*';
+    for (i = 0; i < n; ++i) {
+        document.write(line.join('') + "\n");
+        u = '*';
+        for (j = n - i; j < n + i + 1; ++j) {
+            t = (line[j - 1] == line[j + 1] ? '&nbsp;' : '*');
+            line[j - 1] = u;
+            u = t;
+        }
+        line[n + i] = t;
+        line[n + i + 1] = '*';
+    }
+}
+document.write("<pre>\n");
+triangle(6);
+document.write("</pre>");</lang>
+
+===ES6===
+{{Trans|Haskell}}
+Centering any preceding triangle block over two adjacent duplicates: 
+<lang JavaScript>(() => {
+    'use strict';
+
+    // LINES OF SIERPINSKI TRIANGLE AT LEVEL N -------------------------------
+
+    // sierpinski :: Int -> [String]
+    const sierpTriangle = n =>
+        // Previous triangle centered with left and right padding,
+        (n > 0) ? concat(ap([
+            map(xs => intercalate(xs, ap(
+                [s => concat(replicate(Math.pow(2, (n - 1)), s))], [' ', '-']
+            ))),
+            
+            // above a pair of duplicates, placed one character apart.
+            map(xs => intercalate('+', [xs, xs]))
+        ], [sierpTriangle(n - 1)])) : ['▲'];
+
+
+    // GENERIC FUNCTIONS -----------------------------------------------------
+
+    // replicate :: Int -> a -> [a]
+    const replicate = (n, a) => {
+        let v = [a],
+            o = [];
+        if (n < 1) return o;
+        while (n > 1) {
+            if (n & 1) o = o.concat(v);
+            n >>= 1;
+            v = v.concat(v);
+        }
+        return o.concat(v);
+    };
+
+    // curry :: ((a, b) -> c) -> a -> b -> c
+    const curry = f => a => b => f(a, b);
+
+    // map :: (a -> b) -> [a] -> [b]
+    const map = curry((f, xs) => xs.map(f));
+
+    // Apply a list of functions to a list of arguments
+    // <*> :: [(a -> b)] -> [a] -> [b]
+    const ap = (fs, xs) => //
+        [].concat.apply([], fs.map(f => //
+            [].concat.apply([], xs.map(x => [f(x)]))));
+
+    // unlines :: [String] -> String
+    const unlines = xs => xs.join('\n');
+
+    // intercalate :: String -> [a] -> String
+    const intercalate = (s, xs) => xs.join(s);
+
+    // concat :: [[a]] -> [a] || [String] -> String
+    const concat = xs => {
+        if (xs.length > 0) {
+            const unit = typeof xs[0] === 'string' ? '' : [];
+            return unit.concat.apply(unit, xs);
+        } else return [];
+    };
+
+    // TEST ------------------------------------------------------------------
+    return unlines(sierpTriangle(4));
+})();</lang>
+{{Out}}
+<pre>               ▲---------------
+              ▲+▲--------------
+             ▲-+ ▲-------------
+            ▲+▲+▲+▲------------
+           ▲---+   ▲-----------
+          ▲+▲--+  ▲+▲----------
+         ▲-+ ▲-+ ▲-+ ▲---------
+        ▲+▲+▲+▲+▲+▲+▲+▲--------
+       ▲-------+       ▲-------
+      ▲+▲------+      ▲+▲------
+     ▲-+ ▲-----+     ▲-+ ▲-----
+    ▲+▲+▲+▲----+    ▲+▲+▲+▲----
+   ▲---+   ▲---+   ▲---+   ▲---
+  ▲+▲--+  ▲+▲--+  ▲+▲--+  ▲+▲--
+ ▲-+ ▲-+ ▲-+ ▲-+ ▲-+ ▲-+ ▲-+ ▲-
+▲+▲+▲+▲+▲+▲+▲+▲+▲+▲+▲+▲+▲+▲+▲+▲</pre>
+
+Or constructed as 2^N lines of Pascal's triangle mod 2, 
+and mapped to centred {1:asterisk, 0:space} strings.
+<lang JavaScript>
+(order => {
+    // sierpinski :: Int -> [Bool]
+    let sierpinski = intOrder => {
+
+        // asciiPascalMod2 :: Int -> [[Int]]
+        let asciiPascalMod2 = nRows =>
+            range(1, nRows - 1)
+            .reduce(sofar => {
+                let lstPrev = sofar.slice(-1)[0];
+
+                // The composition of (asciiBinary . mod 2 . add)
+                // is reduced here to a rule from two parent characters
+                // to a single child character.
+
+                // Rule 90 also reduces to the same XOR 
+                // relationship between left and right neighbours.
+
+                return sofar
+                    .concat([zipWith(
+                        (left, right) => left === right ? ' ' : '*',
+                        [' '].concat(lstPrev),
+                        lstPrev.concat(' ')
+                    )]);
+            }, [
+                ['*'] // Tip of triangle
+            ]);
+
+        // Reduce/folding from the last item (base of list)
+        // which has zero left indent.
+
+        // Each preceding row has one more indent space than the row beneath it
+        return asciiPascalMod2(Math.pow(2, intOrder))
+            .reduceRight((a, x) => {
+                return {
+                    triangle: a.indent + x.join(' ') + '\n' + a.triangle,
+                    indent: a.indent + ' '
+                }
+            }, {
+                triangle: '',
+                indent: ''
+            }).triangle
+    };
+
+    // zipWith :: (a -> b -> c) -> [a] -> [b] -> [c]
+    let zipWith = (f, xs, ys) =>
+            xs.length === ys.length ? (
+                xs.map((x, i) => f(x, ys[i]))
+            ) : undefined,
+
+        // range(intFrom, intTo, optional intStep)
+        // Int -> Int -> Maybe Int -> [Int]
+        range = (m, n, step) => {
+            let d = (step || 1) * (n >= m ? 1 : -1);
+
+            return Array.from({
+                length: Math.floor((n - m) / d) + 1
+            }, (_, i) => m + (i * d));
+        };
+
+    return sierpinski(order);
+
+})(4);</lang>
+
+{{Out}}
+<pre>               *
+              * *
+             *   *
+            * * * *
+           *       *
+          * *     * *
+         *   *   *   *
+        * * * * * * * *
+       *               *
+      * *             * *
+     *   *           *   *
+    * * * *         * * * *
+   *       *       *       *
+  * *     * *     * *     * *
+ *   *   *   *   *   *   *   *
+* * * * * * * * * * * * * * * *</pre>
+

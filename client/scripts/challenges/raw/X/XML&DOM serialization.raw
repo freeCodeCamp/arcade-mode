@@ -1,0 +1,41 @@
+XML/DOM serialization
+
+{{task|XML}}
+
+Create a simple DOM and having it serialize to:
+
+  <?xml version="1.0" ?>
+  <root>
+      <element>
+          Some text here
+      </element>
+  </root>
+
+=={{header|JavaScript}}==
+{{works with|Firefox|2.0}}
+DOM
+
+<lang javascript>var doc = document.implementation.createDocument( null, 'root', null );
+var root = doc.documentElement;
+var element = doc.createElement( 'element' );
+root.appendChild( element );
+element.appendChild( document.createTextNode('Some text here') );
+var xmlString = new XMLSerializer().serializeToString( doc );</lang>
+
+E4X
+
+<lang javascript>var xml = <root>
+  <element>Some text here</element>
+</root>;
+var xmlString = xml.toXMLString();</lang>
+
+E4X — with processing instruction
+
+<lang javascript>XML.ignoreProcessingInstructions = false;
+var xml = <?xml version="1.0"?>  
+<root>
+  <element>Some text here</element>
+</root>;
+var xmlString = xml.toXMLString();</lang>
+
+

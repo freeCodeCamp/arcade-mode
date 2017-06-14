@@ -1,0 +1,60 @@
+Conditional structures
+
+{{Task|Control Structures}}
+{{Control Structures}} 
+[[Category:Simple]]
+
+;Task:
+List the &nbsp; ''conditional structures'' &nbsp; offered by a programming language. 
+
+Common conditional structures are &nbsp; &nbsp; '''if-then-else''' &nbsp; &nbsp; and &nbsp; &nbsp; '''switch'''.
+<br><br>
+
+
+=={{header|JavaScript}}==
+
+===if-then-else===
+
+<lang javascript>if( s == "Hello World" ) {
+    foo();
+} else if( s == "Bye World" ) {
+    bar();
+} else {
+    deusEx();
+}</lang>
+
+===switch===
+
+<lang javascript>switch(object) {
+    case 1:
+        one();
+        break;
+    case 2:
+    case 3:
+    case 4:
+        twoThreeOrFour();
+        break;
+    case 5:
+        five();
+        break;
+    default:
+        everythingElse();
+}</lang>
+
+===conditional (ternary) operator (?:)===
+
+<lang javascript>var num = window.obj ? obj.getNumber() : null;</lang>
+
+The distinctive feature of the ternary operator (compared to JavaScript's other conditional structures) is that it evaluates as an expression rather than a statement, and can therefore be composed within larger expressions, making it a valuable resource of program structure in a functional idiom of JavaScript.
+
+<lang JavaScript>function takeWhile(lst, fnTest) {
+    'use strict';
+    var varHead = lst.length ? lst[0] : null;
+
+    return varHead ? (
+        fnTest(varHead) ? [varHead].concat(
+            takeWhile(lst.slice(1), fnTest)
+        ) : []
+    ) : [];
+}</lang>
+

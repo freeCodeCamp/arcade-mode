@@ -1,0 +1,44 @@
+Delete a file
+
+{{task|File System Operations}}
+
+;Task:
+Delete a file called "input.txt" and delete a directory called "docs". 
+
+This should be done twice: once "here", i.e. in the current working directory and once in the filesystem root.
+<br><br>
+
+
+=={{header|JavaScript}}==
+{{works with|JScript}}
+<lang javascript>var fso = new ActiveXObject("Scripting.FileSystemObject");
+
+fso.DeleteFile('input.txt');
+fso.DeleteFile('c:/input.txt');
+
+fso.DeleteFolder('docs');
+fso.DeleteFolder('c:/docs');</lang>
+
+or
+
+<lang javascript>var fso = new ActiveXObject("Scripting.FileSystemObject");
+var f;
+f = fso.GetFile('input.txt');
+f.Delete();
+f = fso.GetFile('c:/input.txt');
+f.Delete();
+f = fso.GetFolder('docs');
+f.Delete();
+f = fso.GetFolder('c:/docs');
+f.Delete();</lang>
+
+{{works with|Node.js}}
+Synchronous
+<lang javascript>const fs = require('fs');
+fs.unlinkSync('myfile.txt');</lang>
+Asynchronous
+<lang javascript>const fs = require('fs');
+fs.unlink('myfile.txt', ()=>{
+  console.log("Done!");
+})</lang>
+

@@ -1,0 +1,32 @@
+String case
+
+{{task|String manipulation}}
+
+;Task:
+Take the string &nbsp; &nbsp; '''alphaBETA''' &nbsp; &nbsp; and demonstrate how to convert it to:
+:::* &nbsp; upper-case &nbsp; &nbsp; and 
+:::* &nbsp; lower-case
+
+<br>
+Use the default encoding of a string literal or plain ASCII if there is no string literal in your language.
+
+Show any additional case conversion functions &nbsp; (e.g. swapping case, capitalizing the first letter, etc.) &nbsp; that may be included in the library of your language.
+
+
+{{Template:Strings}}
+<br><br>
+
+
+=={{header|JavaScript}}==
+<lang javascript>alert( "alphaBETA".toUpperCase() );
+alert( "alphaBETA".toLowerCase() );</lang>
+
+Output:
+ ALPHABETA
+ alphabeta
+
+{{works with|NJS| 0.2.5}}
+<lang javascript>var string = "alphaBETA";
+var uppercase = string.toUpperCase();
+var lowercase = string.toLowerCase();</lang>
+

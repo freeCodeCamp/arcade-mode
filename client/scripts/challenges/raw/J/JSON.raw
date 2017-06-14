@@ -1,0 +1,20 @@
+JSON
+
+{{task}}
+Load a [[wp:JSON|JSON]] string into a data structure.  
+Also create a new data structure and serialize it into JSON.
+
+Use objects and arrays (as appropriate for your language) 
+and make sure your JSON is valid (http://www.jsonlint.com/).
+
+
+
+=={{header|JavaScript}}==
+Requires JSON library, now present in all major browsers.
+<lang JavaScript>var data = JSON.parse('{ "foo": 1, "bar": [10, "apples"] }');
+
+var sample = { "blue": [1,2], "ocean": "water" };
+var json_string = JSON.stringify(sample);</lang>
+
+JSON is called ''JavaScript'' Object Notation, but JSON differs form JavaScript object literal. cf. [https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/JSON MDN/JSON]
+

@@ -1,0 +1,79 @@
+Least common multiple
+
+{{task}}
+
+;Task:
+Compute the least common multiple of two integers.
+
+Given &nbsp; ''m'' &nbsp; and &nbsp; ''n'', &nbsp; the least common multiple is the smallest positive integer that has both &nbsp; ''m'' &nbsp; and &nbsp; ''n'' &nbsp; as factors. 
+
+
+;Example:
+The least common multiple of 12 and 18 is 36, because 12 is a factor (12 &times; 3 = 36), and 18 is a factor (18 &times; 2 = 36), and there is no positive integer less than 36 that has both factors. &nbsp; As a special case, if either &nbsp; ''m'' &nbsp; or &nbsp; ''n'' &nbsp; is zero, then the least common multiple is zero.
+
+One way to calculate the least common multiple is to iterate all the multiples of &nbsp; ''m'', &nbsp; until you find one that is also a multiple of &nbsp; ''n''.
+
+If you already have &nbsp; ''gcd'' &nbsp; for [[greatest common divisor]], &nbsp; then this formula calculates &nbsp; ''lcm''.
+
+<big>
+:::: <math>\operatorname{lcm}(m, n) = \frac{|m \times n|}{\operatorname{gcd}(m, n)}</math>
+</big>
+
+One can also find &nbsp; ''lcm'' &nbsp; by merging the [[prime decomposition]]s of both &nbsp; ''m'' &nbsp; and &nbsp; ''n''.
+
+
+;References:
+* &nbsp; [http://mathworld.wolfram.com/LeastCommonMultiple.html MathWorld].
+* &nbsp; [[wp:Least common multiple|Wikipedia]].
+<br><br>
+
+
+=={{header|JavaScript}}==
+
+===ES5===
+Computing the least common multiple of an integer array, using the associative law:
+
+<math>\operatorname{lcm}(a,b,c)=\operatorname{lcm}(\operatorname{lcm}(a,b),c),</math>
+
+<math>\operatorname{lcm}(a_1,a_2,\ldots,a_n) = \operatorname{lcm}(\operatorname{lcm}(a_1,a_2,\ldots,a_{n-1}),a_n).</math>
+
+<lang javascript>function LCM(A)  // A is an integer array (e.g. [-50,25,-45,-18,90,447])
+{   
+    var n = A.length, a = Math.abs(A[0]);
+    for (var i = 1; i < n; i++)
+     { var b = Math.abs(A[i]), c = a;
+       while (a && b){ a > b ? a %= b : b %= a; } 
+       a = Math.abs(c*A[i])/(a+b);
+     }
+    return a;
+}
+
+/* For example:
+   LCM([-50,25,-45,-18,90,447]) -> 67050
+*/</lang>
+
+
+===ES6===
+{{Trans|Haskell}}
+<lang JavaScript>(() => {
+    'use strict';
+
+    // gcd :: Integral a => a -> a -> a
+    let gcd = (x, y) => {
+        let _gcd = (a, b) => (b === 0 ? a : _gcd(b, a % b)),
+            abs = Math.abs;
+        return _gcd(abs(x), abs(y));
+    }
+
+    // lcm :: Integral a => a -> a -> a
+    let lcm = (x, y) =>
+        x === 0 || y === 0 ? 0 : Math.abs(Math.floor(x / gcd(x, y)) * y);
+
+    // TEST
+    return lcm(12, 18);
+
+})();</lang>
+
+{{Out}}
+<pre>36</pre>
+

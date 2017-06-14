@@ -1,0 +1,200 @@
+Non-decimal radices/Convert
+
+{{task|Arithmetic operations}}
+
+Number base conversion is when you express a stored integer in an integer base, such as in octal (base 8) or binary (base 2). It also is involved when you take a string representing a number in a given base and convert it to the stored integer form. Normally, a stored integer is in binary, but that's typically invisible to the user, who normally enters or sees stored integers as decimal.  
+
+
+;Task:
+Write a function (or identify the built-in function) which is passed a non-negative integer to convert, and another integer representing the base. 
+
+It should return a string containing the digits of the resulting number, without leading zeros except for the number &nbsp; '''0''' &nbsp; itself. 
+
+For the digits beyond 9, one should use the lowercase English alphabet, where the digit &nbsp; '''a''' = 9+1, &nbsp; '''b''' = a+1, &nbsp; etc. 
+
+For example: &nbsp; the decimal number &nbsp; '''26''' &nbsp; expressed in base &nbsp; '''16''' &nbsp; would be &nbsp; '''1a'''.
+
+Write a second function which is passed a string and an integer base, and it returns an integer representing that string interpreted in that base.
+
+The programs may be limited by the word size or other such constraint of a given language. There is no need to do error checking for negatives, bases less than 2, or inappropriate digits.
+<br><br>
+
+
+=={{header|JavaScript}}==
+===ES5===
+<lang javascript>k = 26
+s = k.toString(16) //gives 1a
+i = parseInt('1a',16) //gives 26
+//optional special case for hex:
+i = +('0x'+s) //hexadecimal base 16, if s='1a' then i=26.</lang>
+
+Converts a number of arbitrary length from any base to any base
+Limitation: Any base or number that causes accumulator to overflow will lose precision!!
+Debugging or following the process is easy as it is kept in the expected base string format and order.
+<lang javascript>
+var baselist = "0123456789abcdefghijklmnopqrstuvwxyz", listbase = [];
+for(var i = 0; i < baselist.length; i++) listbase[baselist[i]] = i; // Generate baselist reverse
+function basechange(snumber, frombase, tobase)
+{
+ var i, t, to = new Array(Math.ceil(snumber.length * Math.log(frombase) / Math.log(tobase))), accumulator;
+ if(1 < frombase < baselist.length || 1 < tobase < baselist.length) console.error("Invalid or unsupported base!");
+ while(snumber[0] == baselist[0] && snumber.length > 1) snumber = snumber.substr(1); // Remove leading zeros character
+ console.log("Number is", snumber, "in base", frombase, "to base", tobase, "result should be",
+             parseInt(snumber, frombase).toString(tobase));
+ for(i = snumber.length - 1, inexp = 1; i > -1; i--, inexp *= frombase)
+  for(accumulator = listbase[snumber[i]] * inexp, t = to.length - 1; accumulator > 0 || t >= 0; t--)
+  {
+   accumulator += listbase[to[t] || 0];
+   to[t] = baselist[(accumulator % tobase)  || 0];
+   accumulator = Math.floor(accumulator / tobase);
+  }
+ return to.join('');
+}
+console.log("Result:", basechange("zzzzzzzzzz", 36, 10));</lang>
+Using BigInteger, can convert any base.
+<lang javascript>
+// Tom Wu jsbn.js http://www-cs-students.stanford.edu/~tjw/jsbn/
+var baselist = "0123456789abcdefghijklmnopqrstuvwxyz", listbase = [];
+for(var i = 0; i < baselist.length; i++) listbase[baselist[i]] = i; // Generate baselist reverse
+function baseconvert(snumber, frombase, tobase) // String number in base X to string number in base Y, arbitrary length, base
+{
+ var i, t, to, accum = new BigInteger(), inexp = new BigInteger('1', 10), tb = new BigInteger(),
+     fb = new BigInteger(), tmp = new BigInteger();
+ console.log("Number is", snumber, "in base", frombase, "to base", tobase, "result should be",
+             frombase < 37 && tobase < 37 ? parseInt(snumber, frombase).toString(tobase) : 'too large');
+ while(snumber[0] == baselist[0] && snumber.length > 1) snumber = snumber.substr(1); // Remove leading zeros
+ tb.fromInt(tobase);
+ fb.fromInt(frombase);
+ for(i = snumber.length - 1, to = new Array(Math.ceil(snumber.length * Math.log(frombase) / Math.log(tobase))); i > -1; i--)
+ {
+  accum = inexp.clone();
+  accum.dMultiply(listbase[snumber[i]]);
+  for(t = to.length - 1; accum.compareTo(BigInteger.ZERO) > 0 || t >= 0; t--)
+  {
+   tmp.fromInt(listbase[to[t]] || 0);
+   accum = accum.add(tmp);
+   to[t] = baselist[accum.mod(tb).intValue()];
+   accum = accum.divide(tb);
+  }
+  inexp = inexp.multiply(fb);
+ }
+ while(to[0] == baselist[0] && to.length > 1) to = to.slice(1); // Remove leading zeros
+ return to.join('');
+}
+</lang>
+
+===ES6===
+
+For more flexibility with digit variants (upper and lower case hex, digits in other languages/scripts etc) we can define '''toBase'''(intBase, n) in terms of a more general '''inBaseDigits'''(strDigits, n) which derives the base from the number of digits to be used.
+
+<lang JavaScript>(() => {
+    'use strict';
+
+    // toBase :: Int -> Int -> String
+    const toBase = (intBase, n) =>
+        intBase < 36 && intBase > 0 ?
+        inBaseDigits('0123456789abcdef'.substr(0, intBase), n) : [];
+
+
+    // inBaseDigits :: String -> Int -> [String]
+    const inBaseDigits = (digits, n) => {
+        const intBase = digits.length;
+
+        return unfoldr(maybeResidue => {
+                const [divided, remainder] = quotRem(maybeResidue.new, intBase);
+
+                return {
+                    valid: divided > 0,
+                    value: digits[remainder],
+                    new: divided
+                };
+            }, n)
+            .reverse()
+            .join('');
+    };
+
+
+    // GENERIC FUNCTIONS
+
+    // unfoldr :: (b -> Maybe (a, b)) -> b -> [a]
+    const unfoldr = (mf, v) => {
+        var xs = [];
+        return (until(
+            m => !m.valid,
+            m => {
+                const m2 = mf(m);
+                return (
+                    xs = xs.concat(m2.value),
+                    m2
+                );
+            }, {
+                valid: true,
+                value: v,
+                new: v,
+            }
+        ), xs);
+    };
+
+    // curry :: ((a, b) -> c) -> a -> b -> c
+    const curry = f => a => b => f(a, b);
+
+    // until :: (a -> Bool) -> (a -> a) -> a -> a
+    const until = (p, f, x) => {
+        let v = x;
+        while (!p(v)) v = f(v);
+        return v;
+    }
+
+    // quotRem :: Integral a => a -> a -> (a, a)
+    const quotRem = (m, n) => [Math.floor(m / n), m % n];
+
+    // show :: a -> String
+    const show = x => JSON.stringify(x, null, 2);
+
+
+    // OTHER FUNCTIONS DERIVABLE FROM inBaseDigits
+
+    // inLowerHex :: Int -> String
+    const inLowerHex = curry(inBaseDigits)('0123456789abcdef');
+
+    /// inUpperHex :: Int -> String
+    const inUpperHex = curry(inBaseDigits)('0123456789ABCDEF');
+
+    // inOctal :: Int -> String
+    const inOctal = curry(inBaseDigits)('01234567');
+
+    // inDevanagariDecimal :: Int -> String
+    const inDevanagariDecimal = curry(inBaseDigits)('०१२३४५६७८९');
+
+
+    // TESTS
+    // testNumber :: [Int]
+    const testNumbers = [255, 240];
+
+    return testNumbers.map(n => show({
+        binary: toBase(2, n),
+        base5: toBase(5, n),
+        hex: toBase(16, n),
+        upperHex: inUpperHex(n),
+        octal: inOctal(n),
+        devanagariDecimal: inDevanagariDecimal(n)
+    }));
+})();</lang>
+
+{{Out}}
+<pre>{
+  "binary": "11111111",
+  "base5": "2010",
+  "hex": "ff",
+  "upperHex": "FF",
+  "octal": "377",
+  "devanagariDecimal": "२५५"
+}, {
+  "binary": "11110000",
+  "base5": "1430",
+  "hex": "f0",
+  "upperHex": "F0",
+  "octal": "360",
+  "devanagariDecimal": "२४०"
+}</pre>
+

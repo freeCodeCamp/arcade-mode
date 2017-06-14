@@ -1,0 +1,329 @@
+Sierpinski carpet
+
+{{task|Fractals}}
+
+;Task
+Produce a graphical or ASCII-art representation of a [[wp:Sierpinski carpet|Sierpinski carpet]] of order &nbsp; '''N'''. 
+
+
+For example, the Sierpinski carpet of order &nbsp; '''3''' &nbsp; should look like this:
+<pre>
+###########################
+# ## ## ## ## ## ## ## ## #
+###########################
+###   ######   ######   ###
+# #   # ## #   # ## #   # #
+###   ######   ######   ###
+###########################
+# ## ## ## ## ## ## ## ## #
+###########################
+#########         #########
+# ## ## #         # ## ## #
+#########         #########
+###   ###         ###   ###
+# #   # #         # #   # #
+###   ###         ###   ###
+#########         #########
+# ## ## #         # ## ## #
+#########         #########
+###########################
+# ## ## ## ## ## ## ## ## #
+###########################
+###   ######   ######   ###
+# #   # ## #   # ## #   # #
+###   ######   ######   ###
+###########################
+# ## ## ## ## ## ## ## ## #
+###########################
+</pre>
+
+The use of the &nbsp; # &nbsp; character is not rigidly required for ASCII art. 
+
+The important requirement is the placement of whitespace and non-whitespace characters.
+
+
+;Related task:
+* &nbsp; [[Sierpinski triangle]]
+<br><br>
+
+
+=={{header|JavaScript}}==
+
+===ES5===
+In-browser JavaScript (HTML output)
+{{trans|Ruby}}
+{{works with|JavaScript|1.6}} 
+{{works with|Firefox|1.5+}}
+This version also produces a "graphic" via HTML and CSS.
+<lang html4strict><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<title>Sierpinski Carpet</title>
+<script type='text/javascript'>
+
+var black_char = "#";
+var white_char = " ";
+
+var SierpinskiCarpet = function(size) {
+    this.carpet = [black_char];
+    for (var i = 1; i <= size; i++) {
+        this.carpet = [].concat(
+            this.carpet.map(this.sier_top),
+            this.carpet.map(this.sier_middle),
+            this.carpet.map(this.sier_top)
+        );
+    }
+}
+
+SierpinskiCarpet.prototype.sier_top = function(x) {
+    var str = new String(x);
+    return new String(str+str+str);
+}
+
+SierpinskiCarpet.prototype.sier_middle = function (x) {
+    var str = new String(x);
+    var spacer = str.replace(new RegExp(black_char, 'g'), white_char);
+    return new String(str+spacer+str);
+}
+
+SierpinskiCarpet.prototype.to_string = function() {
+    return this.carpet.join("\n")
+}
+
+SierpinskiCarpet.prototype.to_html = function(target) {
+    var table = document.createElement('table');
+    for (var i = 0; i < this.carpet.length; i++) {
+        var row = document.createElement('tr');
+        for (var j = 0; j < this.carpet[i].length; j++) {
+            var cell = document.createElement('td');
+            cell.setAttribute('class', this.carpet[i][j] == black_char ? 'black' : 'white');
+            cell.appendChild(document.createTextNode('\u00a0'));
+            row.appendChild(cell);
+        }
+        table.appendChild(row);
+    }
+    target.appendChild(table);
+}
+
+</script>
+<style type='text/css'>
+    table {border-collapse: collapse;}
+    td {width: 1em;}
+    .black {background-color: black;}
+    .white {background-color: white;}
+</style>
+</head>
+<body>
+
+<pre id='to_string' style='float:left; margin-right:0.25in'></pre>
+<div id='to_html'></div>
+    
+<script type='text/javascript'>
+    var sc = new SierpinskiCarpet(3);
+    document.getElementById('to_string').appendChild(document.createTextNode(sc.to_string()));
+    sc.to_html(document.getElementById('to_html'));
+</script>
+
+</body>
+</html></lang>
+{{out}}
+[[File:Sierpinski carpet js.png]]
+
+
+Or, in a functional idiom, generating plain text, and suitable for use in any ES5 JavaScript, whether in a browser or some other environment.
+
+Creates an N by N array of boolean values, which are mapped to lines of characters for output.
+
+<lang JavaScript>// Orders 1, 2 and 3 of the Sierpinski Carpet
+// as lines of text.
+
+// Generic text output for use in any JavaScript environment
+// Browser JavaScripts may use console.log() to return textual output
+// others use print() or analogous functions.
+
+[1, 2, 3].map(function sierpinskiCarpetOrder(n) {
+
+    // An (n * n) grid of (filled or empty) sub-rectangles
+    // n --> [[s]]
+    var carpet = function (n) {
+            var lstN = range(0, Math.pow(3, n) - 1);
+
+            // State of each cell in an N * N grid
+            return lstN.map(function (x) {
+                return lstN.map(function (y) {
+                    return inCarpet(x, y);
+                });
+            });
+        },
+
+        // State of a given coordinate in the grid:
+        // Filled or not ?
+        // (See https://en.wikipedia.org/wiki/Sierpinski_carpet#Construction)
+        // n --> n --> bool
+        inCarpet = function (x, y) {
+            return (!x || !y) ? true :
+                !(
+                    (x % 3 === 1) &&
+                    (y % 3 === 1)
+                ) && inCarpet(
+                    x / 3 | 0,
+                    y / 3 | 0
+                );
+        },
+
+        // Sequence of integers from m to n
+        // n --> n --> [n]
+        range = function (m, n) {
+            return Array.apply(null, Array(n - m + 1)).map(
+                function (x, i) {
+                    return m + i;
+                }
+            );
+        };
+
+    // Grid of booleans mapped to lines of characters
+    // [[bool]] --> s
+    return carpet(n).map(function (line) {
+        return line.map(function (bool) {
+            return bool ? '\u2588' : ' ';
+        }).join('');
+    }).join('\n');
+
+}).join('\n\n');</lang>
+
+Output (orders 1, 2 and 3):
+
+<pre>███
+█ █
+███
+
+█████████
+█ ██ ██ █
+█████████
+███   ███
+█ █   █ █
+███   ███
+█████████
+█ ██ ██ █
+█████████
+
+███████████████████████████
+█ ██ ██ ██ ██ ██ ██ ██ ██ █
+███████████████████████████
+███   ██████   ██████   ███
+█ █   █ ██ █   █ ██ █   █ █
+███   ██████   ██████   ███
+███████████████████████████
+█ ██ ██ ██ ██ ██ ██ ██ ██ █
+███████████████████████████
+█████████         █████████
+█ ██ ██ █         █ ██ ██ █
+█████████         █████████
+███   ███         ███   ███
+█ █   █ █         █ █   █ █
+███   ███         ███   ███
+█████████         █████████
+█ ██ ██ █         █ ██ ██ █
+█████████         █████████
+███████████████████████████
+█ ██ ██ ██ ██ ██ ██ ██ ██ █
+███████████████████████████
+███   ██████   ██████   ███
+█ █   █ ██ █   █ ██ █   █ █
+███   ██████   ██████   ███
+███████████████████████████
+█ ██ ██ ██ ██ ██ ██ ██ ██ █
+███████████████████████████</pre>
+
+===ES6===
+
+Functional composition
+
+<lang JavaScript>(() => {
+    'use strict';
+
+    // sierpinskiCarpet :: Int -> String
+    let sierpinskiCarpet = n => {
+
+        // carpet :: Int -> [[String]]
+        let carpet = n => {
+                let xs = range(0, Math.pow(3, n) - 1);
+                return xs.map(x => xs.map(y => inCarpet(x, y)));
+            },
+
+            // https://en.wikipedia.org/wiki/Sierpinski_carpet#Construction
+
+            // inCarpet :: Int -> Int -> Bool
+            inCarpet = (x, y) =>
+                (!x || !y) ? true : !(
+                    (x % 3 === 1) &&
+                    (y % 3 === 1)
+                ) && inCarpet(
+                    x / 3 | 0,
+                    y / 3 | 0
+                );
+
+        return carpet(n)
+            .map(line => line.map(bool => bool ? '\u2588' : ' ')
+                .join(''))
+            .join('\n');
+    };
+
+    // GENERIC
+
+    // range :: Int -> Int -> [Int]
+    let range = (m, n) =>
+            Array.from({
+                length: Math.floor(n - m) + 1
+            }, (_, i) => m + i);
+
+    // TEST
+
+    return [1, 2, 3]
+        .map(sierpinskiCarpet);
+})();</lang>
+
+{{Out}}
+<pre>███
+█ █
+███
+
+█████████
+█ ██ ██ █
+█████████
+███   ███
+█ █   █ █
+███   ███
+█████████
+█ ██ ██ █
+█████████
+
+███████████████████████████
+█ ██ ██ ██ ██ ██ ██ ██ ██ █
+███████████████████████████
+███   ██████   ██████   ███
+█ █   █ ██ █   █ ██ █   █ █
+███   ██████   ██████   ███
+███████████████████████████
+█ ██ ██ ██ ██ ██ ██ ██ ██ █
+███████████████████████████
+█████████         █████████
+█ ██ ██ █         █ ██ ██ █
+█████████         █████████
+███   ███         ███   ███
+█ █   █ █         █ █   █ █
+███   ███         ███   ███
+█████████         █████████
+█ ██ ██ █         █ ██ ██ █
+█████████         █████████
+███████████████████████████
+█ ██ ██ ██ ██ ██ ██ ██ ██ █
+███████████████████████████
+███   ██████   ██████   ███
+█ █   █ ██ █   █ ██ █   █ █
+███   ██████   ██████   ███
+███████████████████████████
+█ ██ ██ ██ ██ ██ ██ ██ ██ █
+███████████████████████████</pre>
+

@@ -1,0 +1,41 @@
+Distributed programming
+
+{{task|Networking and Web Interaction}}
+
+Write two programs (or one program with two modes) which run on networked computers, and send some messages between them.
+
+The protocol used may be language-specific or not, and should be '''suitable for general distributed programming'''; that is, the ''protocol'' should be generic (not designed just for the particular example application), readily capable of handling the independent communications of many different components of a single application, and the transferring of arbitrary data structures natural for the language.
+
+This task is intended to demonstrate high-level communication facilities beyond just creating [[sockets]].
+
+
+=={{header|JavaScript}}==
+
+{{works with|node.js}}
+
+===Server===
+
+<lang javascript>var net = require('net')
+
+var server = net.createServer(function (c){
+  c.write('hello\r\n')
+  c.pipe(c) // echo messages back
+})
+
+server.listen(3000, 'localhost')
+</lang>
+
+===Client===
+<lang javascript>var net = require('net')
+
+conn = net.createConnection(3000, '192.168.1.x')
+
+conn.on('connect', function(){
+	console.log('connected')
+	conn.write('test')
+})
+
+conn.on('data', function(msg){
+	console.log(msg.toString())
+})</lang>
+

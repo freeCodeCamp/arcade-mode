@@ -1,0 +1,57 @@
+Sum and product of an array
+
+{{task|Arithmetic operations}}[[Category:Iteration]]
+Compute the sum and product of an array of integers.
+
+
+=={{header|JavaScript}}==
+===ES5===
+<lang javascript>var array = [1, 2, 3, 4, 5],
+    sum = 0,
+    prod = 1,
+    i;
+for (i = 0; i < array.length; i += 1) {
+    sum += array[i];
+    prod *= array[i];
+}
+alert(sum + ' ' + prod);</lang>
+
+
+{{Works with|Javascript|1.8}}
+Where supported, the reduce method can also be used:
+<lang javascript>var array = [1, 2, 3, 4, 5],
+    sum = array.reduce(function (a, b) {
+        return a + b;
+    }, 0),
+    prod = array.reduce(function (a, b) {
+        return a * b;
+    }, 1);
+alert(sum + ' ' + prod);</lang>
+
+===ES6===
+<lang JavaScript>(() => {
+    'use strict';
+
+    // sum :: (Num a) => [a] -> a
+    const sum = xs => xs.reduce((a, x) => a + x, 0);
+
+    // product :: (Num a) => [a] -> a
+    const product = xs => xs.reduce((a, x) => a * x, 1);
+
+
+    // TEST
+    // show :: a -> String
+    const show = x => JSON.stringify(x, null, 2);
+
+    return show(
+        [sum, product]
+        .map(f => f([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]))
+    );
+})();</lang>
+
+{{Out}}
+<pre>[
+  55,
+  3628800
+]</pre>
+

@@ -1,0 +1,30 @@
+Introspection
+
+{{task|Programming environment operations}}
+
+;Task:
+* verify the version/revision of your currently running (compiler/interpreter/byte-compiler/runtime environment/whatever your language uses) and exit if it is too old.
+* check whether the variable "bloop" exists and whether the math-function "abs()" is available and if yes compute <i>abs(bloop)</i>.
+
+
+;Extra credit:
+* Report the number of integer variables in global scope, and their sum.
+<br><br>
+
+
+=={{header|JavaScript}}==
+
+It is generally out of favor to explicitly test versions in JavaScript, due to the immense variety of implementations; instead, one should use “feature testing”, executing code to check for the desired behavior. Checking for “abs” as in this task is an example of feature testing.
+
+Testing whether the variable “bloop” exists:
+
+<lang javascript>if (typeof bloop !== "undefined") { ... }</lang>
+
+The <code>typeof</code> operator explicitly does not throw an error when given an undeclared variable.
+
+Test whether <code>Math.abs()</code> is available:
+
+<lang javascript>if ("abs" in Math) { ... }</lang>
+
+<code>abs</code> is a method of the Math object, methods are properties, and the <code>in</code> operator tests whether an object has the named property.
+

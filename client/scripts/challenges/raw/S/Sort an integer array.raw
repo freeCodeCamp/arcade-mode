@@ -1,0 +1,22 @@
+Sort an integer array
+
+{{task|Sorting}}
+Sort an array (or list) of integers in ascending numerical order. 
+
+;Task:
+Use a sorting facility provided by the language/library if possible.
+<br><br>
+
+
+=={{header|JavaScript}}==
+{{works with|Firefox|2.0}}
+
+JavaScript sorts lexically by default, so "10000" comes before "2". To sort numerically, a custom comparator is used.
+
+<lang javascript>function int_arr(a, b) {
+  return a - b;
+}
+var numbers = [20, 7, 65, 10, 3, 0, 8, -60];
+numbers.sort(int_arr);
+document.write(numbers);</lang>
+

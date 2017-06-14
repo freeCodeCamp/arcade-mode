@@ -1,0 +1,165 @@
+Permutations
+
+{{task|Discrete math}}
+
+;Task:
+Write a program that generates all &nbsp; [[wp:Permutation|permutations]] &nbsp; of &nbsp; '''n''' &nbsp; different objects. &nbsp; (Practically numerals!)
+ 
+
+;Related tasks: 
+* &nbsp; [[Find the missing permutation]]
+* &nbsp; [[Permutations/Derangements]]
+
+
+{{Template:Combinations and permutations}}
+<br><br>
+
+
+=={{header|JavaScript}}==
+===ES5===
+====Iteration====
+
+Copy the following as an HTML file and load in a browser.
+<lang javascript><html><head><title>Permutations</title></head>
+<body><pre id="result"></pre>
+<script type="text/javascript">
+var d = document.getElementById('result');
+
+function perm(list, ret)
+{
+    if (list.length == 0) {
+        var row = document.createTextNode(ret.join(' ') + '\n');
+        d.appendChild(row);
+        return;
+    }
+    for (var i = 0; i < list.length; i++) {
+        var x = list.splice(i, 1);
+        ret.push(x);
+        perm(list, ret);
+        ret.pop();
+        list.splice(i, 0, x);
+    }
+}
+
+perm([1, 2, 'A', 4], []);
+</script></body></html></lang>
+
+Alternatively: 'Genuine' js code, assuming no duplicate.
+
+<lang JavaScript>
+function perm(a) {
+    if (a.length < 2) return [a];
+    var c, d, b = [];
+    for (c = 0; c < a.length; c++) {
+        var e = a.splice(c, 1),
+            f = perm(a);
+        for (d = 0; d < f.length; d++) b.push([e].concat(f[d]));
+        a.splice(c, 0, e[0])
+    } return b
+}
+
+console.log(perm(['Aardvarks', 'eat', 'ants']).join("\n"));
+</lang>
+
+{{Out}}
+<lang JavaScript>Aardvarks,eat,ants
+Aardvarks,ants,eat
+eat,Aardvarks,ants
+eat,ants,Aardvarks
+ants,Aardvarks,eat
+ants,eat,Aardvarks</lang>
+
+====Functional composition====
+
+{{trans|Haskell}}
+
+(Simple version – assuming a unique list of objects comparable by the JS === operator)
+
+<lang JavaScript>(function () {
+    'use strict';
+
+    // permutations :: [a] -> [[a]]
+    var permutations = function (xs) {
+        return xs.length ? concatMap(function (x) {
+            return concatMap(function (ys) {
+                return [[x].concat(ys)];
+            }, permutations(delete_(x, xs)));
+        }, xs) : [[]];
+    };
+
+    // GENERIC FUNCTIONS
+
+    // concatMap :: (a -> [b]) -> [a] -> [b]
+    var concatMap = function (f, xs) {
+        return [].concat.apply([], xs.map(f));
+    };
+
+    // delete :: Eq a => a -> [a] -> [a]
+    var delete_ = function (x, xs) {
+        return deleteBy(function (a, b) {
+            return a === b;
+        }, x, xs);
+    };
+
+    // deleteBy :: (a -> a -> Bool) -> a -> [a] -> [a]
+    var deleteBy = function (f, x, xs) {
+        return xs.length > 0 ? f(x, xs[0]) ? xs.slice(1) : 
+        [xs[0]].concat(deleteBy(f, x, xs.slice(1))) : [];
+    };
+
+    // TEST
+    return permutations(['Aardvarks', 'eat', 'ants']);
+})();</lang> 
+
+{{Out}}
+<lang JavaScript>[["Aardvarks", "eat", "ants"], ["Aardvarks", "ants", "eat"],
+ ["eat", "Aardvarks", "ants"], ["eat", "ants", "Aardvarks"], 
+["ants", "Aardvarks", "eat"], ["ants", "eat", "Aardvarks"]]</lang>
+
+===ES6===
+
+<lang JavaScript>(() => {
+    'use strict';
+
+    // permutations :: [a] -> [[a]]
+    const permutations = xs =>
+        xs.length ? concatMap(x => concatMap(ys => [
+                [x].concat(ys)
+            ],
+            permutations(delete_(x, xs))), xs) : [
+            []
+        ];
+
+    // GENERIC FUNCTIONS
+
+    // concatMap :: (a -> [b]) -> [a] -> [b]
+    const concatMap = (f, xs) => [].concat.apply([], xs.map(f));
+    //
+    // // delete :: Eq a => a -> [a] -> [a]
+    // const delete_ = (x, xs) =>
+    //     deleteBy((a, b) => a === b, x, xs);
+
+    // delete_ :: Eq a => a -> [a] -> [a]
+    const delete_ = (x, xs) =>
+        xs.length > 0 ? (
+            (x === xs[0]) ? (
+                xs.slice(1)
+            ) : [xs[0]].concat(delete_(x, xs.slice(1)))
+        ) : [];
+
+    // range :: Int -> Int -> [Int]
+    const range = (m, n) =>
+        Array.from({
+            length: Math.floor(n - m) + 1
+        }, (_, i) => m + i);
+
+    // TEST
+    return permutations(['Aardvarks', 'eat', 'ants']);
+})();</lang>
+
+
+{{Out}}
+<lang JavaScript>[["Aardvarks", "eat", "ants"], ["Aardvarks", "ants", "eat"],
+ ["eat", "Aardvarks", "ants"], ["eat", "ants", "Aardvarks"], 
+["ants", "Aardvarks", "eat"], ["ants", "eat", "Aardvarks"]]</lang>
+

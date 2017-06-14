@@ -1,0 +1,28 @@
+User input/Text
+
+{{task|Text processing}}{{selection|Short Circuit|Console Program Basics}}[[Category:Basic language learning]][[Category:Keyboard Input]] [[Category:Simple]]
+In this task, the goal is to input a string and the integer 75000, from the text console.
+
+See also: [[User input/Graphical]]
+
+=={{header|JavaScript}}==
+{{works with|JScript}} and only with <code>cscript.exe</code>
+<lang javascript>WScript.Echo("Enter a string");
+var str = WScript.StdIn.ReadLine();
+
+var val = 0;
+while (val != 75000) {
+    WScript.Echo("Enter the integer 75000");
+    val = parseInt( WScript.StdIn.ReadLine() );
+}</lang>
+
+{{works with|SpiderMonkey}}
+<lang javascript>print("Enter a string");
+var str = readline();
+
+var val = 0;
+while (val != 75000) {
+    print("Enter the integer 75000");
+    val = parseInt( readline() );
+}</lang>
+

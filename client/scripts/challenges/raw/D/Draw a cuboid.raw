@@ -1,0 +1,17 @@
+Draw a cuboid
+
+{{task|Geometric Primitives}} 
+{{requires|Graphics}}
+[[Category:3D]]
+
+;Task:
+Draw a [http://en.wikipedia.org/wiki/Cuboid cuboid] with relative dimensions of <big> 2x3x4. </big> The cuboid can be represented graphically, or in ASCII art, depending on the language capabilities. To fulfill the criteria of being a cuboid, three faces must be visible. 
+
+Either static or rotational projection is acceptable for this task.
+<br><br>
+
+;Related tasks
+* [[Draw_a_rotating_cube|Draw a rotating cube]]
+<br><br>
+
+

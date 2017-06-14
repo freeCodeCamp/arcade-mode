@@ -1,0 +1,188 @@
+Probabilistic choice
+
+{{task|Probability and statistics}}
+Given a mapping between items and their required probability of occurrence, generate a million items ''randomly'' subject to the given probabilities and compare the target probability of occurrence versus the generated values.
+
+The total of all the probabilities should equal one. (Because floating point arithmetic is involved, this is subject to rounding errors). 
+
+Use the following mapping to test your programs:<pre>
+aleph   1/5.0
+beth    1/6.0
+gimel   1/7.0
+daleth  1/8.0
+he      1/9.0
+waw     1/10.0
+zayin   1/11.0
+heth    1759/27720 # adjusted so that probabilities add to 1</pre>
+
+;Related task:
+* [[Random number generator (device)]]
+<br><br>
+
+
+=={{header|JavaScript}}==
+===ES5===
+Fortunately, iterating over properties added to an object maintains the insertion order.
+<lang javascript>var probabilities = {
+    aleph:  1/5.0,
+    beth:   1/6.0,
+    gimel:  1/7.0,
+    daleth: 1/8.0,
+    he:     1/9.0,
+    waw:    1/10.0,
+    zayin:  1/11.0,
+    heth:   1759/27720
+};
+
+var sum = 0;
+var iterations = 1000000;
+var cumulative = {};
+var randomly = {};
+for (var name in probabilities) {
+    sum += probabilities[name];
+    cumulative[name] = sum;
+    randomly[name] = 0;
+}
+for (var i = 0; i < iterations; i++) {
+    var r = Math.random();
+    for (var name in cumulative) {
+        if (r <= cumulative[name]) {
+            randomly[name]++;
+            break;
+        }
+    }
+}
+for (var name in probabilities) 
+    // using WSH
+    WScript.Echo(name + "\t" + probabilities[name] + "\t" + randomly[name]/iterations);</lang>
+output:
+<pre>aleph   0.2     0.200597
+beth    0.16666666666666666     0.166527
+gimel   0.14285714285714285     0.142646
+daleth  0.125   0.124613
+he      0.1111111111111111      0.111342
+waw     0.1     0.099888
+zayin   0.09090909090909091     0.091141
+heth    0.06345598845598846     0.063246</pre>
+
+===ES6===
+By functional composition:
+{{Trans|Haskell}}
+<lang JavaScript>(() => {
+    'use strict';
+
+    // GENERIC FUNCTIONS -----------------------------------------------------
+
+    // transpose :: [[a]] -> [[a]]
+    const transpose = xs =>
+        xs[0].map((_, iCol) => xs.map(row => row[iCol]));
+
+    // justifyLeft :: Int -> Char -> Text -> Text
+    const justifyLeft = (n, cFiller, strText) =>
+        n > strText.length ? (
+            (strText + cFiller.repeat(n))
+            .substr(0, n)
+        ) : strText;
+
+    // 2 or more arguments
+    // curry :: Function -> Function
+    const curry = (f, ...args) => {
+        const go = xs => xs.length >= f.length ? (f.apply(null, xs)) :
+            function () {
+                return go(xs.concat([].slice.apply(arguments)));
+            };
+        return go([].slice.call(args, 1));
+    };
+
+    // zipWith :: (a -> b -> c) -> [a] -> [b] -> [c]
+    const zipWith = (f, xs, ys) => {
+        const ny = ys.length;
+        return (xs.length <= ny ? xs : xs.slice(0, ny))
+            .map((x, i) => f(x, ys[i]));
+    };
+
+    // subtract :: (Num a) => a -> a -> a
+    const subtract = (x, y) => y - x;
+
+    // scanl1 :: (a -> a -> a) -> [a] -> [a]
+    const scanl1 = (f, xs) =>
+        xs.length > 0 ? scanl(f, xs[0], xs.slice(1)) : [];
+
+    // scanl :: (b -> a -> b) -> b -> [a] -> [b]
+    const scanl = (f, startValue, xs) =>
+        xs.reduce((a, x) => {
+            const v = f(a.acc, x);
+            return {
+                acc: v,
+                scan: a.scan.concat(v)
+            };
+        }, {
+            acc: startValue,
+            scan: [startValue]
+        })
+        .scan;
+
+    // unwords :: [String] -> String
+    const unwords = xs => xs.join(' ');
+
+
+    // PROBABILISTIC CHOICE --------------------------------------------------
+
+    // samples :: Int -> Int -> [Float]
+    const samples = n =>
+        Array.from({
+            length: n
+        }, Math.random);
+
+    // thresholds :: Float
+    const thresholds = scanl1(
+            (a, b) => a + b, [5, 6, 7, 8, 9, 10, 11].map(x => 1 / x)
+        )
+        .concat(1);
+
+    // expected :: Float -> Float
+    const expected = limits =>
+        limits.map((x, i, xs) => i > 0 ? (x - xs[i - 1]) : x);
+
+    // dataBinCounts :: [Float] -> [Float] -> [Int]
+    const dataBinCounts = (thresholds, samples) => {
+        const
+            lng = samples.length,
+            xs = thresholds
+            .map(x => lng - samples.filter(v => v > x)
+                .length);
+        return zipWith(subtract, [0].concat(xs), xs.concat(lng));
+    };
+
+    // intSamples :: Integer
+    const intSamples = 1000000;
+
+    // aligned :: a -> String
+    const aligned = x => justifyLeft(12, ' ', isNaN(x) ? x : x.toFixed(7));
+
+    return transpose([
+            ['', 'Aleph', 'Beit', 'Gimel', 'Dalet', 'He', 'Vav', 'Zayin', 'Chet']
+            .map(curry(justifyLeft)(7, ' ')),
+
+            ['Expected'].concat(expected(thresholds))
+            .map(aligned),
+
+            ['Observed'].concat(dataBinCounts(thresholds, samples(intSamples))
+                .map(x => x / intSamples))
+            .map(aligned)
+        ])
+        .map(unwords)
+        .join('\n');
+})();</lang>
+{{Out}}
+Sample:
+<pre>        Expected     Observed    
+Aleph   0.2000000    0.2002440   
+Beit    0.1666667    0.1665330   
+Gimel   0.1428571    0.1433880   
+Dalet   0.1250000    0.1244630   
+He      0.1111111    0.1112830   
+Vav     0.1000000    0.0998390   
+Zayin   0.0909091    0.0909630   
+Chet    0.0634560    0.0632870   </pre>
+

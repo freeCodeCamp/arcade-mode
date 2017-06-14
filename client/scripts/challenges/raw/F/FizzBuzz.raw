@@ -1,0 +1,102 @@
+FizzBuzz
+
+{{task|Classic CS problems and programs}} 
+[[Category:Iteration]] 
+[[Category:Recursion]] 
+[[Category:Simple]]
+
+;Task:
+Write a program that prints the integers from &nbsp; '''1''' &nbsp; to &nbsp; '''100''' &nbsp; (inclusive). 
+
+
+But:
+:* &nbsp; for multiples of three, &nbsp; print &nbsp; '''Fizz''' &nbsp; &nbsp; (instead of the number)
+:* &nbsp; for multiples of five, &nbsp; print &nbsp; '''Buzz''' &nbsp; &nbsp; (instead of the number)
+:* &nbsp; for multiples of both three and five, &nbsp; print &nbsp; '''FizzBuzz''' &nbsp; &nbsp; (instead of the number) 
+
+
+The &nbsp; ''FizzBuzz'' &nbsp; problem was presented as the lowest level of comprehension required to illustrate adequacy.
+
+
+;Also see:
+* &nbsp; (a blog) &nbsp; [http://weblog.raganwald.com/2007/01/dont-overthink-fizzbuzz.html dont-overthink-fizzbuzz]
+* &nbsp; (a blog) &nbsp; [http://blog.codinghorror.com/fizzbuzz-the-programmers-stairway-to-heaven/ fizzbuzz-the-programmers-stairway-to-heaven]
+<br><br>
+
+
+=={{header|JavaScript}}==
+
+===ES5===
+
+<lang javascript>var fizzBuzz = function () {
+  var i, output;
+  for (i = 1; i < 101; i += 1) {
+    output = '';
+    if (!(i % 3)) { output += 'Fizz'; }
+    if (!(i % 5)) { output += 'Buzz'; }
+    console.log(output || i);//empty string is false, so we short-circuit
+  }
+};</lang>
+
+Alternate version with ghetto pattern matching
+<lang javascript>for (var i = 1; i <= 100; i++) {
+  console.log({
+    truefalse: 'Fizz', 
+    falsetrue: 'Buzz', 
+    truetrue: 'FizzBuzz'
+  }[(i%3==0) + '' + (i%5==0)] || i)
+}</lang>
+
+Or very tersely:
+<lang javascript>for(i=1;i<101;i++)console.log((x=(i%3?'':'Fizz')+(i%5?'':'Buzz'))?x:i);</lang>
+
+Or with even less characters:
+<lang javascript>for(i=1;i<101;i++)console.log((i%3?'':'Fizz')+(i%5?'':'Buzz')||i)</lang>
+
+Or, in a more functional style, without mutations
+<lang javascript>(function rng(i) {
+    return i ? rng(i - 1).concat(i) : []
+})(100).map(
+    function (n) {
+        return n % 3 ? (
+            n % 5 ? n : "Buzz"
+        ) : (
+            n % 5 ? "Fizz" : "FizzBuzz"
+        )
+    }
+).join(' ')</lang>
+
+===ES6===
+
+<lang JavaScript>(() => {
+
+    // fizzBuzz :: Int -> String
+    const fizzBuzz = n =>
+        caseOf(n, [
+            [x => x % 15 === 0, "FizzBuzz"],
+            [x => x % 3 === 0, "Fizz"],
+            [x => x % 5 === 0, "Buzz"]
+        ], n.toString());
+
+
+
+    // GENERIC -------------------------------------------------
+
+    // caseOf :: a -> [(a -> Bool, b)] -> b -> b
+    const caseOf = (e, pvs, otherwise) =>
+        pvs.reduce((a, [p, v]) =>
+            a !== otherwise ? a : (p(e) ? v : a), otherwise);
+
+    // range :: Int -> Int -> [Int]
+    const range = (m, n) =>
+        Array.from({
+            length: Math.floor(n - m) + 1
+        }, (_, i) => m + i);
+
+
+    // TEST ----------------------------------------------------
+    return range(1, 100)
+        .map(fizzBuzz)
+        .join('\n');
+})();</lang>
+

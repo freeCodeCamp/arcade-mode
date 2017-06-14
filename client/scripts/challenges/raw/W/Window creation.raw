@@ -1,0 +1,9 @@
+Window creation
+
+{{task|GUI}}{{requires|Graphics}}
+Display a [[GUI]] window. The window need not have any contents, but should respond to requests to be closed.
+
+
+=={{header|JavaScript}}==
+    window.open("webpage.html", "windowname", "width=800,height=600");
+

@@ -1,0 +1,16 @@
+Enforced immutability
+
+{{task|Initialization}}
+
+;Task:
+Demonstrate any means your language has to prevent the modification of values, or to create objects that cannot be modified after they have been created.
+<br><br>
+
+
+=={{header|JavaScript}}==
+You can create constants with the [https://developer.mozilla.org/en/JavaScript/Reference/Statements/const Mozilla-specific extension const]. This is not supported by IE and it only works on simple scalars and not on arrays, objects, or parameters.
+
+'''Update''': const is now a standard part of ES6 JavaScript, and works with all data types, including arrays, objects, and parameters. It is not, however, included in the ES5 standard.
+<lang javascript>const pi = 3.1415;
+const msg = "Hello World";</lang>
+

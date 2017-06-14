@@ -1,0 +1,43 @@
+Character codes
+
+{{task|Text processing}}
+[[Category:Basic language learning]]
+[[Category:String manipulation]]
+[[Category:Simple]]
+
+
+;Task:
+Given a character value in your language, print its code &nbsp; (could be ASCII code, Unicode code, or whatever your language uses). 
+
+
+;Example:
+The character &nbsp; 'a' &nbsp; (lowercase letter A) &nbsp; has a code of 97 in ASCII &nbsp; (as well as Unicode, as ASCII forms the beginning of Unicode). 
+
+Conversely, given a code, print out the corresponding character.
+<br><br>
+
+
+=={{header|JavaScript}}==
+Here character is just a string of length 1
+<lang javascript>console.log('a'.charCodeAt(0)); // prints "97"
+console.log(String.fromCharCode(97)); // prints "a"</lang>
+
+ES6 brings '''String.codePointAt()''' and '''String.fromCodePoint()''', which provide access to 4-byte unicode characters,
+in addition to the usual 2-byte unicode characters.
+
+<lang JavaScript>['字'.codePointAt(0), '🐘'.codePointAt(0)]</lang> 
+
+{{Out}}
+
+<lang JavaScript>[23383, 128024]</lang>
+
+and
+
+<lang JavaScript>[23383, 128024].map(function (x) {
+	return String.fromCodePoint(x);
+})</lang>
+
+{{Out}}
+
+<lang JavaScript>["字", "🐘"]</lang>
+

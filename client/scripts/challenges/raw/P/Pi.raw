@@ -1,0 +1,37 @@
+Pi
+
+{{task|Irrational numbers}}
+[[File:pi_symbol.jpg|500px||right]]
+
+Create a program to continually calculate and output the next decimal digit of &nbsp; <big><big><math>\pi</math></big></big> &nbsp; (pi). 
+
+The program should continue forever (until it is aborted by the user) calculating and outputting each decimal digit in succession. 
+
+The output should be a decimal sequence beginning &nbsp; 3.14159265 ...
+
+
+Note: this task is about &nbsp; ''calculating'' &nbsp; pi. &nbsp; For information on built-in pi constants see [[Real constants and functions]].
+
+
+Related Task [[Arithmetic-geometric mean/Calculate Pi]]
+<br><br>
+
+
+=={{header|JavaScript}}==
+Returns an approximation of Pi.
+
+<lang>var calcPi = function() {
+  var n = 20000;
+  var pi = 0;
+  for (var i = 0; i < n; i++) {
+    var temp = 4 / (i*2+1);
+    if (i % 2 == 0) {
+      pi += temp;
+    }
+    else {
+      pi -= temp;
+    }
+  }
+  return pi;
+}</lang>
+

@@ -1,0 +1,29 @@
+Terminal control/Preserve screen
+
+{{task|Terminal control}}
+[[Terminal Control::task| ]]
+
+
+;Task:
+Clear the screen, output something on the display, and then restore the screen to the preserved state that it was in before the task was carried out. 
+
+There is no requirement to change the font or kerning in this task, however character decorations and attributes are expected to be preserved. &nbsp; If the implementer decides to change the font or kerning during the display of the temporary screen, then these settings need to be restored prior to exit. 
+<br><br>
+
+
+=={{header|JavaScript}}==
+<lang javascript>(function() {
+	var orig= document.body.innerHTML
+	document.body.innerHTML= '';
+	setTimeout(function() {
+		document.body.innerHTML= 'something';
+		setTimeout(function() {
+			document.body.innerHTML= orig;
+		}, 1000);
+	}, 1000);
+})();</lang>
+
+This implementation assumes that Javascript is running in the browser.
+
+This task does not admit sample output, but you can demonstrate this solution for yourself using the chrome browser:  control-shift-J then copy and paste the above into the command line, and hit enter.
+

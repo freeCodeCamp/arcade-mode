@@ -1,0 +1,30 @@
+File modification time
+
+{{task|File modification time|File System Operations}}
+[[Category:Date and time]]
+{{omit from|Befunge|No filesystem support}}
+{{omit from|HTML}}
+{{omit from|Locomotive Basic|Does not have a real time clock.}}
+{{omit from|M4}}
+{{omit from|Maxima}}
+{{omit from|PARI/GP}}
+{{omit from|Retro}}
+{{omit from|TI-83 BASIC}} {{omit from|TI-89 BASIC}} <!-- Does not have a filesystem, just namespaced variables. -->
+{{omit from|Axe}}
+{{omit from|ZX Spectrum Basic|Does not have a real time clock.}}
+
+;Task:
+Get and set the modification time of a file.
+<br><br>
+
+
+=={{header|JavaScript}}==
+{{works with|JScript}}
+Get only.
+<lang javascript>var fso = new ActiveXObject("Scripting.FileSystemObject");
+var f = fso.GetFile('input.txt');
+var mtime = f.DateLastModified;</lang>
+The following works in all browsers, including IE10.
+<lang javascript>var file = document.getElementById("fileInput").files.item(0);
+var last_modified = file.lastModifiedDate;</lang>
+

@@ -1,0 +1,61 @@
+Sorting algorithms/Pancake sort
+
+{{task|Sorting Algorithms}}
+{{Sorting Algorithm}}
+
+;Task:
+Sort an array of integers (of any convenient size) into ascending order using [[wp:Pancake sorting|Pancake sorting]]. 
+
+In short, instead of individual elements being sorted, the only operation allowed is to "flip" one end of the list, like so:
+ Before:
+ '''6 7 8 9''' 2 5 3 4 1
+ After:
+ '''9 8 7 6''' 2 5 3 4 1
+
+Only one end of the list can be flipped; this should be the low end, but the high end is okay if it's easier to code or works better, but it '''must''' be the same end for the entire solution. (The end flipped can't be arbitrarily changed.)
+
+Show both the initial, unsorted list and the final sorted list. (Intermediate steps during sorting are optional.) Optimizations are optional (but recommended).
+
+For more information on pancake sorting, see [[wp:Pancake sorting|the Wikipedia entry]].
+
+See also:
+* [[Number reversal game]]
+* [[Topswops]]
+<br><br>
+
+
+=={{header|JavaScript}}==
+<lang javascript>Array.prototype.pancake_sort = function () {
+    for (var i = this.length - 1; i >= 1; i--) {
+        // find the index of the largest element not yet sorted
+        var max_idx = 0;
+        var max = this[0];
+        for (var j = 1; j <= i; j++) {
+            if (this[j] > max) {
+                max = this[j];
+                max_idx = j;
+            }
+        }
+
+        if (max_idx == i) 
+            continue; // element already in place
+
+        var new_slice;
+
+        // flip this max element to index 0
+        if (max_idx > 0) {
+            new_slice = this.slice(0, max_idx+1).reverse();
+            for (var j = 0; j <= max_idx; j++) 
+                this[j] = new_slice[j];
+        }
+
+        // then flip the max element to its place
+        new_slice = this.slice(0, i+1).reverse();
+        for (var j = 0; j <= i; j++) 
+            this[j] = new_slice[j];
+    }
+    return this;
+}
+ary = [7,6,5,9,8,4,3,1,2,0]
+sorted = ary.concat().pancake_sort();</lang>
+

@@ -1,0 +1,23 @@
+Formatted numeric output
+
+{{task|Basic language learning}}
+[[Category:Text processing]] 
+[[Category:Simple]]
+
+;Task:
+Express a number in decimal as a fixed-length string with leading zeros.
+
+
+For example, the number &nbsp; '''7.125''' &nbsp; could be expressed as &nbsp; '''00007.125'''.
+<br><br>
+
+
+=={{header|JavaScript}}==
+<lang javascript>var n = 123;
+var str = ("00000" + n).slice(-5);
+alert(str);</lang>
+
+or, put in browser URL: javascript:n=123;alert(("00000"+n).slice(-5));
+
+Also, a 60-line implementation of <code>sprintf</code> can be found [http://code.google.com/p/sprintf/ here].
+

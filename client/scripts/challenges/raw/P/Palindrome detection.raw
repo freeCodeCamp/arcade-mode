@@ -1,0 +1,76 @@
+Palindrome detection
+
+{{task|Text processing}} 
+[[Category:Recursion]] 
+[[Category:String manipulation]]
+[[Category:Classic CS problems and programs]]
+[[Category:Palindromes]]
+
+A [[wp:Palindrome|palindrome]] is a phrase which reads the same backward and forward.
+
+{{task heading}}
+
+Write a function or program that checks whether a given sequence of characters (or, if you prefer, bytes) 
+is a palindrome.
+
+'''''For extra credit:'''''
+* Support Unicode characters.
+* Write a second function (possibly as a wrapper to the first) which detects ''inexact'' palindromes, i.e. phrases that are palindromes if white-space and punctuation is ignored and case-insensitive comparison is used.
+
+{{task heading|Hints}}
+* It might be useful for this task to know how to [[Reversing a string|reverse a string]].
+* This task's entries might also form the subjects of the task [[Test a function]].
+
+{{task heading|Related tasks}}
+
+{{Related tasks/Word plays}}
+
+<hr>
+
+
+=={{header|JavaScript}}==
+<lang javascript>function isPalindrome(str) {
+  return str === str.split("").reverse().join("");
+}
+
+console.log(isPalindrome("ingirumimusnocteetconsumimurigni"));</lang>
+
+ES6 implementation
+<lang javascript>var isPal = str => str === str.split("").reverse().join("");</lang>
+
+
+Or, adding a wrapper function to prepare the test data:
+
+<lang JavaScript>(function (strSample) {
+
+    // isPalindrome :: String -> Bool
+    let isPalindrome = s =>
+        s.split('')
+        .reverse()
+        .join('') === s;
+
+
+
+    // TESTING 
+
+    // lowerCaseNoSpace :: String -> String
+    let lowerCaseNoSpace = s =>
+        concatMap(c => c !== ' ' ? [c.toLowerCase()] : [],
+            s.split(''))
+        .join(''),
+
+        // concatMap :: (a -> [b]) -> [a] -> [b]
+        concatMap = (f, xs) => [].concat.apply([], xs.map(f));
+
+
+    return isPalindrome(
+        lowerCaseNoSpace(strSample)
+    );
+
+
+})("In girum imus nocte et consumimur igni");</lang>
+
+
+{{Out}}
+<pre>true</pre>
+

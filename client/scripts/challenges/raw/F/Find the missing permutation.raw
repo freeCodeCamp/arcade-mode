@@ -1,0 +1,273 @@
+Find the missing permutation
+
+{{task}}
+
+<pre>
+ABCD
+CABD
+ACDB
+DACB
+BCDA
+ACBD
+ADCB
+CDAB
+DABC
+BCAD
+CADB
+CDBA
+CBAD
+ABDC
+ADBC
+BDCA
+DCBA
+BACD
+BADC
+BDAC
+CBDA
+DBCA
+DCAB
+</pre>
+Listed above are all of the permutations of the symbols &nbsp; '''A''', &nbsp; '''B''', &nbsp; '''C''', &nbsp; and &nbsp; '''D''', &nbsp; ''except'' &nbsp; for one permutation that's &nbsp; ''not'' &nbsp; listed.  
+
+
+;Task:
+Find that missing permutation.
+
+
+;Methods:
+* Obvious method: 
+         enumerate all permutations of   '''A''',  '''B''',  '''C''',  and  '''D''',  
+         and then look for the missing permutation. 
+
+* alternate method:
+         Hint:  if all permutations were shown above,  how many 
+         times would  '''A'''  appear in each position?     
+         What is the  ''parity''  of this number?
+
+* another alternate method:
+         Hint:  if you add up the letter values of each column, 
+         does a missing letter   '''A''',  '''B''',  '''C''',  and  '''D'''   from each
+         column cause the total value for each column to be unique?
+
+
+;Related task:
+* &nbsp; [[Permutations]])
+<br><br>
+
+
+=={{header|JavaScript}}==
+
+===ES5===
+====Imperative====
+
+The permute() function taken from http://snippets.dzone.com/posts/show/1032 
+<lang javascript>permute = function(v, m){ //v1.0
+    for(var p = -1, j, k, f, r, l = v.length, q = 1, i = l + 1; --i; q *= i);
+    for(x = [new Array(l), new Array(l), new Array(l), new Array(l)], j = q, k = l + 1, i = -1;
+        ++i < l; x[2][i] = i, x[1][i] = x[0][i] = j /= --k);
+    for(r = new Array(q); ++p < q;)
+        for(r[p] = new Array(l), i = -1; ++i < l; !--x[1][i] && (x[1][i] = x[0][i],
+            x[2][i] = (x[2][i] + 1) % l), r[p][i] = m ? x[3][i] : v[x[3][i]])
+            for(x[3][i] = x[2][i], f = 0; !f; f = !f)
+                for(j = i; j; x[3][--j] == x[2][i] && (x[3][i] = x[2][i] = (x[2][i] + 1) % l, f = 1));
+    return r;
+};
+
+list = [ 'ABCD', 'CABD', 'ACDB', 'DACB', 'BCDA', 'ACBD', 'ADCB', 'CDAB',
+        'DABC', 'BCAD', 'CADB', 'CDBA', 'CBAD', 'ABDC', 'ADBC', 'BDCA',
+        'DCBA', 'BACD', 'BADC', 'BDAC', 'CBDA', 'DBCA', 'DCAB'];
+
+all = permute(list[0].split('')).map(function(elem) {return elem.join('')});
+
+missing = all.filter(function(elem) {return list.indexOf(elem) == -1});
+print(missing);  // ==> DBAC</lang>
+
+====Functional====
+
+<lang JavaScript>(function (strList) {
+
+    // [a] -> [[a]]
+    function permutations(xs) {
+        return xs.length ? (
+            chain(xs, function (x) {
+                return chain(permutations(deleted(x, xs)), function (ys) {
+                    return [[x].concat(ys).join('')];
+                })
+            })) : [[]];
+    }
+
+    // Monadic bind/chain for lists
+    // [a] -> (a -> b) -> [b]
+    function chain(xs, f) {
+        return [].concat.apply([], xs.map(f));
+    }
+
+    // a -> [a] -> [a]
+    function deleted(x, xs) {
+        return xs.length ? (
+            x === xs[0] ? xs.slice(1) : [xs[0]].concat(
+                deleted(x, xs.slice(1))
+            )
+        ) : [];
+    }
+
+    // Provided subset
+    var lstSubSet = strList.split('\n');
+
+    // Any missing permutations
+    // (we can use fold/reduce, filter, or chain (concat map) here)
+    return chain(permutations('ABCD'.split('')), function (x) {
+        return lstSubSet.indexOf(x) === -1 ? [x] : [];
+    });
+
+})(
+    'ABCD\nCABD\nACDB\nDACB\nBCDA\nACBD\nADCB\nCDAB\nDABC\nBCAD\nCADB\n\
+CDBA\nCBAD\nABDC\nADBC\nBDCA\nDCBA\nBACD\nBADC\nBDAC\nCBDA\nDBCA\nDCAB'
+);</lang>
+
+{{Out}}
+
+<lang JavaScript>["DBAC"]</lang>
+
+===ES6===
+====Statistical====
+=====Using a dictionary=====
+<lang JavaScript>(() => {
+    'use strict';
+
+    // transpose :: [[a]] -> [[a]]
+    let transpose = xs =>
+        xs[0].map((_, iCol) => xs
+            .map((row) => row[iCol]));
+
+
+    let xs = 'ABCD CABD ACDB DACB BCDA ACBD ADCB CDAB' +
+        ' DABC BCAD CADB CDBA CBAD ABDC ADBC BDCA DCBA' +
+        ' BACD BADC BDAC CBDA DBCA DCAB'
+
+    return transpose(xs.split(' ')
+            .map(x => x.split('')))
+        .map(col => col.reduce((a, x) => ( // count of each character in each column
+            a[x] = (a[x] || 0) + 1,
+            a
+        ), {}))
+        .map(dct => { // character with frequency below mean of distribution ?
+            let ks = Object.keys(dct),
+                xs = ks.map(k => dct[k]),
+                mean = xs.reduce((a, b) => a + b, 0) / xs.length;
+
+            return ks.reduce(
+                (a, k) => a ? a : (dct[k] < mean ? k : undefined),
+                undefined
+            );
+        })
+        .join(''); // 4 chars as single string
+
+    // --> 'DBAC'
+})();</lang>
+
+{{Out}}
+<pre>DBAC</pre>
+
+
+=====Composing functional primitives=====
+{{Trans|Haskell}}
+<lang JavaScript>(() => {
+    'use strict';
+
+    // MISSING PERMUTATION ---------------------------------------------------
+
+    // missingPermutation :: [String] -> String
+    const missingPermutation = xs =>
+        map(
+            // Rarest letter,
+            compose([
+                sort,
+                group,
+                curry(minimumBy)(comparing(length)),
+                head
+            ]),
+
+            // in each column.
+            transpose(map(stringChars, xs))
+        )
+        .join('');
+
+
+    // GENERIC FUNCTIONAL PRIMITIVES -----------------------------------------
+
+    // transpose :: [[a]] -> [[a]]
+    const transpose = xs =>
+        xs[0].map((_, iCol) => xs.map(row => row[iCol]));
+
+    // sort :: Ord a => [a] -> [a]
+    const sort = xs => xs.sort();
+
+    // group :: Eq a => [a] -> [[a]]
+    const group = xs => groupBy((a, b) => a === b, xs);
+
+    // groupBy :: (a -> a -> Bool) -> [a] -> [[a]]
+    const groupBy = (f, xs) => {
+        const dct = xs.slice(1)
+            .reduce((a, x) => {
+                const
+                    h = a.active.length > 0 ? a.active[0] : undefined,
+                    blnGroup = h !== undefined && f(h, x);
+
+                return {
+                    active: blnGroup ? a.active.concat(x) : [x],
+                    sofar: blnGroup ? a.sofar : a.sofar.concat([a.active])
+                };
+            }, {
+                active: xs.length > 0 ? [xs[0]] : [],
+                sofar: []
+            });
+        return dct.sofar.concat(dct.active.length > 0 ? [dct.active] : []);
+    };
+
+    // length :: [a] -> Int
+    const length = xs => xs.length;
+
+    // comparing :: (a -> b) -> (a -> a -> Ordering)
+    const comparing = f =>
+        (x, y) => {
+            const
+                a = f(x),
+                b = f(y);
+            return a < b ? -1 : a > b ? 1 : 0
+        };
+
+    // minimumBy :: (a -> a -> Ordering) -> [a] -> a
+    const minimumBy = (f, xs) =>
+        xs.reduce((a, x) => a === undefined ? x : (
+            f(x, a) < 0 ? x : a
+        ), undefined);
+
+    // head :: [a] -> a
+    const head = xs => xs.length ? xs[0] : undefined;
+
+    // map :: (a -> b) -> [a] -> [b]
+    const map = (f, xs) => xs.map(f)
+
+    // compose :: [(a -> a)] -> (a -> a)
+    const compose = fs => x => fs.reduce((a, f) => f(a), x);
+
+    // curry :: ((a, b) -> c) -> a -> b -> c
+    const curry = f => a => b => f(a, b);
+
+    // stringChars :: String -> [Char]
+    const stringChars = s => s.split('');
+
+
+    // TEST ------------------------------------------------------------------
+
+    return missingPermutation(["ABCD", "CABD", "ACDB", "DACB", "BCDA", "ACBD",
+        "ADCB", "CDAB", "DABC", "BCAD", "CADB", "CDBA", "CBAD", "ABDC", "ADBC",
+        "BDCA", "DCBA", "BACD", "BADC", "BDAC", "CBDA", "DBCA", "DCAB"
+    ]);
+
+    // -> "DBAC"
+})();</lang>
+{{Out}}
+<pre>DBAC</pre>
+

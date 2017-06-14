@@ -1,0 +1,68 @@
+Associative array/Creation
+
+{{task|Basic language learning}}[[Category:Data Structures]]
+
+;Task:
+The goal is to create an [[associative array]] (also known as a dictionary, map, or hash).
+
+
+Related tasks:
+* [[Associative arrays/Iteration]]
+* [[Hash from two arrays]]
+
+
+{{Template:See also lists}}
+<br><br>
+
+
+=={{header|JavaScript}}==
+ECMAScript5.1 does not have associative arrays, however Objects (which are just an unordered bundle of name/value pairs) can be used like associative arrays. JavaScript Arrays may also be used, but Objects are the convention.
+
+Javascript object property names (keys) are strings. Other types and expressions can be used with square bracket notation, they are evaluated and converted to strings and the result used as the property name. Using quotes on property names avoids potential collisions with reserved JavaScript key words.
+<lang javascript>var assoc = {};
+
+assoc['foo'] = 'bar';
+assoc['another-key'] = 3;
+
+// dot notation can be used if the property name is a valid identifier
+assoc.thirdKey = 'we can also do this!';
+assoc[2] = "the index here is the string '2'";
+
+//using JavaScript's object literal notation
+var assoc = {
+  foo: 'bar',
+  'another-key': 3 //the key can either be enclosed by quotes or not
+};
+
+//iterating keys
+for (var key in assoc) {
+  // hasOwnProperty() method ensures the property isn't inherited
+  if (assoc.hasOwnProperty(key)) {
+    alert('key:"' + key + '", value:"' + assoc[key] + '"');
+  }
+}</lang>
+
+ECMAScript 6 (ES6) offers both a map and a weak map implementation. While Objects must use strings, Maps may use objects, functions, and numbers as keys in addition to strings.
+<lang javascript>var map = new Map(),
+    fn = function () {},
+    obj = {};
+
+map.set(fn, 123);
+map.set(obj, 'abc');
+map.set('key', 'val');
+map.set(3, x => x + x);
+
+map.get(fn); //=> 123
+map.get(function () {}); //=> undefined because not the same function
+map.get(obj); //=> 'abc'
+map.get({}); //=> undefined because not the same object
+map.get('key'); //=> 'val'
+map.get(3); //=> (x => x + x)
+
+map.size; //=> 4
+
+//iterating using ES6 for..of syntax
+for (var key of map.keys()) {
+  console.log(key + ' => ' + map.get(key));
+}</lang>
+

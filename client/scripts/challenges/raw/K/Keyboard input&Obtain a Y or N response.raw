@@ -1,0 +1,42 @@
+Keyboard input/Obtain a Y or N response
+
+{{task}} 
+[[Category:Simple]]
+[[user input::task| ]]
+
+;Task:
+Obtain a valid &nbsp; '''Y''' &nbsp; or &nbsp; '''N''' &nbsp; response from the [[input device::keyboard]]. 
+
+The keyboard should be flushed, so that any outstanding key-presses are removed, preventing any existing &nbsp; '''Y''' &nbsp; or &nbsp; '''N''' &nbsp; key-press from being evaluated. 
+
+The response should be obtained as soon as &nbsp; '''Y''' &nbsp; or &nbsp; '''N''' &nbsp; are pressed, and there should be no need to press an &nbsp; enter &nbsp; key.
+<br><br>
+
+
+=={{header|JavaScript}}==
+
+Here's how you can asynchronously read a single character in Node.js, using the <code>keypress</code> package.
+This does not seem to be possible to do synchronously in Node.js or at all in the SpiderMonkey shell.
+
+<lang javascript>var keypress = require('keypress');
+
+keypress(process.stdin);
+
+process.stdin.on('keypress', function (ch, key) {
+    if (key && (key.name === 'y' || key.name === 'n')) {
+       console.log('Reply:' + key.name);
+    }
+});
+
+process.stdin.setRawMode(true);
+process.stdin.resume();</lang>
+
+Using DOM events.
+
+<lang javascript>document.body.addEventListener('keyup', function (e) {
+  var key = String.fromCharCode(e.keyCode).toLowerCase();
+  if (key === 'y' || key === 'n') {
+    console.log('response is: ' + key);
+  }
+}, false);</lang>
+

@@ -1,0 +1,38 @@
+Regular expressions
+
+{{task|Text processing}} [[Category:Regular expressions]]
+{{omit from|BASIC}}
+{{omit from|Brlcad}}
+{{omit from|GUISS}}
+{{omit from|PARI/GP}}
+
+The goal of this task is
+* to match a string against a regular expression
+* to substitute part of a string using a regular expression
+
+
+=={{header|JavaScript}}==
+Test/Match
+<lang javascript>var subject = "Hello world!";
+
+// Two different ways to create the RegExp object
+// Both examples use the exact same pattern... matching "hello "
+var re_PatternToMatch = /Hello (World)/i; // creates a RegExp literal with case-insensitivity
+var re_PatternToMatch2 = new RegExp("Hello (World)", "i");
+
+// Test for a match - return a bool
+var isMatch = re_PatternToMatch.test(subject);
+
+// Get the match details
+//    Returns an array with the match's details
+//    matches[0] == "Hello world"
+//    matches[1] == "world"
+var matches = re_PatternToMatch2.exec(subject);</lang>
+
+Substitute
+<lang javascript>var subject = "Hello world!";
+
+// Perform a string replacement
+//    newSubject == "Replaced!"
+var newSubject = subject.replace(re_PatternToMatch, "Replaced");</lang>
+

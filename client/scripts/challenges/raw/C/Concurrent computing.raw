@@ -1,0 +1,31 @@
+Concurrent computing
+
+{{task|Concurrency}}
+[[Category:Basic language learning]]
+
+;Task:
+Using either native language concurrency syntax or freely available libraries, write a program to display the strings "Enjoy" "Rosetta" "Code", one string per line, in random order. 
+
+Concurrency syntax must use [[thread|threads]], tasks, co-routines, or whatever concurrency is called in your language.
+<br><br>
+
+
+=={{header|JavaScript}}==
+
+JavaScript now enjoys access to a concurrency library thanks to [http://en.wikipedia.org/wiki/Web_worker Web Workers]. The Web Workers specification defines an API for spawning background scripts. This first code is the background script and should be in the concurrent_worker.js file.
+<lang javascript>self.addEventListener('message', function (event) {
+  self.postMessage(event.data);
+  self.close();
+}, false);</lang>
+This second block creates the workers, sends them a message and creates an event listener to handle the response.
+<lang javascript>var words = ["Enjoy", "Rosetta", "Code"];
+var workers = [];
+
+for (var i = 0; i < words.length; i++) {
+  workers[i] = new Worker("concurrent_worker.js");
+  workers[i].addEventListener('message', function (event) {
+    console.log(event.data);
+  }, false);
+  workers[i].postMessage(words[i]);
+}</lang>
+

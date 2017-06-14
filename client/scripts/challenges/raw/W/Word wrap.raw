@@ -1,0 +1,177 @@
+Word wrap
+
+{{task}}
+[[Category:Text processing]]
+
+Even today, with proportional fonts and complex layouts, there are still [[Template:Lines_too_long|cases]] where you need to wrap text at a specified column.  
+
+
+;Basic task:
+The basic task is to wrap a paragraph of text in a simple way in your language.  
+
+If there is a way to do this that is built-in, trivial, or provided in a standard library, show that.  Otherwise implement the [http://en.wikipedia.org/wiki/Word_wrap#Minimum_length minimum length greedy algorithm from Wikipedia.]
+
+Show your routine working on a sample of text at two different wrap columns.
+
+
+;Extra credit:
+Wrap text using a more sophisticated algorithm such as the Knuth and Plass TeX algorithm.  
+If your language provides this, you get easy extra credit, 
+but you ''must reference documentation'' indicating that the algorithm 
+is something better than a simple minimimum length algorithm.
+
+If you have both basic and extra credit solutions, show an example where 
+the two algorithms give different results.
+<br><br>
+
+
+=={{header|JavaScript}}==
+
+===Recursive===
+'''Solution''':<lang javascript>
+function wrap (text, limit) {
+  if (text.length > limit) {
+    // find the last space within limit
+    var edge = text.slice(0, limit).lastIndexOf(' ');
+    if (edge > 0) {
+      var line = text.slice(0, edge);
+      var remainder = text.slice(edge + 1);
+      return line + '\n' + wrap(remainder, limit);
+    }
+  }
+  return text;
+}
+</lang>
+'''Example''':<lang javascript>   
+console.log(wrap(text, 80));
+</lang>
+
+{{out}}
+<pre>
+Wrap text using a more sophisticated algorithm such as the Knuth and Plass TeX
+algorithm. If your language provides this, you get easy extra credit, but you
+must reference documentation indicating that the algorithm is something better
+than a simple minimimum length algorithm.
+</pre>
+
+'''Example''':<lang javascript>   
+console.log(wrap(text, 42));
+</lang>
+
+{{out}}
+<pre>
+Wrap text using a more sophisticated
+algorithm such as the Knuth and Plass TeX
+algorithm. If your language provides
+this, you get easy extra credit, but you
+must reference documentation indicating
+that the algorithm is something better
+than a simple minimimum length algorithm.
+</pre>
+
+===Simple regex===
+
+A simple regex suffices (and proves fastest) for the greedy version:
+
+<lang javascript>(function (width) {
+    'use strict';
+
+    function wrapByRegex(n, s) {
+        return s.match(
+                RegExp('.{1,' + n + '}(\\s|$)', 'g')
+            )
+            .join('\n');
+    }
+
+    return wrapByRegex(width,
+'Even today, with proportional fonts and compl\
+ex layouts, there are still cases where you ne\
+ed to wrap text at a specified column. The bas\
+ic task is to wrap a paragraph of text in a si\
+mple way in your language. If there is a way t\
+o do this that is built-in, trivial, or provid\
+ed in a standard library, show that. Otherwise\
+ implement the minimum length greedy algorithm\
+ from Wikipedia.'
+    )
+
+})(60);</lang>
+
+{{Out}}
+<pre>Even today, with proportional fonts and complex layouts, 
+there are still cases where you need to wrap text at a 
+specified column. The basic task is to wrap a paragraph of 
+text in a simple way in your language. If there is a way to 
+do this that is built-in, trivial, or provided in a standard 
+library, show that. Otherwise implement the minimum length 
+greedy algorithm from Wikipedia.</pre>
+
+=== EcmaScript 6 ===
+<lang javascript>
+/**
+ * [wordwrap description]
+ * @param  {[type]}  text  [description]
+ * @param  {Number}  width [description]
+ * @param  {String}  br    [description]
+ * @param  {Boolean} cut   [description]
+ * @return {[type]}        [description]
+ */
+function wordwrap(text, width = 80, br = '\n', cut = false) {
+  // Приводим к uint
+  // 0..2^32-1 либо 0..2^64-1 
+  width >>>= 0;
+  // Длина текста меньше или равна максимальной
+  if (0 === width || text.length <= width) {
+    return text;
+  }
+  // Разбиваем текст на строки
+  return text.split('\n').map(line => {
+    if (line.length <= width) {
+      return line;
+    }
+    // Разбиваем строку на слова
+    let words = line.split(' ');
+    // Если требуется, то обрезаем длинные слова
+    if (cut) {
+      let temp = [];
+      for (const word of words) {
+        if (word.length > width) {
+          let i = 0;
+          const length = word.length;
+          while (i < length) {
+            temp.push(word.slice(i, Math.min(i + width, length)));
+            i += width;
+          }
+        } else {
+          temp.push(word);
+        }
+      }
+      words = temp;
+    }
+    // console.log(words);
+    // Собираем новую строку
+    let wrapped = words.shift();
+    let spaceLeft = width - wrapped.length;
+    for (const word of words) {
+      if (word.length + 1 > spaceLeft) {
+        wrapped += br + word;
+        spaceLeft = width - word.length;
+      } else {
+        wrapped += ' ' + word;
+        spaceLeft -= 1 + word.length;
+      }
+    }
+    return wrapped;
+  }).join('\n'); // Объединяем элементы массива по LF
+}
+</lang>
+
+'''Example'''<lang javascript>
+console.log(wordwrap("The quick brown fox jumped over the lazy dog.", 20, "<br />\n"));
+</lang>
+
+{{out}}
+<pre>The quick brown fox<br />
+jumped over the lazy<br />
+dog.</pre>
+

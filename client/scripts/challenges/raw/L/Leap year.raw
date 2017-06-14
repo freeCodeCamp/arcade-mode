@@ -1,0 +1,14 @@
+Leap year
+
+{{task|Date and time}}Determine whether a given year is a leap year in the Gregorian calendar.
+
+'''See Also'''
+* [[wp:Leap year|Leap year (wiki)]]
+
+
+=={{header|JavaScript}}==
+<lang javascript>var isLeapYear = function (year) { return (year % 100 === 0) ? (year % 400 === 0) : (year % 4 === 0); };</lang>
+Or, by setting the day to the 29th and checking if the day remains
+<lang javascript>// Month values start at 0, so 1 is for February
+var isLeapYear = function (year) { return new Date(year, 1, 29).getDate() === 29; };</lang>
+

@@ -1,0 +1,234 @@
+Water collected between towers
+
+{{task}}
+
+;Task:
+In a two-dimensional world, we begin with any bar-chart (or row of close-packed 'towers', each of unit width), and then it rains, 
+completely filling all convex enclosures in the chart with water. 
+
+                                                        
+<pre>9               ██           9               ██    
+8               ██           8               ██    
+7     ██        ██           7     ██≈≈≈≈≈≈≈≈██    
+6     ██  ██    ██           6     ██≈≈██≈≈≈≈██    
+5 ██  ██  ██  ████           5 ██≈≈██≈≈██≈≈████    
+4 ██  ██  ████████           4 ██≈≈██≈≈████████    
+3 ██████  ████████           3 ██████≈≈████████    
+2 ████████████████  ██       2 ████████████████≈≈██
+1 ████████████████████       1 ████████████████████</pre>
+                                                        
+
+In the example above, a bar chart representing the values [5, 3, 7, 2, 6, 4, 5, 9, 1, 2] has filled, collecting 14 units of water.
+
+Write a function, in your language, from a given array of heights, to the number of water units that can be held in this way, by a corresponding bar chart.
+
+Calculate the number of water units that could be collected by bar charts representing each of the following seven series:
+
+<pre>   [[1, 5, 3, 7, 2],
+    [5, 3, 7, 2, 6, 4, 5, 9, 1, 2],
+    [2, 6, 3, 5, 2, 8, 1, 4, 2, 2, 5, 3, 5, 7, 4, 1],
+    [5, 5, 5, 5],
+    [5, 6, 7, 8],
+    [8, 7, 7, 6],
+    [6, 7, 10, 7, 6]]</pre>
+
+
+See, also:
+
+* [https://youtu.be/ftcIcn8AmSY?t=536 Four Solutions to a Trivial Problem] – a Google Tech Talk by Guy Steele
+* [http://stackoverflow.com/questions/24414700/amazon-water-collected-between-towers/ Water collected between towers] on Stack Overflow, from which the example above is taken)
+* [https://gist.github.com/paf31/9d84ecf6a6a9b69cdb597a390f25764d An interesting Haskell solution], using the Tardis monad, by [https://gist.github.com/paf31 Phil Freeman] in a [https://gist.github.com/paf31/9d84ecf6a6a9b69cdb597a390f25764d Github gist].
+
+
+<br>
+
+
+=={{header|JavaScript}}==
+===ES5===
+{{Trans|Haskell}}
+<lang JavaScript>(function () {
+    'use strict';
+
+    // waterCollected :: [Int] -> Int
+    var waterCollected = function (xs) {
+        return sum(                   // water above each bar
+            zipWith(function (a, b) {
+                    return a - b;     // difference between water level and bar
+                },
+                zipWith(min,          // lower of two flanking walls
+                    scanl1(max, xs),  // highest walls to left
+                    scanr1(max, xs)   // highest walls to right
+                ), 
+                xs                    // tops of bars
+            )
+            .filter(function (x) {
+                return x > 0;         // only bars with water above them
+            })
+        );
+    };
+
+    // GENERIC FUNCTIONS ----------------------------------------
+
+    // zipWith :: (a -> b -> c) -> [a] -> [b] -> [c]
+    var zipWith = function (f, xs, ys) {
+        var ny = ys.length;
+        return (xs.length <= ny ? xs : xs.slice(0, ny))
+            .map(function (x, i) {
+                return f(x, ys[i]);
+            });
+    };
+
+    // scanl1 is a variant of scanl that has no starting value argument
+    // scanl1 :: (a -> a -> a) -> [a] -> [a]
+    var scanl1 = function (f, xs) {
+        return xs.length > 0 ? scanl(f, xs[0], xs.slice(1)) : [];
+    };
+
+    // scanr1 is a variant of scanr that has no starting value argument
+    // scanr1 :: (a -> a -> a) -> [a] -> [a]
+    var scanr1 = function (f, xs) {
+        return xs.length > 0 ? scanr(f, xs.slice(-1)[0], xs.slice(0, -1)) : [];
+    };
+
+    // scanl :: (b -> a -> b) -> b -> [a] -> [b]
+    var scanl = function (f, startValue, xs) {
+        var lst = [startValue];
+        return xs.reduce(function (a, x) {
+            var v = f(a, x);
+            return lst.push(v), v;
+        }, startValue), lst;
+    };
+
+    // scanr :: (b -> a -> b) -> b -> [a] -> [b]
+    var scanr = function (f, startValue, xs) {
+        var lst = [startValue];
+        return xs.reduceRight(function (a, x) {
+            var v = f(a, x);
+            return lst.push(v), v;
+        }, startValue), lst.reverse();
+    };
+
+    // sum :: (Num a) => [a] -> a
+    var sum = function (xs) {
+        return xs.reduce(function (a, x) {
+            return a + x;
+        }, 0);
+    };
+
+    // max :: Ord a => a -> a -> a
+    var max = function (a, b) {
+        return a > b ? a : b;
+    };
+
+    // min :: Ord a => a -> a -> a
+    var min = function (a, b) {
+        return b < a ? b : a;
+    };
+
+    // TEST ---------------------------------------------------
+    return [
+        [1, 5, 3, 7, 2],
+        [5, 3, 7, 2, 6, 4, 5, 9, 1, 2],
+        [2, 6, 3, 5, 2, 8, 1, 4, 2, 2, 5, 3, 5, 7, 4, 1],
+        [5, 5, 5, 5],
+        [5, 6, 7, 8],
+        [8, 7, 7, 6],
+        [6, 7, 10, 7, 6]
+    ].map(waterCollected);
+
+    //--> [2, 14, 35, 0, 0, 0, 0]
+})();</lang>
+
+{{Out}}
+<lang JavaScript>[2, 14, 35, 0, 0, 0, 0]</lang>
+
+===ES6===
+{{Trans|Haskell}}
+
+<lang JavaScript>(() => {
+    'use strict';
+    
+    // waterCollected :: [Int] -> Int
+    const waterCollected = xs => {
+        const maxToRight = scanr1(max, xs),
+            maxToLeft = scanl1(max, xs),
+            levels = zipWith(min, maxToLeft, maxToRight);
+
+        return sum(zipWith(difference, levels, xs)
+            .filter(x => x > 0));
+    };
+
+
+    // GENERIC FUNCTIONS ----------------------------------------
+
+    // zipWith :: (a -> b -> c) -> [a] -> [b] -> [c]
+    const zipWith = (f, xs, ys) => {
+        const ny = ys.length;
+        return (xs.length <= ny ? xs : xs.slice(0, ny))
+            .map((x, i) => f(x, ys[i]));
+    }
+
+    // scanl1 is a variant of scanl that has no starting value argument
+    // scanl1 :: (a -> a -> a) -> [a] -> [a]
+    const scanl1 = (f, xs) =>
+        xs.length > 0 ? scanl(f, xs[0], xs.slice(1)) : [];
+
+    // scanr1 is a variant of scanr that has no starting value argument
+    // scanr1 :: (a -> a -> a) -> [a] -> [a]
+    const scanr1 = (f, xs) =>
+        xs.length > 0 ? scanr(f, xs.slice(-1)[0], xs.slice(0, -1)) : [];
+
+    // scanl :: (b -> a -> b) -> b -> [a] -> [b]
+    const scanl = (f, startValue, xs) => {
+        const lst = [startValue];
+        return (
+            xs.reduce((a, x) => {
+                const v = f(a, x);
+                return (lst.push(v), v);
+            }, startValue),
+            lst
+        );
+    };
+
+    // scanr :: (b -> a -> b) -> b -> [a] -> [b]
+    const scanr = (f, startValue, xs) => {
+        const lst = [startValue];
+        return (
+            xs.reduceRight((a, x) => {
+                const v = f(a, x);
+                return (lst.push(v), v);
+            }, startValue),
+            lst.reverse()
+        );
+    };
+
+    // difference :: (Num a) => a -> a -> a
+    const difference = (a, b) => a - b;
+
+    // sum :: (Num a) => [a] -> a
+    const sum = xs => xs.reduce((a, x) => a + x, 0);
+
+    // max :: Ord a => a -> a -> a
+    const max = (a, b) => a > b ? a : b;
+
+    // min :: Ord a => a -> a -> a
+    const min = (a, b) => b < a ? b : a;
+
+
+    // TEST ---------------------------------------------------
+    return [
+        [1, 5, 3, 7, 2],
+        [5, 3, 7, 2, 6, 4, 5, 9, 1, 2],
+        [2, 6, 3, 5, 2, 8, 1, 4, 2, 2, 5, 3, 5, 7, 4, 1],
+        [5, 5, 5, 5],
+        [5, 6, 7, 8],
+        [8, 7, 7, 6],
+        [6, 7, 10, 7, 6]
+    ].map(waterCollected);
+
+    //--> [2, 14, 35, 0, 0, 0, 0]
+})();</lang>
+
+{{Out}}
+<lang JavaScript>[2, 14, 35, 0, 0, 0, 0]</lang>
+

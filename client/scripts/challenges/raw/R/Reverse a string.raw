@@ -1,0 +1,65 @@
+Reverse a string
+
+{{task|String manipulation}}
+;Task:
+Take a string and reverse it.
+
+For example, "asdf" becomes "fdsa".
+
+
+;Extra credit:
+Preserve Unicode combining characters. 
+
+For example, "as⃝df̅" becomes "f̅ds⃝a", not "̅fd⃝sa".
+
+
+{{Template:Strings}}
+<br><br>
+
+
+=={{header|JavaScript}}==
+
+===ES5===
+
+<lang javascript>//using chained methods
+function reverseStr(s) {
+  return s.split('').reverse().join('');
+}
+
+//fast method using for loop
+function reverseStr(s) {
+  for (var i = s.length - 1, o = ''; i >= 0; o += s[i--]) { }
+  return o;
+}
+
+//fast method using while loop (faster with long strings in some browsers when compared with for loop)
+function reverseStr(s) {
+  var i = s.length, o = '';
+  while (i--) o += s[i];
+  return o;
+}</lang>
+
+===ES6===
+
+<lang JavaScript>(() => {
+
+    // .reduceRight() can be useful when reversals
+    // are composed with some other process
+
+    let reverse1 = s => Array.from(s)
+        .reduceRight((a, x) => a + (x !== ' ' ? x : ' <- '), ''),
+
+        // but ( join . reverse . split ) is faster for
+        // simple string reversals in isolation
+
+        reverse2 = s => s.split('').reverse().join('');
+
+
+    return [reverse1, reverse2]
+        .map(f => f("Some string to be reversed"));
+
+})();</lang>
+
+{{Out}}
+<lang JavaScript>["desrever <- eb <- ot <- gnirts <- emoS", "desrever eb ot gnirts emoS"]</lang>
+

@@ -1,0 +1,33 @@
+Associative array/Iteration
+
+{{task|Basic language learning}}[[Category:Iteration]][[Category:Data Structures]]
+Show how to iterate over the key-value pairs of an associative array, and print each pair out. 
+
+Also show how to iterate just over the keys, or the values, if there is a separate way to do that in your language.
+
+
+{{Template:See also lists}}
+<br><br>
+
+
+=={{header|JavaScript}}==
+JavaScript does not have associative arrays until ECMAScript 6 brings Maps. In versions up to ES5.1, you may add properties to an empty object to achieve the same effect.
+<lang javascript>var myhash = {}; //a new, empty object
+myhash["hello"] = 3;
+myhash.world = 6; //obj.name is equivalent to obj["name"] for certain values of name
+myhash["!"] = 9;
+
+//iterate using for..in loop
+for (var key in myhash) {
+  //ensure key is in object and not in prototype
+  if (myhash.hasOwnProperty(key)) {
+    console.log("Key is: " + key + '. Value is: ' + myhash[key]);
+  }
+}
+
+//iterate using ES5.1 Object.keys() and Array.prototype.Map()
+var keys = Object.keys(); //get Array of object keys (doesn't get prototype keys)
+keys.map(function (key) {
+  console.log("Key is: " + key + '. Value is: ' + myhash[key]);
+});</lang>
+

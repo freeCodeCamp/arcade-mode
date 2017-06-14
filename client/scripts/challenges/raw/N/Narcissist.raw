@@ -1,0 +1,47 @@
+Narcissist
+
+{{task}}
+Quoting from the [http://esolangs.org/wiki/Narcissist Esolangs wiki page]:
+
+<blockquote>
+A '''narcissist''' (or '''Narcissus program''') is the decision-problem version of a [[quine]].
+</blockquote><blockquote>
+A quine, when run, takes no input, but produces a copy of its own source code at its output. In contrast, a narcissist reads a string of symbols from its input, and produces no output except a "1" or "accept" if that string matches its own source code, or a "0" or "reject" if it does not.
+</blockquote>
+
+For concreteness, in this task we shall assume that symbol = character. 
+
+The narcissist should be able to cope with any finite input, whatever its length. 
+
+Any form of output is allowed, as long as the program always halts, and "accept", "reject" and "not yet finished" are distinguishable.
+<br><br>
+
+
+=={{header|JavaScript}}==
+{{works with|SpiderMonkey|1.7.0}}
+Based upon [[Quine#Using_eval|one of the quines]]. Outputs 'true' if source is equal to inputted line (newline terminated), 'false' otherwise.
+<lang javascript>var code='var q=String.fromCharCode(39);print("var code=" + q + code + q + "; eval(code)" == readline())'; eval(code)</lang>
+
+{{works with|JScript}}
+<lang javascript>var oFSO = new ActiveXObject("Scripting.FileSystemObject");
+function readfile(fname) {
+	var h = oFSO.OpenTextFile(fname, 1, false);
+	var result = h.ReadAll();
+	h.Close();
+	return result;
+}
+
+if (0 === WScript.Arguments.UnNamed.Count) {
+	WScript.Echo(WScript.ScriptName,"filename");
+	WScript.Quit();
+}
+
+// first read self 
+var self = readfile(WScript.ScriptFullName);
+// read whatever file is given on commmand line
+var whatever = readfile(WScript.Arguments.UnNamed(0));
+
+// compare and contrast
+WScript.Echo(self === whatever ? "Accept" : "Reject");
+</lang>
+

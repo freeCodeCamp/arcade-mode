@@ -1,0 +1,32 @@
+Hello world/Text
+
+{{task|Basic language learning}}
+{{selection|Short Circuit|Console Program Basics}}
+[[Category:Simple]]
+
+;Task:
+Display the string '''Hello world!''' on a text console.
+
+;Related tasks:
+* &nbsp; [[Hello world/Graphical]]
+* &nbsp; [[Hello world/Line Printer]]
+* &nbsp; [[Hello world/Newline omission]]
+* &nbsp; [[Hello world/Standard error]]
+* &nbsp; [[Hello world/Web server]]
+<br><br>
+
+
+=={{header|JavaScript}}==
+<lang javascript>document.write("Hello world!");</lang>
+
+{{works with|NJS|0.2.5}}
+{{works with|Rhino}}
+{{works with|SpiderMonkey}}
+<lang javascript>print('Hello world!');</lang>
+
+{{works with|JScript}}
+<lang javascript>WScript.Echo("Hello world!");</lang>
+
+{{works with|Node.js}}
+<lang javascript>console.log("Hello world!")</lang>
+

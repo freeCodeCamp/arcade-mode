@@ -1,0 +1,27 @@
+Environment variables
+
+{{task|Programming environment operations}} 
+[[Category:Environment variables]] 
+[[Category:Initialization]] 
+[[Category:Simple]]
+{{omit from|M4}}
+{{omit from|TI-83 BASIC}} {{omit from|TI-89 BASIC}} <!-- Does not have an environment other than regular global variables. -->
+{{omit from|Unlambda|Does not provide access to environment variables.}}
+
+;Task:
+Show how to get one of your process's [[wp:Environment variable|environment variables]]. 
+
+The available variables vary by system; &nbsp; some of the common ones available on Unix include:
+:::* &nbsp; PATH
+:::* &nbsp; HOME
+:::* &nbsp; USER
+<br><br>
+
+
+=={{header|JavaScript}}==
+The JavaScript language has no facilities to access the computer: it relies on the host environment to provide it.
+{{works with|JScript}}
+<lang javascript>var shell = new ActiveXObject("WScript.Shell");
+var env = shell.Environment("PROCESS");
+WScript.echo('SYSTEMROOT=' + env.item('SYSTEMROOT'));</lang>
+

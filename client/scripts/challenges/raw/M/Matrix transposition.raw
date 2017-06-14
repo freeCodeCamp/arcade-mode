@@ -1,0 +1,99 @@
+Matrix transposition
+
+{{task|Matrices}}
+[[wp:Transpose|Transpose]] an arbitrarily sized rectangular [[wp:Matrix (mathematics)|Matrix]].
+<br><br>
+
+
+=={{header|JavaScript}}==
+===ES5===
+{{works with|SpiderMonkey}} for the <code>print()</code> function
+<lang javascript>function Matrix(ary) {
+    this.mtx = ary
+    this.height = ary.length;
+    this.width = ary[0].length;
+}
+
+Matrix.prototype.toString = function() {
+    var s = []
+    for (var i = 0; i < this.mtx.length; i++) 
+        s.push( this.mtx[i].join(",") );
+    return s.join("\n");
+}
+
+// returns a new matrix
+Matrix.prototype.transpose = function() {
+    var transposed = [];
+    for (var i = 0; i < this.width; i++) {
+        transposed[i] = [];
+        for (var j = 0; j < this.height; j++) {
+            transposed[i][j] = this.mtx[j][i];
+        }
+    }
+    return new Matrix(transposed);
+}
+
+var m = new Matrix([[1,1,1,1],[2,4,8,16],[3,9,27,81],[4,16,64,256],[5,25,125,625]]);
+print(m);
+print();
+print(m.transpose());</lang>
+
+produces
+<pre>1,1,1,1
+2,4,8,16
+3,9,27,81
+4,16,64,256
+5,25,125,625
+
+1,2,3,4,5
+1,4,9,16,25
+1,8,27,64,125
+1,16,81,256,625</pre>
+
+
+Or, as a functional expression (rather than an imperative procedure):
+<lang javascript>
+(function () {
+    'use strict';
+
+    function transpose(lst) {
+        return lst[0].map(function (_, iCol) {
+            return lst.map(function (row) {
+                return row[iCol];
+            })
+        });
+    }
+    
+    return transpose(
+        [[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11, 12]]
+    );
+
+})();
+</lang>
+
+{{Out}}
+
+<pre>[[1, 4, 7, 10], [2, 5, 8, 11], [3, 6, 9, 12]]</pre>
+
+===ES6===
+
+<lang JavaScript>(() => {
+    'use strict';
+
+    // transpose :: [[a]] -> [[a]]
+    let transpose = xs =>
+        xs[0].map((_, iCol) => xs.map((row) => row[iCol]));
+
+
+
+    // TEST
+    return transpose([
+        [1, 2],
+        [3, 4],
+        [5, 6]
+    ]);
+})();</lang>
+
+{{Out}}
+<lang JavaScript>[[1, 3, 5], [2, 4, 6]]</lang>
+

@@ -1,0 +1,41 @@
+Literals/String
+
+{{task|Basic language learning}} 
+[[Category: String manipulation]] 
+[[Category: Syntax elements]]
+
+;Task:
+Show literal specification of characters and strings. 
+
+If supported, show how the following work:
+:* &nbsp; ''verbatim strings'' &nbsp; (quotes where escape sequences are quoted literally)
+:* &nbsp; ''here-strings'' &nbsp;  
+
+<br>
+Also, discuss which quotes expand variables.
+
+
+;Related tasks: 
+* &nbsp; [[Special characters]]
+* &nbsp; [[Here document]]
+<br><br>
+
+
+=={{header|JavaScript}}==
+A JavaScript string is a sequence of zero or more characters enclosed in either 'single quotes' or "double quotes". Neither form prevents escape sequences: <code>"\n"</code> and <code>'\n'</code> are both strings of length 1. There is no variable interpolation.
+
+Unicode characters can be entered as literals or as 4 character hexadecimal escapes. The following expressions are equivalent:
+
+<lang JavaScript>(function () {
+    return "αβγδ 中间来点中文 🐫 אבגד"
+})();
+
+
+(function() {
+    return "\u03b1\u03b2\u03b3\u03b4 \u4e2d\u95f4\u6765\u70b9\u4e2d\u6587 \ud83d\udc2b \u05d0\u05d1\u05d2\u05d3";
+})();</lang>
+
+Note that in the case of the Emoji character above, where more than 4 hexadecimal characters are needed, ES5 requires us to separately write a pair of surrogate halves, and the '''String.length''' of such characters is 2.
+
+ES6 introduces Unicode code point escapes such as <pre>'\u{2F804}'</pre>allowing direct escaping of code points up to 0x10FFFF.
+

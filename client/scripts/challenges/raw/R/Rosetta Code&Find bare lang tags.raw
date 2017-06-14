@@ -1,0 +1,15 @@
+Rosetta Code/Find bare lang tags
+
+{{task|Rosetta Code related}}
+
+;Task:
+Find all &nbsp; <big><big> <nowiki><lang></nowiki> </big></big> &nbsp; tags without a language specified in the text of a page.  
+
+Display counts by language section:
+
+<pre>
+<nowiki>Description
+
+<lang>Pseudocode</lang>
+
+

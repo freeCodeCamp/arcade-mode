@@ -1,0 +1,48 @@
+Trigonometric functions
+
+{{task|Arithmetic operations}} 
+[[Category:Mathematics]]
+
+;Task:
+If your language has a library or built-in functions for trigonometry, show examples of:
+::* &nbsp; sine
+::* &nbsp; cosine
+::* &nbsp; tangent
+::* &nbsp; inverses &nbsp; (of the above)
+<br>using the same angle in radians and degrees. 
+
+For the non-inverse functions, &nbsp; each radian/degree pair should use arguments that evaluate to the same angle &nbsp; (that is, it's not necessary to use the same angle for all three regular functions as long as the two sine calls use the same angle). 
+
+For the inverse functions, &nbsp; use the same number and convert its answer to radians and degrees. 
+
+If your language does not have trigonometric functions available or only has some available, &nbsp; write functions to calculate the functions based on any &nbsp; [[wp:List of trigonometric identities|known approximation or identity]].
+<br><br>
+
+
+=={{header|JavaScript}}==
+
+JavaScript's <tt>Math</tt> class contains all six functions and is automatically included as part of the language. The functions all accept radians only, so conversion is necessary when dealing with degrees. The <tt>Math</tt> class also has a <tt>PI</tt> constant for easy conversion. 
+
+<lang javascript>var
+ radians = Math.PI / 4, // Pi / 4 is 45 degrees. All answers should be the same.
+ degrees = 45.0,
+ sine = Math.sin(radians),
+ cosine = Math.cos(radians),
+ tangent = Math.tan(radians),
+ arcsin = Math.asin(sine),
+ arccos = Math.acos(cosine),
+ arctan = Math.atan(tangent);
+
+// sine
+window.alert(sine + " " + Math.sin(degrees * Math.PI / 180));
+// cosine
+window.alert(cosine + " " + Math.cos(degrees * Math.PI / 180));
+// tangent
+window.alert(tangent + " " + Math.tan(degrees * Math.PI / 180));
+// arcsine
+window.alert(arcsin + " " + (arcsin * 180 / Math.PI));
+// arccosine
+window.alert(arccos + " " + (arccos * 180 / Math.PI));
+// arctangent
+window.alert(arctan + " " + (arctan * 180 / Math.PI));</lang>
+

@@ -1,0 +1,16 @@
+Speech synthesis
+
+{{task|Temporal media}}
+<!-- this task to be in "Temporal media" category once ready. -->
+[[Category:Speech synthesis]]
+[[Category:Temporal media]]
+
+Render the text &nbsp; &nbsp; &nbsp; '''This is an example of speech synthesis'''&nbsp; &nbsp; &nbsp; as speech.
+<br><br>
+
+
+=={{header|JavaScript}}==
+{{works with|JScript}}
+<lang javascript>var voice = new ActiveXObject("SAPI.SpVoice");
+voice.speak("This is an example of speech synthesis.");</lang>
+

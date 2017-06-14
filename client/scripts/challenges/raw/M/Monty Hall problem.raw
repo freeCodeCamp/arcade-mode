@@ -1,0 +1,135 @@
+Monty Hall problem
+
+{{task|Discrete math}}[[Category:Games]][[Category:Probability and statistics]]
+[[File:Monte_Hall_problem.jpg|500px||right]]
+
+Run random simulations of the [[wp:Monty_Hall_problem|Monty Hall]] game. Show the effects of a strategy of the contestant always keeping his first guess so it can be contrasted with the strategy of the contestant always switching his guess.
+
+:Suppose you're on a game show and you're given the choice of three doors. Behind one door is a car; behind the others, goats. The car and the goats were placed randomly behind the doors before the show. The rules of the game show are as follows: After you have chosen a door, the door remains closed for the time being. The game show host, Monty Hall, who knows what is behind the doors, now has to open one of the two remaining doors, and the door he opens must have a goat behind it. If both remaining doors have goats behind them, he chooses one randomly. After Monty Hall opens a door with a goat, he will ask you to decide whether you want to stay with your first choice or to switch to the last remaining door. Imagine that you chose Door 1 and the host opens Door 3, which has a goat. He then asks you "Do you want to switch to Door Number 2?" Is it to your advantage to change your choice? ([http://www.usd.edu/~xtwang/Papers/MontyHallPaper.pdf Krauss and Wang 2003:10])
+
+Note that the player may initially choose any of the three doors (not just Door 1), that the host opens a different door revealing a goat (not necessarily Door 3), and that he gives the player a second choice between the two remaining unopened doors.
+
+
+;Task:
+Simulate at least a thousand games using three doors for each strategy <u>and show the results</u> in such a way as to make it easy to compare the effects of each strategy.
+
+
+;Reference:
+* [https://www.youtube.com/watch?v=4Lb-6rxZxx0 Monty Hall Problem - Numberphile]. (Video).
+<br><br>
+
+
+=={{header|JavaScript}}==
+
+===Extensive Solution===
+
+This solution can test with n doors, the difference in probability for switching is shown to diminish as the number of doors increases.
+
+<lang javascript>
+function montyhall(tests, doors) {
+	'use strict';
+	tests = tests ? tests : 1000;
+	doors = doors ? doors : 3;
+	var prizeDoor, chosenDoor, shownDoor, switchDoor, chosenWins = 0, switchWins = 0;
+	
+	// randomly pick a door excluding input doors
+	function pick(excludeA, excludeB) {
+		var door;
+		do {
+			door = Math.floor(Math.random() * doors);
+		} while (door === excludeA || door === excludeB);
+		return door;
+	}
+	
+	// run tests
+	for (var i = 0; i < tests; i ++) {
+		
+		// pick set of doors
+		prizeDoor = pick();
+		chosenDoor = pick();
+		shownDoor = pick(prizeDoor, chosenDoor);
+		switchDoor = pick(chosenDoor, shownDoor);
+
+		// test set for both choices
+		if (chosenDoor === prizeDoor) {
+			chosenWins ++;
+		} else if (switchDoor === prizeDoor) {
+			switchWins ++;
+		}
+	}
+	
+	// results
+	return {
+		stayWins: chosenWins + ' ' + (100 * chosenWins / tests) + '%',
+		switchWins: switchWins + ' ' + (100 * switchWins / tests) + '%'
+	};
+}
+</lang>
+
+{{out}}
+<lang javascript>
+montyhall(1000, 3)
+Object {stayWins: "349 34.9%", switchWins: "651 65.1%"}
+montyhall(1000, 4)
+Object {stayWins: "253 25.3%", switchWins: "384 38.4%"}
+montyhall(1000, 5)
+Object {stayWins: "202 20.2%", switchWins: "265 26.5%"}
+</lang>
+
+===Basic Solution===
+
+<!-- http://blog.dreasgrech.com/2011/09/simulating-monty-hall-problem.html -->
+<lang javascript>
+var totalGames = 10000,
+    selectDoor = function () {
+	return Math.floor(Math.random() * 3); // Choose a number from 0, 1 and 2.
+    },
+    games = (function () {
+	var i = 0, games = [];
+
+	for (; i < totalGames; ++i) {
+	    games.push(selectDoor()); // Pick a door which will hide the prize.
+	}
+
+	return games;
+    }()),
+    play = function (switchDoor) {
+	var i = 0, j = games.length, winningDoor, randomGuess, totalTimesWon = 0;
+
+	for (; i < j; ++i) {
+	    winningDoor = games[i];
+	    randomGuess = selectDoor();
+	    if ((randomGuess === winningDoor && !switchDoor) || 
+		(randomGuess !== winningDoor && switchDoor)) 
+	    {
+		/*
+		 * If I initially guessed the winning door and didn't switch,
+		 * or if I initially guessed a losing door but then switched,
+		 * I've won.
+		 *
+		 * The only time I lose is when I initially guess the winning door 
+		 * and then switch.
+		 */
+
+		totalTimesWon++;
+	    }
+	}
+	return totalTimesWon;
+    };
+
+/*
+ * Start the simulation
+ */
+
+console.log("Playing " + totalGames + " games");
+console.log("Wins when not switching door", play(false));
+console.log("Wins when switching door", play(true));
+</lang>
+
+{{out}}
+<lang javascript>
+Playing 10000 games
+Wins when not switching door 3326
+Wins when switching door 6630
+</lang>
+
