@@ -1,5 +1,10 @@
 # PROGRESS for Arcade Mode
 
+## Tuesday 6/13/17:
+### Tim:
+  - Progress:
+    1. Add script to retrieve all RosettaCode tasks.
+
 ## Friday 6/9/17:
 ### Tim:
   - Progress:
