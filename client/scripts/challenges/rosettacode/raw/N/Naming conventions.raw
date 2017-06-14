@@ -1,0 +1,26 @@
+Naming conventions
+
+{{task|Programming environment operations}} [[Category:Simple]]
+Many languages have either (or both) de-facto naming conventions or de-jure naming conventions for names used in the language and/or its libraries.  
+These may take the form of prefixes, suffixes or a combination of upper-case and lower-case characters.  
+Often the conventions are a bit haphazard, especially where the language and/or library has gone through a periods of evolution. (In this case: give a brief example and description).
+
+Document as best you can (with simple examples where possible) the evolution and current status of these naming conventions. 
+For example, name conventions for:
+* Procedure and operator names.  (Intrinsic or external)
+* Class, Subclass and instance names.
+* Built-in versus libraries names.
+
+<br>
+If possible, indicate where the naming conventions are implicit, explicit, mandatory or discretionary.  
+Any tools that enforced the the naming conventions.  
+Any cases where the naming convention as commonly violated.
+
+If possible, indicate where the convention wased use to hint at other issues, for example the C standard library uses a prefix of "_" to "hide" raw Operating System calls from the non systems-programmer.  
+Whereas Python embeds member functions in between "__" to make a member function "private".
+
+;See also:
+* Wikipedia: [[wp:Naming convention (programming)|Naming convention (programming)]]
+<br><br>
+
+

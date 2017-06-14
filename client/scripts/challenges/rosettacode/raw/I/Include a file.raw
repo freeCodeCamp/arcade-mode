@@ -1,0 +1,35 @@
+Include a file
+
+{{task}}
+
+;Task:
+Demonstrate the language's ability to include source code from other files.
+<br><br>
+
+
+=={{header|JavaScript}}==
+
+===Pure JavaScript in browsers with the DOM===
+Following example, if loaded in an HTML file, loads the [http://jquery.com/ jQuery] library from a remote site
+<lang javascript>var s = document.createElement('script');
+s.type = 'application/javascript';
+
+// path to the desired file
+s.src = 'http://code.jquery.com/jquery-1.6.2.js';
+document.body.appendChild(s);</lang>
+Most be noted that it can also request [[HTTP]] source and eval() the source
+
+===With jQuery===
+{{libheader|jQuery}}
+<lang javascript>$.getScript("http://example.com/script.js");</lang>
+
+===With AMD (require.js)===
+<lang javascript>require(["jquery"], function($) { /* ... */ });</lang>
+
+===CommonJS style with node.js (or browserify)===
+{{libheader|node.js}}
+<lang javascript>var $ = require('$');</lang>
+
+===ES6 Modules===
+<lang javascript>import $ from "jquery";</lang>
+

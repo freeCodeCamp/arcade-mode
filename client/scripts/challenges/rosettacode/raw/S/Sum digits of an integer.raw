@@ -1,0 +1,73 @@
+Sum digits of an integer
+
+{{task}}
+
+;Task:
+Take a &nbsp; [[wp:Natural_number|Natural Number]] &nbsp; in a given base and return the sum of its digits:
+:* &nbsp; '''1'''<sub>10</sub> &nbsp; &nbsp; &nbsp;          &nbsp; sums to &nbsp; '''1'''
+:* &nbsp; '''1234'''<sub>10</sub>     &nbsp; sums to &nbsp; '''10'''
+:* &nbsp; '''fe'''<sub>16</sub> &nbsp; &nbsp;        &nbsp; sums to &nbsp; '''29'''
+:* &nbsp; '''f0e'''<sub>16</sub> &nbsp;       &nbsp; sums to &nbsp; '''29'''
+<br><br>
+
+
+=={{header|JavaScript}}==
+
+===Imperative===
+
+<lang JavaScript>function sumDigits(n) {
+	n += ''
+	for (var s=0, i=0, e=n.length; i<e; i+=1) s+=parseInt(n.charAt(i),36)
+	return s
+}
+for (var n of [1, 12345, 0xfe, 'fe', 'f0e', '999ABCXYZ']) document.write(n, ' sum to ', sumDigits(n), '<br>')
+</lang>
+{{out}}
+<pre>
+1 sum to 1
+12345 sum to 15
+254 sum to 11
+fe sum to 29
+f0e sum to 29
+999ABCXYZ sum to 162
+</pre>
+
+===Functional (ES 5)===
+
+<lang JavaScript>(function () {
+    'use strict';
+
+    // digitsSummed :: (Int | String) -> Int
+    function digitsSummed(number) {
+    
+        // 10 digits + 26 alphabetics
+        // give us glyphs for up to base 36
+        var intMaxBase = 36;
+    
+        return number
+            .toString()
+            .split('')
+            .reduce(function (a, digit) { 
+                return a + parseInt(digit, intMaxBase);
+            }, 0);
+    }
+
+    // TEST
+
+    return [1, 12345, 0xfe, 'fe', 'f0e', '999ABCXYZ']
+        .map(function (x) {
+            return x + ' -> ' + digitsSummed(x);
+        })
+        .join('\n');
+
+})();
+</lang>
+
+
+<pre>1 -> 1
+12345 -> 15
+254 -> 11
+fe -> 29
+f0e -> 29
+999ABCXYZ -> 162</pre>
+

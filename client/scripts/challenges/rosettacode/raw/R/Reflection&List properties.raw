@@ -1,0 +1,46 @@
+Reflection/List properties
+
+{{task|Reflection}} [[Category:Programming Tasks]] [[Category:Object oriented]]
+
+;Task:
+The goal is to get the properties of an object, as names, values or both.
+
+Some languages support dynamic properties, which in general can only be inspected if a class' public API includes a way of listing them.
+
+
+=={{header|JavaScript}}==
+There are multiple ways of getting property names, each of which include different subsets of an object's properties, such as enumerable or inherited properties. Properties in JavaScript can be enumerable or non-enumerable; enumerable properties are accessable when looping over the object with <code>for</code>. <code>Object.getOwnPropertyNames()</code>.
+
+<lang javascript>var obj = Object.create({
+    name: 'proto',
+    proto: true,
+    doNothing: function() {}
+  }, {
+    name: {value: 'obj', writable: true, configurable: true, enumerable: true},
+    obj: {value: true, writable: true, configurable: true, enumerable: true},
+    'non-enum': {value: 'non-enumerable', writable: true, enumerable: false},
+    doStuff: {value: function() {}, enumerable: true}
+});
+
+// get enumerable properties on an object and its ancestors
+function get_property_names(obj) {
+    var properties = [];
+    for (var p in obj) {
+        properties.push(p);
+    }
+    return properties;
+}
+
+get_property_names(obj);
+//["name", "obj", "doStuff", "proto", "doNothing"]
+
+Object.getOwnPropertyNames(obj);
+//["name", "obj", "non-enum", "doStuff"]
+
+Object.keys(obj);
+//["name", "obj", "doStuff"]
+
+Object.entries(obj);
+//[["name", "obj"], ["obj", true], ["doStuff", function()]]
+</lang>
+

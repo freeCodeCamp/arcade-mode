@@ -1,0 +1,84 @@
+Phrase reversals
+
+{{task}}
+
+;Task:
+Given a string of space separated words containing the following phrase:
+  rosetta code phrase reversal
+
+:# Reverse the string.
+:# Reverse each individual word in the string, maintaining original string order.
+:# Reverse the order of each word of the phrase, maintaining the order of characters in each word.
+<br>
+Show your output here.
+ 
+
+;See also: 
+* [[Reverse a string]]
+* [[Reverse words in a string]]
+<br><br>
+
+
+=={{header|JavaScript}}==
+===ES5===
+<lang JavaScript>(function (p) {
+  return [
+    p.split('').reverse().join(''),
+
+    p.split(' ').map(function (x) {
+        return x.split('').reverse().join('');
+    }).join(' '),
+
+    p.split(' ').reverse().join(' ')
+
+  ].join('\n');
+
+})('rosetta code phrase reversal');</lang>
+{{out}}
+<pre>lasrever esarhp edoc attesor
+attesor edoc esarhp lasrever
+reversal phrase code rosetta</pre>
+
+===ES6===
+<lang JavaScript>(() => {
+    'use strict';
+
+    // words :: String -> [String]
+    const words = s => s.split(/\s+/);
+
+    // unwords :: [String] -> String
+    const unwords = xs => xs.join(' ');
+
+    // reverse :: [a] -> [a]
+    const reverse = xs =>
+        typeof xs === 'string' ? (
+            xs.split('')
+            .reverse()
+            .join('')
+        ) : xs.slice(0)
+        .reverse();
+
+    // map :: (a -> b) -> [a] -> [b]
+    const map = (f, xs) => xs.map(f);
+
+
+    // TEST
+    // show :: a -> String
+    const show = x => JSON.stringify(x, null, 2);
+
+    const strPhrase = 'rosetta code phrase reversal';
+
+    return show({
+        reversedString: reverse(strPhrase),
+        eachWordReversed: unwords(map(reverse, words(strPhrase))),
+        wordOrderReversed: unwords(reverse(words(strPhrase)))
+    });
+})();</lang>
+
+{{Out}}
+<pre>{
+  "reversedString": "lasrever esarhp edoc attesor",
+  "eachWordReversed": "attesor edoc esarhp lasrever",
+  "wordOrderReversd": "reversal phrase code rosetta"
+}</pre>
+

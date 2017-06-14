@@ -1,0 +1,47 @@
+Thue-Morse
+
+{{task}}
+
+;Task:
+Create a [http://en.wikipedia.org/wiki/Thue%E2%80%93Morse_sequence Thue-Morse sequence].
+
+
+;See also
+* &nbsp; YouTube entry: [https://www.youtube.com/watch?v=prh72BLNjIk The Fairest Sharing Sequence Ever]
+<br><br> 
+
+
+=={{header|JavaScript}}==
+
+===ES6===
+<lang JavaScript>(() => {
+    'use strict';
+
+    // THUE MORSE
+
+    // thueMorse :: Int -> String
+    let thueMorse = nCycles => range(1, Math.abs(nCycles))
+            .reduce(a => a.concat(a.map(x => 1 - x)), [0])
+            .join('');
+
+
+    // GENERIC FUNCTION
+
+    // range :: Int -> Int  -> [Int]
+    let range = (m, n) => Array.from({
+        length: Math.floor((n - m)) + 1
+    }, (_, i) => m + i);
+
+
+    // TEST
+
+    return thueMorse(6);
+
+    // 0110100110010110100101100110100110010110011010010110100110010110
+
+})();
+</lang>
+
+{{Out}}
+<pre>0110100110010110100101100110100110010110011010010110100110010110</pre>
+

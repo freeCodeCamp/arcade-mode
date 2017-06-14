@@ -1,0 +1,152 @@
+Harshad or Niven series
+
+{{task}}
+{{omit from|Brlcad}}
+{{omit from|Lilypond}}
+{{omit from|Openscad}}
+{{omit from|TPP}}
+
+The [http://mathworld.wolfram.com/HarshadNumber.html Harshad] or Niven numbers are positive integers ≥ 1 that are divisible by the sum of their digits. 
+
+For example, &nbsp; '''42''' &nbsp; is a [[oeis:A005349|Harshad number]] as &nbsp; '''42''' &nbsp; is divisible by &nbsp; ('''4''' + '''2''') &nbsp; without remainder.
+<br>Assume that the series is defined as the numbers in increasing order.
+
+
+;Task:
+The task is to create a function/method/procedure to generate successive members of the Harshad sequence. 
+
+Use it to list the first twenty members of the sequence and list the first Harshad number greater than 1000.
+
+Show your output here.
+<br><br>
+
+
+=={{header|JavaScript}}==
+===ES5===
+<lang javascript>function isHarshad(n) {
+    var s = 0;
+    var n_str = new String(n);
+    for (var i = 0; i < n_str.length; ++i) {
+        s += parseInt(n_str.charAt(i));
+    }
+    return n % s === 0;
+}
+
+var count = 0;
+var harshads = [];
+
+for (var n = 1; count < 20; ++n) {
+    if (isHarshad(n)) {
+        count++;
+        harshads.push(n);
+    }
+}
+
+console.log(harshads.join(" "));
+
+var h = 1000;
+while (!isHarshad(++h));
+console.log(h);
+</lang>
+{{out}}
+<pre>1 2 3 4 5 6 7 8 9 10 12 18 20 21 24 27 30 36 40 42
+1002</pre>
+
+===ES6===
+One possible approach to functional composition:
+<lang JavaScript>(() => {
+    'use strict';
+
+    // HARSHADS ---------------------------------------------------------------
+
+    // nHarshads :: Int -> [Int]
+    const nHarshads = n => {
+
+        // isHarshad :: Int -> Bool
+        const isHarshad = n => 0 === n % sum(digitList(n));
+
+        return until(
+                dct => dct.nth === n,
+                dct => {
+                    const
+                        next = succ(dct.i),
+                        blnHarshad = isHarshad(next);
+                    return {
+                        i: next,
+                        hs: blnHarshad ? dct.hs.concat(next) : dct.hs,
+                        nth: dct.nth + (blnHarshad ? 1 : 0)
+                    };
+                }, {
+                    i: 0,
+                    hs: [],
+                    nth: 0
+                }
+            )
+            .hs;
+    };
+
+    // GENERIC FUNCTIONS ------------------------------------------------------
+
+    // digitList :: Int -> [Int]
+    const digitList = n =>
+        n > 0 ? [n % 10].concat(digitList(Math.floor(n / 10))) : [];
+
+    // dropWhile :: (a -> Bool) -> [a] -> [a]
+    const dropWhile = (p, xs) => {
+        let i = 0;
+        for (let lng = xs.length;
+            (i < lng) && p(xs[i]); i++) {}
+        return xs.slice(i);
+    };
+
+    // head :: [a] -> a
+    const head = xs => xs.length ? xs[0] : undefined;
+
+    // a -> String
+    const show = x => JSON.stringify(x, null, 2);
+
+    // succ :: Int -> Int
+    const succ = x => x + 1
+
+    // sum :: (Num a) => [a] -> a
+    const sum = xs => xs.reduce((a, x) => a + x, 0);
+
+    // until :: (a -> Bool) -> (a -> a) -> a -> a
+    const until = (p, f, x) => {
+        const go = x => p(x) ? x : go(f(x));
+        return go(x);
+    };
+
+    // TEST -------------------------------------------------------------------
+    return show({
+        firstTwenty: nHarshads(20),
+        firstOver1000: head(dropWhile(x => x <= 1000, nHarshads(1000)))
+    });
+})();</lang>
+{{Out}}
+<pre>{
+  "firstTwenty": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    12,
+    18,
+    20,
+    21,
+    24,
+    27,
+    30,
+    36,
+    40,
+    42
+  ],
+  "firstOver1000": 1002
+}</pre>
+

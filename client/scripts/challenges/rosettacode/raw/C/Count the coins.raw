@@ -1,0 +1,115 @@
+Count the coins
+
+{{task}}
+
+There are four types of common coins in &nbsp; [https://en.wikipedia.org/wiki/United_States US] &nbsp; currency: 
+:::# &nbsp; quarters &nbsp; (25 cents)
+:::# &nbsp; dimes &nbsp; (10 cents)
+:::# &nbsp; nickels &nbsp; (5 cents), &nbsp; and 
+:::# &nbsp; pennies &nbsp; (1 cent)  
+
+
+There are six ways to make change for 15 cents:
+:::# &nbsp; A dime and a nickel 
+:::# &nbsp; A dime and 5 pennies
+:::# &nbsp; 3 nickels
+:::# &nbsp; 2 nickels and 5 pennies
+:::# &nbsp; A nickel and 10 pennies
+:::# &nbsp; 15 pennies
+<br>
+
+;Task:
+How many ways are there to make change for a dollar using these common coins? &nbsp; &nbsp; (1 dollar = 100 cents).
+
+
+;Optional:
+Less common are dollar coins (100 cents); &nbsp; and very rare are half dollars (50 cents). &nbsp; With the addition of these two coins, how many ways are there to make change for $1000? 
+
+(Note: &nbsp; the answer is larger than &nbsp; 2<sup>32</sup>).
+
+
+;Reference:
+* &nbsp; [http://mitpress.mit.edu/sicp/full-text/book/book-Z-H-11.html#%_sec_Temp_52 an algorithm from MIT Press]. 
+<br><br>
+
+
+=={{header|JavaScript}}==
+
+===Iterative===
+
+Efficient iterative algorithm (cleverly calculates number of combinations without permuting them)
+
+<lang Javascript>function countcoins(t, o) {
+    'use strict';
+    var targetsLength = t + 1;
+    var operandsLength = o.length;
+    t = [1];
+
+    for (var a = 0; a < operandsLength; a++) {
+        for (var b = 1; b < targetsLength; b++) {
+
+            // initialise undefined target
+            t[b] = t[b] ? t[b] : 0;
+
+            // accumulate target + operand ways
+            t[b] += (b < o[a]) ? 0 : t[b - o[a]];
+        }
+    }
+
+    return t[targetsLength - 1];
+}</lang>
+
+{{out}}
+JavaScript hits integer limit for optional task
+<lang JavaScript>countcoins(100, [1,5,10,25]);
+242</lang>
+
+===Recursive===
+
+Inefficient recursive algorithm (naively calculates number of combinations by actually permuting them)
+
+<lang Javascript>function countcoins(t, o) {
+    'use strict';
+    var operandsLength = o.length;
+    var solutions = 0;
+
+    function permutate(a, x) {
+
+        // base case
+        if (a === t) {
+            solutions++;
+        }
+
+        // recursive case
+        else if (a < t) {
+            for (var i = 0; i < operandsLength; i++) {
+                if (i >= x) {
+                    permutate(o[i] + a, i);
+                }
+            }
+        }
+    }
+
+    permutate(0, 0);
+    return solutions;
+}</lang>
+{{Out}}
+Too slow for optional task
+
+<lang JavaScript>countcoins(100, [1,5,10,25]);
+242</lang>
+
+===Iterative again===
+
+{{Trans|C#}}
+<lang javascript>var amount = 100,
+    coin = [1, 5, 10, 25]
+var t = [1];
+for (t[amount] = 0, a = 1; a < amount; a++) t[a] = 0 // initialise t[0..amount]=[1,0,...,0]
+for (var i = 0, e = coin.length; i < e; i++)
+    for (var ci = coin[i], a = ci; a <= amount; a++)
+        t[a] += t[a - ci]
+document.write(t[amount])</lang>
+{{Out}}
+<pre>242</pre>
+

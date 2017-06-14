@@ -1,0 +1,57 @@
+Letter frequency
+
+{{task|Probability_and_statistics}} 
+[[Category:Randomness]]
+
+;Task:
+Open a text file and count the occurrences of each letter.
+
+Some of these programs count all characters (including punctuation), 
+but some only count letters A to Z.
+<br><br>
+
+
+=={{header|JavaScript}}==
+
+JavaScript is no longer used only in environments which are carefully isolated from file systems, but JavaScript standards still do not specify standard file-system functions. 
+Leaving aside the particular and variable details of how files will be opened and read in environments like Node.js and OS X JavaScript for Automation etc., 
+we can still use core JavasScript (ES5 in the example below), to count the characters in a text once it has been read from a file system.
+
+<lang JavaScript>(function(txt) {
+
+    var cs = txt.split(''),
+        i = cs.length,
+        dct =  {},
+        c = '',
+        keys;
+        
+    while (i--) {
+        c = cs[i];
+        dct[c] = (dct[c] || 0) + 1;
+    }
+    
+    keys = Object.keys(dct);
+    keys.sort();
+    return keys.map(function (c) { return [c, dct[c]]; });
+
+})("Not all that Mrs. Bennet, however, with the assistance of her five\
+daughters, could ask on the subject, was sufficient to draw from her\
+husband any satisfactory description of Mr. Bingley. They attacked him\
+in various ways--with barefaced questions, ingenious suppositions, and\
+distant surmises; but he eluded the skill of them all, and they were at\
+last obliged to accept the second-hand intelligence of their neighbour,\
+Lady Lucas. Her report was highly favourable. Sir William had been\
+delighted with him. He was quite young, wonderfully handsome, extremely\
+agreeable, and, to crown the whole, he meant to be at the next assembly\
+with a large party. Nothing could be more delightful! To be fond of\
+dancing was a certain step towards falling in love; and very lively\
+hopes of Mr. Bingley's heart were entertained."); </lang> 
+
+{{Out}}
+
+<lang JavaScript>[[" ", 121], ["!", 1], ["'", 1], [",", 13], ["-", 3], [".", 9], [";", 2], 
+["B", 3], ["H", 2], ["L", 2], ["M", 3], ["N", 2], ["S", 1], ["T", 2], ["W", 1], 
+["a", 53], ["b", 13], ["c", 17], ["d", 29], ["e", 82], ["f", 17], ["g", 16], ["h", 36],
+["i", 44], ["j", 1], ["k", 3], ["l", 34], ["m", 11], ["n", 41], ["o", 40], ["p", 8], 
+["q", 2], ["r", 35], ["s", 39], ["t", 55], ["u", 20], ["v", 7], ["w", 17], ["x", 2], ["y", 16]]</lang>
+

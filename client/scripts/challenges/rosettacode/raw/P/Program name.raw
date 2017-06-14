@@ -1,0 +1,39 @@
+Program name
+
+{{task|Basic language learning}} [[Category:Initialization]]
+The task is to programmatically obtain the name used to invoke the program. (For example determine whether the user ran "python hello.py", or "python hellocaller.py", a program importing the code from "hello.py".)
+
+Sometimes a [[multiline shebang]] is necessary in order to provide the script name to a language's internal ARGV.
+
+See also [[Command-line arguments]]
+
+Examples from [https://github.com/mcandre/scriptname GitHub].
+
+
+=={{header|JavaScript}}==
+
+There is no capability within the ECMA-262 standard (the standard for ECMAScript, the language underlying JavaScript) for a function to determine its name. Since objects in JavaScript are first class objects, variables and properties are only references to objects. The name of an object might be said to be the name used to reference it, however a single object may have many variables and properties that reference it, or none.
+
+In some implementations, the following (non–standard) code will work:
+
+<lang javascript>function foo() {
+  return arguments.callee.name;
+}</lang>
+
+But it will fail in in others. JavaScript also has anonymous functions that don't have a name, e.g.:
+<lang javascript>(function(){alert(arguments.callee.name);}())</lang>
+returns an empty string or <code>undefined</code> even where the first example works.
+
+{{works with|Node.js}}
+Node.js has a global variable for this.
+
+<lang javascript>#!/usr/bin/env node
+/*jslint nodejs:true */
+
+function main() {
+	var program = __filename;
+	console.log("Program: " + program);
+}
+
+if (!module.parent) { main(); }</lang>
+

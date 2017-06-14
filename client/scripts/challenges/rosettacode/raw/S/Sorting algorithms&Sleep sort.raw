@@ -1,0 +1,32 @@
+Sorting algorithms/Sleep sort
+
+{{task|Sorting Algorithms}}{{Sorting Algorithm}}
+In general, sleep sort works by starting a separate task for each item to be sorted, where each task sleeps for an interval corresponding to the item's sort key, then emits the item.  Items are then collected sequentially in time.
+
+Task:  Write a program that implements sleep sort.  Have it accept non-negative integers on the command line and print the integers in sorted order.  If this is not idomatic in your language or environment, input and output may be done differently.  Enhancements for optimization, generalization, practicality, robustness, and so on are not required.
+
+Sleep sort was [http://dis.4chan.org/read/prog/1295544154 presented] anonymously on 4chan and has been [http://news.ycombinator.com/item?id=2657277 discussed] on Hacker News.
+
+
+=={{header|JavaScript}}==
+<lang javascript>Array.prototype.timeoutSort = function (f) {
+	this.forEach(function (n) {
+		setTimeout(function () { f(n) }, 5 * n)
+	});
+}
+</lang>
+Usage and output:
+<lang javascript>[1, 9, 8, 7, 6, 5, 3, 4, 5, 2, 0].timeoutSort(function(n) { document.write(n + 'br'); })</lang>
+<pre>
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre>
+

@@ -1,0 +1,112 @@
+Temperature conversion
+
+{{task}}
+{{omit from|Lilypond}}
+
+There are quite a number of temperature scales. For this task we will concentrate on four of the perhaps best-known ones: 
+[[wp:Kelvin|Kelvin]], [[wp:Degree Celsius|Celsius]], [[wp:Fahrenheit|Fahrenheit]], and  [[wp:Degree Rankine|Rankine]].
+
+The Celsius and Kelvin scales have the same magnitude, but different null points.
+ 
+: 0 degrees Celsius corresponds to 273.15 kelvin.
+: 0 kelvin is absolute zero.
+
+The Fahrenheit and Rankine scales also have the same magnitude, but different null points.
+
+: 0 degrees Fahrenheit corresponds to 459.67 degrees Rankine.
+: 0 degrees Rankine is absolute zero.
+
+The Celsius/Kelvin and Fahrenheit/Rankine scales have a ratio of 5 : 9.
+
+
+;Task
+Write code that accepts a value of kelvin, converts it to values of the three other scales, and prints the result. 
+
+
+;Example:
+<pre>
+K  21.00
+
+C  -252.15
+
+F  -421.87
+
+R  37.80
+</pre>
+<br><br>
+
+
+=={{header|JavaScript}}==
+
+===ES5===
+<lang javascript>var k2c = k => k - 273.15
+var k2r = k => k * 1.8
+var k2f = k => k2r(k) - 459.67
+
+Number.prototype.toMaxDecimal = function (d) {
+	return +this.toFixed(d) + ''
+}
+
+function kCnv(k) {
+	document.write( k,'K° = ', k2c(k).toMaxDecimal(2),'C° = ', k2r(k).toMaxDecimal(2),'R° = ', k2f(k).toMaxDecimal(2),'F°<br>' ) 
+}
+ 
+kCnv(21)
+kCnv(295)</lang>
+{{out}}
+<pre>
+21K° = -252.15C° = 37.8R° = -421.87F°
+295K° = 21.85C° = 531R° = 71.33F°
+</pre>
+
+===ES6===
+
+Deriving '''kelvinTranslations()''' from a more general '''heatBabel()''' function.
+
+<lang javascript>(() => {
+    'use strict';
+
+    let kelvinTranslations = k => ['K', 'C', 'F', 'R']
+        .map(x => [x, heatBabel(k, 'K', x)]);
+
+    // heatBabel :: Num -> ScaleName -> ScaleName -> Num
+    let heatBabel = (n, strFromScale, strToScale) => {
+        let ratio = 9 / 5,
+            cels = 273.15,
+            fahr = 459.67,
+            id = x => x,
+            readK = {
+                k: id,
+                c: x => cels + x,
+                f: x => (fahr + x) * ratio,
+                r: x => x / ratio
+            },
+            writeK = {
+                k: id,
+                c: x => x - cels,
+                f: x => (x * ratio) - fahr,
+                r: x => ratio * x
+            };
+
+        return writeK[strToScale.charAt(0).toLowerCase()](
+            readK[strFromScale.charAt(0).toLowerCase()](n)
+        ).toFixed(2);
+    };
+
+
+    // TEST
+    return kelvinTranslations(21)
+        .map(([s, n]) => s + ('          ' + n)
+            .slice(-10))
+        .join('\n');
+
+})();
+</lang>
+
+{{Out}}
+
+<pre>K     21.00
+C   -252.15
+F   -421.87
+R     37.80</pre>
+

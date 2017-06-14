@@ -1,0 +1,21 @@
+Reflection/Get source
+
+{{task|Reflection}}
+
+;Task:
+The goal is to get the source code or file path and line number where a programming object (e.g. module, class, function, method) is defined.
+
+
+=={{header|JavaScript}}==
+<code>Function.toString()</code> will return the source code for user-defined functions.
+
+<lang javascript>function foo() {...}
+foo.toString();
+// "function foo() {...}"
+</lang>
+
+For native functions, the function body typically will be a syntactically invalid string indicating the function is native. This behavior isn't part of any ECMAScript standard, but is common practice.
+<lang javascript>Math.sqrt.toString();
+// "function sqrt() { [native code] }"
+</lang>
+

@@ -1,0 +1,78 @@
+Runge-Kutta method
+
+{{task}}
+Given the example Differential equation:
+:<math>y'(t) = t \times \sqrt {y(t)}</math>
+With initial condition:
+:<math>t_0 = 0</math> and <math>y_0 = y(t_0) = y(0) = 1</math>
+This equation has an exact solution:
+:<math>y(t) = \tfrac{1}{16}(t^2 +4)^2</math>
+;Task
+Demonstrate the commonly used explicit &nbsp; [[wp:Runge–Kutta_methods#Common_fourth-order_Runge.E2.80.93Kutta_method|fourth-order Runge–Kutta method]] &nbsp; to solve the above differential equation.
+* Solve the given differential equation over the range <math>t = 0 \ldots 10</math> with a step value of <math>\delta t=0.1</math> (101 total points, the first being given)
+* Print the calculated values of <math>y</math> at whole numbered <math>t</math>'s (<math>0.0, 1.0, \ldots 10.0</math>) along with error as compared to the exact solution.
+;Method summary
+Starting with a given <math>y_n</math> and <math>t_n</math> calculate:
+:<math>\delta y_1 = \delta t\times y'(t_n, y_n)\quad</math>
+:<math>\delta y_2 = \delta t\times y'(t_n + \tfrac{1}{2}\delta t , y_n + \tfrac{1}{2}\delta y_1)</math>
+:<math>\delta y_3 = \delta t\times y'(t_n + \tfrac{1}{2}\delta t , y_n + \tfrac{1}{2}\delta y_2)</math>
+:<math>\delta y_4 = \delta t\times y'(t_n + \delta t , y_n + \delta y_3)\quad</math>
+then:
+:<math>y_{n+1} = y_n + \tfrac{1}{6} (\delta y_1 + 2\delta y_2 + 2\delta y_3 + \delta y_4)</math>
+:<math>t_{n+1} = t_n + \delta t\quad</math>
+
+
+=={{header|JavaScript}}==
+<lang JavaScript>
+function rk4(y, x, dx, f) {
+    var k1 = dx * f(x, y),
+        k2 = dx * f(x + dx / 2.0,   +y + k1 / 2.0),
+        k3 = dx * f(x + dx / 2.0,   +y + k2 / 2.0),
+        k4 = dx * f(x + dx,         +y + k3);
+
+    return y + (k1 + 2.0 * k2 + 2.0 * k3 + k4) / 6.0;
+}
+
+function f(x, y) {
+    return x * Math.sqrt(y);
+}
+
+function actual(x) {
+    return (1/16) * (x*x+4)*(x*x+4);
+}
+
+var y = 1.0,
+    x = 0.0,
+    step = 0.1,
+    steps = 0,
+    maxSteps = 101,
+    sampleEveryN = 10;
+
+while (steps < maxSteps) {
+    if (steps%sampleEveryN === 0) {
+        console.log("y(" + x + ") =  \t" + y + "\t ± " + (actual(x) - y).toExponential());
+    }
+
+    y = rk4(y, x, step, f);
+
+    // using integer math for the step addition
+    // to prevent floating point errors as 0.2 + 0.1 != 0.3
+    x = ((x * 10) + (step * 10)) / 10;
+    steps += 1;
+}
+</lang>
+{{out}}
+<pre>
+y(0) =  	1	                 ± 0e+0
+y(1) =  	1.562499854278108	 ± 1.4572189210859676e-7
+y(2) =  	3.999999080520799	 ± 9.194792007782837e-7
+y(3) =  	10.562497090437551	 ± 2.9095624487496252e-6
+y(4) =  	24.999993765090636	 ± 6.234909363911356e-6
+y(5) =  	52.562489180302585	 ± 1.0819697415342944e-5
+y(6) =  	99.99998340540358	 ± 1.659459641700778e-5
+y(7) =  	175.56247648227125	 ± 2.3517728749311573e-5
+y(8) =  	288.9999684347986	 ± 3.156520142510999e-5
+y(9) =  	451.56245927683966	 ± 4.07231603389846e-5
+y(10) =  	675.9999490167097	 ± 5.098329029351589e-5
+</pre>
+

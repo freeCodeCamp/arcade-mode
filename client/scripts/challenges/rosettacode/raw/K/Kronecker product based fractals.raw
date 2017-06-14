@@ -1,0 +1,146 @@
+Kronecker product based fractals
+
+{{task|Fractals}}
+This task is based on &nbsp; [[Kronecker product| Kronecker product]] &nbsp; of two matrices. If your
+language has no a built-in function for such product then you need to implement it first.<br>
+The essence of fractals is self-replication (at least, self-similar replications). 
+So, using n times self-product of the matrix (filled with 0/1) we will have a fractal of the n-th order.<br><br>
+Actually, "self-product" is a Kronecker power of the matrix. In other words: for a matrix '''M''' and a power '''n''' create a function like '''matkronpow(M, n)''', which returns MxMxMx... (n times product).<br>
+A formal recurrent <i>algorithm</i> of creating Kronecker power of a matrix is the following:<br>
+<b>Algorithm:</b>
+<ul>
+  <li>Let M is an initial matrix, and Rn is a resultant block matrix  of the Kronecker power, where n is the power (a.k.a. order).</li>
+  <li>Self-product of M, i.e., M x M producing R2 (resultant matrix with order/power 2).</li>
+  <li>To receive the next order/power matrix use this recurrent formula: Rn = R(n-1) x M.</li>
+  <li>Plot this Rn matrix to produce the <i><b>n</b>th</i> order fractal.</li>
+</ul><br>
+Even just looking at the resultant matrix you can see what will be plotted.<br>
+There are virtually infinitely many fractals of this type. You are limited only by your creativity and 
+the power of your computer.<br>
+;Task:
+Using [[Kronecker_product| Kronecker product]] implement and show two popular and well-known fractals, i.e.:
+* [[wp:Vicsek fractal| Vicsek fractal]];
+* [[wp:Sierpinski carpet| Sierpinski carpet fractal]].
+
+<br>The last one ([[Sierpinski carpet| Sierpinski carpet]]) is already here on RC, but built using different approaches.<br>
+;Test cases:
+These 2 fractals (each order/power 4 at least) should be built using the following 2 simple matrices: 
+<pre>
+|0 1 0|	and |1 1 1|
+|1 1 1|	    |1 0 1|
+|0 1 0|	    |1 1 1|
+</pre>
+;Note:
+* Output could be a graphical or ASCII-art representation, but if an order is set > 4 then printing is not suitable.
+* The orientation and distortion of the fractal could be your language/tool specific.
+* It would be nice to see one additional fractal of your choice, e.g., based on using a single (double) letter(s) of an alphabet, any sign(s) or alredy made a resultant matrix of the Kronecker product.
+
+<br>See implementations and results below in JavaScript, PARI/GP and R languages. They have additional samples of "H", "+" and checkerboard fractals.
+
+
+=={{header|JavaScript}}==
+Using Version #1 of [[Kronecker_product| Kronecker product]] in JavaScript.
+{{Works with|Chrome}}
+[[File:VicsekFractaljs.png|200px|right|thumb|Output VicsekFractaljs.png]]
+[[File:SierpCarpetFractaljs.png|200px|right|thumb|Output SierpCarpetFractaljs.png]]
+[[File:CheckbrdFractaljs.png|200px|right|thumb|Output CheckbrdFractaljs.png]]
+<lang javascript>
+// KPF.js 6/23/16 aev
+// HFJS: Plot any matrix mat (filled with 0,1)
+function pmat01(mat, color) {
+  // DCLs
+  var cvs = document.getElementById('canvId');
+  var ctx = cvs.getContext("2d"); 
+  var w = cvs.width; var h = cvs.height;
+  var m = mat[0].length; var n = mat.length;
+  // Cleaning canvas and setting plotting color 
+  ctx.fillStyle="white"; ctx.fillRect(0,0,w,h);
+  ctx.fillStyle=color;
+  // MAIN LOOP
+  for(var i=0; i<m; i++) {
+    for(var j=0; j<n; j++) {
+      if(mat[i][j]==1) { ctx.fillRect(i,j,1,1)};
+    }//fend j
+  }//fend i
+}//func end
+// Prime functions:
+// Create Kronecker product based fractal matrix rm from matrix m (order=ord)
+function ckpbfmat(m,ord) {
+  var rm=m;
+  for(var i=1; i<ord; i++) {rm=mkp(rm,m)};
+  //matpp2doc('R 4 ordd',rm,'*'); // ASCII "plotting" - if you wish to try.
+  return(rm);
+}
+// Create and plot Kronecker product based fractal from matrix m (filled with 0/1)
+function cpmat(m,ord,color) {
+  var kpr;
+  kpr=ckpbfmat(m,ord);
+  pmat01(kpr,color);
+}
+// Fractal matrix "pretty" printing to document. 
+// mat should be filled with 0 and 1; chr is a char substituting 1.
+function matpp2doc(title,mat,chr) {
+  var i,j,re='',e; var m=mat.length; var n=mat[0].length;
+  document.write('&nbsp;&nbsp;<b>'+title+'</b>:<pre>');
+  for(var i=0; i<m; i++) {
+    for(var j=0; j<n; j++) {
+      e='&nbsp;'; if(mat[i][j]==1) {e=chr}; re+=e; 
+    }//fend j
+    document.write('&nbsp;&nbsp;'+re+'<br />'); re='';
+  }//fend i
+  document.write('</pre>');
+}
+// mkp function (exotic arrow function): Return the Kronecker product
+// of the a and b matrices
+mkp=(a,b)=>a.map(a=>b.map(b=>a.map(y=>b.map(x=>r.push(y*x)),t.push(r=[]))),t=[])&&t;
+</lang> 
+
+;Required tests:
+<lang html>
+<!-- VicsekFractal.html -->
+<html>
+<head>
+  <title>Vicsek fractal</title>
+  <script src="KPF.js"></script>
+</head>
+<body onload="cpmat([[0,1,0],[1,1,1],[0,1,0]],6,'navy')">
+   <h3>Vicsek fractal</h3>
+   <a href="SierpCarpetFractal.html"> Next: Sierpinski carpet fractal</a><br />
+   <canvas id="canvId" width="750" height="750" style="border: 1px outset;"></canvas>
+</body></html>
+</lang> 
+
+<lang html>
+<!-- SierpCarpetFractal.html -->
+<html>
+<head>
+  <title>Sierpinski carpet fractal</title>
+  <script src="KPF.js"></script>
+</head>
+<body onload="cpmat([[1,1,1],[1,0,1],[1,1,1]],6,'brown')">
+   <h3>Sierpinski carpet fractal</h3>
+   <a href="Checkerboard.html"/> Next: Checkerboard </a><br />
+   <canvas id="canvId" width="750" height="750" style="border: 1px outset;"></canvas>
+</body></html>
+
+<lang html>
+<!-- Checkerboard.html -->
+<html>
+<head>
+  <title>Checkerboard</title>
+  <script src="KPF.js"></script>
+</head>
+<body onload="cpmat([[0,1,0,1],[1,0,1,0],[0,1,0,1],[1,0,1,0]],5,'black')">
+   <h3>Checkerboard</h3>
+   <a href="VicsekFractal.html"/> Next: Vicsek fractal </a><br />
+   <canvas id="canvId" width="750" height="750" style="border: 1px outset;"></canvas>
+</body></html>
+</lang> 
+
+{{Output}} 
+<pre>
+Page VicsekFractal.html with VicsekFractaljs.png
+Page SierpCarpetFractal.html with SierpCarpetFractaljs.png
+Page Checkerboard.html with CheckbrdFractaljs.png
+</pre>
+

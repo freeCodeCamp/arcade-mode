@@ -1,0 +1,83 @@
+Reverse words in a string
+
+{{task}}
+
+;Task:
+Reverse the order of all tokens in each of a number of strings and display the result; &nbsp; the order of characters within a token should not be modified.
+
+
+;Example:
+<big><big><code>Hey you, Bub! </code></big></big> &nbsp; would be shown reversed as: &nbsp; <big><big><code> Bub! you, Hey </code></big></big>
+
+
+Tokens are any non-space characters separated by spaces (formally, white-space); &nbsp; the visible punctuation form part of the word within which it is located and should not be modified. 
+
+You may assume that there are no significant non-visible characters in the input. &nbsp; Multiple or superfluous spaces may be compressed into a single space.
+
+Some strings have no tokens, so an empty string &nbsp; (or one just containing spaces) &nbsp; would be the result.
+
+'''Display''' the strings in order &nbsp; (1<sup>st</sup>, 2<sup>nd</sup>, 3<sup>rd</sup>, ···), &nbsp; and one string per line. 
+
+(You can consider the ten strings as ten lines, and the tokens as words.)
+
+
+;Input data
+<pre>
+             (ten lines within the box)
+ line
+     ╔════════════════════════════════════════╗
+   1 ║  ---------- Ice and Fire ------------  ║
+   2 ║                                        ║  ◄─── a blank line here.
+   3 ║  fire, in end will world the say Some  ║
+   4 ║  ice. in say Some                      ║
+   5 ║  desire of tasted I've what From       ║
+   6 ║  fire. favor who those with hold I     ║
+   7 ║                                        ║  ◄─── a blank line here.
+   8 ║  ... elided paragraph last ...         ║
+   9 ║                                        ║  ◄─── a blank line here.
+  10 ║  Frost Robert -----------------------  ║
+     ╚════════════════════════════════════════╝
+</pre>
+
+;Cf.
+* [[Phrase reversals]]
+<br><br>
+
+
+=={{header|JavaScript}}==
+<lang javascript>var strReversed =
+"---------- Ice and Fire ------------\n\
+\n\
+fire, in end will world the say Some\n\
+ice. in say Some\n\
+desire of tasted I've what From\n\
+fire. favor who those with hold I\n\
+\n\
+... elided paragraph last ...\n\
+\n\
+Frost Robert -----------------------";
+    
+function reverseString(s) {
+  return s.split('\n').map(
+    function (line) {
+      return line.split(/\s/).reverse().join(' ');
+    }
+  ).join('\n');
+}
+  
+console.log(
+  reverseString(strReversed)
+);</lang>
+
+Output:
+<pre>------------ Fire and Ice ----------
+
+Some say the world will end in fire,
+Some say in ice.
+From what I've tasted of desire
+I hold with those who favor fire.
+
+... last paragraph elided ...
+
+----------------------- Robert Frost</pre>
+

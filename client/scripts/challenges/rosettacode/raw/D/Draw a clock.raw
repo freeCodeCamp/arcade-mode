@@ -1,0 +1,74 @@
+Draw a clock
+
+{{task}}
+[[Category:Date and time]]
+
+;Task:
+Draw a clock.  
+
+
+More specific:
+# Draw a time keeping device. It can be a stopwatch, hourglass, sundial, a mouth counting "one thousand and one", anything. Only showing the seconds is required, e.g.: a watch with just a second hand will suffice. However, it must clearly change every second, and the change must cycle every so often (one minute, 30 seconds, etc.) It must be ''drawn''; printing a string of numbers to your terminal doesn't qualify. Both text-based and graphical drawing are OK.
+# The clock is unlikely to be used to control space flights, so it needs not be hyper-accurate, but it should be usable, meaning if one can read the seconds off the clock, it must agree with the system clock.
+# A clock is rarely (never?) a major application: don't be a CPU hog and poll the system timer every microsecond, use a proper timer/signal/event from your system or language instead. For a bad example, many OpenGL programs update the frame-buffer in a busy loop even if no redraw is needed, which is very undesirable for this task.
+# A clock is rarely (never?) a major application: try to keep your code simple and to the point. Don't write something too elaborate or convoluted, instead do whatever is natural, concise and clear in your language.
+
+<br>
+;Key points
+* animate simple object
+* timed event 
+* polling system resources 
+* code clarity
+<br><br>
+
+
+=={{header|JavaScript}}==
+Tested on Gecko.  Put the following in a &lt;script> tag somewhere, and call <code>init_clock()</code> after body load.
+<lang JavaScript>var sec_old = 0;
+function update_clock() {
+	var t = new Date();
+	var arms = [t.getHours(), t.getMinutes(), t.getSeconds()];
+	if (arms[2] == sec_old) return;
+	sec_old = arms[2];
+
+	var c = document.getElementById('clock');
+	var ctx = c.getContext('2d');
+	ctx.fillStyle = "rgb(0,200,200)";
+	ctx.fillRect(0, 0, c.width, c.height);
+	ctx.fillStyle = "white";
+	ctx.fillRect(3, 3, c.width - 6, c.height - 6);
+	ctx.lineCap = 'round';
+
+	var orig = { x: c.width / 2, y: c.height / 2 };
+	arms[1] += arms[2] / 60;
+	arms[0] += arms[1] / 60;
+	draw_arm(ctx, orig, arms[0] * 30, c.width/2.5 - 15, c.width / 20,  "green");
+	draw_arm(ctx, orig, arms[1] * 6,  c.width/2.2 - 10, c.width / 30,  "navy");
+	draw_arm(ctx, orig, arms[2] * 6,  c.width/2.0 - 6,  c.width / 100, "maroon");
+}
+
+function draw_arm(ctx, orig, deg, len, w, style)
+{
+	ctx.save();
+	ctx.lineWidth = w;
+	ctx.lineCap = 'round';
+	ctx.translate(orig.x, orig.y);
+	ctx.rotate((deg - 90) * Math.PI / 180);
+	ctx.strokeStyle = style;
+	ctx.beginPath();
+	ctx.moveTo(-len / 10, 0);
+	ctx.lineTo(len, 0);
+	ctx.stroke();
+	ctx.restore();
+}
+
+function init_clock() {
+	var clock = document.createElement('canvas');
+	clock.width = 100;
+	clock.height = 100;
+	clock.id = "clock";
+	document.body.appendChild(clock);
+
+	window.setInterval(update_clock, 200);
+}</lang>
+

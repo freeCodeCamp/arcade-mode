@@ -1,0 +1,50 @@
+Make directory path
+
+{{task|File System Operations}}
+
+;Task:
+Create a directory and any missing parents.
+
+This task is named after the posix <code>[http://www.unix.com/man-page/POSIX/0/mkdir/ mkdir -p]</code> command, and several libraries which implement the same behavior.
+
+Please implement a function of a single path string (for example <code>./path/to/dir</code>) which has the above side-effect.
+If the directory already exists, return successfully.
+Ideally implementations will work equally well cross-platform (on windows, linux, and OS X).
+
+It's likely that your language implements such a function as part of its standard library. If so, please also show how such a function would be implemented.
+<br><br>
+
+
+=={{header|JavaScript}}==
+{{works with|Node.js}}
+
+Simplified version of the popular [https://www.npmjs.org/package/mkdirp mkdirp library]:
+
+<lang Javascript>var path = require('path');
+var fs = require('fs');
+
+function mkdirp (p, cb) {
+    cb = cb || function () {};
+    p = path.resolve(p);
+
+    fs.mkdir(p, function (er) {
+        if (!er) {
+            return cb(null);
+        }
+        switch (er.code) {
+            case 'ENOENT':
+                // The directory doesn't exist. Make its parent and try again.
+                mkdirp(path.dirname(p), function (er) {
+                    if (er) cb(er);
+                    else mkdirp(p, cb);
+                });
+                break;
+
+                // In the case of any other error, something is borked.
+            default:
+                cb(er);
+                break;
+        }
+    });
+}</lang>
+

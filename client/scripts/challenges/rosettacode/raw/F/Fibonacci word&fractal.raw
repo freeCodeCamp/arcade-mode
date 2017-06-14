@@ -1,0 +1,93 @@
+Fibonacci word/fractal
+
+{{task}}
+[[File:Fib_word_fractal.gif|613px||right]]
+
+The [[Fibonacci word]] may be represented as a fractal as described [http://hal.archives-ouvertes.fr/docs/00/36/79/72/PDF/The_Fibonacci_word_fractal.pdf here]:
+
+:For F_word<sub>m</sub> start with F_wordChar<sub>n=1</sub>
+:Draw a segment forward
+:If current F_wordChar is 0
+::Turn left if n is even
+::Turn right if n is odd
+:next n and iterate until end of F_word
+
+
+
+;Task:
+Create and display a fractal similar to [http://hal.archives-ouvertes.fr/docs/00/36/79/72/PDF/The_Fibonacci_word_fractal.pdf Fig 1].
+<br><br>
+
+
+=={{header|JavaScript}}==
+{{trans|PARI/GP}}
+
+[[File:FiboWFractal2.png|200px|right|thumb|Output FiboWFractal2.png]]
+[[File:FiboWFractal1.png|200px|right|thumb|Output FiboWFractal1.png]]
+
+<lang javascript>
+// Plot Fibonacci word/fractal
+// FiboWFractal.js - 6/27/16 aev
+function pFibowFractal(n,len,canvasId,color) {
+  // DCLs
+  var canvas = document.getElementById(canvasId);
+  var ctx = canvas.getContext("2d"); 
+  var w = canvas.width; var h = canvas.height;
+  var fwv,fwe,fn,tx,x=10,y=10,dx=len,dy=0,nr;
+  // Cleaning canvas, setting plotting color, etc 
+  ctx.fillStyle="white"; ctx.fillRect(0,0,w,h);
+  ctx.beginPath();
+  ctx.moveTo(x,y);
+  fwv=fibword(n); fn=fwv.length;
+  // MAIN LOOP
+  for(var i=0; i<fn; i++) {
+    ctx.lineTo(x+dx,y+dy); fwe=fwv[i]; 
+    if(fwe=="0") {tx=dx; nr=i%2;
+      if(nr==0) {dx=-dy;dy=tx} else {dx=dy;dy=-tx}};
+    x+=dx; y+=dy;
+  }//fend i
+  ctx.strokeStyle = color; ctx.stroke();
+}//func end
+// Create and return Fibonacci word
+function fibword(n) {
+  var f1="1",f2="0",fw,fwn,n2,i;
+  if (n<5) {n=5}; n2=n+2;
+  for (i=0; i<n2; i++) {fw=f2+f1;f1=f2;f2=fw};
+  return(fw)
+}
+</lang> 
+
+'''Executing:'''
+<lang html>
+<!-- FiboWFractal2.html -->
+<html>
+<head>
+  <title>Fibonacci word/fractal</title>
+  <script src="FiboWFractal.js"></script>
+</head>
+<body onload="pFibowFractal(31,2,'canvid','red')">
+   <h3>Fibonacci word/fractal: n=31, len=2</h3>
+   <canvas id="canvid" width="850" height="1150" style="border: 2px inset;"></canvas>
+</body>
+</html>
+
+<!-- FiboWFractal1.html -->
+<html>
+<head>
+  <title>Fibonacci word/fractal</title>
+  <script src="FiboWFractal.js"></script>
+</head>
+<body onload="pFibowFractal(31,1,'canvid','navy')">
+   <h3>Fibonacci word/fractal: n=31, len=1</h3>
+   <canvas id="canvid" width="1400" height="1030" style="border: 2px inset;"></canvas>
+</body>
+</html>
+</lang> 
+
+{{Output}}
+
+<pre>
+Page with FiboWFractal2.png
+Page with FiboWFractal1.png
+</pre>
+

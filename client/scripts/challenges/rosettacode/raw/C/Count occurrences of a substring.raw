@@ -1,0 +1,40 @@
+Count occurrences of a substring
+
+{{task|String manipulation}}
+
+;Task:
+Create a function, &nbsp; or show a built-in function, &nbsp; to count the number of non-overlapping occurrences of a substring inside a string.
+
+The function should take two arguments: 
+:::* &nbsp; the first argument being the string to search, &nbsp; and 
+:::* &nbsp; the second a substring to be searched for. 
+
+
+It should return an integer count.
+<lang pseudocode>print countSubstring("the three truths","th")
+3
+
+// do not count substrings that overlap with previously-counted substrings:
+print countSubstring("ababababab","abab")
+2</lang>
+
+The matching should yield the highest number of non-overlapping matches. 
+
+In general, this essentially means matching from left-to-right or right-to-left &nbsp; (see proof on talk page).
+
+
+{{Template:Strings}}
+<br><br>
+
+
+=={{header|JavaScript}}==
+Using regexes:
+<lang javascript>function countSubstring(str, subStr) {
+    var matches = str.match(new RegExp(subStr, "g"));
+    return matches ? matches.length : 0;
+}</lang>
+
+Using 'split' and ES6 notation:
+<lang javascript>const countSubString = (str, subStr) => str.split(subStr).length - 1;
+</lang>
+

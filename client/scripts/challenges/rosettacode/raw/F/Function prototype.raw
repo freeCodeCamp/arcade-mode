@@ -1,0 +1,108 @@
+Function prototype
+
+{{task}}
+Some languages provide the facility to declare functions and subroutines through the use of [[wp:Function prototype|function prototyping]]. 
+
+
+;Task:
+Demonstrate the methods available for declaring prototypes within the language. The provided solutions should include:
+
+* An explanation of any placement restrictions for prototype declarations
+* A prototype declaration for a function that does not require arguments
+* A prototype declaration for a function that requires two arguments
+* A prototype declaration for a function that utilizes varargs
+* A prototype declaration for a function that utilizes optional arguments
+* A prototype declaration for a function that utilizes named parameters
+* Example of prototype declarations for subroutines or procedures (if these differ from functions)
+* An explanation and example of any special forms of prototyping not covered by the above
+
+<br>
+Languages that do not provide function prototyping facilities should be omitted from this task.
+<br><br>
+
+
+=={{header|JavaScript}}==
+=== ES5 ===
+JavaScript functions may also be used to define prototype objects
+<lang JavaScript>
+// A prototype declaration for a function that does not require arguments
+function List() {}
+
+List.prototype.push = function() {
+  return [].push.apply(this, arguments);
+};
+
+List.prototype.pop = function() {
+  return [].pop.call(this);
+};
+
+var l = new List();
+l.push(5);
+l.length; // 1
+l[0]; 5
+l.pop(); // 5
+l.length; // 0
+
+// A prototype declaration for a function that utilizes varargs
+function List() {
+  this.push.apply(this, arguments);
+}
+
+List.prototype.push = function() {
+  return [].push.apply(this, arguments);
+};
+
+List.prototype.pop = function() {
+  return [].pop.call(this);
+};
+
+var l = new List(5, 10, 15);
+l.length; // 3
+l[0]; 5
+l.pop(); // 15
+l.length; // 2
+
+</lang>
+
+=== ES6 ===
+Class Declarations are used to define prototype objects
+<lang JavaScript>
+// A prototype declaration for a function that does not require arguments
+class List {
+  push() {
+    return [].push.apply(this, arguments);
+  }
+  pop() {
+    return [].pop.call(this);  
+  }
+}
+
+var l = new List();
+l.push(5);
+l.length; // 1
+l[0]; 5
+l.pop(); // 5
+l.length; // 0
+
+
+
+// A prototype declaration for a function that utilizes varargs
+class List {
+  constructor(...args) {
+    this.push(...args);
+  }
+  push() {
+    return [].push.apply(this, arguments);
+  }
+  pop() {
+    return [].pop.call(this);  
+  }
+}
+
+var l = new List(5, 10, 15);
+l.length; // 3
+l[0]; 5
+l.pop(); // 15
+l.length; // 2
+</lang>
+
