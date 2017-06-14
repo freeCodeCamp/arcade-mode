@@ -77,6 +77,7 @@
     "jsdom": "^10.1.0",
     "merge-stream": "^1.0.1",
     "mocha": "^3.3.0",
+    "node-fetch": "^1.7.1",
     "performance-now": "^2.1.0",
     "react-test-renderer": "^15.5.4",
     "recursive-readdir": "^2.2.1",
