@@ -148,7 +148,7 @@ gulp.task('build-json', () => {
 // Builds the arcade-mode json from js challenge files
 gulp.task('build-js2json', done => {
   const js2jsonScript = `bin/js2json_challenges.js\
-    --force -f client/scripts/challenges/*.js -o ${ghPages}public/json/challenges-arcade.json`;
+    --force -f client/scripts/challenges/arcade/*.js -o ${ghPages}public/json/challenges-arcade.json`;
   exec(js2jsonScript, err => {
     if (err) {
       console.error(`exec error: ${err}`);
