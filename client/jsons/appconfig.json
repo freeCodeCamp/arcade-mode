@@ -62,7 +62,7 @@
       }
     },
     "Challenge": {
-      "default": "Arcade",
+      "default": "Rosetta",
       "showDescription": false,
       "showDropdownMenu": true,
       "options": {
