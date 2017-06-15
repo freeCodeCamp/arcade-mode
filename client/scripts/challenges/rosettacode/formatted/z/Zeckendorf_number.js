@@ -1,4 +1,7 @@
 /* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-sequences: 0 */
+/* eslint no-unused-vars: 0 */
 
 const assert = require('chai').assert;
 
@@ -90,4 +93,3 @@ const answer = range(1, 20).map(zeckendorf);
 /// tests:
 assert.equal(typeof zeckendorf, 'function', 'message: zeckendorf must be function');
 assert.deepEqual(answer, solution20);
-
