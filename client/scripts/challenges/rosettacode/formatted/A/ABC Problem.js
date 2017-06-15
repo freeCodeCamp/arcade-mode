@@ -2,7 +2,8 @@
 /* eslint no-redeclare: 0 */
 /* eslint no-undef: 0 */
 /* eslint no-unused-vars: 0 */
-/* eslint no-bitwise: 0 */
+/* eslint no-restricted-syntax: 0 */
+/* eslint prefer-const: 0 */
 
 /* no benchmark expected as there were no "optimal" solutions in the solution list */
 
