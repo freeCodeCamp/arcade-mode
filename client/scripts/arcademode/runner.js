@@ -121,7 +121,12 @@ function detectErrorsTranspileCodeRunTestsProcessResults (userCode, currChalleng
   if (!syntaxErrorFlag) {
     try {
       userOutput = 'User output is undefined.';
-      const evalRetVal = eval(esFiveLoopProtected);
+      // do not involve tail and it potentially may output it's own values
+      const userCodeWithHead = `${head ? head : ''};${userCode};`;
+      const esFiveWithHead = babel.transform(userCodeWithHead, { presets: [es2015] }).code;
+      const esFiveWithHeadLP = loopProtect(esFiveWithHead);
+
+      const evalRetVal = eval(esFiveWithHeadLP);
       if (typeof evalRetVal !== 'undefined' && evalRetVal !== 'use strict') {
         userOutput = JSON.stringify(evalRetVal, null, 2);
       }
