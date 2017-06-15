@@ -14,7 +14,10 @@ const assert = require('chai').assert;
 /// description:
 /// A cache is a lookup table (for example hash table) for getting and setting data.
 /// Least-recently used (LRU) is a policy which evicts (removes) the item which was least-recently used in the cache.
-/// In this challenge, you need to implement a cache with LRU eviction policy. The capacity of the cache is not known beforehand, so your solution must take that into account.
+/// Instructions:
+/// Implement a cache with LRU eviction policy. Your solution must have
+/// <code>get</code> and <code>set</code> methods.
+/// The capacity of the cache is not known beforehand, so your solution must take that into account.
 
 /// challengeSeed:
 function LRUCache(capacity) {
