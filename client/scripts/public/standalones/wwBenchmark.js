@@ -50,11 +50,11 @@ function getResultMessage (data) {
       }
       // user code faster than stock code:
       // return 'user';
-      resultMessage = 'Your code is faster than par! It\'s blazing fast!';
+      else resultMessage = 'Your code is faster than par! It\'s blazing fast!';
     }
     // tied between user and stock code:
     // return 'tie';
-    resultMessage = 'Par! Your code is fast!';
+    else resultMessage = 'Par! Your code is fast!';
 
     return resultMessage;
   }
