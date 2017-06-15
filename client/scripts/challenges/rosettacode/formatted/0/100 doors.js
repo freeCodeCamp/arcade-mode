@@ -4,6 +4,8 @@
 /* eslint no-unused-vars: 0 */
 /* eslint no-bitwise: 0 */
 
+/* @: the user may feel duped with the final solution; TODO? */
+
 const assert = require('chai').assert;
 
 /// title: 100 doors
@@ -28,6 +30,8 @@ function getFinalOpenedDoors (numDoors) {
 
 /// solutions:
 function getFinalOpenedDoors (numDoors) {
+  // this is the final pattern (always squares).
+  // thus, the most efficient solution simply returns an array of squares up to numDoors).
   const finalState = [];
   let i = 1;
   while (i ** 2 <= numDoors) {

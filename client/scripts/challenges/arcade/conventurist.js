@@ -2,6 +2,8 @@
 /* eslint no-unused-vars: 0 */
 /* eslint no-redeclare: 0 */
 
+/* @: time-based assert tests capable of producing different results/run; TODO? */
+
 const assert = require('chai').assert;
 
 /// title: Conventurist

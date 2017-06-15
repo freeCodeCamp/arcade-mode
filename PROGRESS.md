@@ -1,5 +1,14 @@
 # PROGRESS for Arcade Mode
 
+## Wednesday 6/14/17:
+### Tim:
+  - Progress:
+    1. Update workflow to auto generate Rosetta JSON from proper dir.
+    2. Rework first RosettaCode task into Rosetta challenge - 100 doors.
+  - @:
+    - [ ] Conventurist time-based assertion tests capable of returning different results/run.
+    - [ ] 100 doors challenge stock solution.
+
 ## Tuesday 6/13/17:
 ### Tim:
   - Progress:
