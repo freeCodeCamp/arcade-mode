@@ -50,8 +50,20 @@ function detectErrorsTranspileCodeRunTestsProcessResults (userCode, currChalleng
     };
   });
 
-  const head = currChallenge.head && currChallenge.head.join('\n');
-  const tail = currChallenge.tail && currChallenge.tail.join('\n');
+  function processAddons (addon) {
+    if (currChallenge[addon]) {
+      if (Array.isArray(currChallenge[addon])) {
+        return currChallenge[addon].join('\n');
+      }
+      return currChallenge[addon];
+    }
+  }
+
+  const head = processAddons('head');
+  const tail = processAddons('tail');
+
+  // const head = currChallenge.head && currChallenge.head.join('\n');
+  // const tail = currChallenge.tail && currChallenge.tail.join('\n');
 
   // append user code output to final object passed back via postMessage:
   // if user output does not run, then tests should not be executed.
