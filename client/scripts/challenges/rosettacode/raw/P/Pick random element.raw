@@ -1,0 +1,10 @@
+Pick random element
+
+{{task|Basic language learning}} [[Category:Randomness]]
+Demonstrate how to pick a random element from a list.
+
+
+=={{header|JavaScript}}==
+<lang javascript>var array = [1,2,3];
+return array[Math.floor(Math.random() * array.length)];</lang>
+

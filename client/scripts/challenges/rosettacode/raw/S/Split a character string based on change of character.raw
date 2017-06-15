@@ -1,0 +1,91 @@
+Split a character string based on change of character
+
+[[Category: String manipulation]]
+[[Category:Simple]]
+{{task}}
+
+<!--  this problem is also known as  "splitsville"  elsewhere.  !-->
+<!--  I imagine this Rosetta Code task will lead to quite a few code-golf solutions.  !-->
+
+;Task:
+Split a (character) string into comma (plus a blank) delimited
+strings based on a change of character &nbsp; (left to right).
+
+Show the output here &nbsp; (use the 1<sup>st</sup> example below).
+
+
+Blanks should be treated as any other character &nbsp; (except
+they are problematic to display clearly). &nbsp; The same applies
+to commas.
+
+
+For instance, the string: 
+ <big><big> gHHH5YY++///\ </big></big>
+should be split and show:  
+ <big><big> g, HHH, 5, YY, ++, ///, \ </big></big>
+
+<br><br>
+
+
+=={{header|JavaScript}}==
+===ES6===
+{{Trans|Haskell}}
+<lang JavaScript>(() => {
+    // GENERIC FUNCTIONS ------------------------------------------------------
+
+    // concat :: [[a]] -> [a] | [String] -> String
+    const concat = xs =>
+        xs.length > 0 ? (() => {
+            const unit = typeof xs[0] === 'string' ? '' : [];
+            return unit.concat.apply(unit, xs);
+        })() : [];
+
+    // group :: Eq a => [a] -> [[a]]
+    const group = xs => groupBy((a, b) => a === b, xs);
+
+    // groupBy :: (a -> a -> Bool) -> [a] -> [[a]]
+    const groupBy = (f, xs) => {
+        const dct = xs.slice(1)
+            .reduce((a, x) => {
+                const
+                    h = a.active.length > 0 ? a.active[0] : undefined,
+                    blnGroup = h !== undefined && f(h, x);
+                return {
+                    active: blnGroup ? a.active.concat([x]) : [x],
+                    sofar: blnGroup ? a.sofar : a.sofar.concat([a.active])
+                };
+            }, {
+                active: xs.length > 0 ? [xs[0]] : [],
+                sofar: []
+            });
+        return dct.sofar.concat(dct.active.length > 0 ? [dct.active] : []);
+    };
+
+    // intercalate :: String -> [a] -> String
+    const intercalate = (s, xs) => xs.join(s);
+
+    // map :: (a -> b) -> [a] -> [b]
+    const map = (f, xs) => xs.map(f);
+
+    // show :: a -> String
+    const show = (...x) =>
+        JSON.stringify.apply(
+            null, x.length > 1 ? [x[0], null, x[1]] : x
+        );
+
+    // stringChars :: String -> [Char]
+    const stringChars = s => s.split('');
+
+
+    // TEST -------------------------------------------------------------------
+    return show(
+        intercalate(', ',
+            map(concat, group(stringChars('gHHH5YY++///\\')))
+        )
+    );
+
+    // -> "g, HHH, 5, YY, ++, ///, \\"
+})();</lang>
+{{Out}}
+<pre>g, HHH, 5, YY, ++, ///, \</pre>
+

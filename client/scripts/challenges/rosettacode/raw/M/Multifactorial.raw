@@ -1,0 +1,88 @@
+Multifactorial
+
+{{task}}
+
+The factorial of a number, written as <math>n!</math>, is defined as <math>n! = n(n-1)(n-2)...(2)(1)</math>.
+
+[http://mathworld.wolfram.com/Multifactorial.html Multifactorials] generalize factorials as follows:
+: <math>n! = n(n-1)(n-2)...(2)(1)</math>
+: <math>n!! = n(n-2)(n-4)...</math>
+: <math>n!! ! = n(n-3)(n-6)...</math>
+: <math>n!! !! = n(n-4)(n-8)...</math>
+: <math>n!! !! ! = n(n-5)(n-10)...</math>
+
+In all cases, the terms in the products are positive integers.
+
+If we define the degree of the multifactorial as the difference in successive terms that are multiplied together for a multifactorial (the number of exclamation marks), then the task is twofold: 
+# Write a function that given n and the degree, calculates the multifactorial.
+# Use the function to generate and display here a table of the first ten members (1 to 10) of the first five degrees of multifactorial.
+
+
+'''Note:''' The [[wp:Factorial#Multifactorials|wikipedia entry on multifactorials]] gives a different formula. This task uses the [http://mathworld.wolfram.com/Multifactorial.html Wolfram mathworld definition].
+
+
+
+
+=={{header|JavaScript}}==
+
+===Iterative===
+{{trans|C}}
+<lang JavaScript>
+function multifact(n, deg){
+	var result = n;
+	while (n >= deg + 1){
+		result *= (n - deg);
+		n -= deg;
+	}
+	return result;
+}
+</lang>
+
+<lang JavaScript>
+function test (n, deg) {
+	for (var i = 1; i <= deg; i ++) {
+		var results = '';
+		for (var j = 1; j <= n; j ++) {
+			results += multifact(j, i) + ' ';
+		}
+		console.log('Degree ' + i + ': ' + results);
+	}
+}
+</lang>
+
+{{out}}
+<lang JavaScript>
+test(10, 5)
+Degree 1: 1 2 6 24 120 720 5040 40320 362880 3628800 
+Degree 2: 1 2 3 8 15 48 105 384 945 3840 
+Degree 3: 1 2 3 4 10 18 28 80 162 280 
+Degree 4: 1 2 3 4 5 12 21 32 45 120 
+Degree 5: 1 2 3 4 5 6 14 24 36 50 
+</lang>
+
+===Recursive===
+
+{{trans|C}}
+<lang JavaScript>function multifact(n, deg){
+    return n <= deg ? n : n * multifact(n - deg, deg);
+}</lang>
+
+{{test}}
+<lang JavaScript>function test (n, deg) {
+    for (var i = 1; i <= deg; i ++) {
+        var results = '';
+        for (var j = 1; j <= n; j ++) {
+            results += multifact(j, i) + ' ';
+        }
+        console.log('Degree ' + i + ': ' + results);
+    }
+}</lang>
+{{Out}}
+<lang JavaScript>
+test(10, 5)
+Degree 1: 1 2 6 24 120 720 5040 40320 362880 3628800 
+Degree 2: 1 2 3 8 15 48 105 384 945 3840 
+Degree 3: 1 2 3 4 10 18 28 80 162 280 
+Degree 4: 1 2 3 4 5 12 21 32 45 120 
+Degree 5: 1 2 3 4 5 6 14 24 36 50 </lang>
+

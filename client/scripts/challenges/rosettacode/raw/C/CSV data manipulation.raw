@@ -1,0 +1,176 @@
+CSV data manipulation
+
+{{task}}
+
+[[wp:Comma-separated values|CSV spreadsheet files]] are suitable for storing tabular data in a relatively portable way. 
+
+The CSV format is flexible but somewhat ill-defined.  
+
+For present purposes, authors may assume that the data fields contain no commas, backslashes, or quotation marks.
+
+
+;Task:
+Read a CSV file, change some values and save the changes back to a file.
+
+For this task we will use the following CSV file:
+
+ C1,C2,C3,C4,C5
+ 1,5,9,13,17
+ 2,6,10,14,18
+ 3,7,11,15,19
+ 4,8,12,16,20
+
+<i>Suggestions</i>
+<ul>
+<li/> Show how to add a column, headed 'SUM', of the sums of the rows.
+<li/> If possible, illustrate the use of built-in or standard functions, methods, or libraries, that handle generic CSV files.
+</ul>
+<br><br>
+
+
+=={{header|JavaScript}}==
+
+===ES5===
+
+As an embedded scripting language which evolved in browsers carefully isolated from local file systems, JavaScript has no standard file IO libraries. The readFile() and writeFile() functions used in this example are written for JS embedded in macOS as 'JavaScript for Automation'. Other embeddings will require other definitions of these functions, and in some JS contexts it will not be possible to write them at all.
+
+<lang JavaScript>(function () {
+    'use strict';
+
+    // splitRegex :: Regex -> String -> [String]
+    function splitRegex(rgx, s) {
+        return s.split(rgx);
+    }
+
+    // lines :: String -> [String]
+    function lines(s) {
+        return s.split(/[\r\n]/);
+    }
+
+    // unlines :: [String] -> String
+    function unlines(xs) {
+        return xs.join('\n');
+    }
+
+    // macOS JavaScript for Automation version of readFile.
+    // Other JS contexts will need a different definition of this function,
+    // and some may have no access to the local file system at all.
+
+    // readFile :: FilePath -> maybe String
+    function readFile(strPath) {
+        var error = $(),
+            str = ObjC.unwrap(
+                $.NSString.stringWithContentsOfFileEncodingError(
+                    $(strPath)
+                    .stringByStandardizingPath,
+                    $.NSUTF8StringEncoding,
+                    error
+                )
+            );
+        return error.code ? error.localizedDescription : str;
+    }
+
+    // macOS JavaScript for Automation version of writeFile.
+    // Other JS contexts will need a different definition of this function,
+    // and some may have no access to the local file system at all.
+
+    // writeFile :: FilePath -> String -> IO ()
+    function writeFile(strPath, strText) {
+        $.NSString.alloc.initWithUTF8String(strText)
+            .writeToFileAtomicallyEncodingError(
+                $(strPath)
+                .stringByStandardizingPath, false,
+                $.NSUTF8StringEncoding, null
+            );
+    }
+
+    // EXAMPLE - appending a SUM column
+
+    var delimCSV = /,\s*/g;
+
+    var strSummed = unlines(
+        lines(readFile('~/csvSample.txt'))
+        .map(function (x, i) {
+            var xs = x ? splitRegex(delimCSV, x) : [];
+
+            return (xs.length ? xs.concat(
+                // 'SUM' appended to first line, others summed.
+                i > 0 ? xs.reduce(
+                    function (a, b) {
+                        return a + parseInt(b, 10);
+                    }, 0
+                ).toString() : 'SUM'
+            ) : []).join(',');
+        })
+    );
+
+    return (
+        writeFile('~/csvSampleSummed.txt', strSummed),
+        strSummed
+    );
+
+})();</lang>
+
+{{Out}}
+<pre>C1,C2,C3,C4,C5,SUM
+1,5,9,13,17,45
+2,6,10,14,18,50
+3,7,11,15,19,55
+4,8,12,16,20,60</pre>
+
+
+===Node.js===
+We can easily manipulate files with Node.js. 
+Below is a toy example to add new columns to an CSV file. Other manipulations, i.e. adding new rows, modifying existing values and so forth, can be accomplished very easily.
+
+<lang javascript>const fs = require('fs');
+
+// formats for the data parameter in the function below: {col1: array | function, col2: array | function}
+
+function addCols(path, data) {
+  let csv = fs.readFileSync(path, 'utf8');
+  csv = csv.split('\n').map(line => line.trim());
+  let colNames = Object.keys(data);
+  for (let i = 0; i < colNames.length; i++) {
+    let c = colNames[i];
+    if (typeof data[c] === 'function') {
+      csv = csv.map((line, idx) => idx === 0
+        ? line + ',' + c
+        : line + ',' + data[c](line, idx)
+      );
+    } else if (Array.isArray(data[c])) {
+      csv = csv.map((line, idx) => idx === 0
+        ? line + ',' + c
+        : line + ',' + data[c][idx - 1]
+      );
+    }
+  }
+  fs.createWriteStream(path, {
+    flag: 'w',
+    defaultEncoding: 'utf8'
+  }).end(csv.join('\n'));
+}
+
+addCols('test.csv', {
+    sum: function (line, idx) {
+      let s = 0;
+      line = line.split(',').map(d => +(d.trim()));
+      for (let i = 0; i < line.length; i++) {
+        s += line[i];
+      }
+      return s;
+    },
+    id: function(line, idx) {
+      return idx;
+    }
+  });</lang>
+
+{{output}}
+<pre>
+C1,C2,C3,C4,C5,sum,id
+1,5,9,13,17,45,1
+2,6,10,14,18,50,2
+3,7,11,15,19,55,3
+4,8,12,16,20,60,4
+</pre>
+

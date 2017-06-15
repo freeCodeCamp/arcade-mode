@@ -1,0 +1,211 @@
+Order disjoint list items
+
+{{task}}
+
+Given &nbsp; <code>M</code> &nbsp; as a list of items and another list &nbsp; <code>N</code> &nbsp; of items chosen from &nbsp; <code>M</code>, &nbsp; create &nbsp; <code>M'</code> &nbsp; as a list with the ''first'' occurrences of items from &nbsp; N &nbsp; sorted to be in one of the set of indices of their original occurrence in &nbsp; <code>M</code> &nbsp; but in the order given by their order in &nbsp;  <code>N</code>. 
+
+That is, items in &nbsp; <code>N</code> &nbsp; are taken from &nbsp; <code>M</code> &nbsp; without replacement, then the corresponding positions in &nbsp; <code>M'</code> &nbsp; are filled by successive items from &nbsp; <code>N</code>.
+
+
+;For example:
+:if &nbsp; <code>M</code> &nbsp; is &nbsp; <code>'the cat sat on the mat'</code>
+:And &nbsp; <code>N</code> &nbsp; is &nbsp; <code>'mat cat'</code> 
+:Then the result &nbsp; <code>M'</code> &nbsp; is &nbsp; <code>'the mat sat on the cat'</code>. 
+
+The words not in &nbsp; <code>N</code> &nbsp; are left in their original positions.
+
+
+If there are duplications then only the first instances in &nbsp; <code>M</code> &nbsp; up to as many as are mentioned in &nbsp; <code>N</code> &nbsp; are potentially re-ordered.
+
+
+;For example:
+: <code> M = 'A B C A B C A B C' </code>
+: <code> N = 'C A C A'           </code>
+
+Is ordered as:
+:<code> M' = 'C B A C B A A B C' </code>
+
+<br>
+Show the output, here, for at least the following inputs:
+<pre>
+Data M: 'the cat sat on the mat' Order N: 'mat cat'
+Data M: 'the cat sat on the mat' Order N: 'cat mat'
+Data M: 'A B C A B C A B C'      Order N: 'C A C A'
+Data M: 'A B C A B D A B E'      Order N: 'E A D A'
+Data M: 'A B'                    Order N: 'B'      
+Data M: 'A B'                    Order N: 'B A'    
+Data M: 'A B B A'                Order N: 'B A'
+</pre>
+
+
+;Cf:
+* [[Sort disjoint sublist]]
+<br><br>
+
+
+=={{header|JavaScript}}==
+
+===ES6===
+
+Accumulating a segmentation of M over a fold/reduce, and zipping with N:
+
+<lang JavaScript>(() => {
+    'use strict';
+
+    // GENERIC FUNCTIONS
+
+    // concatMap :: (a -> [b]) -> [a] -> [b]
+    const concatMap = (f, xs) => [].concat.apply([], xs.map(f));
+
+    // deleteFirst :: a -> [a] -> [a]
+    const deleteFirst = (x, xs) =>
+        xs.length > 0 ? (
+            x === xs[0] ? (
+                xs.slice(1)
+            ) : [xs[0]].concat(deleteFirst(x, xs.slice(1)))
+        ) : [];
+
+    // flatten :: Tree a -> [a]
+    const flatten = t => (t instanceof Array ? concatMap(flatten, t) : [t]);
+
+    // unwords :: [String] -> String
+    const unwords = xs => xs.join(' ');
+
+    // words :: String -> [String]
+    const words = s => s.split(/\s+/);
+
+    // zipWith :: (a -> b -> c) -> [a] -> [b] -> [c]
+    const zipWith = (f, xs, ys) => {
+        const ny = ys.length;
+        return (xs.length <= ny ? xs : xs.slice(0, ny))
+            .map((x, i) => f(x, ys[i]));
+    };
+
+    //------------------------------------------------------------------------
+
+    // ORDER DISJOINT LIST ITEMS
+
+    // disjointOrder :: [String] -> [String] -> [String]
+    const disjointOrder = (ms, ns) =>
+        flatten(
+            zipWith(
+                (a, b) => a.concat(b),
+                segments(ms, ns),
+                ns.concat('')
+            )
+        );
+
+    // segments :: [String] -> [String] -> [String]
+    const segments = (ms, ns) => {
+        const dct = ms.reduce((a, x) => {
+            const wds = a.words,
+                blnFound = wds.indexOf(x) !== -1;
+
+            return {
+                parts: a.parts.concat(blnFound ? [a.current] : []),
+                current: blnFound ? [] : a.current.concat(x),
+                words: blnFound ? deleteFirst(x, wds) : wds,
+            };
+        }, {
+            words: ns,
+            parts: [],
+            current: []
+        });
+
+        return dct.parts.concat([dct.current]);
+    };
+
+    // -----------------------------------------------------------------------
+    // FORMATTING TEST OUTPUT
+
+    // transpose :: [[a]] -> [[a]]
+    const transpose = xs =>
+        xs[0].map((_, iCol) => xs.map((row) => row[iCol]));
+
+    // maximumBy :: (a -> a -> Ordering) -> [a] -> a
+    const maximumBy = (f, xs) =>
+        xs.reduce((a, x) => a === undefined ? x : (
+            f(x, a) > 0 ? x : a
+        ), undefined);
+
+    // 2 or more arguments
+    // curry :: Function -> Function
+    const curry = (f, ...args) => {
+        const intArgs = f.length,
+            go = xs =>
+            xs.length >= intArgs ? (
+                f.apply(null, xs)
+            ) : function () {
+                return go(xs.concat([].slice.apply(arguments)));
+            };
+        return go([].slice.call(args, 1));
+    };
+
+    // justifyLeft :: Int -> Char -> Text -> Text
+    const justifyLeft = (n, cFiller, strText) =>
+        n > strText.length ? (
+            (strText + replicateS(n, cFiller))
+            .substr(0, n)
+        ) : strText;
+
+    // replicateS :: Int -> String -> String
+    const replicateS = (n, s) => {
+        let v = s,
+            o = '';
+        if (n < 1) return o;
+        while (n > 1) {
+            if (n & 1) o = o.concat(v);
+            n >>= 1;
+            v = v.concat(v);
+        }
+        return o.concat(v);
+    };
+
+    // -----------------------------------------------------------------------
+
+    // TEST
+    return transpose(transpose([{
+                M: 'the cat sat on the mat',
+                N: 'mat cat'
+            }, {
+                M: 'the cat sat on the mat',
+                N: 'cat mat'
+            }, {
+                M: 'A B C A B C A B C',
+                N: 'C A C A'
+            }, {
+                M: 'A B C A B D A B E',
+                N: 'E A D A'
+            }, {
+                M: 'A B',
+                N: 'B'
+            }, {
+                M: 'A B',
+                N: 'B A'
+            }, {
+                M: 'A B B A',
+                N: 'B A'
+            }].map(dct => [
+                dct.M, dct.N,
+                unwords(disjointOrder(words(dct.M), words(dct.N)))
+            ]))
+            .map(col => {
+                const width = maximumBy((a, b) => a.length > b.length, col)
+                    .length;
+                return col.map(curry(justifyLeft)(width, ' '));
+            }))
+        .map(
+            ([a, b, c]) => a + '  ->  ' + b + '  ->  ' + c
+        )
+        .join('\n');
+})();</lang>
+
+{{Out}}
+<pre>the cat sat on the mat  ->  mat cat  ->  the mat sat on the cat 
+the cat sat on the mat  ->  cat mat  ->  the cat sat on the mat 
+A B C A B C A B C       ->  C A C A  ->  C B A C B A A B C      
+A B C A B D A B E       ->  E A D A  ->  E B C A B D A B A      
+A B                     ->  B        ->  A B                    
+A B                     ->  B A      ->  B A                    
+A B B A                 ->  B A      ->  B A B A                </pre>
+

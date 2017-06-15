@@ -1,0 +1,221 @@
+Ranking methods
+
+{{task}}
+The numerical rank of competitors in a competition shows if one is better than, equal to, or worse than another based on their results in a competition.
+
+The numerical rank of a competitor can be assigned in several [[wp:Ranking|different ways]].
+
+
+;Task:
+The following scores are accrued for all competitors of a competition (in best-first order):
+<pre>44 Solomon
+42 Jason
+42 Errol
+41 Garry
+41 Bernard
+41 Barry
+39 Stephen</pre>
+
+For each of the following ranking methods, create a function/method/procedure/subroutine... that applies the ranking method to an ordered list of scores with scorers:
+# Standard. (Ties share what would have been their first ordinal number).
+# Modified. (Ties share what would have been their last ordinal number).
+# Dense. (Ties share the next available integer). 
+# Ordinal. ((Competitors take the next available integer. Ties are not treated otherwise).
+# Fractional. (Ties share the mean of what would have been their ordinal numbers).
+
+<br>
+See the [[wp:Ranking|wikipedia article]] for a fuller description.
+
+Show here, on this page, the ranking of the test scores under each of the numbered ranking methods.
+<br><br>
+
+
+=={{header|JavaScript}}==
+
+===ES5===
+
+The task formulation doesn't seem to directly explain or determine the order of listing for players whose score is the same.
+
+( This version chooses to use a secondary (alphabetic) sort after the numeric sort by score. That does, of course, affect the ordinal placements for some players)
+
+<lang JavaScript>(function () {
+ 
+    var xs = 'Solomon Jason Errol Garry Bernard Barry Stephen'.split(' '),
+        ns = [44, 42, 42, 41, 41, 41, 39],
+ 
+        sorted = xs.map(function (x, i) {
+            return { name: x, score: ns[i] };
+        }).sort(function (a, b) {
+            var c = b.score - a.score;
+            return c ? c : a.name < b.name ? -1 : a.name > b.name ? 1 : 0;
+        }),
+ 
+        names = sorted.map(function (x) { return x.name; }),
+        scores = sorted.map(function (x) { return x.score; }),
+ 
+        reversed = scores.slice(0).reverse(),
+        unique = scores.filter(function (x, i) {
+            return scores.indexOf(x) === i;
+        });
+ 
+    // RANKINGS AS FUNCTIONS OF SCORES: SORTED, REVERSED AND UNIQUE
+ 
+    var rankings = function (score, index) {
+            return {
+                name: names[index],
+                score: score,
+
+                Ordinal: index + 1,
+
+                Standard: function (n) {
+                    return scores.indexOf(n) + 1;
+                }(score),
+
+                Modified: function (n) {
+                    return reversed.length - reversed.indexOf(n);
+                }(score),
+
+                Dense: function (n) {
+                    return unique.indexOf(n) + 1;
+                }(score),
+
+                Fractional: function (n) {
+                    return (
+                        (scores.indexOf(n) + 1) +
+                        (reversed.length - reversed.indexOf(n))
+                    ) / 2;
+                }(score)
+            };
+        },
+ 
+        tbl = [
+            'Name Score Standard Modified Dense Ordinal Fractional'.split(' ')
+        ].concat(scores.map(rankings).reduce(function (a, x) {
+            return a.concat([
+                [x.name, x.score,
+                    x.Standard, x.Modified, x.Dense, x.Ordinal, x.Fractional
+                ]
+            ]);
+        }, [])),
+ 
+        //[[a]] -> bool -> s -> s
+        wikiTable = function (lstRows, blnHeaderRow, strStyle) {
+            return '{| class="wikitable" ' + (
+                strStyle ? 'style="' + strStyle + '"' : ''
+            ) + lstRows.map(function (lstRow, iRow) {
+                var strDelim = ((blnHeaderRow && !iRow) ? '!' : '|');
+ 
+                return '\n|-\n' + strDelim + ' ' + lstRow.map(function (v) {
+                    return typeof v === 'undefined' ? ' ' : v;
+                }).join(' ' + strDelim + strDelim + ' ');
+            }).join('') + '\n|}';
+        };
+ 
+    return wikiTable(tbl, true, 'text-align:center');
+ 
+})();</lang>
+
+{{out}}
+
+{| class="wikitable" style="text-align:center"
+|-
+! Name !! Score !! Standard !! Modified !! Dense !! Ordinal !! Fractional
+|-
+| Solomon || 44 || 1 || 1 || 1 || 1 || 1
+|-
+| Errol || 42 || 2 || 3 || 2 || 2 || 2.5
+|-
+| Jason || 42 || 2 || 3 || 2 || 3 || 2.5
+|-
+| Barry || 41 || 4 || 6 || 3 || 4 || 5
+|-
+| Bernard || 41 || 4 || 6 || 3 || 5 || 5
+|-
+| Garry || 41 || 4 || 6 || 3 || 6 || 5
+|-
+| Stephen || 39 || 7 || 7 || 4 || 7 || 7
+|}
+
+===ES6===
+
+<lang JavaScript>((() => {
+    const xs = 'Solomon Jason Errol Garry Bernard Barry Stephen'.split(' '),
+        ns = [44, 42, 42, 41, 41, 41, 39];
+
+    const sorted = xs.map((x, i) => ({
+            name: x,
+            score: ns[i]
+        }))
+        .sort((a, b) => {
+            const c = b.score - a.score;
+            return c ? c : a.name < b.name ? -1 : a.name > b.name ? 1 : 0;
+        });
+
+    const names = sorted.map(x => x.name),
+        scores = sorted.map(x => x.score),
+        reversed = scores.slice(0)
+        .reverse(),
+        unique = scores.filter((x, i) => scores.indexOf(x) === i);
+
+    // RANKINGS AS FUNCTIONS OF SCORES: SORTED, REVERSED AND UNIQUE
+
+    // rankings :: Int -> Int -> Dictonary
+    const rankings = (score, index) => ({
+        name: names[index],
+        score,
+        Ordinal: index + 1,
+        Standard: scores.indexOf(score) + 1,
+        Modified: reversed.length - reversed.indexOf(score),
+        Dense: unique.indexOf(score) + 1,
+
+        Fractional: (n => (
+            (scores.indexOf(n) + 1) +
+            (reversed.length - reversed.indexOf(n))
+        ) / 2)(score)
+    });
+
+    // tbl :: [[[a]]]
+    const tbl = [
+            'Name Score Standard Modified Dense Ordinal Fractional'.split(' ')
+        ].concat(scores.map(rankings)
+        .reduce((a, x) => a.concat([
+            [x.name, x.score,
+                x.Standard, x.Modified, x.Dense, x.Ordinal, x.Fractional
+            ]
+        ]), []));
+
+    // wikiTable :: [[[a]]] -> Bool -> String -> String
+    const wikiTable = (lstRows, blnHeaderRow, strStyle) =>
+        `{| class="wikitable" ${strStyle ? 'style="' + strStyle + '"' : ''}
+        ${lstRows.map((lstRow, iRow) => {
+            const strDelim = ((blnHeaderRow && !iRow) ? '!' : '|');
+
+            return '\n|-\n' + strDelim + ' ' + lstRow
+            .map(v => typeof v === 'undefined' ? ' ' : v)
+            .join(' ' + strDelim + strDelim + ' ');
+        }).join('')}\n|}`;
+
+    return wikiTable(tbl, true, 'text-align:center');
+}))();</lang>
+
+{| class="wikitable" style="text-align:center"
+      
+|-
+! Name !! Score !! Standard !! Modified !! Dense !! Ordinal !! Fractional
+|-
+| Solomon || 44 || 1 || 1 || 1 || 1 || 1
+|-
+| Errol || 42 || 2 || 3 || 2 || 2 || 2.5
+|-
+| Jason || 42 || 2 || 3 || 2 || 3 || 2.5
+|-
+| Barry || 41 || 4 || 6 || 3 || 4 || 5
+|-
+| Bernard || 41 || 4 || 6 || 3 || 5 || 5
+|-
+| Garry || 41 || 4 || 6 || 3 || 6 || 5
+|-
+| Stephen || 39 || 7 || 7 || 4 || 7 || 7
+|}
+{{Out}}
+

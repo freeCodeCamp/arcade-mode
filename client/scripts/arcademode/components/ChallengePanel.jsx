@@ -44,10 +44,10 @@ export default class ChallengePanel extends React.Component {
     const results = this.props.benchmarkResults.toJS();
 
     let className;
-    if (results.resultMessage === 'Your code can be made more efficient') {
+    if (results.resultMessage === 'Your code is slower than par.') {
       className = 'text-warning';
     }
-    else if (results.resultMessage === 'Tie. Your code is fast!') {
+    else if (results.resultMessage === 'Par! Your code is fast!') {
       className = 'text-primary';
     }
     else className = 'text-success';

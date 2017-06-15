@@ -23,6 +23,7 @@ import FCCInterviewDataStructures from '../../../../public/json/challenges-data-
 
 import Challenges from '../../../../public/json/challenges-combined.json';
 import ChallengesArcade from '../../../../public/json/challenges-arcade.json';
+import ChallengesRosetta from '../../../../public/json/challenges-rosetta.json';
 
 import appConfig from '../../../jsons/appconfig.json';
 
@@ -33,7 +34,8 @@ const challengeTypes = {
   'Data structures': shuffle(FCCInterviewDataStructures.challenges),
   Algorithms: shuffle(FCCInterviewAlgorithms.challenges),
   Mixed: shuffle(combinedChallenges),
-  Arcade: shuffle(ChallengesArcade.challenges)
+  Arcade: shuffle(ChallengesArcade.challenges),
+  Rosetta: shuffle(ChallengesRosetta.challenges)
 };
 
 const initialState = Map({

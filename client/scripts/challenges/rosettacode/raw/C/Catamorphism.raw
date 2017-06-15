@@ -1,0 +1,77 @@
+Catamorphism
+
+{{task}}
+
+''Reduce'' is a function or method that is used to take the values in an array or a list and apply a function to successive members of the list to produce (or reduce them to), a single value. 
+
+
+;Task:
+Show how ''reduce'' (or ''foldl'' or ''foldr'' etc), work (or would be implemented) in your language.
+
+
+;Cf.
+* [[wp:Fold (higher-order function)|Fold]]
+* [[wp:Catamorphism|Catamorphism]]
+<br><br>
+
+
+=={{header|JavaScript}}==
+
+===ES5===
+
+<lang javascript>var nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+function add(a, b) {
+    return a + b;
+}
+
+var summation = nums.reduce(add);
+
+function mul(a, b) {
+    return a * b;
+}
+
+var product = nums.reduce(mul, 1);
+
+var concatenation = nums.reduce(add, "");
+
+console.log(summation, product, concatenation);</lang>
+
+
+Note that the JavaScript Array methods include a right fold ( '''.reduceRight()''' ) as well as a left fold:
+
+<lang JavaScript>(function (xs) {
+    'use strict';
+
+    // foldl :: (b -> a -> b) -> b -> [a] -> b
+    function foldl(f, acc, xs) {
+        return xs.reduce(f, acc);
+    }
+
+    // foldr :: (b -> a -> b) -> b -> [a] -> b
+    function foldr(f, acc, xs) {
+        return xs.reduceRight(f, acc);
+    }
+
+    // Test folds in both directions
+    return [foldl, foldr].map(function (f) {
+        return f(function (acc, x) {
+            return acc + (x * 2).toString() + ' ';
+        }, [], xs);
+    });
+
+})([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);</lang>
+
+{{Out}}
+
+<pre>["0 2 4 6 8 10 12 14 16 18 ", 
+"18 16 14 12 10 8 6 4 2 0 "]</pre>
+
+===ES6===
+
+<lang javascript>var nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+console.log(nums.reduce((a, b) => a + b, 0)); // sum of 1..10
+console.log(nums.reduce((a, b) => a * b, 1)); // product of 1..10
+console.log(nums.reduce((a, b) => a + b, '')); // concatenation of 1..10</lang>
+

@@ -12,13 +12,13 @@ const fetch = require('node-fetch');
 const commandLineArgs = require('command-line-args');
 
 // does not extract all with numericals titles with this batch size; set to 1 and let it run to get all
-const batchSize = 75;
+const batchSize = 1;
 
 let queryURL = `http://rosettacode.org/mw/api.php?action=query&generator=categorymembers&gcmtitle=Category:Programming_Tasks&format=json&gcmlimit=${batchSize}&continue=`;
 
 const contentURL = 'http://rosettacode.org/mw/api.php?action=query&prop=revisions&rvprop=content&format=json&pageids=';
 
-const outputPath = 'client/scripts/challenges/raw';
+const outputPath = 'client/scripts/challenges/rosettacode/raw';
 
 function getNextBatch (continuationURL) {
   if (!continuationURL) {

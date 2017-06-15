@@ -1,0 +1,137 @@
+Smith numbers
+
+{{task}} 
+[[wp:Smith numbers|Smith numbers]] are numbers such that the [[Sum_digits_of_an_integer|sum of the decimal digits of the integers]] that make up that number is the same as the sum of the decimal digits of its prime factors excluding 1. 
+
+By definition, all primes are ''excluded'' as they (naturally) satisfy this condition!
+
+Smith numbers are also known as joke numbers.
+
+
+;Example
+Using the number '''166'''<br>
+Find the prime factors of '''166''' which are: '''2''' x '''83'''<br>
+Then, take those two prime factors and sum all their decimal digits: '''2 + 8 + 3''' which is '''13'''<br>
+Then, take the decimal digits of '''166''' and add their decimal digits: '''1 + 6 + 6''' which is '''13'''<br>
+Therefore, the number '''166''' is a Smith number.
+
+
+;Task
+Write a program to find all Smith numbers ''below'' 10000.
+
+
+;See also
+* from Wikipedia: &nbsp; [[https://en.wikipedia.org/wiki/Smith_number Smith number]].
+* from MathWorld: &nbsp; [[http://mathworld.wolfram.com/SmithNumber.html Smith number]]. 
+* from OEIS A6753: &nbsp; [[https://oeis.org/A006753 OEIS sequence A6753]].
+* from OEIS A104170: &nbsp; [[https://oeis.org/A104170 Number of Smith numbers below 10^n]]. 
+* from The Prime pages: &nbsp; [[http://primes.utm.edu/glossary/xpage/SmithNumber.html Smith numbers]].
+<br><br>
+
+
+=={{header|JavaScript}}==
+===ES6===
+{{Trans|Haskell}}
+<lang JavaScript>(() => {
+    'use strict';
+
+    // GENERIC FUNCTIONS -----------------------------------------------------
+
+    // concat :: [[a]] -> [a] | [String] -> String
+    const concat = xs => {
+        if (xs.length > 0) {
+            const unit = typeof xs[0] === 'string' ? '' : [];
+            return unit.concat.apply(unit, xs);
+        } else return [];
+    }
+
+    // range :: Int -> Int -> [Int]
+    const range = (m, n) =>
+        Array.from({
+            length: Math.floor(n - m) + 1
+        }, (_, i) => m + i);
+
+    // dropWhile :: (a -> Bool) -> [a] -> [a]
+    const dropWhile = (p, xs) => {
+        let i = 0;
+        for (let lng = xs.length;
+            (i < lng) && p(xs[i]); i++) {}
+        return xs.slice(i);
+    }
+
+    // head :: [a] -> a
+    const head = xs => xs.length ? xs[0] : undefined;
+
+    // Int -> [a] -> [a]
+    const take = (n, xs) => xs.slice(0, n);
+
+    // drop :: Int -> [a] -> [a]
+    const drop = (n, xs) => xs.slice(n);
+
+    // floor :: Num a => a -> Int
+    const floor = Math.floor;
+
+    // floor :: Num -> Num
+    const sqrt = Math.sqrt;
+
+    // show :: a -> String
+    const show = x => JSON.stringify(x, null, 2);
+
+    // unwords :: [String] -> String
+    const unwords = xs => xs.join(' ');
+
+
+    // MAIN -----------------------------------------------------------------
+
+    // primeFactors :: Int -> [Int]
+    const primeFactors = n => {
+        const fs = take(1, (dropWhile(x => n % x !== 0, range(2, floor(sqrt(n))))));
+        return fs.length === 0 ? (
+            [n]
+        ) : fs.concat(primeFactors(floor(n / head(fs))));
+    };
+
+    // digitSum :: [Char] -> Int
+    const digitSum = ds =>
+        ds
+        .reduce((a, b) => parseInt(a, 10) + parseInt(b, 10), 0);
+
+    // isSmith :: Int -> Bool
+    const isSmith = n => {
+        const pfs = primeFactors(n);
+        return (head(pfs) !== n) &&
+            digitSum(n.toString()
+                .split('')) == digitSum(
+                concat(pfs.map(x => x.toString()))
+                .split('')
+            );
+    }
+
+    // TEST ------------------------------------------------------------------
+
+    // lowSmiths :: [Int]
+    const lowSmiths = range(2, 9999)
+        .filter(isSmith);
+
+    // lowSmithCount :: Int
+    const lowSmithCount = lowSmiths.length;
+
+    return [
+        "Count of Smith Numbers below 10k:",
+            show(lowSmithCount),
+            "\nFirst 15 Smith Numbers:",
+            unwords(take(15, lowSmiths)),
+            "\nLast 12 Smith Numbers below 10000:",
+            unwords(drop(lowSmithCount - 12, lowSmiths))
+    ].join('\n');
+})();</lang>
+{{Out}}
+<pre>Count of Smith Numbers below 10k:
+376
+
+First 15 Smith Numbers:
+4 22 27 58 85 94 121 166 202 265 274 319 346 355 378
+
+Last 12 Smith Numbers below 10000:
+9778 9840 9843 9849 9861 9880 9895 9924 9942 9968 9975 9985</pre>
+

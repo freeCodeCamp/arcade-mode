@@ -1,0 +1,267 @@
+Heronian triangles
+
+{{task}}
+
+[[wp:Heron's formula|Hero's formula]] for the area of a triangle given the length of its three sides &nbsp; <big> ''a'',</big> &nbsp; <big>''b'',</big> &nbsp; and &nbsp; <big>''c''</big> &nbsp; is given by:
+
+:::: <big><math>A = \sqrt{s(s-a)(s-b)(s-c)},</math></big>
+
+where &nbsp; <big>''s''</big> &nbsp; is half the perimeter of the triangle; that is,
+
+:::: <big><math>s=\frac{a+b+c}{2}.</math></big>
+
+<br>
+'''[http://www.had2know.com/academics/heronian-triangles-generator-calculator.html Heronian triangles]'''
+are triangles whose sides ''and area'' are all integers.
+: An example is the triangle with sides &nbsp; '''3, 4, 5''' &nbsp; whose area is &nbsp; '''6''' &nbsp; (and whose perimeter is &nbsp; '''12'''). 
+
+<br>
+Note that any triangle whose sides are all an integer multiple of &nbsp; '''3, 4, 5'''; &nbsp; such as &nbsp; '''6, 8, 10,''' &nbsp; will also be a Heronian triangle.
+
+Define a '''Primitive Heronian triangle''' as a Heronian triangle where the greatest common divisor 
+of all three sides is &nbsp; '''1''' &nbsp; (unity). 
+
+This will exclude, for example, triangle &nbsp; '''6, 8, 10.'''
+
+
+;Task:
+# Create a named function/method/procedure/... that implements Hero's formula.
+# Use the function to generate all the ''primitive'' Heronian triangles with sides <= 200.
+# Show the count of how many triangles are found.
+# Order the triangles by first increasing area, then by increasing perimeter, then by increasing maximum side lengths
+# Show the first ten ordered triangles in a table of sides, perimeter, and area.
+# Show a similar ordered table for those triangles with area = 210
+
+<br>
+Show all output here.
+
+<small>'''Note''': when generating triangles it may help to restrict</small> <math>a <= b <= c</math>
+
+
+
+=={{header|JavaScript}}==
+
+===Imperative===
+
+<lang JavaScript>
+window.onload = function(){	
+    var list = [];
+    var j = 0;	
+    for(var c = 1; c <= 200; c++)
+        for(var b = 1; b <= c; b++)
+            for(var a = 1; a <= b; a++)
+	        if(gcd(gcd(a, b), c) == 1 && isHeron(heronArea(a, b, c)))							
+		    list[j++] = new Array(a, b, c, a + b + c, heronArea(a, b, c));
+    sort(list);	
+    document.write("<h2>Primitive Heronian triangles with sides up to 200: " + list.length + "</h2><h3>First ten when ordered by increasing area, then perimeter:</h3><table><tr><th>Sides</th><th>Perimeter</th><th>Area</th><tr>");
+    for(var i = 0; i < 10; i++)
+	document.write("<tr><td>" + list[i][0] + " x " + list[i][1] + " x " + list[i][2] + "</td><td>" + list[i][3] + "</td><td>" + list[i][4] + "</td></tr>");
+    document.write("</table><h3>Area = 210</h3><table><tr><th>Sides</th><th>Perimeter</th><th>Area</th><tr>");
+    for(var i = 0; i < list.length; i++)
+	if(list[i][4] == 210)
+	    document.write("<tr><td>" + list[i][0] + " x " + list[i][1] + " x " + list[i][2] + "</td><td>" + list[i][3] + "</td><td>" + list[i][4] + "</td></tr>");    		
+    function heronArea(a, b, c){
+	var s = (a + b + c)/ 2;
+	return Math.sqrt(s *(s -a)*(s - b)*(s - c));		
+    }	
+    function isHeron(h){
+        return h % 1 == 0 && h > 0;
+    }	
+    function gcd(a, b){
+	var leftover = 1, dividend = a > b ? a : b, divisor = a > b ? b : a;		
+	while(leftover != 0){
+	    leftover = dividend % divisor;
+	    if(leftover > 0){
+		dividend = divisor;
+		divisor = leftover;
+	    }
+	}		
+	return divisor;
+    }	
+    function sort(list){
+	var swapped = true;
+	var temp = [];
+	while(swapped){
+	    swapped = false;
+	    for(var i = 1; i < list.length; i++){
+		if(list[i][4] < list[i - 1][4] || list[i][4] == list[i - 1][4] && list[i][3] < list[i - 1][3]){
+		    temp = list[i];
+		    list[i] = list[i - 1];
+		    list[i - 1] = temp;
+		    swapped = true;
+		}				
+	    }			
+	}
+    }
+}
+</lang>
+{{out}}
+<pre>Primitive Heronian triangles with sides up to 200: 517
+
+First ten when ordered by increasing area, then perimeter:
+Sides	Perimeter	Area
+3 x 4 x 5	12	6
+5 x 5 x 6	16	12
+5 x 5 x 8	18	12
+4 x 13 x 15	32	24
+5 x 12 x 13	30	30
+9 x 10 x 17	36	36
+3 x 25 x 26	54	36
+7 x 15 x 20	42	42
+10 x 13 x 13	36	60
+8 x 15 x 17	40	60
+
+Area = 210
+Sides	Perimeter	Area
+17 x 25 x 28	70	210
+20 x 21 x 29	70	210
+12 x 35 x 37	84	210
+17 x 28 x 39	84	210
+7 x 65 x 68	140	210
+3 x 148 x 149	300	210</pre>
+
+===Functional (ES5)===
+
+Using the list monad pattern to define a filtered cartesian product:
+:- Monadic bind/chain for lists is ''concat map''. 
+:- Return/inject for lists is  ''λx -> [x]''
+:- Monadic fail for lists is simply ''λx -> []''.
+
+List comprehension syntax is convenient and concise, but efficient use of it may be helped by a clearer understanding of the formally equivalent – but slightly more flexible – list monad pattern.
+See, for example [https://wiki.haskell.org/List_comprehension List comprehension] at wiki.haskell.org. (Haskell list comprehensions are themselves implemented in terms of ''concat map'').
+ES6 JavaScript introduces syntactic sugar for list comprehensions, but the list monad pattern can already be used in ES5 – indeed in any language which supports the use of higher-order functions.
+
+<lang JavaScript>(function (n) {
+ 
+  var chain = function (xs, f) {                  // Monadic bind/chain
+      return [].concat.apply([], xs.map(f));
+    },
+ 
+    hArea = function (x, y, z) {
+      var s = (x + y + z) / 2,
+        a = s * (s - x) * (s - y) * (s - z);
+      return a ? Math.sqrt(a) : 0;
+    },
+ 
+    gcd = function (m, n) { return n ? gcd(n, m % n) : m; },
+ 
+    rng = function (m, n) {
+      return Array.apply(null, Array(n - m + 1)).map(function (x, i) {
+        return m + i;
+      });
+    },
+ 
+    sum = function (a, x) { return a + x; };
+ 
+  // DEFINING THE SORTED SUB-SET IN TERMS OF A LIST MONAD
+ 
+  var lstHeron = chain( rng(1, n), function (x) {
+          return chain( rng(x, n), function (y) {
+          return chain( rng(y, n), function (z) {
+ 
+        return (
+          (x + y > z) &&
+          gcd(gcd(x, y), z) === 1 &&            // Primitive.
+          (function () {                        // Heronian.
+            var a = hArea(x, y, z);
+            return a && (a === parseInt(a, 10))
+          })()
+        ) ? [[x, y, z]] : [];                   // Monadic inject or fail
+ 
+  })})}).sort(function (a, b) {
+    var dArea = hArea.apply(null, a) - hArea.apply(null, b);
+    if (dArea) return dArea;
+    else {
+      var dPerim = a.reduce(sum, 0) - b.reduce(sum, 0);
+      return dPerim ? dPerim : (a[2] - b[2]);
+    }
+  });
+ 
+  // OUPUT FORMATTED AS TWO WIKITABLES
+ 
+  var lstColumns = ['Sides Perimeter Area'.split(' ')],
+    fnData = function (lst) {
+      return [JSON.stringify(lst), lst.reduce(sum, 0), hArea.apply(null, lst)];
+    },
+    wikiTable = function (lstRows, blnHeaderRow, strStyle) {
+      return '{| class="wikitable" ' + (
+        strStyle ? 'style="' + strStyle + '"' : ''
+      ) + lstRows.map(function (lstRow, iRow) {
+        var strDelim = ((blnHeaderRow && !iRow) ? '!' : '|');
+ 
+        return '\n|-\n' + strDelim + ' ' + lstRow.map(function (v) {
+          return typeof v === 'undefined' ? ' ' : v;
+        }).join(' ' + strDelim + strDelim + ' ');
+      }).join('') + '\n|}';
+    };
+ 
+  return 'Found: ' + lstHeron.length +
+    ' primitive Heronian triangles with sides up to ' + n + '.\n\n' +
+    '(Showing first 10, sorted by increasing area, ' +
+    'perimeter, and longest side)\n\n' +
+    wikiTable(
+      lstColumns.concat(lstHeron.slice(0, 10).map(fnData)),
+      true
+    ) + '\n\n' +
+    'All primitive Heronian triangles in this range where area = 210\n' +
+    '\n(also in order of increasing perimeter and longest side)\n\n' +
+    wikiTable(
+      lstColumns.concat(lstHeron.filter(function (x) {
+        return 210 === hArea.apply(null, x);
+      }).map(fnData)),
+      true
+    ) + '\n\n';
+ 
+})(200);</lang>
+
+{{out}}
+Found: 517 primitive Heronian triangles with sides up to 200.
+
+(Showing first 10, sorted by increasing area, perimeter, and longest side)
+
+{| class="wikitable" 
+|-
+! Sides !! Perimeter !! Area
+|-
+| [3,4,5] || 12 || 6
+|-
+| [5,5,6] || 16 || 12
+|-
+| [5,5,8] || 18 || 12
+|-
+| [4,13,15] || 32 || 24
+|-
+| [5,12,13] || 30 || 30
+|-
+| [9,10,17] || 36 || 36
+|-
+| [3,25,26] || 54 || 36
+|-
+| [7,15,20] || 42 || 42
+|-
+| [10,13,13] || 36 || 60
+|-
+| [8,15,17] || 40 || 60
+|}
+
+All primitive Heronian triangles in this range where area = 210
+
+(also in order of increasing perimeter and longest side)
+
+{| class="wikitable" 
+|-
+! Sides !! Perimeter !! Area
+|-
+| [17,25,28] || 70 || 210
+|-
+| [20,21,29] || 70 || 210
+|-
+| [12,35,37] || 84 || 210
+|-
+| [17,28,39] || 84 || 210
+|-
+| [7,65,68] || 140 || 210
+|-
+| [3,148,149] || 300 || 210
+|}
+

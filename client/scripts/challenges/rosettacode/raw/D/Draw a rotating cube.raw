@@ -1,0 +1,15 @@
+Draw a rotating cube
+
+{{task}}
+
+;Task
+Draw a rotating cube. 
+
+It should be oriented with one vertex pointing straight up, and its opposite vertex on the main diagonal (the one farthest away) straight down. It can be solid or wire-frame, and you can use ASCII art if your language doesn't have graphical capabilities. Perspective is optional.
+<br><br>
+
+;Related tasks
+* [[Draw_a_cuboid|Draw a cuboid]]
+<br><br>
+
+

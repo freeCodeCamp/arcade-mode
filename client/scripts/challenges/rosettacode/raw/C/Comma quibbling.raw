@@ -1,0 +1,154 @@
+Comma quibbling
+
+{{task}}
+Comma quibbling is a task originally set by Eric Lippert in his [http://blogs.msdn.com/b/ericlippert/archive/2009/04/15/comma-quibbling.aspx blog].
+
+
+;Task:
+
+Write a function to generate a string output which is the concatenation of input words from a list/sequence where:
+# An input of no words produces the output string of just the two brace characters "{}".
+# An input of just one word, e.g. ["ABC"], produces the output string of the word inside the two braces, e.g. "{ABC}".
+# An input of two words, e.g. ["ABC", "DEF"], produces the output string of the two words inside the two braces with the words separated by the string " and ", e.g. "{ABC and DEF}".
+# An input of three or more words, e.g. ["ABC", "DEF", "G", "H"], produces the output string of all but the last word separated by ", " with the last word separated by " and " and all within braces; e.g. "{ABC, DEF, G and H}".
+
+<br>
+Test your function with the following series of inputs showing your output here on this page:
+* []                       # (No input words).
+* ["ABC"]
+* ["ABC", "DEF"]
+* ["ABC", "DEF", "G", "H"]
+
+<br>
+Note: Assume words are non-empty strings of uppercase characters for this task.
+<br><br>
+
+
+=={{header|JavaScript}}==
+===ES5===
+<lang javascript>function quibble(words) {
+  return "{" + 
+    words.slice(0, words.length-1).join(",") +
+   (words.length > 1 ? " and " : "") +
+   (words[words.length-1] || '') +
+  "}";
+}
+
+[[], ["ABC"], ["ABC", "DEF"], ["ABC", "DEF", "G", "H"]].forEach(
+  function(s) {
+    console.log(quibble(s));
+  }
+);</lang>
+{{out}}
+<pre>{}
+{ABC}
+{ABC and DEF}
+{ABC,DEF,G and H}
+</pre>
+
+===ES6===
+{{Trans|Haskell}}
+Composing from a set of generic functions:
+<lang JavaScript>(() => {
+    'use strict';
+
+    // COMMA QUIBBLING -------------------------------------------------------
+
+    // quibble :: [String] -> String
+    const quibble = xs =>
+        (xs.length > 1) ? (
+            intercalate(
+                " and ",
+                ap(
+                    [compose([intercalate(", "), reverse, tail]), head], //
+                    [reverse(xs)]
+                )
+            )
+        ) : concat(xs);
+
+
+    // GENERIC FUNCTIONS -----------------------------------------------------
+
+    // A list of functions applied to a list of arguments
+    // <*> :: [(a -> b)] -> [a] -> [b]
+    const ap = (fs, xs) => //
+        [].concat.apply([], fs.map(f => //
+            [].concat.apply([], xs.map(x => [f(x)]))));
+
+    // curry :: Function -> Function
+    const curry = (f, ...args) => {
+        const go = xs => xs.length >= f.length ? (f.apply(null, xs)) :
+            function () {
+                return go(xs.concat([].slice.apply(arguments)));
+            };
+        return go([].slice.call(args, 1));
+    };
+
+    // intercalate :: String -> [a] -> String
+    const intercalate = curry((s, xs) => xs.join(s));
+
+    // concat :: [[a]] -> [a] | [String] -> String
+    const concat = xs => {
+        if (xs.length > 0) {
+            const unit = typeof xs[0] === 'string' ? '' : [];
+            return unit.concat.apply(unit, xs);
+        } else return [];
+    };
+
+    // compose :: [(a -> a)] -> (a -> a)
+    const compose = fs => x => fs.reduceRight((a, f) => f(a), x);
+
+    // map :: (a -> b) -> [a] -> [b]
+    const map = curry((f, xs) => xs.map(f));
+
+    // reverse :: [a] -> [a]
+    const reverse = xs =>
+        typeof xs === 'string' ? (
+            xs.split('')
+            .reverse()
+            .join('')
+        ) : xs.slice(0)
+        .reverse();
+
+    // head :: [a] -> a
+    const head = xs => xs.length ? xs[0] : undefined;
+
+    // tail :: [a] -> [a]
+    const tail = xs => xs.length ? xs.slice(1) : undefined;
+
+    // (++) :: [a] -> [a] -> [a]
+    const append = (xs, ys) => xs.concat(ys);
+
+    // words :: String -> [String]
+    const words = s => s.split(/\s+/);
+
+    // unlines :: [String] -> String
+    const unlines = xs => xs.join('\n');
+
+
+    // TEST ------------------------------------------------------------------
+    return unlines(
+        map(
+            compose([x => '{' + x + '}', quibble]),
+            append([
+                [],
+                ["ABC"],
+                ["ABC", "DEF"],
+                ["ABC", "DEF", "G", "H"]
+            ], map(
+                words, [
+                    "One two three four", "Me myself I", "Jack Jill", "Loner"
+                ]
+            ))
+        ));
+})();</lang>
+{{Out}}
+<pre>{}
+{ABC}
+{ABC and DEF}
+{ABC, DEF, G and H}
+{One, two, three and four}
+{Me, myself and I}
+{Jack and Jill}
+{Loner}</pre>
+

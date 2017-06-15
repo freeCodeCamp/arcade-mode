@@ -147,12 +147,23 @@ gulp.task('build-json', () => {
 
 // Builds the arcade-mode json from js challenge files
 gulp.task('build-js2json', done => {
-  const js2jsonScript = `bin/js2json_challenges.js\
-    --force -f client/scripts/challenges/*.js -o ${ghPages}public/json/challenges-arcade.json`;
-  exec(js2jsonScript, err => {
-    if (err) {
-      console.error(`exec error: ${err}`);
-    }
+  const arcade2json = `bin/js2json_challenges.js\
+    --force -f client/scripts/challenges/arcade/*.js -o ${ghPages}public/json/challenges-arcade.json`;
+  const rosetta2json = `bin/js2json_challenges.js\
+    --force -f client/scripts/challenges/rosettacode/formatted/**/*.js -o ${ghPages}public/json/challenges-rosetta.json`;
+
+  return Promise.all([arcade2json, rosetta2json].map(js2json =>
+    new Promise((resolve, reject) => {
+      exec(js2json, err => {
+        if (err) {
+          console.error(`exec error: ${err}`);
+          reject(err);
+        }
+        else resolve();
+      });
+    })
+  ))
+  .then(() => {
     done();
   });
 });

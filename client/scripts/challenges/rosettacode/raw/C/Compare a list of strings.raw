@@ -1,0 +1,127 @@
+Compare a list of strings
+
+{{task}}
+
+;Task:
+Given a &nbsp; [[wp:List_(abstract_data_type)|list]] &nbsp; of arbitrarily many strings, show how to:
+
+* &nbsp; test if they are all lexically '''equal'''
+* &nbsp; test if every string is lexically '''less than''' the one after it  ''(i.e. whether the list is in strict ascending order)''
+
+<br>
+Each of those two tests should result in a single true or false value, which could be used as the condition of an &nbsp; <code> if </code> &nbsp; statement or similar. 
+
+If the input list has less than two elements, the tests should always return true.
+
+There is ''no'' need to provide a complete program and output.
+ 
+Assume that the strings are already stored in an array/list/sequence/tuple variable (whatever is most idiomatic) with the name &nbsp; <code>strings</code>, &nbsp; and just show the expressions for performing those two tests on it (plus of course any includes and custom functions etc. that it needs), &nbsp; with as little distractions as possible.
+
+Try to write your solution in a way that does not modify the original list, &nbsp; but if it does then please add a note to make that clear to readers.
+
+<i>If you need further guidance/clarification, &nbsp; see [[#Perl]] and [[#Python]] for solutions that use implicit short-circuiting loops, &nbsp; and [[#Perl_6]] for a solution that gets away with simply using a built-in language feature. </i>
+
+
+;Related tasks:
+* &nbsp; [[String comparison]]
+<br><br>
+
+
+=={{header|JavaScript}}==
+===ES5===
+====Iterative====
+<lang JavaScript>function allEqual(a) {
+  var out = true, i = 0;
+  while (++i<a.length) {
+    out = out && (a[i-1] === a[i]);
+  } return out;
+}
+
+function azSorted(a) {
+  var out = true, i = 0;
+  while (++i<a.length) {
+    out = out && (a[i-1] < a[i]);
+  } return out;
+}
+
+var e = ['AA', 'AA', 'AA', 'AA'], s = ['AA', 'ACB', 'BB', 'CC'], empty = [], single = ['AA'];
+console.log(allEqual(e)); // true
+console.log(allEqual(s)); // false
+console.log(allEqual(empty)); // true
+console.log(allEqual(single)); // true
+console.log(azSorted(e)); // false
+console.log(azSorted(s)); // true
+console.log(azSorted(empty)); // true
+console.log(azSorted(single)); // true
+</lang>
+
+===ES6===
+====Functional====
+
+Using a generic zipWith, and functionally composed predicates:
+<lang JavaScript>(() => {
+    'use strict';
+
+    // allEqual :: [String] -> Bool
+    let allEqual = xs => and(zipWith(equal, xs, xs.slice(1))),
+
+        // azSorted :: [String] -> Bool
+        azSorted = xs => and(zipWith(azBefore, xs, xs.slice(1))),
+
+        // equal :: a -> a -> Bool
+        equal = (a, b) => a === b,
+
+        // azBefore :: String -> String -> Bool
+        azBefore = (a, b) => a.toLowerCase() <= b.toLowerCase();
+
+
+    // GENERIC
+
+    // and :: [Bool] -> Bool
+    let and = xs => xs.reduceRight((a, x) => a && x, true),
+
+        // zipWith :: (a -> b -> c) -> [a] -> [b] -> [c]
+        zipWith = (f, xs, ys) => {
+            let ny = ys.length;
+            return (xs.length <= ny ? xs : xs.slice(0, ny))
+                .map((x, i) => f(x, ys[i]));
+        };
+
+
+    // TEST
+
+    let lists = [
+        ['isiZulu', 'isiXhosa', 'isiNdebele', 'Xitsonga',
+            'Tshivenda', 'Setswana', 'Sesotho sa Leboa', 'Sesotho',
+            'English', 'Afrikaans'
+        ],
+        ['Afrikaans', 'English', 'isiNdebele', 'isiXhosa',
+            'isiZulu', 'Sesotho', 'Sesotho sa Leboa', 'Setswana',
+            'Tshivenda', 'Xitsonga',
+        ],
+        ['alpha', 'alpha', 'alpha', 'alpha', 'alpha', 'alpha',
+            'alpha', 'alpha', 'alpha', 'alpha', 'alpha', 'alpha'
+        ]
+    ];
+
+    return {
+        allEqual: lists.map(allEqual),
+        azSorted: lists.map(azSorted)
+    };
+
+})();</lang>
+
+{{Out}}
+<lang JavaScript>{
+  "allEqual": [
+    false,
+    false,
+    true
+  ],
+  "azSorted": [
+    false,
+    true,
+    true
+  ]
+}</lang>
+

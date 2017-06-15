@@ -1,0 +1,169 @@
+Amicable pairs
+
+{{task}}
+
+Two integers <math>N</math> and <math>M</math> are said to be [[wp:Amicable numbers|amicable pairs]] if <math>N \neq M</math> and the sum of the [[Proper divisors|proper divisors]] of <math>N</math> (<math>\mathrm{sum}(\mathrm{propDivs}(N))</math>) <math>= M</math> as well as <math>\mathrm{sum}(\mathrm{propDivs}(M)) = N</math>.
+
+
+;Example:
+'''1184''' and '''1210''' are an amicable pair, with proper divisors:
+* &nbsp; 1, 2, 4, 8, 16, 32, 37, 74, 148, 296, 592 &nbsp; and 
+* &nbsp; 1, 2, 5, 10, 11, 22, 55, 110, 121, 242, 605  &nbsp; respectively.
+
+
+;Task:
+Calculate and show here the Amicable pairs below 20,000; (there are eight).
+
+
+;Related tasks
+* [[Proper divisors]]
+* [[Abundant, deficient and perfect number classifications]]
+* [[Aliquot sequence classifications]] and its amicable ''classification''. 
+<br><br>
+
+
+=={{header|JavaScript}}==
+
+===ES5===
+
+<lang JavaScript>(function (max) {
+ 
+    // Proper divisors
+    function properDivisors(n) {
+        if (n < 2) return [];
+        else {
+            var rRoot = Math.sqrt(n),
+                intRoot = Math.floor(rRoot),
+ 
+                lows = range(1, intRoot).filter(function (x) {
+                    return (n % x) === 0;
+                });
+ 
+            return lows.concat(lows.slice(1).map(function (x) {
+                return n / x;
+            }).reverse().slice((rRoot === intRoot) | 0));
+        }
+    }
+ 
+    // [m..n]
+    function range(m, n) {
+        var a = Array(n - m + 1),
+            i = n + 1;
+        while (i--) a[i - 1] = i;
+        return a;
+    }
+ 
+    // Filter an array of proper divisor sums,
+    // reading the array index as a function of N (N-1)
+    // and the sum of proper divisors as a potential M
+ 
+    var pairs = range(1, max).map(function (x) {
+        return properDivisors(x).reduce(function (a, d) {
+            return a + d;
+        }, 0)
+    }).reduce(function (a, m, i, lst) {
+        var n = i + 1;
+ 
+        return (m > n) && lst[m - 1] === n ? a.concat([[n, m]]) : a;
+    }, []);
+ 
+    // [[a]] -> bool -> s -> s
+    function wikiTable(lstRows, blnHeaderRow, strStyle) {
+        return '{| class="wikitable" ' + (
+            strStyle ? 'style="' + strStyle + '"' : ''
+        ) + lstRows.map(function (lstRow, iRow) {
+            var strDelim = ((blnHeaderRow && !iRow) ? '!' : '|');
+ 
+            return '\n|-\n' + strDelim + ' ' + lstRow.map(function (v) {
+                return typeof v === 'undefined' ? ' ' : v;
+            }).join(' ' + strDelim + strDelim + ' ');
+        }).join('') + '\n|}';
+    }
+ 
+    return wikiTable(
+        [['N', 'M']].concat(pairs),
+        true,
+        'text-align:center'
+    ) + '\n\n' + JSON.stringify(pairs);
+ 
+})(20000);</lang>
+
+{{out}}
+
+{| class="wikitable" style="text-align:center"
+|-
+! N !! M
+|-
+| 220 || 284
+|-
+| 1184 || 1210
+|-
+| 2620 || 2924
+|-
+| 5020 || 5564
+|-
+| 6232 || 6368
+|-
+| 10744 || 10856
+|-
+| 12285 || 14595
+|-
+| 17296 || 18416
+|}
+
+<lang JavaScript>[[220,284],[1184,1210],[2620,2924],[5020,5564],
+ [6232,6368],[10744,10856],[12285,14595],[17296,18416]]</lang>
+
+===ES6===
+
+<lang JavaScript>(max => {
+
+    // amicablePairsUpTo :: Int -> [(Int, Int)]
+    let amicablePairsUpTo = max =>
+        range(1, max)
+        .map(x => properDivisors(x)
+            .reduce((a, b) => a + b, 0))
+        .reduce((a, m, i, lst) => {
+            let n = i + 1;
+
+            return (m > n) && lst[m - 1] === n ?
+                a.concat([[n, m]]) : a;
+        }, []),
+
+
+        // properDivisors :: Int -> [Int]
+        properDivisors = n => {
+            if (n < 2) return [];
+            else {
+                let rRoot = Math.sqrt(n),
+                    intRoot = Math.floor(rRoot),
+                    blnPerfectSquare = rRoot === intRoot,
+
+                    lows = range(1, intRoot)
+                    .filter(x => (n % x) === 0);
+
+                return lows.concat(lows.slice(1)
+                    .map(x => n / x)
+                    .reverse()
+                    .slice(blnPerfectSquare | 0));
+            }
+        },
+
+        // Int -> Int -> Maybe Int -> [Int]
+        range = (m, n, step) => {
+            let d = (step || 1) * (n >= m ? 1 : -1);
+
+            return Array.from({
+                length: Math.floor((n - m) / d) + 1
+            }, (_, i) => m + (i * d));
+        }
+
+
+    return amicablePairsUpTo(max);
+
+})(20000);</lang>
+
+{{Out}}
+<lang JavaScript>[[220, 284], [1184, 1210], [2620, 2924], [5020, 5564], 
+[6232, 6368], [10744, 10856], [12285, 14595], [17296, 18416]]</lang>
+

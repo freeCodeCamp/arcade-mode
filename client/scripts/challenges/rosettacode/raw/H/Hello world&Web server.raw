@@ -1,0 +1,53 @@
+Hello world/Web server
+
+{{task|Networking and Web Interaction}} [[Category:Web]]
+{{omit from|GUISS}}
+{{omit from|Locomotive Basic|No sockets}}
+{{omit from|Lotus 123 Macro Scripting}}
+{{omit from|Maxima}}
+{{omit from|ML/I|No sockets}}
+{{omit from|Retro}}
+{{omit from|TI-83 BASIC}}
+{{omit from|ZX Spectrum Basic|No sockets}}
+
+The browser is the new [[GUI]] !
+
+
+;Task:
+Serve our standard text &nbsp; <big><big><code>Goodbye, World!</code></big></big> &nbsp; to &nbsp; http://localhost:8080/ &nbsp; so that it can be viewed with a web browser. 
+
+The provided solution must start or implement a server that accepts multiple client connections and serves text as requested.
+
+Note that starting a web browser or opening a new window with this URL 
+is not part of the task. 
+
+Additionally, it is permissible to serve the provided page as a plain text file (there is no requirement to serve properly formatted [[HTML]] here). 
+
+The browser will generally do the right thing with simple text like this.  
+<br><br>
+
+
+=={{header|JavaScript}}==
+
+{{works with|Node.js}}
+
+<lang javascript>var http = require('http');
+
+http.createServer(function (req, res) {
+    res.writeHead(200, {'Content-Type': 'text/plain'});
+    res.end('Goodbye, World!\n');
+}).listen(8080, '127.0.0.1');</lang>
+
+It scales:
+
+ $ curl http://localhost:8080/
+ Goodbye, World!
+ # httperf --port=8080 --num-conns=10000
+ Request rate: 1813.1 req/s (0.6 ms/req)
+ # httperf --port=8080 --num-conns=10000 --num-calls=10
+ Request rate: 4869.1 req/s (0.2 ms/req)
+ # httperf --port=8080 --num-conns=10000 --num-calls=100
+ Request rate: 5689.0 req/s (0.2 ms/req)
+
+with no errors.
+

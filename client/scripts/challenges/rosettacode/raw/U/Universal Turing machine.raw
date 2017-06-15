@@ -1,0 +1,134 @@
+Universal Turing machine
+
+{{task}}
+One of the foundational mathematical constructs behind computer science 
+is the [[wp:Universal Turing machine|universal Turing Machine]].  
+
+Indeed one way to definitively prove that a language 
+is [[wp:Turing_completeness|turing-complete]] 
+is to implement a universal Turing machine in it.
+
+
+;Task:
+
+Simulate such a machine capable 
+of taking the definition of any other Turing machine and executing it. 
+ 
+Of course, you will not have an infinite tape, 
+but you should emulate this as much as is possible.  
+
+The three permissible actions on the tape are "left", "right" and "stay".
+
+To test your universal Turing machine (and prove your programming language 
+is Turing complete!), you should execute the following two Turing machines 
+based on the following definitions.
+
+
+'''Simple incrementer'''
+* '''States:''' q0, qf
+* '''Initial state:''' q0
+* '''Terminating states:''' qf
+* '''Permissible symbols:''' B, 1
+* '''Blank symbol:''' B
+* '''Rules:'''
+** (q0, 1, 1, right, q0)
+** (q0, B, 1, stay,  qf)
+
+<br>
+The input for this machine should be a tape of <code>1 1 1</code>
+
+
+'''Three-state busy beaver'''
+* '''States:''' a, b, c, halt
+* '''Initial state:''' a
+* '''Terminating states:''' halt
+* '''Permissible symbols:''' 0, 1
+* '''Blank symbol:''' 0
+* '''Rules:'''
+** (a, 0, 1, right, b)
+** (a, 1, 1, left,  c)
+** (b, 0, 1, left,  a)
+** (b, 1, 1, right, b)
+** (c, 0, 1, left,  b)
+** (c, 1, 1, stay,  halt)
+
+<br>
+The input for this machine should be an empty tape.
+
+
+'''Bonus:'''
+
+'''5-state, 2-symbol probable Busy Beaver machine from Wikipedia'''
+* '''States:''' A, B, C, D, E, H
+* '''Initial state:''' A
+* '''Terminating states:''' H
+* '''Permissible symbols:''' 0, 1
+* '''Blank symbol:''' 0
+* '''Rules:'''
+** (A, 0, 1, right, B)
+** (A, 1, 1, left,  C)
+** (B, 0, 1, right, C)
+** (B, 1, 1, right, B)
+** (C, 0, 1, right, D)
+** (C, 1, 0, left,  E)
+** (D, 0, 1, left,  A)
+** (D, 1, 1, left,  D)
+** (E, 0, 1, stay,  H)
+** (E, 1, 0, left,  A)
+
+<br>
+The input for this machine should be an empty tape.
+
+This machine runs for more than 47 millions steps.
+<br><br>
+
+
+=={{header|JavaScript}}==
+{{works with|FireFox}}
+<lang JavaScript>function tm(d,s,e,i,b,t,... r) {
+	document.write(d, '<br>')
+	if (i<0||i>=t.length) return
+	var re=new RegExp(b,'g')
+	write('*',s,i,t=t.split(''))
+	var p={}; r.forEach(e=>((s,r,w,m,n)=>{p[s+'.'+r]={w,n,m:[0,1,-1][1+'RL'.indexOf(m)]}})(... e.split(/[ .:,]+/)))
+	for (var n=1; s!=e; n+=1) {
+		with (p[s+'.'+t[i]]) t[i]=w,s=n,i+=m
+		if (i==-1) i=0,t.unshift(b)
+		else if (i==t.length) t[i]=b
+		write(n,s,i,t)
+	}
+	document.write('<br>')
+	function write(n, s, i, t) {
+		t = t.join('')
+		t = t.substring(0,i) + '<u>' + t.charAt(i) + '</u>' + t.substr(i+1)
+		document.write(('  '+n).slice(-3).replace(/ /g,'&nbsp;'), ': ', s, ' [', t.replace(re,'&nbsp;'), ']', '<br>')
+	}
+}
+
+tm( 'Unary incrementer',
+//	 s    e   i   b    t
+	'a', 'h', 0, 'B', '111',
+//	 s.r: w, m, n
+	'a.1: 1, L, a',
+	'a.B: 1, S, h'
+)
+
+tm( 'Unary adder',
+	1, 0, 0, '0', '1110111',
+	'1.1: 0, R, 2', // write 0 rigth goto 2
+	'2.1: 1, R, 2', // while (1) rigth
+	'2.0: 1, S, 0'  // write 1 stay halt
+)
+
+tm( 'Three-state busy beaver',
+	1, 0, 0, '0', '0',
+	'1.0: 1, R, 2',
+	'1.1: 1, R, 0',
+	'2.0: 0, R, 3',
+	'2.1: 1, R, 2',
+	'3.0: 1, L, 3',
+	'3.1: 1, L, 1'
+)</lang>
+{{out}}
+ Unary incrementer<br>&nbsp;&nbsp;*: a [<u>1</u>11]<br>&nbsp;&nbsp;1: a [<u>&nbsp;</u>111]<br>&nbsp;&nbsp;2: h [<u>1</u>111]<br> <br>Unary adder<br>&nbsp;&nbsp; *: 1 [<u>1</u>11&nbsp;111]<br> &nbsp;&nbsp;1: 2 [&nbsp;<u>1</u>1&nbsp;111]<br> &nbsp;&nbsp;2: 3 [&nbsp;1<u>1</u>&nbsp;111]<br> &nbsp;&nbsp;3: 3 [&nbsp;11<u>&nbsp;</u>111]<br> &nbsp;&nbsp;4: 0 [&nbsp;11<u>1</u>111]<br>  <br>Three-state busy beaver<br>&nbsp;&nbsp; *: 1 [<u>&nbsp;</u>]<br> &nbsp;&nbsp;1: 2 [1<u>&nbsp;</u>]<br> &nbsp;&nbsp;2: 3 [1&nbsp;<u>&nbsp;</u>]<br> &nbsp;&nbsp;3: 3 [1<u>&nbsp;</u>1]<br> &nbsp;&nbsp;4: 3 [<u>1</u>11]<br> &nbsp;&nbsp;5: 1 [<u>&nbsp;</u>111]<br> &nbsp;&nbsp;6: 2 [1<u>1</u>11]<br> &nbsp;&nbsp;7: 2 [11<u>1</u>1]<br> &nbsp;&nbsp;8: 2 [111<u>1</u>]<br> &nbsp;&nbsp;9: 2 [1111<u>&nbsp;</u>]<br> &nbsp;10: 3 [1111&nbsp;<u>&nbsp;</u>]<br> &nbsp;11: 3 [1111<u>&nbsp;</u>1]<br> &nbsp;12: 3 [111<u>1</u>11]<br> &nbsp;13: 1 [11<u>1</u>111]<br> &nbsp;14: 0 [111<u>1</u>11]
+

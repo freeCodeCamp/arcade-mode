@@ -1,0 +1,35 @@
+Exponentiation order
+
+{{task}}
+
+This task will demonstrate the order of [[wp:Exponentiation|exponentiation]] &nbsp; <big>('''x<sup>y</sup>''') </big> &nbsp; when there are multiple exponents.
+
+(Many programming languages, especially those with extended-precision integer arithmetic, usually support one of <code>**</code>, <code>^</code>, <code>↑</code> or some such for exponentiation.)
+
+
+;Task requirements
+Show the result of a language's evaluation of multiple exponentiation (either as an integer or floating point).
+
+If your language's exponentiation operator is not one of the usual ones, please comment on how to recognize it.
+
+
+Using whatever operator or syntax your language supports (if any), show the results in three lines (with identification):
+<big>  
+::::* &nbsp; 5**3**2 
+::::* &nbsp; (5**3)**2
+::::* &nbsp; 5**(3**2)
+</big>
+
+<br>
+If there are other methods (or formats) of multiple exponentiations, show them as well. 
+
+
+;See also:
+* MathWorld entry: &nbsp; [http://mathworld.wolfram.com/Exponentiation.html exponentiation]
+
+
+;Related task:
+* Rosetta Code task: &nbsp; [[Arbitrary-precision integers (included)]]
+<br><br>
+
+
