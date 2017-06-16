@@ -11,9 +11,7 @@ const userOutputUndef = 'User output is undefined.';
 
 challenges.forEach(challenge => {
   describe(`RosettaChallenge ${challenge.title}`, () => {
-    it('runner can execute all the challenge properly', () => {
-      console.log(`Executing challenge ${challenge.title}`);
-
+    it(`runner can execute ${challenge.title} challenge properly`, () => {
       const userCode = challenge.solutions.join('');
       const result = runner(userCode, challenge);
       expect(challenge.tests).to.have.property('length');
