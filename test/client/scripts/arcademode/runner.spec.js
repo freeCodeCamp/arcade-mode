@@ -1,3 +1,4 @@
+/* eslint no-extend-native: 0 */
 
 import { expect } from 'chai';
 
