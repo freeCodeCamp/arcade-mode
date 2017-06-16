@@ -17,7 +17,7 @@ const formControlLength = 2;
 const props = {
   modal: true,
   onModalClose: () => {},
-  mode: 'Arcade',
+  mode: 'Rosetta',
   onChangeMode: () => {},
   difficulty: 'Medium',
   onChangeDifficulty: () => {},
