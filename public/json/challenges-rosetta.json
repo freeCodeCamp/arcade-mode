@@ -1,0 +1,243 @@
+{
+  "name": "ArcadeMode Interview Questions",
+  "order": "",
+  "time": "",
+  "helpRoom": "",
+  "challenges": [
+    {
+      "title": "100 doors",
+      "type": "rosetta-code",
+      "categories": "?",
+      "difficulty": "2",
+      "benchmark": "getFinalOpenedDoors(10000);",
+      "description": [
+        "There are 100 doors in a row that are all initially closed. You make 100 passes by the doors. The first time through, visit every door and 'toggle' the door (if the door is closed, open it; if it is open, close it). The second time, only visit every 2nd door (i.e., door #2, #4, #6, ...) and toggle it. The third time, visit every 3rd door (i.e., door #3, #6, #9, ...), etc., until you only visit the 100th door.",
+        "Implement an algorithm to determine the state of the doors after the last pass. Return the final result in an array, with only the door number included in the array if it is open."
+      ],
+      "challengeSeed": [
+        "function getFinalOpenedDoors (numDoors) {",
+        "  // Good luck!",
+        "}"
+      ],
+      "solutions": [
+        "function getFinalOpenedDoors (numDoors) {\n  // this is the final pattern (always squares).\n  // thus, the most efficient solution simply returns an array of squares up to numDoors).\n  const finalState = [];\n  let i = 1;\n  while (i ** 2 <= numDoors) {\n    finalState.push(i ** 2);\n    i++;\n  }\n /*\n  Array.apply(null, { length: numDoors })\n    .map((v, i) => i + 1)\n    .forEach(door => {\n      const sqrt = Math.sqrt(door);\n      if (sqrt === Math.floor(sqrt)) { // check if equal to floored value\n        finalState.push(door);\n      }\n    });\n   */\n  return finalState;\n}\n"
+      ],
+      "naive": "function getFinalOpenedDoors (numDoors) {\n  const doors = [];\n  const openedDoors = [];\n  for (let i = 0; i < numDoors; i++) {\n    doors[i] = false; // create doors\n  }\n  for (let i = 1; i <= numDoors; i++) {\n    for (let i2 = i - 1; i2 < numDoors; i2+=i) {\n      doors[i2] = !doors[i2]; // toggle doors\n    }\n  }\n  for (let i = 0; i < numDoors; i++) {\n    if (doors[i]) {\n      openedDoors.push(i + 1);\n    }\n  }\n\n  return openedDoors;\n}\n",
+      "tail": "const solution = [1, 4, 9, 16, 25, 36, 49, 64, 81, 100];",
+      "tests": [
+        "assert(typeof getFinalOpenedDoors === 'function', 'message: <code>getFinalOpenedDoors</code> is a function.');",
+        "assert(Array.isArray(getFinalOpenedDoors(100)), 'message: <code>getFinalOpenedDoors</code> should return an array.');",
+        "assert.deepEqual(getFinalOpenedDoors(100), solution, 'message: <code>getFinalOpenedDoors</code> did not produce the correct results.');"
+      ],
+      "id": 0
+    },
+    {
+      "title": "ABC Problem",
+      "type": "rosetta-code",
+      "categories": "?",
+      "difficulty": "3",
+      "description": [
+        "You are given a collection of ABC blocks (e.g., childhood alphabet blocks). There are 20 blocks with two letters on each block. A complete alphabet is guaranteed amongst all sides of the blocks. The sample collection of blocks,",
+        "(B O)",
+        "(X K)",
+        "(D Q)",
+        "(C P)",
+        "(N A)",
+        "(G T)",
+        "(R E)",
+        "(T G)",
+        "(Q D)",
+        "(F S)",
+        "(J W)",
+        "(H U)",
+        "(V I)",
+        "(A N)",
+        "(O B)",
+        "(E R)",
+        "(F S)",
+        "(L Y)",
+        "(P C)",
+        "(Z M)",
+        "Some rules to keep in mind,",
+        "1. Once a letter on a block is used, that block cannot be used again",
+        "2. the function should be case-insensitive",
+        "Implement a function that takes a string (word) and determines whether the word can be spelled with the given collection of blocks."
+      ],
+      "challengeSeed": [
+        "function canMakeWord (word) {",
+        "  // Good luck!",
+        "}"
+      ],
+      "solutions": [
+        "function canMakeWord (word) {\n  const characters = 'BO XK DQ CP NA GT RE TG QD FS JW HU VI AN OB ER FS LY PC ZM';\n  const blocks = characters.split(' ').map(pair => pair.split(''));\n\n  const letters = [...word.toUpperCase()];\n  let length = letters.length;\n  const copy = new Set(blocks);\n\n  letters.forEach(letter => {\n    for (let block of copy) {\n      const index = block.indexOf(letter);\n\n      if (index !== -1) {\n        length--;\n        copy.delete(block);\n        break;\n      }\n    }\n  });\n  return !length;\n}\n"
+      ],
+      "tail": "const words = ['bark', 'BooK', 'TReAT', 'COMMON', 'squAD', 'conFUSE'];",
+      "tests": [
+        "assert(typeof canMakeWord === 'function', 'message: <code>canMakeWord</code> is a function.');",
+        "assert(typeof canMakeWord('hi') === 'boolean', 'message: <code>canMakeWord</code> should return a boolean.');",
+        "assert.isTrue(canMakeWord(words[0]), 'message: <code>canMakeWord(\"bark\")</code> should return true.');",
+        "assert.isFalse(canMakeWord(words[1]), 'message: <code>canMakeWord(\"BooK\")</code> should return false.');",
+        "assert.isTrue(canMakeWord(words[2]), 'message: <code>canMakeWord(\"TReAT\")</code> should return true.');",
+        "assert.isFalse(canMakeWord(words[3]), 'message: <code>canMakeWord(\"COMMON\")</code> should return false.');",
+        "assert.isTrue(canMakeWord(words[4]), 'message: <code>canMakeWord(\"squAD\")</code> should return true.');",
+        "assert.isTrue(canMakeWord(words[5]), 'message: <code>canMakeWord(\"conFUSE\")</code> should return true.');"
+      ],
+      "id": 0
+    },
+    {
+      "title": "Abundant, deficient and perfect number classifications",
+      "type": "rosetta-code",
+      "categories": "?",
+      "difficulty": "4",
+      "benchmark": "getDPA(20000);",
+      "description": [
+        "These define three classifications of positive integers based on their Proper Divisors.",
+        "Let P(n) be the sum of the proper divisors of n where proper divisors are all positive integers n other than n itself.",
+        "if <code>P(n) < n</code> then n is classed as \"deficient\"",
+        "if <code>P(n) === n</code> then n is classed as \"perfect\"",
+        "if <code>P(n) > n</code> then n is classed as \"abundant\"",
+        "Example",
+        "6 has proper divisors of 1, 2, and 3.",
+        "1 + 2 + 3 = 6, so 6 is classed as a perfect number.",
+        "Implement an function that calculates how many of hte integers from 1 to 20,000 (inclusive) are in each of the three classes. Output the result as an array in the following format [deficient, perfect, abundant]."
+      ],
+      "challengeSeed": [
+        "function getDPA (num) {",
+        "  // Good luck!",
+        "}"
+      ],
+      "solutions": [
+        "function getDPA (num) {\n  const dpa = [1, 0, 0];\n  for (let n = 2; n <= num; n += 1) {\n    let ds = 1;\n    const e = Math.sqrt(n);\n    for (let d = 2; d < e; d += 1) {\n      if (n % d === 0) {\n        ds += d + (n / d);\n      }\n    }\n    if (n % e === 0) {\n      ds += e;\n    }\n    dpa[ds < n ? 0 : ds === n ? 1 : 2] += 1;\n  }\n  return dpa;\n}\n"
+      ],
+      "tail": "const solution = [15043, 4, 4953];",
+      "tests": [
+        "assert(typeof getDPA === 'function', 'message: <code>getDPA</code> is a function.');",
+        "assert(Array.isArray(getDPA(100)), 'message: <code>getDPA</code> should return an array.');",
+        "assert(getDPA(100).length === 3, 'message: <code>getDPA</code> return value should have a length of 3.');",
+        "assert.deepEqual(getDPA(20000), solution, 'message: <code>getDPA(20000)</code> should equal [15043, 4, 4953]');"
+      ],
+      "id": 0
+    },
+    {
+      "title": "Accumulator factory",
+      "type": "rosetta-code",
+      "categories": "closures",
+      "difficulty": "1",
+      "description": [
+        "Create a function that takes a single (numeric) argument and returns another function that is an accumulator. The returned accumulator function in turn also takes a single numeric argument, and returns the sum of all the numeric values passed in so far to that accumulator (including the initial value passed when the accumulator was created).",
+        "Rules",
+        "Do not use global variables.",
+        "Hint",
+        "Closures save outer state."
+      ],
+      "challengeSeed": [
+        "function accumulator (sum) {",
+        "  // Good luck!",
+        "}"
+      ],
+      "solutions": [
+        "function accumulator (sum) {\n  return function (n) {\n    return sum += n;\n  };\n}\n"
+      ],
+      "tail": [
+        "const testFn = typeof accumulator(3) === 'function' && accumulator(3);",
+        "if (testFn) {",
+        "  testFn(-4);",
+        "  testFn(1.5);",
+        "}"
+      ],
+      "tests": [
+        "assert(typeof accumulator === 'function', 'message: <code>accumulator</code> is a function.');",
+        "assert(typeof accumulator(0) === 'function', 'message: <code>accumulator(0)</code> should return a function.');",
+        "assert(typeof accumulator(0)(2) === 'number', 'message: <code>accumulator(0)(2)</code> should return a number.');",
+        "assert(testFn(5) === 5.5, 'message: Passing in the values 3, -4, 1.5, and 5 should return 5.5.');"
+      ],
+      "id": 0
+    },
+    {
+      "title": "Ackermann function",
+      "type": "rosetta-code",
+      "categories": "recursion",
+      "difficulty": "2",
+      "description": [
+        "The Ackermann function is a classic example of a recursive function, notable especially because it is not a primitive recursive function. It grows very quickly in value, as does the size of its call tree.",
+        "The Ackermann function is usually defined as follows",
+        "<MathJax.Node>",
+        "$$A(m, n) =",
+        " \\begin{cases}",
+        " n+1 & \\mbox{if } m = 0 \\\\",
+        " A(m-1, 1) & \\mbox{if } m > 0 \\mbox{ and } n = 0 \\\\",
+        " A(m-1, A(m, n-1)) & \\mbox{if } m > 0 \\mbox{ and } n > 0.",
+        " \\end{cases}$$",
+        "</MathJax.Node>",
+        "Its arguments are never negative and it always terminates. Write a function which returns the value of A(m, n). Arbitrary precision is preferred (since the function grows so quickly), but not required."
+      ],
+      "challengeSeed": [
+        "function ack (m, n) {",
+        "  // Good luck!",
+        "}"
+      ],
+      "solutions": [
+        "function ack (m, n) {\n  return m === 0 ? n + 1 : ack(m - 1, n === 0 ? 1 : ack(m, n - 1));\n}\n"
+      ],
+      "tests": [
+        "assert(typeof ack === 'function', 'message: <code>ack</code> is a function.');",
+        "assert(ack(1, 1) === 5, 'message: <code>ack(1, 1)</code> should return 5');"
+      ],
+      "id": 0
+    },
+    {
+      "title": "Zeckendorf number representation",
+      "difficulty": "3",
+      "description": [
+        "Just as numbers can be represented in a positional notation as sums of multiples",
+        "of the powers of ten (decimal) or two (binary); all the positive integers can be",
+        "represented as the sum of one or zero times the distinct members of the",
+        "Fibonacci series.<br/>",
+        "Recall that the first six distinct Fibonacci numbers are:  1, 2, 3, 5, 8, 13.",
+        "The decimal number eleven can be written as 0*13 + 1*8 + 0*5 + 1*3 + 0*2 + 0*1",
+        "or 010100 in positional notation where the columns represent multiplication by a",
+        " particular member of the sequence. Leading zeroes are dropped so that 11 decimal",
+        "becomes 10100. <br/>",
+        "10100 is not the only way to make 11 from the Fibonacci numbers however;  0*13 +",
+        "<code>1*8 + 0*5 + 0*3 + 1*2 + 1*1</code> or 010011 would also represent decimal 11. For a",
+        "true Zeckendorf number there is the added restriction that ''no two consecutive",
+        "Fibonacci numbers can be used'' which leads to the former unique solution."
+      ],
+      "Instructions": [
+        "Generate and show here a table of the Zeckendorf number representations of",
+        "the decimal numbers zero to twenty, in order.",
+        "The intention in this task to find the Zeckendorf form of an arbitrary integer.",
+        "The Zeckendorf form can be iterated by some bit twiddling rather than",
+        "calculating each value separately but leave that to another separate task."
+      ],
+      "challengeSeed": [
+        "function zeckendorf(n) {",
+        "  // good luck!",
+        "}"
+      ],
+      "solutions": [
+        "// zeckendorf :: Int -> String\nfunction zeckendorf(n) {\n  const f = (m, x) => (m < x ? [m, 0] : [m - x, 1]);\n  return (n === 0 ? ([0]) :\n    mapAccumL(f, n, reverse(\n      tail(fibUntil(n))\n    ))[1]).join('');\n}\n\n// fibUntil :: Int -> [Int]\nlet fibUntil = n => {\n  const xs = [];\n  until(\n      ([a]) => a > n,\n      ([a, b]) => (xs.push(a), [b, a + b]), [1, 1]\n  );\n  return xs;\n};\n\nlet mapAccumL = (f, acc, xs) => (\n  xs.reduce((a, x) => {\n    const pair = f(a[0], x);\n\n    return [pair[0], a[1].concat(pair[1])];\n  }, [acc, []])\n);\n\nlet until = (p, f, x) => {\n  let v = x;\n  while (!p(v)) v = f(v);\n  return v;\n};\n\nconst tail = xs => (\n   xs.length ? xs.slice(1) : undefined\n);\n\nconst reverse = xs => xs.slice(0).reverse();\n"
+      ],
+      "tail": [
+        "const range = (m, n) => (",
+        "  Array.from({",
+        "    length: Math.floor(n - m) + 1",
+        "  }, (_, i) => m + i)",
+        ");",
+        "",
+        "const solution20 = [",
+        "  '1', '10', '100', '101', '1000', '1001', '1010', '10000', '10001',",
+        "  '10010', '10100', '10101', '100000', '100001', '100010', '100100', '100101',",
+        "  '101000', '101001', '101010'",
+        "];",
+        "",
+        "const answer = range(1, 20).map(zeckendorf);"
+      ],
+      "tests": [
+        "assert.equal(typeof zeckendorf, 'function', 'message: zeckendorf must be function');",
+        "assert.deepEqual(answer, solution20);"
+      ],
+      "id": 0
+    }
+  ]
+}
