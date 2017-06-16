@@ -15,7 +15,7 @@ const assert = require('chai').assert;
 /// categories:
 /// ?
 
-/// difficulty: ?
+/// difficulty: 3
 
 /// description:
 /// You are given a collection of ABC blocks (e.g., childhood alphabet blocks). There are 20 blocks with two letters on each block. A complete alphabet is guaranteed amongst all sides of the blocks. The sample collection of blocks,
