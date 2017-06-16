@@ -3,7 +3,7 @@
 
 const assert = require('chai').assert;
 
-/// title:
+/// title: Zhang-Suen thinning algorithm
 /// type: rosetta-code
 /// difficulty: 7
 
@@ -246,4 +246,5 @@ const expected = [
 ];
 
 /// tests:
+assert.equal(typeof thinImage, 'function', 'thinImage must be a function');
 assert.deepEqual(thinImage(testImage), expected);
