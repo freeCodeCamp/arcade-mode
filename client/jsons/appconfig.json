@@ -66,11 +66,11 @@
       "showDescription": false,
       "showDropdownMenu": true,
       "options": {
+        "Rosetta": {},
         "Arcade": {},
         "Algorithms": {},
         "Data structures": {},
-        "Mixed": {},
-        "Rosetta": {}
+        "Mixed": {}
       }
     }
   }
