@@ -14,7 +14,7 @@ const outputOptions = {
   readOnly: true,
   theme: 'monokai',
   scrollbarStyle: 'null',
-  lineWrapping: true,
+  lineWrapping: false,
   mode: '',
   json: true
 };
