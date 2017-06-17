@@ -1,11 +1,14 @@
 
 /* eslint no-multi-spaces: 0 */
+/* eslint no-undef: 0 */
 
 import React from 'react';
 import PropTypes from 'prop-types';
 import ImmutablePropTypes from 'react-immutable-proptypes';
-
 import CodeMirror from 'react-codemirror';
+// import MathJax from '../../vendor/MathJax'; // single-file ver. doesn't work as it uses code incompatible with strict mode i.e., arguments.callee
+// importing MathJax from npm's mathjax also doesn't seem to work (mathjax not found).
+// Hence, the current solution is to rely on the external script. This however means potential problems during offline sessions.
 
 const outputOptions = {
   readOnly: true,
@@ -22,6 +25,15 @@ export default class ChallengePanel extends React.Component {
   constructor(props) {
     super(props);
     this.createMarkup = this.createMarkup.bind(this);
+    MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$'], ['\\(', '\\)']] } });
+  }
+
+  componentDidMount () {
+    MathJax.Hub.Queue(['Typeset', MathJax.Hub, document.querySelector('.challenge__description')]);
+  }
+
+  componentDidUpdate () {
+    MathJax.Hub.Queue(['Typeset', MathJax.Hub, document.querySelector('.challenge__description')]);
   }
 
   getOverallTestResult () {
