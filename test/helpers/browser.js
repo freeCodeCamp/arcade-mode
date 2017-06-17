@@ -12,7 +12,14 @@ import now from 'performance-now';
 // import MockStorage from './mockstorage';
 import requestAnimFrame from './requestAnimFrame';
 
-const dom = new JSDOM('<!DOCTYPE html><html><head></head><body></body></html>');
+const dom = new JSDOM(`
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+  </body>
+</html>
+`);
 
 global.window = dom.window;
 global.document = dom.window.document;
@@ -35,5 +42,6 @@ global.navigator = {
 
 global.window.indexedDB = indexedDB;
 global.performance = { now };
+global.MathJax = { Hub: { Config: () => {}, Queue: () => {} } };
 // global.window.localStorage = new MockStorage();
 
