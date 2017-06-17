@@ -128,7 +128,10 @@ function detectErrorsTranspileCodeRunTestsProcessResults (userCode, currChalleng
 
       const evalRetVal = eval(esFiveWithHeadLP);
       if (typeof evalRetVal !== 'undefined' && evalRetVal !== 'use strict') {
-        userOutput = JSON.stringify(evalRetVal, null, 2);
+        if (typeof evalRetVal !== 'string') {
+          userOutput = JSON.stringify(evalRetVal, null, 2);
+        }
+        else userOutput = evalRetVal;
       }
     }
     catch (err) {
