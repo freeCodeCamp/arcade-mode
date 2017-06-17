@@ -1,4 +1,11 @@
 # PROGRESS for Arcade Mode
+## Saturday 6/17/17:
+### Tim:
+  - Progress:
+    1. Add Align Columns challenge
+  - @:
+    - [ ] Pressing enter in already max-height CodeMirror editor (with scrollbar) does not auto scroll the newline into view. Need Vim scrolloff equivalent for Codemirror editor.
+
 ## Friday 6/16/17:
 ### Tim:
   - Progress:
