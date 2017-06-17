@@ -1,4 +1,11 @@
 # PROGRESS for Arcade Mode
+## Friday 6/16/17:
+### Tim:
+  - Progress:
+    1. Add MathJax for mathematical equation rendering.
+  - @:
+    - [ ] main.bundle.js failed to fetch in a different environment; displays old version despite updates. Cache refreshed and pushed still required two page refreshes to resolve to current iteration.
+    - [ ] Static copy of MathJax currently unusable. Using from CDNJS, which means possibility of presentation during offline sessions.
 
 ## Wednesday 6/14/17:
 ### Tim:
