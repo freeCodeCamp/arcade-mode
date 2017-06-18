@@ -15,6 +15,7 @@ const conventuristChallenge = challenges.find(item => item.title.match(/Conventu
 const lruCacheChallenge = challenges.find(item => item.title.match(/LRU Cache/));
 const petchChallenge = challenges.find(item => item.title.match(/Petch/));
 const rotateArrayChallenge = challenges.find(item => item.title.match(/Rotate array/));
+const linkedHashmapChallenge = challenges.find(item => item.title.match(/Linked Hash Map/));
 
 const userOutputUndef = 'User output is undefined.';
 
@@ -110,8 +111,7 @@ describe('runner()', () => {
   });
 
   it('can execute queue-2-stack challenge', () => {
-    let userCode = stackChallenge.solutions.join('');
-    userCode = userCode.replace(/^\s*Queue/, 'const Queue');
+    const userCode = stackChallenge.solutions.join('');
     const result = runner(userCode, stackChallenge);
     return result.then(res => {
       expect(res.userOutput).to.equal(userOutputUndef);
@@ -172,6 +172,15 @@ describe('runner()', () => {
     return result.then(res => {
       expect(res.userOutput).to.equal(userOutputUndef);
       expectNoErrorsAndAllTestsRun(res, rotateArrayChallenge);
+    });
+  });
+
+  it('can execute the Linked hash map challenge', () => {
+    const userCode = linkedHashmapChallenge.solutions.join('');
+    const result = runner(userCode, linkedHashmapChallenge);
+    return result.then(res => {
+      expect(res.userOutput).to.equal(userOutputUndef);
+      expectNoErrorsAndAllTestsRun(res, linkedHashmapChallenge);
     });
   });
 });
