@@ -46,7 +46,7 @@ function LinkedHashMap() {
   };
 }
 
-/// solution:
+/// solutions:
 function LinkedHashMap() {
   this.orderList = [];
   this.hashMap = {};
