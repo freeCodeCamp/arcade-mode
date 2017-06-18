@@ -20,7 +20,7 @@ const CURRENT_CACHES = {
   // json: `json-cache-v${CACHE_VERSION}` // this should be in indexedDB.
   // currently appcache has everything stored in it, including json
   // will eventually need to take out json and move it to indexedDB.
-  // indexedDB will also store the user's progress.
+  // indexedDB currently stores the user's progress.
 };
 
 // challenges currently do not need to be imported as it's part of the main.bundle.js
