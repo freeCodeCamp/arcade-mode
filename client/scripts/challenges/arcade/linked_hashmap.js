@@ -7,11 +7,10 @@ const assert = require('chai').assert;
 
 /// title: Linked Hash Map
 /// type: arcade-mode
+/// difficulty: 3
 
 /// categories:
 /// data structures
-
-/// difficulty: 3
 
 /// description:
 /// In a hash map, the order of the keys is usually unspecified. We can use
