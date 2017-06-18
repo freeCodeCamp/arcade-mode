@@ -6,7 +6,7 @@
 const assert = require('chai').assert;
 
 /// title: Zeckendorf number representation
-
+/// type: rosetta-code
 /// difficulty: 3
 
 /// description:
