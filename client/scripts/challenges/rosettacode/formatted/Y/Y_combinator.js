@@ -44,7 +44,6 @@ var factorial = Y(function(f) {
 
 /// solutions:
 var Y = f => (x => x(x))(y => f(x => y(y)(x)));
-// var Y = f => (x => x(x))(y => f(x => y(y)(x)));
 
 /// tail:
 var factorial = Y(f => n => (n > 1 ? n * f(n - 1) : 1));
