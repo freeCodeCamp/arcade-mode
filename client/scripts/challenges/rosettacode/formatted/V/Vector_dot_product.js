@@ -9,6 +9,10 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 /// difficulty: 2
 
+/// categories:
+/// vector
+/// math
+
 /// description:
 /// A vector is defined as having three dimensions as being represented by an ordered collection of three numbers: &nbsp; (X, Y, Z).
 /// Instructions:
@@ -64,7 +68,6 @@ for (let i = 0; i < 5; i++) {
     vectors5x5[i].push((i + 1) * j);
   }
 }
-//console.log(dotProduct(...vectors5x5));
 const vectorsWp = [[1, 3, -5], [4, -2, -1]];
 
 /// tests:
