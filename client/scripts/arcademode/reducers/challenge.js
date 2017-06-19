@@ -52,7 +52,8 @@ const initialState = Map({
   challengeType: appConfig.options.Challenge.default,
   chosenChallenges: challengeTypes[appConfig.options.Challenge.default],
   passedChallenges: List(),
-  benchmark: ''
+  benchmark: '',
+  difficulty: 10 // Hard-coded for now
 });
 
 function shuffle (array) {
@@ -70,25 +71,23 @@ function shuffle (array) {
   return newArray;
 }
 
+/* Returns the next challenge. If challenges have difficulty, uses it to
+ * determine if the next challenge is easy enough. */
 function getNextChallenge(state) {
-  const newIndex = state.get('challengeNumber') + 1;
+  let newIndex = state.get('challengeNumber') + 1;
+  const lastIndex = state.get('chosenChallenges').size - 1;
+
+  while (
+    state.get('chosenChallenges')[newIndex].difficulty
+    && state.get('chosenChallenges')[newIndex].difficulty > state.get('difficulty')
+    && newIndex <= lastIndex
+  ) {
+    ++newIndex;
+  }
+
   return Map(Immutable.fromJS(
     state.get('chosenChallenges')[newIndex])
   );
-
-  // TODO finish the logic, if user runs out of challenges
-  /*
-  if (newIndex <= state.get('chosenChallenges').size) {
-    return Map(Immutable.fromJS(
-      state.get('chosenChallenges')[newIndex])
-    );
-  }
-  // TODO handle case where challenges have run out
-  // Right now we assume that user has passed some challenges
-  return Map(Immutable.fromJS(
-    state.get('passedChallenges')[0])
-  );
-  */
 }
 
 export default function challenge(state = initialState, action) {
@@ -117,6 +116,7 @@ export default function challenge(state = initialState, action) {
         .setIn(['currChallenge', 'startTime'], action.startTime)
         .setIn(['currChallenge', 'attempts'], 0);
     case PLAYER_PASSED:
+          // Fallthrough to CHALLENGE_NEXT
     case CHALLENGE_NEXT:
       return state
         .update('challengeNumber', challengeNumber => challengeNumber + 1)
