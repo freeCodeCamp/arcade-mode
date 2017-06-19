@@ -15,7 +15,7 @@ const assert = require('chai').assert;
 
 /// description:
 /// A vector is defined as having three dimensions as being represented by an ordered collection of three numbers: &nbsp; (X, Y, Z).
-/// Instructions:
+/// <br/>
 /// Write a function that takes any numbers of vectors (arrays) as
 /// input and computes their dot product. Your function should return <code>null</code> on
 /// invalid inputs (ie vectors of different lenghts).
