@@ -29,8 +29,7 @@ if ($branch !~ /master/) {
     exit 0;
 }
 
-my $error = system("npm run test:client");
-
+my $error = system("npm run test:client >& /dev/null");
 if ($error == 0) {
     print "Tests OK. Proceeding to push.\n";
 }
