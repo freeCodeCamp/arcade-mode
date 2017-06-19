@@ -1,4 +1,11 @@
 # PROGRESS for Arcade Mode
+## Sunday 6/18/17:
+### Tim:
+  - Progress:
+    1. Add Happy numbers challenge.
+  - @:
+    - [ ] Prevent non-heading lines with colon endings from messing up generated JSON.
+
 ## Saturday 6/17/17:
 ### Tim:
   - Progress:
