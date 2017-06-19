@@ -4,18 +4,18 @@ Haversine formula
 {{Wikipedia}}
 
 <br>
-The '''haversine formula''' is an equation important in navigation, giving great-circle distances between two points on a sphere from their longitudes and latitudes. 
+The <span class="rosetta__text--bold">haversine formula</span> is an equation important in navigation, giving great-circle distances between two points on a sphere from their longitudes and latitudes. 
 
-It is a special case of a more general formula  in spherical trigonometry, the '''law of haversines''', relating the sides and angles of spherical "triangles".
+It is a special case of a more general formula  in spherical trigonometry, the <span class="rosetta__text--bold">law of haversines</span>, relating the sides and angles of spherical "triangles".
 
 
 ;Task:
 Implement a great-circle distance function, or use a library function, 
 to show the great-circle distance between:
 * Nashville International Airport (BNA) &nbsp; in Nashville, TN, USA, &nbsp; which is: 
-   <big><big> '''N''' 36°7.2',   '''W''' 86°40.2'     (36.12,   -86.67) </big></big>          -and-
+   <big><big> <span class="rosetta__text--bold">N</span> 36°7.2',   <span class="rosetta__text--bold">W</span> 86°40.2'     (36.12,   -86.67) </big></big>          -and-
 * Los Angeles International Airport (LAX) &nbsp;in Los Angeles, CA, USA, &nbsp; which is:
-   <big><big> '''N''' 33°56.4',  '''W''' 118°24.0'    (33.94,  -118.40) </big></big>  
+   <big><big> <span class="rosetta__text--bold">N</span> 33°56.4',  <span class="rosetta__text--bold">W</span> 118°24.0'    (33.94,  -118.40) </big></big>  
 <br>
 
 <pre>

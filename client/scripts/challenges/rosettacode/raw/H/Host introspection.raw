@@ -10,7 +10,7 @@ Host introspection
 {{omit from|TPP}}
 {{omit from|Unlambda}}
 
-Print the [[wp:Word_size#Word_size_choice|word size]] and [[wp:Endianness|endianness]] of the host machine.
+Print the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Word_size#Word_size_choice" title="wp: Word_size#Word_size_choice">word size]] and [[wp:Endianness|endianness</a> of the host machine.
 
 See also: [[Variable size/Get]]
 

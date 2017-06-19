@@ -12,13 +12,13 @@ which when all multiplied together, are equal to that number.
 
 
 ;Task:
-Write a function which returns an [[Arrays|array]] or [[Collections|collection]] which contains the prime decomposition of a given number &nbsp; <big><big><math>n</math></big></big> &nbsp; greater than &nbsp; '''1'''. 
+Write a function which returns an <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Arrays" title="Arrays">array</a> or <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Collections" title="Collections">collection</a> which contains the prime decomposition of a given number &nbsp; <big><big>$n$</big></big> &nbsp; greater than &nbsp; <span class="rosetta__text--bold">1</span>. 
 
 If your language does not have an isPrime-like function available, 
 you may assume that you have a function which determines 
 whether a number is prime (note its name before your code). 
 
-If you would like to test code from this task, you may use code from [[Primality by trial division|trial division]] or the [[Sieve of Eratosthenes]].
+If you would like to test code from this task, you may use code from <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Primality by trial division" title="Primality by trial division">trial division</a> or the [[Sieve of Eratosthenes]].
 
 Note: The program must not be limited by the word size of your computer or some other artificial limit; it should work for any number regardless of size (ignoring the physical limits of RAM etc).
 

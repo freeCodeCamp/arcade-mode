@@ -9,7 +9,7 @@ Expand the range description:
   <big> -6,-3--1,3-5,7-11,14,15,17-20 </big>
 
 <small>Note that the second element above, 
-is the '''range from minus 3 to ''minus'' 1'''. </small>
+is the <span class="rosetta__text--bold">range from minus 3 to <span class="rosetta__text--italic">minus</span> 1</span>. </small>
 
 
 ;Related task:

@@ -14,15 +14,15 @@ The routine should demonstrably rely on either:
 The routine should be used to:
 * Show the first twenty primes.
 * Show the primes between 100 and 150.
-* Show the ''number'' of primes between 7,700 and 8,000.
+* Show the <span class="rosetta__text--italic">number</span> of primes between 7,700 and 8,000.
 * Show the 10,000th prime.
 
 <br>
 Show output on this page.
 
-'''Note:''' You may reference code already on this site if it is written to be imported/included, then only the code necessary for import and the performance of this task need be shown. (It is also important to leave a forward link on the referenced tasks entry so that later editors know that the code is used for multiple tasks). 
+<span class="rosetta__text--bold">Note:</span> You may reference code already on this site if it is written to be imported/included, then only the code necessary for import and the performance of this task need be shown. (It is also important to leave a forward link on the referenced tasks entry so that later editors know that the code is used for multiple tasks). 
 
-'''Note 2:''' If a languages in-built prime generator is extensible or is guaranteed to generate primes up to a system limit, (2<sup>31</sup> or memory overflow for example), then this may be used as long as an explanation of the limits of the prime generator is also given. (Which may include a link to/excerpt from, language documentation). 
+<span class="rosetta__text--bold">Note 2:</span> If a languages in-built prime generator is extensible or is guaranteed to generate primes up to a system limit, (2<sup>31</sup> or memory overflow for example), then this may be used as long as an explanation of the limits of the prime generator is also given. (Which may include a link to/excerpt from, language documentation). 
 
 ;See also:
 * The task is written so it may be useful in solving task [[Emirp primes]] as well as others (depending on its efficiency).

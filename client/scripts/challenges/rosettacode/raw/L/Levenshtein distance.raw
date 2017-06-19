@@ -3,19 +3,19 @@ Levenshtein distance
 {{task}}{{Wikipedia}}
 
 <br>
-In information theory and computer science, the '''Levenshtein distance''' is a [[wp:string metric|metric]] for measuring the amount of difference between two sequences (i.e. an [[wp:edit distance|edit distance]]). The Levenshtein distance between two strings is defined as the minimum number of edits needed to transform one string into the other, with the allowable edit operations being insertion, deletion, or substitution of a single character. 
+In information theory and computer science, the <span class="rosetta__text--bold">Levenshtein distance</span> is a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/string metric" title="wp: string metric">metric]] for measuring the amount of difference between two sequences (i.e. an [[wp:edit distance|edit distance</a>). The Levenshtein distance between two strings is defined as the minimum number of edits needed to transform one string into the other, with the allowable edit operations being insertion, deletion, or substitution of a single character. 
 
 
 ;Example:
-The Levenshtein distance between "'''kitten'''" and "'''sitting'''" is 3, since the following three edits change one into the other, and there isn't a way to do it with fewer than three edits:
-::# &nbsp; '''k'''itten  &nbsp; '''s'''itten    &nbsp;  (substitution of 'k' with 's')
-::# &nbsp; sitt'''e'''n  &nbsp; sitt'''i'''n    &nbsp;  (substitution of 'e' with 'i')
-::# &nbsp; sittin        &nbsp; sittin'''g'''   &nbsp;  (insert 'g' at the end).
+The Levenshtein distance between "<span class="rosetta__text--bold">kitten</span>" and "<span class="rosetta__text--bold">sitting</span>" is 3, since the following three edits change one into the other, and there isn't a way to do it with fewer than three edits:
+::# &nbsp; <span class="rosetta__text--bold">k</span>itten  &nbsp; <span class="rosetta__text--bold">s</span>itten    &nbsp;  (substitution of 'k' with 's')
+::# &nbsp; sitt<span class="rosetta__text--bold">e</span>n  &nbsp; sitt<span class="rosetta__text--bold">i</span>n    &nbsp;  (substitution of 'e' with 'i')
+::# &nbsp; sittin        &nbsp; sittin<span class="rosetta__text--bold">g</span>   &nbsp;  (insert 'g' at the end).
 
 <br>
-''The Levenshtein distance between &nbsp; "'''rosettacode'''", &nbsp; "'''raisethysword'''" &nbsp; is &nbsp; '''8'''.
+''The Levenshtein distance between &nbsp; "<span class="rosetta__text--bold">rosettacode</span>", &nbsp; "<span class="rosetta__text--bold">raisethysword</span>" &nbsp; is &nbsp; <span class="rosetta__text--bold">8</span>.
 
-''The distance between two strings is same as that when both strings are reversed.''
+<span class="rosetta__text--italic">The distance between two strings is same as that when both strings are reversed.</span>
 
 
 ;Task;

@@ -7,11 +7,11 @@ Retrieve and search chat history
 
 ;Task:
 
-'''Summary:''' Find and print the mentions of a given string in the recent chat logs from a chatroom. Only use your programming language's standard library.
+<span class="rosetta__text--bold">Summary:</span> Find and print the mentions of a given string in the recent chat logs from a chatroom. Only use your programming language's standard library.
 
-'''Details:''' 
+<span class="rosetta__text--bold">Details:</span> 
 
-The Tcl Chatroom is a online chatroom. Its conversations are logged. It is useful to know if some has mentioned you or your project in the chatroom recently. You can find this out by searching the chat logs. The logs are publicly available at http://tclers.tk/conferences/tcl/. One log file corresponds to the messages from one day in [[wp:Time in Germany|Germany's current time zone]]. Each chat log file has the name <tt>YYYY-MM-DD.tcl</tt> where <tt>YYYY</tt> is the year, <tt>MM</tt> is the month and <tt>DD</tt> the day. The logs store one message per line. The messages themselves are human-readable and their internal structure doesn't matter.
+The Tcl Chatroom is a online chatroom. Its conversations are logged. It is useful to know if some has mentioned you or your project in the chatroom recently. You can find this out by searching the chat logs. The logs are publicly available at http://tclers.tk/conferences/tcl/. One log file corresponds to the messages from one day in <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Time in Germany" title="wp: Time in Germany">Germany's current time zone</a>. Each chat log file has the name <tt>YYYY-MM-DD.tcl</tt> where <tt>YYYY</tt> is the year, <tt>MM</tt> is the month and <tt>DD</tt> the day. The logs store one message per line. The messages themselves are human-readable and their internal structure doesn't matter.
 
 Retrieve the chat logs from the last 10 days via [[HTTP]]. Find those lines that include a particular [[substring]] and print them in the following format:
 

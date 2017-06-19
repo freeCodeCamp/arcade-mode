@@ -1,10 +1,13 @@
 Bitmap/Bresenham's line algorithm
 
 {{task|Raster graphics operations}}
-[[Category:Graphics algorithms]]
+<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category:Graphics algorithms]]
 
 ;Task:
-Using the data storage type defined [[Basic_bitmap_storage|on this page]] for raster graphics images, draw a line given two points with the [[wp:Bresenham's line algorithm|Bresenham's line algorithm]].
+Using the data storage type defined [[Basic_bitmap_storage" title="Category:Graphics algorithms]]
+
+;Task:
+Using the data storage type defined [[Basic_bitmap_storage">on this page</a> for raster graphics images, draw a line given two points with the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Bresenham's line algorithm" title="wp: Bresenham's line algorithm">Bresenham's line algorithm</a>.
 <br><br>
 
 

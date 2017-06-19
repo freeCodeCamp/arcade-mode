@@ -1,11 +1,11 @@
 Fibonacci sequence
 
 {{task|Arithmetic operations}}
-[[Category:Recursion]]
+<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category:Recursion]]
 [[Category:Memoization]]
 [[Category:Classic CS problems and programs]]
 
-The '''Fibonacci sequence''' is a sequence &nbsp; <big> F<sub>n</sub> </big> &nbsp;  of natural numbers defined recursively: 
+The <span class="rosetta__text--bold">Fibonacci sequence</span> is a sequence &nbsp; <big> F<sub>n</sub> </big> &nbsp;  of natural numbers defined recursively: 
 
       <big><big> F<sub>0</sub> = 0 </big></big>
       <big><big> F<sub>1</sub> = 1 </big></big>
@@ -30,12 +30,45 @@ support for negative &nbsp; &nbsp; <big> n </big> &nbsp; &nbsp; in the solution 
 
 
 ;References:
-* &nbsp; [[wp:Fibonacci number|Wikipedia, Fibonacci number]]
-* &nbsp; [[wp:Lucas number|Wikipedia, Lucas number]]
+* &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Fibonacci number" title="wp: Fibonacci number">Wikipedia, Fibonacci number</a>
+* &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Lucas number" title="wp: Lucas number">Wikipedia, Lucas number</a>
 * &nbsp; [http://mathworld.wolfram.com/FibonacciNumber.html MathWorld, Fibonacci Number]
 * &nbsp; [http://www.math-cs.ucmo.edu/~curtisc/articles/howardcooper/genfib4.pdf Some identities for r-Fibonacci numbers]
-* &nbsp; [[oeis:A000045|OEIS Fibonacci numbers]]
-* &nbsp; [[oeis:A000032|OEIS Lucas numbers]]
+* &nbsp; [[oeis:A000045" title="Category:Recursion]]
+[[Category:Memoization]]
+[[Category:Classic CS problems and programs]]
+
+The <span class="rosetta__text--bold">Fibonacci sequence</span> is a sequence &nbsp; <big> F<sub>n</sub> </big> &nbsp;  of natural numbers defined recursively: 
+
+      <big><big> F<sub>0</sub> = 0 </big></big>
+      <big><big> F<sub>1</sub> = 1 </big></big>
+      <big><big> F<sub>n</sub> = F<sub>n-1</sub> + F<sub>n-2</sub>, if n>1 </big></big>
+
+
+;Task:
+Write a function to generate the &nbsp; <big> n<sup>th</sup> </big> &nbsp; Fibonacci number. 
+
+Solutions can be iterative or recursive (though recursive solutions are generally considered too slow and are mostly used as an exercise in recursion).
+
+The sequence is sometimes extended into negative numbers by using a straightforward inverse of the positive definition:
+
+      <big><big> F<sub>n</sub> = F<sub>n+2</sub> - F<sub>n+1</sub>, if n<0   </big></big>
+
+support for negative &nbsp; &nbsp; <big> n </big> &nbsp; &nbsp; in the solution is optional.
+
+
+;Related tasks:
+* &nbsp; [[Fibonacci n-step number sequences‎]]
+* &nbsp; [[Leonardo numbers]]
+
+
+;References:
+* &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Fibonacci number" title="wp: Fibonacci number">Wikipedia, Fibonacci number</a>
+* &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Lucas number" title="wp: Lucas number">Wikipedia, Lucas number</a>
+* &nbsp; [http://mathworld.wolfram.com/FibonacciNumber.html MathWorld, Fibonacci Number]
+* &nbsp; [http://www.math-cs.ucmo.edu/~curtisc/articles/howardcooper/genfib4.pdf Some identities for r-Fibonacci numbers]
+* &nbsp; [[oeis:A000045">OEIS Fibonacci numbers</a>
+* &nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/oeis:A000032" title="oeis:A000032">OEIS Lucas numbers</a>
 <br><br>
 
 

@@ -1,7 +1,7 @@
 Vigenère cipher/Cryptanalysis
 
 {{task|Encryption}}[[Category:Encryption]]
-Given some text you suspect has been encrypted with a Vigenère cipher, extract the key and plaintext. There are several methods for doing this. See [[wp:Vigenère_cipher#Cryptanalysis|the Wikipedia entry]] for more information. Use the following encrypted text:
+Given some text you suspect has been encrypted with a Vigenère cipher, extract the key and plaintext. There are several methods for doing this. See <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Vigenère_cipher#Cryptanalysis" title="wp: Vigenère_cipher#Cryptanalysis">the Wikipedia entry</a> for more information. Use the following encrypted text:
 <pre>
 MOMUD EKAPV TQEFM OEVHP AJMII CDCTI FGYAG JSPXY ALUYM NSMYH
 VUXJE LEPXJ FXGCM JHKDZ RYICU HYPUS PGIGM OIYHF WHTCQ KMLRD
@@ -22,7 +22,7 @@ BXVCB XBAWG LQKCM ICRRX MACUO IKHQU AJEGL OIJHH XPVZW JEWBA
 FWAML ZZRXJ EKAHV FASMU LVVUT TGK
 </pre>
 
-Letter frequencies for English can be found [[wp:Letter_frequency|here]].
+Letter frequencies for English can be found <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Letter_frequency" title="wp: Letter_frequency">here</a>.
 
 Specifics for this task:
 * Take only the ciphertext as input. You can assume it's all capitalized and has no punctuation, but it might have whitespace.

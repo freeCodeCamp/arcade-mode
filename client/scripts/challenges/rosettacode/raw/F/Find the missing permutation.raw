@@ -27,7 +27,7 @@ CBDA
 DBCA
 DCAB
 </pre>
-Listed above are all of the permutations of the symbols &nbsp; '''A''', &nbsp; '''B''', &nbsp; '''C''', &nbsp; and &nbsp; '''D''', &nbsp; ''except'' &nbsp; for one permutation that's &nbsp; ''not'' &nbsp; listed.  
+Listed above are all of the permutations of the symbols &nbsp; <span class="rosetta__text--bold">A</span>, &nbsp; <span class="rosetta__text--bold">B</span>, &nbsp; <span class="rosetta__text--bold">C</span>, &nbsp; and &nbsp; <span class="rosetta__text--bold">D</span>, &nbsp; <span class="rosetta__text--italic">except</span> &nbsp; for one permutation that's &nbsp; <span class="rosetta__text--italic">not</span> &nbsp; listed.  
 
 
 ;Task:
@@ -36,17 +36,17 @@ Find that missing permutation.
 
 ;Methods:
 * Obvious method: 
-         enumerate all permutations of   '''A''',  '''B''',  '''C''',  and  '''D''',  
+         enumerate all permutations of   <span class="rosetta__text--bold">A</span>,  <span class="rosetta__text--bold">B</span>,  <span class="rosetta__text--bold">C</span>,  and  <span class="rosetta__text--bold">D</span>,  
          and then look for the missing permutation. 
 
 * alternate method:
          Hint:  if all permutations were shown above,  how many 
-         times would  '''A'''  appear in each position?     
-         What is the  ''parity''  of this number?
+         times would  <span class="rosetta__text--bold">A</span>  appear in each position?     
+         What is the  <span class="rosetta__text--italic">parity</span>  of this number?
 
 * another alternate method:
          Hint:  if you add up the letter values of each column, 
-         does a missing letter   '''A''',  '''B''',  '''C''',  and  '''D'''   from each
+         does a missing letter   <span class="rosetta__text--bold">A</span>,  <span class="rosetta__text--bold">B</span>,  <span class="rosetta__text--bold">C</span>,  and  <span class="rosetta__text--bold">D</span>   from each
          column cause the total value for each column to be unique?
 
 

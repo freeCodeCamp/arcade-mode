@@ -4,7 +4,7 @@ HTTP
 [[Category:Networking and Web Interaction]]
 
 ;Task:
-Access and print a [[wp:Uniform Resource Locator|URL's]] content (the located resource) to the console.
+Access and print a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Uniform Resource Locator" title="wp: Uniform Resource Locator">URL's</a> content (the located resource) to the console.
 
 There is a separate task for [[HTTPS Request]]s.
 <br><br>

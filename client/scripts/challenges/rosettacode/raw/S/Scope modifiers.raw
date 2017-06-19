@@ -1,7 +1,7 @@
 Scope modifiers
 
 {{task|Basic language learning}}
-Most programming languages offer support for [[Creating a function|subroutines]]. 
+Most programming languages offer support for <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Creating a function" title="Creating a function">subroutines</a>. 
 When execution changes between subroutines, different sets of variables and functions ("scopes") are available to the program. 
 Frequently these sets are defined by the placement of the variable and function declarations ("static scoping" or "lexical scoping"). 
 These sets may also be defined by special modifiers to the variable and function declarations.

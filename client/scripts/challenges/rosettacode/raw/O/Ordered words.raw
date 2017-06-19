@@ -2,13 +2,13 @@ Ordered words
 
 {{task|text processing}}
 
-An &nbsp; ''ordered word'' &nbsp; is a word in which the letters appear in alphabetic order. 
+An &nbsp; <span class="rosetta__text--italic">ordered word</span> &nbsp; is a word in which the letters appear in alphabetic order. 
 
-Examples include &nbsp; '''abbey''' &nbsp; and &nbsp; '''dirt'''. 
+Examples include &nbsp; <span class="rosetta__text--bold">abbey</span> &nbsp; and &nbsp; <span class="rosetta__text--bold">dirt</span>. 
 
 {{task heading}}
 
-Find ''and display'' all the ordered words in the dictionary &nbsp; [http://www.puzzlers.org/pub/wordlists/unixdict.txt unixdict.txt] &nbsp; that have the longest word length. 
+Find <span class="rosetta__text--italic">and display</span> all the ordered words in the dictionary &nbsp; [http://www.puzzlers.org/pub/wordlists/unixdict.txt unixdict.txt] &nbsp; that have the longest word length. 
 
 (Examples that access the dictionary file locally assume that you have downloaded this file yourself.)  
 

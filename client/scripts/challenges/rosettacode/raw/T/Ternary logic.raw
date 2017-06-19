@@ -4,19 +4,19 @@ Ternary logic
 {{wikipedia|Ternary logic}}
 
 <br>
-In [[wp:logic|logic]], a '''three-valued logic''' (also '''trivalent''', '''ternary''', or  '''trinary logic''', sometimes abbreviated '''3VL''') is any of several [[wp:many-valued logic|many-valued logic]] systems in which there are three [[wp:truth value|truth value]]s indicating ''true'', ''false'' and some indeterminate third value.  
+In <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/logic" title="wp: logic">logic]], a <span class="rosetta__text--bold">three-valued logic</span> (also <span class="rosetta__text--bold">trivalent</span>, <span class="rosetta__text--bold">ternary</span>, or  <span class="rosetta__text--bold">trinary logic</span>, sometimes abbreviated <span class="rosetta__text--bold">3VL</span>) is any of several [[wp:many-valued logic|many-valued logic]] systems in which there are three [[wp:truth value|truth value</a>s indicating <span class="rosetta__text--italic">true</span>, <span class="rosetta__text--italic">false</span> and some indeterminate third value.  
 
-This is contrasted with the more commonly known [[wp:Principle of bivalence|bivalent]] logics (such as classical sentential or [[wp:boolean logic|boolean logic]]) which provide only for ''true'' and ''false''. 
+This is contrasted with the more commonly known <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Principle of bivalence" title="wp: Principle of bivalence">bivalent]] logics (such as classical sentential or [[wp:boolean logic|boolean logic</a>) which provide only for <span class="rosetta__text--italic">true</span> and <span class="rosetta__text--italic">false</span>. 
 
-Conceptual form and basic ideas were initially created by [[wp:Jan Łukasiewicz|Łukasiewicz]], [[wp:C. I. Lewis|Lewis]]  and [[wp:Sulski|Sulski]]. 
+Conceptual form and basic ideas were initially created by <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Jan Łukasiewicz" title="wp: Jan Łukasiewicz">Łukasiewicz]], [[wp:C. I. Lewis|Lewis]]  and [[wp:Sulski|Sulski</a>. 
 
-These were then re-formulated by [[wp:Grigore Moisil|Grigore Moisil]] in an axiomatic algebraic form, and also extended to ''n''-valued logics in 1945.
+These were then re-formulated by <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Grigore Moisil" title="wp: Grigore Moisil">Grigore Moisil</a> in an axiomatic algebraic form, and also extended to <span class="rosetta__text--italic">n</span>-valued logics in 1945.
 {|
-|+'''Example ''Ternary Logic Operators'' in ''Truth Tables'':'''
+|+<span class="rosetta__text--bold">Example <span class="rosetta__text--italic">Ternary Logic Operators</span> in <span class="rosetta__text--italic">Truth Tables</span>:</span>
 |-
 |
 {| class=wikitable
-|+''not'' a
+|+<span class="rosetta__text--italic">not</span> a
 |-
 ! colspan=2 | &not;
 |-
@@ -28,7 +28,7 @@ These were then re-formulated by [[wp:Grigore Moisil|Grigore Moisil]] in an axio
 |}
 ||
 {| class=wikitable
-|+a ''and'' b
+|+a <span class="rosetta__text--italic">and</span> b
 |-
 ! &and;
 | True || Maybe || False
@@ -42,7 +42,7 @@ These were then re-formulated by [[wp:Grigore Moisil|Grigore Moisil]] in an axio
 ||
 {| class=wikitable
 |-
-|+a ''or'' b
+|+a <span class="rosetta__text--italic">or</span> b
 |-
 ! &or;
 | True || Maybe || False
@@ -57,7 +57,7 @@ These were then re-formulated by [[wp:Grigore Moisil|Grigore Moisil]] in an axio
 ||
 {| class=wikitable
 |-
-|+''if'' a ''then'' b
+|+<span class="rosetta__text--italic">if</span> a <span class="rosetta__text--italic">then</span> b
 |-
 ! ⊃
 | True || Maybe || False
@@ -71,7 +71,7 @@ These were then re-formulated by [[wp:Grigore Moisil|Grigore Moisil]] in an axio
 ||
 {| class=wikitable
 |-
-|+a ''is equivalent to'' b
+|+a <span class="rosetta__text--italic">is equivalent to</span> b
 |-
 ! ≡
 | True || Maybe || False
@@ -86,13 +86,13 @@ These were then re-formulated by [[wp:Grigore Moisil|Grigore Moisil]] in an axio
 
 
 ;Task:
-* Define a new type that emulates ''ternary logic'' by storing data '''trits'''.
-* Given all the binary logic operators of the original programming language, reimplement these operators for the new ''Ternary logic'' type '''trit'''.
-* Generate a sampling of results using '''trit''' variables.
-* [[wp:Kudos|Kudos]] for actually thinking up a test case algorithm where ''ternary logic'' is intrinsically useful, optimises the test case algorithm and is preferable to binary logic.
+* Define a new type that emulates <span class="rosetta__text--italic">ternary logic</span> by storing data <span class="rosetta__text--bold">trits</span>.
+* Given all the binary logic operators of the original programming language, reimplement these operators for the new <span class="rosetta__text--italic">Ternary logic</span> type <span class="rosetta__text--bold">trit</span>.
+* Generate a sampling of results using <span class="rosetta__text--bold">trit</span> variables.
+* <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Kudos" title="wp: Kudos">Kudos</a> for actually thinking up a test case algorithm where <span class="rosetta__text--italic">ternary logic</span> is intrinsically useful, optimises the test case algorithm and is preferable to binary logic.
 
 <br>
-Note: &nbsp; '''[[wp:Setun|Setun]]''' &nbsp; (Сетунь) was a &nbsp; [[wp:balanced ternary|balanced ternary]] &nbsp; computer developed in 1958 at &nbsp; [[wp:Moscow State University|Moscow State University]]. &nbsp; The device was built under the lead of &nbsp; [[wp:Sergei Sobolev|Sergei Sobolev]] &nbsp; and &nbsp; [[wp:Nikolay Brusentsov|Nikolay Brusentsov]]. &nbsp; It was the only modern &nbsp; [[wp:ternary computer|ternary computer]], &nbsp; using three-valued [[wp:ternary logic|ternary logic]]
+Note: &nbsp; <span class="rosetta__text--bold"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Setun" title="wp: Setun">Setun]]</span> &nbsp; (Сетунь) was a &nbsp; [[wp:balanced ternary|balanced ternary]] &nbsp; computer developed in 1958 at &nbsp; [[wp:Moscow State University|Moscow State University]]. &nbsp; The device was built under the lead of &nbsp; [[wp:Sergei Sobolev|Sergei Sobolev]] &nbsp; and &nbsp; [[wp:Nikolay Brusentsov|Nikolay Brusentsov]]. &nbsp; It was the only modern &nbsp; [[wp:ternary computer|ternary computer]], &nbsp; using three-valued [[wp:ternary logic|ternary logic</a>
 <br><br>
 
 

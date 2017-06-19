@@ -6,10 +6,10 @@ Seven-sided dice from five-sided dice
 (Given an equal-probability generator of one of the integers 1 to 5
 as <code>dice5</code>), &nbsp; create <code>dice7</code> that generates a pseudo-random integer from
 1 to 7 in equal probability using only <code>dice5</code> as a source of random
-numbers, &nbsp; and check the distribution for at least one million calls using the function created in &nbsp; [[Verify distribution uniformity/Naive|Simple Random Distribution Checker]].
+numbers, &nbsp; and check the distribution for at least one million calls using the function created in &nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Verify distribution uniformity/Naive" title="Verify distribution uniformity/Naive">Simple Random Distribution Checker</a>.
 
 
-'''Implementation suggestion:'''
+<span class="rosetta__text--bold">Implementation suggestion:</span>
 <code>dice7</code> might call <code>dice5</code> twice, re-call if four of the 25
 combinations are given, otherwise split the other 21 combinations
 into 7 groups of three, and return the group index from the rolls.

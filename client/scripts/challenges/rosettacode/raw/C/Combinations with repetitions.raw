@@ -2,24 +2,24 @@ Combinations with repetitions
 
 {{task|Discrete math}}
 
-The set of combinations with repetitions is computed from a set, <math>S</math> (of cardinality <math>n</math>), and a size of resulting selection, <math>k</math>, by reporting the sets of cardinality <math>k</math> where each member of those sets is chosen from <math>S</math>. 
+The set of combinations with repetitions is computed from a set, $S$ (of cardinality $n$), and a size of resulting selection, $k$, by reporting the sets of cardinality $k$ where each member of those sets is chosen from $S$. 
 In the real world, it is about choosing sets where there is a “large” supply of each type of element and where the order of choice does not matter. 
 For example: 
-:Q: How many ways can a person choose two doughnuts from a store selling three types of doughnut: iced, jam, and plain? (i.e., <math>S</math> is <math>\{\mathrm{iced}, \mathrm{jam}, \mathrm{plain}\}</math>, <math>|S| = 3</math>, and <math>k = 2</math>.)
+:Q: How many ways can a person choose two doughnuts from a store selling three types of doughnut: iced, jam, and plain? (i.e., $S$ is $\{\mathrm{iced}, \mathrm{jam}, \mathrm{plain}\}$, $|S| = 3$, and $k = 2$.)
 
 :A: 6: {iced, iced}; {iced, jam}; {iced, plain}; {jam, jam}; {jam, plain}; {plain, plain}.
 
 <small>Note that both the order of items within a pair, and the order of the pairs given in the answer is not significant; the pairs represent multisets.</small>
-<br><small>Also note that ''doughnut'' can also be spelled ''donut''.</small> 
+<br><small>Also note that <span class="rosetta__text--italic">doughnut</span> can also be spelled <span class="rosetta__text--italic">donut</span>.</small> 
 
 
 ;Task:
-* Write a function/program/routine/.. to generate all the combinations with repetitions of <math>n</math> types of things taken <math>k</math> at a time and use it to ''show'' an answer to the doughnut example above.
-* For extra credit, use the function to compute and show ''just the number of ways'' of choosing three doughnuts from a choice of ten types of doughnut. Do not show the individual choices for this part.
+* Write a function/program/routine/.. to generate all the combinations with repetitions of $n$ types of things taken $k$ at a time and use it to <span class="rosetta__text--italic">show</span> an answer to the doughnut example above.
+* For extra credit, use the function to compute and show <span class="rosetta__text--italic">just the number of ways</span> of choosing three doughnuts from a choice of ten types of doughnut. Do not show the individual choices for this part.
 
 
 ;References:
-* [[wp:Combination|k-combination with repetitions]]
+* <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Combination" title="wp: Combination">k-combination with repetitions</a>
 
 
 ;See also:

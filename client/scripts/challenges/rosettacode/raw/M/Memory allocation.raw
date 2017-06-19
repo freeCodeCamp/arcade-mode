@@ -5,7 +5,7 @@ Memory allocation
 ;Task:
 Show how to explicitly allocate and deallocate blocks of memory in your language. 
 
-Show access to different types of memory (i.e., [[heap]], [[system stack|stack]], shared, foreign) if applicable.
+Show access to different types of memory (i.e., <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/heap]], [[system stack" title="heap]], [[system stack">stack</a>, shared, foreign) if applicable.
 <br><br>
 
 

@@ -4,20 +4,20 @@ Vector products
 
 A vector is defined as having three dimensions as being represented by an ordered collection of three numbers: &nbsp; (X, Y, Z). 
 
-If you imagine a graph with the &nbsp; '''x''' &nbsp; and &nbsp; '''y''' &nbsp; axis being at right angles to each other and having a third, &nbsp; '''z''' &nbsp; axis coming out of the page, then a triplet of numbers, &nbsp; (X, Y, Z) &nbsp; would represent a point in the region, &nbsp; and a vector from the origin to the point.
+If you imagine a graph with the &nbsp; <span class="rosetta__text--bold">x</span> &nbsp; and &nbsp; <span class="rosetta__text--bold">y</span> &nbsp; axis being at right angles to each other and having a third, &nbsp; <span class="rosetta__text--bold">z</span> &nbsp; axis coming out of the page, then a triplet of numbers, &nbsp; (X, Y, Z) &nbsp; would represent a point in the region, &nbsp; and a vector from the origin to the point.
 
 Given the vectors:
         <big> A = (a<sub>1</sub>,  a<sub>2</sub>,  a<sub>3</sub>) </big>
         <big> B = (b<sub>1</sub>,  b<sub>2</sub>,  b<sub>3</sub>) </big>
         <big> C = (c<sub>1</sub>,  c<sub>2</sub>,  c<sub>3</sub>) </big>
 then the following common vector products are defined:
-* '''The dot product''' &nbsp; &nbsp; &nbsp; (a scalar quantity)
+* <span class="rosetta__text--bold">The dot product</span> &nbsp; &nbsp; &nbsp; (a scalar quantity)
 :::: <big> A • B = a<sub>1</sub>b<sub>1</sub> &nbsp; + &nbsp; a<sub>2</sub>b<sub>2</sub> &nbsp; + &nbsp;  a<sub>3</sub>b<sub>3</sub> </big> 
-* '''The cross product''' &nbsp; &nbsp; &nbsp; (a vector quantity)
+* <span class="rosetta__text--bold">The cross product</span> &nbsp; &nbsp; &nbsp; (a vector quantity)
 :::: <big> A x B = (a<sub>2</sub>b<sub>3</sub>&nbsp;  - &nbsp; a<sub>3</sub>b<sub>2</sub>, &nbsp; &nbsp; a<sub>3</sub>b<sub>1</sub> &nbsp; - &nbsp; a<sub>1</sub>b<sub>3</sub>, &nbsp; &nbsp; a<sub>1</sub>b<sub>2</sub> &nbsp; - &nbsp; a<sub>2</sub>b<sub>1</sub>) </big> 
-* '''The scalar triple product''' &nbsp; &nbsp; &nbsp; (a scalar quantity)
+* <span class="rosetta__text--bold">The scalar triple product</span> &nbsp; &nbsp; &nbsp; (a scalar quantity)
 :::: <big> A • (B x C) </big>
-* '''The vector triple product''' &nbsp; &nbsp; &nbsp; (a vector quantity)
+* <span class="rosetta__text--bold">The vector triple product</span> &nbsp; &nbsp; &nbsp; (a vector quantity)
 :::: <big> A x (B x C) </big>
 
 
@@ -38,9 +38,9 @@ Given the three vectors:
 
 ;References:
 * &nbsp; A starting page on Wolfram MathWorld is &nbsp; {{Wolfram|Vector|Multiplication}}.
-* &nbsp; Wikipedia &nbsp; [[wp:Dot product|dot product]], 
-: &nbsp; Wikipedia &nbsp; [[wp:Cross product|cross product]] 
-: &nbsp; Wikipedia &nbsp; [[wp:Triple product|triple product]] entries.
+* &nbsp; Wikipedia &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Dot product" title="wp: Dot product">dot product</a>, 
+: &nbsp; Wikipedia &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Cross product" title="wp: Cross product">cross product</a> 
+: &nbsp; Wikipedia &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Triple product" title="wp: Triple product">triple product</a> entries.
 
 
 ;Related tasks:

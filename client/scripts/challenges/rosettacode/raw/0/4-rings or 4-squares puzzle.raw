@@ -6,8 +6,8 @@
 <!--  Squares were chosen as it's much easier to display squares instead of rings.  !-->
 
 ;Task:
-Replace &nbsp; &nbsp; &nbsp; '''a, b, c, d, e, f,''' &nbsp; and
-&nbsp; '''g ''' &nbsp; &nbsp; &nbsp; with the decimal
+Replace &nbsp; &nbsp; &nbsp; <span class="rosetta__text--bold">a, b, c, d, e, f,</span> &nbsp; and
+&nbsp; <span class="rosetta__text--bold">g </span> &nbsp; &nbsp; &nbsp; with the decimal
 digits &nbsp; LOW &nbsp; ───► &nbsp; HIGH
 <br>such that the sum of the letters inside of each of the four large squares add up to
 the same sum.
@@ -36,7 +36,7 @@ Show all output here.
          LOW=1     HIGH=7
 :* &nbsp; Show all solutions for each letter being unique with
          LOW=3     HIGH=9
-:* &nbsp; Show only the &nbsp; ''number'' &nbsp; of solutions when each letter can be non-unique
+:* &nbsp; Show only the &nbsp; <span class="rosetta__text--italic">number</span> &nbsp; of solutions when each letter can be non-unique
          LOW=0     HIGH=9
 
 

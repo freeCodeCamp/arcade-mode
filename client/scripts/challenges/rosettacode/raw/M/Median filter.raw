@@ -2,8 +2,8 @@ Median filter
 
 {{task|Image processing}}
 
-The median filter takes in the neighbourhood the median color (see [[wp:Median filter|Median filter]])
+The median filter takes in the neighbourhood the median color (see <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Median filter" title="wp: Median filter">Median filter</a>)
 
-''(to test the function below, you can use these [[Read_ppm_file|input]] and [[Write_ppm_file|output]] solutions)''
+<span class="rosetta__text--italic">(to test the function below, you can use these <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Read_ppm_file" title="Read_ppm_file">input</a> and <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Write_ppm_file" title="Write_ppm_file">output</a> solutions)</span>
 
 

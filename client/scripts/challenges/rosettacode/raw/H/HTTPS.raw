@@ -1,12 +1,17 @@
 HTTPS
 
 {{task|Programming environment operations}}
-[[Category:Networking and Web Interaction]]
+<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category:Networking and Web Interaction]]
 
 ;Task:
 Print an HTTPS URL's content to the console. Checking the host certificate for validity is recommended. 
 
-The client should not authenticate itself to the server — the webpage https://sourceforge.net/ supports that access policy — as that is the subject of other [[HTTPS request with authentication|tasks]].
+The client should not authenticate itself to the server — the webpage https://sourceforge.net/ supports that access policy — as that is the subject of other [[HTTPS request with authentication" title="Category:Networking and Web Interaction]]
+
+;Task:
+Print an HTTPS URL's content to the console. Checking the host certificate for validity is recommended. 
+
+The client should not authenticate itself to the server — the webpage https://sourceforge.net/ supports that access policy — as that is the subject of other [[HTTPS request with authentication">tasks</a>.
 
 Readers may wish to contrast with the [[HTTP Request]] task, and also the task on [[HTTPS request with authentication]].
 <br><br>

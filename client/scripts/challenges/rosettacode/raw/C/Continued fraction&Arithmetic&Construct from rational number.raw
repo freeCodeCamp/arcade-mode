@@ -2,13 +2,13 @@ Continued fraction/Arithmetic/Construct from rational number
 
 {{task}}To understand this task in context please see [[Continued fraction arithmetic]]
 
-The purpose of this task is to write a function <math>\mathit{r2cf}(\mathrm{int}</math> <math>N_1, \mathrm{int}</math> <math>N_2)</math>, or <math>\mathit{r2cf}(\mathrm{Fraction}</math> <math>N)</math>, which will output a continued fraction assuming:
-:<math>N_1</math> is the numerator
-:<math>N_2</math> is the denominator
+The purpose of this task is to write a function $\mathit{r2cf}(\mathrm{int}$ $N_1, \mathrm{int}$ $N_2)$, or $\mathit{r2cf}(\mathrm{Fraction}$ $N)$, which will output a continued fraction assuming:
+:$N_1$ is the numerator
+:$N_2$ is the denominator
   
 The function should output its results one digit at a time each time it is called, in a manner sometimes described as lazy evaluation.
 
-To achieve this it must determine: the integer part; and remainder part, of <math>N_1</math> divided by <math>N_2</math>. It then sets <math>N_1</math> to <math>N_2</math> and <math>N_2</math> to the determined remainder part. It then outputs the determined integer part. It does this until <math>\mathrm{abs}(N_2)</math> is zero.
+To achieve this it must determine: the integer part; and remainder part, of $N_1$ divided by $N_2$. It then sets $N_1$ to $N_2$ and $N_2$ to the determined remainder part. It then outputs the determined integer part. It does this until $\mathrm{abs}(N_2)$ is zero.
 
 Demonstrate the function by outputing the continued fraction for:
 : 1/2
@@ -17,7 +17,7 @@ Demonstrate the function by outputing the continued fraction for:
 : 13/11
 : 22/7
 : -151/77
-<math>\sqrt 2</math> should approach <math>[1; 2, 2, 2, 2, \ldots]</math> try ever closer rational approximations until boredom gets the better of you:
+$\sqrt 2$ should approach $[1; 2, 2, 2, 2, \ldots]$ try ever closer rational approximations until boredom gets the better of you:
 : 14142,10000
 : 141421,100000
 : 1414214,1000000
@@ -33,6 +33,6 @@ Try :
 : 31428571,10000000
 : 314285714,100000000
 
-Observe how this rational number behaves differently to <math>\sqrt 2</math> and convince yourself that, in the same way as <math>3.7</math> may be represented as <math>3.70</math> when an extra decimal place is required, <math>[3;7]</math> may be represented as <math>[3;7,\infty]</math> when an extra term is required.
+Observe how this rational number behaves differently to $\sqrt 2$ and convince yourself that, in the same way as $3.7$ may be represented as $3.70$ when an extra decimal place is required, $[3;7]$ may be represented as $[3;7,\infty]$ when an extra term is required.
 
 

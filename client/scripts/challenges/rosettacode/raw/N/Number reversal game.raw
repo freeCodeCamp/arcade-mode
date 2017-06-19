@@ -3,7 +3,7 @@ Number reversal game
 {{task|Games}}
 
 ;Task:
-Given a jumbled list of the numbers '''1''' to '''9''' that are definitely ''not'' in 
+Given a jumbled list of the numbers <span class="rosetta__text--bold">1</span> to <span class="rosetta__text--bold">9</span> that are definitely <span class="rosetta__text--italic">not</span> in 
 ascending order.
 
 Show the list, &nbsp; and then ask the player how many digits from the 
@@ -20,7 +20,7 @@ Note: Assume the player's input does not need extra validation.
 
 ;Related tasks:
 * &nbsp; [[Sorting algorithms/Pancake sort]]
-* &nbsp; [[wp:Pancake sorting|Pancake sorting]].
+* &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Pancake sorting" title="wp: Pancake sorting">Pancake sorting</a>.
 * &nbsp; [[Topswops]]
 <br><br>
 

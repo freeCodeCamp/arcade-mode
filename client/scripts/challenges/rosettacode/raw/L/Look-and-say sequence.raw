@@ -2,21 +2,21 @@ Look-and-say sequence
 
 {{task|Text processing}}
 
-The &nbsp; [[wp:Look and say sequence|Look and say sequence]] &nbsp; is a recursively defined sequence of numbers studied most notably by &nbsp; [[wp:John Horton Conway|John Conway]].
+The &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Look and say sequence" title="wp: Look and say sequence">Look and say sequence]] &nbsp; is a recursively defined sequence of numbers studied most notably by &nbsp; [[wp:John Horton Conway|John Conway</a>.
 
 
-'''Sequence Definition'''
+<span class="rosetta__text--bold">Sequence Definition</span>
 * Take a decimal number
-* ''Look'' at the number, visually grouping consecutive runs of the same digit.
-* ''Say'' the number, from left to right, group by group; as how many of that digit there are - followed by the digit grouped.
+* <span class="rosetta__text--italic">Look</span> at the number, visually grouping consecutive runs of the same digit.
+* <span class="rosetta__text--italic">Say</span> the number, from left to right, group by group; as how many of that digit there are - followed by the digit grouped.
 : This becomes the next number of the sequence.
 
 
-'''An example:''' 
-* Starting with the number 1, &nbsp; you have ''one'' 1 which produces 11
-* Starting with 11, &nbsp; you have ''two'' 1's. &nbsp; I.E.: &nbsp; 21
-* Starting with 21, &nbsp; you have ''one'' 2, then ''one'' 1. &nbsp; I.E.: &nbsp; (12)(11) which becomes 1211
-* Starting with 1211, &nbsp; you have ''one'' 1, ''one'' 2, then ''two'' 1's. &nbsp; I.E.: &nbsp; (11)(12)(21) which becomes 111221
+<span class="rosetta__text--bold">An example:</span> 
+* Starting with the number 1, &nbsp; you have <span class="rosetta__text--italic">one</span> 1 which produces 11
+* Starting with 11, &nbsp; you have <span class="rosetta__text--italic">two</span> 1's. &nbsp; I.E.: &nbsp; 21
+* Starting with 21, &nbsp; you have <span class="rosetta__text--italic">one</span> 2, then <span class="rosetta__text--italic">one</span> 1. &nbsp; I.E.: &nbsp; (12)(11) which becomes 1211
+* Starting with 1211, &nbsp; you have <span class="rosetta__text--italic">one</span> 1, <span class="rosetta__text--italic">one</span> 2, then <span class="rosetta__text--italic">two</span> 1's. &nbsp; I.E.: &nbsp; (11)(12)(21) which becomes 111221
 
 
 ;Task:

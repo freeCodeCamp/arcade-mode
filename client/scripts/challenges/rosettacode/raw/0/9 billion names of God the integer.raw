@@ -1,7 +1,7 @@
 9 billion names of God the integer
 
 {{task}}
-This task is a variation of the [[wp:The Nine Billion Names of God#Plot_summary|short story by Arthur C. Clarke]].
+This task is a variation of the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/The Nine Billion Names of God#Plot_summary" title="wp: The Nine Billion Names of God#Plot_summary">short story by Arthur C. Clarke</a>.
  
 (Solvers should be aware of the consequences of completing this task.)
 
@@ -24,20 +24,20 @@ Display the first 25 rows of a number triangle which begins:
                             1   3   3   2   1   1
 </pre>
 
-Where row &nbsp; <math>n</math> &nbsp; corresponds to integer &nbsp; <math>n</math>, &nbsp; and each column &nbsp; <math>C</math> &nbsp; in row &nbsp; <math>m</math> &nbsp; from left to right corresponds to the number of names beginning with &nbsp; <math>C</math>.
+Where row &nbsp; $n$ &nbsp; corresponds to integer &nbsp; $n$, &nbsp; and each column &nbsp; $C$ &nbsp; in row &nbsp; $m$ &nbsp; from left to right corresponds to the number of names beginning with &nbsp; $C$.
 
-A function &nbsp; <math>G(n)</math> &nbsp; should return the sum of the &nbsp; <math>n</math>-th &nbsp; row. 
+A function &nbsp; $G(n)$ &nbsp; should return the sum of the &nbsp; $n$-th &nbsp; row. 
 
-Demonstrate this function by displaying: &nbsp; <math>G(23)</math>, &nbsp; <math>G(123)</math>, &nbsp; <math>G(1234)</math>, &nbsp; and &nbsp; <math>G(12345)</math>.  
+Demonstrate this function by displaying: &nbsp; $G(23)$, &nbsp; $G(123)$, &nbsp; $G(1234)$, &nbsp; and &nbsp; $G(12345)$.  
 
-Optionally note that the sum of the &nbsp; <math>n</math>-th &nbsp; row &nbsp; <math>P(n)</math> &nbsp; is the &nbsp;  [http://mathworld.wolfram.com/PartitionFunctionP.html &nbsp; integer partition function]. 
+Optionally note that the sum of the &nbsp; $n$-th &nbsp; row &nbsp; $P(n)$ &nbsp; is the &nbsp;  [http://mathworld.wolfram.com/PartitionFunctionP.html &nbsp; integer partition function]. 
 
-Demonstrate this is equivalent to &nbsp; <math>G(n)</math> &nbsp; by displaying: &nbsp; <math>P(23)</math>, &nbsp; <math>P(123)</math>, &nbsp; <math>P(1234)</math>, &nbsp; and &nbsp; <math>P(12345)</math>.
+Demonstrate this is equivalent to &nbsp; $G(n)$ &nbsp; by displaying: &nbsp; $P(23)$, &nbsp; $P(123)$, &nbsp; $P(1234)$, &nbsp; and &nbsp; $P(12345)$.
 
 
 ;Extra credit
 
-If your environment is able, plot &nbsp; <math>P(n)</math> &nbsp; against &nbsp; <math>n</math> &nbsp; for &nbsp; <math>n=1\ldots 999</math>.
+If your environment is able, plot &nbsp; $P(n)$ &nbsp; against &nbsp; $n$ &nbsp; for &nbsp; $n=1\ldots 999$.
 <br><br>
 
 

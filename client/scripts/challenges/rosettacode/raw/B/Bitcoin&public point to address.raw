@@ -1,7 +1,7 @@
 Bitcoin/public point to address
 
 {{task}}
-[[wp:Bitcoin|Bitcoin]] uses a specific encoding format to encode the digest of an [[wp:elliptic curve|elliptic curve]] public point into a short ASCII string.  The purpose of this task is to perform such a conversion.
+<a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Bitcoin" title="wp: Bitcoin">Bitcoin]] uses a specific encoding format to encode the digest of an [[wp:elliptic curve|elliptic curve</a> public point into a short ASCII string.  The purpose of this task is to perform such a conversion.
 
 The encoding steps are:
 * take the X and Y coordinates of the given public point, and concatenate them in order to have a 64 byte-longed string ;
@@ -22,6 +22,6 @@ The corresponding address should be:
 
 Nb.  The leading '1' is not significant as 1 is zero in base-58.  It is however often added to the bitcoin address for various reasons.  There can actually be several of them.  You can ignore this and output an address without the leading 1.
 
-''Extra credit:'' add a verification procedure about the public point, making sure it belongs to the secp256k1 elliptic curve
+<span class="rosetta__text--italic">Extra credit:</span> add a verification procedure about the public point, making sure it belongs to the secp256k1 elliptic curve
 
 

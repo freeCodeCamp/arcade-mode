@@ -22,13 +22,13 @@ For example, given:
 >7 Baxx  #The user now enters the next factor (7) and the word they want associated with it (Baxx)
 </pre>
 
-In other words: For this example, print the numbers '''1''' through '''20''', replacing every multiple of '''3''' with "Fizz", every multiple of '''5''' with "Buzz", and every multiple of '''7''' with "Baxx". 
+In other words: For this example, print the numbers <span class="rosetta__text--bold">1</span> through <span class="rosetta__text--bold">20</span>, replacing every multiple of <span class="rosetta__text--bold">3</span> with "Fizz", every multiple of <span class="rosetta__text--bold">5</span> with "Buzz", and every multiple of <span class="rosetta__text--bold">7</span> with "Baxx". 
 
 In the case where a number is a multiple of at least two factors, print each of the words associated with those factors in the order of least to greatest factor. 
 
-For instance, the number '''15''' is a multiple of both '''3''' and '''5'''; print "FizzBuzz".
+For instance, the number <span class="rosetta__text--bold">15</span> is a multiple of both <span class="rosetta__text--bold">3</span> and <span class="rosetta__text--bold">5</span>; print "FizzBuzz".
  
-If the max number was '''105''' instead of '''20''', you would print "FizzBuzzBaxx" because it's a multiple of '''3''', '''5''', and '''7'''.
+If the max number was <span class="rosetta__text--bold">105</span> instead of <span class="rosetta__text--bold">20</span>, you would print "FizzBuzzBaxx" because it's a multiple of <span class="rosetta__text--bold">3</span>, <span class="rosetta__text--bold">5</span>, and <span class="rosetta__text--bold">7</span>.
 
 {{out}}
 <pre>

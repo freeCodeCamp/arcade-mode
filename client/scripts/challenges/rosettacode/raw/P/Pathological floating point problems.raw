@@ -16,7 +16,7 @@ There are pathological problems however, where seemingly simple, straight-forwar
 This task's purpose is to show how your language deals with such classes of problems.
 
 
-'''A sequence that seems to converge to a wrong limit.''' 
+<span class="rosetta__text--bold">A sequence that seems to converge to a wrong limit.</span> 
 
 Consider the sequence:
 :::::: <big><big>  v<sub>1</sub> =  2                                                                     </big></big>
@@ -24,11 +24,11 @@ Consider the sequence:
 :::::: <big><big>  v<sub>n</sub> = 111 &nbsp; - &nbsp; 1130 &nbsp; / &nbsp; v<sub>n-1</sub> &nbsp; + &nbsp; 3000&nbsp; / &nbsp; (v<sub>n-1</sub> * v<sub>n-2</sub>)    </big></big>
 
 
-As &nbsp; '''n''' &nbsp; grows larger, the series should converge to &nbsp; '''6''' &nbsp; but small amounts of error will cause it to approach &nbsp; '''100'''.
+As &nbsp; <span class="rosetta__text--bold">n</span> &nbsp; grows larger, the series should converge to &nbsp; <span class="rosetta__text--bold">6</span> &nbsp; but small amounts of error will cause it to approach &nbsp; <span class="rosetta__text--bold">100</span>.
 
 
 ;Task 1:
-Display the values of the sequence where &nbsp; n = &nbsp; 3, 4, 5, 6, 7, 8, 20, 30, 50 & 100 &nbsp; to at least '''16''' decimal places.
+Display the values of the sequence where &nbsp; n = &nbsp; 3, 4, 5, 6, 7, 8, 20, 30, 50 & 100 &nbsp; to at least <span class="rosetta__text--bold">16</span> decimal places.
 <pre>
     n = 3     18.5
     n = 4      9.378378
@@ -44,7 +44,7 @@ Display the values of the sequence where &nbsp; n = &nbsp; 3, 4, 5, 6, 7, 8, 20,
 
 
 ;Task 2:
-'''The Chaotic Bank Society''' &nbsp; is offering a new investment account to their customers. 
+<span class="rosetta__text--bold">The Chaotic Bank Society</span> &nbsp; is offering a new investment account to their customers. 
 
 You first deposit &nbsp; $e - 1 &nbsp; where &nbsp; e &nbsp; is &nbsp; 2.7182818... &nbsp; the base of natural logarithms.
 
@@ -65,7 +65,7 @@ What will your balance be after &nbsp; 25 &nbsp; years?
 
 
 ;Task 3, extra credit:
-'''Siegfried Rump's example.''' &nbsp; Consider the following function, designed by Siegfried Rump in 1988.
+<span class="rosetta__text--bold">Siegfried Rump's example.</span> &nbsp; Consider the following function, designed by Siegfried Rump in 1988.
 :::::: <big><big>  f(a,b) = 333.75b<sup>6</sup> + a<sup>2</sup>( 11a<sup>2</sup>b<sup>2</sup> - b<sup>6</sup> - 121b<sup>4</sup> - 2 ) + 5.5b<sup>8</sup> + a/(2b)          </big></big>
 :::::: <big> compute &nbsp; <big> f(a,b) </big> &nbsp; where &nbsp; <big> a=77617.0 </big> &nbsp; and &nbsp; <big> b=33096.0  </big></big>
 :::::: <big><big>  f(77617.0, 33096.0) &nbsp; = &nbsp; -0.827396059946821          </big></big>

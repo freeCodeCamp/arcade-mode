@@ -1,7 +1,7 @@
 Voronoi diagram
 
 {{task}}
-A [[wp:Voronoi diagram|Voronoi diagram]] is a diagram consisting of a number of sites. Each Voronoi site ''s''  also has a Voronoi cell consisting of all points closest to ''s''.
+A <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Voronoi diagram" title="wp: Voronoi diagram">Voronoi diagram</a> is a diagram consisting of a number of sites. Each Voronoi site <span class="rosetta__text--italic">s</span>  also has a Voronoi cell consisting of all points closest to <span class="rosetta__text--italic">s</span>.
 
 The task is to demonstrate how to generate and display a Voroni diagram.  
 See algo [[K-means++ clustering]].
@@ -15,13 +15,14 @@ There are various examples of Voronoi tesselations,
 
 some dynamic:
 
-http://bl.ocks.org/mbostock/d1d81455dc21e10f742f
+https://bl.ocks.org/mbostock/d1d81455dc21e10f742f
 
 some interactive:
 
-http://bl.ocks.org/mbostock/4060366
+https://bl.ocks.org/mbostock/4060366
 
-and all with source code, at http://bl.ocks.org/mbostock
+and all with source code, at https://bl.ocks.org/mbostock
+
 ===Version #2.===
 I would agree: using D3.js library can be very helpful. But having stable and compact algorithm in Python (Sidef) made it possible to develop looking the same Voronoi diagram in "pure" JavaScript.
 A few custom helper functions simplified code, and they can be used for any other applications.

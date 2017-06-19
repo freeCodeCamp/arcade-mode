@@ -1,11 +1,11 @@
 Self-describing numbers
 
 {{clarified-review}}{{task}}
-There are several so-called "self-describing" or "[[wp:Self-descriptive number|self-descriptive]]" integers.
+There are several so-called "self-describing" or "<a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Self-descriptive number" title="wp: Self-descriptive number">self-descriptive</a>" integers.
 
 An integer is said to be "self-describing" if it has the property that, when digit positions are labeled 0 to N-1, the digit in each position is equal to the number of times that that digit appears in the number.
 
-For example, &nbsp; '''2020''' &nbsp; is a four-digit self describing number:
+For example, &nbsp; <span class="rosetta__text--bold">2020</span> &nbsp; is a four-digit self describing number:
 
 * &nbsp; position &nbsp; 0 &nbsp; has value &nbsp; 2 &nbsp; and there are two 0s in the number;
 * &nbsp; position &nbsp; 1 &nbsp; has value &nbsp; 0 &nbsp; and there are no 1s in the number;

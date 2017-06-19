@@ -2,9 +2,9 @@ Happy numbers
 
 {{task|Arithmetic operations}}
 From Wikipedia, the free encyclopedia:
-:A [[wp:Happy number|happy number]] is defined by the following process:
+:A <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Happy number" title="wp: Happy number">happy number</a> is defined by the following process:
 
-: Starting with any positive integer, replace the number by the sum of the squares of its digits, and repeat the process until the number equals &nbsp; '''1''' &nbsp; (where it will stay), &nbsp; or it loops endlessly in a cycle which does not include &nbsp; '''1'''. &nbsp; Those numbers for which this process ends in &nbsp; '''1''' &nbsp; are happy numbers, &nbsp; while those that do not end in &nbsp; '''1''' &nbsp; are unhappy numbers. 
+: Starting with any positive integer, replace the number by the sum of the squares of its digits, and repeat the process until the number equals &nbsp; <span class="rosetta__text--bold">1</span> &nbsp; (where it will stay), &nbsp; or it loops endlessly in a cycle which does not include &nbsp; <span class="rosetta__text--bold">1</span>. &nbsp; Those numbers for which this process ends in &nbsp; <span class="rosetta__text--bold">1</span> &nbsp; are happy numbers, &nbsp; while those that do not end in &nbsp; <span class="rosetta__text--bold">1</span> &nbsp; are unhappy numbers. 
 
 Display an example of your output here.
 
@@ -14,8 +14,8 @@ Find and print the first 8 happy numbers.
 
 
 ;See also
-* [[oeis:A007770|The &nbsp; &nbsp; happy numbers on OEIS: &nbsp; A007770]]
-* [[oeis:A031177|The unhappy numbers on OEIS; &nbsp; A031177]]
+* <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/oeis:A007770" title="oeis:A007770">The &nbsp; &nbsp; happy numbers on OEIS: &nbsp; A007770</a>
+* <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/oeis:A031177" title="oeis:A031177">The unhappy numbers on OEIS; &nbsp; A031177</a>
 <br><br>
 
 

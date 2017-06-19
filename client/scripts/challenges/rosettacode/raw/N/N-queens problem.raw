@@ -1,16 +1,16 @@
 N-queens problem
 
 {{task}}
-[[File:chess_queen.jpg|400px||right]]
+<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:chess_queen.jpg" title="File:chess_queen.jpg">400px||right</a>
 
-[[File:N_queens_problem.png|400px||right]]
+<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:N_queens_problem.png" title="File:N_queens_problem.png">400px||right</a>
 
-Solve the [[WP:Eight_queens_puzzle|eight queens puzzle]]. 
+Solve the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/WP:Eight_queens_puzzle" title="WP:Eight_queens_puzzle">eight queens puzzle</a>. 
 
 
-You can extend the problem to solve the puzzle with a board of size &nbsp; <big>'''N'''x'''N'''</big>.
+You can extend the problem to solve the puzzle with a board of size &nbsp; <big><span class="rosetta__text--bold">N</span>x<span class="rosetta__text--bold">N</span></big>.
  
-For the number of solutions for small values of &nbsp; '''N''', &nbsp; see &nbsp; [http://oeis.org/A000170 oeis.org sequence A170].
+For the number of solutions for small values of &nbsp; <span class="rosetta__text--bold">N</span>, &nbsp; see &nbsp; [http://oeis.org/A000170 oeis.org sequence A170].
 
 
 ;Related tasks:

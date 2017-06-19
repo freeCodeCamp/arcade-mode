@@ -2,7 +2,7 @@ File size
 
 {{task|File System Operations}}
 
-Verify the size of a file called &nbsp; &nbsp; '''input.txt''' &nbsp; &nbsp; for a file in the current working directory, and another one in the file system root.
+Verify the size of a file called &nbsp; &nbsp; <span class="rosetta__text--bold">input.txt</span> &nbsp; &nbsp; for a file in the current working directory, and another one in the file system root.
 <br><br>
 
 

@@ -1,9 +1,9 @@
 Subleq
 
 {{task}}
-[[eso:Subleq|Subleq]] is an example of a [[wp:One_instruction_set_computer|One-Instruction Set Computer (OISC)]]. 
+<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/eso:Subleq" title="eso:Subleq">Subleq</a> is an example of a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/One_instruction_set_computer" title="wp: One_instruction_set_computer">One-Instruction Set Computer (OISC)</a>. 
 
-It is named after its only instruction, which is '''SU'''btract and '''B'''ranch if '''L'''ess than or '''EQ'''ual to zero.  
+It is named after its only instruction, which is <span class="rosetta__text--bold">SU</span>btract and <span class="rosetta__text--bold">B</span>ranch if <span class="rosetta__text--bold">L</span>ess than or <span class="rosetta__text--bold">EQ</span>ual to zero.  
 
 
 ;Task

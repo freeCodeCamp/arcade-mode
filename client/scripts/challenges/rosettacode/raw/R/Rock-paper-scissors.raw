@@ -3,7 +3,7 @@ Rock-paper-scissors
 {{task|Games}}
 
 ;Task:
-Implement the classic children's game [[wp:Rock-paper-scissors|Rock-paper-scissors]], as well as a simple predictive &nbsp; '''AI''' &nbsp; (<u>a</u>rtificial <u>i</u>ntelligence) &nbsp; player.
+Implement the classic children's game <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Rock-paper-scissors" title="wp: Rock-paper-scissors">Rock-paper-scissors</a>, as well as a simple predictive &nbsp; <span class="rosetta__text--bold">AI</span> &nbsp; (<u>a</u>rtificial <u>i</u>ntelligence) &nbsp; player.
 
 Rock Paper Scissors is a two player game. 
 
@@ -20,11 +20,11 @@ If both players choose the same thing, there is no winner for that round.
 
 For this task, the computer will be one of the players. 
 
-The operator will select Rock, Paper or Scissors and the computer will keep a record of the choice frequency, and use that information to make a [[Probabilistic choice|weighted random choice]] in an attempt to defeat its opponent.
+The operator will select Rock, Paper or Scissors and the computer will keep a record of the choice frequency, and use that information to make a <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Probabilistic choice" title="Probabilistic choice">weighted random choice</a> in an attempt to defeat its opponent.
 
 
 ;Extra credit:
-Support additional choices &nbsp; [[wp:Rock-paper-scissors#Additional_weapons|additional weapons]].
+Support additional choices &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Rock-paper-scissors#Additional_weapons" title="wp: Rock-paper-scissors#Additional_weapons">additional weapons</a>.
 <br><br>
 
 

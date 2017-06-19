@@ -3,16 +3,16 @@ Named parameters
 {{task|Basic language learning}}
 Create a function which takes in a number of arguments which are specified by name rather than (necessarily) position, and show how to call the function. If the language supports reordering the arguments or optionally omitting some of them, note this.
 
-'''Note:'''
+<span class="rosetta__text--bold">Note:</span>
 : Named parameters relies on being able to use the names given to function parameters when the function is defined, when assigning arguments when the function is called.
 : For example, if a function were to be defined as <code>define func1( paramname1, paramname2)</code>; then it could be called normally as <code>func1(argument1, argument2)</code> and in the called function paramname1 would be associated with argument1 and paramname2 with argument2.
-: <code>func1</code> '''must also be able to be called in a way that visually binds each parameter to its respective argument, irrespective of argument order''', for example: <code>func1(paramname2=argument2, paramname1=argument1)</code> which ''explicitly'' makes the same parameter/argument bindings as before.
-: Named parameters are often a feature of languages used in safety critical areas such as [[wp:Verilog|Verilog]] and [[wp:VHDL|VHDL]].
+: <code>func1</code> <span class="rosetta__text--bold">must also be able to be called in a way that visually binds each parameter to its respective argument, irrespective of argument order</span>, for example: <code>func1(paramname2=argument2, paramname1=argument1)</code> which <span class="rosetta__text--italic">explicitly</span> makes the same parameter/argument bindings as before.
+: Named parameters are often a feature of languages used in safety critical areas such as <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Verilog" title="wp: Verilog">Verilog]] and [[wp:VHDL|VHDL</a>.
 
-'''See also:'''
+<span class="rosetta__text--bold">See also:</span>
 * [[Varargs]]
 * [[Optional parameters]]
-* [[wp:Named parameter|Wikipedia: Named parameter]]
+* <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Named parameter" title="wp: Named parameter">Wikipedia: Named parameter</a>
 <br><br>
 
 

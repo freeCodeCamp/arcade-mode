@@ -2,7 +2,7 @@ FASTA format
 
 {{task}}
 
-In [[wp:bioinformatics|bioinformatics]], long character strings are often encoded in a format called [[wp:FASTA format|FASTA]].  
+In <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/bioinformatics" title="wp: bioinformatics">bioinformatics]], long character strings are often encoded in a format called [[wp:FASTA format|FASTA</a>.  
 
 A FASTA file can contain several strings, each identified by a name marked by a <big><big><code>&gt;</code></big></big> (greater than) character at the beginning of the line.
 

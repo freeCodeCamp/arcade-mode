@@ -4,7 +4,7 @@ Compiler/lexical analyzer
 
 Definition from [https://en.wikipedia.org/wiki/Lexical_analysis Wikipedia]:
 
-: ''Lexical analysis is the process of converting a sequence of characters (such as in a computer program or web page) into a sequence of tokens (strings with an identified "meaning"). A program that performs lexical analysis may be called a lexer, tokenizer, or scanner (though "scanner" is also used to refer to the first stage of a lexer).''
+: <span class="rosetta__text--italic">Lexical analysis is the process of converting a sequence of characters (such as in a computer program or web page) into a sequence of tokens (strings with an identified "meaning"). A program that performs lexical analysis may be called a lexer, tokenizer, or scanner (though "scanner" is also used to refer to the first stage of a lexer).</span>
 
 {{task heading}}
 
@@ -149,12 +149,12 @@ These differ from the the previous tokens, in that each occurrence of them has a
 ;White space
 
 * Zero or more whitespace characters, or comments enclosed in <code>/* ... */</code>, are allowed between any two tokens, with the exceptions noted below.
-* "Longest token matching" is used to resolve conflicts (e.g., in order to match '''<=''' as a single token rather than the two tokens '''<''' and '''=''').
-* Whitespace is ''required'' between two tokens that have an alphanumeric character or underscore at the edge.
+* "Longest token matching" is used to resolve conflicts (e.g., in order to match <span class="rosetta__text--bold"><=</span> as a single token rather than the two tokens <span class="rosetta__text--bold"><</span> and <span class="rosetta__text--bold">=</span>).
+* Whitespace is <span class="rosetta__text--italic">required</span> between two tokens that have an alphanumeric character or underscore at the edge.
 ** This means: keywords, identifiers, and integer literals.
 ** e.g. <code>ifprint</code> is recognized as an identifier, instead of the keywords <tt>if</tt> and <tt>print</tt>.
 ** e.g. <code>42fred</code> is invalid, and neither recognized as a number nor an identifier.
-* Whitespace is ''not allowed'' inside of tokens (except for chars and strings where they are part of the value).
+* Whitespace is <span class="rosetta__text--italic">not allowed</span> inside of tokens (except for chars and strings where they are part of the value).
 ** e.g. <code>& &</code> is invalid, and not interpreted as the <tt>&&</tt> operator.
 
 For example, the following two program fragments are equivalent, and should produce the same token stream except for the line and column positions:
@@ -362,7 +362,7 @@ print("Print a slash n - \\n.\n");</lang>
 
 ; Additional examples
 
-Your solution should pass all the test cases above and the additional tests found '''[[Compiler/Sample_programs|Here]]'''.
+Your solution should pass all the test cases above and the additional tests found <span class="rosetta__text--bold"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/Sample_programs" title="Compiler/Sample_programs">Here</a></span>.
 
 {{task heading|Reference}}
 
@@ -370,10 +370,10 @@ The C and Python versions can be considered reference implementations.
 
 ;Related Tasks
 
-* [[Compiler/syntax_analyzer|Syntax Analyzer task]]
-* [[Compiler/code_generator|Code Generator task]]
-* [[Compiler/virtual_machine_interpreter|Virtual Machine Interpreter task]]
-* [[Compiler/AST_interpreter|AST Interpreter task]]
+* <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/syntax_analyzer" title="Compiler/syntax_analyzer">Syntax Analyzer task</a>
+* <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/code_generator" title="Compiler/code_generator">Code Generator task</a>
+* <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/virtual_machine_interpreter" title="Compiler/virtual_machine_interpreter">Virtual Machine Interpreter task</a>
+* <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/AST_interpreter" title="Compiler/AST_interpreter">AST Interpreter task</a>
 
 <hr>
 __TOC__

@@ -7,17 +7,17 @@ into lower level code, either assembly, object, or virtual.
 
 {{task heading}}
 
-Take the output of the Syntax analyzer [[Compiler/syntax_analyzer|task]] - which is a [[Flatten_a_list|flattened]] Abstract Syntax Tree (AST) - and convert it to virtual machine code, that can be run by the
-[[Compiler/virtual_machine_interpreter|Virtual machine interpreter]].  The output is in text format, and represents virtual assembly code.
+Take the output of the Syntax analyzer <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/syntax_analyzer" title="Compiler/syntax_analyzer">task</a> - which is a <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Flatten_a_list" title="Flatten_a_list">flattened</a> Abstract Syntax Tree (AST) - and convert it to virtual machine code, that can be run by the
+<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/virtual_machine_interpreter" title="Compiler/virtual_machine_interpreter">Virtual machine interpreter</a>.  The output is in text format, and represents virtual assembly code.
 
 The program should read input from a file and/or stdin, and write output to a file and/or
 stdout.
 
-;Example - given the simple program (below), stored in a file called while.t, create the list of tokens, using one of the Lexical analyzer [[Compiler/lexical_analyzer|solutions]]
+;Example - given the simple program (below), stored in a file called while.t, create the list of tokens, using one of the Lexical analyzer <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/lexical_analyzer" title="Compiler/lexical_analyzer">solutions</a>
 
  lex < while.t > while.lex
 
-;Run one of the Syntax analyzer [[Compiler/syntax_analyzer|solutions]]:
+;Run one of the Syntax analyzer <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/syntax_analyzer" title="Compiler/syntax_analyzer">solutions</a>:
 
  parse < while.lex > while.ast
 
@@ -131,7 +131,7 @@ Integer       1</pre></b>
 
 ; Input format:
 
-As shown in the table, above, the output from the [[Compiler/syntax_analyzer|syntax analyzer]] is a flattened AST.
+As shown in the table, above, the output from the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/syntax_analyzer" title="Compiler/syntax_analyzer">syntax analyzer</a> is a flattened AST.
 
 In the AST, Identifier, Integer, and String, are terminal nodes, e.g, they do not have child nodes.
 
@@ -164,7 +164,7 @@ def load_ast()
 ; Output format - refer to the table above
 
 * The first line is the header: Size of data, and number of constant strings.
-** size of data is the number of 32-bit unique variables used.  In this example, one variable, '''count'''
+** size of data is the number of 32-bit unique variables used.  In this example, one variable, <span class="rosetta__text--bold">count</span>
 ** number of constant strings is just that - how many there are
 * After that, the constant strings
 * Finally, the assembly code
@@ -249,7 +249,7 @@ Unconditional stop.
 
 ; Additional examples
 
-Your solution should pass all the test cases above and the additional tests found '''[[Compiler/Sample_programs|Here]]'''.
+Your solution should pass all the test cases above and the additional tests found <span class="rosetta__text--bold"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/Sample_programs" title="Compiler/Sample_programs">Here</a></span>.
 
 {{task heading|Reference}}
 
@@ -257,10 +257,10 @@ The C and Python versions can be considered reference implementations.
 
 ;Related Tasks
 
-* [[Compiler/lexical_analyzer|Lexical Analyzer task]]
-* [[Compiler/syntax_analyzer|Syntax Analyzer task]]
-* [[Compiler/virtual_machine_interpreter|Virtual Machine Interpreter task]]
-* [[Compiler/AST_interpreter|AST Interpreter task]]
+* <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/lexical_analyzer" title="Compiler/lexical_analyzer">Lexical Analyzer task</a>
+* <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/syntax_analyzer" title="Compiler/syntax_analyzer">Syntax Analyzer task</a>
+* <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/virtual_machine_interpreter" title="Compiler/virtual_machine_interpreter">Virtual Machine Interpreter task</a>
+* <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/AST_interpreter" title="Compiler/AST_interpreter">AST Interpreter task</a>
 
 <hr>
 __TOC__

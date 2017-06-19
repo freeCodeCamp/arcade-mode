@@ -4,16 +4,16 @@ CUSIP
 {{wikipedia}}
 <br/>
 
-A &nbsp; '''CUSIP''' &nbsp; is a nine-character alphanumeric code that identifies a North American financial security for the purposes of facilitating clearing and settlement of trades. The CUSIP was adopted as an American National Standard under Accredited Standards X9.6.
+A &nbsp; <span class="rosetta__text--bold">CUSIP</span> &nbsp; is a nine-character alphanumeric code that identifies a North American financial security for the purposes of facilitating clearing and settlement of trades. The CUSIP was adopted as an American National Standard under Accredited Standards X9.6.
 
 
 ;Task:
-Ensure the last digit &nbsp; (i.e., the &nbsp; ''check digit'') &nbsp; of the '''CUSIP''' code (the 1<sup>st</sup> column) is correct, against the following:
+Ensure the last digit &nbsp; (i.e., the &nbsp; <span class="rosetta__text--italic">check digit</span>) &nbsp; of the <span class="rosetta__text--bold">CUSIP</span> code (the 1<sup>st</sup> column) is correct, against the following:
 * &nbsp;  037833100   &nbsp; &nbsp; &nbsp;   Apple Incorporated       
 * &nbsp;  17275R102   &nbsp; &nbsp; &nbsp;   Cisco Systems   
 * &nbsp;  38259P508   &nbsp; &nbsp; &nbsp;   Google Incorporated  
 * &nbsp;  594918104   &nbsp; &nbsp; &nbsp;   Microsoft Corporation   
-* &nbsp;  68389X106   &nbsp; &nbsp; &nbsp;   Oracle Corporation &nbsp; (''incorrect'')
+* &nbsp;  68389X106   &nbsp; &nbsp; &nbsp;   Oracle Corporation &nbsp; (<span class="rosetta__text--italic">incorrect</span>)
 * &nbsp;  68389X105   &nbsp; &nbsp; &nbsp;   Oracle Corporation    
 
 
@@ -47,8 +47,8 @@ Ensure the last digit &nbsp; (i.e., the &nbsp; ''check digit'') &nbsp; of the ''
 end function</lang>
 
 ;See related tasks: 
-* [[SEDOLs|SEDOL]]
-* [[Validate_International_Securities_Identification_Number|ISIN]]
+* <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/SEDOLs" title="SEDOLs">SEDOL</a>
+* <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Validate_International_Securities_Identification_Number" title="Validate_International_Securities_Identification_Number">ISIN</a>
 <br><br>
 
 

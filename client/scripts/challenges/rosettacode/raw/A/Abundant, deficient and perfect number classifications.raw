@@ -1,22 +1,22 @@
 Abundant, deficient and perfect number classifications
 
 {{task}}
-These define three classifications of positive integers based on their &nbsp; [[Proper divisors|proper divisors]].
+These define three classifications of positive integers based on their &nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Proper divisors" title="Proper divisors">proper divisors</a>.
 
-Let &nbsp; P(n) &nbsp; be the sum of the proper divisors of &nbsp; '''n''' &nbsp; where the proper divisors are all positive divisors of &nbsp; '''n''' &nbsp; other than &nbsp; '''n''' &nbsp; itself. 
-    if   <code> P(n) <  n </code>   then  '''n'''  is classed as  '''deficient'''  ([https://oeis.org/A005100 OEIS A005100]).
-    if   <code> P(n) == n </code>   then  '''n'''  is classed as  '''perfect'''    ([https://oeis.org/A000396 OEIS A000396]).
-    if   <code> P(n) >  n </code>   then  '''n'''  is classed as  '''abundant'''   ([https://oeis.org/A005101 OEIS A005101]).
+Let &nbsp; P(n) &nbsp; be the sum of the proper divisors of &nbsp; <span class="rosetta__text--bold">n</span> &nbsp; where the proper divisors are all positive divisors of &nbsp; <span class="rosetta__text--bold">n</span> &nbsp; other than &nbsp; <span class="rosetta__text--bold">n</span> &nbsp; itself. 
+    if   <code> P(n) <  n </code>   then  <span class="rosetta__text--bold">n</span>  is classed as  <span class="rosetta__text--bold">deficient</span>  ([https://oeis.org/A005100 OEIS A005100]).
+    if   <code> P(n) == n </code>   then  <span class="rosetta__text--bold">n</span>  is classed as  <span class="rosetta__text--bold">perfect</span>    ([https://oeis.org/A000396 OEIS A000396]).
+    if   <code> P(n) >  n </code>   then  <span class="rosetta__text--bold">n</span>  is classed as  <span class="rosetta__text--bold">abundant</span>   ([https://oeis.org/A005101 OEIS A005101]).
 
 
 ;Example:
-'''6''' &nbsp; has proper divisors of &nbsp; '''1''', &nbsp; '''2''', &nbsp; and &nbsp; '''3'''. 
+<span class="rosetta__text--bold">6</span> &nbsp; has proper divisors of &nbsp; <span class="rosetta__text--bold">1</span>, &nbsp; <span class="rosetta__text--bold">2</span>, &nbsp; and &nbsp; <span class="rosetta__text--bold">3</span>. 
 
-'''1 + 2 + 3 = 6''', &nbsp; so &nbsp; '''6''' &nbsp;  is classed as a perfect number.
+<span class="rosetta__text--bold">1 + 2 + 3 = 6</span>, &nbsp; so &nbsp; <span class="rosetta__text--bold">6</span> &nbsp;  is classed as a perfect number.
 
 
 ;Task:
-Calculate how many of the integers &nbsp; '''1''' &nbsp; to &nbsp; '''20,000''' &nbsp; (inclusive) are in each of the three classes.
+Calculate how many of the integers &nbsp; <span class="rosetta__text--bold">1</span> &nbsp; to &nbsp; <span class="rosetta__text--bold">20,000</span> &nbsp; (inclusive) are in each of the three classes.
 
 Show the results here.
 

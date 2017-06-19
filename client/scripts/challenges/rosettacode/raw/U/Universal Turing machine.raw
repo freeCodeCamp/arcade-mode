@@ -2,10 +2,10 @@ Universal Turing machine
 
 {{task}}
 One of the foundational mathematical constructs behind computer science 
-is the [[wp:Universal Turing machine|universal Turing Machine]].  
+is the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Universal Turing machine" title="wp: Universal Turing machine">universal Turing Machine</a>.  
 
 Indeed one way to definitively prove that a language 
-is [[wp:Turing_completeness|turing-complete]] 
+is <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Turing_completeness" title="wp: Turing_completeness">turing-complete</a> 
 is to implement a universal Turing machine in it.
 
 
@@ -24,13 +24,13 @@ is Turing complete!), you should execute the following two Turing machines
 based on the following definitions.
 
 
-'''Simple incrementer'''
-* '''States:''' q0, qf
-* '''Initial state:''' q0
-* '''Terminating states:''' qf
-* '''Permissible symbols:''' B, 1
-* '''Blank symbol:''' B
-* '''Rules:'''
+<span class="rosetta__text--bold">Simple incrementer</span>
+* <span class="rosetta__text--bold">States:</span> q0, qf
+* <span class="rosetta__text--bold">Initial state:</span> q0
+* <span class="rosetta__text--bold">Terminating states:</span> qf
+* <span class="rosetta__text--bold">Permissible symbols:</span> B, 1
+* <span class="rosetta__text--bold">Blank symbol:</span> B
+* <span class="rosetta__text--bold">Rules:</span>
 ** (q0, 1, 1, right, q0)
 ** (q0, B, 1, stay,  qf)
 
@@ -38,13 +38,13 @@ based on the following definitions.
 The input for this machine should be a tape of <code>1 1 1</code>
 
 
-'''Three-state busy beaver'''
-* '''States:''' a, b, c, halt
-* '''Initial state:''' a
-* '''Terminating states:''' halt
-* '''Permissible symbols:''' 0, 1
-* '''Blank symbol:''' 0
-* '''Rules:'''
+<span class="rosetta__text--bold">Three-state busy beaver</span>
+* <span class="rosetta__text--bold">States:</span> a, b, c, halt
+* <span class="rosetta__text--bold">Initial state:</span> a
+* <span class="rosetta__text--bold">Terminating states:</span> halt
+* <span class="rosetta__text--bold">Permissible symbols:</span> 0, 1
+* <span class="rosetta__text--bold">Blank symbol:</span> 0
+* <span class="rosetta__text--bold">Rules:</span>
 ** (a, 0, 1, right, b)
 ** (a, 1, 1, left,  c)
 ** (b, 0, 1, left,  a)
@@ -56,15 +56,15 @@ The input for this machine should be a tape of <code>1 1 1</code>
 The input for this machine should be an empty tape.
 
 
-'''Bonus:'''
+<span class="rosetta__text--bold">Bonus:</span>
 
-'''5-state, 2-symbol probable Busy Beaver machine from Wikipedia'''
-* '''States:''' A, B, C, D, E, H
-* '''Initial state:''' A
-* '''Terminating states:''' H
-* '''Permissible symbols:''' 0, 1
-* '''Blank symbol:''' 0
-* '''Rules:'''
+<span class="rosetta__text--bold">5-state, 2-symbol probable Busy Beaver machine from Wikipedia</span>
+* <span class="rosetta__text--bold">States:</span> A, B, C, D, E, H
+* <span class="rosetta__text--bold">Initial state:</span> A
+* <span class="rosetta__text--bold">Terminating states:</span> H
+* <span class="rosetta__text--bold">Permissible symbols:</span> 0, 1
+* <span class="rosetta__text--bold">Blank symbol:</span> 0
+* <span class="rosetta__text--bold">Rules:</span>
 ** (A, 0, 1, right, B)
 ** (A, 1, 1, left,  C)
 ** (B, 0, 1, right, C)

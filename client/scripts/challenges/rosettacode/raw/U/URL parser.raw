@@ -9,7 +9,7 @@ URLs are strings with a simple syntax:
 
 
 ;Task:
-Parse a well-formed URL to retrieve the relevant information: &nbsp; '''scheme''', '''domain''', '''path''', ...
+Parse a well-formed URL to retrieve the relevant information: &nbsp; <span class="rosetta__text--bold">scheme</span>, <span class="rosetta__text--bold">domain</span>, <span class="rosetta__text--bold">path</span>, ...
 
 
 Note: &nbsp; this task has nothing to do with [[URL encoding]] or [[URL decoding]].
@@ -17,9 +17,9 @@ Note: &nbsp; this task has nothing to do with [[URL encoding]] or [[URL decoding
 
 According to the standards, the characters:
 :::: &nbsp; <big><big>    ! * ' ( ) ; : @ & = + $ , / ? % # [ ]    </big></big>
-only need to be percent-encoded &nbsp; ('''%''') &nbsp; in case of possible confusion. 
+only need to be percent-encoded &nbsp; (<span class="rosetta__text--bold">%</span>) &nbsp; in case of possible confusion. 
 
-Also note that the '''path''', '''query''' and '''fragment''' are case sensitive, even if the '''scheme''' and '''domain''' are not.
+Also note that the <span class="rosetta__text--bold">path</span>, <span class="rosetta__text--bold">query</span> and <span class="rosetta__text--bold">fragment</span> are case sensitive, even if the <span class="rosetta__text--bold">scheme</span> and <span class="rosetta__text--bold">domain</span> are not.
 
 The way the returned information is provided (set of variables, array, structured, record, object,...) 
 is language-dependent and left to the programmer, but the code should be clear enough to reuse.
@@ -33,7 +33,7 @@ Extra credit is given for clear error diagnostics.
 ;Test cases:
 According to T. Berners-Lee
  
-'''<nowiki>foo://example.com:8042/over/there?name=ferret#nose</nowiki>''' &nbsp; &nbsp; should parse into:
+<span class="rosetta__text--bold"><nowiki>foo://example.com:8042/over/there?name=ferret#nose</nowiki></span> &nbsp; &nbsp; should parse into:
 ::* &nbsp; scheme = foo
 ::* &nbsp; domain = example.com
 ::* &nbsp; port = :8042
@@ -42,12 +42,12 @@ According to T. Berners-Lee
 ::* &nbsp; fragment = nose
 
 
-'''<nowiki>urn:example:animal:ferret:nose</nowiki>''' &nbsp; &nbsp; should parse into:
+<span class="rosetta__text--bold"><nowiki>urn:example:animal:ferret:nose</nowiki></span> &nbsp; &nbsp; should parse into:
 ::* &nbsp; scheme = urn
 ::* &nbsp; path = example:animal:ferret:nose
 
 
-'''other URLs that must be parsed include:'''
+<span class="rosetta__text--bold">other URLs that must be parsed include:</span>
 :* &nbsp; <nowiki> jdbc:mysql://test_user:ouupppssss@localhost:3306/sakila?profileSQL=true </nowiki> 
 :* &nbsp; <nowiki> ftp://ftp.is.co.za/rfc/rfc1808.txt                                      </nowiki>
 :* &nbsp; <nowiki> http://www.ietf.org/rfc/rfc2396.txt#header1                             </nowiki>

@@ -1,16 +1,16 @@
 Deconvolution/1D
 
 {{task|Mathematical operations}}
-The convolution of two functions <math>\mathit{F}</math> and <math>\mathit{H}</math> of
-an integer variable is defined as the function <math>\mathit{G}</math>
+The convolution of two functions $\mathit{F}$ and $\mathit{H}$ of
+an integer variable is defined as the function $\mathit{G}$
 satisfying
 
-:<math> G(n) = \sum_{m=-\infty}^{\infty} F(m) H(n-m) </math>
+:$ G(n) = \sum_{m=-\infty}^{\infty} F(m) H(n-m) $
 
-for all integers <math>\mathit{n}</math>. Assume <math>F(n)</math> can be non-zero only for <math>0</math> &le; <math>\mathit{n}</math> &le; <math>|\mathit{F}|</math>, where <math>|\mathit{F}|</math> is the "length" of <math>\mathit{F}</math>, and similarly for <math>\mathit{G}</math> and <math>\mathit{H}</math>, so that the functions can be modeled as finite sequences by identifying <math>f_0, f_1, f_2, \dots</math> with <math>F(0), F(1), F(2), \dots</math>, etc. 
-Then for example, values of <math>|\mathit{F}| = 6</math> and <math>|\mathit{H}| = 5</math> would determine the following value of <math>\mathit{g}</math> by definition.
+for all integers $\mathit{n}$. Assume $F(n)$ can be non-zero only for $0$ &le; $\mathit{n}$ &le; $|\mathit{F}|$, where $|\mathit{F}|$ is the "length" of $\mathit{F}$, and similarly for $\mathit{G}$ and $\mathit{H}$, so that the functions can be modeled as finite sequences by identifying $f_0, f_1, f_2, \dots$ with $F(0), F(1), F(2), \dots$, etc. 
+Then for example, values of $|\mathit{F}| = 6$ and $|\mathit{H}| = 5$ would determine the following value of $\mathit{g}$ by definition.
 
-:<math>
+:$
 \begin{array}{lllllllllll}
 g_0 &= &f_0h_0\\
 g_1 &= &f_1h_0 &+ &f_0h_1\\
@@ -23,11 +23,11 @@ g_7 &= &       &  &       &  &f_5h_2 &+ &f_4h_3 &+ &f_3h_4\\
 g_8 &= &       &  &       &  &       &  &f_5h_3 &+ &f_4h_4\\
 g_9 &= &       &  &       &  &       &  &       &  &f_5h_4
 \end{array}
-</math>
+$
 
 We can write this in matrix form as:
 
-:<math>
+:$
 \left( 
 \begin{array}{l}
 g_0 \\
@@ -62,19 +62,19 @@ h_2 \\
 h_3 \\
 h_4 \\
 \end{array} \right)
-</math>
+$
 
 or
 
-:<math>
+:$
 g = A \; h
-</math>
+$
 
-For this task, implement a function (or method, procedure, subroutine, etc.) <code>deconv</code> to perform ''deconvolution'' (i.e., the ''inverse'' of convolution) by constructing and solving such a system of equations represented by the above matrix <math>A</math> for <math>\mathit{h}</math> given <math>\mathit{f}</math> and <math>\mathit{g}</math>.
+For this task, implement a function (or method, procedure, subroutine, etc.) <code>deconv</code> to perform <span class="rosetta__text--italic">deconvolution</span> (i.e., the <span class="rosetta__text--italic">inverse</span> of convolution) by constructing and solving such a system of equations represented by the above matrix $A$ for $\mathit{h}$ given $\mathit{f}$ and $\mathit{g}$.
 
-* The function should work for <math>\mathit{G}</math> of arbitrary length (i.e., not hard coded or constant) and <math>\mathit{F}</math> of any length up to that of <math>\mathit{G}</math>. Note that <math>|\mathit{H}|</math> will be given by <math>|\mathit{G}| - |\mathit{F}| + 1</math>.
+* The function should work for $\mathit{G}$ of arbitrary length (i.e., not hard coded or constant) and $\mathit{F}$ of any length up to that of $\mathit{G}$. Note that $|\mathit{H}|$ will be given by $|\mathit{G}| - |\mathit{F}| + 1$.
 * There may be more equations than unknowns. If convenient, use a function from a [http://www.netlib.org/lapack/lug/node27.html library] that finds the best fitting solution to an overdetermined system of linear equations (as in the [[Multiple regression]] task).  Otherwise, prune the set of equations as needed and solve as in the [[Reduced row echelon form]] task.
-* Test your solution on the following data. Be sure to verify both that <code>deconv</code><math>(g,f) = h</math> and <code>deconv</code><math>(g,h) = f</math> and display the results in a human readable form.
+* Test your solution on the following data. Be sure to verify both that <code>deconv</code>$(g,f) = h$ and <code>deconv</code>$(g,h) = f$ and display the results in a human readable form.
 <code>
 h = [-8,-9,-3,-1,-6,7]<br>
 f = [-3,-6,-1,8,-6,3,-1,-9,-9,3,-2,5,2,-2,-7,-1]<br>

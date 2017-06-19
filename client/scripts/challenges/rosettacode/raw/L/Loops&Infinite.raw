@@ -4,7 +4,7 @@ Loops/Infinite
 [[Category:Simple]]
 
 ;Task:
-Print out &nbsp; &nbsp; &nbsp; <big> '''SPAM''' </big> &nbsp; &nbsp; &nbsp; followed by a &nbsp; ''newline'' &nbsp; in an infinite loop.
+Print out &nbsp; &nbsp; &nbsp; <big> <span class="rosetta__text--bold">SPAM</span> </big> &nbsp; &nbsp; &nbsp; followed by a &nbsp; <span class="rosetta__text--italic">newline</span> &nbsp; in an infinite loop.
 <br><br>
 
 

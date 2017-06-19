@@ -6,19 +6,19 @@ Palindrome detection
 [[Category:Classic CS problems and programs]]
 [[Category:Palindromes]]
 
-A [[wp:Palindrome|palindrome]] is a phrase which reads the same backward and forward.
+A <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Palindrome" title="wp: Palindrome">palindrome</a> is a phrase which reads the same backward and forward.
 
 {{task heading}}
 
 Write a function or program that checks whether a given sequence of characters (or, if you prefer, bytes) 
 is a palindrome.
 
-'''''For extra credit:'''''
+<span class="rosetta__text--bold"><span class="rosetta__text--italic">For extra credit:</span></span>
 * Support Unicode characters.
-* Write a second function (possibly as a wrapper to the first) which detects ''inexact'' palindromes, i.e. phrases that are palindromes if white-space and punctuation is ignored and case-insensitive comparison is used.
+* Write a second function (possibly as a wrapper to the first) which detects <span class="rosetta__text--italic">inexact</span> palindromes, i.e. phrases that are palindromes if white-space and punctuation is ignored and case-insensitive comparison is used.
 
 {{task heading|Hints}}
-* It might be useful for this task to know how to [[Reversing a string|reverse a string]].
+* It might be useful for this task to know how to <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Reversing a string" title="Reversing a string">reverse a string</a>.
 * This task's entries might also form the subjects of the task [[Test a function]].
 
 {{task heading|Related tasks}}

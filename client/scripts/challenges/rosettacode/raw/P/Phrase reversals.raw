@@ -41,44 +41,72 @@ reversal phrase code rosetta</pre>
 
 ===ES6===
 <lang JavaScript>(() => {
-    'use strict';
+    'use strict'
 
-    // words :: String -> [String]
-    const words = s => s.split(/\s+/);
+    // reverseString, reverseEachWord, reverseWordOrder :: String -> String
+    const
+        reverseString = s => reverse(s),
 
-    // unwords :: [String] -> String
-    const unwords = xs => xs.join(' ');
+        reverseEachWord = s => wordLevel(map(reverse))(s),
+
+        reverseWordOrder = s => wordLevel(reverse)(s);
+
+    // wordLevel :: ([String] -> [String]) -> String -> String
+    const wordLevel = f =>
+        x => unwords(f(words(x)));
+
+
+    // GENERIC FUNCTIONS -----------------------------------------------------
+
+    // A list of functions applied to a list of arguments
+    // <*> :: [(a -> b)] -> [a] -> [b]
+    const ap = (fs, xs) => //
+        [].concat.apply([], fs.map(f => //
+            [].concat.apply([], xs.map(x => [f(x)]))));
+
+    // 2 or more arguments
+    // curry :: Function -> Function
+    const curry = (f, ...args) => {
+        const go = xs => xs.length >= f.length ? (f.apply(null, xs)) :
+            function () {
+                return go(xs.concat(Array.from(arguments)));
+            };
+        return go([].slice.call(args, 1));
+    };
+
+    // map :: (a -> b) -> [a] -> [b]
+    const map = curry((f, xs) => xs.map(f));
 
     // reverse :: [a] -> [a]
-    const reverse = xs =>
+    const reverse = curry(xs =>
         typeof xs === 'string' ? (
             xs.split('')
             .reverse()
             .join('')
         ) : xs.slice(0)
-        .reverse();
+        .reverse());
 
-    // map :: (a -> b) -> [a] -> [b]
-    const map = (f, xs) => xs.map(f);
+    // unlines :: [String] -> String
+    const unlines = xs => xs.join('\n');
+
+    // unwords :: [String] -> String
+    const unwords = xs => xs.join(' ');
+
+    // words :: String -> [String]
+    const words = s => s.split(/\s+/);
 
 
-    // TEST
-    // show :: a -> String
-    const show = x => JSON.stringify(x, null, 2);
-
-    const strPhrase = 'rosetta code phrase reversal';
-
-    return show({
-        reversedString: reverse(strPhrase),
-        eachWordReversed: unwords(map(reverse, words(strPhrase))),
-        wordOrderReversed: unwords(reverse(words(strPhrase)))
-    });
+    // TEST ------------------------------------------------------------------
+    return unlines(
+        ap([
+            reverseString,
+            reverseEachWord,
+            reverseWordOrder
+        ], ["rosetta code phrase reversal"])
+    );
 })();</lang>
-
 {{Out}}
-<pre>{
-  "reversedString": "lasrever esarhp edoc attesor",
-  "eachWordReversed": "attesor edoc esarhp lasrever",
-  "wordOrderReversd": "reversal phrase code rosetta"
-}</pre>
+<pre>lasrever esarhp edoc attesor
+attesor edoc esarhp lasrever
+reversal phrase code rosetta</pre>
 

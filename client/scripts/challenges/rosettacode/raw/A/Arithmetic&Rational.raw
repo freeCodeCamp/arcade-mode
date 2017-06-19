@@ -1,23 +1,39 @@
 Arithmetic/Rational
 
 {{task|Arithmetic operations}}
-[[Category:Arithmetic]]
+<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category:Arithmetic]]
 
 ;Task:
 Create a reasonably complete implementation of rational arithmetic in the particular language using the idioms of the language.
 
 
 ;Example:
-Define a new type called '''frac''' with binary operator "//" of two integers that returns a '''structure''' made up of the numerator and the denominator (as per a rational number).
+Define a new type called <span class="rosetta__text--bold">frac</span> with binary operator "//" of two integers that returns a <span class="rosetta__text--bold">structure</span> made up of the numerator and the denominator (as per a rational number).
 
-Further define the appropriate rational unary '''operators''' '''abs''' and '-', with the binary '''operators''' for addition '+', subtraction '-', multiplication '&times;', division '/', integer division '&divide;', modulo division, the comparison operators (e.g. '<', '&le;', '>', & '&ge;') and equality operators (e.g. '=' & '&ne;').
+Further define the appropriate rational unary <span class="rosetta__text--bold">operators</span> <span class="rosetta__text--bold">abs</span> and '-', with the binary <span class="rosetta__text--bold">operators</span> for addition '+', subtraction '-', multiplication '&times;', division '/', integer division '&divide;', modulo division, the comparison operators (e.g. '<', '&le;', '>', & '&ge;') and equality operators (e.g. '=' & '&ne;').
 
-Define standard coercion '''operators''' for casting '''int''' to '''frac''' etc.
+Define standard coercion <span class="rosetta__text--bold">operators</span> for casting <span class="rosetta__text--bold">int</span> to <span class="rosetta__text--bold">frac</span> etc.
 
-If space allows, define standard increment and decrement '''operators''' (e.g. '+:=' & '-:=' etc.).
+If space allows, define standard increment and decrement <span class="rosetta__text--bold">operators</span> (e.g. '+:=' & '-:=' etc.).
 
 Finally test the operators:
-Use the new type '''frac''' to find all [[Perfect Numbers|perfect numbers]] less than 2<sup>19</sup> by summing the reciprocal of the factors.
+Use the new type <span class="rosetta__text--bold">frac</span> to find all [[Perfect Numbers" title="Category:Arithmetic]]
+
+;Task:
+Create a reasonably complete implementation of rational arithmetic in the particular language using the idioms of the language.
+
+
+;Example:
+Define a new type called <span class="rosetta__text--bold">frac</span> with binary operator "//" of two integers that returns a <span class="rosetta__text--bold">structure</span> made up of the numerator and the denominator (as per a rational number).
+
+Further define the appropriate rational unary <span class="rosetta__text--bold">operators</span> <span class="rosetta__text--bold">abs</span> and '-', with the binary <span class="rosetta__text--bold">operators</span> for addition '+', subtraction '-', multiplication '&times;', division '/', integer division '&divide;', modulo division, the comparison operators (e.g. '<', '&le;', '>', & '&ge;') and equality operators (e.g. '=' & '&ne;').
+
+Define standard coercion <span class="rosetta__text--bold">operators</span> for casting <span class="rosetta__text--bold">int</span> to <span class="rosetta__text--bold">frac</span> etc.
+
+If space allows, define standard increment and decrement <span class="rosetta__text--bold">operators</span> (e.g. '+:=' & '-:=' etc.).
+
+Finally test the operators:
+Use the new type <span class="rosetta__text--bold">frac</span> to find all [[Perfect Numbers">perfect numbers</a> less than 2<sup>19</sup> by summing the reciprocal of the factors.
 
 
 ;Related task:

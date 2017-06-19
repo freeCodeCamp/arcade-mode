@@ -6,7 +6,7 @@ Atomic updates
 ;Task:
 Define a data type consisting of a fixed number of 'buckets', each containing a nonnegative integer value, which supports operations to:
 # get the current value of any bucket
-# remove a specified amount from one specified bucket and add it to another, preserving the total of all bucket values, and [[wp:Clamping (graphics)|clamping]] the transferred amount to ensure the values remain non-negative
+# remove a specified amount from one specified bucket and add it to another, preserving the total of all bucket values, and <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Clamping (graphics)" title="wp: Clamping (graphics)">clamping</a> the transferred amount to ensure the values remain non-negative
 
 ----
 
@@ -20,7 +20,7 @@ The display task need not be explicit; use of e.g. a debugger or trace tool is a
 
 ----
 
-This task is intended as an exercise in ''atomic'' operations. &nbsp; The sum of the bucket values must be preserved even if the two tasks attempt to perform transfers simultaneously, and a straightforward solution is to ensure that at any time, only one transfer is actually occurring — that the transfer operation is ''atomic''.
+This task is intended as an exercise in <span class="rosetta__text--italic">atomic</span> operations. &nbsp; The sum of the bucket values must be preserved even if the two tasks attempt to perform transfers simultaneously, and a straightforward solution is to ensure that at any time, only one transfer is actually occurring — that the transfer operation is <span class="rosetta__text--italic">atomic</span>.
 <br><br>
 
 

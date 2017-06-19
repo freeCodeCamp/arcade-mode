@@ -1,7 +1,7 @@
 Queue/Usage
 
 {{task|Data Structures}}{{Data structure}}
-[[File:Fifo.gif|frame|right|Illustration of FIFO behavior]]
+<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:Fifo.gif" title="File:Fifo.gif">frame|right|Illustration of FIFO behavior</a>
 
 ;Task:
 Create a queue data structure and demonstrate its operations. 
@@ -10,8 +10,8 @@ Create a queue data structure and demonstrate its operations.
 
 
 Operations:
-::* &nbsp; push   &nbsp; &nbsp; &nbsp;        (aka ''enqueue'') - add element
-::* &nbsp; pop    &nbsp; &nbsp; &nbsp; &nbsp; (aka ''dequeue'') - pop first element
+::* &nbsp; push   &nbsp; &nbsp; &nbsp;        (aka <span class="rosetta__text--italic">enqueue</span>) - add element
+::* &nbsp; pop    &nbsp; &nbsp; &nbsp; &nbsp; (aka <span class="rosetta__text--italic">dequeue</span>) - pop first element
 ::* &nbsp; empty  &nbsp; &nbsp;               - return truth value when empty
 
 <br>

@@ -25,8 +25,8 @@ The task is to reverse the letters in every other word while leaving punctuation
 :: <big><code>what,si,the;gninaem,of:efil.</code></big> 
 while observing the following restrictions:
 # Only I/O allowed is reading or writing one character at a time, which means: no reading in a string, no peeking ahead, no pushing characters back into the stream, and no storing characters in a global variable for later use;
-# You '''are not''' to explicitly save characters in a collection data structure, such as arrays, strings, hash tables, etc, for later reversal;
-# You '''are''' allowed to use recursions, closures, continuations, threads, co-routines, etc., even if their use implies the storage of multiple characters.
+# You <span class="rosetta__text--bold">are not</span> to explicitly save characters in a collection data structure, such as arrays, strings, hash tables, etc, for later reversal;
+# You <span class="rosetta__text--bold">are</span> allowed to use recursions, closures, continuations, threads, co-routines, etc., even if their use implies the storage of multiple characters.
 
 
 ;Test cases:

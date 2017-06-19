@@ -1,9 +1,9 @@
 Zeckendorf arithmetic
 
 {{task|Arithmetic operations}}
-This task is a ''total immersion'' zeckendorf task; using decimal numbers will attract serious disapprobation.
+This task is a <span class="rosetta__text--italic">total immersion</span> zeckendorf task; using decimal numbers will attract serious disapprobation.
 
-The task is to implement addition, subtraction, multiplication, and division using [[Zeckendorf number representation]]. [[Zeckendorf number representation#Using_a_C.2B.2B11_User_Defined_Literal|Optionally]] provide decrement, increment and comparitive operation functions.
+The task is to implement addition, subtraction, multiplication, and division using <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Zeckendorf number representation]]. [[Zeckendorf number representation#Using_a_C.2B.2B11_User_Defined_Literal" title="Zeckendorf number representation]]. [[Zeckendorf number representation#Using_a_C.2B.2B11_User_Defined_Literal">Optionally</a> provide decrement, increment and comparitive operation functions.
 
 ;Addition
 Like binary 1 + 1 = 10, note carry 1 left. There the similarity ends. 10 + 10 = 101, note carry 1 left and 1 right. 100 + 100 = 1001, note carry 1 left and 2 right, this is the general case. 

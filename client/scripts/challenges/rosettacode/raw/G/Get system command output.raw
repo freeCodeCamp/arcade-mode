@@ -6,7 +6,7 @@ Get system command output
 Execute a system command and get its output into the program. The output may be stored in any kind of collection (array, list, etc.). 
 <br><br>
 ;Related tasks
-* [[Execute_a_system_command | Execute a system command]]
+* <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Execute_a_system_command " title="Execute_a_system_command "> Execute a system command</a>
 <br><br>
 
 

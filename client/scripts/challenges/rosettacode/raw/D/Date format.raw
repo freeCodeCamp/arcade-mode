@@ -5,8 +5,8 @@ Date format
 
 ;Task:
 Display the &nbsp; current date &nbsp; in the formats of:
-:::* &nbsp;  '''2007-11-23''' &nbsp; &nbsp; and 
-:::* &nbsp;  '''Sunday, November 23, 2007'''
+:::* &nbsp;  <span class="rosetta__text--bold">2007-11-23</span> &nbsp; &nbsp; and 
+:::* &nbsp;  <span class="rosetta__text--bold">Sunday, November 23, 2007</span>
 <br><br>
 
 

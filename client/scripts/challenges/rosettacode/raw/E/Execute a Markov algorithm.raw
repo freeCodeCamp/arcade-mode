@@ -6,7 +6,7 @@ Execute a Markov algorithm
 
 
 ;Task:
-Create an interpreter for a [[wp:Markov algorithm|Markov Algorithm]]. 
+Create an interpreter for a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Markov algorithm" title="wp: Markov algorithm">Markov Algorithm</a>. 
 
 Rules have the syntax:
  <ruleset> ::= ((<comment> | <rule>) <newline>+)*
@@ -15,7 +15,7 @@ Rules have the syntax:
  <whitespace> ::= (<tab> | <space>) [<whitespace>]
 There is one rule per line. 
 
-If there is a &nbsp; <b>.</b> &nbsp; (period) &nbsp; present before the &nbsp; '''<replacement>''', &nbsp; then this is a terminating rule in which case the interpreter must halt execution. 
+If there is a &nbsp; <b>.</b> &nbsp; (period) &nbsp; present before the &nbsp; <span class="rosetta__text--bold"><replacement></span>, &nbsp; then this is a terminating rule in which case the interpreter must halt execution. 
 
 A ruleset consists of a sequence of rules, with optional comments.
 
@@ -121,7 +121,7 @@ should generate the output:
 A simple [http://en.wikipedia.org/wiki/Turing_machine Turing machine], 
 implementing a three-state [http://en.wikipedia.org/wiki/Busy_beaver busy beaver]. 
 
-The tape consists of '''0'''s and '''1'''s, &nbsp; the states are '''A''', '''B''', '''C''' and '''H''' (for '''H'''alt), and the head position is indicated by writing the state letter before the character where the head is. 
+The tape consists of <span class="rosetta__text--bold">0</span>s and <span class="rosetta__text--bold">1</span>s, &nbsp; the states are <span class="rosetta__text--bold">A</span>, <span class="rosetta__text--bold">B</span>, <span class="rosetta__text--bold">C</span> and <span class="rosetta__text--bold">H</span> (for <span class="rosetta__text--bold">H</span>alt), and the head position is indicated by writing the state letter before the character where the head is. 
 All parts of the initial tape the machine operates on have to be given in the input.
 
 Besides demonstrating that the Markov algorithm is Turing-complete, it also made me catch a bug in the C++ implementation which wasn't caught by the first four rulesets.

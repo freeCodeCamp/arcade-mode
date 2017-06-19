@@ -4,15 +4,15 @@ Solve the no connection puzzle
 You are given a box with eight holes labelled A-to-H, connected by fifteen
 straight lines in the pattern as shown
 
-         '''A'''   '''B'''
+         <span class="rosetta__text--bold">A</span>   <span class="rosetta__text--bold">B</span>
         /|\ /|\
        / | X | \
       /  |/ \|  \
-     '''C''' - '''D''' - '''E''' - '''F'''
+     <span class="rosetta__text--bold">C</span> - <span class="rosetta__text--bold">D</span> - <span class="rosetta__text--bold">E</span> - <span class="rosetta__text--bold">F</span>
       \  |\ /|  /
        \ | X | /
         \|/ \|/
-         '''G'''   '''H'''
+         <span class="rosetta__text--bold">G</span>   <span class="rosetta__text--bold">H</span>
 
 You are also given eight pegs numbered 1-to-8. The idea is to place the pegs in
 the holes so that the (absolute) difference between any two numbers connected by
@@ -20,21 +20,21 @@ any line is greater than one.
 
 For example, in this attempt:
 
-         '''4'''   '''7'''
+         <span class="rosetta__text--bold">4</span>   <span class="rosetta__text--bold">7</span>
         /|\ /|\
        / | X | \
       /  |/ \|  \
-     '''8''' - '''1''' - '''6''' - '''2'''
+     <span class="rosetta__text--bold">8</span> - <span class="rosetta__text--bold">1</span> - <span class="rosetta__text--bold">6</span> - <span class="rosetta__text--bold">2</span>
       \  |\ /|  /
        \ | X | /
         \|/ \|/
-         '''3'''   '''5'''
+         <span class="rosetta__text--bold">3</span>   <span class="rosetta__text--bold">5</span>
 
-Note that 7 and 6 are connected and have a difference of 1 so it is ''not'' a solution.
+Note that 7 and 6 are connected and have a difference of 1 so it is <span class="rosetta__text--italic">not</span> a solution.
 
 
 ;Task
-Produce and show here ''one'' solution to the puzzle.
+Produce and show here <span class="rosetta__text--italic">one</span> solution to the puzzle.
 
 
 ;Related tasks:

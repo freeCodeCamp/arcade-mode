@@ -5,26 +5,26 @@ Least common multiple
 ;Task:
 Compute the least common multiple of two integers.
 
-Given &nbsp; ''m'' &nbsp; and &nbsp; ''n'', &nbsp; the least common multiple is the smallest positive integer that has both &nbsp; ''m'' &nbsp; and &nbsp; ''n'' &nbsp; as factors. 
+Given &nbsp; <span class="rosetta__text--italic">m</span> &nbsp; and &nbsp; <span class="rosetta__text--italic">n</span>, &nbsp; the least common multiple is the smallest positive integer that has both &nbsp; <span class="rosetta__text--italic">m</span> &nbsp; and &nbsp; <span class="rosetta__text--italic">n</span> &nbsp; as factors. 
 
 
 ;Example:
-The least common multiple of 12 and 18 is 36, because 12 is a factor (12 &times; 3 = 36), and 18 is a factor (18 &times; 2 = 36), and there is no positive integer less than 36 that has both factors. &nbsp; As a special case, if either &nbsp; ''m'' &nbsp; or &nbsp; ''n'' &nbsp; is zero, then the least common multiple is zero.
+The least common multiple of 12 and 18 is 36, because 12 is a factor (12 &times; 3 = 36), and 18 is a factor (18 &times; 2 = 36), and there is no positive integer less than 36 that has both factors. &nbsp; As a special case, if either &nbsp; <span class="rosetta__text--italic">m</span> &nbsp; or &nbsp; <span class="rosetta__text--italic">n</span> &nbsp; is zero, then the least common multiple is zero.
 
-One way to calculate the least common multiple is to iterate all the multiples of &nbsp; ''m'', &nbsp; until you find one that is also a multiple of &nbsp; ''n''.
+One way to calculate the least common multiple is to iterate all the multiples of &nbsp; <span class="rosetta__text--italic">m</span>, &nbsp; until you find one that is also a multiple of &nbsp; <span class="rosetta__text--italic">n</span>.
 
-If you already have &nbsp; ''gcd'' &nbsp; for [[greatest common divisor]], &nbsp; then this formula calculates &nbsp; ''lcm''.
+If you already have &nbsp; <span class="rosetta__text--italic">gcd</span> &nbsp; for [[greatest common divisor]], &nbsp; then this formula calculates &nbsp; <span class="rosetta__text--italic">lcm</span>.
 
 <big>
-:::: <math>\operatorname{lcm}(m, n) = \frac{|m \times n|}{\operatorname{gcd}(m, n)}</math>
+:::: $\operatorname{lcm}(m, n) = \frac{|m \times n|}{\operatorname{gcd}(m, n)}$
 </big>
 
-One can also find &nbsp; ''lcm'' &nbsp; by merging the [[prime decomposition]]s of both &nbsp; ''m'' &nbsp; and &nbsp; ''n''.
+One can also find &nbsp; <span class="rosetta__text--italic">lcm</span> &nbsp; by merging the [[prime decomposition]]s of both &nbsp; <span class="rosetta__text--italic">m</span> &nbsp; and &nbsp; <span class="rosetta__text--italic">n</span>.
 
 
 ;References:
 * &nbsp; [http://mathworld.wolfram.com/LeastCommonMultiple.html MathWorld].
-* &nbsp; [[wp:Least common multiple|Wikipedia]].
+* &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Least common multiple" title="wp: Least common multiple">Wikipedia</a>.
 <br><br>
 
 

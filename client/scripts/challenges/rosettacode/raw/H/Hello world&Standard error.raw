@@ -15,7 +15,7 @@ Hello world/Standard error
 {{omit from|Unlambda|No concept of standard error (or alternate output streams in general).}}
 
 A common practice in computing is to send error messages 
-to a different output stream than [[User Output - text|normal text console messages]]. 
+to a different output stream than <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/User Output - text" title="User Output - text">normal text console messages</a>. 
 
 The normal messages print to what is called "standard output" or "standard out". 
 
@@ -25,7 +25,7 @@ This separation can be used to redirect error messages to a different place than
 
 
 ;Task:
-Show how to print a message to standard error by printing &nbsp; &nbsp; '''Goodbye, World!''' &nbsp; &nbsp; on that stream.
+Show how to print a message to standard error by printing &nbsp; &nbsp; <span class="rosetta__text--bold">Goodbye, World!</span> &nbsp; &nbsp; on that stream.
 <br><br>
 
 

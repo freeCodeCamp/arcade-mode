@@ -3,10 +3,10 @@ Execute a system command
 {{Task|Programming environment operations}}
 
 ;Task:
-Run either the &nbsp; <tt>'''ls'''</tt> &nbsp; system command &nbsp; (<tt>'''dir'''</tt> &nbsp; on Windows), &nbsp; or the &nbsp; <tt>'''pause'''</tt> &nbsp;  system command.
+Run either the &nbsp; <tt><span class="rosetta__text--bold">ls</span></tt> &nbsp; system command &nbsp; (<tt><span class="rosetta__text--bold">dir</span></tt> &nbsp; on Windows), &nbsp; or the &nbsp; <tt><span class="rosetta__text--bold">pause</span></tt> &nbsp;  system command.
 <br><br>
 ;Related tasks
-* [[Get_system_command_output | Get system command output]]
+* <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Get_system_command_output " title="Get_system_command_output "> Get system command output</a>
 <br><br>
 
 

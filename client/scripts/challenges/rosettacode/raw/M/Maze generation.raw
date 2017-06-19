@@ -1,11 +1,11 @@
 Maze generation
 
 {{task|Games}}{{wikipedia|Maze generation algorithm}}
-[[File:a maze.png|300px||right|a maze]]
+<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:a maze.png" title="File:a maze.png">300px||right|a maze</a>
 
 <br>
 ;Task:
-Generate and show a maze, using the simple [[wp:Maze_generation_algorithm#Depth-first_search|Depth-first search]] algorithm.
+Generate and show a maze, using the simple <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Maze_generation_algorithm#Depth-first_search" title="wp: Maze_generation_algorithm#Depth-first_search">Depth-first search</a> algorithm.
 
 <!-- BEGIN TEXT FROM WIKIPEDIA -->
 #Start at a random cell.

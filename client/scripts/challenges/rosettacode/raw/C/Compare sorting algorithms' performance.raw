@@ -3,10 +3,10 @@ Compare sorting algorithms' performance
 {{task|Sorting}}
 Measure a relative performance of sorting algorithms implementations.
 
-Plot '''execution time vs. input sequence length''' dependencies for various implementation of sorting algorithm and different input sequence types ([[#Figures: log2( time in microseconds ) vs. log2( sequence length )|example figures]]). 
+Plot <span class="rosetta__text--bold">execution time vs. input sequence length</span> dependencies for various implementation of sorting algorithm and different input sequence types (<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/#Figures: log2( time in microseconds ) vs. log2( sequence length )" title="#Figures: log2( time in microseconds ) vs. log2( sequence length )">example figures</a>). 
 
 Consider three type of input sequences:
-* ones: sequence of all ''1'''s. Example: {1, 1, 1, 1, 1}
+* ones: sequence of all <span class="rosetta__text--italic">1</span>'s. Example: {1, 1, 1, 1, 1}
 * range: ascending sequence, i.e. already sorted. Example: {1, 2, 3, 10, 15}
 * shuffled range: sequence with elements randomly distributed. Example: {5, 3, 9, 6, 8}
 

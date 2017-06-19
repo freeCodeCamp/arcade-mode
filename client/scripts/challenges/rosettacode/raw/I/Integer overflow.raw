@@ -4,8 +4,8 @@ Integer overflow
 
 Some languages support one or more integer types of the underlying processor.
 
-This integer types have fixed size; &nbsp; usually &nbsp; '''8'''-bit, &nbsp; '''16'''-bit, &nbsp; '''32'''-bit, &nbsp; or &nbsp; '''64'''-bit.
-<br>The integers supported by such a type can be &nbsp; ''signed'' &nbsp; or &nbsp; ''unsigned''.
+This integer types have fixed size; &nbsp; usually &nbsp; <span class="rosetta__text--bold">8</span>-bit, &nbsp; <span class="rosetta__text--bold">16</span>-bit, &nbsp; <span class="rosetta__text--bold">32</span>-bit, &nbsp; or &nbsp; <span class="rosetta__text--bold">64</span>-bit.
+<br>The integers supported by such a type can be &nbsp; <span class="rosetta__text--italic">signed</span> &nbsp; or &nbsp; <span class="rosetta__text--italic">unsigned</span>.
 
 Arithmetic for machine level integers can often be done by single CPU instructions.
 <br>This allows high performance and is the main reason to support machine level integers.

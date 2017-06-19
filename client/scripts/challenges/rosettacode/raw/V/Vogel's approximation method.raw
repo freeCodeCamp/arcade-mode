@@ -63,7 +63,7 @@ Y    20    30
 Z             50
 </pre>
 
-The optimal solution determined by [[wp:GNU Linear Programming Kit|GLPK]] is £3100:
+The optimal solution determined by <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/GNU Linear Programming Kit" title="wp: GNU Linear Programming Kit">GLPK</a> is £3100:
 <pre>
    A  B  C  D  E
 W       50
@@ -73,7 +73,7 @@ Z             50
 </pre>
 
 ;Cf.
-* [[Transportation_problem|Transportation problem]]
+* <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Transportation_problem" title="Transportation_problem">Transportation problem</a>
 
 
 

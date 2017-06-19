@@ -1,8 +1,8 @@
 Bitmap/Midpoint circle algorithm
 
-{{task|Raster graphics operations}}Using the data storage type defined [[Basic_bitmap_storage|on this page]] for raster images, 
-write an implementation of the '''midpoint circle algorithm''' 
-(also known as '''Bresenham's circle algorithm'''). <BR>
-([[wp:Midpoint_circle_algorithm|definition on Wikipedia]]).
+{{task|Raster graphics operations}}Using the data storage type defined <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Basic_bitmap_storage" title="Basic_bitmap_storage">on this page</a> for raster images, 
+write an implementation of the <span class="rosetta__text--bold">midpoint circle algorithm</span> 
+(also known as <span class="rosetta__text--bold">Bresenham's circle algorithm</span>). <BR>
+(<a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Midpoint_circle_algorithm" title="wp: Midpoint_circle_algorithm">definition on Wikipedia</a>).
 
 

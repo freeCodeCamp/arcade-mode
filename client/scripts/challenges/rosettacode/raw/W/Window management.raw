@@ -16,7 +16,7 @@ Window management
 {{omit from|TI-83 BASIC|Does not have windows.}}
 {{omit from|TI-89 BASIC|Does not have windows.}}
 
-Treat windows or at least window identities as [[wp:First-class_object|first class objects]].
+Treat windows or at least window identities as <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/First-class_object" title="wp: First-class_object">first class objects</a>.
 
 *Store window identities in variables, compare them for equality.
 *Provide examples of performing some of the following:

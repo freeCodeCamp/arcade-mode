@@ -4,10 +4,10 @@ Wireworld
 [[Category:Cellular automata]]
 {{omit from|GUISS}}
 
-[[wp:Wireworld|Wireworld]] is a cellular automaton with some similarities to [[Conway's Game of Life]]. 
+<a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Wireworld" title="wp: Wireworld">Wireworld]] is a cellular automaton with some similarities to [[Conway's Game of Life</a>. 
 
 It is capable of doing sophisticated computations with appropriate programs 
-(it is actually [[wp:Turing-complete|Turing complete]]), 
+(it is actually <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Turing-complete" title="wp: Turing-complete">Turing complete</a>), 
 and is much simpler to program for.
 
 A Wireworld arena consists of a Cartesian grid of cells, 
@@ -35,7 +35,7 @@ The cell transition rules are this:
 |-
 | valign=top | <tt>conductor</tt>
 | valign=top | <tt>electron&nbsp;head&nbsp;</tt>
-| if 1 or 2 cells in the [[wp:Moore neighborhood|neighborhood]] of the cell are in the state “<tt>electron head</tt>”
+| if 1 or 2 cells in the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Moore neighborhood" title="wp: Moore neighborhood">neighborhood</a> of the cell are in the state “<tt>electron head</tt>”
 |-
 | <tt>conductor</tt>
 | <tt>conductor</tt>

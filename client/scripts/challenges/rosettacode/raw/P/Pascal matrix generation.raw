@@ -2,7 +2,7 @@ Pascal matrix generation
 
 {{task}}
 
-A pascal matrix is a two-dimensional square matrix holding numbers from &nbsp; [[Pascal's triangle]], &nbsp; also known as &nbsp; [[Evaluate binomial coefficients|binomial coefficients]] &nbsp; and which can be shown as &nbsp;  <big><sup>n</sup>C<sub>r</sub>.</big>
+A pascal matrix is a two-dimensional square matrix holding numbers from &nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Pascal's triangle]], &nbsp; also known as &nbsp; [[Evaluate binomial coefficients" title="Pascal's triangle]], &nbsp; also known as &nbsp; [[Evaluate binomial coefficients">binomial coefficients</a> &nbsp; and which can be shown as &nbsp;  <big><sup>n</sup>C<sub>r</sub>.</big>
 
 Shown below are truncated &nbsp; 5-by-5 &nbsp; matrices &nbsp; M[i, j] &nbsp; for &nbsp; i,j &nbsp; in range &nbsp; 0..4. <br>
 

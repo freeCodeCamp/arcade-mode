@@ -1,22 +1,22 @@
 Percolation/Mean cluster density
 
 {{task|Percolation Simulations}}{{Percolation Simulation}}
-Let <math>c</math> be a 2D boolean square matrix of <math>n \times n</math> values of either <tt>1</tt> or <tt>0</tt> where the 
-probability of any value being <tt>1</tt> is <math>p</math>, (and of <tt>0</tt> is therefore <math>1-p</math>). 
-We define a ''cluster'' of <tt>1</tt>'s as being a group of <tt>1</tt>'s connected vertically or
-horizontally (i.e., using the [[wp:Von Neumann neighborhood|Von Neumann neighborhood rule]]) and bounded by either <math>0</math> or by the limits of the matrix.
-Let the number of such clusters in such a randomly constructed matrix be <math>C_n</math>.
+Let $c$ be a 2D boolean square matrix of $n \times n$ values of either <tt>1</tt> or <tt>0</tt> where the 
+probability of any value being <tt>1</tt> is $p$, (and of <tt>0</tt> is therefore $1-p$). 
+We define a <span class="rosetta__text--italic">cluster</span> of <tt>1</tt>'s as being a group of <tt>1</tt>'s connected vertically or
+horizontally (i.e., using the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Von Neumann neighborhood" title="wp: Von Neumann neighborhood">Von Neumann neighborhood rule</a>) and bounded by either $0$ or by the limits of the matrix.
+Let the number of such clusters in such a randomly constructed matrix be $C_n$.
 
-Percolation theory states that <math>K(p)</math> (the mean cluster density) will satisfy <math>K(p) = C_n / n^2</math> as <math>n</math> tends to infinity. For <math>p = 0.5</math>, <math>K(p)</math> is found numerically to approximate <math>0.065770</math>...
+Percolation theory states that $K(p)$ (the mean cluster density) will satisfy $K(p) = C_n / n^2$ as $n$ tends to infinity. For $p = 0.5$, $K(p)$ is found numerically to approximate $0.065770$...
 
 ;Task
 
-Show the effect of varying <math>n</math> on the accuracy of simulated <math>K(p)</math> for <math>p = 0.5</math> and 
-for values of <math>n</math> up to at least <math>1000</math>.
-Any calculation of <math>C_n</math> for finite <math>n</math> is subject to randomness, so an approximation should be 
-computed as the average of <math>t</math> runs, where <math>t</math> &ge; <math>5</math>.
+Show the effect of varying $n$ on the accuracy of simulated $K(p)$ for $p = 0.5$ and 
+for values of $n$ up to at least $1000$.
+Any calculation of $C_n$ for finite $n$ is subject to randomness, so an approximation should be 
+computed as the average of $t$ runs, where $t$ &ge; $5$.
 
-For extra credit, graphically show clusters in a <math>15\times 15</math>, <math>p=0.5</math> grid.
+For extra credit, graphically show clusters in a $15\times 15$, $p=0.5$ grid.
 
 Show your output here.
 

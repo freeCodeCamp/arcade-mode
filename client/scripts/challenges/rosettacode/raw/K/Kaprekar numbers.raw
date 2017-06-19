@@ -2,15 +2,15 @@ Kaprekar numbers
 
 {{task}}
 
-A positive integer is a [[wp:Kaprekar number|Kaprekar number]] if:
+A positive integer is a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Kaprekar number" title="wp: Kaprekar number">Kaprekar number</a> if:
 * It is 1
 * The decimal representation of its square may be split once into two parts consisting of positive integers which sum to the original number. 
 <br>Note that a split resulting in a part consisting purely of 0s is not valid, 
 as 0 is not considered positive.
 
 ;Example Kaprekar numbers:
-* <math>2223</math> is a Kaprekar number, as <math>2223 * 2223 = 4941729</math>, <math>4941729</math> may be split to <math>494</math> and <math>1729</math>, and <math>494 + 1729 = 2223</math>.
-* The series of Kaprekar numbers is known as [[oeis:A006886|A006886]], and begins as <math>1, 9, 45, 55, ...</math>.
+* $2223$ is a Kaprekar number, as $2223 * 2223 = 4941729$, $4941729$ may be split to $494$ and $1729$, and $494 + 1729 = 2223$.
+* The series of Kaprekar numbers is known as <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/oeis:A006886" title="oeis:A006886">A006886</a>, and begins as $1, 9, 45, 55, ...$.
 
 ;Example process:
 10000 (100<sup>2</sup>) splitting from left to right:

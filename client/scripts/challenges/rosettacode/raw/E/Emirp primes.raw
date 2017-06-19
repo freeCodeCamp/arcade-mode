@@ -2,7 +2,7 @@ Emirp primes
 
 {{task}}
 
-An &nbsp; ''emirp'' &nbsp; ('''prime''' spelled backwards) &nbsp; are primes that when reversed &nbsp; (in their decimal representation) &nbsp; are a different prime.
+An &nbsp; <span class="rosetta__text--italic">emirp</span> &nbsp; (<span class="rosetta__text--bold">prime</span> spelled backwards) &nbsp; are primes that when reversed &nbsp; (in their decimal representation) &nbsp; are a different prime.
 
 (This rules out palindromic primes.)
 

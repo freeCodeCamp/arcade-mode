@@ -3,9 +3,9 @@ Test integerness
 {{task}}
 
 Mathematically,
-* the [[wp:Integer|integers]] '''Z''' are included in the [[wp:Rational number|rational numbers]] '''Q''',
-* which are included in the [[wp:Real number|real numbers]] '''R''',
-* which can be generalized to the [[wp:Complex number|complex numbers]] '''C'''.
+* the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Integer" title="wp: Integer">integers]] <span class="rosetta__text--bold">Z</span> are included in the [[wp:Rational number|rational numbers</a> <span class="rosetta__text--bold">Q</span>,
+* which are included in the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Real number" title="wp: Real number">real numbers</a> <span class="rosetta__text--bold">R</span>,
+* which can be generalized to the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Complex number" title="wp: Complex number">complex numbers</a> <span class="rosetta__text--bold">C</span>.
 
 
 This means that each of those larger sets, and the data types used to represent them, include some integers.
@@ -20,7 +20,7 @@ Discuss any limitations of your code.
 
 {{task heading|Definition}}
 
-For the purposes of this task, integerness means that a number could theoretically be represented as an integer at no loss of precision ''<small>(given an infinitely wide integer type)</small>''.<br>
+For the purposes of this task, integerness means that a number could theoretically be represented as an integer at no loss of precision <span class="rosetta__text--italic"><small>(given an infinitely wide integer type)</small></span>.<br>
 In other words:
 
 {| class="wikitable"
@@ -30,22 +30,22 @@ In other words:
 ! C++ type
 ! Considered an integer...
 |-
-| rational numbers '''Q'''
-| [[wp:Rational data type|fraction]]
+| rational numbers <span class="rosetta__text--bold">Q</span>
+| <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Rational data type" title="wp: Rational data type">fraction</a>
 | <code>std::ratio</code>
 | ...if its denominator is 1 (in reduced form)
 |-
-| rowspan=2 | real numbers '''Z'''<br><small>''(approximated)''</small>
-| [[wp:Fixed-point arithmetic|fixed-point]]
+| rowspan=2 | real numbers <span class="rosetta__text--bold">Z</span><br><small><span class="rosetta__text--italic">(approximated)</span></small>
+| <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Fixed-point arithmetic" title="wp: Fixed-point arithmetic">fixed-point</a>
 | 
 | ...if it has no non-zero digits after the decimal point
 |-
-| [[wp:Floating point|floating-point]]
+| <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Floating point" title="wp: Floating point">floating-point</a>
 | <code>float</code>, <code>double</code>
 | ...if the number of significant decimal places of its mantissa isn't greater than its exponent
 |-
-| complex numbers '''C'''
-| [[wp:Complex data type|pair of real numbers]]
+| complex numbers <span class="rosetta__text--bold">C</span>
+| <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Complex data type" title="wp: Complex data type">pair of real numbers</a>
 | <code>std::complex</code>
 | ...if its real part is considered an integer and its imaginary part is zero
 |}
@@ -54,7 +54,7 @@ In other words:
 
 Optionally, make your code accept a <code>tolerance</code> parameter for fuzzy testing. The tolerance is the maximum amount by which the number may differ from the nearest integer, to still be considered an integer.
 
-This is useful in practice, because when dealing with approximate numeric types (such as floating point), there may already be [[wp:Round-off error|round-off errors]] from previous calculations. For example, a float value of <code>0.9999999998</code> might actually be intended to represent the integer <code>1</code>.
+This is useful in practice, because when dealing with approximate numeric types (such as floating point), there may already be <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Round-off error" title="wp: Round-off error">round-off errors</a> from previous calculations. For example, a float value of <code>0.9999999998</code> might actually be intended to represent the integer <code>1</code>.
 
 {{task heading|Test cases}}
 

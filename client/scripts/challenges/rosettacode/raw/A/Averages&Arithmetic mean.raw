@@ -4,7 +4,7 @@ Averages/Arithmetic mean
 
 {{task heading}}
 
-Write a program to find the [[wp:arithmetic mean|mean]] (arithmetic average) of a numeric vector. 
+Write a program to find the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/arithmetic mean" title="wp: arithmetic mean">mean</a> (arithmetic average) of a numeric vector. 
 
 In case of a zero-length input, since the mean of an empty set of numbers is ill-defined, the program may choose to behave in any way it deems appropriate, though if the programming language has an established convention for conveying math errors or undefined values, it's preferable to follow it.
 

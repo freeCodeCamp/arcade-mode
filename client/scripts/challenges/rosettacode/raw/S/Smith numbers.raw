@@ -1,23 +1,23 @@
 Smith numbers
 
 {{task}} 
-[[wp:Smith numbers|Smith numbers]] are numbers such that the [[Sum_digits_of_an_integer|sum of the decimal digits of the integers]] that make up that number is the same as the sum of the decimal digits of its prime factors excluding 1. 
+<a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Smith numbers" title="wp: Smith numbers">Smith numbers]] are numbers such that the [[Sum_digits_of_an_integer|sum of the decimal digits of the integers</a> that make up that number is the same as the sum of the decimal digits of its prime factors excluding 1. 
 
-By definition, all primes are ''excluded'' as they (naturally) satisfy this condition!
+By definition, all primes are <span class="rosetta__text--italic">excluded</span> as they (naturally) satisfy this condition!
 
 Smith numbers are also known as joke numbers.
 
 
 ;Example
-Using the number '''166'''<br>
-Find the prime factors of '''166''' which are: '''2''' x '''83'''<br>
-Then, take those two prime factors and sum all their decimal digits: '''2 + 8 + 3''' which is '''13'''<br>
-Then, take the decimal digits of '''166''' and add their decimal digits: '''1 + 6 + 6''' which is '''13'''<br>
-Therefore, the number '''166''' is a Smith number.
+Using the number <span class="rosetta__text--bold">166</span><br>
+Find the prime factors of <span class="rosetta__text--bold">166</span> which are: <span class="rosetta__text--bold">2</span> x <span class="rosetta__text--bold">83</span><br>
+Then, take those two prime factors and sum all their decimal digits: <span class="rosetta__text--bold">2 + 8 + 3</span> which is <span class="rosetta__text--bold">13</span><br>
+Then, take the decimal digits of <span class="rosetta__text--bold">166</span> and add their decimal digits: <span class="rosetta__text--bold">1 + 6 + 6</span> which is <span class="rosetta__text--bold">13</span><br>
+Therefore, the number <span class="rosetta__text--bold">166</span> is a Smith number.
 
 
 ;Task
-Write a program to find all Smith numbers ''below'' 10000.
+Write a program to find all Smith numbers <span class="rosetta__text--italic">below</span> 10000.
 
 
 ;See also

@@ -8,7 +8,7 @@ Implement a binary tree where each node carries an integer, &nbsp; and implement
 :::* &nbsp; pre-order,
 :::* &nbsp; in-order, 
 :::* &nbsp; post-order, &nbsp; &nbsp; and 
-:::* &nbsp; level-order &nbsp; [[wp:Tree traversal|traversal]]. 
+:::* &nbsp; level-order &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Tree traversal" title="wp: Tree traversal">traversal</a>. 
 
 
 Use those traversals to output the following tree:
@@ -30,7 +30,7 @@ The correct output should look like this:
 
 
 ;See also:
-* &nbsp; Wikipedia article: &nbsp; [[wp:Tree traversal|Tree traversal]].
+* &nbsp; Wikipedia article: &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Tree traversal" title="wp: Tree traversal">Tree traversal</a>.
 <br><br>
 
 

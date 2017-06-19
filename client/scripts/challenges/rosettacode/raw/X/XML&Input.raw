@@ -2,7 +2,7 @@ XML/Input
 
 {{task|XML}}
 
-Given the following XML fragment, extract the list of ''student names'' using whatever means desired. If the only viable method is to use XPath, refer the reader to the task [[XML and XPath]].
+Given the following XML fragment, extract the list of <span class="rosetta__text--italic">student names</span> using whatever means desired. If the only viable method is to use XPath, refer the reader to the task [[XML and XPath]].
 
 <lang xml><Students>
   <Student Name="April" Gender="F" DateOfBirth="1989-01-02" />

@@ -7,7 +7,7 @@ and all columns are separated by commas.
 
 No commas are allowed as field data, but the data may contain 
 other characters and character sequences that would 
-normally be &nbsp; ''escaped'' &nbsp; when converted to HTML
+normally be &nbsp; <span class="rosetta__text--italic">escaped</span> &nbsp; when converted to HTML
 
 
 ;Task:
@@ -24,7 +24,7 @@ Use the following  data as the CSV text to convert, and show your output.
 
 
 ;Extra credit:
-''Optionally'' allow special formatting for the first row of the table as if it is the tables header row 
+<span class="rosetta__text--italic">Optionally</span> allow special formatting for the first row of the table as if it is the tables header row 
 (via <nowiki><thead></nowiki> preferably; CSS if you must).
 <br><br>
 

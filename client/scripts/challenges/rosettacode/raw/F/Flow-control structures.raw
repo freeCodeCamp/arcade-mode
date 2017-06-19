@@ -8,12 +8,13 @@ Document common flow-control structures.
 
 One common example of a flow-control structure is the &nbsp; <big><code> goto </code></big> &nbsp; construct. 
 
-Note that &nbsp; [[Conditional Structures]] &nbsp; and &nbsp; [[Iteration|Loop Structures]] &nbsp; have their own articles/categories.
+Note that &nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Conditional Structures]] &nbsp; and &nbsp; [[Iteration" title="Conditional Structures]] &nbsp; and &nbsp; [[Iteration">Loop Structures</a> &nbsp; have their own articles/categories.
 
 
 ;Related tasks:
-* &nbsp; [[Conditional Structures]]
-* &nbsp; [[Iteration|Loop Structures]] 
+* &nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Conditional Structures]]
+* &nbsp; [[Iteration" title="Conditional Structures]]
+* &nbsp; [[Iteration">Loop Structures</a> 
 <br><br>
 
 

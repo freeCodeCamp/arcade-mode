@@ -1,7 +1,7 @@
 Keyboard input/Keypress check
 
 {{task|Keyboard input}} 
-[[user input::task| ]]
+<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/user input::task" title="user input::task"> </a>
 
 Determine if a key has been pressed and store this in a variable. 
 

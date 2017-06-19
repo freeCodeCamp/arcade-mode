@@ -3,7 +3,7 @@
 {{task}}
 
 ;Task:
-Display the complete lyrics for the song: &nbsp; &nbsp; '''99 bottles of beer on the wall'''. 
+Display the complete lyrics for the song: &nbsp; &nbsp; <span class="rosetta__text--bold">99 bottles of beer on the wall</span>. 
 
 
 ;The beersong:

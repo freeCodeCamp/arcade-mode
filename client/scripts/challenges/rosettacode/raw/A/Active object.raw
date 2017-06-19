@@ -7,12 +7,12 @@ In [[object-oriented programming]] an object is active when its state depends on
 
 A typical instance of an active object is an animation widget. The widget state changes with the time, while as an object it has all properties of a normal widget.
 
-'''The task'''
+<span class="rosetta__text--bold">The task</span>
 
-Implement an active integrator object. The object has an input and output. The input can be set using the method ''Input''. The input is a function of time. The output can be queried using the method ''Output''. The object integrates its input over the time and the result becomes the object's output. So if the input is ''K''(''t'') and the output is ''S'', the object state ''S'' is changed to ''S'' + (''K''(''t''<sub>1</sub>) + ''K''(''t''<sub>0</sub>)) * (''t''<sub>1</sub> - ''t''<sub>0</sub>) / 2, i.e. it integrates ''K'' using the trapeze method. Initially ''K'' is constant 0 and ''S'' is 0.
+Implement an active integrator object. The object has an input and output. The input can be set using the method <span class="rosetta__text--italic">Input</span>. The input is a function of time. The output can be queried using the method <span class="rosetta__text--italic">Output</span>. The object integrates its input over the time and the result becomes the object's output. So if the input is <span class="rosetta__text--italic">K</span>(<span class="rosetta__text--italic">t</span>) and the output is <span class="rosetta__text--italic">S</span>, the object state <span class="rosetta__text--italic">S</span> is changed to <span class="rosetta__text--italic">S</span> + (<span class="rosetta__text--italic">K</span>(<span class="rosetta__text--italic">t</span><sub>1</sub>) + <span class="rosetta__text--italic">K</span>(<span class="rosetta__text--italic">t</span><sub>0</sub>)) * (<span class="rosetta__text--italic">t</span><sub>1</sub> - <span class="rosetta__text--italic">t</span><sub>0</sub>) / 2, i.e. it integrates <span class="rosetta__text--italic">K</span> using the trapeze method. Initially <span class="rosetta__text--italic">K</span> is constant 0 and <span class="rosetta__text--italic">S</span> is 0.
 
 In order to test the object:
-# set its input to sin (2π ''f t''), where the frequency ''f''=0.5Hz. The phase is irrelevant.
+# set its input to sin (2π <span class="rosetta__text--italic">f t</span>), where the frequency <span class="rosetta__text--italic">f</span>=0.5Hz. The phase is irrelevant.
 # wait 2s
 # set the input to constant 0
 # wait 0.5s

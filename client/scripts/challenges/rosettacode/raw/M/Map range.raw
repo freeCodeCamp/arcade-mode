@@ -2,15 +2,15 @@ Map range
 
 {{task}}
 
-Given two [[wp:Interval (mathematics)|ranges]]: 
-:::* &nbsp; <big><math>[a_1,a_2]</math></big> &nbsp; and 
-:::* &nbsp; <big><math>[b_1,b_2]</math></big>;  
-:::* &nbsp; then a value &nbsp; <big><math>s</math></big> &nbsp; in range &nbsp; <big><math>[a_1,a_2]</math></big>
-:::* &nbsp; is linearly mapped to a value &nbsp; <big><math>t</math></big> &nbsp; in range &nbsp; <big><math>[b_1,b_2]</math>
+Given two <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Interval (mathematics)" title="wp: Interval (mathematics)">ranges</a>: 
+:::* &nbsp; <big>$[a_1,a_2]$</big> &nbsp; and 
+:::* &nbsp; <big>$[b_1,b_2]$</big>;  
+:::* &nbsp; then a value &nbsp; <big>$s$</big> &nbsp; in range &nbsp; <big>$[a_1,a_2]$</big>
+:::* &nbsp; is linearly mapped to a value &nbsp; <big>$t$</big> &nbsp; in range &nbsp; <big>$[b_1,b_2]$
 </big> &nbsp; where: 
 <br>
 
-:::* &nbsp; <big><big><math>t = b_1 + {(s - a_1)(b_2 - b_1) \over (a_2 - a_1)}</math></big></big>
+:::* &nbsp; <big><big>$t = b_1 + {(s - a_1)(b_2 - b_1) \over (a_2 - a_1)}$</big></big>
 
 
 ;Task:

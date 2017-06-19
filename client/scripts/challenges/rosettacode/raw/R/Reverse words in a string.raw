@@ -16,7 +16,7 @@ You may assume that there are no significant non-visible characters in the input
 
 Some strings have no tokens, so an empty string &nbsp; (or one just containing spaces) &nbsp; would be the result.
 
-'''Display''' the strings in order &nbsp; (1<sup>st</sup>, 2<sup>nd</sup>, 3<sup>rd</sup>, ···), &nbsp; and one string per line. 
+<span class="rosetta__text--bold">Display</span> the strings in order &nbsp; (1<sup>st</sup>, 2<sup>nd</sup>, 3<sup>rd</sup>, ···), &nbsp; and one string per line. 
 
 (You can consider the ten strings as ten lines, and the tokens as words.)
 

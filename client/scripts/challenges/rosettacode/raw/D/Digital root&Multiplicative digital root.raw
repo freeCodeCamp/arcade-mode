@@ -2,12 +2,12 @@ Digital root/Multiplicative digital root
 
 {{task|Mathematics}}
 
-The [[wp:Multiplicative digital root|multiplicative digital root]] (MDR) and multiplicative persistence (MP) of a number, <math>n</math>, is calculated rather like the [[Digital root]] except digits are multiplied instead of being added:
-# Set <math>m</math> to <math>n</math> and <math>i</math> to <math>0</math>.
-# While <math>m</math> has more than one digit:
-#* Find a replacement <math>m</math> as the multiplication of the digits of the current value of <math>m</math>.
-#* Increment <math>i</math>.
-# Return <math>i</math> (= MP) and <math>m</math> (= MDR)
+The <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Multiplicative digital root" title="wp: Multiplicative digital root">multiplicative digital root]] (MDR) and multiplicative persistence (MP) of a number, $n$, is calculated rather like the [[Digital root</a> except digits are multiplied instead of being added:
+# Set $m$ to $n$ and $i$ to $0$.
+# While $m$ has more than one digit:
+#* Find a replacement $m$ as the multiplication of the digits of the current value of $m$.
+#* Increment $i$.
+# Return $i$ (= MP) and $m$ (= MDR)
 
 
 ;Task:

@@ -2,7 +2,7 @@ Langton's ant
 
 {{task|Cellular automata}}
 
-[[wp:Langton's ant|Langton's ant]] is a cellular automaton that models an ant sitting on a plane of cells, all of which are white initially, facing in one of four directions. 
+<a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Langton's ant" title="wp: Langton's ant">Langton's ant</a> is a cellular automaton that models an ant sitting on a plane of cells, all of which are white initially, facing in one of four directions. 
 Each cell can either be black or white. 
 The ant moves according to the color of the cell it is currently sitting in, with the following rules:
 ::# &nbsp; If the cell is black, it changes to white and the ant turns left;

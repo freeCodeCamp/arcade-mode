@@ -1,8 +1,8 @@
 Binary strings
 
 {{task|String manipulation}}
-Many languages have powerful and useful ('''binary safe''') [[wp:String (computer science)|string]] [[wp:Comparison of programming languages (string functions)|manipulation functions]], while others don't, making it harder for these languages to accomplish some tasks.
-This task is about creating functions to handle ''binary'' strings (strings made of arbitrary bytes, i.e. ''byte strings'' according to Wikipedia) for those languages that don't have built-in support for them. If your language of choice does have this built-in support, show a possible alternative implementation for the ''functions'' or ''abilities'' already provided by the language.
+Many languages have powerful and useful (<span class="rosetta__text--bold">binary safe</span>) <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/String (computer science)" title="wp: String (computer science)">string]] [[wp:Comparison of programming languages (string functions)|manipulation functions</a>, while others don't, making it harder for these languages to accomplish some tasks.
+This task is about creating functions to handle <span class="rosetta__text--italic">binary</span> strings (strings made of arbitrary bytes, i.e. <span class="rosetta__text--italic">byte strings</span> according to Wikipedia) for those languages that don't have built-in support for them. If your language of choice does have this built-in support, show a possible alternative implementation for the <span class="rosetta__text--italic">functions</span> or <span class="rosetta__text--italic">abilities</span> already provided by the language.
 In particular the functions you need to create are:
 * String creation and destruction (when needed and if there's no [[garbage collection]] or similar mechanism)
 * String assignment

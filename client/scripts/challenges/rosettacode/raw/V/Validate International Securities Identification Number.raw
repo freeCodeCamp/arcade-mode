@@ -2,12 +2,12 @@ Validate International Securities Identification Number
 
 {{task}}
 
-An [[wp:International_Securities_Identification_Number|International Securities Identification Number]] (ISIN) is a unique international identifier for a financial security such as a stock or bond. 
+An <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/International_Securities_Identification_Number" title="wp: International_Securities_Identification_Number">International Securities Identification Number</a> (ISIN) is a unique international identifier for a financial security such as a stock or bond. 
 
 {{task heading}}
 
 Write a function or program that takes a string as input, and checks whether it is a valid ISIN.<br>
-It is only valid if it has the correct format, ''and'' the embedded checksum is correct.
+It is only valid if it has the correct format, <span class="rosetta__text--italic">and</span> the embedded checksum is correct.
 
 Demonstrate that your code passes the test-cases listed below.
 
@@ -26,8 +26,8 @@ The format of an ISIN is as follows:
 For this task, you may assume that any 2-character alphabetic sequence is a valid country code.
 
 The checksum can be validated as follows:
-# '''Replace letters with digits''', by converting each character from base 36 to base 10, e.g. <code>AU0000XVGZA3</code> &rarr;<code>1030000033311635103</code>.
-# '''Perform the Luhn test on this base-10 number.'''<br>There is a separate task for this test: ''[[Luhn test of credit card numbers]]''.<br>You don't have to replicate the implementation of this test here &ndash; you can just call the existing function from that task. (Add a comment stating if you did this.)
+# <span class="rosetta__text--bold">Replace letters with digits</span>, by converting each character from base 36 to base 10, e.g. <code>AU0000XVGZA3</code> &rarr;<code>1030000033311635103</code>.
+# <span class="rosetta__text--bold">Perform the Luhn test on this base-10 number.</span><br>There is a separate task for this test: <span class="rosetta__text--italic">[[Luhn test of credit card numbers]]</span>.<br>You don't have to replicate the implementation of this test here &ndash; you can just call the existing function from that task. (Add a comment stating if you did this.)
 
 {{task heading|Test-cases}}
 
@@ -46,7 +46,7 @@ The checksum can be validated as follows:
 |-
 | <tt>AU0000XVGZA3</tt>  || valid || 
 |-
-| <tt>AU0000VXGZA3</tt>  || valid || Unfortunately, not ''all'' transposition typos are caught by the checksum constraint.
+| <tt>AU0000VXGZA3</tt>  || valid || Unfortunately, not <span class="rosetta__text--italic">all</span> transposition typos are caught by the checksum constraint.
 |-
 | <tt>FR0000988040</tt>  || valid || 
 |}
@@ -57,7 +57,7 @@ The checksum can be validated as follows:
 
 Useful resources:
 * [http://www.isincodes.net/validate-isin.php Interactive online ISIN validator]
-* Wikipedia article: [[wp:International_Securities_Identification_Number|International Securities Identification Number]]
+* Wikipedia article: <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/International_Securities_Identification_Number" title="wp: International_Securities_Identification_Number">International Securities Identification Number</a>
 <br>
 
 Related tasks:

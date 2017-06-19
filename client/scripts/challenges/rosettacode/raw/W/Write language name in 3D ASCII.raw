@@ -5,7 +5,7 @@ Write language name in 3D ASCII
 {{omit from|TUSCRIPT}}
 
 ;Task:
-Write/display a language's name in '''3D''' ASCII. 
+Write/display a language's name in <span class="rosetta__text--bold">3D</span> ASCII. 
 
 
 (We can leave the definition of "3D ASCII" fuzzy, 

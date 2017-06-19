@@ -1,24 +1,24 @@
 Population count
 
 {{task}}[[Category:Mathematics]]
-The ''[[wp:Hamming weight|population count]]'' &nbsp; is the number of &nbsp; <big>'''1'''</big>s &nbsp; (ones) &nbsp; in the binary representation of a non-negative integer.
+The <span class="rosetta__text--italic"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Hamming weight" title="wp: Hamming weight">population count</a></span> &nbsp; is the number of &nbsp; <big><span class="rosetta__text--bold">1</span></big>s &nbsp; (ones) &nbsp; in the binary representation of a non-negative integer.
 
-''Population count'' is also known as &nbsp; ''pop count'', &nbsp; ''popcount'', &nbsp; ''sideways sum'', &nbsp; and &nbsp; ''Hamming weight''. 
+<span class="rosetta__text--italic">Population count</span> is also known as &nbsp; <span class="rosetta__text--italic">pop count</span>, &nbsp; <span class="rosetta__text--italic">popcount</span>, &nbsp; <span class="rosetta__text--italic">sideways sum</span>, &nbsp; and &nbsp; <span class="rosetta__text--italic">Hamming weight</span>. 
 
-: For example, &nbsp; <big>'''5'''</big> &nbsp; (which is &nbsp; <big>'''101'''</big> &nbsp; in binary) &nbsp; has a population count of &nbsp; <big>'''2'''</big>.
+: For example, &nbsp; <big><span class="rosetta__text--bold">5</span></big> &nbsp; (which is &nbsp; <big><span class="rosetta__text--bold">101</span></big> &nbsp; in binary) &nbsp; has a population count of &nbsp; <big><span class="rosetta__text--bold">2</span></big>.
 
 
-''[http://mathworld.wolfram.com/EvilNumber.html Evil numbers]'' &nbsp; are non-negative integers  that have an &nbsp; ''even'' &nbsp; population count.
+<span class="rosetta__text--italic">[http://mathworld.wolfram.com/EvilNumber.html Evil numbers]</span> &nbsp; are non-negative integers  that have an &nbsp; <span class="rosetta__text--italic">even</span> &nbsp; population count.
 
-''[http://mathworld.wolfram.com/OdiousNumber.html Odious numbers]'' &nbsp; are positive integers that have an &nbsp; ''odd'' &nbsp; population count.
+<span class="rosetta__text--italic">[http://mathworld.wolfram.com/OdiousNumber.html Odious numbers]</span> &nbsp; are positive integers that have an &nbsp; <span class="rosetta__text--italic">odd</span> &nbsp; population count.
 
 
 ;Task:
 * write a function (or routine) to return the population count of a non-negative integer.
-* all computation of the lists below should start with &nbsp; <big>'''0'''</big> &nbsp; (zero indexed).
-:* display the &nbsp; ''pop count'' &nbsp; of the &nbsp; 1<sup>st</sup> &nbsp; thirty powers of &nbsp; <big>'''3'''</big> &nbsp; &nbsp; &nbsp; (<big>'''3<sup>0</sup>''', &nbsp; '''3<sup>1</sup>''', &nbsp; '''3<sup>2</sup>''', &nbsp; '''3<sup>3</sup>''', &nbsp; '''3<sup>4</sup>''', &nbsp; <b>∙∙∙</b> &nbsp; '''3<sup>29</sup>'''</big>).
-:* display the &nbsp; 1<sup>st</sup> &nbsp; thirty &nbsp; &nbsp; ''evil''    &nbsp; &nbsp; numbers.
-:* display the &nbsp; 1<sup>st</sup> &nbsp; thirty &nbsp;        ''odious''  &nbsp;        numbers.
+* all computation of the lists below should start with &nbsp; <big><span class="rosetta__text--bold">0</span></big> &nbsp; (zero indexed).
+:* display the &nbsp; <span class="rosetta__text--italic">pop count</span> &nbsp; of the &nbsp; 1<sup>st</sup> &nbsp; thirty powers of &nbsp; <big><span class="rosetta__text--bold">3</span></big> &nbsp; &nbsp; &nbsp; (<big><span class="rosetta__text--bold">3<sup>0</sup></span>, &nbsp; <span class="rosetta__text--bold">3<sup>1</sup></span>, &nbsp; <span class="rosetta__text--bold">3<sup>2</sup></span>, &nbsp; <span class="rosetta__text--bold">3<sup>3</sup></span>, &nbsp; <span class="rosetta__text--bold">3<sup>4</sup></span>, &nbsp; <b>∙∙∙</b> &nbsp; <span class="rosetta__text--bold">3<sup>29</sup></span></big>).
+:* display the &nbsp; 1<sup>st</sup> &nbsp; thirty &nbsp; &nbsp; <span class="rosetta__text--italic">evil</span>    &nbsp; &nbsp; numbers.
+:* display the &nbsp; 1<sup>st</sup> &nbsp; thirty &nbsp;        <span class="rosetta__text--italic">odious</span>  &nbsp;        numbers.
 * display each list of integers on one line &nbsp; (which may or may not include a title), &nbsp; each set of integers being shown should be properly identified.
 
 

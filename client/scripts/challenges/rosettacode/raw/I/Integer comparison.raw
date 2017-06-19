@@ -14,7 +14,7 @@ Then, &nbsp; display a message if the first integer is:
 the second integer. 
 
 
-Test the condition &nbsp; ''for each case separately'', &nbsp; so that &nbsp; ''all three comparison operators are used'' &nbsp; in the code.
+Test the condition &nbsp; <span class="rosetta__text--italic">for each case separately</span>, &nbsp; so that &nbsp; <span class="rosetta__text--italic">all three comparison operators are used</span> &nbsp; in the code.
 
 
 ;Related task:

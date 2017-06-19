@@ -3,31 +3,31 @@ Hofstadter Figure-Figure sequences
 {{task}}
 
 These two sequences of positive integers are defined as:
-:::: <big><math>\begin{align}
+:::: <big>$\begin{align}
 R(1)&=1\ ;\ S(1)=2 \\
 R(n)&=R(n-1)+S(n-1), \quad n>1.
-\end{align}</math></big>
+\end{align}$</big>
 
 <br>
-The sequence <big><math>S(n)</math></big> is further defined as the sequence of positive integers '''''not''''' present in <big><math>R(n)</math></big>.
+The sequence <big>$S(n)$</big> is further defined as the sequence of positive integers <span class="rosetta__text--bold"><span class="rosetta__text--italic">not</span></span> present in <big>$R(n)$</big>.
 
-Sequence <big><math>R</math></big> starts: 
+Sequence <big>$R$</big> starts: 
     1, 3, 7, 12, 18, ...
-Sequence <big><math>S</math></big> starts: 
+Sequence <big>$S$</big> starts: 
     2, 4, 5, 6, 8, ...
 
 
 ;Task:
-# Create two functions named '''ffr''' and '''ffs''' that when given '''n''' return '''R(n)''' or '''S(n)''' respectively.<br>(Note that R(1) = 1 and S(1) = 2 to avoid off-by-one errors).
-# No maximum value for '''n''' should be assumed.
-# Calculate and show that the first ten values of '''R''' are:<br> 1, 3, 7, 12, 18, 26, 35, 45, 56, and 69
-# Calculate and show that the first 40 values of '''ffr''' plus the first 960 values of '''ffs''' include all the integers from 1 to 1000 exactly once.
+# Create two functions named <span class="rosetta__text--bold">ffr</span> and <span class="rosetta__text--bold">ffs</span> that when given <span class="rosetta__text--bold">n</span> return <span class="rosetta__text--bold">R(n)</span> or <span class="rosetta__text--bold">S(n)</span> respectively.<br>(Note that R(1) = 1 and S(1) = 2 to avoid off-by-one errors).
+# No maximum value for <span class="rosetta__text--bold">n</span> should be assumed.
+# Calculate and show that the first ten values of <span class="rosetta__text--bold">R</span> are:<br> 1, 3, 7, 12, 18, 26, 35, 45, 56, and 69
+# Calculate and show that the first 40 values of <span class="rosetta__text--bold">ffr</span> plus the first 960 values of <span class="rosetta__text--bold">ffs</span> include all the integers from 1 to 1000 exactly once.
 
 
 ;References:
 * Sloane's [http://oeis.org/A005228 A005228] and [http://oeis.org/A030124 A030124].
 * [http://mathworld.wolfram.com/HofstadterFigure-FigureSequence.html Wolfram MathWorld]
-* Wikipedia: [[wp:Hofstadter_sequence#Hofstadter_Figure-Figure_sequences|Hofstadter Figure-Figure sequences]].
+* Wikipedia: <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Hofstadter_sequence#Hofstadter_Figure-Figure_sequences" title="wp: Hofstadter_sequence#Hofstadter_Figure-Figure_sequences">Hofstadter Figure-Figure sequences</a>.
 <br><br>
 
 

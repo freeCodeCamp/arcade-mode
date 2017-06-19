@@ -1,7 +1,7 @@
 Statistics/Normal distribution
 
 {{task}}
-The [[wp:Normal distribution|Normal]] (or Gaussian) distribution is a frequently used distribution in statistics. While most programming languages provide a uniformly distributed random number generator, one can [[wp:Normal distribution#Generating_values_from_normal_distribution|derive]] normally distributed random numbers from a uniform generator.
+The <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Normal distribution" title="wp: Normal distribution">Normal]] (or Gaussian) distribution is a frequently used distribution in statistics. While most programming languages provide a uniformly distributed random number generator, one can [[wp:Normal distribution#Generating_values_from_normal_distribution|derive</a> normally distributed random numbers from a uniform generator.
 
 
 ;The task:

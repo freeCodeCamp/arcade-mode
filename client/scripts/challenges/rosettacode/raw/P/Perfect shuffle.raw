@@ -12,7 +12,7 @@ When you repeatedly perform perfect shuffles on an even-sized deck of unique car
 <!-- START OF DIAGRAM -->
 {| style="border-spacing:0.5em 0;border-collapse:separate;margin:0 1em;text-align:right"
 |-
-| <small>''original:''</small> ||
+| <small><span class="rosetta__text--italic">original:</span></small> ||
 <tt style="background:#122CF8;color:#B8C0FD;padding:0 0.3em">1</tt>
 <tt style="background:#332AD7;color:#C2C0F3;padding:0 0.3em">2</tt>
 <tt style="background:#5428B7;color:#CCBFEA;padding:0 0.3em">3</tt>
@@ -22,7 +22,7 @@ When you repeatedly perform perfect shuffles on an even-sized deck of unique car
 <tt style="background:#D82135;color:#F3BDC3;padding:0 0.3em">7</tt>
 <tt style="background:#F92015;color:#FDBDB9;padding:0 0.3em">8</tt>
 |-
-| <small>''after 1st shuffle:''</small> ||
+| <small><span class="rosetta__text--italic">after 1st shuffle:</span></small> ||
 <tt style="background:#122CF8;color:#B8C0FD;padding:0 0.3em">1</tt>
 <tt style="background:#962576;color:#E0BED6;padding:0 0.3em">5</tt>
 <tt style="background:#332AD7;color:#C2C0F3;padding:0 0.3em">2</tt>
@@ -32,7 +32,7 @@ When you repeatedly perform perfect shuffles on an even-sized deck of unique car
 <tt style="background:#752696;color:#D6BEE0;padding:0 0.3em">4</tt>
 <tt style="background:#F92015;color:#FDBDB9;padding:0 0.3em">8</tt>
 |-
-| <small>''after 2nd shuffle:''</small> ||
+| <small><span class="rosetta__text--italic">after 2nd shuffle:</span></small> ||
 <tt style="background:#122CF8;color:#B8C0FD;padding:0 0.3em">1</tt>
 <tt style="background:#5428B7;color:#CCBFEA;padding:0 0.3em">3</tt>
 <tt style="background:#962576;color:#E0BED6;padding:0 0.3em">5</tt>
@@ -42,7 +42,7 @@ When you repeatedly perform perfect shuffles on an even-sized deck of unique car
 <tt style="background:#B72355;color:#EABDCC;padding:0 0.3em">6</tt>
 <tt style="background:#F92015;color:#FDBDB9;padding:0 0.3em">8</tt>
 |-
-| <small>''after 3rd shuffle:''</small> ||
+| <small><span class="rosetta__text--italic">after 3rd shuffle:</span></small> ||
 <tt style="background:#122CF8;color:#B8C0FD;padding:0 0.3em">1</tt>
 <tt style="background:#332AD7;color:#C2C0F3;padding:0 0.3em">2</tt>
 <tt style="background:#5428B7;color:#CCBFEA;padding:0 0.3em">3</tt>
@@ -54,18 +54,18 @@ When you repeatedly perform perfect shuffles on an even-sized deck of unique car
 |}
 <!-- END OF DIAGRAM -->
 
-<p style="font-size:115%; margin:1em 0 0.5em 0">'''''The Task'''''</p>
+<p style="font-size:115%; margin:1em 0 0.5em 0"><span class="rosetta__text--bold"><span class="rosetta__text--italic">The Task</span></span></p>
 
 # Write a function that can perform a perfect shuffle on an even-sized list of values.
 # Call this function repeatedly to count how many shuffles are needed to get a deck back to its original order, for each of the deck sizes listed under "Test Cases" below.
 #* <small>You can use a list of numbers (or anything else that's convenient) to represent a deck; just make sure that all "cards" are unique within each deck.</small>
 #* <small>Print out the resulting shuffle counts, to demonstrate that your program passes the test-cases.</small>
 
-<p style="font-size:115%; margin:1em 0 0.5em 0">'''''Test Cases'''''</p>
+<p style="font-size:115%; margin:1em 0 0.5em 0"><span class="rosetta__text--bold"><span class="rosetta__text--italic">Test Cases</span></span></p>
 
 {| class="wikitable"
 |-
-! input ''(deck size)'' !! output ''(number of shuffles required)''
+! input <span class="rosetta__text--italic">(deck size)</span> !! output <span class="rosetta__text--italic">(number of shuffles required)</span>
 |-
 | 8 || 3
 |-

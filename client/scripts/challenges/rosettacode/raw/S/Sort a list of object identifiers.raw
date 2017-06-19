@@ -3,7 +3,7 @@ Sort a list of object identifiers
 {{task|Sorting Algorithms}}
 {{Sorting Algorithm}}
 
-[[wp:Object identifier|Object identifiers (OID)]] are strings used to identify objects in network data.
+<a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Object identifier" title="wp: Object identifier">Object identifiers (OID)</a> are strings used to identify objects in network data.
 
 
 ;Task:
@@ -12,14 +12,14 @@ Show how to sort a list of OIDs, in their natural sort order.
 {{task heading|Details}}
 
 * An OID consists of one or more non-negative integers in base 10, separated by dots. It starts and ends with a number.
-* Their natural sort order is [[wp:Lexicographical|lexicographical]] with regard to the dot-separated fields, using numeric comparison between fields.
+* Their natural sort order is <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Lexicographical" title="wp: Lexicographical">lexicographical</a> with regard to the dot-separated fields, using numeric comparison between fields.
 
 {{task heading|Test case}}
 
 {| class="wikitable"
 |-
-! Input ''(list of strings)''
-! Output ''(list of strings)''
+! Input <span class="rosetta__text--italic">(list of strings)</span>
+! Output <span class="rosetta__text--italic">(list of strings)</span>
 |-
 |
 <code>1.3.6.1.4.1.11.2.17.19.3.4.0.10</code><br>

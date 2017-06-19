@@ -3,7 +3,7 @@ Parsing/RPN calculator algorithm
 {{task}}
 
 ;Task:
-Create a stack-based evaluator for an expression in &nbsp; [[wp:Reverse Polish notation|<u>r</u>everse <u>P</u>olish <u>n</u>otation (RPN)]] &nbsp; that also shows the changes in the stack as each individual token is processed ''as a table''.
+Create a stack-based evaluator for an expression in &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Reverse Polish notation" title="wp: Reverse Polish notation"><u>r</u>everse <u>P</u>olish <u>n</u>otation (RPN)</a> &nbsp; that also shows the changes in the stack as each individual token is processed <span class="rosetta__text--italic">as a table</span>.
 
 
 * Assume an input of a correct, space separated, string of tokens of an RPN expression
@@ -13,8 +13,8 @@ Create a stack-based evaluator for an expression in &nbsp; [[wp:Reverse Polish n
 
 
 ;Notes:
-* &nbsp; <big><b> '''^''' </b></big> &nbsp; means exponentiation in the expression above.
-* &nbsp; <big><b> '''/''' </b></big> &nbsp; means division.
+* &nbsp; <big><b> <span class="rosetta__text--bold">^</span> </b></big> &nbsp; means exponentiation in the expression above.
+* &nbsp; <big><b> <span class="rosetta__text--bold">/</span> </b></big> &nbsp; means division.
 
 
 ;See also:

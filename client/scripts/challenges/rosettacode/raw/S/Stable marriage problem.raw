@@ -1,18 +1,18 @@
 Stable marriage problem
 
 {{task|Classic CS problems and programs}}
-Solve the [[wp:Stable marriage problem|Stable marriage problem]] using the Gale/Shapley algorithm.
+Solve the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Stable marriage problem" title="wp: Stable marriage problem">Stable marriage problem</a> using the Gale/Shapley algorithm.
 
 
-'''Problem description'''<br>
+<span class="rosetta__text--bold">Problem description</span><br>
 Given an equal number of men and women to be paired for marriage, each man ranks all the women in order of his preference and each woman ranks all the men in order of her preference. 
 
-A stable set of engagements for marriage is one where no man prefers a woman over the one he is engaged to, where that other woman ''also'' prefers that man over the one she is engaged to. I.e. with consulting marriages, there would be no reason for the engagements between the people to change.
+A stable set of engagements for marriage is one where no man prefers a woman over the one he is engaged to, where that other woman <span class="rosetta__text--italic">also</span> prefers that man over the one she is engaged to. I.e. with consulting marriages, there would be no reason for the engagements between the people to change.
 
 Gale and Shapley proved that there is a stable set of engagements for any set of preferences and the first link above gives their algorithm for finding a set of stable engagements.
 
 
-'''Task Specifics'''<br>
+<span class="rosetta__text--bold">Task Specifics</span><br>
 Given ten males:
     abe, bob, col, dan, ed, fred, gav, hal, ian, jon
 And ten females:
@@ -45,7 +45,7 @@ And a complete list of ranked preferences, where the most liked is to the left:
 # Perturb this set of engagements to form an unstable set of engagements then check this new set for stability.
 
 
-'''References'''
+<span class="rosetta__text--bold">References</span>
 #  [http://www.cs.columbia.edu/~evs/intro/stable/writeup.html The Stable Marriage Problem]. (Eloquent description and background information).
 # [http://sephlietz.com/gale-shapley/ Gale-Shapley Algorithm Demonstration].
 # [http://mathsite.math.berkeley.edu/smp/smp.html Another Gale-Shapley Algorithm Demonstration].

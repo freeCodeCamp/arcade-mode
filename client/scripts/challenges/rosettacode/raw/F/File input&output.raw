@@ -3,7 +3,7 @@ File input/output
 {{task|File handling}} {{selection|Short Circuit|Console Program Basics}} [[Category:Simple]]
 
 ;Task:
-Create a file called &nbsp; "output.txt", &nbsp; and place in it the contents of the file &nbsp; "input.txt", &nbsp; ''via an intermediate variable''. 
+Create a file called &nbsp; "output.txt", &nbsp; and place in it the contents of the file &nbsp; "input.txt", &nbsp; <span class="rosetta__text--italic">via an intermediate variable</span>. 
 
 In other words, your program will demonstrate: 
 ::# &nbsp; how to read from a file into a variable

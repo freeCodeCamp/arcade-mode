@@ -6,7 +6,7 @@ Each time through the loop, add 1 to the value then print it.
 The loop must execute at least once.
 
 ;Reference:
-* [[wp:Do while loop|Do while loop]] Wikipedia.
+* <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Do while loop" title="wp: Do while loop">Do while loop</a> Wikipedia.
 
 =={{header|JavaScript}}==
 

@@ -1,9 +1,9 @@
 Sort stability
 
 {{task|Sorting}}
-When sorting records in a table by a particular column or field, a [[wp:Stable_sort#Stability|stable sort]] will always retain the  relative order of records that have the same key.
+When sorting records in a table by a particular column or field, a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Stable_sort#Stability" title="wp: Stable_sort#Stability">stable sort</a> will always retain the  relative order of records that have the same key.
 
-For example, in this table of countries and cities, a stable sort on the '''second''' column, the cities, would  keep the US Birmingham above the UK Birmingham. (Although an unstable sort ''might'', in this case, place the US Birmingham above the UK Birmingham, a stable sort routine would ''guarantee'' it).
+For example, in this table of countries and cities, a stable sort on the <span class="rosetta__text--bold">second</span> column, the cities, would  keep the US Birmingham above the UK Birmingham. (Although an unstable sort <span class="rosetta__text--italic">might</span>, in this case, place the US Birmingham above the UK Birmingham, a stable sort routine would <span class="rosetta__text--italic">guarantee</span> it).
 <pre>UK  London
 US  New York
 US  Birmingham
@@ -15,7 +15,7 @@ Similarly, stable sorting on just the first column would generate â€œUK Londonâ€
 #If supplied, indicate whether or not the in-built routine is stable.
 
 <br>
-(This [[wp:Stable_sort#Comparison_of_algorithms|Wikipedia table]] shows the stability of some common sort routines).
+(This <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Stable_sort#Comparison_of_algorithms" title="wp: Stable_sort#Comparison_of_algorithms">Wikipedia table</a> shows the stability of some common sort routines).
 <br><br>
 
 

@@ -3,15 +3,15 @@ Count in factors
 {{task|Prime Numbers}}
 
 ;Task:
-Write a program which counts up from &nbsp; '''1''', &nbsp; displaying each number as the multiplication of its prime factors. 
+Write a program which counts up from &nbsp; <span class="rosetta__text--bold">1</span>, &nbsp; displaying each number as the multiplication of its prime factors. 
 
-For the purpose of this task, &nbsp; '''1''' &nbsp; (unity) &nbsp; may be shown as itself.
+For the purpose of this task, &nbsp; <span class="rosetta__text--bold">1</span> &nbsp; (unity) &nbsp; may be shown as itself.
 
 
 ;Example:
-&nbsp; &nbsp; &nbsp; '''2''' &nbsp; is prime, &nbsp; so it would be shown as itself. 
-<br>&nbsp; &nbsp; &nbsp; '''6''' &nbsp; is not prime; &nbsp; it would be shown as &nbsp; '''<math>2\times3</math>.''' 
-<br>'''2144''' &nbsp; is not prime; &nbsp; it would be shown as &nbsp; '''<math>2\times2\times2\times2\times2\times67</math>.'''
+&nbsp; &nbsp; &nbsp; <span class="rosetta__text--bold">2</span> &nbsp; is prime, &nbsp; so it would be shown as itself. 
+<br>&nbsp; &nbsp; &nbsp; <span class="rosetta__text--bold">6</span> &nbsp; is not prime; &nbsp; it would be shown as &nbsp; <span class="rosetta__text--bold">$2\times3$.</span> 
+<br><span class="rosetta__text--bold">2144</span> &nbsp; is not prime; &nbsp; it would be shown as &nbsp; <span class="rosetta__text--bold">$2\times2\times2\times2\times2\times67$.</span>
 
 
 ;Related tasks:

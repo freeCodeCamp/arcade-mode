@@ -1,10 +1,10 @@
 Quickselect algorithm
 
 {{task}}
-Use the [[wp:Quickselect|quickselect algorithm]] on the vector
+Use the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Quickselect" title="wp: Quickselect">quickselect algorithm</a> on the vector
 : [9, 8, 7, 6, 5, 0, 1, 2, 3, 4]
 To show the first, second, third, ... up to the tenth largest member of the vector, in order, here on this page.
 
-* Note: Quick''sort'' has a separate [[Sorting algorithms/Quicksort|task]]. <br><br>
+* Note: Quick<span class="rosetta__text--italic">sort</span> has a separate <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Sorting algorithms/Quicksort" title="Sorting algorithms/Quicksort">task</a>. <br><br>
 
 

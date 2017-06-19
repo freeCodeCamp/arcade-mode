@@ -4,7 +4,7 @@ Parsing/RPN to infix conversion
 {{task}}
 
 ;Task:
-Create a program that takes an [[wp:Reverse Polish notation|RPN]] representation of an expression formatted as a space separated sequence of tokens and generates the equivalent expression in [[wp:Infix notation|infix notation]].
+Create a program that takes an <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Reverse Polish notation" title="wp: Reverse Polish notation">RPN]] representation of an expression formatted as a space separated sequence of tokens and generates the equivalent expression in [[wp:Infix notation|infix notation</a>.
 
 * Assume an input of a correct, space separated, string of tokens
 * Generate a space separated output string representing the same expression in infix notation
@@ -21,7 +21,7 @@ Create a program that takes an [[wp:Reverse Polish notation|RPN]] representation
 * Operator precedence and operator associativity is given in this table:
 :{| class="wikitable"
 
-! operator !! [[wp:Order_of_operations|precedence]] !! [[wp:Operator_associativity|associativity]] !! operation
+! operator !! <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Order_of_operations" title="wp: Order_of_operations">precedence]] !! [[wp:Operator_associativity|associativity</a> !! operation
 |- || align="center" 
 |                   <big><big> ^ </big></big>  ||  4  ||  right  ||  exponentiation
 |- || align="center" 

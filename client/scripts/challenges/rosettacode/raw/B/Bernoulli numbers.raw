@@ -1,17 +1,17 @@
 Bernoulli numbers
 
 {{task|Mathematics}}
-[[wp:Bernoulli number|Bernoulli numbers]] are used in some series expansions of several functions (trigonometric, hyperbolic, gamma, etc.), and are extremely important in number theory and analysis. 
+<a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Bernoulli number" title="wp: Bernoulli number">Bernoulli numbers</a> are used in some series expansions of several functions (trigonometric, hyperbolic, gamma, etc.), and are extremely important in number theory and analysis. 
 
 Note that there are two definitions of Bernoulli numbers; this task will be using the modern usage (as per the National Institute of Standards and Technology convention).
 
-The&nbsp; n<sup>th</sup> &nbsp;Bernoulli number is expressed as&nbsp; '''B'''<sub>n</sub>.
+The&nbsp; n<sup>th</sup> &nbsp;Bernoulli number is expressed as&nbsp; <span class="rosetta__text--bold">B</span><sub>n</sub>.
 <br>
 
 ;Task
 
-:* &nbsp; show the Bernoulli numbers &nbsp; '''B'''<sub>0</sub> &nbsp; through &nbsp; '''B'''<sub>60</sub>.
-:* &nbsp; suppress the output of values which are equal to zero. (Other than &nbsp; '''B'''<sub>1</sub>&nbsp;, all ''odd''  Bernoulli numbers have a value of zero.)
+:* &nbsp; show the Bernoulli numbers &nbsp; <span class="rosetta__text--bold">B</span><sub>0</sub> &nbsp; through &nbsp; <span class="rosetta__text--bold">B</span><sub>60</sub>.
+:* &nbsp; suppress the output of values which are equal to zero. (Other than &nbsp; <span class="rosetta__text--bold">B</span><sub>1</sub>&nbsp;, all <span class="rosetta__text--italic">odd</span>  Bernoulli numbers have a value of zero.)
 :* &nbsp; express the Bernoulli numbers as fractions &nbsp;(most are improper fractions).
 :* &nbsp; the fractions should be reduced.
 :* &nbsp; index each number in some way so that it can be discerned which Bernoulli number is being displayed.
@@ -19,19 +19,19 @@ The&nbsp; n<sup>th</sup> &nbsp;Bernoulli number is expressed as&nbsp; '''B'''<su
 
 
 ;An algorithm
-The Akiyama–Tanigawa algorithm for the "second Bernoulli numbers" as taken from [[wp:Bernoulli_number#Algorithmic_description|wikipedia]] is as follows:
+The Akiyama–Tanigawa algorithm for the "second Bernoulli numbers" as taken from <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Bernoulli_number#Algorithmic_description" title="wp: Bernoulli_number#Algorithmic_description">wikipedia</a> is as follows:
 
-  '''for''' ''m'' '''from''' 0 '''by''' 1 '''to''' ''n'' '''do'''
-     ''A''[''m''] ← 1/(''m''+1)
-     '''for''' ''j'' '''from''' ''m'' '''by''' -1 '''to''' 1 '''do'''
-       ''A''[''j''-1] ← ''j''×(''A''[''j''-1] - ''A''[''j''])
-   '''return''' ''A''[0] (which is ''B''<sub>''n''</sub>)
+  <span class="rosetta__text--bold">for</span> <span class="rosetta__text--italic">m</span> <span class="rosetta__text--bold">from</span> 0 <span class="rosetta__text--bold">by</span> 1 <span class="rosetta__text--bold">to</span> <span class="rosetta__text--italic">n</span> <span class="rosetta__text--bold">do</span>
+     <span class="rosetta__text--italic">A</span>[<span class="rosetta__text--italic">m</span>] ← 1/(<span class="rosetta__text--italic">m</span>+1)
+     <span class="rosetta__text--bold">for</span> <span class="rosetta__text--italic">j</span> <span class="rosetta__text--bold">from</span> <span class="rosetta__text--italic">m</span> <span class="rosetta__text--bold">by</span> -1 <span class="rosetta__text--bold">to</span> 1 <span class="rosetta__text--bold">do</span>
+       <span class="rosetta__text--italic">A</span>[<span class="rosetta__text--italic">j</span>-1] ← <span class="rosetta__text--italic">j</span>×(<span class="rosetta__text--italic">A</span>[<span class="rosetta__text--italic">j</span>-1] - <span class="rosetta__text--italic">A</span>[<span class="rosetta__text--italic">j</span>])
+   <span class="rosetta__text--bold">return</span> <span class="rosetta__text--italic">A</span>[0] (which is <span class="rosetta__text--italic">B</span><sub><span class="rosetta__text--italic">n</span></sub>)
 
 ;See also
 * Sequence [http://oeis.org/A027641 A027641 Numerator of Bernoulli number B_n] on The On-Line Encyclopedia of Integer Sequences.
 * Sequence [http://oeis.org/A027642 A027642 Denominator of Bernoulli number B_n] on The On-Line Encyclopedia of Integer Sequences.
 * Entry [http://mathworld.wolfram.com/BernoulliNumber.html Bernoulli number] on The Eric Weisstein's World of Mathematics (TM).
-* Luschny's [http://luschny.de/math/zeta/The-Bernoulli-Manifesto.html The Bernoulli Manifesto] for a discussion on <math>B_1</math> = -&frac12; vs. +&frac12;.
+* Luschny's [http://luschny.de/math/zeta/The-Bernoulli-Manifesto.html The Bernoulli Manifesto] for a discussion on $B_1$ = -&frac12; vs. +&frac12;.
 <br><br>
 
 

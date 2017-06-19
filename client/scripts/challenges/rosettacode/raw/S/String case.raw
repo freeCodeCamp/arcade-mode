@@ -3,7 +3,7 @@ String case
 {{task|String manipulation}}
 
 ;Task:
-Take the string &nbsp; &nbsp; '''alphaBETA''' &nbsp; &nbsp; and demonstrate how to convert it to:
+Take the string &nbsp; &nbsp; <span class="rosetta__text--bold">alphaBETA</span> &nbsp; &nbsp; and demonstrate how to convert it to:
 :::* &nbsp; upper-case &nbsp; &nbsp; and 
 :::* &nbsp; lower-case
 

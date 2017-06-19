@@ -14,12 +14,12 @@ Write a program to create an ordered collection of a mixture of literally typed 
    z  = x + y
    zi = 1.0 / ( x + y )
 
-Create a function ''multiplier'', that given two numbers as arguments returns a function that when called with one argument, returns the result of multiplying the two arguments to the call to multiplier that created it and the argument in the call:
+Create a function <span class="rosetta__text--italic">multiplier</span>, that given two numbers as arguments returns a function that when called with one argument, returns the result of multiplying the two arguments to the call to multiplier that created it and the argument in the call:
   new_function = multiplier(n1,n2)
   # where new_function(m) returns the result of n1 * n2 * m
 
 Applying the multiplier of a number and its inverse from the two ordered collections of numbers in pairs, show that the result in each case is one.<br>
-'''Compare and contrast the resultant program with the corresponding entry in [[First-class functions]].''' They should be close.
+<span class="rosetta__text--bold">Compare and contrast the resultant program with the corresponding entry in [[First-class functions]].</span> They should be close.
 
 <small>To paraphrase the task description: Do what was done before, but with numbers rather than functions</small>
 

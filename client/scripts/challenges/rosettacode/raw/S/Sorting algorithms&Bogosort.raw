@@ -4,22 +4,22 @@ Sorting algorithms/Bogosort
 {{Sorting Algorithm}}
 
 ;Task:
-[[wp:Bogosort|Bogosort]] a list of numbers. 
+<a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Bogosort" title="wp: Bogosort">Bogosort</a> a list of numbers. 
 
 
 Bogosort simply shuffles a collection randomly until it is sorted.
 
 "Bogosort" is a perversely inefficient algorithm only used as an in-joke.  
 
-Its average run-time is &nbsp; O(n!) &nbsp; because the chance that any given shuffle of a set will end up in sorted order is about one in &nbsp; ''n'' &nbsp; factorial, &nbsp; and the worst case is infinite since there's no guarantee that a random shuffling will ever produce a sorted sequence. 
+Its average run-time is &nbsp; O(n!) &nbsp; because the chance that any given shuffle of a set will end up in sorted order is about one in &nbsp; <span class="rosetta__text--italic">n</span> &nbsp; factorial, &nbsp; and the worst case is infinite since there's no guarantee that a random shuffling will ever produce a sorted sequence. 
 
 Its best case is &nbsp; O(n) &nbsp; since a single pass through the elements may suffice to order them.
 
 
 Pseudocode:
- '''while not''' InOrder(list) '''do'''
+ <span class="rosetta__text--bold">while not</span> InOrder(list) <span class="rosetta__text--bold">do</span>
     Shuffle(list)
- '''done'''
+ <span class="rosetta__text--bold">done</span>
 
 <br>
 The [[Knuth shuffle]] may be used to implement the shuffle part of this algorithm.

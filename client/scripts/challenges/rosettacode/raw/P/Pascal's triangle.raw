@@ -2,7 +2,7 @@ Pascal's triangle
 
 {{task|Arithmetic operations}}
 
-[[wp:Pascal's triangle|Pascal's triangle]] &nbsp; is an arithmetic and geometric figure first imagined by &nbsp; [[wp:Blaise Pascal|Blaise Pascal]]. 
+<a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Pascal's triangle" title="wp: Pascal's triangle">Pascal's triangle]] &nbsp; is an arithmetic and geometric figure first imagined by &nbsp; [[wp:Blaise Pascal|Blaise Pascal</a>. 
 
 Its first few rows look like this:
      1
@@ -12,11 +12,11 @@ Its first few rows look like this:
 where each element of each row is either 1 or the sum of the two elements right above it. 
 
 For example, the next row of the triangle would be:
-::: &nbsp; '''1''' &nbsp; (since the first element of each row doesn't have two elements above it)
-::: &nbsp; '''4''' &nbsp; (1 + 3)
-::: &nbsp; '''6''' &nbsp; (3 + 3)
-::: &nbsp; '''4''' &nbsp; (3 + 1)
-::: &nbsp; '''1''' &nbsp; (since the last element of each row doesn't have two elements above it) 
+::: &nbsp; <span class="rosetta__text--bold">1</span> &nbsp; (since the first element of each row doesn't have two elements above it)
+::: &nbsp; <span class="rosetta__text--bold">4</span> &nbsp; (1 + 3)
+::: &nbsp; <span class="rosetta__text--bold">6</span> &nbsp; (3 + 3)
+::: &nbsp; <span class="rosetta__text--bold">4</span> &nbsp; (3 + 1)
+::: &nbsp; <span class="rosetta__text--bold">1</span> &nbsp; (since the last element of each row doesn't have two elements above it) 
 
 So the triangle now looks like this:
      1
@@ -29,7 +29,7 @@ Each row &nbsp; <tt> n </tt> &nbsp; (starting with row &nbsp; 0 &nbsp; at the to
 
 
 ;Task:
-Write a function that prints out the first &nbsp; <tt> n </tt> &nbsp; rows of the triangle &nbsp; (with &nbsp; <tt> f(1) </tt> &nbsp; yielding the row consisting of only the element '''1'''). 
+Write a function that prints out the first &nbsp; <tt> n </tt> &nbsp; rows of the triangle &nbsp; (with &nbsp; <tt> f(1) </tt> &nbsp; yielding the row consisting of only the element <span class="rosetta__text--bold">1</span>). 
 
 This can be done either by summing elements from the previous rows or using a binary coefficient or combination function. 
 

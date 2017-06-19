@@ -4,17 +4,17 @@ Walk a directory/Recursively
 [[Category:Recursion]]
 
 ;Task:
-Walk a given directory ''tree'' and print files matching a given pattern.
+Walk a given directory <span class="rosetta__text--italic">tree</span> and print files matching a given pattern.
 
 
-'''Note:''' This task is for recursive methods. &nbsp; These tasks should read an entire directory tree, not a ''single directory''.  
+<span class="rosetta__text--bold">Note:</span> This task is for recursive methods. &nbsp; These tasks should read an entire directory tree, not a <span class="rosetta__text--italic">single directory</span>.  
 
 
-'''Note:''' Please be careful when running any code examples found here.
+<span class="rosetta__text--bold">Note:</span> Please be careful when running any code examples found here.
 
 
 ;Related task:
-* &nbsp; [[Walk a directory/Non-recursively]] &nbsp; (read a ''single directory''). 
+* &nbsp; [[Walk a directory/Non-recursively]] &nbsp; (read a <span class="rosetta__text--italic">single directory</span>). 
 <br><br>
 
 

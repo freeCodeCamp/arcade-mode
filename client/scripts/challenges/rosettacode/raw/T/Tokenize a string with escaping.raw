@@ -23,7 +23,7 @@ Rules for splitting:
 Rules for escaping:
 * "Escaped" means preceded by an occurrence of the escape character that is not already escaped itself.
 * When the escape character precedes a character that has no special meaning, it still counts as an escape (but does not do anything special).
-* Each occurrences of the escape character that was used to escape something, should '''not''' become part of the output.
+* Each occurrences of the escape character that was used to escape something, should <span class="rosetta__text--bold">not</span> become part of the output.
 
 {{task heading|Test case}}
 

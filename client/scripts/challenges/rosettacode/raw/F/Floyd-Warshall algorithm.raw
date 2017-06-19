@@ -1,7 +1,7 @@
 Floyd-Warshall algorithm
 
 {{task|Routing algorithms}}
-The [[wp:Floyd–Warshall_algorithm|Floyd–Warshall algorithm]] is an algorithm for finding shortest paths in a weighted graph with positive or negative edge weights.
+The <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Floyd–Warshall_algorithm" title="wp: Floyd–Warshall_algorithm">Floyd–Warshall algorithm</a> is an algorithm for finding shortest paths in a weighted graph with positive or negative edge weights.
 <br><br>
 ;Task
 Find the lengths of the shortest paths between all pairs of vertices of the given directed graph. Your code may assume that the input has already been checked for loops, parallel edges and negative cycles.

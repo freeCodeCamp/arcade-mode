@@ -9,11 +9,11 @@ For example, if you use letters as symbols and have details of the frequency of 
 Any string of letters will be encoded as a string of bits that are no-longer of the same length per letter. To successfully decode such as string, the  smaller codes assigned to letters such as 'e' cannot occur as a prefix in the larger codes such as that for 'x'.
 :If you were to assign a code 01 for 'e' and code 011 for 'x', then if the bits to decode started as 011... then you would not know if you should decode an 'e' or an 'x'.
 
-The Huffman coding scheme takes each symbol and its weight (or frequency of occurrence), and generates proper encodings for each symbol taking account of the weights of each symbol, so that higher weighted symbols have fewer bits in their encoding. (See the [[wp:Huffman_coding|WP article]] for more information).
+The Huffman coding scheme takes each symbol and its weight (or frequency of occurrence), and generates proper encodings for each symbol taking account of the weights of each symbol, so that higher weighted symbols have fewer bits in their encoding. (See the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Huffman_coding" title="wp: Huffman_coding">WP article</a> for more information).
 
 A Huffman encoding can be computed by first creating a tree of nodes:
 
-[[Image:Huffman_coding_example.jpg|right|250px]]
+<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Image:Huffman_coding_example.jpg" title="Image:Huffman_coding_example.jpg">right|250px</a>
 # Create a leaf node for each symbol and add it to the [[priority queue]].
 # While there is more than one node in the queue:
 ## Remove the node of highest priority (lowest probability) twice to get two nodes.
@@ -27,7 +27,7 @@ Traverse the constructed binary tree from root to leaves assigning and accumulat
 
 ;Task:
 Using the characters and their frequency from the string:
-::::: &nbsp; ''' '' this is an example for huffman encoding '' '''
+::::: &nbsp; <span class="rosetta__text--bold"> <span class="rosetta__text--italic"> this is an example for huffman encoding </span> </span>
 create a program to generate a Huffman encoding for each character as a table.
 <br><br>
 

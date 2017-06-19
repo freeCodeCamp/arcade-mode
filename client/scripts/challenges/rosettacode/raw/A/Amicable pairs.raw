@@ -2,11 +2,11 @@ Amicable pairs
 
 {{task}}
 
-Two integers <math>N</math> and <math>M</math> are said to be [[wp:Amicable numbers|amicable pairs]] if <math>N \neq M</math> and the sum of the [[Proper divisors|proper divisors]] of <math>N</math> (<math>\mathrm{sum}(\mathrm{propDivs}(N))</math>) <math>= M</math> as well as <math>\mathrm{sum}(\mathrm{propDivs}(M)) = N</math>.
+Two integers $N$ and $M$ are said to be <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Amicable numbers" title="wp: Amicable numbers">amicable pairs]] if $N \neq M$ and the sum of the [[Proper divisors|proper divisors</a> of $N$ ($\mathrm{sum}(\mathrm{propDivs}(N))$) $= M$ as well as $\mathrm{sum}(\mathrm{propDivs}(M)) = N$.
 
 
 ;Example:
-'''1184''' and '''1210''' are an amicable pair, with proper divisors:
+<span class="rosetta__text--bold">1184</span> and <span class="rosetta__text--bold">1210</span> are an amicable pair, with proper divisors:
 * &nbsp; 1, 2, 4, 8, 16, 32, 37, 74, 148, 296, 592 &nbsp; and 
 * &nbsp; 1, 2, 5, 10, 11, 22, 55, 110, 121, 242, 605  &nbsp; respectively.
 
@@ -18,7 +18,7 @@ Calculate and show here the Amicable pairs below 20,000; (there are eight).
 ;Related tasks
 * [[Proper divisors]]
 * [[Abundant, deficient and perfect number classifications]]
-* [[Aliquot sequence classifications]] and its amicable ''classification''. 
+* [[Aliquot sequence classifications]] and its amicable <span class="rosetta__text--italic">classification</span>. 
 <br><br>
 
 

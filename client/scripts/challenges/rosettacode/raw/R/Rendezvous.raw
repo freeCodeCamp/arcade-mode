@@ -4,7 +4,7 @@ Rendezvous
 [[Category:Encyclopedia]]
 Demonstrate the “rendezvous” communications technique by implementing a printer monitor.
 ==Detailed Description of Programming Task==
-Rendezvous is a synchronization mechanism based on procedural decomposition. Rendezvous is similar to a procedure call with the difference that the caller and the callee belong to different [[task]]s. The called procedure is usually called an '''entry point''' of the corresponding task. A call to an entry point is synchronous, i.e. the caller is blocked until completion. For the caller a call to the entry point is indivisible. Internally it consists of:
+Rendezvous is a synchronization mechanism based on procedural decomposition. Rendezvous is similar to a procedure call with the difference that the caller and the callee belong to different [[task]]s. The called procedure is usually called an <span class="rosetta__text--bold">entry point</span> of the corresponding task. A call to an entry point is synchronous, i.e. the caller is blocked until completion. For the caller a call to the entry point is indivisible. Internally it consists of:
 
 * Waiting for the callee ready to accept the rendezvous;
 * Engaging the rendezvous (servicing the entry point).
@@ -30,6 +30,6 @@ Rendezvous can be used to implement monitor synchronization objects. A monitor g
 Show how rendezvous are supported by the language. If the language does not have rendezvous, provide an implementation of them based on other primitives.
 
 ===Use case task===
-Implement a printer monitor. The monitor guards a printer. There are two printers ''main'' and ''reserve''. Each has a monitor that accepts a rendezvous Print with a text line to print of the printer. The standard output may serve for printing purpose. Each character of the line is printed separately in order to illustrate that lines are printed indivisibly. Each printer has ink for only 5 lines of text. When the ''main'' printer runs out of ink it redirects its requests to the ''reserve'' printer. When that runs out of ink too, Out_Of_Ink exception propagates back to the caller. Create two writer tasks which print their plagiarisms on the printer. One does ''Humpty Dumpty'', another ''Mother Goose''.
+Implement a printer monitor. The monitor guards a printer. There are two printers <span class="rosetta__text--italic">main</span> and <span class="rosetta__text--italic">reserve</span>. Each has a monitor that accepts a rendezvous Print with a text line to print of the printer. The standard output may serve for printing purpose. Each character of the line is printed separately in order to illustrate that lines are printed indivisibly. Each printer has ink for only 5 lines of text. When the <span class="rosetta__text--italic">main</span> printer runs out of ink it redirects its requests to the <span class="rosetta__text--italic">reserve</span> printer. When that runs out of ink too, Out_Of_Ink exception propagates back to the caller. Create two writer tasks which print their plagiarisms on the printer. One does <span class="rosetta__text--italic">Humpty Dumpty</span>, another <span class="rosetta__text--italic">Mother Goose</span>.
 
 

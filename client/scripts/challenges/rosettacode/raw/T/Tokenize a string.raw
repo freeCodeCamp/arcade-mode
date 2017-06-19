@@ -7,7 +7,7 @@ Display the words to the 'user', in the simplest manner possible,
 separated by a period. 
 To simplify, you may display a trailing period.
 
-'''''Related tasks:'''''
+<span class="rosetta__text--bold"><span class="rosetta__text--italic">Related tasks:</span></span>
 
 * [[Tokenize a string with escaping]]
 

@@ -2,17 +2,17 @@ Fibonacci n-step number sequences
 
 {{task}}
 These number series are an expansion of the ordinary [[Fibonacci sequence]] where:
-# For <math>n = 2</math> we have the Fibonacci sequence; with initial values <math>[1, 1]</math> and <math>F_k^2 = F_{k-1}^2 + F_{k-2}^2</math>
-# For <math>n = 3</math> we have the tribonacci sequence; with initial values <math>[1, 1, 2]</math> and <math>F_k^3 = F_{k-1}^3 + F_{k-2}^3 + F_{k-3}^3</math>
-# For <math>n = 4</math> we have the tetranacci sequence; with initial values <math>[1, 1, 2, 4]</math> and <math>F_k^4 = F_{k-1}^4 + F_{k-2}^4 + F_{k-3}^4 + F_{k-4}^4</math><br>...
-# For general <math>n>2</math> we have the Fibonacci <math>n</math>-step sequence - <math>F_k^n</math>; with initial values of the first <math>n</math> values of the <math>(n-1)</math>'th Fibonacci <math>n</math>-step sequence <math>F_k^{n-1}</math>; and <math>k</math>'th value of this <math>n</math>'th sequence being <math>F_k^n = \sum_{i=1}^{(n)} {F_{k-i}^{(n)}}</math>
+# For $n = 2$ we have the Fibonacci sequence; with initial values $[1, 1]$ and $F_k^2 = F_{k-1}^2 + F_{k-2}^2$
+# For $n = 3$ we have the tribonacci sequence; with initial values $[1, 1, 2]$ and $F_k^3 = F_{k-1}^3 + F_{k-2}^3 + F_{k-3}^3$
+# For $n = 4$ we have the tetranacci sequence; with initial values $[1, 1, 2, 4]$ and $F_k^4 = F_{k-1}^4 + F_{k-2}^4 + F_{k-3}^4 + F_{k-4}^4$<br>...
+# For general $n>2$ we have the Fibonacci $n$-step sequence - $F_k^n$; with initial values of the first $n$ values of the $(n-1)$'th Fibonacci $n$-step sequence $F_k^{n-1}$; and $k$'th value of this $n$'th sequence being $F_k^n = \sum_{i=1}^{(n)} {F_{k-i}^{(n)}}$
 
-For small values of <math>n</math>, [[wp:Number prefix#Greek_series|Greek numeric prefixes]] are sometimes used to individually name each series.
+For small values of $n$, <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Number prefix#Greek_series" title="wp: Number prefix#Greek_series">Greek numeric prefixes</a> are sometimes used to individually name each series.
 
 :{| style="text-align: left;" border="4" cellpadding="2" cellspacing="2"
-|+ Fibonacci <math>n</math>-step sequences
+|+ Fibonacci $n$-step sequences
 |- style="background-color: rgb(255, 204, 255);"
-! <math>n</math> !! Series name !! Values
+! $n$ !! Series name !! Values
 |-
 |  2 ||  fibonacci || 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 ...
 |-
@@ -34,13 +34,13 @@ For small values of <math>n</math>, [[wp:Number prefix#Greek_series|Greek numeri
 |}
 
 Allied sequences can be generated where the initial values are changed:
-: '''The [[wp:Lucas number|Lucas series]]''' sums the two preceding values like the fibonacci series for <math>n=2</math> but uses <math>[2, 1]</math> as its initial values.
+: <span class="rosetta__text--bold">The <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Lucas number" title="wp: Lucas number">Lucas series</a></span> sums the two preceding values like the fibonacci series for $n=2$ but uses $[2, 1]$ as its initial values.
 
 <!-- Lucas numbers, Lucas number, Lucas series     [added to make searches easier.] -->
 
 <br>
 ;Task:
-# Write a function to generate Fibonacci <math>n</math>-step number sequences given its initial values and assuming the number of initial values determines how many previous values are summed to make the next number of the series.
+# Write a function to generate Fibonacci $n$-step number sequences given its initial values and assuming the number of initial values determines how many previous values are summed to make the next number of the series.
 # Use this to print and show here at least the first ten members of the Fibo/tribo/tetra-nacci and Lucas sequences.
 
 

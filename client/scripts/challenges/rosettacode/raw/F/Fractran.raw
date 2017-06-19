@@ -2,41 +2,41 @@ Fractran
 
 {{task}} 
 
-'''[[wp:FRACTRAN|FRACTRAN]]''' is a Turing-complete esoteric programming language invented by the mathematician [[wp:John Horton Conway|John Horton Conway]].
+<span class="rosetta__text--bold"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/FRACTRAN" title="wp: FRACTRAN">FRACTRAN]]</span> is a Turing-complete esoteric programming language invented by the mathematician [[wp:John Horton Conway|John Horton Conway</a>.
 
-A FRACTRAN program is an ordered list of positive fractions <math>P = (f_1, f_2, \ldots, f_m)</math>, together with an initial positive integer input <math>n</math>.
+A FRACTRAN program is an ordered list of positive fractions $P = (f_1, f_2, \ldots, f_m)$, together with an initial positive integer input $n$.
 
 
-The program is run by updating the integer <math>n</math> as follows:
+The program is run by updating the integer $n$ as follows:
 
-* for the first fraction, <math>f_i</math>, in the list for which <math>nf_i</math> is an integer, replace <math>n</math> with <math>nf_i</math> ;
-* repeat this rule until no fraction in the list produces an integer when multiplied by <math>n</math>, then halt.
+* for the first fraction, $f_i$, in the list for which $nf_i$ is an integer, replace $n$ with $nf_i$ ;
+* repeat this rule until no fraction in the list produces an integer when multiplied by $n$, then halt.
 
 <br>
 Conway gave a program for primes in FRACTRAN:
 
-: <math>17/91</math>, <math>78/85</math>, <math>19/51</math>, <math>23/38</math>, <math>29/33</math>, <math>77/29</math>, <math>95/23</math>, <math>77/19</math>, <math>1/17</math>, <math>11/13</math>, <math>13/11</math>, <math>15/14</math>, <math>15/2</math>, <math>55/1</math>
+: $17/91$, $78/85$, $19/51$, $23/38$, $29/33$, $77/29$, $95/23$, $77/19$, $1/17$, $11/13$, $13/11$, $15/14$, $15/2$, $55/1$
 
-Starting with <math>n=2</math>, this FRACTRAN program will change <math>n</math> to <math>15=2\times (15/2)</math>, then <math>825=15\times (55/1)</math>, generating the following sequence of integers:
+Starting with $n=2$, this FRACTRAN program will change $n$ to $15=2\times (15/2)$, then $825=15\times (55/1)$, generating the following sequence of integers:
 
-: <math>2</math>, <math>15</math>, <math>825</math>, <math>725</math>, <math>1925</math>, <math>2275</math>, <math>425</math>, <math>390</math>, <math>330</math>, <math>290</math>, <math>770</math>, <math>\ldots</math>
+: $2$, $15$, $825$, $725$, $1925$, $2275$, $425$, $390$, $330$, $290$, $770$, $\ldots$
 
 After 2, this sequence contains the following powers of 2:
 
-:<math>2^2=4</math>, <math>2^3=8</math>, <math>2^5=32</math>, <math>2^7=128</math>, <math>2^{11}=2048</math>, <math>2^{13}=8192</math>, <math>2^{17}=131072</math>, <math>2^{19}=524288</math>, <math>\ldots</math>
+:$2^2=4$, $2^3=8$, $2^5=32$, $2^7=128$, $2^{11}=2048$, $2^{13}=8192$, $2^{17}=131072$, $2^{19}=524288$, $\ldots$
 
 which are the prime powers of 2.
 
 
 ;Task:
-Write a program that reads a list of fractions in a ''natural'' format from the keyboard or from a string, 
-to parse it into a sequence of fractions (''i.e.'' two integers),
+Write a program that reads a list of fractions in a <span class="rosetta__text--italic">natural</span> format from the keyboard or from a string, 
+to parse it into a sequence of fractions (<span class="rosetta__text--italic">i.e.</span> two integers),
 and runs the FRACTRAN starting from a provided integer, writing the result at each step.  
 It is also required that the number of step is limited (by a parameter easy to find).
 
 
 ;Extra credit:
-Use this program to derive the first '''20''' or so prime numbers.
+Use this program to derive the first <span class="rosetta__text--bold">20</span> or so prime numbers.
 
 
 ;See also:

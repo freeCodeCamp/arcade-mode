@@ -8,11 +8,11 @@ Number base conversion is when you express a stored integer in an integer base, 
 ;Task:
 Write a function (or identify the built-in function) which is passed a non-negative integer to convert, and another integer representing the base. 
 
-It should return a string containing the digits of the resulting number, without leading zeros except for the number &nbsp; '''0''' &nbsp; itself. 
+It should return a string containing the digits of the resulting number, without leading zeros except for the number &nbsp; <span class="rosetta__text--bold">0</span> &nbsp; itself. 
 
-For the digits beyond 9, one should use the lowercase English alphabet, where the digit &nbsp; '''a''' = 9+1, &nbsp; '''b''' = a+1, &nbsp; etc. 
+For the digits beyond 9, one should use the lowercase English alphabet, where the digit &nbsp; <span class="rosetta__text--bold">a</span> = 9+1, &nbsp; <span class="rosetta__text--bold">b</span> = a+1, &nbsp; etc. 
 
-For example: &nbsp; the decimal number &nbsp; '''26''' &nbsp; expressed in base &nbsp; '''16''' &nbsp; would be &nbsp; '''1a'''.
+For example: &nbsp; the decimal number &nbsp; <span class="rosetta__text--bold">26</span> &nbsp; expressed in base &nbsp; <span class="rosetta__text--bold">16</span> &nbsp; would be &nbsp; <span class="rosetta__text--bold">1a</span>.
 
 Write a second function which is passed a string and an integer base, and it returns an integer representing that string interpreted in that base.
 

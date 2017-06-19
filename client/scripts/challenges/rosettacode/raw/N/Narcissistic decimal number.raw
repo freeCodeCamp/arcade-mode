@@ -2,24 +2,24 @@ Narcissistic decimal number
 
 {{task}}
 
-A &nbsp; [http://mathworld.wolfram.com/NarcissisticNumber.html Narcissistic decimal number] &nbsp; is a non-negative integer, &nbsp; <math>n</math>, &nbsp; that is equal to the sum of the &nbsp; <math>m</math>-th &nbsp; powers of each of the digits in the decimal representation of &nbsp; <math>n</math>, &nbsp; where &nbsp; <math>m</math> &nbsp; is the number of digits in the decimal representation of &nbsp; <math>n</math>.
+A &nbsp; [http://mathworld.wolfram.com/NarcissisticNumber.html Narcissistic decimal number] &nbsp; is a non-negative integer, &nbsp; $n$, &nbsp; that is equal to the sum of the &nbsp; $m$-th &nbsp; powers of each of the digits in the decimal representation of &nbsp; $n$, &nbsp; where &nbsp; $m$ &nbsp; is the number of digits in the decimal representation of &nbsp; $n$.
 
-Narcissistic (decimal) numbers are sometimes called &nbsp; '''Armstrong''' &nbsp; numbers, named after Michael F. Armstrong.
+Narcissistic (decimal) numbers are sometimes called &nbsp; <span class="rosetta__text--bold">Armstrong</span> &nbsp; numbers, named after Michael F. Armstrong.
 
 
 ;An example:
-::::* &nbsp; if &nbsp; <math>n</math> &nbsp; is &nbsp; '''153''' 
-::::* &nbsp; then &nbsp; <math>m</math>, &nbsp; (the number of decimal digits) &nbsp; is &nbsp; '''3''' 
-::::* &nbsp; we have &nbsp; <big> 1<sup>3</sup> + 5<sup>3</sup> + 3<sup>3</sup> &nbsp; = &nbsp; 1 + 125 + 27 &nbsp; = &nbsp; '''153''' </big> 
-::::* &nbsp; and so &nbsp; '''153''' &nbsp; is a narcissistic decimal number
+::::* &nbsp; if &nbsp; $n$ &nbsp; is &nbsp; <span class="rosetta__text--bold">153</span> 
+::::* &nbsp; then &nbsp; $m$, &nbsp; (the number of decimal digits) &nbsp; is &nbsp; <span class="rosetta__text--bold">3</span> 
+::::* &nbsp; we have &nbsp; <big> 1<sup>3</sup> + 5<sup>3</sup> + 3<sup>3</sup> &nbsp; = &nbsp; 1 + 125 + 27 &nbsp; = &nbsp; <span class="rosetta__text--bold">153</span> </big> 
+::::* &nbsp; and so &nbsp; <span class="rosetta__text--bold">153</span> &nbsp; is a narcissistic decimal number
 
 
 ;Task:
-Generate and show here the first &nbsp; '''25''' &nbsp; narcissistic decimal numbers.
+Generate and show here the first &nbsp; <span class="rosetta__text--bold">25</span> &nbsp; narcissistic decimal numbers.
 
 
 
-Note: &nbsp; <math>0^1 = 0</math>, &nbsp; the first in the series. 
+Note: &nbsp; $0^1 = 0$, &nbsp; the first in the series. 
 <br><br>
 
 

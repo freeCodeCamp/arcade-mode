@@ -3,10 +3,10 @@ Sudoku
 {{task|Games}}
 
 ;Task:
-Solve a partially filled-in normal &nbsp; 9x9 &nbsp; [[wp:Sudoku|Sudoku]] grid &nbsp; and display the result in a human-readable format. 
+Solve a partially filled-in normal &nbsp; 9x9 &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Sudoku" title="wp: Sudoku">Sudoku</a> grid &nbsp; and display the result in a human-readable format. 
 
 
-[[wp:Algorithmics_of_sudoku|Algorithmics of Sudoku]] &nbsp; may help implement this.
+<a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Algorithmics_of_sudoku" title="wp: Algorithmics_of_sudoku">Algorithmics of Sudoku</a> &nbsp; may help implement this.
 <br><br>
 
 

@@ -4,15 +4,15 @@ Modular inverse
 
 From [http://en.wikipedia.org/wiki/Modular_multiplicative_inverse Wikipedia]:
 
-In [[wp:modular arithmetic|modular arithmetic]], &nbsp; the '''modular multiplicative inverse''' of an [[integer]] &nbsp; <big> ''a'' </big> &nbsp; [[wp:modular arithmetic|modulo]] &nbsp; <big> ''m'' </big> &nbsp; is an integer &nbsp; <big> ''x'' </big> &nbsp; such that
+In <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/modular arithmetic" title="wp: modular arithmetic">modular arithmetic]], &nbsp; the <span class="rosetta__text--bold">modular multiplicative inverse</span> of an [[integer]] &nbsp; <big> <span class="rosetta__text--italic">a</span> </big> &nbsp; [[wp:modular arithmetic|modulo</a> &nbsp; <big> <span class="rosetta__text--italic">m</span> </big> &nbsp; is an integer &nbsp; <big> <span class="rosetta__text--italic">x</span> </big> &nbsp; such that
 
-::<math>a\,x \equiv 1 \pmod{m}.</math>
+::$a\,x \equiv 1 \pmod{m}.$
 
 Or in other words, such that:
 
-::<math>\exists k \in\Z,\qquad a\, x = 1 + k\,m</math>
+::$\exists k \in\Z,\qquad a\, x = 1 + k\,m$
 
-It can be shown that such an inverse exists &nbsp; if and only if &nbsp; <big> ''a'' </big> &nbsp; and &nbsp; <big> ''m'' </big> &nbsp; are [[wp:coprime|coprime]], &nbsp; but we will ignore this for this task.
+It can be shown that such an inverse exists &nbsp; if and only if &nbsp; <big> <span class="rosetta__text--italic">a</span> </big> &nbsp; and &nbsp; <big> <span class="rosetta__text--italic">m</span> </big> &nbsp; are <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/coprime" title="wp: coprime">coprime</a>, &nbsp; but we will ignore this for this task.
 
 
 ;Task:

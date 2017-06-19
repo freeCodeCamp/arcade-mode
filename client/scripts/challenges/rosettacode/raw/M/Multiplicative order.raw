@@ -2,17 +2,17 @@ Multiplicative order
 
 {{task|Discrete math}}
 
-The '''multiplicative order''' of ''a'' relative to ''m'' is the least positive integer ''n'' such that ''a^n'' is 1 (modulo ''m'').
+The <span class="rosetta__text--bold">multiplicative order</span> of <span class="rosetta__text--italic">a</span> relative to <span class="rosetta__text--italic">m</span> is the least positive integer <span class="rosetta__text--italic">n</span> such that <span class="rosetta__text--italic">a^n</span> is 1 (modulo <span class="rosetta__text--italic">m</span>).
 
 
 ;Example:
 The multiplicative order of 37 relative to 1000 is 100 because 37^100 is 1 (modulo 1000), and no number smaller than 100 would do.
 
 
-One possible algorithm that is efficient also for large numbers is the following: By the [[wp:Chinese_Remainder_Theorem|Chinese Remainder Theorem]], it's enough to calculate the multiplicative order for each prime exponent ''p^k'' of ''m'', and
-combine the results with the ''[[least common multiple]]'' operation.
+One possible algorithm that is efficient also for large numbers is the following: By the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Chinese_Remainder_Theorem" title="wp: Chinese_Remainder_Theorem">Chinese Remainder Theorem</a>, it's enough to calculate the multiplicative order for each prime exponent <span class="rosetta__text--italic">p^k</span> of <span class="rosetta__text--italic">m</span>, and
+combine the results with the <span class="rosetta__text--italic">[[least common multiple]]</span> operation.
 
-Now the order of ''a'' with regard to ''p^k'' must divide ''&Phi;(p^k)''. Call this number ''t'', and determine it's factors ''q^e''. Since each multiple of the order will also yield 1 when used as exponent for ''a'', it's enough to find the least d such that ''(q^d)*(t/(q^e))'' yields 1 when used as exponent. 
+Now the order of <span class="rosetta__text--italic">a</span> with regard to <span class="rosetta__text--italic">p^k</span> must divide <span class="rosetta__text--italic">&Phi;(p^k)</span>. Call this number <span class="rosetta__text--italic">t</span>, and determine it's factors <span class="rosetta__text--italic">q^e</span>. Since each multiple of the order will also yield 1 when used as exponent for <span class="rosetta__text--italic">a</span>, it's enough to find the least d such that <span class="rosetta__text--italic">(q^d)*(t/(q^e))</span> yields 1 when used as exponent. 
 
 
 ;Task:

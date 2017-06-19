@@ -1,7 +1,7 @@
 JSON
 
 {{task}}
-Load a [[wp:JSON|JSON]] string into a data structure.  
+Load a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/JSON" title="wp: JSON">JSON</a> string into a data structure.  
 Also create a new data structure and serialize it into JSON.
 
 Use objects and arrays (as appropriate for your language) 

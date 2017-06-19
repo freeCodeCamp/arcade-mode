@@ -4,9 +4,9 @@ Sorting algorithms/Bead sort
 {{Sorting Algorithm}}
 
 ;Task:
-Sort an array of positive integers using the [[wp:Bead_sort|Bead Sort Algorithm]]. 
+Sort an array of positive integers using the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Bead_sort" title="wp: Bead_sort">Bead Sort Algorithm</a>. 
 
-A &nbsp; ''bead sort'' &nbsp; is also known as a &nbsp; ''gravity sort''.
+A &nbsp; <span class="rosetta__text--italic">bead sort</span> &nbsp; is also known as a &nbsp; <span class="rosetta__text--italic">gravity sort</span>.
 
 
 Algorithm has &nbsp; O(S), &nbsp; where &nbsp; S &nbsp; is the sum of the integers in the input set: &nbsp; Each bead is moved individually. 

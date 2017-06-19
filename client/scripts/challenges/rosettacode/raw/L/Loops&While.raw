@@ -6,7 +6,7 @@ Loops/While
 {{omit from|GUISS|No loops and we cannot read values}}
 
 ;Task:
-Start an integer value at &nbsp; '''1024'''. 
+Start an integer value at &nbsp; <span class="rosetta__text--bold">1024</span>. 
 
 Loop while it is greater than zero. 
  

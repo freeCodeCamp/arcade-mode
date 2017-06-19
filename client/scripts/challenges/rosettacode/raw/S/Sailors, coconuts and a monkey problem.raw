@@ -12,7 +12,7 @@ In the morning (after the surreptitious and separate action of each of the five 
 
 ;The task:
 # Calculate the minimum possible size of the initial pile of coconuts collected during the first day.
-# Use a method that assumes an answer is possible, and then applies the constraints of the tale to see if it is correct. (I.e. no applying some formula that generates the correct answer without integer divisions and remainders and tests on remainders; but constraint solvers ''are'' allowed.)
+# Use a method that assumes an answer is possible, and then applies the constraints of the tale to see if it is correct. (I.e. no applying some formula that generates the correct answer without integer divisions and remainders and tests on remainders; but constraint solvers <span class="rosetta__text--italic">are</span> allowed.)
 # Calculate the size of the initial pile of coconuts if six sailors were marooned and went through a similar process (but split into six piles instead of five of course).
 # Show your answers here.
 
@@ -23,7 +23,7 @@ In the morning (after the surreptitious and separate action of each of the five 
 
 ;Note:
 * Of course the tale is told in a world where the collection of any amount of coconuts in a day and multiple divisions of the pile, etc can occur in time fitting the story line, so as not to affect the mathematics.
-* The tale is also told in a version where the monkey also gets a coconut in the morning. This is ''not'' that tale!
+* The tale is also told in a version where the monkey also gets a coconut in the morning. This is <span class="rosetta__text--italic">not</span> that tale!
 
 
 ;C.f:

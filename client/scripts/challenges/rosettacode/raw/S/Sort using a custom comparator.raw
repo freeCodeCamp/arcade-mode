@@ -9,7 +9,7 @@ Sort an array (or list) of strings in order of descending length, and in ascendi
 Use a sorting facility provided by the language/library, combined with your own callback comparison function.
 
 
-'''Note:''' &nbsp; Lexicographic order is case-insensitive.
+<span class="rosetta__text--bold">Note:</span> &nbsp; Lexicographic order is case-insensitive.
 <br><br>
 
 

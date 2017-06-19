@@ -1,11 +1,11 @@
 Kronecker product based fractals
 
 {{task|Fractals}}
-This task is based on &nbsp; [[Kronecker product| Kronecker product]] &nbsp; of two matrices. If your
+This task is based on &nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Kronecker product" title="Kronecker product"> Kronecker product</a> &nbsp; of two matrices. If your
 language has no a built-in function for such product then you need to implement it first.<br>
 The essence of fractals is self-replication (at least, self-similar replications). 
 So, using n times self-product of the matrix (filled with 0/1) we will have a fractal of the n-th order.<br><br>
-Actually, "self-product" is a Kronecker power of the matrix. In other words: for a matrix '''M''' and a power '''n''' create a function like '''matkronpow(M, n)''', which returns MxMxMx... (n times product).<br>
+Actually, "self-product" is a Kronecker power of the matrix. In other words: for a matrix <span class="rosetta__text--bold">M</span> and a power <span class="rosetta__text--bold">n</span> create a function like <span class="rosetta__text--bold">matkronpow(M, n)</span>, which returns MxMxMx... (n times product).<br>
 A formal recurrent <i>algorithm</i> of creating Kronecker power of a matrix is the following:<br>
 <b>Algorithm:</b>
 <ul>
@@ -18,11 +18,11 @@ Even just looking at the resultant matrix you can see what will be plotted.<br>
 There are virtually infinitely many fractals of this type. You are limited only by your creativity and 
 the power of your computer.<br>
 ;Task:
-Using [[Kronecker_product| Kronecker product]] implement and show two popular and well-known fractals, i.e.:
-* [[wp:Vicsek fractal| Vicsek fractal]];
-* [[wp:Sierpinski carpet| Sierpinski carpet fractal]].
+Using <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Kronecker_product" title="Kronecker_product"> Kronecker product</a> implement and show two popular and well-known fractals, i.e.:
+* <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Vicsek fractal" title="wp: Vicsek fractal"> Vicsek fractal</a>;
+* <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Sierpinski carpet" title="wp: Sierpinski carpet"> Sierpinski carpet fractal</a>.
 
-<br>The last one ([[Sierpinski carpet| Sierpinski carpet]]) is already here on RC, but built using different approaches.<br>
+<br>The last one (<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Sierpinski carpet" title="Sierpinski carpet"> Sierpinski carpet</a>) is already here on RC, but built using different approaches.<br>
 ;Test cases:
 These 2 fractals (each order/power 4 at least) should be built using the following 2 simple matrices: 
 <pre>

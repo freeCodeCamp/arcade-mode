@@ -6,13 +6,13 @@ Primality by trial division
 Write a boolean function that tells whether a given integer is prime. 
 
 
-Remember that &nbsp; '''1''' &nbsp; and all non-positive numbers are not prime.
+Remember that &nbsp; <span class="rosetta__text--bold">1</span> &nbsp; and all non-positive numbers are not prime.
 
 Use trial division. 
 
 Even numbers over two may be eliminated right away. 
 
-A loop from &nbsp; '''3''' &nbsp; to &nbsp; '''&radic;{{overline|&nbsp;n&nbsp;}} &nbsp;''' will suffice, &nbsp; but other loops are allowed.
+A loop from &nbsp; <span class="rosetta__text--bold">3</span> &nbsp; to &nbsp; <span class="rosetta__text--bold">&radic;{{overline|&nbsp;n&nbsp;}} &nbsp;</span> will suffice, &nbsp; but other loops are allowed.
 
 
 ;Related tasks:

@@ -3,12 +3,12 @@ Sum multiples of 3 and 5
 {{task}}
 
 ;Task:
-The objective is to write a function that finds the sum of all positive multiples of 3 or 5 below ''n''. 
+The objective is to write a function that finds the sum of all positive multiples of 3 or 5 below <span class="rosetta__text--italic">n</span>. 
 
-Show output for ''n'' = 1000.
+Show output for <span class="rosetta__text--italic">n</span> = 1000.
 
 
-'''Extra credit:''' do this efficiently for ''n'' = 1e20 or higher.
+<span class="rosetta__text--bold">Extra credit:</span> do this efficiently for <span class="rosetta__text--italic">n</span> = 1e20 or higher.
 <br><br>
 
 

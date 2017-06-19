@@ -5,7 +5,7 @@ Nth root
 
 ;Task:
 
-Implement the algorithm to compute the principal [[wp:Nth root|''n''th root]] <big><math>\sqrt[n]A</math></big> of a positive real number <big>''A''</big>, as explained at the [[wp:Nth root algorithm|Wikipedia page]].
+Implement the algorithm to compute the principal <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Nth root" title="wp: Nth root"><span class="rosetta__text--italic">n</span>th root]] <big>$\sqrt[n]A$</big> of a positive real number <big><span class="rosetta__text--italic">A</span></big>, as explained at the [[wp:Nth root algorithm|Wikipedia page</a>.
 
 
 

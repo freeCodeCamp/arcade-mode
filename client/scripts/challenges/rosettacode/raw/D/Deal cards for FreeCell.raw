@@ -2,7 +2,7 @@ Deal cards for FreeCell
 
 {{task|Games}} [[Category:Cards]]
 
-''Free Cell'' is the solitaire card game that Paul Alfille introduced to the PLATO system in 1978. Jim Horne, at Microsoft, changed the name to ''FreeCell'' and reimplemented the game for [[DOS]], then [[Windows]]. <br>
+<span class="rosetta__text--italic">Free Cell</span> is the solitaire card game that Paul Alfille introduced to the PLATO system in 1978. Jim Horne, at Microsoft, changed the name to <span class="rosetta__text--italic">FreeCell</span> and reimplemented the game for [[DOS]], then [[Windows]]. <br>
 This version introduced 32000 numbered deals. (The [http://www.solitairelaboratory.com/fcfaq.html FreeCell FAQ] tells this history.)
 
 As the game became popular, Jim Horne disclosed [http://www.solitairelaboratory.com/mshuffle.txt the algorithm], and other implementations of FreeCell began to reproduce the Microsoft deals. <br>
@@ -11,9 +11,9 @@ Newer versions from Microsoft have 1 million deals, numbered from 1 to 1000000; 
 
 The algorithm uses this [[linear congruential generator]] from Microsoft C:
 
-* <math>state_{n + 1} \equiv 214013 \times state_n + 2531011 \pmod{2^{31}}</math>
-* <math>rand_n = state_n \div 2^{16}</math>
-* <math>rand_n</math> is in range 0 to 32767.
+* $state_{n + 1} \equiv 214013 \times state_n + 2531011 \pmod{2^{31}}$
+* $rand_n = state_n \div 2^{16}$
+* $rand_n$ is in range 0 to 32767.
 * Rosetta Code has another task, [[linear congruential generator]], with code for this RNG in several languages.
 
 <br>
@@ -22,7 +22,7 @@ The algorithm follows:
 # Seed the RNG with the number of the deal.
 # Create an [[array]] of 52 cards: Ace of Clubs, Ace of Diamonds, Ace of Hearts, Ace of Spades, 2 of Clubs, 2 of Diamonds, and so on through the ranks: Ace, 2, 3, 4, 5, 6, 7, 8, 9, 10, Jack, Queen, King. The array indexes are 0 to 51, with Ace of Clubs at 0, and King of Spades at 51.
 # Until the array is empty:
-#* Choose a random card at ''index'' &equiv; ''next random number'' (mod ''array length'').
+#* Choose a random card at <span class="rosetta__text--italic">index</span> &equiv; <span class="rosetta__text--italic">next random number</span> (mod <span class="rosetta__text--italic">array length</span>).
 #* Swap this random card with the last card of the array.
 #* Remove this random card from the array. (Array length goes down by 1.)
 #* Deal this random card.

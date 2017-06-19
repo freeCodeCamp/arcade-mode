@@ -1,8 +1,9 @@
 Inheritance/Multiple
 
 {{Task|Basic language learning}}
-[[Category:Object oriented]] [[Category:Type System]]
-Multiple inheritance allows to specify that one [[classes | class]] is a subclass of several other classes. 
+<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category:Object oriented]] [[Category:Type System]]
+Multiple inheritance allows to specify that one [[classes " title="Category:Object oriented]] [[Category:Type System]]
+Multiple inheritance allows to specify that one [[classes "> class</a> is a subclass of several other classes. 
 Some languages allow multiple [[inheritance]] for arbitrary classes, 
 others restrict it to interfaces, some don't allow it at all.
 

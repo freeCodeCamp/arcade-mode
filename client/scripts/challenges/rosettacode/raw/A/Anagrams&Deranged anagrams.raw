@@ -2,9 +2,9 @@ Anagrams/Deranged anagrams
 
 {{task}}
 
-Two or more words are said to be [[Anagrams|anagrams]] if they have the same characters, but in a different order. 
+Two or more words are said to be <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Anagrams" title="Anagrams">anagrams</a> if they have the same characters, but in a different order. 
 
-By analogy with [[Permutations/Derangements|derangements]] we define a  ''deranged anagram'' as two words with the same characters, but in which the same character does ''not'' appear in the same position in both words.
+By analogy with <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Permutations/Derangements" title="Permutations/Derangements">derangements</a> we define a  <span class="rosetta__text--italic">deranged anagram</span> as two words with the same characters, but in which the same character does <span class="rosetta__text--italic">not</span> appear in the same position in both words.
 
 {{task heading}}
 

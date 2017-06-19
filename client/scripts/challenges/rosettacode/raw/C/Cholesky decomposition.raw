@@ -3,13 +3,13 @@ Cholesky decomposition
 {{Task|Matrices}}
 Every symmetric, positive definite matrix A can be decomposed into a product of a unique lower triangular matrix L and its transpose:
 
-:<math>A = LL^T</math>
+:$A = LL^T$
 
-<math>L</math> is called the ''Cholesky factor'' of <math>A</math>, and can be interpreted as a generalized square root of <math>A</math>, as described in [[wp:Cholesky decomposition|Cholesky decomposition]].
+$L$ is called the <span class="rosetta__text--italic">Cholesky factor</span> of $A$, and can be interpreted as a generalized square root of $A$, as described in <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Cholesky decomposition" title="wp: Cholesky decomposition">Cholesky decomposition</a>.
 
 In a 3x3 example, we have to solve the following system of equations:
 
-:<math>\begin{align}
+:$\begin{align}
 A &=
 \begin{pmatrix}
    a_{11} & a_{21} & a_{31}\\
@@ -32,31 +32,31 @@ A &=
    l_{21}l_{11} & l_{21}^2 + l_{22}^2& l_{31}l_{21}+l_{32}l_{22} \\
    l_{31}l_{11} & l_{31}l_{21}+l_{32}l_{22} & l_{31}^2 + l_{32}^2+l_{33}^2
 \end{pmatrix}\end{align}
-</math>
+$
 
-We can see that for the diagonal elements (<math>l_{kk}</math>) of <math>L</math> there is a calculation pattern:
+We can see that for the diagonal elements ($l_{kk}$) of $L$ there is a calculation pattern:
 
-:<math>l_{11} = \sqrt{a_{11}}</math>
-:<math>l_{22} = \sqrt{a_{22} - l_{21}^2}</math>
-:<math>l_{33} = \sqrt{a_{33} - (l_{31}^2 + l_{32}^2)}</math>
+:$l_{11} = \sqrt{a_{11}}$
+:$l_{22} = \sqrt{a_{22} - l_{21}^2}$
+:$l_{33} = \sqrt{a_{33} - (l_{31}^2 + l_{32}^2)}$
 
 or in general:
 
-:<math>l_{kk} = \sqrt{a_{kk} - \sum_{j=1}^{k-1} l_{kj}^2}</math>
+:$l_{kk} = \sqrt{a_{kk} - \sum_{j=1}^{k-1} l_{kj}^2}$
 
-For the elements below the diagonal (<math>l_{ik}</math>, where <math>i > k </math>) there is also a calculation pattern:
+For the elements below the diagonal ($l_{ik}$, where $i > k $) there is also a calculation pattern:
 
-:<math>l_{21} = \frac{1}{l_{11}} a_{21}</math>
-:<math>l_{31} = \frac{1}{l_{11}} a_{31}</math>
-:<math>l_{32} = \frac{1}{l_{22}} (a_{32} - l_{31}l_{21})</math>
+:$l_{21} = \frac{1}{l_{11}} a_{21}$
+:$l_{31} = \frac{1}{l_{11}} a_{31}$
+:$l_{32} = \frac{1}{l_{22}} (a_{32} - l_{31}l_{21})$
 
 which can also be expressed in a general formula:
 
-:<math>l_{ik} = \frac{1}{l_{kk}} \left ( a_{ik} - \sum_{j=1}^{k-1} l_{ij}l_{kj} \right )</math>
+:$l_{ik} = \frac{1}{l_{kk}} \left ( a_{ik} - \sum_{j=1}^{k-1} l_{ij}l_{kj} \right )$
 
-'''Task description'''
+<span class="rosetta__text--bold">Task description</span>
 
-The task is to implement a routine which will return a lower Cholesky factor <math>L</math> for every given symmetric, positive definite nxn matrix <math>A</math>. You should then test it on the following two examples and include your output.
+The task is to implement a routine which will return a lower Cholesky factor $L$ for every given symmetric, positive definite nxn matrix $A$. You should then test it on the following two examples and include your output.
 
 Example 1:
 
@@ -77,7 +77,7 @@ Example 2:
 
 
 ;Note:
-# The Cholesky decomposition of a [[Pascal matrix generation‎|Pascal]] upper-triangle matrix is the [[wp:Identity matrix|Identity matrix]] of the same size. 
+# The Cholesky decomposition of a <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Pascal matrix generation‎" title="Pascal matrix generation‎">Pascal</a> upper-triangle matrix is the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Identity matrix" title="wp: Identity matrix">Identity matrix</a> of the same size. 
 # The Cholesky decomposition of a Pascal symmetric matrix is the Pascal lower-triangle matrix of the same size. 
 
 

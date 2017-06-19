@@ -3,7 +3,7 @@ Secure temporary file
 {{Task|Programming environment operations}}
 
 ;Task:
-Create a temporary file, '''securely and exclusively''' (opening it such that there are no possible [[race condition|race conditions]]). 
+Create a temporary file, <span class="rosetta__text--bold">securely and exclusively</span> (opening it such that there are no possible <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/race condition" title="race condition">race conditions</a>). 
 
 It's fine assuming local filesystem semantics (NFS or other networking filesystems can have signficantly more complicated semantics for satisfying the "no race conditions" criteria). 
 

@@ -2,7 +2,7 @@ Inverted syntax
 
 {{task}}
 
-'''Inverted syntax with conditional expressions'''
+<span class="rosetta__text--bold">Inverted syntax with conditional expressions</span>
 
 In traditional syntax conditional expressions are usually shown before the action within a statement or code block:
 
@@ -12,7 +12,7 @@ In inverted syntax, the action is listed before the conditional expression in th
 
 <lang pseudocode> needumbrella=true IF raining=true </lang>
 
-'''Inverted syntax with assignment'''
+<span class="rosetta__text--bold">Inverted syntax with assignment</span>
 
 In traditional syntax, assignments are usually expressed with the variable appearing before the expression:
 
@@ -21,7 +21,7 @@ In traditional syntax, assignments are usually expressed with the variable appea
 In inverted syntax, the expression appears before the variable:
 <lang pseudocode> 6 = a</lang>
 
-'''Task'''
+<span class="rosetta__text--bold">Task</span>
 
 The task is to demonstrate support for inverted syntax forms within the language by showing both the traditional and inverted forms.
 

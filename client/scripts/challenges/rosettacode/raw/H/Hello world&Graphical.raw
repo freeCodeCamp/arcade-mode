@@ -8,7 +8,7 @@ Hello world/Graphical
 {{requires|Graphics}}
 
 ;Task:
-Display the string &nbsp; &nbsp; &nbsp; '''Goodbye, World!''' &nbsp; &nbsp; &nbsp; on a [[GUI]] object &nbsp; (alert box, plain window, text area, etc.).
+Display the string &nbsp; &nbsp; &nbsp; <span class="rosetta__text--bold">Goodbye, World!</span> &nbsp; &nbsp; &nbsp; on a [[GUI]] object &nbsp; (alert box, plain window, text area, etc.).
 
 
 ;Related task:

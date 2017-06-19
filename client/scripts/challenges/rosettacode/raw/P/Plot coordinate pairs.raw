@@ -5,7 +5,7 @@ Plot coordinate pairs
 ;Task:
 Plot a function represented as &nbsp; `x', &nbsp; `y' &nbsp; numerical arrays.
 
-Post the resulting image for the following input arrays (taken from [[Time_a_function#Python|Python's Example section on ''Time a function'']]):
+Post the resulting image for the following input arrays (taken from <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Time_a_function#Python" title="Time_a_function#Python">Python's Example section on <span class="rosetta__text--italic">Time a function</span></a>):
  x = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
  y = {2.7, 2.8, 31.4, 38.1, 58.0, 76.2, 100.5, 130.0, 149.3, 180.0};
 

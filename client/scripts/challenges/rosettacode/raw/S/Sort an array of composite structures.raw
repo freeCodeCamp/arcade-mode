@@ -15,7 +15,7 @@ and an array of such pairs:
 
  x: array of pairs
 
-then define a sort routine that sorts the array ''x'' by the key ''name''.
+then define a sort routine that sorts the array <span class="rosetta__text--italic">x</span> by the key <span class="rosetta__text--italic">name</span>.
 
 This task can always be accomplished with [[Sorting Using a Custom Comparator]]. If your language is not listed here, please see the other article.
 <br><br>

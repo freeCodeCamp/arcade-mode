@@ -26,7 +26,7 @@ The string "<code><nowiki>http://foo bar/</nowiki></code>" would be encoded as "
 
 ;Variations:
 * Lowercase escapes are legal, as in "<code><nowiki>http%3a%2f%2ffoo%20bar%2f</nowiki></code>".
-* Some standards give different rules: RFC 3986, ''Uniform Resource Identifier (URI): Generic Syntax'', section 2.3, says that "-._~" should not be encoded. HTML 5, section [http://www.whatwg.org/specs/web-apps/current-work/multipage/association-of-controls-and-forms.html#url-encoded-form-data 4.10.22.5 URL-encoded form data], says to preserve "-._*", and to encode space " " to "+". The options below provide for utilization of an exception string, enabling preservation (non encoding) of particular characters to meet specific standards.
+* Some standards give different rules: RFC 3986, <span class="rosetta__text--italic">Uniform Resource Identifier (URI): Generic Syntax</span>, section 2.3, says that "-._~" should not be encoded. HTML 5, section [http://www.whatwg.org/specs/web-apps/current-work/multipage/association-of-controls-and-forms.html#url-encoded-form-data 4.10.22.5 URL-encoded form data], says to preserve "-._*", and to encode space " " to "+". The options below provide for utilization of an exception string, enabling preservation (non encoding) of particular characters to meet specific standards.
 
 
 ;Options:

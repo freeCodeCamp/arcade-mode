@@ -2,16 +2,16 @@ Almost prime
 
 {{task|Prime Numbers}}
 
-A &nbsp; [[wp:Almost prime|k-Almost-prime]] &nbsp; is a natural number &nbsp; <math>n</math> &nbsp; that is the product of &nbsp; <math>k</math> &nbsp; (possibly identical) primes.
+A &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Almost prime" title="wp: Almost prime">k-Almost-prime</a> &nbsp; is a natural number &nbsp; $n$ &nbsp; that is the product of &nbsp; $k$ &nbsp; (possibly identical) primes.
 
 
 ;Example:
-1-almost-primes,     &nbsp; where &nbsp; <math>k=1</math>, &nbsp; are the prime numbers themselves.
-<br>2-almost-primes, &nbsp; where &nbsp; <math>k=2</math>, &nbsp; are the &nbsp; [[Semiprime|semiprimes]].
+1-almost-primes,     &nbsp; where &nbsp; $k=1$, &nbsp; are the prime numbers themselves.
+<br>2-almost-primes, &nbsp; where &nbsp; $k=2$, &nbsp; are the &nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Semiprime" title="Semiprime">semiprimes</a>.
 
 
 ;Task:
-Write a function/method/subroutine/... that generates k-almost primes and use it to create a table here of the first ten members of k-Almost primes for &nbsp; <math>1 <= K <= 5</math>.
+Write a function/method/subroutine/... that generates k-almost primes and use it to create a table here of the first ten members of k-Almost primes for &nbsp; $1 <= K <= 5$.
 
 
 ;Related tasks:

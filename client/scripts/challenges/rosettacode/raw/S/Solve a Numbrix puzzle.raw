@@ -1,8 +1,8 @@
 Solve a Numbrix puzzle
 
 {{task}}
-Numbrix puzzles are similar to [[Solve a Hidato puzzle|Hidato]]. 
-The most important difference is that it is only possible to move 1 node left, right, up, or down (sometimes referred to as the [[wp:Von Neumann neighborhood|Von Neumann neighborhood]]). 
+Numbrix puzzles are similar to <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Solve a Hidato puzzle" title="Solve a Hidato puzzle">Hidato</a>. 
+The most important difference is that it is only possible to move 1 node left, right, up, or down (sometimes referred to as the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Von Neumann neighborhood" title="wp: Von Neumann neighborhood">Von Neumann neighborhood</a>). 
 Published puzzles also tend not to have holes in the grid and may not always indicate the end node. 
 Two examples follow:
 

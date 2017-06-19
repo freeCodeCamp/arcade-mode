@@ -3,7 +3,7 @@ Flatten a list
 {{task}}
 
 ;Task:
-Write a function to flatten the nesting in an arbitrary &nbsp; [[wp:List (computing)|list]] of values. 
+Write a function to flatten the nesting in an arbitrary &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/List (computing)" title="wp: List (computing)">list</a> of values. 
 
 
 Your program should work on the equivalent of this list:

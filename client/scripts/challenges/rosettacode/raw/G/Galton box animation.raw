@@ -4,8 +4,8 @@ Galton box animation
 [[Category:Randomness]]
 {{omit from|GUISS}}
 
-Generate an animated simulation of [[wp:Bean_machine|Sir Francis Galton's device]].  
-An example can be found to the right. [[File:Galtonbox-Unicon.PNG|thumb|Example of a Galton Box at the end of animation.]]
+Generate an animated simulation of <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Bean_machine" title="wp: Bean_machine">Sir Francis Galton's device</a>.  
+An example can be found to the right. <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:Galtonbox-Unicon.PNG" title="File:Galtonbox-Unicon.PNG">thumb|Example of a Galton Box at the end of animation.</a>
 
 In a Galton box, there are a set of pins arranged in a triangular pattern. 
 A number of balls are dropped so that they fall in line with the top pin, deflecting to the left or the right of the pin. The ball continues to fall to the left or right of subsequent pins before arriving at one of the collection points between and to the sides of the bottom row of pins. 

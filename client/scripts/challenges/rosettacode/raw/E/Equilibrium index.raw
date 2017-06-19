@@ -5,27 +5,27 @@ Equilibrium index
 An equilibrium index of a sequence is an index into the sequence such that the sum of elements at lower indices is equal to the sum of elements at higher indices. 
 
 
-For example, in a sequence &nbsp; <big><math>A</math></big>:
+For example, in a sequence &nbsp; <big>$A$</big>:
 
-::::: &nbsp; <big><math>A_0 = -7</math></big>
-::::: &nbsp; <big><math>A_1 =  1</math></big>
-::::: &nbsp; <big><math>A_2 =  5</math></big>
-::::: &nbsp; <big><math>A_3 =  2</math></big>
-::::: &nbsp; <big><math>A_4 = -4</math></big>
-::::: &nbsp; <big><math>A_5 =  3</math></big>
-::::: &nbsp; <big><math>A_6 =  0</math></big>
+::::: &nbsp; <big>$A_0 = -7$</big>
+::::: &nbsp; <big>$A_1 =  1$</big>
+::::: &nbsp; <big>$A_2 =  5$</big>
+::::: &nbsp; <big>$A_3 =  2$</big>
+::::: &nbsp; <big>$A_4 = -4$</big>
+::::: &nbsp; <big>$A_5 =  3$</big>
+::::: &nbsp; <big>$A_6 =  0$</big>
 
 3 &nbsp; is an equilibrium index, because:
 
-::::: &nbsp; <big><math>A_0 + A_1 + A_2 = A_4 + A_5 + A_6</math></big>
+::::: &nbsp; <big>$A_0 + A_1 + A_2 = A_4 + A_5 + A_6$</big>
 
 6 &nbsp; is also an equilibrium index, because:
 
-::::: &nbsp; <big><math>A_0 + A_1 + A_2 + A_3 + A_4 + A_5 = 0</math></big>
+::::: &nbsp; <big>$A_0 + A_1 + A_2 + A_3 + A_4 + A_5 = 0$</big>
 
 (sum of zero elements is zero) 
 
-7 &nbsp; is not an equilibrium index, because it is not a valid index of sequence <big><math>A</math></big>.
+7 &nbsp; is not an equilibrium index, because it is not a valid index of sequence <big>$A$</big>.
 
 
 ;Task;

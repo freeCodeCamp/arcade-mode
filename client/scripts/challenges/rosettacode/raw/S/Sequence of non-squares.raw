@@ -3,13 +3,13 @@ Sequence of non-squares
 {{task|Arithmetic operations}}
 
 ;Task:
-Show that the following remarkable formula gives the [http://www.research.att.com/~njas/sequences/A000037 sequence] of non-square [[wp:Natural_number|natural numbers]]:
+Show that the following remarkable formula gives the [http://www.research.att.com/~njas/sequences/A000037 sequence] of non-square <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Natural_number" title="wp: Natural_number">natural numbers</a>:
   n + floor(1/2 + sqrt(n))
-* Print out the values for &nbsp; <big> n </big> &nbsp; in the range &nbsp; '''1''' &nbsp; to &nbsp; '''22'''
+* Print out the values for &nbsp; <big> n </big> &nbsp; in the range &nbsp; <span class="rosetta__text--bold">1</span> &nbsp; to &nbsp; <span class="rosetta__text--bold">22</span>
 * Show that no squares occur for &nbsp; <big> n </big> &nbsp; less than one million
 
 
-This sequence is also known as &nbsp; [http://oeis.org/A000037 A000037] &nbsp; in the '''OEIS''' database. 
+This sequence is also known as &nbsp; [http://oeis.org/A000037 A000037] &nbsp; in the <span class="rosetta__text--bold">OEIS</span> database. 
 <br><br>
 
 

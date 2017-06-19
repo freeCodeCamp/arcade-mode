@@ -2,23 +2,23 @@ Permutations/Derangements
 
 {{task}}
 
-A [http://mathworld.wolfram.com/Derangement.html derangement] is a permutation of the order of distinct items in which ''no item appears in its original place''.
+A [http://mathworld.wolfram.com/Derangement.html derangement] is a permutation of the order of distinct items in which <span class="rosetta__text--italic">no item appears in its original place</span>.
 
 For example, the only two derangements of the three items (0, 1, 2) are (1, 2, 0), and (2, 0, 1).
 
-The number of derangements of ''n'' distinct items is known as the subfactorial of ''n'', sometimes written as !''n''. 
-There are various ways to [[wp:Derangement#Counting_derangements|calculate]] !''n''.
+The number of derangements of <span class="rosetta__text--italic">n</span> distinct items is known as the subfactorial of <span class="rosetta__text--italic">n</span>, sometimes written as !<span class="rosetta__text--italic">n</span>. 
+There are various ways to <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Derangement#Counting_derangements" title="wp: Derangement#Counting_derangements">calculate</a> !<span class="rosetta__text--italic">n</span>.
 
 
 ;Task:
-# Create a named function/method/subroutine/... to generate derangements of the integers ''0..n-1'', (or ''1..n'' if you prefer). 
-# Generate ''and show'' all the derangements of 4 integers using the above routine.
-# Create a function that calculates the subfactorial of ''n'', !''n''.
-# Print and show a table of the ''counted'' number of derangements of ''n'' vs. the calculated !''n'' for n from 0..9 inclusive.
+# Create a named function/method/subroutine/... to generate derangements of the integers <span class="rosetta__text--italic">0..n-1</span>, (or <span class="rosetta__text--italic">1..n</span> if you prefer). 
+# Generate <span class="rosetta__text--italic">and show</span> all the derangements of 4 integers using the above routine.
+# Create a function that calculates the subfactorial of <span class="rosetta__text--italic">n</span>, !<span class="rosetta__text--italic">n</span>.
+# Print and show a table of the <span class="rosetta__text--italic">counted</span> number of derangements of <span class="rosetta__text--italic">n</span> vs. the calculated !<span class="rosetta__text--italic">n</span> for n from 0..9 inclusive.
 
 
 ;Optional stretch goal:
-* &nbsp; Calculate &nbsp; <big><big> !''20'' </big></big>
+* &nbsp; Calculate &nbsp; <big><big> !<span class="rosetta__text--italic">20</span> </big></big>
 
 
 ;Related tasks:

@@ -3,7 +3,7 @@ Old lady swallowed a fly
 {{task}}
 
 ;Task:
-Present a program which emits the lyrics to the song &nbsp; ''[[wp:There Was an Old Lady Who Swallowed a Fly|I Knew an Old Lady Who Swallowed a Fly]]'', &nbsp; taking advantage of the repetitive structure of the song's lyrics. 
+Present a program which emits the lyrics to the song &nbsp; <span class="rosetta__text--italic"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/There Was an Old Lady Who Swallowed a Fly" title="wp: There Was an Old Lady Who Swallowed a Fly">I Knew an Old Lady Who Swallowed a Fly</a></span>, &nbsp; taking advantage of the repetitive structure of the song's lyrics. 
 
 This song has multiple versions with slightly different lyrics, so all these programs might not emit identical output.
 

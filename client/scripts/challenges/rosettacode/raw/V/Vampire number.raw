@@ -2,7 +2,7 @@ Vampire number
 
 {{task|Mathematics}}
 
-A [[wp:Vampire_number|vampire number]] is a natural number with an even number of digits, that can be factored into two integers. These two factors are called the ''fangs'', and must have the following properties:
+A <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Vampire_number" title="wp: Vampire_number">vampire number</a> is a natural number with an even number of digits, that can be factored into two integers. These two factors are called the <span class="rosetta__text--italic">fangs</span>, and must have the following properties:
 * they each contain half the number of the digits of the original number
 * together they consist of exactly the same digits as the original number
 * at most one of them has a trailing zero
@@ -23,7 +23,7 @@ Note that a Vampire number can have more than one pair of fangs.
 ;See also:
 * [http://www.numberphile.com/videos/vampire_numbers.html numberphile.com].
 * [http://users.cybercity.dk/~dsl522332/math/vampires/ Vampire search algorithm]
-* [[oeis:A014575|Vampire numbers on OEIS]]
+* <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/oeis:A014575" title="oeis:A014575">Vampire numbers on OEIS</a>
 <br><br>
 
 

@@ -2,7 +2,7 @@ Knuth shuffle
 
 {{task|Classic CS problems and programs}}
 
-The &nbsp; [[wp:Knuth shuffle|Knuth shuffle]] &nbsp; (a.k.a. the Fisher-Yates shuffle) &nbsp; is an algorithm for randomly shuffling the elements of an array.
+The &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Knuth shuffle" title="wp: Knuth shuffle">Knuth shuffle</a> &nbsp; (a.k.a. the Fisher-Yates shuffle) &nbsp; is an algorithm for randomly shuffling the elements of an array.
 
 {{task heading}}
 
@@ -10,11 +10,11 @@ Implement the Knuth shuffle for an integer array (or, if possible, an array of a
 
 {{task heading|Specification}}
 
-Given an array '''''items''''' with indices ranging from ''0'' to '''''last''''', the algorithm can be defined as follows (pseudo-code):
+Given an array <span class="rosetta__text--bold"><span class="rosetta__text--italic">items</span></span> with indices ranging from <span class="rosetta__text--italic">0</span> to <span class="rosetta__text--bold"><span class="rosetta__text--italic">last</span></span>, the algorithm can be defined as follows (pseudo-code):
 
- '''for''' ''i'' '''from''' ''last'' '''downto''' 1 '''do''':
-     '''let''' ''j'' = random integer in range ''0'' <math>\leq</math> ''j'' <math>\leq</math> ''i''
-     '''swap''' ''items''[''i''] '''with''' ''items''[''j'']
+ <span class="rosetta__text--bold">for</span> <span class="rosetta__text--italic">i</span> <span class="rosetta__text--bold">from</span> <span class="rosetta__text--italic">last</span> <span class="rosetta__text--bold">downto</span> 1 <span class="rosetta__text--bold">do</span>:
+     <span class="rosetta__text--bold">let</span> <span class="rosetta__text--italic">j</span> = random integer in range <span class="rosetta__text--italic">0</span> $\leq$ <span class="rosetta__text--italic">j</span> $\leq$ <span class="rosetta__text--italic">i</span>
+     <span class="rosetta__text--bold">swap</span> <span class="rosetta__text--italic">items</span>[<span class="rosetta__text--italic">i</span>] <span class="rosetta__text--bold">with</span> <span class="rosetta__text--italic">items</span>[<span class="rosetta__text--italic">j</span>]
 
 Notes:
 * It modifies the input array in-place. If that is unreasonable in your programming language, you may amend the algorithm to return the shuffled items as a new array instead.

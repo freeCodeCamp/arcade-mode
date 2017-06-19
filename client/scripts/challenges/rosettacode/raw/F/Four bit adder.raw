@@ -3,16 +3,16 @@ Four bit adder
 {{task}} [[Category:Electronics]]
 
 ;Task:
-"''Simulate''" a four-bit adder "chip".
+"<span class="rosetta__text--italic">Simulate</span>" a four-bit adder "chip".
  
-This "chip" can be realized using four [[wp:Adder_(electronics)#Full_adder|1-bit full adder]]s. 
-Each of these 1-bit full adders can be built with two [[wp:Adder_(electronics)#Half_adder|half adder]]s and an ''or'' [[wp:Logic gate|gate]]. Finally a half adder can be made using a ''xor'' gate and an ''and'' gate. 
-The ''xor'' gate can be made using two ''not''s, two ''and''s and one ''or''.
+This "chip" can be realized using four <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Adder_(electronics)#Full_adder" title="wp: Adder_(electronics)#Full_adder">1-bit full adder</a>s. 
+Each of these 1-bit full adders can be built with two <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Adder_(electronics)#Half_adder" title="wp: Adder_(electronics)#Half_adder">half adder]]s and an <span class="rosetta__text--italic">or</span> [[wp:Logic gate|gate</a>. Finally a half adder can be made using a <span class="rosetta__text--italic">xor</span> gate and an <span class="rosetta__text--italic">and</span> gate. 
+The <span class="rosetta__text--italic">xor</span> gate can be made using two <span class="rosetta__text--italic">not</span>s, two <span class="rosetta__text--italic">and</span>s and one <span class="rosetta__text--italic">or</span>.
 
-'''Not''', '''or''' and '''and''', the only allowed "gates" for the task, can be "imitated" by using the [[Bitwise operations|bitwise operators]] of your language. 
-If there is not a ''bit type'' in your language, to be sure that the ''not'' does not "invert" all the other bits of the basic type (e.g. a byte) we are not interested in, you can use an extra ''nand'' (''and'' then ''not'') with the constant 1 on one input.
+<span class="rosetta__text--bold">Not</span>, <span class="rosetta__text--bold">or</span> and <span class="rosetta__text--bold">and</span>, the only allowed "gates" for the task, can be "imitated" by using the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Bitwise operations" title="Bitwise operations">bitwise operators</a> of your language. 
+If there is not a <span class="rosetta__text--italic">bit type</span> in your language, to be sure that the <span class="rosetta__text--italic">not</span> does not "invert" all the other bits of the basic type (e.g. a byte) we are not interested in, you can use an extra <span class="rosetta__text--italic">nand</span> (<span class="rosetta__text--italic">and</span> then <span class="rosetta__text--italic">not</span>) with the constant 1 on one input.
 
-Instead of optimizing and reducing the number of gates used for the final 4-bit adder, build it in the most straightforward way, ''connecting'' the other "constructive blocks", in turn made of "simpler" and "smaller" ones.
+Instead of optimizing and reducing the number of gates used for the final 4-bit adder, build it in the most straightforward way, <span class="rosetta__text--italic">connecting</span> the other "constructive blocks", in turn made of "simpler" and "smaller" ones.
 
 {|
 |+Schematics of the "constructive blocks"
@@ -21,14 +21,14 @@ Instead of optimizing and reducing the number of gates used for the final 4-bit 
 !A full adder
 !A 4-bit adder
 |-
-|[[File:xor.png|frameless|Xor gate done with ands, ors and nots]]
-|[[File:halfadder.png|frameless|A half adder]]
-|[[File:fulladder.png|frameless|A full adder]]
-|[[File:4bitsadder.png|frameless|A 4-bit adder]]
+|<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:xor.png" title="File:xor.png">frameless|Xor gate done with ands, ors and nots</a>
+|<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:halfadder.png" title="File:halfadder.png">frameless|A half adder</a>
+|<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:fulladder.png" title="File:fulladder.png">frameless|A full adder</a>
+|<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:4bitsadder.png" title="File:4bitsadder.png">frameless|A 4-bit adder</a>
 |}
 
 Solutions should try to be as descriptive as possible, making it as easy as possible to identify "connections" between higher-order "blocks". 
-It is not mandatory to replicate the syntax of higher-order blocks in the atomic "gate" blocks, i.e. basic "gate" operations can be performed as usual bitwise operations, or they can be "wrapped" in a ''block'' in order to expose the same syntax of higher-order blocks, at implementers' choice.
+It is not mandatory to replicate the syntax of higher-order blocks in the atomic "gate" blocks, i.e. basic "gate" operations can be performed as usual bitwise operations, or they can be "wrapped" in a <span class="rosetta__text--italic">block</span> in order to expose the same syntax of higher-order blocks, at implementers' choice.
 
 To test the implementation, show the sum of two four-bit numbers (in binary).
 <div style="clear:both"></div>

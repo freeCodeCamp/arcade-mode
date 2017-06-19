@@ -4,11 +4,11 @@ Bulls and cows
 [[Category:Games]]
 {{task|Games}}
 
-[[wp:Bulls and Cows|Bulls and Cows]] &nbsp; is an old game played with pencil and paper that was later implemented using computers.
+<a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Bulls and Cows" title="wp: Bulls and Cows">Bulls and Cows</a> &nbsp; is an old game played with pencil and paper that was later implemented using computers.
 
 
 ;Task:
-Create a four digit random number from the digits &nbsp; '''1''' &nbsp; to &nbsp; '''9''', &nbsp; without duplication.
+Create a four digit random number from the digits &nbsp; <span class="rosetta__text--bold">1</span> &nbsp; to &nbsp; <span class="rosetta__text--bold">9</span>, &nbsp; without duplication.
 
 The program should: 
 ::::::* &nbsp; ask for guesses to this number
@@ -18,8 +18,8 @@ The program should:
 
 The score is computed as:
 # The player wins if the guess is the same as the randomly chosen number, and the program ends.
-# A score of one '''bull''' is accumulated for each digit in the guess that equals the corresponding digit in the randomly chosen initial number.
-# A score of one '''cow''' is accumulated for each digit in the guess that also appears in the randomly chosen number, but in the wrong position.
+# A score of one <span class="rosetta__text--bold">bull</span> is accumulated for each digit in the guess that equals the corresponding digit in the randomly chosen initial number.
+# A score of one <span class="rosetta__text--bold">cow</span> is accumulated for each digit in the guess that also appears in the randomly chosen number, but in the wrong position.
 
 
 ;Related tasks:

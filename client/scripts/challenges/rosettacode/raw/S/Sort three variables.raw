@@ -5,13 +5,13 @@ Sort three variables
 {{Sorting Algorithm}}
 
 ;Task: 
-Sort &nbsp; (the values of) &nbsp; three variables &nbsp; ('''X''', &nbsp; '''Y''', &nbsp; and &nbsp; '''Z''') &nbsp; that contain any value &nbsp; (numbers and/or literals).
+Sort &nbsp; (the values of) &nbsp; three variables &nbsp; (<span class="rosetta__text--bold">X</span>, &nbsp; <span class="rosetta__text--bold">Y</span>, &nbsp; and &nbsp; <span class="rosetta__text--bold">Z</span>) &nbsp; that contain any value &nbsp; (numbers and/or literals).
 
 If that isn't possible in your language, then just sort numbers &nbsp; (and note if they can be floating point, integer, or other).
 
 
 
-I.E.:  &nbsp;  (for the three variables &nbsp; '''x''', &nbsp; '''y''', &nbsp; and &nbsp; '''z'''), &nbsp; where:
+I.E.:  &nbsp;  (for the three variables &nbsp; <span class="rosetta__text--bold">x</span>, &nbsp; <span class="rosetta__text--bold">y</span>, &nbsp; and &nbsp; <span class="rosetta__text--bold">z</span>), &nbsp; where:
                          x =  'lions, tigers, and'
                          y =  'bears, oh my!'
                          z =  '(from the "Wizard of OZ")'
@@ -26,7 +26,7 @@ After sorting,  the three variables would hold:
 
 For numeric value sorting, use:
 
-I.E.:  &nbsp;  (for the three variables &nbsp; '''x''', &nbsp; '''y''', &nbsp; and &nbsp; '''z'''), &nbsp; where:
+I.E.:  &nbsp;  (for the three variables &nbsp; <span class="rosetta__text--bold">x</span>, &nbsp; <span class="rosetta__text--bold">y</span>, &nbsp; and &nbsp; <span class="rosetta__text--bold">z</span>), &nbsp; where:
                          x =  77444
                          y =    -12
                          z =      0
@@ -49,13 +49,13 @@ More than one algorithm could be shown if one isn't clearly the better choice.
 
 
 One algorithm could be:
-                         Θ  store the three variables &nbsp; '''x''', '''y''', and '''z'''
-                                  into an array (or a list) &nbsp; '''A'''
+                         Θ  store the three variables &nbsp; <span class="rosetta__text--bold">x</span>, <span class="rosetta__text--bold">y</span>, and <span class="rosetta__text--bold">z</span>
+                                  into an array (or a list) &nbsp; <span class="rosetta__text--bold">A</span>
 
-                         Θ  sort  (the three elements of)  the array &nbsp; '''A'''
+                         Θ  sort  (the three elements of)  the array &nbsp; <span class="rosetta__text--bold">A</span>
 
                          Θ  extract the three elements from the array and place them in the
-                                  variables '''x''', '''y''', and '''z''' &nbsp; in order of extraction
+                                  variables <span class="rosetta__text--bold">x</span>, <span class="rosetta__text--bold">y</span>, and <span class="rosetta__text--bold">z</span> &nbsp; in order of extraction
 
 Show the results of the sort here on this page using at least the values of those shown above.
 <br><br>

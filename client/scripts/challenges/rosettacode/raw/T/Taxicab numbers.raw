@@ -2,10 +2,10 @@ Taxicab numbers
 
 {{task|Mathematics}}
 
-A &nbsp; [[wp:Hardy–Ramanujan number|taxicab number]] &nbsp; (the definition that is being used here) &nbsp; is a positive integer that can be expressed as the sum of two positive cubes in more than one way.
+A &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Hardy–Ramanujan number" title="wp: Hardy–Ramanujan number">taxicab number</a> &nbsp; (the definition that is being used here) &nbsp; is a positive integer that can be expressed as the sum of two positive cubes in more than one way.
 
 
-The first taxicab number is &nbsp; '''1729''', &nbsp; which is:
+The first taxicab number is &nbsp; <span class="rosetta__text--bold">1729</span>, &nbsp; which is:
 ::: 1<sup>3</sup> &nbsp; + &nbsp; 12<sup>3</sup> &nbsp; &nbsp; &nbsp; and
 ::: 9<sup>3</sup> &nbsp; + &nbsp; 10<sup>3</sup>.
 

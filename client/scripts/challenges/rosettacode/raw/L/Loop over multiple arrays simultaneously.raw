@@ -4,7 +4,7 @@ Loop over multiple arrays simultaneously
 
 ;Task:
 Loop over multiple arrays &nbsp; (or lists or tuples or whatever they're called in 
-your language) &nbsp; and display the &nbsp; <big><big> ''i'' <sup>th</sup> </big></big> &nbsp; element of each. 
+your language) &nbsp; and display the &nbsp; <big><big> <span class="rosetta__text--italic">i</span> <sup>th</sup> </big></big> &nbsp; element of each. 
 
 Use your language's &nbsp; "for each" &nbsp; loop if it has one, otherwise iterate 
 through the collection in order with some other loop.

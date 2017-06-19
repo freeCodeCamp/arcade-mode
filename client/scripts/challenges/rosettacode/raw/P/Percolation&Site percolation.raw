@@ -1,20 +1,20 @@
 Percolation/Site percolation
 
 {{task|Percolation Simulations}}{{Percolation Simulation}}
-Given an <math>M \times N</math> rectangular array of cells numbered <math>\mathrm{cell}[0..M-1, 0..N-1]</math>assume <math>M</math> is horizontal and <math>N</math> is downwards. 
+Given an $M \times N$ rectangular array of cells numbered $\mathrm{cell}[0..M-1, 0..N-1]$assume $M$ is horizontal and $N$ is downwards. 
 
-Assume that the probability of any cell being filled is a constant <math>p</math> where
-: <math>0.0 \le p \le 1.0</math>
+Assume that the probability of any cell being filled is a constant $p$ where
+: $0.0 \le p \le 1.0$
 
 ;The task:
-Simulate creating the array of cells with probability <math>p</math> and then 
-testing if there is a route through adjacent filled cells from any on row <math>0</math> to any on row <math>N</math>, i.e. testing for site percolation.
+Simulate creating the array of cells with probability $p$ and then 
+testing if there is a route through adjacent filled cells from any on row $0$ to any on row $N$, i.e. testing for site percolation.
 
-Given <math>p</math> repeat the percolation <math>t</math> times to estimate the proportion of times that the fluid can percolate to the bottom for any given <math>p</math>.
+Given $p$ repeat the percolation $t$ times to estimate the proportion of times that the fluid can percolate to the bottom for any given $p$.
 
-Show how the probability of percolating through the random grid changes with <math>p</math> going from <math>0.0</math> to <math>1.0</math> in <math>0.1</math> increments and with the number of repetitions to estimate the fraction at any given <math>p</math> as <math>t >= 100</math>.
+Show how the probability of percolating through the random grid changes with $p$ going from $0.0$ to $1.0$ in $0.1$ increments and with the number of repetitions to estimate the fraction at any given $p$ as $t >= 100$.
 
-Use an <math>M=15, N=15</math> grid of cells for all cases.
+Use an $M=15, N=15$ grid of cells for all cases.
 
 Optionally depict a percolation through a cell grid graphically.
 

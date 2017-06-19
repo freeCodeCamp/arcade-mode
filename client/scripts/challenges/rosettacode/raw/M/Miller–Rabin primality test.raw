@@ -3,27 +3,27 @@ Miller–Rabin primality test
 {{task|Prime Numbers}}{{Wikipedia|Miller–Rabin primality test}}
 
 
-The [[wp:Miller–Rabin primality test|Miller–Rabin primality test]] or Rabin–Miller primality test is a primality test: an algorithm which determines whether a given number is prime or not.
+The <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Miller–Rabin primality test" title="wp: Miller–Rabin primality test">Miller–Rabin primality test</a> or Rabin–Miller primality test is a primality test: an algorithm which determines whether a given number is prime or not.
 
-The algorithm, as modified by [[wp:Michael O. Rabin|Michael O. Rabin]] to avoid the [[wp:generalized Riemann hypothesis|generalized Riemann hypothesis]], is a probabilistic algorithm.
+The algorithm, as modified by <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Michael O. Rabin" title="wp: Michael O. Rabin">Michael O. Rabin]] to avoid the [[wp:generalized Riemann hypothesis|generalized Riemann hypothesis</a>, is a probabilistic algorithm.
 
-The pseudocode, from [[wp:Miller-Rabin primality test#Algorithm_and_running_time|Wikipedia]] is:
- '''Input''': ''n'' > 2, an odd integer to be tested for primality;
-        ''k'', a parameter that determines the accuracy of the test
- '''Output''': ''composite'' if ''n'' is composite, otherwise ''probably prime''
- write ''n'' − 1 as 2<sup>''s''</sup>·''d'' with ''d'' odd by factoring powers of 2 from ''n'' − 1
- LOOP: '''repeat''' ''k'' times:
-    pick ''a'' randomly in the range [2, ''n'' − 1]
-    ''x'' ← ''a''<sup>''d''</sup> mod ''n''
-    '''if''' ''x'' = 1 or ''x'' = ''n'' − 1 '''then''' '''do''' '''next''' LOOP
-    '''for''' ''r'' = 1 .. ''s'' − 1
-       ''x'' ← ''x''<sup>2</sup> mod ''n''
-       '''if''' ''x'' = 1 '''then''' '''return''' ''composite''
-       '''if''' ''x'' = ''n'' − 1 '''then''' '''do''' '''next''' LOOP
-    '''return''' ''composite''
- '''return''' ''probably prime''
+The pseudocode, from <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Miller-Rabin primality test#Algorithm_and_running_time" title="wp: Miller-Rabin primality test#Algorithm_and_running_time">Wikipedia</a> is:
+ <span class="rosetta__text--bold">Input</span>: <span class="rosetta__text--italic">n</span> > 2, an odd integer to be tested for primality;
+        <span class="rosetta__text--italic">k</span>, a parameter that determines the accuracy of the test
+ <span class="rosetta__text--bold">Output</span>: <span class="rosetta__text--italic">composite</span> if <span class="rosetta__text--italic">n</span> is composite, otherwise <span class="rosetta__text--italic">probably prime</span>
+ write <span class="rosetta__text--italic">n</span> − 1 as 2<sup><span class="rosetta__text--italic">s</span></sup>·<span class="rosetta__text--italic">d</span> with <span class="rosetta__text--italic">d</span> odd by factoring powers of 2 from <span class="rosetta__text--italic">n</span> − 1
+ LOOP: <span class="rosetta__text--bold">repeat</span> <span class="rosetta__text--italic">k</span> times:
+    pick <span class="rosetta__text--italic">a</span> randomly in the range [2, <span class="rosetta__text--italic">n</span> − 1]
+    <span class="rosetta__text--italic">x</span> ← <span class="rosetta__text--italic">a</span><sup><span class="rosetta__text--italic">d</span></sup> mod <span class="rosetta__text--italic">n</span>
+    <span class="rosetta__text--bold">if</span> <span class="rosetta__text--italic">x</span> = 1 or <span class="rosetta__text--italic">x</span> = <span class="rosetta__text--italic">n</span> − 1 <span class="rosetta__text--bold">then</span> <span class="rosetta__text--bold">do</span> <span class="rosetta__text--bold">next</span> LOOP
+    <span class="rosetta__text--bold">for</span> <span class="rosetta__text--italic">r</span> = 1 .. <span class="rosetta__text--italic">s</span> − 1
+       <span class="rosetta__text--italic">x</span> ← <span class="rosetta__text--italic">x</span><sup>2</sup> mod <span class="rosetta__text--italic">n</span>
+       <span class="rosetta__text--bold">if</span> <span class="rosetta__text--italic">x</span> = 1 <span class="rosetta__text--bold">then</span> <span class="rosetta__text--bold">return</span> <span class="rosetta__text--italic">composite</span>
+       <span class="rosetta__text--bold">if</span> <span class="rosetta__text--italic">x</span> = <span class="rosetta__text--italic">n</span> − 1 <span class="rosetta__text--bold">then</span> <span class="rosetta__text--bold">do</span> <span class="rosetta__text--bold">next</span> LOOP
+    <span class="rosetta__text--bold">return</span> <span class="rosetta__text--italic">composite</span>
+ <span class="rosetta__text--bold">return</span> <span class="rosetta__text--italic">probably prime</span>
 
-* The nature of the test involves big numbers, so the use of "big numbers" libraries (or similar features of the language of your choice) are suggested, but '''not''' mandatory.
+* The nature of the test involves big numbers, so the use of "big numbers" libraries (or similar features of the language of your choice) are suggested, but <span class="rosetta__text--bold">not</span> mandatory.
 * Deterministic variants of the test exist and can be implemented as extra (not mandatory to complete the task)
 <br><br>
 

@@ -2,48 +2,48 @@ Euler method
 
 {{Task|Mathematical operations}}
 
-Euler's method numerically approximates solutions of first-order ordinary differential equations (ODEs) with a given initial value. &nbsp; It is an explicit method for solving initial value problems (IVPs), as described in [[wp:Euler method|the wikipedia page]].
+Euler's method numerically approximates solutions of first-order ordinary differential equations (ODEs) with a given initial value. &nbsp; It is an explicit method for solving initial value problems (IVPs), as described in <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Euler method" title="wp: Euler method">the wikipedia page</a>.
 
 The ODE has to be provided in the following form:
 
-::: <big><math>\frac{dy(t)}{dt} = f(t,y(t))</math></big>
+::: <big>$\frac{dy(t)}{dt} = f(t,y(t))$</big>
 
 with an initial value
 
-::: <big><math>y(t_0) = y_0</math></big>
+::: <big>$y(t_0) = y_0$</big>
 
 To get a numeric solution, we replace the derivative on the &nbsp; LHS &nbsp; with a finite difference approximation:
 
-::: <big><math>\frac{dy(t)}{dt}  \approx \frac{y(t+h)-y(t)}{h}</math></big>
+::: <big>$\frac{dy(t)}{dt}  \approx \frac{y(t+h)-y(t)}{h}$</big>
 
-then solve for <math>y(t+h)</math>:
+then solve for $y(t+h)$:
 
-::: <big><math>y(t+h) \approx y(t) + h \, \frac{dy(t)}{dt}</math></big>
+::: <big>$y(t+h) \approx y(t) + h \, \frac{dy(t)}{dt}$</big>
 
 which is the same as
 
-::: <big><math>y(t+h) \approx y(t) + h \, f(t,y(t))</math></big>
+::: <big>$y(t+h) \approx y(t) + h \, f(t,y(t))$</big>
 
 The iterative solution rule is then:
 
-::: <big><math>y_{n+1} = y_n + h \, f(t_n, y_n)</math></big>
+::: <big>$y_{n+1} = y_n + h \, f(t_n, y_n)$</big>
 
-where &nbsp; <big><math>h</math></big> &nbsp; is the step size, the most relevant parameter for accuracy of the solution. &nbsp; A smaller step size increases accuracy but also the computation cost, so it has always has to be hand-picked according to the problem at hand.
+where &nbsp; <big>$h$</big> &nbsp; is the step size, the most relevant parameter for accuracy of the solution. &nbsp; A smaller step size increases accuracy but also the computation cost, so it has always has to be hand-picked according to the problem at hand.
 
 
-'''Example: Newton's Cooling Law'''
+<span class="rosetta__text--bold">Example: Newton's Cooling Law</span>
 
-Newton's cooling law describes how an object of initial temperature &nbsp; <big><math>T(t_0) = T_0</math></big> &nbsp; cools down in an environment of temperature &nbsp; <big><math>T_R</math></big>:
+Newton's cooling law describes how an object of initial temperature &nbsp; <big>$T(t_0) = T_0$</big> &nbsp; cools down in an environment of temperature &nbsp; <big>$T_R$</big>:
 
-::: <big><math>\frac{dT(t)}{dt} = -k \, \Delta T</math></big>
+::: <big>$\frac{dT(t)}{dt} = -k \, \Delta T$</big>
 or
-::: <big><math>\frac{dT(t)}{dt} = -k \, (T(t) - T_R)</math></big>
+::: <big>$\frac{dT(t)}{dt} = -k \, (T(t) - T_R)$</big>
 
 <br>
-It says that the cooling rate &nbsp; <big><math>\frac{dT(t)}{dt}</math></big> &nbsp; of the object is proportional to the current temperature difference &nbsp; <big><math>\Delta T = (T(t) - T_R)</math></big> &nbsp; to the surrounding environment.
+It says that the cooling rate &nbsp; <big>$\frac{dT(t)}{dt}$</big> &nbsp; of the object is proportional to the current temperature difference &nbsp; <big>$\Delta T = (T(t) - T_R)$</big> &nbsp; to the surrounding environment.
 
 The analytical solution, which we will compare to the numerical approximation, is
-::: <big><math>T(t) = T_R + (T_0 - T_R) \; e^{-k t}</math></big>
+::: <big>$T(t) = T_R + (T_0 - T_R) \; e^{-k t}$</big>
 
 
 ;Task:
@@ -55,14 +55,14 @@ and to compare with the analytical solution.
 
 
 ;Initial values:
-:::* &nbsp; initial temperature &nbsp; <big><math>T_0</math></big> &nbsp; shall be &nbsp; 100 °C
-:::* &nbsp; room temperature &nbsp; <big><math>T_R</math></big> &nbsp; shall be &nbsp; 20 °C
-:::* &nbsp; cooling constant &nbsp; &nbsp; <big><math>k</math></big> &nbsp; &nbsp; shall be &nbsp; 0.07  
+:::* &nbsp; initial temperature &nbsp; <big>$T_0$</big> &nbsp; shall be &nbsp; 100 °C
+:::* &nbsp; room temperature &nbsp; <big>$T_R$</big> &nbsp; shall be &nbsp; 20 °C
+:::* &nbsp; cooling constant &nbsp; &nbsp; <big>$k$</big> &nbsp; &nbsp; shall be &nbsp; 0.07  
 :::* &nbsp; time interval to calculate shall be from &nbsp; 0 s &nbsp; ──► &nbsp; 100 s
 
 <br>
-A reference solution ([[#Common Lisp|Common Lisp]]) can be seen below. &nbsp; We see that bigger step sizes lead to reduced approximation accuracy.
-[[Image:Euler_Method_Newton_Cooling.png|center|750px]]
+A reference solution (<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/#Common Lisp" title="#Common Lisp">Common Lisp</a>) can be seen below. &nbsp; We see that bigger step sizes lead to reduced approximation accuracy.
+<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Image:Euler_Method_Newton_Cooling.png" title="Image:Euler_Method_Newton_Cooling.png">center|750px</a>
 
 
 =={{header|JavaScript}}==

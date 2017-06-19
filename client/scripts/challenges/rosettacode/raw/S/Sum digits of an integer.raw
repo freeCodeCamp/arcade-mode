@@ -3,11 +3,11 @@ Sum digits of an integer
 {{task}}
 
 ;Task:
-Take a &nbsp; [[wp:Natural_number|Natural Number]] &nbsp; in a given base and return the sum of its digits:
-:* &nbsp; '''1'''<sub>10</sub> &nbsp; &nbsp; &nbsp;          &nbsp; sums to &nbsp; '''1'''
-:* &nbsp; '''1234'''<sub>10</sub>     &nbsp; sums to &nbsp; '''10'''
-:* &nbsp; '''fe'''<sub>16</sub> &nbsp; &nbsp;        &nbsp; sums to &nbsp; '''29'''
-:* &nbsp; '''f0e'''<sub>16</sub> &nbsp;       &nbsp; sums to &nbsp; '''29'''
+Take a &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Natural_number" title="wp: Natural_number">Natural Number</a> &nbsp; in a given base and return the sum of its digits:
+:* &nbsp; <span class="rosetta__text--bold">1</span><sub>10</sub> &nbsp; &nbsp; &nbsp;          &nbsp; sums to &nbsp; <span class="rosetta__text--bold">1</span>
+:* &nbsp; <span class="rosetta__text--bold">1234</span><sub>10</sub>     &nbsp; sums to &nbsp; <span class="rosetta__text--bold">10</span>
+:* &nbsp; <span class="rosetta__text--bold">fe</span><sub>16</sub> &nbsp; &nbsp;        &nbsp; sums to &nbsp; <span class="rosetta__text--bold">29</span>
+:* &nbsp; <span class="rosetta__text--bold">f0e</span><sub>16</sub> &nbsp;       &nbsp; sums to &nbsp; <span class="rosetta__text--bold">29</span>
 <br><br>
 
 

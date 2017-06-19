@@ -6,11 +6,11 @@ Spiral matrix
 Produce a spiral array. 
 
 
-A &nbsp; ''spiral array'' &nbsp; is a square arrangement of the first &nbsp; <big> N<sup>2</sup></big> &nbsp; natural numbers, &nbsp; where the
+A &nbsp; <span class="rosetta__text--italic">spiral array</span> &nbsp; is a square arrangement of the first &nbsp; <big> N<sup>2</sup></big> &nbsp; natural numbers, &nbsp; where the
 <br>numbers increase sequentially as you go around the edges of the array spiraling inwards.
 
 
-For example, given &nbsp; '''5''', &nbsp; produce this array:
+For example, given &nbsp; <span class="rosetta__text--bold">5</span>, &nbsp; produce this array:
 <pre>
  0  1  2  3  4
 15 16 17 18  5

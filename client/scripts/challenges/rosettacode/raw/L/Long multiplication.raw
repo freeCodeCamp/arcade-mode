@@ -5,7 +5,7 @@ Long multiplication
 [[Category:Arithmetic operations]]
 
 ;Task:
-Explicitly implement &nbsp; [[wp:long multiplication|long multiplication]].  
+Explicitly implement &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/long multiplication" title="wp: long multiplication">long multiplication</a>.  
 
 This is one possible approach to arbitrary-precision integer algebra.
 

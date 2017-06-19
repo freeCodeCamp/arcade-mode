@@ -1,14 +1,14 @@
 Total circles area
 
 {{task}}
-[[File:total_circles_area_full.png|200px|thumb|right|Example circles]]
-[[File:total_circles_area_filtered.png|200px|thumb|right|Example circles filtered]]
+<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:total_circles_area_full.png" title="File:total_circles_area_full.png">200px|thumb|right|Example circles</a>
+<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:total_circles_area_filtered.png" title="File:total_circles_area_filtered.png">200px|thumb|right|Example circles filtered</a>
 
 Given some partially overlapping circles on the plane, compute and show the total area covered by them, with four or six (or a little more) decimal digits of precision. The area covered by two or more disks needs to be counted only once. 
 
 One point of this Task is also to compare and discuss the relative merits of various solution strategies, their performance, precision and simplicity. This means keeping both slower and faster solutions for a language (like C) is welcome.
 
-To allow a better comparison of the different implementations, solve the problem with this standard dataset, each line contains the '''x''' and '''y''' coordinates of the centers of the disks and their radii &nbsp; (11 disks are fully contained inside other disks):
+To allow a better comparison of the different implementations, solve the problem with this standard dataset, each line contains the <span class="rosetta__text--bold">x</span> and <span class="rosetta__text--bold">y</span> coordinates of the centers of the disks and their radii &nbsp; (11 disks are fully contained inside other disks):
 <pre>
       xc             yc        radius
  1.6417233788  1.6121789534 0.0848270516

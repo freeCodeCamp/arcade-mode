@@ -3,14 +3,14 @@ Conway's Game of Life
 {{task|Games}}
 [[Category:Cellular automata]]
 
-The '''Game of Life''' is a &nbsp; [[wp:cellular automaton|cellular automaton]] &nbsp; devised by the British mathematician &nbsp; [[wp:John Horton Conway|John Horton Conway]] &nbsp; in 1970. &nbsp; It is the best-known example of a cellular automaton.
+The <span class="rosetta__text--bold">Game of Life</span> is a &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/cellular automaton" title="wp: cellular automaton">cellular automaton]] &nbsp; devised by the British mathematician &nbsp; [[wp:John Horton Conway|John Horton Conway</a> &nbsp; in 1970. &nbsp; It is the best-known example of a cellular automaton.
 
-Conway's game of life is described &nbsp; [[wp:Conway%27s_Game_of_Life|here]]:
+Conway's game of life is described &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life" title="wp: Conway%27s_Game_of_Life">here</a>:
     
-A cell &nbsp; '''C''' &nbsp; is represented by a &nbsp; '''1''' &nbsp; when alive, &nbsp; or &nbsp; '''0''' &nbsp; when dead, &nbsp; in an &nbsp; m-by-m &nbsp; (or <big>m</big>&times;<big>m</big>) &nbsp; square array of cells. 
+A cell &nbsp; <span class="rosetta__text--bold">C</span> &nbsp; is represented by a &nbsp; <span class="rosetta__text--bold">1</span> &nbsp; when alive, &nbsp; or &nbsp; <span class="rosetta__text--bold">0</span> &nbsp; when dead, &nbsp; in an &nbsp; m-by-m &nbsp; (or <big>m</big>&times;<big>m</big>) &nbsp; square array of cells. 
 
-We calculate &nbsp; '''N''' &nbsp; - the sum of live cells in C's &nbsp; [[wp:Moore neighborhood|eight-location neighbourhood]], &nbsp; then cell &nbsp; C &nbsp; is alive or dead in the next generation based on the following table:
-    '''C   N                 new C'''
+We calculate &nbsp; <span class="rosetta__text--bold">N</span> &nbsp; - the sum of live cells in C's &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Moore neighborhood" title="wp: Moore neighborhood">eight-location neighbourhood</a>, &nbsp; then cell &nbsp; C &nbsp; is alive or dead in the next generation based on the following table:
+    <span class="rosetta__text--bold">C   N                 new C</span>
     1   0,1             ->  0  # Lonely
     1   4,5,6,7,8       ->  0  # Overcrowded
     1   2,3             ->  1  # Lives
@@ -23,7 +23,7 @@ The "game" is actually a zero-player game, meaning that its evolution is determi
 
 
 ;Task:
-Although you should test your implementation on more complex examples such as the &nbsp; [[wp:Conway%27s_Game_of_Life#Examples_of_patterns|glider]] &nbsp; in a larger universe, &nbsp; show the action of the blinker &nbsp; (three adjoining cells in a row all alive), &nbsp; over three generations, in a 3 by 3 grid.
+Although you should test your implementation on more complex examples such as the &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life#Examples_of_patterns" title="wp: Conway%27s_Game_of_Life#Examples_of_patterns">glider</a> &nbsp; in a larger universe, &nbsp; show the action of the blinker &nbsp; (three adjoining cells in a row all alive), &nbsp; over three generations, in a 3 by 3 grid.
 
 
 ;References:

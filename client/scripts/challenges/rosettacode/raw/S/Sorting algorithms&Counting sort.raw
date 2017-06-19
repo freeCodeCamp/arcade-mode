@@ -3,27 +3,27 @@ Sorting algorithms/Counting sort
 {{task|Sorting Algorithms}}
 {{Sorting Algorithm}}
 {{Wikipedia|Counting sort}}
-Implement the [[wp:Counting sort|Counting sort]]. This is a way of sorting integers when the minimum and maximum value are known.
+Implement the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Counting sort" title="wp: Counting sort">Counting sort</a>. This is a way of sorting integers when the minimum and maximum value are known.
 
 Pseudocode:
- '''function''' ''countingSort''(array, min, max):
-     count: '''array of''' (max - min + 1) '''elements'''
-     '''initialize''' count '''with''' 0
-     '''for each''' number '''in''' array '''do'''
+ <span class="rosetta__text--bold">function</span> <span class="rosetta__text--italic">countingSort</span>(array, min, max):
+     count: <span class="rosetta__text--bold">array of</span> (max - min + 1) <span class="rosetta__text--bold">elements</span>
+     <span class="rosetta__text--bold">initialize</span> count <span class="rosetta__text--bold">with</span> 0
+     <span class="rosetta__text--bold">for each</span> number <span class="rosetta__text--bold">in</span> array <span class="rosetta__text--bold">do</span>
          count[number - min] := count[number - min] + 1
-     '''done'''
+     <span class="rosetta__text--bold">done</span>
      z := 0
-     '''for''' i '''from''' min '''to''' max '''do'''
-         '''while''' ( count[i - min] > 0 ) '''do'''
+     <span class="rosetta__text--bold">for</span> i <span class="rosetta__text--bold">from</span> min <span class="rosetta__text--bold">to</span> max <span class="rosetta__text--bold">do</span>
+         <span class="rosetta__text--bold">while</span> ( count[i - min] > 0 ) <span class="rosetta__text--bold">do</span>
              array[z] := i
              z := z+1
              count[i - min] := count[i - min] - 1
-         '''done'''
-     '''done'''
+         <span class="rosetta__text--bold">done</span>
+     <span class="rosetta__text--bold">done</span>
 
-The ''min'' and ''max'' can be computed apart, or be known ''a priori''.
+The <span class="rosetta__text--italic">min</span> and <span class="rosetta__text--italic">max</span> can be computed apart, or be known <span class="rosetta__text--italic">a priori</span>.
 
-'''Note''': we know that, given an array of integers, its maximum and minimum values can be always found; but if we imagine the worst case for an array of 32 bit integers, we see that in order to hold the counts, we need an array of 2<sup>32</sup> elements, i.e., we need, to hold a count value up to 2<sup>32</sup>-1, more or less 4 Gbytes. So the counting sort is more practical when the range is (very) limited and minimum and maximum values are known ''a priori''. (Anyway sparse arrays may limit the impact of the memory usage)
+<span class="rosetta__text--bold">Note</span>: we know that, given an array of integers, its maximum and minimum values can be always found; but if we imagine the worst case for an array of 32 bit integers, we see that in order to hold the counts, we need an array of 2<sup>32</sup> elements, i.e., we need, to hold a count value up to 2<sup>32</sup>-1, more or less 4 Gbytes. So the counting sort is more practical when the range is (very) limited and minimum and maximum values are known <span class="rosetta__text--italic">a priori</span>. (Anyway sparse arrays may limit the impact of the memory usage)
 
 
 =={{header|JavaScript}}==

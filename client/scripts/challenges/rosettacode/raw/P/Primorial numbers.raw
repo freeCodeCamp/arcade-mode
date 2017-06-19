@@ -15,12 +15,12 @@ The primorial number series is:
 ::* &nbsp; primorial(6) =                         30030 &nbsp; &nbsp; &nbsp; (2*3*5*7*11*13)
 :;* &nbsp; &nbsp; &nbsp; &nbsp; <big><b>∙ ∙ ∙</b></big>
 
-To express this mathematically, &nbsp; '''primorial<sub><big>''n''</big></sub>''' &nbsp; is &nbsp;
-the product of the first &nbsp; <big>''n''</big> &nbsp; (successive) primes: <br>
+To express this mathematically, &nbsp; <span class="rosetta__text--bold">primorial<sub><big><span class="rosetta__text--italic">n</span></big></sub></span> &nbsp; is &nbsp;
+the product of the first &nbsp; <big><span class="rosetta__text--italic">n</span></big> &nbsp; (successive) primes: <br>
 <big><big><big>
-: &nbsp; <math>primorial_n = \prod_{k=1}^n prime_k</math>
+: &nbsp; $primorial_n = \prod_{k=1}^n prime_k$
 </big></big>
-:::::: ─── where &nbsp; <big><big><math>prime_k</math></big></big> &nbsp; is the &nbsp; <big><big>''k''<sup>''th''</sup>''</big></big> &nbsp; prime number.
+:::::: ─── where &nbsp; <big><big>$prime_k$</big></big> &nbsp; is the &nbsp; <big><big><span class="rosetta__text--italic">k</span><sup><span class="rosetta__text--italic">th</span></sup>''</big></big> &nbsp; prime number.
 </big>
 
 
@@ -29,7 +29,7 @@ In some sense, generating primorial numbers is similar to factorials.
 As with factorials, primorial numbers get large quickly.
 
 
-'''task requirements:'''
+<span class="rosetta__text--bold">task requirements:</span>
 
 * &nbsp; Show the first ten primorial numbers &nbsp; (0 ──► 9, &nbsp; inclusive).
 * &nbsp; Show the length of primorial numbers whose index is: &nbsp; 10 &nbsp; 100 &nbsp; 1,000 &nbsp; 10,000 &nbsp; and &nbsp; 100,000.
@@ -37,10 +37,10 @@ As with factorials, primorial numbers get large quickly.
 * &nbsp; Use exact integers, not approximations.  
  
 
-By &nbsp; ''length'' &nbsp; (above), it is meant the number of decimal digits in the numbers. <br>
+By &nbsp; <span class="rosetta__text--italic">length</span> &nbsp; (above), it is meant the number of decimal digits in the numbers. <br>
  
 
-'''links:'''
+<span class="rosetta__text--bold">links:</span>
 
 See the MathWorld webpage: &nbsp; [http://mathworld.wolfram.com/Primorial.html primorial]
 
@@ -49,7 +49,7 @@ See the Wikipedia &nbsp; webpage: &nbsp; [http://en.wikipedia.org/wiki/Primorial
 See the &nbsp; &nbsp; OEIS &nbsp; &nbsp; webpage: &nbsp; [http://oeis.org/A002110 A2110].
 
 
-'''Related tasks:'''
+<span class="rosetta__text--bold">Related tasks:</span>
 *[[Factorial]]
 *[[Sequence of primorial primes]]
 

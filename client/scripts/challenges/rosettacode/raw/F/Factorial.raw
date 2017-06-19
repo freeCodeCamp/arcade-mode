@@ -7,9 +7,9 @@ Factorial
 [[Category:Simple]]
 
 ;Definitions:
-:* &nbsp; The &nbsp; '''Factorial Function''' &nbsp; of a positive integer, &nbsp; <big> ''n'', </big> &nbsp; is defined as the product of the sequence:
-                 <big><big> ''n'', &nbsp; ''n''-1, &nbsp; ''n''-2, &nbsp; ... &nbsp; 1 </big></big>
-:* &nbsp; The factorial of &nbsp; '''0''' &nbsp; (zero) &nbsp; is [[wp:Factorial#Definition|defined]] as being &nbsp; 1 &nbsp; (unity).
+:* &nbsp; The &nbsp; <span class="rosetta__text--bold">Factorial Function</span> &nbsp; of a positive integer, &nbsp; <big> <span class="rosetta__text--italic">n</span>, </big> &nbsp; is defined as the product of the sequence:
+                 <big><big> <span class="rosetta__text--italic">n</span>, &nbsp; <span class="rosetta__text--italic">n</span>-1, &nbsp; <span class="rosetta__text--italic">n</span>-2, &nbsp; ... &nbsp; 1 </big></big>
+:* &nbsp; The factorial of &nbsp; <span class="rosetta__text--bold">0</span> &nbsp; (zero) &nbsp; is <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Factorial#Definition" title="wp: Factorial#Definition">defined</a> as being &nbsp; 1 &nbsp; (unity).
 
 
 ;Task:
@@ -17,7 +17,7 @@ Write a function to return the factorial of a number.
 
 Solutions can be iterative or recursive. 
 
-Support for trapping negative &nbsp; <big> ''n'' </big> &nbsp; errors is optional.
+Support for trapping negative &nbsp; <big> <span class="rosetta__text--italic">n</span> </big> &nbsp; errors is optional.
 <br><br>
 
 

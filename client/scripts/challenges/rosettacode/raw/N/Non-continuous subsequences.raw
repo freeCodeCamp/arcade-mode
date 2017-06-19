@@ -3,23 +3,23 @@ Non-continuous subsequences
 {{task|Discrete math}}
 Consider some sequence of elements. (It differs from a mere set of elements by having an ordering among members.)
 
-A ''subsequence'' contains some subset of the elements of this sequence, in the same order.
+A <span class="rosetta__text--italic">subsequence</span> contains some subset of the elements of this sequence, in the same order.
 
-A ''continuous'' subsequence is one in which no elements are missing between the first and last elements of the subsequence.
+A <span class="rosetta__text--italic">continuous</span> subsequence is one in which no elements are missing between the first and last elements of the subsequence.
 
-Note: Subsequences are defined ''structurally'', not by their contents. 
-So a sequence ''a,b,c,d'' will always have the same subsequences and continuous subsequences, no matter which values are substituted; it may even be the same value.
+Note: Subsequences are defined <span class="rosetta__text--italic">structurally</span>, not by their contents. 
+So a sequence <span class="rosetta__text--italic">a,b,c,d</span> will always have the same subsequences and continuous subsequences, no matter which values are substituted; it may even be the same value.
 
-'''Task''': Find all non-continuous subsequences for a given sequence. 
+<span class="rosetta__text--bold">Task</span>: Find all non-continuous subsequences for a given sequence. 
 
-Example: For the sequence &nbsp; ''1,2,3,4'', &nbsp; there are five non-continuous subsequences, namely: 
-::::* &nbsp; ''1,3''
-::::* &nbsp; ''1,4''
-::::* &nbsp; ''2,4''
-::::* &nbsp; ''1,3,4''
-::::* &nbsp; ''1,2,4''
+Example: For the sequence &nbsp; <span class="rosetta__text--italic">1,2,3,4</span>, &nbsp; there are five non-continuous subsequences, namely: 
+::::* &nbsp; <span class="rosetta__text--italic">1,3</span>
+::::* &nbsp; <span class="rosetta__text--italic">1,4</span>
+::::* &nbsp; <span class="rosetta__text--italic">2,4</span>
+::::* &nbsp; <span class="rosetta__text--italic">1,3,4</span>
+::::* &nbsp; <span class="rosetta__text--italic">1,2,4</span>
 
-'''Goal''': There are different ways to calculate those subsequences. Demonstrate algorithm(s) that are natural for the language.
+<span class="rosetta__text--bold">Goal</span>: There are different ways to calculate those subsequences. Demonstrate algorithm(s) that are natural for the language.
 
 
 =={{header|JavaScript}}==

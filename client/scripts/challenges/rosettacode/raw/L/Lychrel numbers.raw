@@ -16,10 +16,10 @@ And if n<sub>0</sub> = 55 we get
 55 + 55 = 110
 110 + 011 = 121, a palindrome!</pre>
 
-Notice that the check for a palindrome happens ''after'' an addition.
+Notice that the check for a palindrome happens <span class="rosetta__text--italic">after</span> an addition.
 
 
-Some starting numbers seem to go on forever; the recurrence relation for 196 has been calculated for millions of repetitions forming numbers with millions of digits, without forming a palindrome. These numbers that do not end in a palindrome are called '''Lychrel numbers'''.
+Some starting numbers seem to go on forever; the recurrence relation for 196 has been calculated for millions of repetitions forming numbers with millions of digits, without forming a palindrome. These numbers that do not end in a palindrome are called <span class="rosetta__text--bold">Lychrel numbers</span>.
 
 For the purposes of this task a Lychrel number is any starting number that does not form a palindrome within 500 (or more) iterations.
 
@@ -27,7 +27,7 @@ For the purposes of this task a Lychrel number is any starting number that does 
 ;Seed and related Lychrel numbers:
 Any integer produced in the sequence of a Lychrel number is also a Lychrel number.
 
-In general, any sequence from one Lychrel number ''might'' converge to join the sequence from a prior Lychrel number candidate; for example the sequences for the numbers 196 and then 689 begin:
+In general, any sequence from one Lychrel number <span class="rosetta__text--italic">might</span> converge to join the sequence from a prior Lychrel number candidate; for example the sequences for the numbers 196 and then 689 begin:
 <pre>196
 196 + 691 = 887
 887 + 788 = 1675
@@ -42,12 +42,12 @@ In general, any sequence from one Lychrel number ''might'' converge to join the 
 689 + 986 = 1675
 1675 + 5761 = 7436
 ...</pre>
-So we see that the sequence starting with 689 converges to, and continues with the same numbers as that for 196. Because of this we can further split the Lychrel numbers into true '''Seed''' Lychrel number candidates, and '''Related''' numbers that produce no palindromes but have integers in their sequence seen as part of the sequence generated from a lower Lychrel number.
+So we see that the sequence starting with 689 converges to, and continues with the same numbers as that for 196. Because of this we can further split the Lychrel numbers into true <span class="rosetta__text--bold">Seed</span> Lychrel number candidates, and <span class="rosetta__text--bold">Related</span> numbers that produce no palindromes but have integers in their sequence seen as part of the sequence generated from a lower Lychrel number.
 
 
 ;Task:
 *  Find the number of seed Lychrel number candidates and related numbers for n in the range 1..10000 inclusive. (With that iteration limit of 500).
-*  Print the number of seed Lychrels found; the actual seed Lychrels; and just the ''number'' of relateds found.
+*  Print the number of seed Lychrels found; the actual seed Lychrels; and just the <span class="rosetta__text--italic">number</span> of relateds found.
 *  Print any seed Lychrel or related number that is itself a palindrome.
 
 <br>

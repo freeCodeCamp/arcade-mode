@@ -3,14 +3,14 @@ Walk a directory/Non-recursively
 {{task|File System Operations}}
 
 ;Task:
-Walk a given directory and print the ''names'' of files matching a given pattern.  
+Walk a given directory and print the <span class="rosetta__text--italic">names</span> of files matching a given pattern.  
 
 (How is "pattern" defined?  substring match?  DOS pattern?  BASH pattern?  ZSH pattern?  Perl regular expression?)
 
 
-'''Note:''' This task is for non-recursive methods. &nbsp; These tasks should read a ''single directory'', not an entire directory tree.  
+<span class="rosetta__text--bold">Note:</span> This task is for non-recursive methods. &nbsp; These tasks should read a <span class="rosetta__text--italic">single directory</span>, not an entire directory tree.  
 
-'''Note:''' Please be careful when running any code presented here.
+<span class="rosetta__text--bold">Note:</span> Please be careful when running any code presented here.
 
 
 ;Related task:

@@ -9,7 +9,7 @@ Environment variables
 {{omit from|Unlambda|Does not provide access to environment variables.}}
 
 ;Task:
-Show how to get one of your process's [[wp:Environment variable|environment variables]]. 
+Show how to get one of your process's <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Environment variable" title="wp: Environment variable">environment variables</a>. 
 
 The available variables vary by system; &nbsp; some of the common ones available on Unix include:
 :::* &nbsp; PATH

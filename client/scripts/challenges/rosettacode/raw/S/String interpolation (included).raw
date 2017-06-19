@@ -3,7 +3,7 @@ String interpolation (included)
 {{Task|Basic language learning}}[[Category:String manipulation]][[Category:Simple]]
 {{basic data operation}}
 {{omit from|NSIS}}{{omit from|BBC BASIC}}
-Given a string and defined variables or values, [[wp:String literal#Variable_interpolation|string interpolation]] is the replacement of defined character sequences in the string by values or variable values. 
+Given a string and defined variables or values, <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/String literal#Variable_interpolation" title="wp: String literal#Variable_interpolation">string interpolation</a> is the replacement of defined character sequences in the string by values or variable values. 
 : For example, given an original string of <code>"Mary had a X lamb."</code>, a value of "big", and if the language replaces X in its interpolation routine, then the result of its interpolation would be the string <code>"Mary had a big lamb"</code>.
 
 :(Languages usually include an infrequently used character or sequence of characters to indicate what is to be replaced such as "%", or "#" rather than "X").

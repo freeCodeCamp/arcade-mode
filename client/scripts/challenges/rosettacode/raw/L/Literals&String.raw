@@ -8,8 +8,8 @@ Literals/String
 Show literal specification of characters and strings. 
 
 If supported, show how the following work:
-:* &nbsp; ''verbatim strings'' &nbsp; (quotes where escape sequences are quoted literally)
-:* &nbsp; ''here-strings'' &nbsp;  
+:* &nbsp; <span class="rosetta__text--italic">verbatim strings</span> &nbsp; (quotes where escape sequences are quoted literally)
+:* &nbsp; <span class="rosetta__text--italic">here-strings</span> &nbsp;  
 
 <br>
 Also, discuss which quotes expand variables.

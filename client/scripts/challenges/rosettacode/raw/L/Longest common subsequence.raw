@@ -1,16 +1,16 @@
 Longest common subsequence
 
 {{task}}[[Category:Recursion]][[Category:Memoization]]
-The '''longest common subsequence''' (or [http://en.wikipedia.org/wiki/Longest_common_subsequence_problem '''LCS''']) of groups A and B is the longest group of elements from A and B that are common between the two groups and in the same order in each group. For example, the sequences "1234" and "1224533324" have an LCS of "1234":
- '''<u>1234</u>'''
- '''<u>12</u>'''245'''<u>3</u>'''332'''<u>4</u>'''
+The <span class="rosetta__text--bold">longest common subsequence</span> (or [http://en.wikipedia.org/wiki/Longest_common_subsequence_problem <span class="rosetta__text--bold">LCS</span>]) of groups A and B is the longest group of elements from A and B that are common between the two groups and in the same order in each group. For example, the sequences "1234" and "1224533324" have an LCS of "1234":
+ <span class="rosetta__text--bold"><u>1234</u></span>
+ <span class="rosetta__text--bold"><u>12</u></span>245<span class="rosetta__text--bold"><u>3</u></span>332<span class="rosetta__text--bold"><u>4</u></span>
 For a string example, consider the sequences "thisisatest" and "testing123testing". An LCS would be "tsitest":
- '''<u>t</u>'''hi'''<u>si</u>'''sa'''<u>test</u>'''
- '''<u>t</u>'''e'''<u>s</u>'''t'''<u>i</u>'''ng123'''<u>test</u>'''ing
+ <span class="rosetta__text--bold"><u>t</u></span>hi<span class="rosetta__text--bold"><u>si</u></span>sa<span class="rosetta__text--bold"><u>test</u></span>
+ <span class="rosetta__text--bold"><u>t</u></span>e<span class="rosetta__text--bold"><u>s</u></span>t<span class="rosetta__text--bold"><u>i</u></span>ng123<span class="rosetta__text--bold"><u>test</u></span>ing
 
 In this puzzle, your code only needs to deal with strings. Write a function which returns an LCS of two strings (case-sensitive). You don't need to show multiple LCS's.
 
-For more information on this problem please see [[wp:Longest_common_subsequence_problem|Wikipedia]].
+For more information on this problem please see <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Longest_common_subsequence_problem" title="wp: Longest_common_subsequence_problem">Wikipedia</a>.
 
 
 =={{header|JavaScript}}==

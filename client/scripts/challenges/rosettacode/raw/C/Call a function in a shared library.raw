@@ -3,7 +3,7 @@ Call a function in a shared library
 {{task|Programming environment operations}}
 Show how to call a function in a shared library (without dynamically linking to it at compile-time). In particular, show how to call the shared library function if the library is available, otherwise use an internal equivalent function.
 
-This is a special case of [[Call foreign language function|calling a foreign language function]] where the focus is close to the ABI level and not at the normal API level.
+This is a special case of <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Call foreign language function" title="Call foreign language function">calling a foreign language function</a> where the focus is close to the ABI level and not at the normal API level.
 
 ===Related tasks===
 * [[OpenGL]] -- OpenGL is usually maintained as a shared library.

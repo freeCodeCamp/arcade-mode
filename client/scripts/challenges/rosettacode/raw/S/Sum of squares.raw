@@ -5,7 +5,7 @@ Sum of squares
 ;Task:
 Write a program to find the sum of squares of a numeric vector. 
 
-The program should work on a zero-length vector (with an answer of &nbsp; '''0''').
+The program should work on a zero-length vector (with an answer of &nbsp; <span class="rosetta__text--bold">0</span>).
 
 
 ;Related task:

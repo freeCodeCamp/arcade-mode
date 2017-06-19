@@ -1,13 +1,13 @@
 Matrix arithmetic
 
 {{task}} [[Category:Matrices]]
-For a given matrix, return the [[wp:Determinant|determinant]] and the [[wp:Permanent|permanent]] of the matrix.
+For a given matrix, return the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Determinant" title="wp: Determinant">determinant]] and the [[wp:Permanent|permanent</a> of the matrix.
 
 The determinant is given by
-:: <big><math>\det(A) = \sum_\sigma\sgn(\sigma)\prod_{i=1}^n M_{i,\sigma_i}</math></big>
+:: <big>$\det(A) = \sum_\sigma\sgn(\sigma)\prod_{i=1}^n M_{i,\sigma_i}$</big>
 while the permanent is given by
-:: <big><math> \operatorname{perm}(A)=\sum_\sigma\prod_{i=1}^n M_{i,\sigma_i}</math></big>
-In both cases the sum is over the permutations <math>\sigma</math> of the permutations of 1, 2, ..., ''n''. (A permutation's sign is 1 if there are an even number of inversions and -1 otherwise; see [[wp:Parity of a permutation|parity of a permutation]].)
+:: <big>$ \operatorname{perm}(A)=\sum_\sigma\prod_{i=1}^n M_{i,\sigma_i}$</big>
+In both cases the sum is over the permutations $\sigma$ of the permutations of 1, 2, ..., <span class="rosetta__text--italic">n</span>. (A permutation's sign is 1 if there are an even number of inversions and -1 otherwise; see <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Parity of a permutation" title="wp: Parity of a permutation">parity of a permutation</a>.)
 
 More efficient algorithms for the determinant are known: [[LU decomposition]], see for example [[wp:LU decomposition#Computing the determinant]]. Efficient methods for calculating the permanent are not known.
 

@@ -1,6 +1,6 @@
 Parametrized SQL statement
 
-{{task|Database operations}}Parameterized SQL statements are an easy way to avoid [[wp:SQL injection|SQL injection]] attacks. SQL drivers and libraries will automatically "sanitize" input to parameterized SQL statements to avoid these catastrophic database attacks. Second, parameterized SQL performs better. A lot better.
+{{task|Database operations}}Parameterized SQL statements are an easy way to avoid <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/SQL injection" title="wp: SQL injection">SQL injection</a> attacks. SQL drivers and libraries will automatically "sanitize" input to parameterized SQL statements to avoid these catastrophic database attacks. Second, parameterized SQL performs better. A lot better.
 
 Using a SQL update statement like this one (spacing is optional):
 <lang sql>UPDATE players

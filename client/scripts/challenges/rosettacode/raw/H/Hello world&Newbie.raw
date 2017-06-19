@@ -5,7 +5,7 @@ Hello world/Newbie
 
 ;Task:
 Guide a new user of a language through the steps necessary 
-to install the programming language and selection of a [[Editor|text editor]] if needed, 
+to install the programming language and selection of a <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Editor" title="Editor">text editor</a> if needed, 
 to run the languages' example in the [[Hello world/Text]] task.
 * Assume the language-newbie is a programmer in another language.
 * Assume the language-newbie is competent in installing software for the platform.

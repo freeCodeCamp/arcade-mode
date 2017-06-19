@@ -5,12 +5,12 @@ The following function, due to D Hickerson, is said to generate "Almost integers
 
 The function is:
 
-:<math>h(n) = {\operatorname{n}!\over2(\ln{2})^{n+1}}</math>
+:$h(n) = {\operatorname{n}!\over2(\ln{2})^{n+1}}$
 
 It is said to produce "almost integers" for n between 1 and 17.  
 The purpose of the task is to verify this assertion.
 
-Assume that an "almost integer" has '''either a nine or a zero as its first digit after the decimal point''' of its decimal string representation
+Assume that an "almost integer" has <span class="rosetta__text--bold">either a nine or a zero as its first digit after the decimal point</span> of its decimal string representation
 
 The task is to calculate all values of the function checking and stating which are "almost integers".
 

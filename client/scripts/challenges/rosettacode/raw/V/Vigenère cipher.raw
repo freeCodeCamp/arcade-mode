@@ -6,7 +6,7 @@ Vigenère cipher
 {{omit from|Openscad}}
 
 ;Task:
-Implement a &nbsp; [[wp:Vigen%C3%A8re_cipher|Vigenère cypher]], &nbsp; both encryption and decryption. 
+Implement a &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher" title="wp: Vigen%C3%A8re_cipher">Vigenère cypher</a>, &nbsp; both encryption and decryption. 
 
 The program should handle keys and text of unequal length, 
 and should capitalize everything and discard non-alphabetic characters. <br>

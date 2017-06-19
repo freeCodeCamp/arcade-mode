@@ -8,7 +8,7 @@ Some languages throw [[exceptions]] and some treat it as a break point.
 
 
 ;Task:
-Show an assertion in your language by asserting that an integer variable is equal to '''42'''.
+Show an assertion in your language by asserting that an integer variable is equal to <span class="rosetta__text--bold">42</span>.
 <br><br>
 
 

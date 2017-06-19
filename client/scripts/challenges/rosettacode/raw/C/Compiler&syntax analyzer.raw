@@ -2,14 +2,14 @@ Compiler/syntax analyzer
 
 {{task}}Syntax Analyzer
 
-A Syntax analyzer transforms a token stream (from the [[Compiler/lexical_analyzer|Lexical analyzer]])
+A Syntax analyzer transforms a token stream (from the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/lexical_analyzer" title="Compiler/lexical_analyzer">Lexical analyzer</a>)
 into a Syntax tree, based on a grammar.
 
 {{task heading}}
 
-Take the output from the Lexical analyzer [[Compiler/lexical_analyzer|task]],
+Take the output from the Lexical analyzer <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/lexical_analyzer" title="Compiler/lexical_analyzer">task</a>,
 and convert it to an [https://en.wikipedia.org/wiki/Abstract_syntax_tree Abstract Syntax Tree (AST)],
-based on the grammar below.  The output should be in a [[Flatten_a_list|flattened format.]]
+based on the grammar below.  The output should be in a <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Flatten_a_list" title="Flatten_a_list">flattened format.</a>
 
 The program should read input from a file and/or stdin, and write output to a file and/or
 stdout.  If the language being used has a parser module/library/class, it would be great
@@ -52,11 +52,11 @@ The simple programming language to be analyzed is more or less a (very tiny) sub
 
 The resulting AST should be formulated as a Binary Tree.
 
-;Example - given the simple program (below), stored in a file called while.t, create the list of tokens, using one of the Lexical analyzer [[Compiler/lexical_analyzer|solutions]]
+;Example - given the simple program (below), stored in a file called while.t, create the list of tokens, using one of the Lexical analyzer <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/lexical_analyzer" title="Compiler/lexical_analyzer">solutions</a>
 
  lex < while.t > while.lex
 
-;Run one of the Syntax analyzer [[Compiler/syntax_analyzer|solutions]]:
+;Run one of the Syntax analyzer <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/syntax_analyzer" title="Compiler/syntax_analyzer">solutions</a>:
 
  parse < while.lex > while.ast
 
@@ -367,7 +367,7 @@ def parse()
     until tok is end-of-file
     return t</lang>
 
-;Once the AST is built, it should be output in a [[Flatten_a_list|flattened format.]]  This can be as simple as the following:
+;Once the AST is built, it should be output in a <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Flatten_a_list" title="Flatten_a_list">flattened format.</a>  This can be as simple as the following:
 
 <lang python>def prt_ast(t)
     if t == NULL
@@ -405,7 +405,7 @@ def parse()
     right = load_ast()
     return make_node(node_type, left, right)</lang>
 
-Finally, the AST can also be tested by running it against one of the AST Interpreter [[Compiler/AST_interpreter|solutions]].
+Finally, the AST can also be tested by running it against one of the AST Interpreter <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/AST_interpreter" title="Compiler/AST_interpreter">solutions</a>.
 
 ;Test program, assuming this is in a file called prime.t:  lex <prime.t | parse
 
@@ -638,7 +638,7 @@ String        "\n"
 
 ; Additional examples
 
-Your solution should pass all the test cases above and the additional tests found '''[[Compiler/Sample_programs|Here]]'''.
+Your solution should pass all the test cases above and the additional tests found <span class="rosetta__text--bold"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/Sample_programs" title="Compiler/Sample_programs">Here</a></span>.
 
 {{task heading|Reference}}
 
@@ -646,10 +646,10 @@ The C and Python versions can be considered reference implementations.
 
 ;Related Tasks
 
-* [[Compiler/lexical_analyzer|Lexical Analyzer task]]
-* [[Compiler/code_generator|Code Generator task]]
-* [[Compiler/virtual_machine_interpreter|Virtual Machine Interpreter task]]
-* [[Compiler/AST_interpreter|AST Interpreter task]]
+* <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/lexical_analyzer" title="Compiler/lexical_analyzer">Lexical Analyzer task</a>
+* <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/code_generator" title="Compiler/code_generator">Code Generator task</a>
+* <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/virtual_machine_interpreter" title="Compiler/virtual_machine_interpreter">Virtual Machine Interpreter task</a>
+* <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/AST_interpreter" title="Compiler/AST_interpreter">AST Interpreter task</a>
 
 <hr>
 __TOC__

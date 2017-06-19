@@ -1,6 +1,6 @@
 Call a function
 
-{{task}}[[Category:Functions and subroutines]] 
+{{task}}<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category:Functions and subroutines]] 
 [[Category:Simple]]
 
 ;Task:
@@ -10,19 +10,29 @@ Demonstrate the different syntax and semantics provided for calling a function.
 This may include:
 :* &nbsp; Calling a function that requires no arguments
 :* &nbsp; Calling a function with a fixed number of arguments
-:* &nbsp; Calling a function with [[Optional parameters|optional arguments]]
-:* &nbsp; Calling a function with a [[Variadic function|variable number of arguments]]
-:* &nbsp; Calling a function with [[Named parameters|named arguments]]
+:* &nbsp; Calling a function with [[Optional parameters" title="Category:Functions and subroutines]] 
+[[Category:Simple]]
+
+;Task:
+Demonstrate the different syntax and semantics provided for calling a function. 
+
+
+This may include:
+:* &nbsp; Calling a function that requires no arguments
+:* &nbsp; Calling a function with a fixed number of arguments
+:* &nbsp; Calling a function with [[Optional parameters">optional arguments</a>
+:* &nbsp; Calling a function with a <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Variadic function" title="Variadic function">variable number of arguments</a>
+:* &nbsp; Calling a function with <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Named parameters" title="Named parameters">named arguments</a>
 :* &nbsp; Using a function in statement context
-:* &nbsp; Using a function in [[First-class functions|first-class context]] within an expression
+:* &nbsp; Using a function in <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/First-class functions" title="First-class functions">first-class context</a> within an expression
 :* &nbsp; Obtaining the return value of a function
 :* &nbsp; Distinguishing built-in functions and user-defined functions
 :* &nbsp; Distinguishing subroutines and functions
-;* &nbsp; Stating whether arguments are [[:Category:Parameter passing|passed]] by value or by reference
+;* &nbsp; Stating whether arguments are <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/:Category:Parameter passing" title=":Category:Parameter passing">passed</a> by value or by reference
 ;* &nbsp; Is partial application possible and how
 
 <br>
-This task is ''not'' about [[Function definition|defining functions]].
+This task is <span class="rosetta__text--italic">not</span> about <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Function definition" title="Function definition">defining functions</a>.
 <br><bR>
 
 

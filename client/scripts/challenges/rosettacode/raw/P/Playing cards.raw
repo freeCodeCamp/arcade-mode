@@ -4,7 +4,7 @@ Playing cards
 [[Category:Cards]]
 
 ;Task:
-Create a data structure and the associated methods to define and manipulate a deck of &nbsp; [[wp:Playing-cards#Anglo-American-French|playing cards]]. 
+Create a data structure and the associated methods to define and manipulate a deck of &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Playing-cards#Anglo-American-French" title="wp: Playing-cards#Anglo-American-French">playing cards</a>. 
 
 The deck should contain 52 unique cards. 
 

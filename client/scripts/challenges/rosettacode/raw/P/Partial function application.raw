@@ -2,7 +2,7 @@ Partial function application
 
 {{task|Programming language concepts}}
 
-[[wp:Partial application|Partial function application]] &nbsp; is the ability to take a function of many
+<a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Partial application" title="wp: Partial application">Partial function application</a> &nbsp; is the ability to take a function of many
 parameters and apply arguments to some of the parameters to create a new
 function that needs only the application of the remaining arguments to
 produce the equivalent of applying all arguments to the original function.
@@ -30,8 +30,8 @@ Note that in the partial application of a parameter, (in the above case param1),
 
 
 ;Notes
-* In partially applying the functions f1 or f2 to fs, there should be no ''explicit'' mention of any other parameters to fs, although introspection of fs within the partial applicator to find its parameters ''is'' allowed.
-* This task is more about ''how'' results are generated rather than just getting results.
+* In partially applying the functions f1 or f2 to fs, there should be no <span class="rosetta__text--italic">explicit</span> mention of any other parameters to fs, although introspection of fs within the partial applicator to find its parameters <span class="rosetta__text--italic">is</span> allowed.
+* This task is more about <span class="rosetta__text--italic">how</span> results are generated rather than just getting results.
 <br><br>
 
 

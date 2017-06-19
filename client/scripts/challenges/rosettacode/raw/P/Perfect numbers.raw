@@ -5,20 +5,28 @@ Perfect numbers
 Write a function which says whether a number is perfect.
 
 <br>
-[[wp:Perfect_numbers|A perfect number]] is a positive integer that is the sum of its proper positive divisors excluding the number itself. 
+<a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Perfect_numbers" title="wp: Perfect_numbers">A perfect number</a> is a positive integer that is the sum of its proper positive divisors excluding the number itself. 
 
 Equivalently, a perfect number is a number that is half the sum of all of its positive divisors (including itself).
 
 
-Note: &nbsp; The faster &nbsp; [[Lucas-Lehmer test]] &nbsp; is used to find primes of the form &nbsp; <big> 2<sup>''n''</sup>-1</big>, &nbsp; all ''known'' perfect numbers can be derived from these primes 
-using the formula &nbsp; <big> (2<sup>''n''</sup> - 1) × 2<sup>''n'' - 1</sup></big>. 
+Note: &nbsp; The faster &nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Lucas-Lehmer test]] &nbsp; is used to find primes of the form &nbsp; <big> 2<sup><span class="rosetta__text--italic">n</span></sup>-1</big>, &nbsp; all <span class="rosetta__text--italic">known</span> perfect numbers can be derived from these primes 
+using the formula &nbsp; <big> (2<sup><span class="rosetta__text--italic">n</span></sup> - 1) × 2<sup><span class="rosetta__text--italic">n</span> - 1</sup></big>. 
  
 It is not known if there are any odd perfect numbers (any that exist are larger than <big>10<sup>2000</sup></big>).
 
 
 ;See also:
 * [[Rational Arithmetic]]
-* [[oeis:A000396|Perfect numbers on OEIS]]
+* [[oeis:A000396" title="Lucas-Lehmer test]] &nbsp; is used to find primes of the form &nbsp; <big> 2<sup><span class="rosetta__text--italic">n</span></sup>-1</big>, &nbsp; all <span class="rosetta__text--italic">known</span> perfect numbers can be derived from these primes 
+using the formula &nbsp; <big> (2<sup><span class="rosetta__text--italic">n</span></sup> - 1) × 2<sup><span class="rosetta__text--italic">n</span> - 1</sup></big>. 
+ 
+It is not known if there are any odd perfect numbers (any that exist are larger than <big>10<sup>2000</sup></big>).
+
+
+;See also:
+* [[Rational Arithmetic]]
+* [[oeis:A000396">Perfect numbers on OEIS</a>
 * [http://www.oddperfect.org/ Odd Perfect] showing the current status of bounds on odd perfect numbers.
 <br><br>
 

@@ -24,7 +24,7 @@ Test your code using the input string “<code>a!===b=!=c</code>” and the sepa
 For these inputs the string should be parsed as <code>"a" (!=) "" (==) "b" (=) "" (!=) "c"</code>, where matched delimiters are shown in parentheses, and separated strings are quoted, so our resulting output is <code>"a", empty string, "b", empty string, "c"</code>. 
 Note that the quotation marks are shown for clarity and do not form part of the output.
 
-'''Extra Credit:''' provide information that indicates which separator was matched at each separation point and where in the input string that separator was matched.
+<span class="rosetta__text--bold">Extra Credit:</span> provide information that indicates which separator was matched at each separation point and where in the input string that separator was matched.
 
 
 =={{header|JavaScript}}==

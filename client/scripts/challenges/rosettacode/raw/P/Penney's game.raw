@@ -2,24 +2,24 @@ Penney's game
 
 {{task|Games}}
 
-[[wp:Penney's_game|Penney's game]] is a game where two players bet on being the first to see a particular sequence of [[wp:Coin_flipping|heads or tails]] in consecutive tosses of a [[wp:Fair_coin|fair coin]].
+<a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Penney's_game" title="wp: Penney's_game">Penney's game]] is a game where two players bet on being the first to see a particular sequence of [[wp:Coin_flipping|heads or tails]] in consecutive tosses of a [[wp:Fair_coin|fair coin</a>.
 
 It is common to agree on a sequence length of three then one player will openly choose a sequence, for example:
-  Heads,  Tails,  Heads, or '''HTH''' for short.
+  Heads,  Tails,  Heads, or <span class="rosetta__text--bold">HTH</span> for short.
 The other player on seeing the first players choice will choose his sequence. The coin is tossed and the first player to see his sequence in the sequence of coin tosses wins.
 
 
 ;Example:
-One player might choose the sequence '''HHT''' and the other '''THT'''. 
+One player might choose the sequence <span class="rosetta__text--bold">HHT</span> and the other <span class="rosetta__text--bold">THT</span>. 
 
-Successive coin tosses of '''HTTHT''' gives the win to the second player as the last three coin tosses are his sequence.
+Successive coin tosses of <span class="rosetta__text--bold">HTTHT</span> gives the win to the second player as the last three coin tosses are his sequence.
 
 
 ;Task
 Create a program that tosses the coin, keeps score and plays Penney's game against a human opponent.
 * Who chooses and shows their sequence of three should be chosen randomly.
 * If going first, the computer should randomly choose its sequence of three.
-* If going second, the computer should automatically play [[wp:Penney's_game#Analysis_of_the_three-bit_game|the optimum sequence]].
+* If going second, the computer should automatically play <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Penney's_game#Analysis_of_the_three-bit_game" title="wp: Penney's_game#Analysis_of_the_three-bit_game">the optimum sequence</a>.
 * Successive coin tosses should be shown.
 
 <br>

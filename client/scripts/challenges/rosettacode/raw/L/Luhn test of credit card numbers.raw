@@ -3,7 +3,7 @@ Luhn test of credit card numbers
 {{task|Checksums}}
 {{omit from|GUISS}}
 
-The [[wp:Luhn algorithm|Luhn test]] is used by some credit card companies to distinguish valid credit card numbers from what could be a random selection of digits.
+The <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Luhn algorithm" title="wp: Luhn algorithm">Luhn test</a> is used by some credit card companies to distinguish valid credit card numbers from what could be a random selection of digits.
 
 Those companies using credit card numbers that can be validated by the Luhn test have numbers that pass the following test:
 #  Reverse the order of the digits in the number.
@@ -41,8 +41,8 @@ Write a function/method/procedure/subroutine that will validate a number with th
 
 <br>
 ;Related tasks:
-* &nbsp; [[SEDOLs|SEDOL]]
-* &nbsp; [[Calculate International Securities Identification Number|ISIN]]
+* &nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/SEDOLs" title="SEDOLs">SEDOL</a>
+* &nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Calculate International Securities Identification Number" title="Calculate International Securities Identification Number">ISIN</a>
 <br><br>
 
 

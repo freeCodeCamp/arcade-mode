@@ -2,31 +2,31 @@ Heronian triangles
 
 {{task}}
 
-[[wp:Heron's formula|Hero's formula]] for the area of a triangle given the length of its three sides &nbsp; <big> ''a'',</big> &nbsp; <big>''b'',</big> &nbsp; and &nbsp; <big>''c''</big> &nbsp; is given by:
+<a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Heron's formula" title="wp: Heron's formula">Hero's formula</a> for the area of a triangle given the length of its three sides &nbsp; <big> <span class="rosetta__text--italic">a</span>,</big> &nbsp; <big><span class="rosetta__text--italic">b</span>,</big> &nbsp; and &nbsp; <big><span class="rosetta__text--italic">c</span></big> &nbsp; is given by:
 
-:::: <big><math>A = \sqrt{s(s-a)(s-b)(s-c)},</math></big>
+:::: <big>$A = \sqrt{s(s-a)(s-b)(s-c)},$</big>
 
-where &nbsp; <big>''s''</big> &nbsp; is half the perimeter of the triangle; that is,
+where &nbsp; <big><span class="rosetta__text--italic">s</span></big> &nbsp; is half the perimeter of the triangle; that is,
 
-:::: <big><math>s=\frac{a+b+c}{2}.</math></big>
-
-<br>
-'''[http://www.had2know.com/academics/heronian-triangles-generator-calculator.html Heronian triangles]'''
-are triangles whose sides ''and area'' are all integers.
-: An example is the triangle with sides &nbsp; '''3, 4, 5''' &nbsp; whose area is &nbsp; '''6''' &nbsp; (and whose perimeter is &nbsp; '''12'''). 
+:::: <big>$s=\frac{a+b+c}{2}.$</big>
 
 <br>
-Note that any triangle whose sides are all an integer multiple of &nbsp; '''3, 4, 5'''; &nbsp; such as &nbsp; '''6, 8, 10,''' &nbsp; will also be a Heronian triangle.
+<span class="rosetta__text--bold">[http://www.had2know.com/academics/heronian-triangles-generator-calculator.html Heronian triangles]</span>
+are triangles whose sides <span class="rosetta__text--italic">and area</span> are all integers.
+: An example is the triangle with sides &nbsp; <span class="rosetta__text--bold">3, 4, 5</span> &nbsp; whose area is &nbsp; <span class="rosetta__text--bold">6</span> &nbsp; (and whose perimeter is &nbsp; <span class="rosetta__text--bold">12</span>). 
 
-Define a '''Primitive Heronian triangle''' as a Heronian triangle where the greatest common divisor 
-of all three sides is &nbsp; '''1''' &nbsp; (unity). 
+<br>
+Note that any triangle whose sides are all an integer multiple of &nbsp; <span class="rosetta__text--bold">3, 4, 5</span>; &nbsp; such as &nbsp; <span class="rosetta__text--bold">6, 8, 10,</span> &nbsp; will also be a Heronian triangle.
 
-This will exclude, for example, triangle &nbsp; '''6, 8, 10.'''
+Define a <span class="rosetta__text--bold">Primitive Heronian triangle</span> as a Heronian triangle where the greatest common divisor 
+of all three sides is &nbsp; <span class="rosetta__text--bold">1</span> &nbsp; (unity). 
+
+This will exclude, for example, triangle &nbsp; <span class="rosetta__text--bold">6, 8, 10.</span>
 
 
 ;Task:
 # Create a named function/method/procedure/... that implements Hero's formula.
-# Use the function to generate all the ''primitive'' Heronian triangles with sides <= 200.
+# Use the function to generate all the <span class="rosetta__text--italic">primitive</span> Heronian triangles with sides <= 200.
 # Show the count of how many triangles are found.
 # Order the triangles by first increasing area, then by increasing perimeter, then by increasing maximum side lengths
 # Show the first ten ordered triangles in a table of sides, perimeter, and area.
@@ -35,7 +35,7 @@ This will exclude, for example, triangle &nbsp; '''6, 8, 10.'''
 <br>
 Show all output here.
 
-<small>'''Note''': when generating triangles it may help to restrict</small> <math>a <= b <= c</math>
+<small><span class="rosetta__text--bold">Note</span>: when generating triangles it may help to restrict</small> $a <= b <= c$
 
 
 

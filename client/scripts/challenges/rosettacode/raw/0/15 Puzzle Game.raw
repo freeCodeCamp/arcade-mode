@@ -1,11 +1,11 @@
 15 Puzzle Game
 
 {{task}}
-[[File:15_puzzle.png|300px|thumb|right]]
+<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:15_puzzle.png" title="File:15_puzzle.png">300px|thumb|right</a>
 [[Category:Puzzles]]
 [[Category:Games]]
 ;Task:
-Implement the [[wp:15_puzzle|Fifteen Puzzle Game]].
+Implement the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/15_puzzle" title="wp: 15_puzzle">Fifteen Puzzle Game</a>.
 
 <br><br>
 

@@ -3,9 +3,9 @@ Zebra puzzle
 [[Category:Constraint Handling Rules]]
 [[Category:Puzzles]]
 {{task|Puzzles}} 
-[[File:zebra.png|550px||right]]
+<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:zebra.png" title="File:zebra.png">550px||right</a>
 
-The [[wp:Zebra puzzle|Zebra puzzle]], a.k.a. Einstein's Riddle, 
+The <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Zebra puzzle" title="wp: Zebra puzzle">Zebra puzzle</a>, a.k.a. Einstein's Riddle, 
 is a logic puzzle which is to be solved programmatically. <br>
 It has several variants, one of them this:
 

@@ -3,7 +3,7 @@ Top rank per group
 {{task}}
 
 ;Task:
-Find the top &nbsp; ''N'' &nbsp; salaries in each department, &nbsp; where &nbsp; ''N'' &nbsp; is provided as a parameter.
+Find the top &nbsp; <span class="rosetta__text--italic">N</span> &nbsp; salaries in each department, &nbsp; where &nbsp; <span class="rosetta__text--italic">N</span> &nbsp; is provided as a parameter.
 
 Use this data as a formatted internal data structure (adapt it to your language-native idioms, rather than parse at runtime), or identify your external data source:
 <pre>

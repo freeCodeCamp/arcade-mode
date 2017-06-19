@@ -1,11 +1,13 @@
 Bitmap/Read a PPM file
 
 {{task|Raster graphics operations}}
-[[Category:Input Output]]
+<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category:Input Output]]
 
-Using the data storage type defined [[Basic_bitmap_storage|on this page]] for raster images, read an image from a PPM file (binary P6 prefered).
-(Read [[wp:Netpbm_format|the definition of PPM file]] on Wikipedia.)
+Using the data storage type defined [[Basic_bitmap_storage" title="Category:Input Output]]
 
-'''Task''': Use [[write ppm file]] solution and [[grayscale image]] solution with this one in order to convert a color image to grayscale one.
+Using the data storage type defined [[Basic_bitmap_storage">on this page</a> for raster images, read an image from a PPM file (binary P6 prefered).
+(Read <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Netpbm_format" title="wp: Netpbm_format">the definition of PPM file</a> on Wikipedia.)
+
+<span class="rosetta__text--bold">Task</span>: Use [[write ppm file]] solution and [[grayscale image]] solution with this one in order to convert a color image to grayscale one.
 
 

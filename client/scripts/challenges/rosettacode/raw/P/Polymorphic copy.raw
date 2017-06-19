@@ -1,13 +1,13 @@
 Polymorphic copy
 
 {{task|Object oriented}}
-An object is [[polymorphism|polymorphic]] when its specific type may vary. 
-The types a specific value may take, is called ''class''.
+An object is <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/polymorphism" title="polymorphism">polymorphic</a> when its specific type may vary. 
+The types a specific value may take, is called <span class="rosetta__text--italic">class</span>.
 
 It is trivial to copy an object if its type is known:
 <lang c>int x;
 int y = x;</lang>
-Here x is not polymorphic, so y is declared of same type (''int'') as x. 
+Here x is not polymorphic, so y is declared of same type (<span class="rosetta__text--italic">int</span>) as x. 
 But if the specific type of x were unknown, then y could not be declared of any specific type.
 
 The task: let a polymorphic object contain an instance of some specific type S derived from a type T. 

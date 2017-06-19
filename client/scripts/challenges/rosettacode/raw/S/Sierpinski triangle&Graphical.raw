@@ -1,7 +1,7 @@
 Sierpinski triangle/Graphical
 
 {{task}}
-Produce a graphical representation of a [[wp:Sierpinski triangle|Sierpinski triangle]] of order N in any orientation.  
+Produce a graphical representation of a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Sierpinski triangle" title="wp: Sierpinski triangle">Sierpinski triangle</a> of order N in any orientation.  
 
 An example of Sierpinski's triangle (order = 8) looks like this: <br/><br/>
 [[File:Sierpinski_Triangle_Unicon.PNG]]

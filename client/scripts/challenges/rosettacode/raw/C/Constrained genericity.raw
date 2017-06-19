@@ -2,7 +2,7 @@ Constrained genericity
 
 {{task|Object oriented}} [[Category:Type System]]
 
-'''Constrained genericity''' or '''bounded quantification''' means 
+<span class="rosetta__text--bold">Constrained genericity</span> or <span class="rosetta__text--bold">bounded quantification</span> means 
 that a parametrized type or function (see [[parametric polymorphism]]) 
 can only be instantiated on types fulfilling some conditions, 
 even if those conditions are not used in that function.

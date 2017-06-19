@@ -9,7 +9,7 @@ Read a file line by line
 {{omit from|Unlambda|Does not know files.}}
 
 Read a file one line at a time, 
-as opposed to [[Read entire file|reading the entire file at once]].
+as opposed to <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Read entire file" title="Read entire file">reading the entire file at once</a>.
 
 
 ;Related tasks:

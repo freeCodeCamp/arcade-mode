@@ -2,7 +2,7 @@ Queue/Definition
 
 {{task|Data Structures}}
 {{Data structure}}
-[[File:Fifo.gif|frame|right|Illustration of FIFO behavior]]
+<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:Fifo.gif" title="File:Fifo.gif">frame|right|Illustration of FIFO behavior</a>
 
 ;Task:
 Implement a FIFO queue. 
@@ -11,8 +11,8 @@ Elements are added at one side and popped from the other in the order of inserti
 
 
 Operations:
-* &nbsp; push   &nbsp; (aka ''enqueue'') &nbsp; - add element
-* &nbsp; pop    &nbsp; &nbsp; (aka ''dequeue'') &nbsp; - pop first element
+* &nbsp; push   &nbsp; (aka <span class="rosetta__text--italic">enqueue</span>) &nbsp; - add element
+* &nbsp; pop    &nbsp; &nbsp; (aka <span class="rosetta__text--italic">dequeue</span>) &nbsp; - pop first element
 * &nbsp; empty  &nbsp; - return truth value when empty
 
 

@@ -1,17 +1,17 @@
 Modular exponentiation
 
 {{task}}
-Find the last 40 decimal digits of <math>a^b</math>, where
+Find the last 40 decimal digits of $a^b$, where
 
-* <math>a = 2988348162058574136915891421498819466320163312926952423791023078876139</math>
-* <math>b = 2351399303373464486466122544523690094744975233415544072992656881240319</math>
+* $a = 2988348162058574136915891421498819466320163312926952423791023078876139$
+* $b = 2351399303373464486466122544523690094744975233415544072992656881240319$
 
 <br>
-A computer is too slow to find the entire value of <math>a^b</math>. 
+A computer is too slow to find the entire value of $a^b$. 
 
-Instead, the program must use a fast algorithm for [[wp:Modular exponentiation|modular exponentiation]]: <math>a^b \mod m</math>.
+Instead, the program must use a fast algorithm for <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Modular exponentiation" title="wp: Modular exponentiation">modular exponentiation</a>: $a^b \mod m$.
 
-The algorithm must work for any integers <math>a, b, m</math> <br>where <math>b \ge 0</math> and <math>m > 0</math>.
+The algorithm must work for any integers $a, b, m$ <br>where $b \ge 0$ and $m > 0$.
 <br><br>
 
 

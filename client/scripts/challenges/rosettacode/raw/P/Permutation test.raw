@@ -1,9 +1,9 @@
 Permutation test
 
 {{Clarified-review}}{{task|Probability and statistics}}
-A new medical treatment was tested on a population of <math>n + m</math>
+A new medical treatment was tested on a population of $n + m$
 volunteers, with each volunteer randomly assigned either to a group of
-<math>n</math> treatment subjects, or to a group of <math>m</math> control subjects.  
+$n$ treatment subjects, or to a group of $m$ control subjects.  
 
 Members of the treatment group were given the treatment, 
 and members of the control group were given a placebo. 
@@ -36,12 +36,12 @@ was measured and reported in this table.
 |      || 98
 |}
 Write a program that performs a
-[[wp:Permutation_test#Permutation_tests|permutation test]] to judge
+<a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Permutation_test#Permutation_tests" title="wp: Permutation_test#Permutation_tests">permutation test</a> to judge
 whether the treatment had a significantly stronger effect than the
 placebo. 
 
-* Do this by considering every possible alternative assignment from the same pool of volunteers to a treatment group of size <math>n</math> and a control group of size <math>m</math> (i.e., the same group sizes used in the actual experiment but with the group members chosen differently), while assuming that each volunteer's effect remains constant regardless.
-* Note that the number of alternatives will be the [[wp:Binomial_coefficient|binomial coefficient]] <math>\tbinom{n+m}{n}</math>.
+* Do this by considering every possible alternative assignment from the same pool of volunteers to a treatment group of size $n$ and a control group of size $m$ (i.e., the same group sizes used in the actual experiment but with the group members chosen differently), while assuming that each volunteer's effect remains constant regardless.
+* Note that the number of alternatives will be the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Binomial_coefficient" title="wp: Binomial_coefficient">binomial coefficient</a> $\tbinom{n+m}{n}$.
 * Compute the mean effect for each group and the difference in means between the groups in every case by subtracting the mean of the control group from the mean of the treatment group.
 * Report the percentage of alternative groupings for which the difference in means is less or equal to the actual experimentally observed difference in means, and the percentage for which it is greater.
 * Note that they should sum to 100%.

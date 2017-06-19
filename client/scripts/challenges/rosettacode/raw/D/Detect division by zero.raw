@@ -4,7 +4,7 @@ Detect division by zero
 [[Category:Simple]]
 
 ;Task:
-Write a function to detect a &nbsp; ''divide by zero error'' &nbsp; without checking if the denominator is zero.
+Write a function to detect a &nbsp; <span class="rosetta__text--italic">divide by zero error</span> &nbsp; without checking if the denominator is zero.
 <br><br>
 
 

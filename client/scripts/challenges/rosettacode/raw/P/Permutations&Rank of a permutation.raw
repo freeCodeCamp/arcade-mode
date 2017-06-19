@@ -2,7 +2,7 @@ Permutations/Rank of a permutation
 
 {{task}}
 A particular ranking of a permutation associates an integer with a particular ordering of all the permutations of a set of distinct items. 
-For our purposes the ranking will assign integers <math>0 .. (n! - 1)</math> to an ordering of all the permutations of the integers <math>0 .. (n - 1)</math>.
+For our purposes the ranking will assign integers $0 .. (n! - 1)$ to an ordering of all the permutations of the integers $0 .. (n - 1)$.
 
 For example, the permutations of the digits zero to 3 arranged lexicographically have the following rank:
 
@@ -34,7 +34,7 @@ For example, the permutations of the digits zero to 3 arranged lexicographically
 
 Algorithms exist that can generate a rank from a permutation for some particular ordering of permutations, and that can generate the same rank from the given individual permutation (i.e. given a rank of 17 produce (2, 3, 1, 0) in the example above).
 
-One use of such algorithms could be in generating a small, random, sample of permutations of <math>n</math> items without duplicates when the total number of permutations is large. Remember that the total number of permutations of <math>n</math> items is given by <math>n!</math> which grows large very quickly: A 32 bit integer can only hold <math>12!</math>, a 64 bit integer only <math>20!</math>. It becomes difficult to take the straight-forward approach of generating all permutations then taking a random sample of them.
+One use of such algorithms could be in generating a small, random, sample of permutations of $n$ items without duplicates when the total number of permutations is large. Remember that the total number of permutations of $n$ items is given by $n!$ which grows large very quickly: A 32 bit integer can only hold $12!$, a 64 bit integer only $20!$. It becomes difficult to take the straight-forward approach of generating all permutations then taking a random sample of them.
 
 A [http://stackoverflow.com/questions/12884428/generate-sample-of-1-000-000-random-permutations question on the Stack Overflow site] asked how to generate one million random and indivudual permutations of 144 items.
 
@@ -42,7 +42,7 @@ A [http://stackoverflow.com/questions/12884428/generate-sample-of-1-000-000-rand
 ;Task:
 # Create a function to generate a permutation from a rank.
 # Create the inverse function that given the permutation generates its rank.
-# Show that for <math>n=3</math> the two functions are indeed inverses of each other.
+# Show that for $n=3$ the two functions are indeed inverses of each other.
 # Compute and show here 4 random, individual, samples of permutations of 12 objects.
 
 

@@ -10,7 +10,7 @@ Print a small range of integers in some different bases, as supported by standar
 
 
 ;Note:
-This is distinct from [[Number base conversion]] as a user-defined conversion function is '''not''' asked for.)
+This is distinct from [[Number base conversion]] as a user-defined conversion function is <span class="rosetta__text--bold">not</span> asked for.)
 
 The reverse operation is [[Common number base parsing]].
 <br><br>

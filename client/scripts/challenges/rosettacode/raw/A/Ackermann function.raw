@@ -4,28 +4,28 @@ Ackermann function
 [[Category:Memoization]]
 [[Category:Classic CS problems and programs]]
 
-The '''[[wp:Ackermann function|Ackermann function]]''' is a classic example of a recursive function, notable especially because it is not a [[wp:Primitive_recursive_function|primitive recursive function]]. It grows very quickly in value, as does the size of its call tree. 
+The <span class="rosetta__text--bold"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Ackermann function" title="wp: Ackermann function">Ackermann function]]</span> is a classic example of a recursive function, notable especially because it is not a [[wp:Primitive_recursive_function|primitive recursive function</a>. It grows very quickly in value, as does the size of its call tree. 
 
 
 The Ackermann function is usually defined as follows:
 
 <big>
-:<math> A(m, n) =
+:$ A(m, n) =
  \begin{cases}
  n+1 & \mbox{if } m = 0 \\
  A(m-1, 1) & \mbox{if } m > 0 \mbox{ and } n = 0 \\
  A(m-1, A(m, n-1)) & \mbox{if } m > 0 \mbox{ and } n > 0.
  \end{cases}
-</math>
+$
 </big>
 
-<!-- <table><tr><td width=12><td><td><math>n+1</math><td>if <math>m=0</math> <tr><td> <td><math>A(m, n) =</math> <td><math>A(m-1, 1)</math> <td>if <math>m>0</math> and <math>n=0</math> <tr><td><td><td><math>A(m-1, A(m, n-1))</math>&nbsp;&nbsp;<td> if <math>m>0</math> and <math>n>0</math></table> -->
+<!-- <table><tr><td width=12><td><td>$n+1$<td>if $m=0$ <tr><td> <td>$A(m, n) =$ <td>$A(m-1, 1)$ <td>if $m>0$ and $n=0$ <tr><td><td><td>$A(m-1, A(m, n-1))$&nbsp;&nbsp;<td> if $m>0$ and $n>0$</table> -->
 
-Its arguments are never negative and it always terminates. Write a function which returns the value of <math>A(m, n)</math>. Arbitrary precision is preferred (since the function grows so quickly), but not required.
+Its arguments are never negative and it always terminates. Write a function which returns the value of $A(m, n)$. Arbitrary precision is preferred (since the function grows so quickly), but not required.
 
 
 ;See also:
-* [[wp:Conway_chained_arrow_notation#Ackermann_function|Conway chained arrow notation]] for the Ackermann function.
+* <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Conway_chained_arrow_notation#Ackermann_function" title="wp: Conway_chained_arrow_notation#Ackermann_function">Conway chained arrow notation</a> for the Ackermann function.
 <br><br>
 
 

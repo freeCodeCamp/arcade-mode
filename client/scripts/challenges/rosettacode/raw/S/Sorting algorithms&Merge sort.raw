@@ -4,15 +4,15 @@ Sorting algorithms/Merge sort
 {{Sorting Algorithm}}
 [[Category:Recursion]]
 
-The &nbsp; '''merge sort''' &nbsp; is a recursive sort of order &nbsp; <big> n*log(n). </big>
+The &nbsp; <span class="rosetta__text--bold">merge sort</span> &nbsp; is a recursive sort of order &nbsp; <big> n*log(n). </big>
 
-It is notable for having a worst case and average complexity of &nbsp; <big> ''O(n*log(n))'', </big> &nbsp; and a best case complexity of &nbsp; <big> ''O(n)'' &nbsp; </big> (for pre-sorted input). 
+It is notable for having a worst case and average complexity of &nbsp; <big> <span class="rosetta__text--italic">O(n*log(n))</span>, </big> &nbsp; and a best case complexity of &nbsp; <big> <span class="rosetta__text--italic">O(n)</span> &nbsp; </big> (for pre-sorted input). 
 
 The basic idea is to split the collection into smaller groups by halving it until the groups only have one element or no elements &nbsp; (which are both entirely sorted groups). 
 
 Then merge the groups back together so that their elements are in order.
  
-This is how the algorithm gets its &nbsp; ''divide and conquer'' &nbsp; description.
+This is how the algorithm gets its &nbsp; <span class="rosetta__text--italic">divide and conquer</span> &nbsp; description.
 
 
 ;Task:
@@ -24,45 +24,45 @@ The merge sort algorithm comes in two parts:
     a merge function 
 
 The functions in pseudocode look like this:
- '''function''' ''mergesort''(m)
-    '''var''' list left, right, result
-    '''if''' length(m) ≤ 1
-        '''return''' m
-    '''else'''
-        '''var''' middle = length(m) / 2
-        '''for each''' x '''in''' m '''up to''' middle - 1
-            '''add''' x '''to''' left
-        '''for each''' x '''in''' m '''at and after''' middle
-            '''add''' x '''to''' right
+ <span class="rosetta__text--bold">function</span> <span class="rosetta__text--italic">mergesort</span>(m)
+    <span class="rosetta__text--bold">var</span> list left, right, result
+    <span class="rosetta__text--bold">if</span> length(m) ≤ 1
+        <span class="rosetta__text--bold">return</span> m
+    <span class="rosetta__text--bold">else</span>
+        <span class="rosetta__text--bold">var</span> middle = length(m) / 2
+        <span class="rosetta__text--bold">for each</span> x <span class="rosetta__text--bold">in</span> m <span class="rosetta__text--bold">up to</span> middle - 1
+            <span class="rosetta__text--bold">add</span> x <span class="rosetta__text--bold">to</span> left
+        <span class="rosetta__text--bold">for each</span> x <span class="rosetta__text--bold">in</span> m <span class="rosetta__text--bold">at and after</span> middle
+            <span class="rosetta__text--bold">add</span> x <span class="rosetta__text--bold">to</span> right
         left = mergesort(left)
         right = mergesort(right)
-        '''if''' last(left) ≤ first(right) 
-           '''append''' right '''to''' left
-           '''return''' left
+        <span class="rosetta__text--bold">if</span> last(left) ≤ first(right) 
+           <span class="rosetta__text--bold">append</span> right <span class="rosetta__text--bold">to</span> left
+           <span class="rosetta__text--bold">return</span> left
         result = merge(left, right)
-        '''return''' result
+        <span class="rosetta__text--bold">return</span> result
  
- '''function''' ''merge''(left,right)
-    '''var''' list result
-    '''while''' length(left) > 0 and length(right) > 0
-        '''if''' first(left) ≤ first(right)
-            '''append''' first(left) '''to''' result
+ <span class="rosetta__text--bold">function</span> <span class="rosetta__text--italic">merge</span>(left,right)
+    <span class="rosetta__text--bold">var</span> list result
+    <span class="rosetta__text--bold">while</span> length(left) > 0 and length(right) > 0
+        <span class="rosetta__text--bold">if</span> first(left) ≤ first(right)
+            <span class="rosetta__text--bold">append</span> first(left) <span class="rosetta__text--bold">to</span> result
             left = rest(left)
-        '''else'''
-            '''append''' first(right) '''to''' result
+        <span class="rosetta__text--bold">else</span>
+            <span class="rosetta__text--bold">append</span> first(right) <span class="rosetta__text--bold">to</span> result
             right = rest(right)
-    '''if''' length(left) > 0 
-        '''append''' rest(left) '''to''' result
-    '''if''' length(right) > 0 
-        '''append''' rest(right) '''to''' result
-    '''return''' result
+    <span class="rosetta__text--bold">if</span> length(left) > 0 
+        <span class="rosetta__text--bold">append</span> rest(left) <span class="rosetta__text--bold">to</span> result
+    <span class="rosetta__text--bold">if</span> length(right) > 0 
+        <span class="rosetta__text--bold">append</span> rest(right) <span class="rosetta__text--bold">to</span> result
+    <span class="rosetta__text--bold">return</span> result
 
 
 ;See also:
-* &nbsp; the Wikipedia entry: &nbsp; [[wp:Merge_sort| merge sort]]
+* &nbsp; the Wikipedia entry: &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Merge_sort" title="wp: Merge_sort"> merge sort</a>
 
 
-Note: &nbsp; better performance can be expected if, rather than recursing until &nbsp; <big> length(m) ≤ 1, </big> &nbsp; an insertion sort is used for &nbsp; <big> length(m) </big> &nbsp; smaller than some threshold larger than &nbsp; '''1'''. &nbsp; However, this complicates the example code, so it is not shown here.
+Note: &nbsp; better performance can be expected if, rather than recursing until &nbsp; <big> length(m) ≤ 1, </big> &nbsp; an insertion sort is used for &nbsp; <big> length(m) </big> &nbsp; smaller than some threshold larger than &nbsp; <span class="rosetta__text--bold">1</span>. &nbsp; However, this complicates the example code, so it is not shown here.
 <br><br>
 
 

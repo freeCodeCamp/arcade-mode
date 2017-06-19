@@ -2,11 +2,11 @@ Grayscale image
 
 {{task|Image processing}}
 
-Many image processing algorithms are defined for [[wp:Grayscale|grayscale]] (or else monochromatic) images. 
+Many image processing algorithms are defined for <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Grayscale" title="wp: Grayscale">grayscale</a> (or else monochromatic) images. 
 
 
 ;Task:
-Extend the data storage type defined [[Basic_bitmap_storage|on this page]] to support grayscale images. 
+Extend the data storage type defined <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Basic_bitmap_storage" title="Basic_bitmap_storage">on this page</a> to support grayscale images. 
 
 Define two operations, one to convert a color image to a grayscale image and one for the backward conversion. 
 

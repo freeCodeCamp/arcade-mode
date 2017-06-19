@@ -5,7 +5,7 @@ Caesar cipher
 
 
 ;Task:
-Implement a [[wp:Caesar cipher|Caesar cipher]], both encoding and decoding. <br>
+Implement a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Caesar cipher" title="wp: Caesar cipher">Caesar cipher</a>, both encoding and decoding. <br>
 The key is an integer from 1 to 25. 
 
 This cipher rotates (either towards left or right) the letters of the alphabet (A to Z). 

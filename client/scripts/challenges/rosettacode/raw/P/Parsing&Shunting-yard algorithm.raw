@@ -3,7 +3,7 @@ Parsing/Shunting-yard algorithm
 {{task}}
 
 ;Task:
-Given the operator characteristics and input from the [[wp:Shunting-yard_algorithm|Shunting-yard algorithm]] page and tables, use the algorithm to show the changes in the operator stack and RPN output
+Given the operator characteristics and input from the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Shunting-yard_algorithm" title="wp: Shunting-yard_algorithm">Shunting-yard algorithm</a> page and tables, use the algorithm to show the changes in the operator stack and RPN output
 as each individual token is processed.
 
 * Assume an input of a correct, space separated, string of tokens representing an infix expression
@@ -14,7 +14,7 @@ as each individual token is processed.
 * Operator precedence is given in this table:
 :{| class="wikitable"
 
-! operator !! [[wp:Order_of_operations|precedence]] !! [[wp:Operator_associativity|associativity]] !! operation
+! operator !! <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Order_of_operations" title="wp: Order_of_operations">precedence]] !! [[wp:Operator_associativity|associativity</a> !! operation
 |- || align="center"
 |                    <big><big> ^ </big></big>  ||  4  ||  right  ||  exponentiation 
 |- || align="center" 

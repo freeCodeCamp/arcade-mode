@@ -15,7 +15,7 @@ given its width and height, and provide 3 additional functions:
 
 (If there are specificities about the storage or the allocation, explain those.)
 
-''These functions are used as a base for the articles in the category [[Raster_graphics_operations|raster graphics operations]], 
+''These functions are used as a base for the articles in the category <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Raster_graphics_operations" title="Raster_graphics_operations">raster graphics operations</a>, 
 and a basic output function to check the results 
 is available in the article [[write ppm file]].''
 

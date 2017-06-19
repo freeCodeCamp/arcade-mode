@@ -4,7 +4,7 @@ Loops/For
 [[Category:Simple]]
 {{omit from|GUISS}}
 
-“'''For'''” &nbsp; loops are used to make some block of code be iterated a number of times, setting a variable or parameter to a monotonically increasing integer value for each execution of the block of code. 
+“<span class="rosetta__text--bold">For</span>” &nbsp; loops are used to make some block of code be iterated a number of times, setting a variable or parameter to a monotonically increasing integer value for each execution of the block of code. 
 
 Common extensions of this allow other counting patterns or iterating over abstract structures other than the integers.
 
@@ -21,7 +21,7 @@ Specifically print out the following pattern by using one for loop nested in ano
 
 
 ;Reference:
-* [[wp:For loop|For loop]] Wikipedia.
+* <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/For loop" title="wp: For loop">For loop</a> Wikipedia.
 <br><br>
 
 

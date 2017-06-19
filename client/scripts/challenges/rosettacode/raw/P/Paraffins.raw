@@ -1,28 +1,28 @@
 Paraffins
 
 {{task}}
-[[File:Paraffins.isopentane.png|450px||right]]
+<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:Paraffins.isopentane.png" title="File:Paraffins.isopentane.png">450px||right</a>
 
 This organic chemistry task is essentially to implement a tree enumeration algorithm.
 
 
 ;Task:
-Enumerate, without repetitions and in order of increasing size, all possible paraffin molecules (also known as [[wp:alkane|alkane]]s). 
+Enumerate, without repetitions and in order of increasing size, all possible paraffin molecules (also known as <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/alkane" title="wp: alkane">alkane</a>s). 
 
 
 Paraffins are built up using only carbon atoms, which has four bonds, and hydrogen, which has one bond. All bonds for each atom must be used, so it is easiest to think of an alkane as linked carbon atoms forming the "backbone" structure, with adding hydrogen atoms linking the remaining unused bonds.
 
-In a paraffin, one is allowed neither double bonds (two bonds between the same pair of atoms), nor cycles of linked carbons. So all paraffins with &nbsp; '''n''' &nbsp; carbon atoms share the empirical formula &nbsp; <big>C<sub>n</sub>H<sub>2n+2</sub></big>
+In a paraffin, one is allowed neither double bonds (two bonds between the same pair of atoms), nor cycles of linked carbons. So all paraffins with &nbsp; <span class="rosetta__text--bold">n</span> &nbsp; carbon atoms share the empirical formula &nbsp; <big>C<sub>n</sub>H<sub>2n+2</sub></big>
 
-But for all &nbsp; '''n''' ≥ 4 &nbsp; there are several distinct molecules ("isomers") with the same formula but different structures. 
+But for all &nbsp; <span class="rosetta__text--bold">n</span> ≥ 4 &nbsp; there are several distinct molecules ("isomers") with the same formula but different structures. 
 
-The number of isomers rises rather rapidly when &nbsp; '''n''' &nbsp; increases. 
+The number of isomers rises rather rapidly when &nbsp; <span class="rosetta__text--bold">n</span> &nbsp; increases. 
 
 In counting isomers it should be borne in mind that the four bond positions on a given carbon atom can be freely interchanged and bonds rotated (including 3-D "out of the paper" rotations when it's being observed on a flat diagram), so rotations or re-orientations of parts of the molecule (without breaking bonds) do not give different isomers. So what seem at first to be different molecules may in fact turn out to be different orientations of the same molecule.
 
 
 ;Example:
-With &nbsp; '''n''' = 3 &nbsp; there is only one way of linking the carbons despite the different orientations the molecule can be drawn; &nbsp; and with &nbsp; '''n''' = 4 &nbsp; there are two configurations: 
+With &nbsp; <span class="rosetta__text--bold">n</span> = 3 &nbsp; there is only one way of linking the carbons despite the different orientations the molecule can be drawn; &nbsp; and with &nbsp; <span class="rosetta__text--bold">n</span> = 4 &nbsp; there are two configurations: 
 :::* a &nbsp; straight chain: &nbsp; &nbsp; <big>(CH<sub>3</sub>)(CH<sub>2</sub>)(CH<sub>2</sub>)(CH<sub>3</sub>)</big>   
 :::* a        branched chain: &nbsp; &nbsp; <big>(CH<sub>3</sub>)(CH(CH<sub>3</sub>))(CH<sub>3</sub>)</big>
 
@@ -31,11 +31,11 @@ Due to bond rotations, it doesn't matter which direction the branch points in.
 
 The phenomenon of "stereo-isomerism" (a molecule being different from its mirror image due to the actual 3-D arrangement of bonds) is ignored for the purpose of this task.
 
-The input is the number &nbsp; '''n''' &nbsp; of carbon atoms of a molecule (for instance '''17'''). 
+The input is the number &nbsp; <span class="rosetta__text--bold">n</span> &nbsp; of carbon atoms of a molecule (for instance <span class="rosetta__text--bold">17</span>). 
 
-The output is how many different different paraffins there are with &nbsp; '''n''' &nbsp; carbon atoms  (for instance &nbsp; 24,894 &nbsp; if &nbsp; '''n''' = 17).
+The output is how many different different paraffins there are with &nbsp; <span class="rosetta__text--bold">n</span> &nbsp; carbon atoms  (for instance &nbsp; 24,894 &nbsp; if &nbsp; <span class="rosetta__text--bold">n</span> = 17).
 
-The sequence of those results is visible in the [[oeis:A000602|Sloane encyclopedia]]. The sequence is (the index starts from zero, and represents the number of carbon atoms):
+The sequence of those results is visible in the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/oeis:A000602" title="oeis:A000602">Sloane encyclopedia</a>. The sequence is (the index starts from zero, and represents the number of carbon atoms):
 
  1, 1, 1, 1, 2, 3, 5, 9, 18, 35, 75, 159, 355, 802, 1858, 4347, 10359,
  24894, 60523, 148284, 366319, 910726, 2278658, 5731580, 14490245,

@@ -2,29 +2,29 @@ Magic squares of odd order
 
 {{task}}
 
-A magic square is an &nbsp; <big>'''NxN'''</big> &nbsp; square matrix whose numbers (usually integers) consist of consecutive numbers arranged so that the sum of each row and column, &nbsp; ''and'' &nbsp; both long (main) diagonals are equal to the same sum (which is called the &nbsp; ''magic number'' &nbsp; or &nbsp; ''magic constant''). 
+A magic square is an &nbsp; <big><span class="rosetta__text--bold">NxN</span></big> &nbsp; square matrix whose numbers (usually integers) consist of consecutive numbers arranged so that the sum of each row and column, &nbsp; <span class="rosetta__text--italic">and</span> &nbsp; both long (main) diagonals are equal to the same sum (which is called the &nbsp; <span class="rosetta__text--italic">magic number</span> &nbsp; or &nbsp; <span class="rosetta__text--italic">magic constant</span>). 
 
-The numbers are usually (but not always) the first &nbsp; '''N'''<sup>2</sup> &nbsp; positive integers.
+The numbers are usually (but not always) the first &nbsp; <span class="rosetta__text--bold">N</span><sup>2</sup> &nbsp; positive integers.
 
-A magic square whose rows and columns add up to a magic number but whose main diagonals do not, is known as a ''semimagic square''.
+A magic square whose rows and columns add up to a magic number but whose main diagonals do not, is known as a <span class="rosetta__text--italic">semimagic square</span>.
 
 {| class="wikitable" style="float:right;border: 4px solid blue; background:lightgreen; color:black; margin-left:auto;margin-right:auto;text-align:center;width:15em;height:15em;table-layout:fixed;font-size:150%"
 |-
-| <big><big>'''8'''</big></big> || <big><big>'''1'''</big></big> || <big><big>'''6'''</big></big>
+| <big><big><span class="rosetta__text--bold">8</span></big></big> || <big><big><span class="rosetta__text--bold">1</span></big></big> || <big><big><span class="rosetta__text--bold">6</span></big></big>
 |-
-| <big><big>'''3'''</big></big> || <big><big>'''5'''</big></big> || <big><big>'''7'''</big></big>
+| <big><big><span class="rosetta__text--bold">3</span></big></big> || <big><big><span class="rosetta__text--bold">5</span></big></big> || <big><big><span class="rosetta__text--bold">7</span></big></big>
 |-
-| <big><big>'''4'''</big></big> || <big><big>'''9'''</big></big> || <big><big>'''2'''</big></big>
+| <big><big><span class="rosetta__text--bold">4</span></big></big> || <big><big><span class="rosetta__text--bold">9</span></big></big> || <big><big><span class="rosetta__text--bold">2</span></big></big>
 |}
 
 
 ;Task
 
-For any odd &nbsp; '''N''', &nbsp; [[wp:Magic square#Method_for_constructing_a_magic_square_of_odd_order|generate a magic square]] with the integers &nbsp; ''' 1''' ──► '''N''', &nbsp; and show the results here. 
+For any odd &nbsp; <span class="rosetta__text--bold">N</span>, &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Magic square#Method_for_constructing_a_magic_square_of_odd_order" title="wp: Magic square#Method_for_constructing_a_magic_square_of_odd_order">generate a magic square</a> with the integers &nbsp; <span class="rosetta__text--bold"> 1</span> ──► <span class="rosetta__text--bold">N</span>, &nbsp; and show the results here. 
 
-Optionally, show the ''magic number''.  
+Optionally, show the <span class="rosetta__text--italic">magic number</span>.  
 
-You should demonstrate the generator by showing at least a magic square for &nbsp; '''N''' = '''5'''.
+You should demonstrate the generator by showing at least a magic square for &nbsp; <span class="rosetta__text--bold">N</span> = <span class="rosetta__text--bold">5</span>.
 
 
 ; Related tasks

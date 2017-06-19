@@ -1,6 +1,6 @@
 Metered concurrency
 
 {{task|Concurrency}}{{requires|Concurrency}}
-The goal of this task is to create a [[wp:Counting semaphore|counting semaphore]] used to control the execution of a set of concurrent units. This task intends to demonstrate coordination of active concurrent units through the use of a passive concurrent unit. The operations for a counting semaphore are ''acquire'', ''release'', and ''count''. Each active concurrent unit should attempt to acquire the counting semaphore before executing its assigned duties. In this case the active concurrent unit should report that it has acquired the semaphore. It should sleep for 2 seconds and then release the semaphore.
+The goal of this task is to create a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Counting semaphore" title="wp: Counting semaphore">counting semaphore</a> used to control the execution of a set of concurrent units. This task intends to demonstrate coordination of active concurrent units through the use of a passive concurrent unit. The operations for a counting semaphore are <span class="rosetta__text--italic">acquire</span>, <span class="rosetta__text--italic">release</span>, and <span class="rosetta__text--italic">count</span>. Each active concurrent unit should attempt to acquire the counting semaphore before executing its assigned duties. In this case the active concurrent unit should report that it has acquired the semaphore. It should sleep for 2 seconds and then release the semaphore.
 
 

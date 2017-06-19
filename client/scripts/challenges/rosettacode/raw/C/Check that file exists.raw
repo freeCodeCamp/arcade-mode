@@ -3,7 +3,7 @@ Check that file exists
 {{task|File System Operations}} [[Category:Simple]]
 
 ;Task:
-Verify that a file called &nbsp; &nbsp; '''input.txt''' &nbsp; &nbsp; and &nbsp; a directory called &nbsp; &nbsp; '''docs''' &nbsp; &nbsp; exist.
+Verify that a file called &nbsp; &nbsp; <span class="rosetta__text--bold">input.txt</span> &nbsp; &nbsp; and &nbsp; a directory called &nbsp; &nbsp; <span class="rosetta__text--bold">docs</span> &nbsp; &nbsp; exist.
  
 
 This should be done twice: &nbsp; 
@@ -13,7 +13,7 @@ This should be done twice: &nbsp;
 <br>
 Optional criteria (May 2015): &nbsp; verify it works with:
 :::* &nbsp; zero-length files
-:::* &nbsp; an unusual filename: &nbsp; <big> ''' `Abdu'l-Bahá.txt ''' </big>
+:::* &nbsp; an unusual filename: &nbsp; <big> <span class="rosetta__text--bold"> `Abdu'l-Bahá.txt </span> </big>
 <br><br>
 
 

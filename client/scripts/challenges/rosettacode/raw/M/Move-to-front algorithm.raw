@@ -1,11 +1,11 @@
 Move-to-front algorithm
 
 {{task}}
-Given a symbol table of a ''zero-indexed'' array of all possible input symbols
-[[wp:Move-to-front transform|this algorithm]] reversibly transforms a sequence
+Given a symbol table of a <span class="rosetta__text--italic">zero-indexed</span> array of all possible input symbols
+<a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Move-to-front transform" title="wp: Move-to-front transform">this algorithm</a> reversibly transforms a sequence
 of input symbols into an array of output numbers (indices).<br>
 The transform in many cases acts to give frequently repeated input symbols
-lower indices which is [[wp:Move-to-front_transform#Use_in_practical_data_compression_algorithms| useful in some compression algorithms]].
+lower indices which is <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Move-to-front_transform#Use_in_practical_data_compression_algorithms" title="wp: Move-to-front_transform#Use_in_practical_data_compression_algorithms"> useful in some compression algorithms</a>.
 
 ;Encoding algorithm:
 <pre>
@@ -32,27 +32,27 @@ the characters 'a'-to-'z'
 ! Output
 ! SymbolTable
 |-
-| '''b'''roood
+| <span class="rosetta__text--bold">b</span>roood
 | 1
 | 'abcdefghijklmnopqrstuvwxyz'
 |-
-| b'''r'''oood
+| b<span class="rosetta__text--bold">r</span>oood
 | 1 17
 | 'bacdefghijklmnopqrstuvwxyz'
 |-
-| br'''o'''ood
+| br<span class="rosetta__text--bold">o</span>ood
 | 1 17 15
 | 'rbacdefghijklmnopqstuvwxyz'
 |-
-| bro'''o'''od
+| bro<span class="rosetta__text--bold">o</span>od
 | 1 17 15 0
 | 'orbacdefghijklmnpqstuvwxyz'
 |-
-| broo'''o'''d
+| broo<span class="rosetta__text--bold">o</span>d
 | 1 17 15 0 0
 | 'orbacdefghijklmnpqstuvwxyz'
 |-
-| brooo'''d'''
+| brooo<span class="rosetta__text--bold">d</span>
 | 1 17 15 0 0 5
 | 'orbacdefghijklmnpqstuvwxyz'
 |}
@@ -64,27 +64,27 @@ Decoding the indices back to the original symbol order:
 ! Output
 ! SymbolTable
 |-
-|  '''1''' 17 15 0 0 5
+|  <span class="rosetta__text--bold">1</span> 17 15 0 0 5
 | b
 | 'abcdefghijklmnopqrstuvwxyz'
 |-
-| 1 '''17''' 15 0 0 5
+| 1 <span class="rosetta__text--bold">17</span> 15 0 0 5
 | br
 | 'bacdefghijklmnopqrstuvwxyz'
 |-
-| 1 17 '''15''' 0 0 5
+| 1 17 <span class="rosetta__text--bold">15</span> 0 0 5
 | bro
 | 'rbacdefghijklmnopqstuvwxyz'
 |-
-| 1 17 15 '''0''' 0 5
+| 1 17 15 <span class="rosetta__text--bold">0</span> 0 5
 | broo
 | 'orbacdefghijklmnpqstuvwxyz'
 |-
-| 1 17 15 0 '''0''' 5
+| 1 17 15 0 <span class="rosetta__text--bold">0</span> 5
 | brooo
 | 'orbacdefghijklmnpqstuvwxyz'
 |-
-| 1 17 15 0 0 '''5''' 
+| 1 17 15 0 0 <span class="rosetta__text--bold">5</span> 
 | broood
 | 'orbacdefghijklmnpqstuvwxyz'
 |}

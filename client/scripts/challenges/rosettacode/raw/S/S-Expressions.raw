@@ -1,7 +1,7 @@
 S-Expressions
 
 {{task|Data Structures}}
-[[wp:S-Expression|S-Expressions]] &nbsp; are one convenient way to parse and store data.
+<a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/S-Expression" title="wp: S-Expression">S-Expressions</a> &nbsp; are one convenient way to parse and store data.
 
 
 ;Task:
@@ -24,7 +24,7 @@ Note that with the exception of “<tt>()"</tt>” (“<tt>\</tt>” if escaping
 The reader should be able to read the following input
 <lang lisp>((data "quoted data" 123 4.5)
  (data (!@# (4.5) "(more" "data)")))</lang>
-and turn it into a native datastructure. (see the [[#Pike|Pike]], [[#Python|Python]] and [[#Ruby|Ruby]] implementations for examples of native data structures.)
+and turn it into a native datastructure. (see the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/#Pike" title="#Pike">Pike</a>, <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/#Python" title="#Python">Python</a> and <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/#Ruby" title="#Ruby">Ruby</a> implementations for examples of native data structures.)
 
 The writer should be able to take the produced list and turn it into a new S-Expression.
 Strings that don't contain whitespace or parentheses () don't need to be quoted in the resulting S-Expression, but as a simplification, any string may be quoted.

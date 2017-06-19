@@ -21,12 +21,12 @@ Should produce the XML (but not necessarily with the indentation):
     <Character name="Emily">Short &amp; shrift</Character>
 </CharacterRemarks></lang>
 
-The document may include an <tt><?xml?></tt> declaration and document type declaration, but these are optional. If attempting this task by direct string manipulation, the implementation ''must'' include code to perform entity substitution for the characters that have entities defined in the XML 1.0 specification.
+The document may include an <tt><?xml?></tt> declaration and document type declaration, but these are optional. If attempting this task by direct string manipulation, the implementation <span class="rosetta__text--italic">must</span> include code to perform entity substitution for the characters that have entities defined in the XML 1.0 specification.
 
 Note: the example is chosen to show correct escaping of XML strings.
 Note too that although the task is written to take two lists of corresponding data, a single mapping/hash/dictionary of names to remarks is also acceptable.
 
-'''Note to editors:''' Program output with escaped characters will be viewed as the character on the page so you need to 'escape-the-escapes' to make the RC entry display what would be shown in a plain text viewer (See [[Talk:XML_Creation#Escaping_Escapes|this]]). 
+<span class="rosetta__text--bold">Note to editors:</span> Program output with escaped characters will be viewed as the character on the page so you need to 'escape-the-escapes' to make the RC entry display what would be shown in a plain text viewer (See <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Talk:XML_Creation#Escaping_Escapes" title="Talk:XML_Creation#Escaping_Escapes">this</a>). 
 Alternately, output can be placed in <nowiki><lang xml></lang></nowiki> tags without any special treatment.
 
 

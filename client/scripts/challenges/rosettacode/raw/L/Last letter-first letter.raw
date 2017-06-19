@@ -16,7 +16,7 @@ Child 2: snake
 
 
 ;Task:
-Take the following selection of 70 English Pokemon names &nbsp; (extracted from &nbsp; [[wp:List of Pokémon|Wikipedia's list of Pokemon]]) &nbsp; and generate the/a sequence with the highest possible number of Pokemon names where the subsequent name starts with the final letter of the preceding name. 
+Take the following selection of 70 English Pokemon names &nbsp; (extracted from &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/List of Pokémon" title="wp: List of Pokémon">Wikipedia's list of Pokemon</a>) &nbsp; and generate the/a sequence with the highest possible number of Pokemon names where the subsequent name starts with the final letter of the preceding name. 
 
 No Pokemon name is to be repeated.
 

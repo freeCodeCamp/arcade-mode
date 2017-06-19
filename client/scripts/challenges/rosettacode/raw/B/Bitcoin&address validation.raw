@@ -1,12 +1,12 @@
 Bitcoin/address validation
 
-{{alertbox|#ffff70|'''<big>Warning:</big>''' Many of these snippets are [[{{TALKPAGENAME}}#C-based_code_.28and_possibly_others.29_improperly_validates|incomplete]]. It is recommended that you use an established [https://en.bitcoin.it/wiki/Software#Libraries library] for any projects that are likely to see external use}}
+{{alertbox|#ffff70|<span class="rosetta__text--bold"><big>Warning:</big></span> Many of these snippets are <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/{{TALKPAGENAME}}#C-based_code_.28and_possibly_others.29_improperly_validates" title="{{TALKPAGENAME}}#C-based_code_.28and_possibly_others.29_improperly_validates">incomplete</a>. It is recommended that you use an established [https://en.bitcoin.it/wiki/Software#Libraries library] for any projects that are likely to see external use}}
 {{task}}
 [[Category:Checksums]]
 {{omit from|Brlcad}}
 {{omit from|GUISS}}
 
-Write a program that takes a [[wp:bitcoin|bitcoin address]] as argument, 
+Write a program that takes a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/bitcoin" title="wp: bitcoin">bitcoin address</a> as argument, 
 and checks whether or not this address is valid.
 
 A bitcoin address uses a base58 encoding, which uses an alphabet of the characters 0 .. 9, A ..Z, a .. z, but without the four characters 0, O, I and l.

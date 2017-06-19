@@ -1,21 +1,21 @@
 Aliquot sequence classifications
 
 {{task}}
-An [[wp:Aliquot sequence|aliquot sequence]] of a positive integer K is defined recursively as the first member
+An <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Aliquot sequence" title="wp: Aliquot sequence">aliquot sequence</a> of a positive integer K is defined recursively as the first member
 being K and subsequent members being the sum of the [[Proper divisors]] of the previous term.
 
-:* If the terms eventually reach 0 then the series for K is said to '''terminate'''.
+:* If the terms eventually reach 0 then the series for K is said to <span class="rosetta__text--bold">terminate</span>.
 
 :<br>There are several classifications for non termination:
-:* If the second term is K then all future terms are also K and so the sequence repeats from the first term with period 1 and K is called '''perfect'''.
-:* If the third term ''would'' be repeating K then the sequence repeats with period 2 and K is called '''amicable'''.
-:* If the N'th term ''would'' be repeating K for the first time, with N > 3 then the sequence repeats with period N - 1 and K is called '''sociable'''.
+:* If the second term is K then all future terms are also K and so the sequence repeats from the first term with period 1 and K is called <span class="rosetta__text--bold">perfect</span>.
+:* If the third term <span class="rosetta__text--italic">would</span> be repeating K then the sequence repeats with period 2 and K is called <span class="rosetta__text--bold">amicable</span>.
+:* If the N'th term <span class="rosetta__text--italic">would</span> be repeating K for the first time, with N > 3 then the sequence repeats with period N - 1 and K is called <span class="rosetta__text--bold">sociable</span>.
 :<br>Perfect, amicable and sociable numbers eventually repeat the original number K; there are other repetitions...
-:* Some K have a sequence that eventually forms a periodic repetition of period 1 but of a number other than K, for example 95 which forms the sequence <code>95, 25, 6, 6, 6, ...</code> such K are called '''aspiring'''.
-:* K that have a sequence that eventually forms a periodic repetition of period >= 2 but of a number other than K, for example 562 which forms the sequence <code>562, 284, 220, 284, 220, ...</code> such K are called '''cyclic'''.
+:* Some K have a sequence that eventually forms a periodic repetition of period 1 but of a number other than K, for example 95 which forms the sequence <code>95, 25, 6, 6, 6, ...</code> such K are called <span class="rosetta__text--bold">aspiring</span>.
+:* K that have a sequence that eventually forms a periodic repetition of period >= 2 but of a number other than K, for example 562 which forms the sequence <code>562, 284, 220, 284, 220, ...</code> such K are called <span class="rosetta__text--bold">cyclic</span>.
 
 :<br>And finally:
-:* Some K form aliquot sequences that are not known to be either terminating or periodic. these K are to be called '''non-terminating'''. <br>For the purposes of this task, K is to be classed as non-terminating if it has not been otherwise classed after generating '''16''' terms or if any term of the sequence is greater than 2**47 = 140737488355328. 
+:* Some K form aliquot sequences that are not known to be either terminating or periodic. these K are to be called <span class="rosetta__text--bold">non-terminating</span>. <br>For the purposes of this task, K is to be classed as non-terminating if it has not been otherwise classed after generating <span class="rosetta__text--bold">16</span> terms or if any term of the sequence is greater than 2**47 = 140737488355328. 
 
 
 ;Task:

@@ -6,7 +6,7 @@ Dynamic variable names
 ;Task:
 Create a variable with a user-defined name. 
 
-The variable name should ''not'' be written in the program text, but should be taken from the user dynamically.
+The variable name should <span class="rosetta__text--italic">not</span> be written in the program text, but should be taken from the user dynamically.
 
 
 ;See also

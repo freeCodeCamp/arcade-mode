@@ -3,12 +3,12 @@ Compiler/AST interpreter
 {{task}}AST interpreter
 
 An AST interpreter interprets an [https://en.wikipedia.org/wiki/Abstract_syntax_tree Abstract Syntax Tree (AST)]
-produced by a [[Compiler/syntax_analyzer|Syntax Analyzer]].
+produced by a <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/syntax_analyzer" title="Compiler/syntax_analyzer">Syntax Analyzer</a>.
 
 {{task heading}}
 
-Take the AST output from the Syntax analyzer [[Compiler/syntax_analyzer|task]], and interpret it as appropriate.
-Refer to the [[Compiler/syntax_analyzer|Syntax analyzer task]] for details of the AST.
+Take the AST output from the Syntax analyzer <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/syntax_analyzer" title="Compiler/syntax_analyzer">task</a>, and interpret it as appropriate.
+Refer to the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/syntax_analyzer" title="Compiler/syntax_analyzer">Syntax analyzer task</a> for details of the AST.
 
 ;Loading the AST from the syntax analyzer is as simple as (pseudo code):
 
@@ -144,7 +144,7 @@ Total primes found: 26
 
 ; Additional examples
 
-Your solution should pass all the test cases above and the additional tests found '''[[Compiler/Sample_programs|Here]]'''.
+Your solution should pass all the test cases above and the additional tests found <span class="rosetta__text--bold"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/Sample_programs" title="Compiler/Sample_programs">Here</a></span>.
 
 {{task heading|Reference}}
 
@@ -152,10 +152,10 @@ The C and Python versions can be considered reference implementations.
 
 ;Related Tasks
 
-* [[Compiler/lexical_analyzer|Lexical Analyzer task]]
-* [[Compiler/syntax_analyzer|Syntax Analyzer task]]
-* [[Compiler/code_generator|Code Generator task]]
-* [[Compiler/virtual_machine_interpreter|Virtual Machine Interpreter task]]
+* <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/lexical_analyzer" title="Compiler/lexical_analyzer">Lexical Analyzer task</a>
+* <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/syntax_analyzer" title="Compiler/syntax_analyzer">Syntax Analyzer task</a>
+* <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/code_generator" title="Compiler/code_generator">Code Generator task</a>
+* <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/virtual_machine_interpreter" title="Compiler/virtual_machine_interpreter">Virtual Machine Interpreter task</a>
 
 <hr>
 __TOC__

@@ -29,28 +29,28 @@ So for your convenience, here's a break-down:
 |-
 ! 1) 
 | S says "P does not know X and Y."
-| For every possible sum decomposition of the number <tt>X+Y</tt>, the product has in turn ''more than one'' product decomposition.
+| For every possible sum decomposition of the number <tt>X+Y</tt>, the product has in turn <span class="rosetta__text--italic">more than one</span> product decomposition.
 |-
 ! 2)
 | P says "Now I know X and Y."
-| The number <tt>X*Y</tt> has ''only one'' product decomposition for which fact 1 is true.
+| The number <tt>X*Y</tt> has <span class="rosetta__text--italic">only one</span> product decomposition for which fact 1 is true.
 |-
 ! 3)
 | S says "Now I also know X and Y."
-| The number <tt>X+Y</tt> has ''only one'' sum decomposition for which fact 2 is true.
+| The number <tt>X+Y</tt> has <span class="rosetta__text--italic">only one</span> sum decomposition for which fact 2 is true.
 |}
 
 Terminology:
-* ''"sum decomposition" of a number'' = Any pair of positive integers <tt>(A, B)</tt> so that <tt>A+B</tt> equals the number. Here, with the additional constraint <tt>2 ≤ A < B</tt>.
-* ''"product decomposition" of a number'' = Any pair of positive integers <tt>(A, B)</tt> so that <tt>A*B</tt> equals the number. Here, with the additional constraint <tt>2 ≤ A < B</tt>.
+* <span class="rosetta__text--italic">"sum decomposition" of a number</span> = Any pair of positive integers <tt>(A, B)</tt> so that <tt>A+B</tt> equals the number. Here, with the additional constraint <tt>2 ≤ A < B</tt>.
+* <span class="rosetta__text--italic">"product decomposition" of a number</span> = Any pair of positive integers <tt>(A, B)</tt> so that <tt>A*B</tt> equals the number. Here, with the additional constraint <tt>2 ≤ A < B</tt>.
 <br>
 
 Your program can solve the puzzle by considering all possible pairs <tt>(X, Y)</tt> in the range <tt>2 ≤ X < Y ≤ 98</tt>, and then successively eliminating candidates based on the three facts. It turns out only one solution remains!<br>
-See the [[#Python|Python example]] for an implementation that uses this approach with a few optimizations.
+See the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/#Python" title="#Python">Python example</a> for an implementation that uses this approach with a few optimizations.
 
 {{task heading|See also}}
 
-* &nbsp; Wikipedia: &nbsp; [[wp:Sum and Product Puzzle|Sum and Product Puzzle]]
+* &nbsp; Wikipedia: &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Sum and Product Puzzle" title="wp: Sum and Product Puzzle">Sum and Product Puzzle</a>
 <hr>
 
 

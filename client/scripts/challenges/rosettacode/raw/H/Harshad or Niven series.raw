@@ -8,7 +8,7 @@ Harshad or Niven series
 
 The [http://mathworld.wolfram.com/HarshadNumber.html Harshad] or Niven numbers are positive integers ≥ 1 that are divisible by the sum of their digits. 
 
-For example, &nbsp; '''42''' &nbsp; is a [[oeis:A005349|Harshad number]] as &nbsp; '''42''' &nbsp; is divisible by &nbsp; ('''4''' + '''2''') &nbsp; without remainder.
+For example, &nbsp; <span class="rosetta__text--bold">42</span> &nbsp; is a <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/oeis:A005349" title="oeis:A005349">Harshad number</a> as &nbsp; <span class="rosetta__text--bold">42</span> &nbsp; is divisible by &nbsp; (<span class="rosetta__text--bold">4</span> + <span class="rosetta__text--bold">2</span>) &nbsp; without remainder.
 <br>Assume that the series is defined as the numbers in increasing order.
 
 

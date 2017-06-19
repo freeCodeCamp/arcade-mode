@@ -4,8 +4,8 @@ Rename a file
 
 ;Task:
 Rename:
-:::* &nbsp; a file called &nbsp; &nbsp; '''input.txt''' &nbsp; &nbsp; into &nbsp; &nbsp; '''output.txt''' &nbsp; &nbsp; and 
-:::* &nbsp; a directory called &nbsp; &nbsp; '''docs''' &nbsp; &nbsp; into &nbsp; &nbsp; '''mydocs'''.
+:::* &nbsp; a file called &nbsp; &nbsp; <span class="rosetta__text--bold">input.txt</span> &nbsp; &nbsp; into &nbsp; &nbsp; <span class="rosetta__text--bold">output.txt</span> &nbsp; &nbsp; and 
+:::* &nbsp; a directory called &nbsp; &nbsp; <span class="rosetta__text--bold">docs</span> &nbsp; &nbsp; into &nbsp; &nbsp; <span class="rosetta__text--bold">mydocs</span>.
 
 
 This should be done twice: &nbsp; 

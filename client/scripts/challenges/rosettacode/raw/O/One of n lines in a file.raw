@@ -16,7 +16,7 @@ Is to:
 
 ;Task:
 # Create a function/method/routine called <code>one_of_n</code> that given <code>n</code>, the number of actual lines in a file, follows the algorithm above to return an integer - the line number of the line chosen from the file. <br>The number returned can vary, randomly, in each run.
-# Use <code>one_of_n</code> in a ''simulation'' to find what woud be the chosen line of a 10 line file simulated 1,000,000 times.
+# Use <code>one_of_n</code> in a <span class="rosetta__text--italic">simulation</span> to find what woud be the chosen line of a 10 line file simulated 1,000,000 times.
 # Print and show how many times each of the 10 lines is chosen as a rough measure of how well the algorithm works.
 
 Note: You may choose a smaller number of repetitions if necessary, but mention this up-front.

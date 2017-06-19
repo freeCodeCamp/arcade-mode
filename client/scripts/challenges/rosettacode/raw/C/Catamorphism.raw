@@ -2,16 +2,16 @@ Catamorphism
 
 {{task}}
 
-''Reduce'' is a function or method that is used to take the values in an array or a list and apply a function to successive members of the list to produce (or reduce them to), a single value. 
+<span class="rosetta__text--italic">Reduce</span> is a function or method that is used to take the values in an array or a list and apply a function to successive members of the list to produce (or reduce them to), a single value. 
 
 
 ;Task:
-Show how ''reduce'' (or ''foldl'' or ''foldr'' etc), work (or would be implemented) in your language.
+Show how <span class="rosetta__text--italic">reduce</span> (or <span class="rosetta__text--italic">foldl</span> or <span class="rosetta__text--italic">foldr</span> etc), work (or would be implemented) in your language.
 
 
 ;Cf.
-* [[wp:Fold (higher-order function)|Fold]]
-* [[wp:Catamorphism|Catamorphism]]
+* <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Fold (higher-order function)" title="wp: Fold (higher-order function)">Fold</a>
+* <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Catamorphism" title="wp: Catamorphism">Catamorphism</a>
 <br><br>
 
 

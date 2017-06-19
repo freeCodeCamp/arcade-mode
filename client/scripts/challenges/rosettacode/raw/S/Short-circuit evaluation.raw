@@ -15,7 +15,7 @@ Similarly, if we needed to compute the disjunction (<code>or</code>):
 
 Then it would be best to not compute the value of &nbsp; <code>b()</code> &nbsp; if the value of &nbsp; <code>a()</code> &nbsp; is computed as &nbsp; <code>true</code>, &nbsp; as the value of &nbsp; <code>y</code> &nbsp; can then only ever be &nbsp; <code>true</code>.
 
-Some languages will stop further computation of boolean equations as soon as the result is known, so-called &nbsp; [[wp:Short-circuit evaluation|short-circuit evaluation]] &nbsp; of boolean expressions
+Some languages will stop further computation of boolean equations as soon as the result is known, so-called &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Short-circuit evaluation" title="wp: Short-circuit evaluation">short-circuit evaluation</a> &nbsp; of boolean expressions
 
 
 ;Task:
@@ -27,7 +27,7 @@ Calculate and assign the values of the following equations to a variable in such
 :::: <code> x = a(i) and b(j) </code>
 :::: <code> y = a(i) or  b(j) </code>
 
-<br>If the language does not have short-circuit evaluation, this might be achieved with nested &nbsp; &nbsp; '''if''' &nbsp; &nbsp; statements.
+<br>If the language does not have short-circuit evaluation, this might be achieved with nested &nbsp; &nbsp; <span class="rosetta__text--bold">if</span> &nbsp; &nbsp; statements.
 <br><br>
 
 

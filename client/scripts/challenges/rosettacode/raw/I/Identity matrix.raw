@@ -4,21 +4,21 @@ Identity matrix
 [[Category:Matrices]]
 
 ;Task:
-Build an &nbsp; [[wp:identity matrix|identity matrix]] &nbsp; of a size known at run-time. 
+Build an &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/identity matrix" title="wp: identity matrix">identity matrix</a> &nbsp; of a size known at run-time. 
 
 
-An ''identity matrix'' is a square matrix of size '''''n'' &times; ''n''''', 
-<br>where the diagonal elements are all '''1'''s (ones), 
-<br>and all the other elements are all '''0'''s (zeroes).
+An <span class="rosetta__text--italic">identity matrix</span> is a square matrix of size <span class="rosetta__text--bold"><span class="rosetta__text--italic">n</span> &times; <span class="rosetta__text--italic">n</span></span>, 
+<br>where the diagonal elements are all <span class="rosetta__text--bold">1</span>s (ones), 
+<br>and all the other elements are all <span class="rosetta__text--bold">0</span>s (zeroes).
 
 
-<math>I_n = \begin{bmatrix}
+$I_n = \begin{bmatrix}
   1      & 0      & 0      & \cdots & 0      \\
   0      & 1      & 0      & \cdots & 0      \\
   0      & 0      & 1      & \cdots & 0      \\
   \vdots & \vdots & \vdots & \ddots & \vdots \\
   0      & 0      & 0      & \cdots & 1      \\
-\end{bmatrix}</math>
+\end{bmatrix}$
 
 
 ;Related tasks:

@@ -2,12 +2,13 @@ Brownian tree
 
 {{Wikipedia|Brownian_tree}}
 {{task|Fractals}}
-[[Category:Raster graphics operations]]
-[[File:Brownian_tree.jpg|240px||right]]
+<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category:Raster graphics operations]]
+[[File:Brownian_tree.jpg" title="Category:Raster graphics operations]]
+[[File:Brownian_tree.jpg">240px||right</a>
 
 
 ;Task:
-Generate and draw a &nbsp; [[wp:Brownian tree|Brownian Tree]].
+Generate and draw a &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Brownian tree" title="wp: Brownian tree">Brownian Tree</a>.
 
 
 A Brownian Tree is generated as a result of an initial seed, followed by the interaction of two processes.

@@ -1,11 +1,16 @@
 Find palindromic numbers in both binary and ternary bases
 
-[[Category:Palindromes]]
+<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category:Palindromes]]
 {{task}}
 
 ;The task:
 
-Find and show (in decimal) the first six numbers (non-negative integers) that are [[Palindrome detection|palindromes]] in &nbsp; ''both'' &nbsp; base 2 and base 3.
+Find and show (in decimal) the first six numbers (non-negative integers) that are [[Palindrome detection" title="Category:Palindromes]]
+{{task}}
+
+;The task:
+
+Find and show (in decimal) the first six numbers (non-negative integers) that are [[Palindrome detection">palindromes</a> in &nbsp; <span class="rosetta__text--italic">both</span> &nbsp; base 2 and base 3.
 
 Use zero (0) as the first number found, even though some other definitions ignore it.
 
@@ -15,7 +20,7 @@ It's permissible to assume the first two numbers and simply list them.
 
 
 ;See also
-* &nbsp; [[oeis:A060792|Sequence A60792]], &nbsp; numbers that are palindromic in bases 2 and 3 on ''The On-Line Encyclopedia of Integer Sequences''.
+* &nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/oeis:A060792" title="oeis:A060792">Sequence A60792</a>, &nbsp; numbers that are palindromic in bases 2 and 3 on <span class="rosetta__text--italic">The On-Line Encyclopedia of Integer Sequences</span>.
 <br><br>
 
 

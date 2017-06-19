@@ -1,22 +1,24 @@
 Conjugate transpose
 
 {{task}} 
-[[Category:Matrices]]
+<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category:Matrices]]
 
-Suppose that a [[matrix]] <big><math>M</math></big> contains [[Arithmetic/Complex|complex numbers]]. Then the [[wp:conjugate transpose|conjugate transpose]] of <math>M</math> is a matrix <math>M^H</math> containing the [[complex conjugate]]s of the [[matrix transposition]] of <math>M</math>.
+Suppose that a [[matrix]] <big>$M$</big> contains [[Arithmetic/Complex" title="Category:Matrices]]
 
-::: <big><math>(M^H)_{ji} = \overline{M_{ij}}</math></big>
+Suppose that a [[matrix]] <big>$M$</big> contains [[Arithmetic/Complex">complex numbers</a>. Then the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/conjugate transpose" title="wp: conjugate transpose">conjugate transpose]] of $M$ is a matrix $M^H$ containing the [[complex conjugate]]s of the [[matrix transposition</a> of $M$.
 
-
-This means that   row <big><math>j</math></big>, column <big><math>i</math></big> of the conjugate transpose equals the 
-<br>complex conjugate of row <big><math>i</math></big>, column <big><math>j</math></big> of the original matrix.
+::: <big>$(M^H)_{ji} = \overline{M_{ij}}$</big>
 
 
-In the next list, <big><math>M</math></big> must also be a square matrix.
+This means that   row <big>$j$</big>, column <big>$i$</big> of the conjugate transpose equals the 
+<br>complex conjugate of row <big>$i$</big>, column <big>$j$</big> of the original matrix.
 
-* A [[wp:Hermitian matrix|Hermitian matrix]] equals its own conjugate transpose: <math>M^H = M</math>.
-* A [[wp:normal matrix|normal matrix]] is commutative in [[matrix multiplication|multiplication]] with its conjugate transpose: <math>M^HM = MM^H</math>.
-* A [[wp:unitary matrix|unitary matrix]] has its [[inverse matrix|inverse]] equal to its conjugate transpose: <math>M^H = M^{-1}</math>. <br> This is true [[wikt:iff|iff]] <math>M^HM = I_n</math> and iff <math>MM^H = I_n</math>, where <math>I_n</math> is the identity matrix.
+
+In the next list, <big>$M$</big> must also be a square matrix.
+
+* A <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Hermitian matrix" title="wp: Hermitian matrix">Hermitian matrix</a> equals its own conjugate transpose: $M^H = M$.
+* A <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/normal matrix" title="wp: normal matrix">normal matrix]] is commutative in [[matrix multiplication|multiplication</a> with its conjugate transpose: $M^HM = MM^H$.
+* A <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/unitary matrix" title="wp: unitary matrix">unitary matrix]] has its <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/inverse matrix" title="inverse matrix">inverse</a> equal to its conjugate transpose: $M^H = M^{-1}$. <br> This is true [[wikt:iff|iff</a> $M^HM = I_n$ and iff $MM^H = I_n$, where $I_n$ is the identity matrix.
 
 
 <br>

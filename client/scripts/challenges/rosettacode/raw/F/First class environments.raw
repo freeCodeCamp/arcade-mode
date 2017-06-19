@@ -1,13 +1,13 @@
 First class environments
 
 {{task|Classic CS problems and programs}}
-According to [[wp:First-class_object|Wikipedia]], "In computing, a first-class object ... is an entity that can be constructed at run-time, passed as a parameter, returned from a subroutine, or assigned into a variable".
+According to <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/First-class_object" title="wp: First-class_object">Wikipedia</a>, "In computing, a first-class object ... is an entity that can be constructed at run-time, passed as a parameter, returned from a subroutine, or assigned into a variable".
 
 Often this term is used in the context of "first class functions". In an analogous way, a programming language may support "first class environments".
 
 The environment is minimally, the set of variables accessable to a statement being executed. Change the environments and the same statement could produce different results when executed.
 
-Often an environment is captured in a [[wp:Closure_(computer_science)|closure]], which encapsulates a function together with an environment. That environment, however, is '''not''' first-class, as it cannot be created, passed etc. independently from the function's code.
+Often an environment is captured in a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Closure_(computer_science)" title="wp: Closure_(computer_science)">closure</a>, which encapsulates a function together with an environment. That environment, however, is <span class="rosetta__text--bold">not</span> first-class, as it cannot be created, passed etc. independently from the function's code.
 
 Therefore, a first class environment is a set of variable bindings which can be constructed at run-time, passed as a parameter, returned from a subroutine, or assigned into a variable. It is like a closure without code. A statement must be able to be executed within a stored first class environment and act according to the environment variable values stored within. 
 

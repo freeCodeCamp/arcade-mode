@@ -3,21 +3,21 @@ Set puzzle
 {{task|Cards}} [[Category:Puzzles]]
 {{omit from|GUISS}}
 
-Set Puzzles are created with a deck of cards from the [[wp:Set (game)|Set Game™]]. The object of the puzzle is to find sets of 3 cards in a rectangle of cards that have been dealt face up. <br><br>
+Set Puzzles are created with a deck of cards from the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Set (game)" title="wp: Set (game)">Set Game™</a>. The object of the puzzle is to find sets of 3 cards in a rectangle of cards that have been dealt face up. <br><br>
 There are 81 cards in a deck. 
-Each card contains a unique variation of the following four features: ''color, symbol, number and shading''.
+Each card contains a unique variation of the following four features: <span class="rosetta__text--italic">color, symbol, number and shading</span>.
 
-* there are three colors:<br> &nbsp;&nbsp;&nbsp;''red, green, purple''<br><br>
+* there are three colors:<br> &nbsp;&nbsp;&nbsp;<span class="rosetta__text--italic">red, green, purple</span><br><br>
 
-* there are three symbols:<br> &nbsp;&nbsp;&nbsp;''oval, squiggle, diamond''<br><br>
+* there are three symbols:<br> &nbsp;&nbsp;&nbsp;<span class="rosetta__text--italic">oval, squiggle, diamond</span><br><br>
 
-* there is a number of symbols on the card:<br> &nbsp;&nbsp;&nbsp;''one, two, three''<br><br>
+* there is a number of symbols on the card:<br> &nbsp;&nbsp;&nbsp;<span class="rosetta__text--italic">one, two, three</span><br><br>
 
-* there are three shadings:<br> &nbsp;&nbsp;&nbsp;''solid, open, striped''<br><br>
+* there are three shadings:<br> &nbsp;&nbsp;&nbsp;<span class="rosetta__text--italic">solid, open, striped</span><br><br>
 
-Three cards form a ''set'' if each feature is either the same on each card, or is different on each card. For instance: all 3 cards are red, all 3 cards have a different symbol, all 3 cards have a different number of symbols, all 3 cards are striped.
+Three cards form a <span class="rosetta__text--italic">set</span> if each feature is either the same on each card, or is different on each card. For instance: all 3 cards are red, all 3 cards have a different symbol, all 3 cards have a different number of symbols, all 3 cards are striped.
 
-There are two degrees of difficulty: [http://www.setgame.com/set/rules_basic.htm ''basic''] and [http://www.setgame.com/set/rules_advanced.htm ''advanced'']. The basic mode deals 9 cards, that contain exactly 4 sets; the advanced mode deals 12 cards that contain exactly 6 sets. 
+There are two degrees of difficulty: [http://www.setgame.com/set/rules_basic.htm <span class="rosetta__text--italic">basic</span>] and [http://www.setgame.com/set/rules_advanced.htm <span class="rosetta__text--italic">advanced</span>]. The basic mode deals 9 cards, that contain exactly 4 sets; the advanced mode deals 12 cards that contain exactly 6 sets. 
 
 When creating sets you may use the same card more than once.
 <br><br>
@@ -27,7 +27,7 @@ Write code that deals the cards (9 or 12, depending on selected mode) from a shu
 
 For instance:<br><br>
 
-'''DEALT 9 CARDS:'''
+<span class="rosetta__text--bold">DEALT 9 CARDS:</span>
 
 :green, one, oval, striped
 
@@ -47,7 +47,7 @@ For instance:<br><br>
 
 :red, three, diamond, solid
 <br>
-'''CONTAINING 4 SETS:'''
+<span class="rosetta__text--bold">CONTAINING 4 SETS:</span>
 
 :green, one, oval, striped
 

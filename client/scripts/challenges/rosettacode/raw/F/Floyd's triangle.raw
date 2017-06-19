@@ -2,8 +2,8 @@ Floyd's triangle
 
 {{task}}
 
-[[wp:Floyd's triangle|Floyd's triangle]] &nbsp; lists the natural numbers in a right triangle aligned to the left where 
-* the first row is &nbsp; '''1''' &nbsp; &nbsp; (unity)
+<a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Floyd's triangle" title="wp: Floyd's triangle">Floyd's triangle</a> &nbsp; lists the natural numbers in a right triangle aligned to the left where 
+* the first row is &nbsp; <span class="rosetta__text--bold">1</span> &nbsp; &nbsp; (unity)
 * successive rows start towards the left with the next number followed by successive naturals listing one more number than the line above.
 
 

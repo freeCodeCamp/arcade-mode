@@ -9,11 +9,11 @@ Exceptions/Catch an exception thrown in a nested call
 
 Show how to create a user-defined exception &nbsp; and &nbsp; show how to catch an exception raised from several nested calls away.
 
-:# &nbsp; Create two user-defined exceptions, &nbsp; '''U0''' &nbsp; and &nbsp; '''U1'''. 
-:# &nbsp; Have function &nbsp; '''foo''' &nbsp; call function &nbsp; '''bar''' &nbsp; twice.
-:# &nbsp; Have function &nbsp; '''bar''' &nbsp; call function &nbsp; '''baz'''. 
-:# &nbsp; Arrange for function &nbsp; '''baz''' &nbsp; to raise, or throw exception &nbsp; '''U0''' &nbsp; on its first call, then exception &nbsp; '''U1''' &nbsp; on its second.
-:# &nbsp; Function &nbsp; '''foo''' &nbsp; should catch only exception &nbsp; '''U0''', &nbsp; not &nbsp; '''U1'''.
+:# &nbsp; Create two user-defined exceptions, &nbsp; <span class="rosetta__text--bold">U0</span> &nbsp; and &nbsp; <span class="rosetta__text--bold">U1</span>. 
+:# &nbsp; Have function &nbsp; <span class="rosetta__text--bold">foo</span> &nbsp; call function &nbsp; <span class="rosetta__text--bold">bar</span> &nbsp; twice.
+:# &nbsp; Have function &nbsp; <span class="rosetta__text--bold">bar</span> &nbsp; call function &nbsp; <span class="rosetta__text--bold">baz</span>. 
+:# &nbsp; Arrange for function &nbsp; <span class="rosetta__text--bold">baz</span> &nbsp; to raise, or throw exception &nbsp; <span class="rosetta__text--bold">U0</span> &nbsp; on its first call, then exception &nbsp; <span class="rosetta__text--bold">U1</span> &nbsp; on its second.
+:# &nbsp; Function &nbsp; <span class="rosetta__text--bold">foo</span> &nbsp; should catch only exception &nbsp; <span class="rosetta__text--bold">U0</span>, &nbsp; not &nbsp; <span class="rosetta__text--bold">U1</span>.
 
 <br>
 Show/describe what happens when the program is run.

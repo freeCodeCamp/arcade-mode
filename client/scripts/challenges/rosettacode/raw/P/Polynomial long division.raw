@@ -1,36 +1,36 @@
 Polynomial long division
 
 {{task|Classic CS problems and programs}}{{Wikipedia}}
-:<cite>In algebra, [[wp:Polynomial long division|polynomial long division]] is an algorithm for dividing a polynomial by another polynomial of the same or lower degree.</cite>
+:<cite>In algebra, <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Polynomial long division" title="wp: Polynomial long division">polynomial long division</a> is an algorithm for dividing a polynomial by another polynomial of the same or lower degree.</cite>
 
-Let us suppose a polynomial is represented by a vector, <math>x</math> (i.e., an ordered collection of [[wp:Coefficient|coefficients]]) so that the <math>i</math><sup>th</sup> element keeps the coefficient of <math>x^i</math>, and the multiplication by a monomial is a ''shift''  of the vector's elements "towards right" (injecting ones from left) followed by a multiplication of each element by the coefficient of the monomial.
+Let us suppose a polynomial is represented by a vector, $x$ (i.e., an ordered collection of <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Coefficient" title="wp: Coefficient">coefficients</a>) so that the $i$<sup>th</sup> element keeps the coefficient of $x^i$, and the multiplication by a monomial is a <span class="rosetta__text--italic">shift</span>  of the vector's elements "towards right" (injecting ones from left) followed by a multiplication of each element by the coefficient of the monomial.
 
 Then a pseudocode for the polynomial long division using the conventions described above could be:
 
- degree('''P'''):
-   '''return''' the index of the last non-zero element of '''P''';
+ degree(<span class="rosetta__text--bold">P</span>):
+   <span class="rosetta__text--bold">return</span> the index of the last non-zero element of <span class="rosetta__text--bold">P</span>;
           if all elements are 0, return -∞
  
- polynomial_long_division('''N''', '''D''') ''returns'' ('''q''', '''r'''):
-   <span class="co1">// '''N''', '''D''', '''q''', '''r''' are vectors</span>
-   '''if''' degree('''D''') < 0 '''then''' ''error''
-   '''q''' ← '''0'''
-   '''while''' degree('''N''') ≥ degree('''D''')
-     '''d''' ← '''D''' ''shifted right'' ''by'' (degree('''N''') - degree('''D'''))
-     '''q'''(degree('''N''') - degree('''D''')) ← '''N'''(degree('''N''')) / '''d'''(degree('''d'''))
-     <span class="co1">// by construction, degree('''d''') = degree('''N''') of course</span>
-     '''d''' ← '''d''' * '''q'''(degree('''N''') - degree('''D'''))
-     '''N''' ← '''N''' - '''d'''
-   '''endwhile'''
-   '''r''' ← '''N'''
-   '''return''' ('''q''', '''r''')
+ polynomial_long_division(<span class="rosetta__text--bold">N</span>, <span class="rosetta__text--bold">D</span>) <span class="rosetta__text--italic">returns</span> (<span class="rosetta__text--bold">q</span>, <span class="rosetta__text--bold">r</span>):
+   <span class="co1">// <span class="rosetta__text--bold">N</span>, <span class="rosetta__text--bold">D</span>, <span class="rosetta__text--bold">q</span>, <span class="rosetta__text--bold">r</span> are vectors</span>
+   <span class="rosetta__text--bold">if</span> degree(<span class="rosetta__text--bold">D</span>) < 0 <span class="rosetta__text--bold">then</span> <span class="rosetta__text--italic">error</span>
+   <span class="rosetta__text--bold">q</span> ← <span class="rosetta__text--bold">0</span>
+   <span class="rosetta__text--bold">while</span> degree(<span class="rosetta__text--bold">N</span>) ≥ degree(<span class="rosetta__text--bold">D</span>)
+     <span class="rosetta__text--bold">d</span> ← <span class="rosetta__text--bold">D</span> <span class="rosetta__text--italic">shifted right</span> <span class="rosetta__text--italic">by</span> (degree(<span class="rosetta__text--bold">N</span>) - degree(<span class="rosetta__text--bold">D</span>))
+     <span class="rosetta__text--bold">q</span>(degree(<span class="rosetta__text--bold">N</span>) - degree(<span class="rosetta__text--bold">D</span>)) ← <span class="rosetta__text--bold">N</span>(degree(<span class="rosetta__text--bold">N</span>)) / <span class="rosetta__text--bold">d</span>(degree(<span class="rosetta__text--bold">d</span>))
+     <span class="co1">// by construction, degree(<span class="rosetta__text--bold">d</span>) = degree(<span class="rosetta__text--bold">N</span>) of course</span>
+     <span class="rosetta__text--bold">d</span> ← <span class="rosetta__text--bold">d</span> * <span class="rosetta__text--bold">q</span>(degree(<span class="rosetta__text--bold">N</span>) - degree(<span class="rosetta__text--bold">D</span>))
+     <span class="rosetta__text--bold">N</span> ← <span class="rosetta__text--bold">N</span> - <span class="rosetta__text--bold">d</span>
+   <span class="rosetta__text--bold">endwhile</span>
+   <span class="rosetta__text--bold">r</span> ← <span class="rosetta__text--bold">N</span>
+   <span class="rosetta__text--bold">return</span> (<span class="rosetta__text--bold">q</span>, <span class="rosetta__text--bold">r</span>)
 
-'''Note''': <code>vector * scalar</code> multiplies each element of the vector by the scalar; <code>vectorA - vectorB</code> subtracts each element of the vectorB from the element of the vectorA with "the same index". The vectors in the pseudocode are zero-based.
+<span class="rosetta__text--bold">Note</span>: <code>vector * scalar</code> multiplies each element of the vector by the scalar; <code>vectorA - vectorB</code> subtracts each element of the vectorB from the element of the vectorA with "the same index". The vectors in the pseudocode are zero-based.
 
 * Error handling (for allocations or for wrong inputs) is not mandatory.
 * Conventions can be different; in particular, note that if the first coefficient in the vector is the highest power of x for the polynomial represented by the vector, then the algorithm becomes simpler.
 
-'''Example for clarification'''
+<span class="rosetta__text--bold">Example for clarification</span>
 <br>
 This example is from Wikipedia, but changed to show how the given pseudocode works.
 

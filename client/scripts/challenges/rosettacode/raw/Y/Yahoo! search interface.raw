@@ -4,7 +4,7 @@ Yahoo! search interface
 
 Create a class for searching Yahoo! results.
 
-It must implement a '''Next Page''' method, and read URL, Title and Content from results.
+It must implement a <span class="rosetta__text--bold">Next Page</span> method, and read URL, Title and Content from results.
 <br><br>
 
 

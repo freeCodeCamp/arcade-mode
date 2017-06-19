@@ -9,9 +9,9 @@ There is a highly organized city that has decided to assign a number to each of 
 ::* &nbsp; fire department 
 
 
-Each department can have a number between '''1''' and '''7''' &nbsp; (inclusive).
+Each department can have a number between <span class="rosetta__text--bold">1</span> and <span class="rosetta__text--bold">7</span> &nbsp; (inclusive).
 
-The three department numbers are to be unique (different from each other) and must add up to the number '''12'''.
+The three department numbers are to be unique (different from each other) and must add up to the number <span class="rosetta__text--bold">12</span>.
 
 The Chief of the Police doesn't like odd numbers and wants to have an even number for his department.
 

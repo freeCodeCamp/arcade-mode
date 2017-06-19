@@ -5,11 +5,11 @@ Euler's sum of powers conjecture
 There is a conjecture in mathematics that held for over two hundred years before it was disproved by the finding of a counterexample in 1966 by [http://www.ams.org/journals/mcom/1967-21-097/S0025-5718-1967-0220669-3/S0025-5718-1967-0220669-3.pdf Lander and Parkin].
 
 
-;Euler's (disproved) sum of powers &nbsp; [[wp:Euler's sum of powers conjecture|conjecture]]:
+;Euler's (disproved) sum of powers &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Euler's sum of powers conjecture" title="wp: Euler's sum of powers conjecture">conjecture</a>:
    <big>At least  k  positive  k<sup>th</sup>  powers are required to sum to a  k<sup>th</sup>  power,  
    except for the trivial case of one  k<sup>th</sup> power:  y<sup>k</sup> = y<sup>k</sup> </big>
 
-Lander and Parkin are known to have used a brute-force search on a &nbsp; [[wp:CDC_6600|CDC 6600]] &nbsp; computer restricting numbers to those less than 250.
+Lander and Parkin are known to have used a brute-force search on a &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/CDC_6600" title="wp: CDC_6600">CDC 6600</a> &nbsp; computer restricting numbers to those less than 250.
 
 
 ;Task:
@@ -17,7 +17,7 @@ Write a program to search for an integer solution for:
 <big><big>
 : <code> x<sub>0</sub><sup>5</sup> + x<sub>1</sub><sup>5</sup> + x<sub>2</sub><sup>5</sup> + x<sub>3</sub><sup>5</sup> == y<sup>5</sup> </code>
 </big></big>
-Where all &nbsp; <big><big> <code> x<sub>i</sub></code></big></big>'s &nbsp; and &nbsp; <big><big><code> y </code></big></big> &nbsp; are distinct integers between &nbsp; '''0''' &nbsp; and &nbsp; '''250''' &nbsp; (exclusive).
+Where all &nbsp; <big><big> <code> x<sub>i</sub></code></big></big>'s &nbsp; and &nbsp; <big><big><code> y </code></big></big> &nbsp; are distinct integers between &nbsp; <span class="rosetta__text--bold">0</span> &nbsp; and &nbsp; <span class="rosetta__text--bold">250</span> &nbsp; (exclusive).
 
 Show an answer here.
 <br><br>

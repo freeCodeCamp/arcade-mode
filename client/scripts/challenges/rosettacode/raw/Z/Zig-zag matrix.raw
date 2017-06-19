@@ -6,13 +6,13 @@ Zig-zag matrix
 Produce a zig-zag array.  
 
 
-A &nbsp; ''zig-zag'' &nbsp; array is a square arrangement of the first &nbsp; <big>N<sup>2</sup></big> &nbsp; integers, &nbsp; where the  
+A &nbsp; <span class="rosetta__text--italic">zig-zag</span> &nbsp; array is a square arrangement of the first &nbsp; <big>N<sup>2</sup></big> &nbsp; integers, &nbsp; where the  
 <br>numbers increase sequentially as you zig-zag along the array's &nbsp; [https://en.wiktionary.org/wiki/antidiagonal anti-diagonals]. 
 
-For a graphical representation, see &nbsp; [[wp:Image:JPEG_ZigZag.svg|JPG zigzag]] &nbsp; (JPG uses such arrays to encode images).
+For a graphical representation, see &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Image:JPEG_ZigZag.svg" title="wp: Image:JPEG_ZigZag.svg">JPG zigzag</a> &nbsp; (JPG uses such arrays to encode images).
 
 
-For example, given &nbsp; '''5''', &nbsp; produce this array:
+For example, given &nbsp; <span class="rosetta__text--bold">5</span>, &nbsp; produce this array:
 <pre>
  0  1  5  6 14
  2  4  7 13 15

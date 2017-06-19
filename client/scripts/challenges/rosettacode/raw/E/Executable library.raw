@@ -10,7 +10,7 @@ that when used as a library does one thing;
 but has the ability to be run directly via command line. 
 Thus the API comes with a CLI in the very same source code file.
 
-'''Task detail'''
+<span class="rosetta__text--bold">Task detail</span>
 
 * Create a library/module/dll/shared object/... for a programming language that contains a function/method called hailstone that is a function taking a positive integer and returns the [[Hailstone sequence]] for that number.
 
@@ -23,8 +23,8 @@ Thus the API comes with a CLI in the very same source code file.
 
 * Explain any extra setup/run steps needed to complete the task.
 
-'''Notes:''' 
-* It is assumed that for a language that overwhelmingly ships in a compiled form, such as C, the library must also be an executable and the compiled user of that library is to do so without changing the compiled library. I.e. the compile tool-chain is assumed ''not'' to be present in the runtime environment.
+<span class="rosetta__text--bold">Notes:</span> 
+* It is assumed that for a language that overwhelmingly ships in a compiled form, such as C, the library must also be an executable and the compiled user of that library is to do so without changing the compiled library. I.e. the compile tool-chain is assumed <span class="rosetta__text--italic">not</span> to be present in the runtime environment.
 * Interpreters are present in the runtime environment.
 
 

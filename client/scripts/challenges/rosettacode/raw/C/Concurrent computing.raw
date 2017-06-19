@@ -1,12 +1,17 @@
 Concurrent computing
 
 {{task|Concurrency}}
-[[Category:Basic language learning]]
+<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category:Basic language learning]]
 
 ;Task:
 Using either native language concurrency syntax or freely available libraries, write a program to display the strings "Enjoy" "Rosetta" "Code", one string per line, in random order. 
 
-Concurrency syntax must use [[thread|threads]], tasks, co-routines, or whatever concurrency is called in your language.
+Concurrency syntax must use [[thread" title="Category:Basic language learning]]
+
+;Task:
+Using either native language concurrency syntax or freely available libraries, write a program to display the strings "Enjoy" "Rosetta" "Code", one string per line, in random order. 
+
+Concurrency syntax must use [[thread">threads</a>, tasks, co-routines, or whatever concurrency is called in your language.
 <br><br>
 
 

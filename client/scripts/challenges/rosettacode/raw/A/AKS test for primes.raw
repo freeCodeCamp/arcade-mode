@@ -6,33 +6,33 @@ The [http://www.cse.iitk.ac.in/users/manindra/algebra/primality_v6.pdf AKS algor
 
 The theorem on which the test is based can be stated as follows:
 
-* &nbsp; a number &nbsp; <big><big><math>p</math></big></big> &nbsp; is prime &nbsp; if and only if &nbsp; all the coefficients of the polynomial expansion of
-::: <big><big><math>(x-1)^p - (x^p - 1)</math></big></big>
-are divisible by &nbsp; <big><big><math>p</math>.</big></big>
+* &nbsp; a number &nbsp; <big><big>$p$</big></big> &nbsp; is prime &nbsp; if and only if &nbsp; all the coefficients of the polynomial expansion of
+::: <big><big>$(x-1)^p - (x^p - 1)$</big></big>
+are divisible by &nbsp; <big><big>$p$.</big></big>
 
 
 ;Example:
-Using &nbsp; <big><big><math>p=3</math>:</big></big>
+Using &nbsp; <big><big>$p=3$:</big></big>
 
           <big><big>(x-1)^3 - (x^3 - 1)
              = (x^3 - 3x^2 + 3x - 1) - (x^3 - 1)
              = -3x^2 + 3x</big></big>
 
 
-And all the coefficients are divisible by '''3''', &nbsp; so '''3''' is prime.
+And all the coefficients are divisible by <span class="rosetta__text--bold">3</span>, &nbsp; so <span class="rosetta__text--bold">3</span> is prime.
 
 
-{{alertbox|#ffe4e4|'''Note:'''<br/>This task is '''not''' the AKS primality test. &nbsp; It is an inefficient exponential time algorithm discovered in the late 1600s and used as an introductory lemma in the AKS derivation.}}
+{{alertbox|#ffe4e4|<span class="rosetta__text--bold">Note:</span><br/>This task is <span class="rosetta__text--bold">not</span> the AKS primality test. &nbsp; It is an inefficient exponential time algorithm discovered in the late 1600s and used as an introductory lemma in the AKS derivation.}}
 
 
 ;Task:
 
 
-# Create a function/subroutine/method that given &nbsp; <big><big><math>p</math></big></big> &nbsp; generates the coefficients of the expanded polynomial representation of &nbsp; <big><big><math>(x-1)^p</math>.</big></big>
-# Use the function to show here the polynomial expansions of &nbsp; <big><big><math>(x-1)^p</math></big></big> &nbsp; for &nbsp; <big><big><math>p</math></big></big> &nbsp; in the range &nbsp; '''0''' &nbsp; to at least &nbsp; '''7''', &nbsp; inclusive.
-# Use the previous function in creating another function that when given &nbsp; <big><big><math>p</math></big></big> &nbsp; returns whether &nbsp; <big><big><math>p</math></big></big> &nbsp; is prime using the theorem.
-# Use your test to generate a list of all primes ''under'' &nbsp; '''35'''.
-# '''As a stretch goal''', &nbsp; generate all primes under &nbsp; '''50''' &nbsp; (needs integers larger than 31-bit).
+# Create a function/subroutine/method that given &nbsp; <big><big>$p$</big></big> &nbsp; generates the coefficients of the expanded polynomial representation of &nbsp; <big><big>$(x-1)^p$.</big></big>
+# Use the function to show here the polynomial expansions of &nbsp; <big><big>$(x-1)^p$</big></big> &nbsp; for &nbsp; <big><big>$p$</big></big> &nbsp; in the range &nbsp; <span class="rosetta__text--bold">0</span> &nbsp; to at least &nbsp; <span class="rosetta__text--bold">7</span>, &nbsp; inclusive.
+# Use the previous function in creating another function that when given &nbsp; <big><big>$p$</big></big> &nbsp; returns whether &nbsp; <big><big>$p$</big></big> &nbsp; is prime using the theorem.
+# Use your test to generate a list of all primes <span class="rosetta__text--italic">under</span> &nbsp; <span class="rosetta__text--bold">35</span>.
+# <span class="rosetta__text--bold">As a stretch goal</span>, &nbsp; generate all primes under &nbsp; <span class="rosetta__text--bold">50</span> &nbsp; (needs integers larger than 31-bit).
 
 
 ;References:

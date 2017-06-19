@@ -17,18 +17,18 @@ Because each pass finds the maximum item and puts it at the end, the portion of 
 A boolean variable is used to track whether any changes have been made in the current pass; when a pass completes without changing anything, the algorithm exits.
 
 This can be expressed in pseudo-code as follows (assuming 1-based indexing):
- '''repeat'''
+ <span class="rosetta__text--bold">repeat</span>
      hasChanged := false
-     '''decrement''' itemCount
-     '''repeat with''' index '''from''' 1 '''to''' itemCount
-         '''if''' (item '''at''' index) > (item '''at''' (index + 1))
-             swap (item '''at''' index) with (item '''at''' (index + 1))
+     <span class="rosetta__text--bold">decrement</span> itemCount
+     <span class="rosetta__text--bold">repeat with</span> index <span class="rosetta__text--bold">from</span> 1 <span class="rosetta__text--bold">to</span> itemCount
+         <span class="rosetta__text--bold">if</span> (item <span class="rosetta__text--bold">at</span> index) > (item <span class="rosetta__text--bold">at</span> (index + 1))
+             swap (item <span class="rosetta__text--bold">at</span> index) with (item <span class="rosetta__text--bold">at</span> (index + 1))
              hasChanged := true
- '''until''' hasChanged = '''false'''
+ <span class="rosetta__text--bold">until</span> hasChanged = <span class="rosetta__text--bold">false</span>
 
 
 ;References:
-* The article on [[wp:Bubble_sort|Wikipedia]].
+* The article on <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Bubble_sort" title="wp: Bubble_sort">Wikipedia</a>.
 * Dance [http://www.youtube.com/watch?v=lyZQPjUT5B4&feature=youtu.be interpretation].
 <br><br>
 

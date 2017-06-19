@@ -1,13 +1,13 @@
 Pythagorean triples
 
 {{task}}
-A [[wp:Pythagorean_triple|Pythagorean triple]] is defined as three positive integers <math>(a, b, c)</math> where <math>a < b < c</math>, and <math>a^2+b^2=c^2.</math>
+A <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Pythagorean_triple" title="wp: Pythagorean_triple">Pythagorean triple</a> is defined as three positive integers $(a, b, c)$ where $a < b < c$, and $a^2+b^2=c^2.$
 
-They are called primitive triples if <math>a, b, c</math> are co-prime, that is, if their pairwise greatest common divisors <math>{\rm gcd}(a, b) = {\rm gcd}(a, c) = {\rm gcd}(b, c) = 1</math>. 
+They are called primitive triples if $a, b, c$ are co-prime, that is, if their pairwise greatest common divisors ${\rm gcd}(a, b) = {\rm gcd}(a, c) = {\rm gcd}(b, c) = 1$. 
 
-Because of their relationship through the Pythagorean theorem, a, b, and c are co-prime if a and b are co-prime (<math>{\rm gcd}(a, b) = 1</math>). &nbsp; 
+Because of their relationship through the Pythagorean theorem, a, b, and c are co-prime if a and b are co-prime (${\rm gcd}(a, b) = 1$). &nbsp; 
 
-Each triple forms the length of the sides of a right triangle, whose perimeter is <math>P=a+b+c</math>.
+Each triple forms the length of the sides of a right triangle, whose perimeter is $P=a+b+c$.
 
 
 ;Task:

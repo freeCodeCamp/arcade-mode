@@ -3,42 +3,42 @@ Reduced row echelon form
 {{wikipedia|Rref#Pseudocode}}
 {{task|Matrices}}
 {{omit from|GUISS}}
-Show how to compute the '''reduced row echelon form''' 
-(a.k.a. '''row canonical form''') of a matrix. 
+Show how to compute the <span class="rosetta__text--bold">reduced row echelon form</span> 
+(a.k.a. <span class="rosetta__text--bold">row canonical form</span>) of a matrix. 
 
 The matrix can be stored in any datatype that is convenient 
 (for most languages, this will probably be a two-dimensional array). 
 
 Built-in functions or this pseudocode (from Wikipedia) may be used:
- '''function''' ToReducedRowEchelonForm(Matrix M) '''is'''
-     ''lead'' := 0
-     ''rowCount'' := the number of rows in M
-     ''columnCount'' := the number of columns in M
-     '''for''' 0 &le; ''r'' < ''rowCount'' '''do'''
-         '''if''' ''columnCount'' &le; ''lead'' '''then'''
-             '''stop'''
-         '''end if'''
-         ''i'' = ''r''
-         '''while''' M[''i'', ''lead''] = 0 '''do'''
-             ''i'' = ''i'' + 1
-             '''if''' ''rowCount'' = ''i'' '''then'''
-                 ''i'' = ''r''
-                 ''lead'' = ''lead'' + 1
-                 '''if''' ''columnCount'' = ''lead'' '''then'''
-                     '''stop'''
-                 '''end if'''
-             '''end if'''
-         '''end while'''
-         Swap rows ''i'' and ''r''
-         If M[''r'', ''lead''] is not 0 divide row ''r'' by M[''r'', ''lead'']
-         '''for''' 0 &le; ''i'' < ''rowCount'' '''do'''
-             '''if''' ''i'' ≠ ''r'' '''do'''
-                 Subtract M[i, lead] multiplied by row ''r'' from row ''i''
-             '''end if'''
-         '''end for'''
-         ''lead'' = ''lead'' + 1
-     '''end for'''
- '''end function'''
+ <span class="rosetta__text--bold">function</span> ToReducedRowEchelonForm(Matrix M) <span class="rosetta__text--bold">is</span>
+     <span class="rosetta__text--italic">lead</span> := 0
+     <span class="rosetta__text--italic">rowCount</span> := the number of rows in M
+     <span class="rosetta__text--italic">columnCount</span> := the number of columns in M
+     <span class="rosetta__text--bold">for</span> 0 &le; <span class="rosetta__text--italic">r</span> < <span class="rosetta__text--italic">rowCount</span> <span class="rosetta__text--bold">do</span>
+         <span class="rosetta__text--bold">if</span> <span class="rosetta__text--italic">columnCount</span> &le; <span class="rosetta__text--italic">lead</span> <span class="rosetta__text--bold">then</span>
+             <span class="rosetta__text--bold">stop</span>
+         <span class="rosetta__text--bold">end if</span>
+         <span class="rosetta__text--italic">i</span> = <span class="rosetta__text--italic">r</span>
+         <span class="rosetta__text--bold">while</span> M[<span class="rosetta__text--italic">i</span>, <span class="rosetta__text--italic">lead</span>] = 0 <span class="rosetta__text--bold">do</span>
+             <span class="rosetta__text--italic">i</span> = <span class="rosetta__text--italic">i</span> + 1
+             <span class="rosetta__text--bold">if</span> <span class="rosetta__text--italic">rowCount</span> = <span class="rosetta__text--italic">i</span> <span class="rosetta__text--bold">then</span>
+                 <span class="rosetta__text--italic">i</span> = <span class="rosetta__text--italic">r</span>
+                 <span class="rosetta__text--italic">lead</span> = <span class="rosetta__text--italic">lead</span> + 1
+                 <span class="rosetta__text--bold">if</span> <span class="rosetta__text--italic">columnCount</span> = <span class="rosetta__text--italic">lead</span> <span class="rosetta__text--bold">then</span>
+                     <span class="rosetta__text--bold">stop</span>
+                 <span class="rosetta__text--bold">end if</span>
+             <span class="rosetta__text--bold">end if</span>
+         <span class="rosetta__text--bold">end while</span>
+         Swap rows <span class="rosetta__text--italic">i</span> and <span class="rosetta__text--italic">r</span>
+         If M[<span class="rosetta__text--italic">r</span>, <span class="rosetta__text--italic">lead</span>] is not 0 divide row <span class="rosetta__text--italic">r</span> by M[<span class="rosetta__text--italic">r</span>, <span class="rosetta__text--italic">lead</span>]
+         <span class="rosetta__text--bold">for</span> 0 &le; <span class="rosetta__text--italic">i</span> < <span class="rosetta__text--italic">rowCount</span> <span class="rosetta__text--bold">do</span>
+             <span class="rosetta__text--bold">if</span> <span class="rosetta__text--italic">i</span> ≠ <span class="rosetta__text--italic">r</span> <span class="rosetta__text--bold">do</span>
+                 Subtract M[i, lead] multiplied by row <span class="rosetta__text--italic">r</span> from row <span class="rosetta__text--italic">i</span>
+             <span class="rosetta__text--bold">end if</span>
+         <span class="rosetta__text--bold">end for</span>
+         <span class="rosetta__text--italic">lead</span> = <span class="rosetta__text--italic">lead</span> + 1
+     <span class="rosetta__text--bold">end for</span>
+ <span class="rosetta__text--bold">end function</span>
 
 For testing purposes, the RREF of this matrix:
 <pre>1   2   -1   -4

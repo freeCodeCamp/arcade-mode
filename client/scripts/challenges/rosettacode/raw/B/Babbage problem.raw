@@ -1,10 +1,10 @@
 Babbage problem
 
 {{task}}
-[[File:Babbage.jpg|300px||right|Charles Babbage]]
-[[File:Babbage engine.jpg|300px||right|Charles Babbage's analytical engine.]]
+<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:Babbage.jpg" title="File:Babbage.jpg">300px||right|Charles Babbage</a>
+<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:Babbage engine.jpg" title="File:Babbage engine.jpg">300px||right|Charles Babbage's analytical engine.</a>
 
-[[wp:Charles_Babbage|Charles Babbage]], looking ahead to the sorts of problems his Analytical Engine would be able to solve, gave this example:
+<a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Charles_Babbage" title="wp: Charles_Babbage">Charles Babbage</a>, looking ahead to the sorts of problems his Analytical Engine would be able to solve, gave this example:
 {{quote
  | What is the smallest positive integer whose square ends in the digits 269,696?
  | Babbage, letter to Lord Bowden, 1837; see Hollingdale and Tootill, <i>Electronic Computers</i>, second edition, 1970, p. 125.
@@ -26,6 +26,7 @@ The aim of the task is to write a program that is sufficiently clear and well-do
 
 
 =={{header|JavaScript}}==
+====Iteration====
 <lang javascript>// Every line starting with a double slash will be ignored by the processing machine,
 // just like these two.
 //
@@ -45,4 +46,76 @@ The aim of the task is to write a program that is sufficiently clear and well-do
 // need to send it to the monitoring device (named console).
   console.log(n)
 </lang>
+====Array constructor====
+
+JavaScript's Array constructor lets us filter an array automatically populated with a function of the element index. This proves faster than setting up and running a while loop test, and we can make it particularly efficient by testing the potential squares rather than the potential roots. 
+
+Starting with numbers which end in 269696, and filtering for those which have integer roots, so that we reach '''25264 ^2 -> 638269696''' after only 638 tests.
+
+{{works with|ES6}}
+<lang JavaScript>(() => {
+    // BABBAGE ---------------------------------------------------------------
+
+    // babbageNumbers :: Int -> [(Int, Int)]
+    const babbageNumbers = intTests => {
+        return map(x => [Math.sqrt(x), x], filter(
+            hasIntegerRoot,
+            takeNfromSeries(intTests, x => (x * 1000000) + 269696)
+        ));
+    };
+
+    // hasIntegerRoot :: Int -> Bool
+    const hasIntegerRoot = n => {
+        const r = Math.sqrt(n);
+        return Math.floor(r) === r;
+    };
+
+    // takeNFromSeries :: Int -> (Int -> a) -> [a]
+    const takeNfromSeries = (n, f) =>
+        Array.from({
+            length: n
+        }, (_, i) => f(i));
+
+    // GENERIC FUNCTIONS -----------------------------------------------------
+
+    // curry :: ((a, b) -> c) -> a -> b -> c
+    const curry = f => a => b => f(a, b);
+
+    // filter :: (a -> Bool) -> [a] -> [a]
+    const filter = (f, xs) => xs.filter(f);
+
+    // intercalate :: String -> [a] -> String
+    const intercalate = (s, xs) => xs.join(s);
+
+    // map :: (a -> b) -> [a] -> [b]
+    const map = (f, xs) => xs.map(f);
+
+    // unlines :: [String] -> String
+    const unlines = xs => xs.join('\n');
+
+    // TEST ------------------------------------------------------------------
+    return unlines(
+        map(
+            curry(intercalate)(' ^2 -> '),
+            babbageNumbers(1000000) // Testing 10^6 numbers ending in 269696
+        )
+    );
+})();</lang>
+{{Out}}
+<pre>25264 ^2 -> 638269696
+99736 ^2 -> 9947269696
+150264 ^2 -> 22579269696
+224736 ^2 -> 50506269696
+275264 ^2 -> 75770269696
+349736 ^2 -> 122315269696
+400264 ^2 -> 160211269696
+474736 ^2 -> 225374269696
+525264 ^2 -> 275902269696
+599736 ^2 -> 359683269696
+650264 ^2 -> 422843269696
+724736 ^2 -> 525242269696
+775264 ^2 -> 601034269696
+849736 ^2 -> 722051269696
+900264 ^2 -> 810475269696
+974736 ^2 -> 950110269696</pre>
 

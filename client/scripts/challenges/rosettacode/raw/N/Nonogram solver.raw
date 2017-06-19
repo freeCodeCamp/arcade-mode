@@ -1,7 +1,7 @@
 Nonogram solver
 
 {{task}} [[Category:Puzzles]]
-A [[wp:Nonogram|nonogram]] is a puzzle that provides 
+A <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Nonogram" title="wp: Nonogram">nonogram</a> is a puzzle that provides 
 numeric clues used to fill in a grid of cells, 
 establishing for each cell whether it is filled or not. 
 The puzzle solution is typically a picture of some kind.
@@ -48,7 +48,7 @@ BC CAC CBAB BDD CDBDE BEBDF ADCDFA DCCFB DBCFC ABDBA BBF AAF BADB DBF AAAAD BDG 
 E BCB BEA BH BEK AABAF ABAC BAA BFB OD JH BADCF Q Q R AN AAN EI H G
 E CB BAB AAA AAA AC BB ACC ACCA AGB AIA AJ AJ ACE AH BAF CAG DAG FAH FJ GJ ADK ABK BL CM</pre>
 
-'''Extra credit''': generate nonograms with unique solutions, of desired height and width.
+<span class="rosetta__text--bold">Extra credit</span>: generate nonograms with unique solutions, of desired height and width.
 <br><br>
 This task is the problem n.98 of the "[https://sites.google.com/site/prologsite/prolog-problems 99 Prolog Problems]" by Werner Hett (also thanks to Paul Singleton for the idea and the examples).
 <br><br>
@@ -56,7 +56,7 @@ This task is the problem n.98 of the "[https://sites.google.com/site/prologsite/
 * [[Nonoblock]].
 <br>
 ;See also
-* [[wp:AC-3_algorithm|Arc Consistency Algorithm]]
+* <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/AC-3_algorithm" title="wp: AC-3_algorithm">Arc Consistency Algorithm</a>
 * http://www.haskell.org/haskellwiki/99_questions/Solutions/98 (Haskell)
 * http://twanvl.nl/blog/haskell/Nonograms (Haskell)
 * http://picolisp.com/5000/!wiki?99p98 (PicoLisp)

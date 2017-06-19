@@ -2,7 +2,7 @@ Averages/Mean angle
 
 {{task}}
 
-When calculating the [[wp:Mean of circular quantities|average or mean of an angle]] one has to take into account how angles wrap around so that any angle in degrees plus any integer multiple of 360 degrees is a measure of the same angle.
+When calculating the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Mean of circular quantities" title="wp: Mean of circular quantities">average or mean of an angle</a> one has to take into account how angles wrap around so that any angle in degrees plus any integer multiple of 360 degrees is a measure of the same angle.
 
 If one wanted an average direction of the wind over two readings where the first reading was of 350 degrees and the second was of 10 degrees then the average of the numbers is 180 degrees, whereas if you can note that 350 degrees is equivalent to -10 degrees and so you have two readings at 10 degrees either side of zero degrees leading to a more fitting mean angle of zero degrees.
 
@@ -16,9 +16,9 @@ To calculate the mean angle of several angles:
 
 You can alternatively use this formula:
 
-: Given the angles <math>\alpha_1,\dots,\alpha_n</math> the mean is computed by
+: Given the angles $\alpha_1,\dots,\alpha_n$ the mean is computed by
 
-::<math>\bar{\alpha} = \operatorname{atan2}\left(\frac{1}{n}\cdot\sum_{j=1}^n \sin\alpha_j, \frac{1}{n}\cdot\sum_{j=1}^n \cos\alpha_j\right) </math>
+::$\bar{\alpha} = \operatorname{atan2}\left(\frac{1}{n}\cdot\sum_{j=1}^n \sin\alpha_j, \frac{1}{n}\cdot\sum_{j=1}^n \cos\alpha_j\right) $
 
 {{task heading}}
 

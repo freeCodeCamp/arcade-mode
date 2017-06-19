@@ -4,13 +4,13 @@ Averages/Median
 
 {{task heading}}
 
-Write a program to find the &nbsp; [[wp:Median|median]] &nbsp; value of a vector of floating-point numbers. 
+Write a program to find the &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Median" title="wp: Median">median</a> &nbsp; value of a vector of floating-point numbers. 
 
-The program need not handle the case where the vector is empty, but ''must'' handle the case where there are an even number of elements. &nbsp; In that case, return the average of the two middle values.
+The program need not handle the case where the vector is empty, but <span class="rosetta__text--italic">must</span> handle the case where there are an even number of elements. &nbsp; In that case, return the average of the two middle values.
 
 There are several approaches to this. &nbsp; One is to sort the elements, and then pick the element(s) in the middle. 
 
-Sorting would take at least &nbsp; <big><span style="font-family: serif">O(''n'' log''n'')</span></big>. &nbsp; Another approach would be to build a priority queue from the elements, and then extract half of the elements to get to the middle element(s). &nbsp; This would also take &nbsp; <big><span style="font-family: serif">O(''n'' log''n'')</span></big>. &nbsp; The best solution is to use the &nbsp; [[wp:Selection algorithm|selection algorithm]] &nbsp; to find the median in &nbsp; <big><span style="font-family: serif">O(''n'')</span></big> &nbsp; time.
+Sorting would take at least &nbsp; <big><span style="font-family: serif">O(<span class="rosetta__text--italic">n</span> log<span class="rosetta__text--italic">n</span>)</span></big>. &nbsp; Another approach would be to build a priority queue from the elements, and then extract half of the elements to get to the middle element(s). &nbsp; This would also take &nbsp; <big><span style="font-family: serif">O(<span class="rosetta__text--italic">n</span> log<span class="rosetta__text--italic">n</span>)</span></big>. &nbsp; The best solution is to use the &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Selection algorithm" title="wp: Selection algorithm">selection algorithm</a> &nbsp; to find the median in &nbsp; <big><span style="font-family: serif">O(<span class="rosetta__text--italic">n</span>)</span></big> &nbsp; time.
 
 {{task heading|See also}}
 [[Quickselect_algorithm]]

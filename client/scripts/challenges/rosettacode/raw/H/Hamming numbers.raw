@@ -1,24 +1,24 @@
 Hamming numbers
 
 {{task}}
-'''[[wp:Hamming numbers|Hamming numbers]]''' are numbers of the form &nbsp; 
+<span class="rosetta__text--bold"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Hamming numbers" title="wp: Hamming numbers">Hamming numbers</a></span> are numbers of the form &nbsp; 
        <big><big> H  =  2<sup>i</sup> &times; 3<sup>j</sup> &times; 5<sup>k</sup> </big></big>
 where 
        <big>      i, j, k  ≥  0 </big>
 
-''Hamming numbers'' &nbsp; are also known as &nbsp; ''ugly numbers'' &nbsp; and also &nbsp; ''5-smooth numbers'' &nbsp; (numbers whose prime divisors are less or equal to 5).  
+<span class="rosetta__text--italic">Hamming numbers</span> &nbsp; are also known as &nbsp; <span class="rosetta__text--italic">ugly numbers</span> &nbsp; and also &nbsp; <span class="rosetta__text--italic">5-smooth numbers</span> &nbsp; (numbers whose prime divisors are less or equal to 5).  
 
 
 ;Task:
-Generate the sequence of Hamming numbers, ''in increasing order''. &nbsp; In particular:
+Generate the sequence of Hamming numbers, <span class="rosetta__text--italic">in increasing order</span>. &nbsp; In particular:
 # Show the &nbsp; first twenty &nbsp; Hamming numbers.
 # Show the &nbsp; 1691<sup>st</sup> &nbsp; Hamming number (the last one below &nbsp; 2<sup>31</sup>).
 # Show the &nbsp; one million<sup>th</sup> &nbsp; Hamming number (if the language – or a convenient library – supports arbitrary-precision integers).
 
 
 ;References:
-* [[wp:Hamming numbers|Hamming numbers]]
-* [[wp:Smooth number|Smooth number]]
+* <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Hamming numbers" title="wp: Hamming numbers">Hamming numbers</a>
+* <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Smooth number" title="wp: Smooth number">Smooth number</a>
 * [http://dobbscodetalk.com/index.php?option=com_content&task=view&id=913&Itemid=85 Hamming problem] from Dr. Dobb's CodeTalk (dead link as of Sep 2011; parts of the thread [http://drdobbs.com/blogs/architecture-and-design/228700538 here] and [http://www.jsoftware.com/jwiki/Essays/Hamming%20Number here]).
 <br><br>
 

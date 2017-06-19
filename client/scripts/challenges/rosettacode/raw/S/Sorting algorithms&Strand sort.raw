@@ -6,7 +6,7 @@ Sorting algorithms/Strand sort
 
 <br>
 ;Task:
-Implement the [[wp:Strand sort|Strand sort]]. 
+Implement the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Strand sort" title="wp: Strand sort">Strand sort</a>. 
 
 This is a way of sorting numbers by extracting shorter sequences of already sorted numbers from an unsorted list.
 <br><br>

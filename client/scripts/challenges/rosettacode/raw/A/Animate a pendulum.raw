@@ -2,11 +2,11 @@ Animate a pendulum
 
 {{omit from|LFE}}
 
-[[File:pendulum.gif|160px|thumb|right|Capture of the Oz version.]]
+<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:pendulum.gif" title="File:pendulum.gif">160px|thumb|right|Capture of the Oz version.</a>
 
 {{task|Temporal media}}{{requires|Graphics}}
 One good way of making an animation is by simulating a physical system and illustrating the variables in that system using a dynamically changing graphical display. 
-The classic such physical system is a [[wp:Pendulum|simple gravity pendulum]].
+The classic such physical system is a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Pendulum" title="wp: Pendulum">simple gravity pendulum</a>.
 
 For this task, create a simple physical model of a pendulum and animate it.
 

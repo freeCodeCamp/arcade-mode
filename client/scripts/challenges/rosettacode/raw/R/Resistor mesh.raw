@@ -1,11 +1,12 @@
 Resistor mesh
 
-{{task}} [[Category:Electronics]]
-[[image:resistor-mesh.svg|300px||right]]
+{{task}} <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category:Electronics]]
+[[image:resistor-mesh.svg" title="Category:Electronics]]
+[[image:resistor-mesh.svg">300px||right</a>
 
 ;Task:
 Given &nbsp; <big> 10&times;10 </big> &nbsp; grid nodes &nbsp; (as shown in the image) &nbsp; interconnected by &nbsp; <big> 1Ω </big> &nbsp; resistors as shown,
-<br>find the resistance between point &nbsp; '''A''' &nbsp; and &nbsp; '''B'''.
+<br>find the resistance between point &nbsp; <span class="rosetta__text--bold">A</span> &nbsp; and &nbsp; <span class="rosetta__text--bold">B</span>.
 
 
 ;See also:

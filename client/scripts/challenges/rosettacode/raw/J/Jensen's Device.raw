@@ -2,36 +2,36 @@ Jensen's Device
 
 {{wikipedia}}
 {{task|Classic CS problems and programs}}
-This task is an exercise in [[wp:Call-by-name#Call_by_name|call by name]].
+This task is an exercise in <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Call-by-name#Call_by_name" title="wp: Call-by-name#Call_by_name">call by name</a>.
 
-'''Jensen's Device''' is a computer programming technique devised by Danish computer scientist [[wp:Jørn_Jensen|Jørn Jensen]] after studying the [[ALGOL 60]] Report.
+<span class="rosetta__text--bold">Jensen's Device</span> is a computer programming technique devised by Danish computer scientist <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Jørn_Jensen" title="wp: Jørn_Jensen">Jørn Jensen]] after studying the [[ALGOL 60</a> Report.
 
-The following program was proposed to illustrate the technique. It computes the 100th [[wp:Harmonic_number|harmonic number]]:
+The following program was proposed to illustrate the technique. It computes the 100th <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Harmonic_number" title="wp: Harmonic_number">harmonic number</a>:
 
- '''begin'''
-    '''integer''' i;
-    '''real procedure''' sum (i, lo, hi, term);
-       '''value''' lo, hi;
-       '''integer''' i, lo, hi;
-       '''real''' term;
-       '''comment''' term is passed by-name, and so is i;
-    '''begin'''
-       '''real''' temp;
+ <span class="rosetta__text--bold">begin</span>
+    <span class="rosetta__text--bold">integer</span> i;
+    <span class="rosetta__text--bold">real procedure</span> sum (i, lo, hi, term);
+       <span class="rosetta__text--bold">value</span> lo, hi;
+       <span class="rosetta__text--bold">integer</span> i, lo, hi;
+       <span class="rosetta__text--bold">real</span> term;
+       <span class="rosetta__text--bold">comment</span> term is passed by-name, and so is i;
+    <span class="rosetta__text--bold">begin</span>
+       <span class="rosetta__text--bold">real</span> temp;
        temp := 0;
-       '''for''' i := lo '''step''' 1 '''until''' hi '''do'''
+       <span class="rosetta__text--bold">for</span> i := lo <span class="rosetta__text--bold">step</span> 1 <span class="rosetta__text--bold">until</span> hi <span class="rosetta__text--bold">do</span>
           temp := temp + term;
        sum := temp
-    '''end''';
-    '''comment''' note the correspondence between the mathematical notation and the call to sum;
+    <span class="rosetta__text--bold">end</span>;
+    <span class="rosetta__text--bold">comment</span> note the correspondence between the mathematical notation and the call to sum;
     print (sum (i, 1, 100, 1/i))
- '''end'''
+ <span class="rosetta__text--bold">end</span>
 
-The above exploits [[wp:Call-by-name#Call_by_name|call by name]] to produce the correct answer (5.187...). It depends on the assumption that an expression passed as an actual parameter to a procedure would be re-evaluated in the caller's context every time the corresponding formal parameter's value was required. If the last parameter to ''sum'' had been passed by value, and assuming the initial value of ''i'' were 1, the result would have been 100 &times; 1/1 = 100.
+The above exploits <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Call-by-name#Call_by_name" title="wp: Call-by-name#Call_by_name">call by name</a> to produce the correct answer (5.187...). It depends on the assumption that an expression passed as an actual parameter to a procedure would be re-evaluated in the caller's context every time the corresponding formal parameter's value was required. If the last parameter to <span class="rosetta__text--italic">sum</span> had been passed by value, and assuming the initial value of <span class="rosetta__text--italic">i</span> were 1, the result would have been 100 &times; 1/1 = 100.
 
-Moreover, the ''first'' parameter to ''sum'', representing the "bound" variable of the summation, must also be passed by name (or at least by reference), otherwise changes to it (made within ''sum'') would not be visible in the caller's context when computing each of the values to be added.
-(On the other hand, the global variable does not have to use the same identifier, in this case ''i'', as the formal parameter.)
+Moreover, the <span class="rosetta__text--italic">first</span> parameter to <span class="rosetta__text--italic">sum</span>, representing the "bound" variable of the summation, must also be passed by name (or at least by reference), otherwise changes to it (made within <span class="rosetta__text--italic">sum</span>) would not be visible in the caller's context when computing each of the values to be added.
+(On the other hand, the global variable does not have to use the same identifier, in this case <span class="rosetta__text--italic">i</span>, as the formal parameter.)
 
-[[wp:Donald_Knuth|Donald Knuth]] later proposed the [[Man or boy test|Man or Boy Test]] as a more rigorous exercise.
+<a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Donald_Knuth" title="wp: Donald_Knuth">Donald Knuth]] later proposed the [[Man or boy test|Man or Boy Test</a> as a more rigorous exercise.
 <br><br>
 
 =={{header|JavaScript}}==

@@ -3,7 +3,7 @@ Append a record to the end of a text file
 {{task|File handling}}
 Many systems offer the ability to open a file for writing, such that any data written will be appended to the end of the file. Further, the file operations will always adjust the position pointer to guarantee the end of the file, even in a multitasking environment.
 
-This feature is most useful in the case of log files, where many jobs may be appending to the log file at the same time, or where care ''must'' be taken to avoid concurrently overwriting the same record from another job.
+This feature is most useful in the case of log files, where many jobs may be appending to the log file at the same time, or where care <span class="rosetta__text--italic">must</span> be taken to avoid concurrently overwriting the same record from another job.
 
 
 ;Task:
@@ -11,7 +11,7 @@ Given a two record sample for a mythical "passwd" file:
 * Write these records out in the typical system format.
 ** Ideally these records will have named fields of various types.
 * Close the file, then reopen the file for append.
-** '''Append''' a new record to the file and close the file again.
+** <span class="rosetta__text--bold">Append</span> a new record to the file and close the file again.
 ** Take appropriate care to avoid concurrently overwrites from another job.
 * Open the file and demonstrate the new record has indeed written to the end.
 
@@ -37,14 +37,14 @@ Given a two record sample for a mythical "passwd" file:
 |xyz||x||1003||1000||X Yz,Room 1003,(234)555-8913,(234)555-0033,xyz@rosettacode.org||/home/xyz||/bin/bash
 |}
 
-'''Resulting file format:''' should mimic Linux's /etc/passwd file format with particular attention to the "," separator used in the [[wp:Gecos field|GECOS field]].  But if the specific language has a particular or unique format of storing records in text file, then this format should be named and demonstrated with an additional example.
+<span class="rosetta__text--bold">Resulting file format:</span> should mimic Linux's /etc/passwd file format with particular attention to the "," separator used in the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Gecos field" title="wp: Gecos field">GECOS field</a>.  But if the specific language has a particular or unique format of storing records in text file, then this format should be named and demonstrated with an additional example.
 
-'''Expected output:'''
+<span class="rosetta__text--bold">Expected output:</span>
 <pre>
 Appended record: xyz:x:1003:1000:X Yz,Room 1003,(234)555-8913,(234)555-0033,xyz@rosettacode.org:/home/xyz:/bin/bash
 </pre>
 
-'''Finally:''' Provide a summary of the language's "append record" capabilities in a table. eg.
+<span class="rosetta__text--bold">Finally:</span> Provide a summary of the language's "append record" capabilities in a table. eg.
 {|class="wikitable" style="text-align: center; margin: 1em auto 1em auto;"
 |+ Append Capabilities.
 |-
@@ -59,7 +59,7 @@ Appended record: xyz:x:1003:1000:X Yz,Room 1003,(234)555-8913,(234)555-0033,xyz@
 | C struct || CSV text file || glibc/stdio || ☑ || ☑ || ☑ (Not all, eg NFS)
 |}
 
-Alternatively: If the language's appends can not guarantee its writes will '''always''' append, then note this restriction in the table. If possible, provide an actual code example (possibly using file/record locking) to guarantee correct concurrent appends.
+Alternatively: If the language's appends can not guarantee its writes will <span class="rosetta__text--bold">always</span> append, then note this restriction in the table. If possible, provide an actual code example (possibly using file/record locking) to guarantee correct concurrent appends.
 <br><br>
 
 

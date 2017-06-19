@@ -3,7 +3,7 @@ SEDOLs
 {{task|Checksums}}
 
 ;Task:
-For each number list of '''6'''-digit [[wp:SEDOL|SEDOL]]s, calculate and append the checksum digit.  
+For each number list of <span class="rosetta__text--bold">6</span>-digit <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/SEDOL" title="wp: SEDOL">SEDOL</a>s, calculate and append the checksum digit.  
 
 
 That is, given this input:
@@ -40,8 +40,9 @@ Check each input is correctly formed, especially with respect to valid character
 
 
 ;Related tasks:
-* &nbsp; [[Luhn test]]
-* &nbsp; [[Calculate International Securities Identification Number|ISIN]]
+* &nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Luhn test]]
+* &nbsp; [[Calculate International Securities Identification Number" title="Luhn test]]
+* &nbsp; [[Calculate International Securities Identification Number">ISIN</a>
 <br><br>
 
 

@@ -7,7 +7,7 @@ A virtual machine implements a computer in software.
 {{task heading}}
 
 Write a virtual machine interpreter.  This interpreter should be able to run virtual
-assembly language programs created via the [[Compiler/code_generator|task]]. This is a
+assembly language programs created via the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/code_generator" title="Compiler/code_generator">task</a>. This is a
 byte-coded, 32-bit word stack based virtual machine.
 
 The program should read input from a file and/or stdin, and write output to a file and/or
@@ -23,7 +23,7 @@ Given the following program:
      count = count + 1;
  }
 
-The output from the [[Compiler/code_generator|Code generator]] is a virtual assembly code program:
+The output from the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/code_generator" title="Compiler/code_generator">Code generator</a> is a virtual assembly code program:
 
 {| class="wikitable"
 |-
@@ -195,7 +195,7 @@ Unconditional stop.
 
 ; Additional examples
 
-Your solution should pass all the test cases above and the additional tests found '''[[Compiler/Sample_programs|Here]]'''.
+Your solution should pass all the test cases above and the additional tests found <span class="rosetta__text--bold"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/Sample_programs" title="Compiler/Sample_programs">Here</a></span>.
 
 {{task heading|Reference}}
 
@@ -203,10 +203,10 @@ The C and Python versions can be considered reference implementations.
 
 ;Related Tasks
 
-* [[Compiler/lexical_analyzer|Lexical Analyzer task]]
-* [[Compiler/syntax_analyzer|Syntax Analyzer task]]
-* [[Compiler/code_generator|Code Generator task]]
-* [[Compiler/AST_interpreter|AST Interpreter task]]
+* <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/lexical_analyzer" title="Compiler/lexical_analyzer">Lexical Analyzer task</a>
+* <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/syntax_analyzer" title="Compiler/syntax_analyzer">Syntax Analyzer task</a>
+* <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/code_generator" title="Compiler/code_generator">Code Generator task</a>
+* <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/AST_interpreter" title="Compiler/AST_interpreter">AST Interpreter task</a>
 
 <hr>
 __TOC__

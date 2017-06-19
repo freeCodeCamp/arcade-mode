@@ -3,7 +3,7 @@ Permutations
 {{task|Discrete math}}
 
 ;Task:
-Write a program that generates all &nbsp; [[wp:Permutation|permutations]] &nbsp; of &nbsp; '''n''' &nbsp; different objects. &nbsp; (Practically numerals!)
+Write a program that generates all &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Permutation" title="wp: Permutation">permutations</a> &nbsp; of &nbsp; <span class="rosetta__text--bold">n</span> &nbsp; different objects. &nbsp; (Practically numerals!)
  
 
 ;Related tasks: 

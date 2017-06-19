@@ -1,10 +1,13 @@
 Keyboard input/Flush the keyboard buffer
 
 {{task|Keyboard input}} 
-[[Category:Hardware]] 
+<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category:Hardware]] 
 [[Category:Terminal control]] 
 [[Category:Simple]] 
-[[user input::task| ]] 
+[[user input::task" title="Category:Hardware]] 
+[[Category:Terminal control]] 
+[[Category:Simple]] 
+[[user input::task"> </a> 
 {{omit from|ACL2}}
 {{omit from|GUISS}}
 {{omit from|PARI/GP}}
@@ -15,7 +18,7 @@ This reads characters from the keyboard input and
 discards them until there are no more currently buffered, &nbsp;  
 and then allows the program to continue. 
 
-''The program must not wait for users to type anything.''
+<span class="rosetta__text--italic">The program must not wait for users to type anything.</span>
 <br><br>
 
 

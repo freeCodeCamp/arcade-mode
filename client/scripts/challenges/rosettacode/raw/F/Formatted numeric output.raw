@@ -8,7 +8,7 @@ Formatted numeric output
 Express a number in decimal as a fixed-length string with leading zeros.
 
 
-For example, the number &nbsp; '''7.125''' &nbsp; could be expressed as &nbsp; '''00007.125'''.
+For example, the number &nbsp; <span class="rosetta__text--bold">7.125</span> &nbsp; could be expressed as &nbsp; <span class="rosetta__text--bold">00007.125</span>.
 <br><br>
 
 

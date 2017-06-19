@@ -32,7 +32,7 @@ The task is to generate and show here a table of &nbsp; <code> n </code> &nbsp; 
 
 
 ;Note:
-[[oeis:A000375|Topswops]] is also known as &nbsp; [http://www.haskell.org/haskellwiki/Shootout/Fannkuch Fannkuch] &nbsp; from the German Pfannkuchen meaning &nbsp; [http://youtu.be/3biN6nQYqZY pancake].
+<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/oeis:A000375" title="oeis:A000375">Topswops</a> is also known as &nbsp; [http://www.haskell.org/haskellwiki/Shootout/Fannkuch Fannkuch] &nbsp; from the German Pfannkuchen meaning &nbsp; [http://youtu.be/3biN6nQYqZY pancake].
 
 
 ;Related tasks:

@@ -2,9 +2,9 @@ Balanced brackets
 
 {{task}}
 
-'''Task''': 
-* Generate a string with &nbsp; '''N''' &nbsp; opening brackets &nbsp; <big>'''['''</big> &nbsp; and with &nbsp; '''N''' &nbsp; closing brackets &nbsp; <big>''']'''</big>, &nbsp; in some arbitrary order. 
-* Determine whether the generated string is ''balanced''; that is, whether it consists entirely of pairs of opening/closing brackets (in that order), none of which mis-nest.
+<span class="rosetta__text--bold">Task</span>: 
+* Generate a string with &nbsp; <span class="rosetta__text--bold">N</span> &nbsp; opening brackets &nbsp; <big><span class="rosetta__text--bold">[</span></big> &nbsp; and with &nbsp; <span class="rosetta__text--bold">N</span> &nbsp; closing brackets &nbsp; <big><span class="rosetta__text--bold">]</span></big>, &nbsp; in some arbitrary order. 
+* Determine whether the generated string is <span class="rosetta__text--italic">balanced</span>; that is, whether it consists entirely of pairs of opening/closing brackets (in that order), none of which mis-nest.
 
 
 

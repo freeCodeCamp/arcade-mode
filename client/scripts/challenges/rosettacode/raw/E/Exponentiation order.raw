@@ -2,7 +2,7 @@ Exponentiation order
 
 {{task}}
 
-This task will demonstrate the order of [[wp:Exponentiation|exponentiation]] &nbsp; <big>('''x<sup>y</sup>''') </big> &nbsp; when there are multiple exponents.
+This task will demonstrate the order of <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Exponentiation" title="wp: Exponentiation">exponentiation</a> &nbsp; <big>(<span class="rosetta__text--bold">x<sup>y</sup></span>) </big> &nbsp; when there are multiple exponents.
 
 (Many programming languages, especially those with extended-precision integer arithmetic, usually support one of <code>**</code>, <code>^</code>, <code>↑</code> or some such for exponentiation.)
 

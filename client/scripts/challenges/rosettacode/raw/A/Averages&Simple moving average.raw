@@ -2,11 +2,11 @@ Averages/Simple moving average
 
 {{task|Probability and statistics}}
 
-Computing the [[wp:Moving_average#Simple_moving_average|simple moving average]] of a series of numbers.
+Computing the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Moving_average#Simple_moving_average" title="wp: Moving_average#Simple_moving_average">simple moving average</a> of a series of numbers.
 
 {{task heading}}
 
-Create a [[wp:Stateful|stateful]] function/class/instance that takes a period and returns a routine that takes a number as argument and returns a simple moving average of its arguments so far.
+Create a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Stateful" title="wp: Stateful">stateful</a> function/class/instance that takes a period and returns a routine that takes a number as argument and returns a simple moving average of its arguments so far.
 
 {{task heading|Description}}
 
@@ -14,12 +14,12 @@ A simple moving average is a method for computing an average of a stream of numb
 
 It can be implemented by calling an initialing routine with &nbsp; P &nbsp; as its argument, &nbsp; I(P), &nbsp; which should then return a routine that when called with individual, successive members of a stream of numbers, computes the mean of (up to), the last &nbsp; P &nbsp; of them, lets call this &nbsp; SMA().
 
-The word &nbsp; ''stateful'' &nbsp; in the task description refers to the need for &nbsp; SMA() &nbsp; to remember certain information between calls to it:
+The word &nbsp; <span class="rosetta__text--italic">stateful</span> &nbsp; in the task description refers to the need for &nbsp; SMA() &nbsp; to remember certain information between calls to it:
 * &nbsp; The period, &nbsp; P
 * &nbsp; An ordered container of at least the last &nbsp; P &nbsp; numbers from each of its individual calls.
 
 <br>
-''Stateful'' &nbsp;  also means that successive calls to &nbsp; I(), &nbsp; the initializer, &nbsp; should return separate routines that do &nbsp; ''not'' &nbsp; share saved state so they could be used on two independent streams of data.
+<span class="rosetta__text--italic">Stateful</span> &nbsp;  also means that successive calls to &nbsp; I(), &nbsp; the initializer, &nbsp; should return separate routines that do &nbsp; <span class="rosetta__text--italic">not</span> &nbsp; share saved state so they could be used on two independent streams of data.
 
 Pseudo-code for an implementation of &nbsp; SMA &nbsp; is:
 <pre>

@@ -6,7 +6,7 @@ Natural sorting
 
 Natural sorting is the sorting of text that does more than rely on the
 order of individual characters codes to make the finding of
-individual strings easier for a ''human'' reader.
+individual strings easier for a <span class="rosetta__text--italic">human</span> reader.
 
 There is no "one true way" to do this, but for the purpose of this task 'natural' orderings might include:
 :1.  Ignore leading, trailing and multiple adjacent spaces
@@ -27,11 +27,11 @@ There is no "one true way" to do this, but for the purpose of this task 'natural
 :: ...
 
 ;Task Description
-* '''Implement the first four''' of the eight given features in a natural sorting routine/function/method...
+* <span class="rosetta__text--bold">Implement the first four</span> of the eight given features in a natural sorting routine/function/method...
 * Test each feature implemented separately with an ordered list of test strings from the 'Sample inputs' section below, and make sure your naturally sorted output is in the same order as other language outputs such as Python. 
 * Print and display your output.
 
-* '''For extra credit''' implement more than the first four.
+* <span class="rosetta__text--bold">For extra credit</span> implement more than the first four.
 
 Note: It is not necessary to have individual control of which features are active in the natural sorting routine at any time. 
 

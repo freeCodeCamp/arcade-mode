@@ -1,7 +1,7 @@
 Probabilistic choice
 
 {{task|Probability and statistics}}
-Given a mapping between items and their required probability of occurrence, generate a million items ''randomly'' subject to the given probabilities and compare the target probability of occurrence versus the generated values.
+Given a mapping between items and their required probability of occurrence, generate a million items <span class="rosetta__text--italic">randomly</span> subject to the given probabilities and compare the target probability of occurrence versus the generated values.
 
 The total of all the probabilities should equal one. (Because floating point arithmetic is involved, this is subject to rounding errors). 
 

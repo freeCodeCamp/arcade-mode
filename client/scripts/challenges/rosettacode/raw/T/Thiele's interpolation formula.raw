@@ -4,28 +4,28 @@ Thiele's interpolation formula
 {{Wikipedia|Thiele's interpolation formula}}
 
 <br>
-'''[[wp:Thiele's_interpolation_formula|Thiele's interpolation formula]]''' is an interpolation formula for a function ''f''(•) of a single variable. &nbsp; It is expressed as a [[continued fraction]]:
+<span class="rosetta__text--bold"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Thiele's_interpolation_formula" title="wp: Thiele's_interpolation_formula">Thiele's interpolation formula]]</span> is an interpolation formula for a function <span class="rosetta__text--italic">f</span>(•) of a single variable. &nbsp; It is expressed as a [[continued fraction</a>:
 
-:: <big><big><math> f(x) = f(x_1) + \cfrac{x-x_1}{\rho_1(x_1,x_2) + \cfrac{x-x_2}{\rho_2(x_1,x_2,x_3) - f(x_1) + \cfrac{x-x_3}{\rho_3(x_1,x_2,x_3,x_4) - \rho_1(x_1,x_2) + \cdots}}} </math></big></big>
+:: <big><big>$ f(x) = f(x_1) + \cfrac{x-x_1}{\rho_1(x_1,x_2) + \cfrac{x-x_2}{\rho_2(x_1,x_2,x_3) - f(x_1) + \cfrac{x-x_3}{\rho_3(x_1,x_2,x_3,x_4) - \rho_1(x_1,x_2) + \cdots}}} $</big></big>
 
-<big><big><math>\rho</math></big></big> &nbsp; represents the &nbsp; [[wp:reciprocal difference|reciprocal difference]], &nbsp; demonstrated here for reference:
+<big><big>$\rho$</big></big> &nbsp; represents the &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/reciprocal difference" title="wp: reciprocal difference">reciprocal difference</a>, &nbsp; demonstrated here for reference:
 
-:: <big><big><math>\rho_1(x_0, x_1) = \frac{x_0 - x_1}{f(x_0) - f(x_1)}</math></big></big>
+:: <big><big>$\rho_1(x_0, x_1) = \frac{x_0 - x_1}{f(x_0) - f(x_1)}$</big></big>
 
-:: <big><big><math>\rho_2(x_0, x_1, x_2) = \frac{x_0 - x_2}{\rho_1(x_0, x_1) - \rho_1(x_1, x_2)} + f(x_1)</math></big></big>
+:: <big><big>$\rho_2(x_0, x_1, x_2) = \frac{x_0 - x_2}{\rho_1(x_0, x_1) - \rho_1(x_1, x_2)} + f(x_1)$</big></big>
 
-:: <big><big><math>\rho_n(x_0,x_1,\ldots,x_n)=\frac{x_0-x_n}{\rho_{n-1}(x_0,x_1,\ldots,x_{n-1})-\rho_{n-1}(x_1,x_2,\ldots,x_n)}+\rho_{n-2}(x_1,\ldots,x_{n-1})</math></big></big>
+:: <big><big>$\rho_n(x_0,x_1,\ldots,x_n)=\frac{x_0-x_n}{\rho_{n-1}(x_0,x_1,\ldots,x_{n-1})-\rho_{n-1}(x_1,x_2,\ldots,x_n)}+\rho_{n-2}(x_1,\ldots,x_{n-1})$</big></big>
 
 Demonstrate Thiele's interpolation function by:
-# Building a &nbsp; '''32''' &nbsp; row ''trig table'' of values &nbsp; for &nbsp; <big><big><math> x </math></big></big> &nbsp; from &nbsp; '''0''' &nbsp; by &nbsp; '''0.05''' &nbsp; to &nbsp; '''1.55''' &nbsp; of the trig functions: 
-#* &nbsp; '''sin'''
-#* &nbsp; '''cos'''
-#* &nbsp; '''tan'''
+# Building a &nbsp; <span class="rosetta__text--bold">32</span> &nbsp; row <span class="rosetta__text--italic">trig table</span> of values &nbsp; for &nbsp; <big><big>$ x $</big></big> &nbsp; from &nbsp; <span class="rosetta__text--bold">0</span> &nbsp; by &nbsp; <span class="rosetta__text--bold">0.05</span> &nbsp; to &nbsp; <span class="rosetta__text--bold">1.55</span> &nbsp; of the trig functions: 
+#* &nbsp; <span class="rosetta__text--bold">sin</span>
+#* &nbsp; <span class="rosetta__text--bold">cos</span>
+#* &nbsp; <span class="rosetta__text--bold">tan</span>
 # Using columns from this table define an inverse - using Thiele's interpolation - for each trig function;
 # Finally: demonstrate the following well known trigonometric identities:
-#* &nbsp; <big><big> 6 &times; sin<sup>-1</sup> &frac12; = <math>\pi</math></big></big>
-#* &nbsp; <big><big> 3 &times; cos<sup>-1</sup> &frac12; = <math>\pi</math></big></big>
-#* &nbsp; <big><big> 4 &times; tan<sup>-1</sup> 1        = <math>\pi</math></big></big> 
+#* &nbsp; <big><big> 6 &times; sin<sup>-1</sup> &frac12; = $\pi$</big></big>
+#* &nbsp; <big><big> 3 &times; cos<sup>-1</sup> &frac12; = $\pi$</big></big>
+#* &nbsp; <big><big> 4 &times; tan<sup>-1</sup> 1        = $\pi$</big></big> 
 <br><br>
 
 

@@ -3,15 +3,15 @@ Hailstone sequence
 {{task}}
 
 The Hailstone sequence of numbers can be generated from a starting positive integer, &nbsp; n &nbsp; by:
-* &nbsp; If &nbsp; n &nbsp; is &nbsp; &nbsp; '''1''' &nbsp; &nbsp; then the sequence ends.
-* &nbsp; If &nbsp; n &nbsp; is &nbsp; '''even''' then the next &nbsp; n &nbsp; of the sequence &nbsp; <big><code> = n/2 </code></big>
-* &nbsp; If &nbsp; n &nbsp; is &nbsp; '''odd'''  &nbsp; then the next &nbsp; n &nbsp; of the sequence &nbsp; <big><code> = (3 * n) + 1 </code></big>
+* &nbsp; If &nbsp; n &nbsp; is &nbsp; &nbsp; <span class="rosetta__text--bold">1</span> &nbsp; &nbsp; then the sequence ends.
+* &nbsp; If &nbsp; n &nbsp; is &nbsp; <span class="rosetta__text--bold">even</span> then the next &nbsp; n &nbsp; of the sequence &nbsp; <big><code> = n/2 </code></big>
+* &nbsp; If &nbsp; n &nbsp; is &nbsp; <span class="rosetta__text--bold">odd</span>  &nbsp; then the next &nbsp; n &nbsp; of the sequence &nbsp; <big><code> = (3 * n) + 1 </code></big>
 
 
-The (unproven) [[wp:Collatz conjecture|Collatz conjecture]] is that the hailstone sequence for any starting number always terminates.
+The (unproven) <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Collatz conjecture" title="wp: Collatz conjecture">Collatz conjecture</a> is that the hailstone sequence for any starting number always terminates.
 
 
-The hailstone sequence is also known as ''hailstone numbers'' (because the values are usually subject to multiple descents and ascents like hailstones in a cloud), or as the ''Collatz sequence''.
+The hailstone sequence is also known as <span class="rosetta__text--italic">hailstone numbers</span> (because the values are usually subject to multiple descents and ascents like hailstones in a cloud), or as the <span class="rosetta__text--italic">Collatz sequence</span>.
 
 
 ;Task:

@@ -1,14 +1,14 @@
 Catmull–Clark subdivision surface
 
 {{task|3D}}[[Category:Graphics algorithms]]{{requires|Graphics}}
-Implement the Catmull-Clark surface subdivision ([[wp:Catmull–Clark_subdivision_surface|description on Wikipedia]]), which is an algorithm that maps from a surface (described as a set of points and a set of polygons with vertices at those points) to another more refined surface. The resulting surface will always consist of a mesh of quadrilaterals.
+Implement the Catmull-Clark surface subdivision (<a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Catmull–Clark_subdivision_surface" title="wp: Catmull–Clark_subdivision_surface">description on Wikipedia</a>), which is an algorithm that maps from a surface (described as a set of points and a set of polygons with vertices at those points) to another more refined surface. The resulting surface will always consist of a mesh of quadrilaterals.
 
 The process for computing the new locations of the points works as follows when the surface is free of holes:
-[[Image:CatmullClark_subdiv_0.png|thumb|Starting cubic mesh; the meshes below are derived from this.]]
-[[Image:CatmullClark_subdiv_1.png|thumb|After one round of the Catmull-Clark algorithm applied to a cubic mesh.]]
-[[Image:CatmullClark_subdiv_2.png|thumb|After two rounds of the Catmull-Clark algorithm. As can be seen, this is converging to a surface that looks nearly spherical.]]
-# for each face, a ''face point'' is created which is the average of all the points of the face.
-# for each edge, an ''edge point'' is created which is the average between the center of the edge and the center of the segment made with the face points of the two adjacent faces.
+<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Image:CatmullClark_subdiv_0.png" title="Image:CatmullClark_subdiv_0.png">thumb|Starting cubic mesh; the meshes below are derived from this.</a>
+<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Image:CatmullClark_subdiv_1.png" title="Image:CatmullClark_subdiv_1.png">thumb|After one round of the Catmull-Clark algorithm applied to a cubic mesh.</a>
+<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Image:CatmullClark_subdiv_2.png" title="Image:CatmullClark_subdiv_2.png">thumb|After two rounds of the Catmull-Clark algorithm. As can be seen, this is converging to a surface that looks nearly spherical.</a>
+# for each face, a <span class="rosetta__text--italic">face point</span> is created which is the average of all the points of the face.
+# for each edge, an <span class="rosetta__text--italic">edge point</span> is created which is the average between the center of the edge and the center of the segment made with the face points of the two adjacent faces.
 # for each vertex point, its coordinates are updated from (<tt>new_coords</tt>):
 ## the old coordinates (<tt>old_coords</tt>),
 ## the average of the face points of the faces the point belongs to (<tt>avg_face_points</tt>),

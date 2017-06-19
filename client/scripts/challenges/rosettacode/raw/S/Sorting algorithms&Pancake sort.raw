@@ -4,19 +4,19 @@ Sorting algorithms/Pancake sort
 {{Sorting Algorithm}}
 
 ;Task:
-Sort an array of integers (of any convenient size) into ascending order using [[wp:Pancake sorting|Pancake sorting]]. 
+Sort an array of integers (of any convenient size) into ascending order using <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Pancake sorting" title="wp: Pancake sorting">Pancake sorting</a>. 
 
 In short, instead of individual elements being sorted, the only operation allowed is to "flip" one end of the list, like so:
  Before:
- '''6 7 8 9''' 2 5 3 4 1
+ <span class="rosetta__text--bold">6 7 8 9</span> 2 5 3 4 1
  After:
- '''9 8 7 6''' 2 5 3 4 1
+ <span class="rosetta__text--bold">9 8 7 6</span> 2 5 3 4 1
 
-Only one end of the list can be flipped; this should be the low end, but the high end is okay if it's easier to code or works better, but it '''must''' be the same end for the entire solution. (The end flipped can't be arbitrarily changed.)
+Only one end of the list can be flipped; this should be the low end, but the high end is okay if it's easier to code or works better, but it <span class="rosetta__text--bold">must</span> be the same end for the entire solution. (The end flipped can't be arbitrarily changed.)
 
 Show both the initial, unsorted list and the final sorted list. (Intermediate steps during sorting are optional.) Optimizations are optional (but recommended).
 
-For more information on pancake sorting, see [[wp:Pancake sorting|the Wikipedia entry]].
+For more information on pancake sorting, see <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Pancake sorting" title="wp: Pancake sorting">the Wikipedia entry</a>.
 
 See also:
 * [[Number reversal game]]

@@ -2,27 +2,27 @@ Sorting algorithms/Cocktail sort
 
 {{task|Sorting Algorithms}}{{Sorting Algorithm}}{{wikipedia|Cocktail sort}}
 The cocktail shaker sort is an improvement on the [[Bubble Sort]]. 
-The improvement is basically that values "bubble" both directions through the array, because on each iteration the cocktail shaker sort bubble sorts once forwards and once backwards. Pseudocode for the algorithm (from [[wp:Cocktail sort|wikipedia]]):
- '''function''' ''cocktailSort''( A : list of sortable items )
-  '''do'''
+The improvement is basically that values "bubble" both directions through the array, because on each iteration the cocktail shaker sort bubble sorts once forwards and once backwards. Pseudocode for the algorithm (from <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Cocktail sort" title="wp: Cocktail sort">wikipedia</a>):
+ <span class="rosetta__text--bold">function</span> <span class="rosetta__text--italic">cocktailSort</span>( A : list of sortable items )
+  <span class="rosetta__text--bold">do</span>
     swapped := false
-    '''for each''' i '''in''' 0 '''to''' length( A ) - 2 '''do'''
-      '''if''' A[ i ] > A[ i+1 ] '''then''' ''// test whether the two'' 
-                                ''// elements are in the wrong'' 
-                                ''// order''
-        swap( A[ i ], A[ i+1 ] ) ''// let the two elements''
-                                 ''// change places''
+    <span class="rosetta__text--bold">for each</span> i <span class="rosetta__text--bold">in</span> 0 <span class="rosetta__text--bold">to</span> length( A ) - 2 <span class="rosetta__text--bold">do</span>
+      <span class="rosetta__text--bold">if</span> A[ i ] > A[ i+1 ] <span class="rosetta__text--bold">then</span> <span class="rosetta__text--italic">// test whether the two</span> 
+                                <span class="rosetta__text--italic">// elements are in the wrong</span> 
+                                <span class="rosetta__text--italic">// order</span>
+        swap( A[ i ], A[ i+1 ] ) <span class="rosetta__text--italic">// let the two elements</span>
+                                 <span class="rosetta__text--italic">// change places</span>
         swapped := true;
-    '''if''' swapped = false '''then'''
-      ''// we can exit the outer loop here if no swaps occurred.''
-      '''break do-while loop''';
+    <span class="rosetta__text--bold">if</span> swapped = false <span class="rosetta__text--bold">then</span>
+      <span class="rosetta__text--italic">// we can exit the outer loop here if no swaps occurred.</span>
+      <span class="rosetta__text--bold">break do-while loop</span>;
     swapped := false
-    '''for each''' i '''in''' length( A ) - 2 '''down to''' 0 '''do'''
-      '''if''' A[ i ] > A[ i+1 ] '''then'''
+    <span class="rosetta__text--bold">for each</span> i <span class="rosetta__text--bold">in</span> length( A ) - 2 <span class="rosetta__text--bold">down to</span> 0 <span class="rosetta__text--bold">do</span>
+      <span class="rosetta__text--bold">if</span> A[ i ] > A[ i+1 ] <span class="rosetta__text--bold">then</span>
         swap( A[ i ], A[ i+1 ] )
         swapped := true;
-  '''while''' swapped; ''// if no elements have been swapped,'' 
-                 ''// then the list is sorted''
+  <span class="rosetta__text--bold">while</span> swapped; <span class="rosetta__text--italic">// if no elements have been swapped,</span> 
+                 <span class="rosetta__text--italic">// then the list is sorted</span>
 
 
 =={{header|JavaScript}}==

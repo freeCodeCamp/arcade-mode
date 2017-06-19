@@ -2,18 +2,18 @@ Numerical integration
 
 {{task|Arithmetic operations}}
 
-Write functions to calculate the definite integral of a function &nbsp; &nbsp; <big><big> <span style="font-family: serif">''ƒ(x)''</span> </big></big> &nbsp; &nbsp; using &nbsp; ''all'' &nbsp; five of the following methods:
-::*    &nbsp; [[wp:Rectangle_method|rectangular]] 
+Write functions to calculate the definite integral of a function &nbsp; &nbsp; <big><big> <span style="font-family: serif"><span class="rosetta__text--italic">ƒ(x)</span></span> </big></big> &nbsp; &nbsp; using &nbsp; <span class="rosetta__text--italic">all</span> &nbsp; five of the following methods:
+::*    &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Rectangle_method" title="wp: Rectangle_method">rectangular</a> 
 ::::*  &nbsp;      left
 ::::*  &nbsp;      right
 ::::*  &nbsp;      midpoint
-::*    &nbsp; [[wp:Trapezoidal_rule|trapezium]]
-::*    &nbsp; [[wp:Simpson%27s_rule|Simpson's]]  
+::*    &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Trapezoidal_rule" title="wp: Trapezoidal_rule">trapezium</a>
+::*    &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Simpson%27s_rule" title="wp: Simpson%27s_rule">Simpson's</a>  
 
 <br>
-Your functions should take in the upper and lower bounds &nbsp; (<span style="font-family: serif">''a''</span> &nbsp; and &nbsp; <span style="font-family: serif">''b''</span>), &nbsp; and the number of approximations to make in that range &nbsp; (<span style="font-family: serif">''n''</span>). 
+Your functions should take in the upper and lower bounds &nbsp; (<span style="font-family: serif"><span class="rosetta__text--italic">a</span></span> &nbsp; and &nbsp; <span style="font-family: serif"><span class="rosetta__text--italic">b</span></span>), &nbsp; and the number of approximations to make in that range &nbsp; (<span style="font-family: serif"><span class="rosetta__text--italic">n</span></span>). 
 
-Assume that your example already has a function that gives values for &nbsp; &nbsp; <big> <span style="font-family: serif">''ƒ(x)''</span>. </big> 
+Assume that your example already has a function that gives values for &nbsp; &nbsp; <big> <span style="font-family: serif"><span class="rosetta__text--italic">ƒ(x)</span></span>. </big> 
 
 Simpson's method is defined by the following pseudo-code:
 <pre>
@@ -29,14 +29,14 @@ answer := (h / 6) * (f(a) + f(b) + 4*sum1 + 2*sum2)
 </pre>
 
 Demonstrate your function by showing the results for:
-* <big> ƒ(x) = x<sup>3</sup>, </big> &nbsp; where &nbsp; &nbsp; '''x''' &nbsp; &nbsp; is &nbsp; [0,1], &nbsp; with 100 approximations. &nbsp; The exact result is &nbsp; 1/4, &nbsp; or &nbsp; 0.25.
-* <big> ƒ(x) = 1/x, </big> &nbsp; where &nbsp; '''x''' &nbsp; is &nbsp; [1,100], &nbsp; with 1,000 approximations. &nbsp; The exact result is the natural log of 100, &nbsp; or about &nbsp; 4.605170
-* <big> ƒ(x) = x, </big> &nbsp; &nbsp; where &nbsp; '''x''' &nbsp; is &nbsp; [0,5000], &nbsp; with 5,000,000 approximations. &nbsp; The exact result is &nbsp; 12,500,000.
-* <big> ƒ(x) = x, </big> &nbsp; &nbsp; where &nbsp; '''x''' &nbsp; is &nbsp; [0,6000], &nbsp; with 6,000,000 approximations. &nbsp; The exact result is &nbsp; 18,000,000.
+* <big> ƒ(x) = x<sup>3</sup>, </big> &nbsp; where &nbsp; &nbsp; <span class="rosetta__text--bold">x</span> &nbsp; &nbsp; is &nbsp; [0,1], &nbsp; with 100 approximations. &nbsp; The exact result is &nbsp; 1/4, &nbsp; or &nbsp; 0.25.
+* <big> ƒ(x) = 1/x, </big> &nbsp; where &nbsp; <span class="rosetta__text--bold">x</span> &nbsp; is &nbsp; [1,100], &nbsp; with 1,000 approximations. &nbsp; The exact result is the natural log of 100, &nbsp; or about &nbsp; 4.605170
+* <big> ƒ(x) = x, </big> &nbsp; &nbsp; where &nbsp; <span class="rosetta__text--bold">x</span> &nbsp; is &nbsp; [0,5000], &nbsp; with 5,000,000 approximations. &nbsp; The exact result is &nbsp; 12,500,000.
+* <big> ƒ(x) = x, </big> &nbsp; &nbsp; where &nbsp; <span class="rosetta__text--bold">x</span> &nbsp; is &nbsp; [0,6000], &nbsp; with 6,000,000 approximations. &nbsp; The exact result is &nbsp; 18,000,000.
 
 
 <br>
-'''See also'''
+<span class="rosetta__text--bold">See also</span>
 * [[Active object]] for integrating a function of real time.
 * [[Numerical integration/Gauss-Legendre Quadrature]] for another integration method.
 <br><br>

@@ -4,7 +4,7 @@ Parallel Brute Force
 
 ;Task:
 
-Find, through brute force, the five-letter passwords corresponding with the following [[wp:SHA-256|SHA-256]] hashes:
+Find, through brute force, the five-letter passwords corresponding with the following <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/SHA-256" title="wp: SHA-256">SHA-256</a> hashes:
 
  1. 1115dd800feaacefdf481f1f9070374a2a81e27880f187396db67958b207cbad
  2. 3a7bd3e2360a3d29eea436fcfb7e44c735d117c42d1c1835420b6b9942dd4f1b

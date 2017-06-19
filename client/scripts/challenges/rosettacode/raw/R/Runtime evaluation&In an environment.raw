@@ -5,7 +5,7 @@ Runtime evaluation/In an environment
 Do so in a way which:
 * does not involve string manipulation of the input source code
 * is plausibly extensible to a runtime-chosen set of bindings rather than just <var>x</var>
-* does not make <var>x</var> a ''global'' variable
+* does not make <var>x</var> a <span class="rosetta__text--italic">global</span> variable
 or note that these are impossible.
 
 ===See also===

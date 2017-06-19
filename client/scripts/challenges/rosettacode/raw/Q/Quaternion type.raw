@@ -2,15 +2,15 @@ Quaternion type
 
 {{task}}
 
-[[wp:Quaternion|Quaternions]] &nbsp; are an extension of the idea of &nbsp; [[Arithmetic/Complex|complex numbers]].
+<a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Quaternion" title="wp: Quaternion">Quaternions]] &nbsp; are an extension of the idea of &nbsp; [[Arithmetic/Complex|complex numbers</a>.
 
 A complex number has a real and complex part, &nbsp; sometimes written as &nbsp; <big> <code> a + bi, </code> </big> 
 <br>where &nbsp; <big> <code> a </code> </big> &nbsp; and &nbsp; <big> <code> b </code> </big> &nbsp; stand for real numbers, and &nbsp; <big> <code> i </code> </big> &nbsp; stands for the square root of minus 1.
 
 An example of a complex number might be &nbsp; <big> <code> -3 + 2i, </code> </big> &nbsp; 
-<br>where the real part, &nbsp; <big> <code> a </code> </big> &nbsp; is &nbsp; <big> <code> '''-3.0''' </code> </big> &nbsp; and the complex part, &nbsp; <big> <code> b </code> </big> &nbsp; is &nbsp; <big> <code> '''+2.0'''. </code> </big> 
+<br>where the real part, &nbsp; <big> <code> a </code> </big> &nbsp; is &nbsp; <big> <code> <span class="rosetta__text--bold">-3.0</span> </code> </big> &nbsp; and the complex part, &nbsp; <big> <code> b </code> </big> &nbsp; is &nbsp; <big> <code> <span class="rosetta__text--bold">+2.0</span>. </code> </big> 
 
-A quaternion has one real part and ''three'' imaginary parts, &nbsp; <big> <code> i, </code> </big> &nbsp; <big> <code> j, </code> </big> &nbsp; and &nbsp; <big> <code> k. </code> </big> 
+A quaternion has one real part and <span class="rosetta__text--italic">three</span> imaginary parts, &nbsp; <big> <code> i, </code> </big> &nbsp; <big> <code> j, </code> </big> &nbsp; and &nbsp; <big> <code> k. </code> </big> 
 
 A quaternion might be written as &nbsp; <big> <code> a + bi + cj + dk. </code> </big>
 
@@ -36,11 +36,11 @@ Given the three quaternions and their components: <big>
 And a wholly real number &nbsp; <big> <code> r = 7. </code> </big>
 
 
-'''Note:''' ''The first formula below is invisible to the majority of browsers, including Chrome, IE/Edge, Safari, Opera etc. It may, subject to the installation of requisite fonts, prove visible in Firefox.''
+<span class="rosetta__text--bold">Note:</span> <span class="rosetta__text--italic">The first formula below is invisible to the majority of browsers, including Chrome, IE/Edge, Safari, Opera etc. It may, subject to the installation of requisite fonts, prove visible in Firefox.</span>
 
 
 Create functions &nbsp; (or classes) &nbsp; to perform simple maths with quaternions including computing:
-# The norm of a quaternion: <br> <big> <code> <math> = \sqrt{ a^2 + b^2 + c^2 + d^2 } </math> </code> </big> 
+# The norm of a quaternion: <br> <big> <code> $ = \sqrt{ a^2 + b^2 + c^2 + d^2 } $ </code> </big> 
 # The negative of a quaternion: <br> <big> <code> = (-a, -b, -c, -d)</code> </big> 
 # The conjugate of a quaternion: <br> <big> <code> = ( a, -b, -c, -d)</code> </big> 
 # Addition of a real number &nbsp; <big> <code> r </code> </big> &nbsp; and &nbsp; <big> <code> a </code> </big> &nbsp; quaternion &nbsp; <big> <code> q: </code> </big> <br> <big> <code> r + q = q + r = (a+r, b, c, d) </code> </big>

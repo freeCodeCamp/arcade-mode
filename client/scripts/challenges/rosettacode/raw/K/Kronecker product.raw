@@ -4,7 +4,7 @@ Kronecker product
 
 
 ;Task:
-Implement the &nbsp; [[wp:Kronecker_product|Kronecker product]] &nbsp; of two matrices (arbitrary sized) resulting in a block matrix. <br />
+Implement the &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Kronecker_product" title="wp: Kronecker_product">Kronecker product</a> &nbsp; of two matrices (arbitrary sized) resulting in a block matrix. <br />
 
 
 ;Test cases:
@@ -34,7 +34,7 @@ See implementations and results below in JavaScript and PARI/GP languages.
 
 
 ;Related task:
-* [[Kronecker_product_based_fractals| Kronecker product based fractals]]. 
+* <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Kronecker_product_based_fractals" title="Kronecker_product_based_fractals"> Kronecker product based fractals</a>. 
 <br><br>
 
 

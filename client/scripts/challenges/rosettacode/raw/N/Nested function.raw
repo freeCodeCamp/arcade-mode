@@ -4,7 +4,7 @@ Nested function
 
 In many languages, functions can be nested, resulting in outer functions and inner functions. The inner function can access variables from the outer function. In most languages, the inner function can also modify variables in the outer function.
 
-'''The Task'''
+<span class="rosetta__text--bold">The Task</span>
 
 Write a program consisting of two nested functions that prints the following text.
 
@@ -16,9 +16,9 @@ The outer function (called <tt>MakeList</tt> or equivalent) is responsible for c
 
 The inner function (called <tt>MakeItem</tt> or equivalent) is responsible for creating a list item. It accesses the separator from the outer function and modifies the counter.
 
-'''References:'''
+<span class="rosetta__text--bold">References:</span>
 
-:* [[wp:Nested_function|Nested function]]
+:* <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Nested_function" title="wp: Nested_function">Nested function</a>
 
 [[Category:Scope]][[Category:Functions and subroutines]]
 

@@ -39,7 +39,7 @@ The relevant part of that page source looked like this:
 </pre>
 End of comment -->
 
-If possible, only use libraries that come at no ''extra'' monetary cost with the programming language and that are widely available and popular such as [http://www.cpan.org/ CPAN] for Perl or [[Boost]] for C++.
+If possible, only use libraries that come at no <span class="rosetta__text--italic">extra</span> monetary cost with the programming language and that are widely available and popular such as [http://www.cpan.org/ CPAN] for Perl or [[Boost]] for C++.
 <br><br>
 
 

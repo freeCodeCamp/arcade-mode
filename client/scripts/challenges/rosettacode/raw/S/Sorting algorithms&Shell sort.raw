@@ -3,7 +3,7 @@ Sorting algorithms/Shell sort
 {{task|Sorting Algorithms}}{{Sorting Algorithm}}
 
 ;Task:
-Sort an array of elements using the [[wp:Shell sort|Shell sort]] algorithm, a diminishing increment sort. 
+Sort an array of elements using the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Shell sort" title="wp: Shell sort">Shell sort</a> algorithm, a diminishing increment sort. 
 
 The Shell sort &nbsp; (also known as Shellsort or Shell's method) &nbsp; is named after its inventor, Donald Shell, who published the algorithm in 1959.
  

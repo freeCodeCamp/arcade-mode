@@ -7,16 +7,16 @@ List comprehensions
 {{omit from|ACL2}}
 {{omit from|BBC BASIC}}
 
-A [[wp:List_comprehension|list comprehension]] is a special syntax in some programming languages to describe lists. It is similar to the way mathematicians describe sets, with a ''set comprehension'', hence the name.
+A <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/List_comprehension" title="wp: List_comprehension">list comprehension</a> is a special syntax in some programming languages to describe lists. It is similar to the way mathematicians describe sets, with a <span class="rosetta__text--italic">set comprehension</span>, hence the name.
 
 Some attributes of a list comprehension are:
 # They should be distinct from (nested) for loops and the use of map and filter functions within the syntax of the language.
 # They should return either a list or an iterator (something that returns successive members of a collection, in order).
-# The syntax has parts corresponding to that of [[wp:Set-builder_notation|set-builder notation]].  
+# The syntax has parts corresponding to that of <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Set-builder_notation" title="wp: Set-builder_notation">set-builder notation</a>.  
 
 
 ;Task:
-Write a list comprehension that builds the list of all [[Pythagorean triples]] with elements between &nbsp; '''1''' &nbsp; and &nbsp; '''n'''. 
+Write a list comprehension that builds the list of all [[Pythagorean triples]] with elements between &nbsp; <span class="rosetta__text--bold">1</span> &nbsp; and &nbsp; <span class="rosetta__text--bold">n</span>. 
 
 If the language has multiple ways for expressing such a construct (for example, direct list comprehensions and generators), write one example for each.
 <br><br>

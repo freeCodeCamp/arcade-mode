@@ -2,15 +2,15 @@ Semiprime
 
 {{task|Prime Numbers}} 
 
-Semiprime numbers are natural numbers that are products of exactly two (possibly equal) [[prime_number|prime numbers]]. 
+Semiprime numbers are natural numbers that are products of exactly two (possibly equal) <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/prime_number" title="prime_number">prime numbers</a>. 
 
 
-'''Semiprimes''' &nbsp; are also known as:
-:::* &nbsp; '''semi-primes'''
-:::* &nbsp; '''biprimes'''
-:::* &nbsp; '''bi-primes'''
-:::* &nbsp; ''' ''2-almost'' ''' &nbsp; primes
-:::* &nbsp; or simply: &nbsp; ''' ''P<sub>2</sub> '' '''
+<span class="rosetta__text--bold">Semiprimes</span> &nbsp; are also known as:
+:::* &nbsp; <span class="rosetta__text--bold">semi-primes</span>
+:::* &nbsp; <span class="rosetta__text--bold">biprimes</span>
+:::* &nbsp; <span class="rosetta__text--bold">bi-primes</span>
+:::* &nbsp; <span class="rosetta__text--bold"> <span class="rosetta__text--italic">2-almost</span> </span> &nbsp; primes
+:::* &nbsp; or simply: &nbsp; <span class="rosetta__text--bold"> <span class="rosetta__text--italic">P<sub>2</sub> </span> </span>
 
 
 
@@ -27,7 +27,7 @@ Write a function determining whether a given number is semiprime.
 ;See also:
 * The Wikipedia article: &nbsp; [http://mathworld.wolfram.com/Semiprime.html semiprime].
 * The Wikipedia article: &nbsp; [http://mathworld.wolfram.com/AlmostPrime.html almost prime].
-* The OEIS article: &nbsp; [http://oeis.org/A001358 semiprimes] &nbsp; which has a shorter definition: ''the product of two primes''.
+* The OEIS article: &nbsp; [http://oeis.org/A001358 semiprimes] &nbsp; which has a shorter definition: <span class="rosetta__text--italic">the product of two primes</span>.
 <br><br>
 
 

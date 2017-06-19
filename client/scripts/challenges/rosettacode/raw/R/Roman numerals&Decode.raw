@@ -8,12 +8,12 @@ Create a function that takes a Roman numeral as its argument and returns its val
 You don't need to validate the form of the Roman numeral.
 
 Modern Roman numerals are written by expressing each decimal digit of the number to be encoded separately, 
-<br>starting with the leftmost decimal digit and skipping any '''0'''s &nbsp; (zeroes). 
+<br>starting with the leftmost decimal digit and skipping any <span class="rosetta__text--bold">0</span>s &nbsp; (zeroes). 
 
-'''1990''' is rendered as &nbsp; '''MCMXC''' &nbsp; &nbsp; (1000 = M, &nbsp; 900 = CM, &nbsp; 90 = XC) &nbsp; &nbsp; and 
-<br>'''2008''' is rendered as &nbsp; '''MMVIII''' &nbsp; &nbsp; &nbsp; (2000 = MM, &nbsp; 8 = VIII).
+<span class="rosetta__text--bold">1990</span> is rendered as &nbsp; <span class="rosetta__text--bold">MCMXC</span> &nbsp; &nbsp; (1000 = M, &nbsp; 900 = CM, &nbsp; 90 = XC) &nbsp; &nbsp; and 
+<br><span class="rosetta__text--bold">2008</span> is rendered as &nbsp; <span class="rosetta__text--bold">MMVIII</span> &nbsp; &nbsp; &nbsp; (2000 = MM, &nbsp; 8 = VIII).
  
-The Roman numeral for '''1666''', &nbsp; '''MDCLXVI''', &nbsp; uses each letter in descending order.
+The Roman numeral for <span class="rosetta__text--bold">1666</span>, &nbsp; <span class="rosetta__text--bold">MDCLXVI</span>, &nbsp; uses each letter in descending order.
 <br><br>
 
 

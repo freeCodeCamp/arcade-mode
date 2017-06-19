@@ -6,13 +6,13 @@ Factors of an integer
 [[Category:Mathematical_operations]]
 
 ;Task:
-Compute the &nbsp; [[wp:Divisor|factors]] &nbsp; of a positive integer. 
+Compute the &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Divisor" title="wp: Divisor">factors</a> &nbsp; of a positive integer. 
 
 These factors are the positive integers by which the number being factored can be divided to yield a positive integer result. 
 
 (Though the concepts function correctly for zero and negative integers, the set of factors of zero has countably infinite members, and the factors of negative integers can be obtained from the factors of related positive numbers without difficulty; &nbsp; this task does not require handling of either of these cases). 
 
-Note that every prime number has two factors: &nbsp; '''1''' &nbsp; and itself.
+Note that every prime number has two factors: &nbsp; <span class="rosetta__text--bold">1</span> &nbsp; and itself.
 
 
 ;Related tasks:

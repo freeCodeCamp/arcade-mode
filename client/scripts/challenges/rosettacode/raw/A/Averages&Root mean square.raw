@@ -4,15 +4,15 @@ Averages/Root mean square
 
 {{task heading}}
 
-Compute the &nbsp; [[wp:Root mean square|Root mean square]] &nbsp; of the numbers 1..10.
+Compute the &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Root mean square" title="wp: Root mean square">Root mean square</a> &nbsp; of the numbers 1..10.
 
 
-The &nbsp; ''root mean square'' &nbsp; is also known by its initials RMS (or rms), and as the '''quadratic mean'''.
+The &nbsp; <span class="rosetta__text--italic">root mean square</span> &nbsp; is also known by its initials RMS (or rms), and as the <span class="rosetta__text--bold">quadratic mean</span>.
 
 The RMS is calculated as the mean of the squares of the numbers, square-rooted:
 
 
-::: <big><math>x_{\mathrm{rms}} = \sqrt {{{x_1}^2 + {x_2}^2 + \cdots + {x_n}^2} \over n}. </math></big>
+::: <big>$x_{\mathrm{rms}} = \sqrt {{{x_1}^2 + {x_2}^2 + \cdots + {x_n}^2} \over n}. $</big>
 
 
 {{task heading|See also}}

@@ -10,7 +10,7 @@ This means that the equal probability sampling should be maintained  for all suc
 # Repeat #2 for any subsequent items.
 
 ;The Task:
-# Create a function <code>s_of_n_creator</code> that given <math>n</math> the maximum sample size, returns a function <code>s_of_n</code> that takes one parameter, <code>item</code>.
+# Create a function <code>s_of_n_creator</code> that given $n$ the maximum sample size, returns a function <code>s_of_n</code> that takes one parameter, <code>item</code>.
 # Function  <code>s_of_n</code> when called with successive items returns an equi-weighted random sample of up to n of its items so far, each time it is called, calculated using Knuths Algorithm S.
 # Test your functions by printing and showing the frequency of occurrences of the selected digits from 100,000 repetitions of:
 :# Use the s_of_n_creator with n == 3 to generate an s_of_n.

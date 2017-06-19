@@ -1,17 +1,27 @@
 Guess the number
 
 {{task|Games}} 
-[[Category: Conditional loops]] 
+<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category: Conditional loops]] 
 [[Category:Randomness]]
 
 ;Task:
-Write a program where the program chooses a number between &nbsp; '''1''' &nbsp; and &nbsp; '''10'''. 
+Write a program where the program chooses a number between &nbsp; <span class="rosetta__text--bold">1</span> &nbsp; and &nbsp; <span class="rosetta__text--bold">10</span>. 
 
 A player is then prompted to enter a guess. &nbsp; If the player guesses wrong, &nbsp; then the prompt appears again until the guess is correct. 
 
 When the player has made a successful guess the computer will issue a &nbsp; "Well guessed!" &nbsp; message, &nbsp; and the program exits.
 
-A &nbsp; [[:Category:Conditional loops|conditional loop]] &nbsp; may be used to repeat the guessing until the user is correct.
+A &nbsp; [[:Category:Conditional loops" title="Category: Conditional loops]] 
+[[Category:Randomness]]
+
+;Task:
+Write a program where the program chooses a number between &nbsp; <span class="rosetta__text--bold">1</span> &nbsp; and &nbsp; <span class="rosetta__text--bold">10</span>. 
+
+A player is then prompted to enter a guess. &nbsp; If the player guesses wrong, &nbsp; then the prompt appears again until the guess is correct. 
+
+When the player has made a successful guess the computer will issue a &nbsp; "Well guessed!" &nbsp; message, &nbsp; and the program exits.
+
+A &nbsp; [[:Category:Conditional loops">conditional loop</a> &nbsp; may be used to repeat the guessing until the user is correct.
 
 
 ;Related tasks:

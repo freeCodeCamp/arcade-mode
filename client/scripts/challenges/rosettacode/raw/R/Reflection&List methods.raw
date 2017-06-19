@@ -1,12 +1,17 @@
 Reflection/List methods
 
 {{draft task|Reflection}}
- [[Category:Programming Tasks]] [[Category:Object oriented]]
+ <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category:Programming Tasks]] [[Category:Object oriented]]
 
 ;Task:
 The goal is to get the methods of an object, as names, values or both.
 
-Some languages offer [[Respond to an unknown method call|dynamic methods]], which in general can only be inspected if a class' public API includes a way of listing them.
+Some languages offer [[Respond to an unknown method call" title="Category:Programming Tasks]] [[Category:Object oriented]]
+
+;Task:
+The goal is to get the methods of an object, as names, values or both.
+
+Some languages offer [[Respond to an unknown method call">dynamic methods</a>, which in general can only be inspected if a class' public API includes a way of listing them.
 
 
 =={{header|JavaScript}}==

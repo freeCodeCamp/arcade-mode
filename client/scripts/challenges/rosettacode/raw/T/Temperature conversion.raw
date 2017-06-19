@@ -4,7 +4,7 @@ Temperature conversion
 {{omit from|Lilypond}}
 
 There are quite a number of temperature scales. For this task we will concentrate on four of the perhaps best-known ones: 
-[[wp:Kelvin|Kelvin]], [[wp:Degree Celsius|Celsius]], [[wp:Fahrenheit|Fahrenheit]], and  [[wp:Degree Rankine|Rankine]].
+<a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Kelvin" title="wp: Kelvin">Kelvin]], [[wp:Degree Celsius|Celsius]], [[wp:Fahrenheit|Fahrenheit]], and  [[wp:Degree Rankine|Rankine</a>.
 
 The Celsius and Kelvin scales have the same magnitude, but different null points.
  

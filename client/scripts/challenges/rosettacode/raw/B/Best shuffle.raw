@@ -11,7 +11,7 @@ Display the result as follows:
 
  original string, shuffled string, (score) 
 
-The score gives the number of positions whose character value did ''not'' change. 
+The score gives the number of positions whose character value did <span class="rosetta__text--italic">not</span> change. 
 
 
 ;Example:

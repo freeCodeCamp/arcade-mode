@@ -1,11 +1,11 @@
 Interactive programming
 
 {{task|Basic language learning}}
-Many language implementations come with an ''interactive mode''. 
+Many language implementations come with an <span class="rosetta__text--italic">interactive mode</span>. 
 
-This is a [[wp:command-line interpreter|command-line interpreter]] that reads lines from the user and evaluates these lines as statements or expressions. 
+This is a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/command-line interpreter" title="wp: command-line interpreter">command-line interpreter</a> that reads lines from the user and evaluates these lines as statements or expressions. 
 
-An interactive mode may also be known as a ''command mode'', &nbsp; a ''[[wp:read-eval-print loop|read-eval-print loop]]'' (REPL), &nbsp; or a ''shell''.
+An interactive mode may also be known as a <span class="rosetta__text--italic">command mode</span>, &nbsp; a <span class="rosetta__text--italic"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/read-eval-print loop" title="wp: read-eval-print loop">read-eval-print loop</a></span> (REPL), &nbsp; or a <span class="rosetta__text--italic">shell</span>.
 
 
 ;Task:
@@ -21,7 +21,7 @@ should return
 
 
 ;Note:
-This task is &nbsp; ''not'' &nbsp; about creating your own interactive mode.
+This task is &nbsp; <span class="rosetta__text--italic">not</span> &nbsp; about creating your own interactive mode.
 <br><br>
 
 

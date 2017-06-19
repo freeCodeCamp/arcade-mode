@@ -2,32 +2,32 @@ Farey sequence
 
 {{task}}
 
-The &nbsp; [[wp:Farey sequence|Farey sequence]] &nbsp; ''' ''F''<sub>n</sub>''' &nbsp; of order &nbsp; '''n''' &nbsp; is the sequence of completely reduced fractions between &nbsp; '''0''' &nbsp; and &nbsp; '''1''' &nbsp; which, when in lowest terms, have denominators less than or equal to &nbsp; '''n''', &nbsp; arranged in order of increasing size.
+The &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Farey sequence" title="wp: Farey sequence">Farey sequence</a> &nbsp; <span class="rosetta__text--bold"> <span class="rosetta__text--italic">F</span><sub>n</sub></span> &nbsp; of order &nbsp; <span class="rosetta__text--bold">n</span> &nbsp; is the sequence of completely reduced fractions between &nbsp; <span class="rosetta__text--bold">0</span> &nbsp; and &nbsp; <span class="rosetta__text--bold">1</span> &nbsp; which, when in lowest terms, have denominators less than or equal to &nbsp; <span class="rosetta__text--bold">n</span>, &nbsp; arranged in order of increasing size.
 
-The &nbsp; ''Farey sequence'' &nbsp; is sometimes incorrectly called a &nbsp; ''Farey series''. 
+The &nbsp; <span class="rosetta__text--italic">Farey sequence</span> &nbsp; is sometimes incorrectly called a &nbsp; <span class="rosetta__text--italic">Farey series</span>. 
 
 
 Each Farey sequence:
-:::* &nbsp; starts with the value &nbsp; '''0''', &nbsp; denoted by the fraction &nbsp; <math> \frac{0}{1} </math>
-:::* &nbsp; ends with the value &nbsp; '''1''', &nbsp; denoted by the fraction &nbsp; <math> \frac{1}{1}</math>.
+:::* &nbsp; starts with the value &nbsp; <span class="rosetta__text--bold">0</span>, &nbsp; denoted by the fraction &nbsp; $ \frac{0}{1} $
+:::* &nbsp; ends with the value &nbsp; <span class="rosetta__text--bold">1</span>, &nbsp; denoted by the fraction &nbsp; $ \frac{1}{1}$.
 
 
-The Farey sequences of orders &nbsp; '''1''' &nbsp; to &nbsp; '''5''' &nbsp; are:
+The Farey sequences of orders &nbsp; <span class="rosetta__text--bold">1</span> &nbsp; to &nbsp; <span class="rosetta__text--bold">5</span> &nbsp; are:
 
-:<math>{\bf\it{F}}_1 = \frac{0}{1}, \frac{1}{1}</math>
+:${\bf\it{F}}_1 = \frac{0}{1}, \frac{1}{1}$
 :<br>
-:<math>{\bf\it{F}}_2 = \frac{0}{1}, \frac{1}{2}, \frac{1}{1}</math>
+:${\bf\it{F}}_2 = \frac{0}{1}, \frac{1}{2}, \frac{1}{1}$
 :<br>
-:<math>{\bf\it{F}}_3 = \frac{0}{1}, \frac{1}{3}, \frac{1}{2}, \frac{2}{3}, \frac{1}{1}</math>
+:${\bf\it{F}}_3 = \frac{0}{1}, \frac{1}{3}, \frac{1}{2}, \frac{2}{3}, \frac{1}{1}$
 :<br>
-:<math>{\bf\it{F}}_4 = \frac{0}{1}, \frac{1}{4}, \frac{1}{3}, \frac{1}{2}, \frac{2}{3}, \frac{3}{4}, \frac{1}{1}</math>
+:${\bf\it{F}}_4 = \frac{0}{1}, \frac{1}{4}, \frac{1}{3}, \frac{1}{2}, \frac{2}{3}, \frac{3}{4}, \frac{1}{1}$
 :<br>
-:<math>{\bf\it{F}}_5 = \frac{0}{1}, \frac{1}{5}, \frac{1}{4}, \frac{1}{3}, \frac{2}{5}, \frac{1}{2}, \frac{3}{5}, \frac{2}{3}, \frac{3}{4}, \frac{4}{5}, \frac{1}{1}</math>
+:${\bf\it{F}}_5 = \frac{0}{1}, \frac{1}{5}, \frac{1}{4}, \frac{1}{3}, \frac{2}{5}, \frac{1}{2}, \frac{3}{5}, \frac{2}{3}, \frac{3}{4}, \frac{4}{5}, \frac{1}{1}$
 
 ;Task
-* &nbsp; Compute and show the Farey sequence for orders &nbsp; '''1''' &nbsp; through &nbsp; '''11''' &nbsp; (inclusive).
-* &nbsp; Compute and display the &nbsp; ''number'' &nbsp; of fractions in the Farey sequence for order &nbsp; '''100''' &nbsp; through &nbsp; '''1,000''' &nbsp; (inclusive) &nbsp; by hundreds.
-* &nbsp; Show the fractions as &nbsp; <big> '''n/d''' </big> &nbsp; (using the solidus [or slash] to separate the numerator from the denominator).   
+* &nbsp; Compute and show the Farey sequence for orders &nbsp; <span class="rosetta__text--bold">1</span> &nbsp; through &nbsp; <span class="rosetta__text--bold">11</span> &nbsp; (inclusive).
+* &nbsp; Compute and display the &nbsp; <span class="rosetta__text--italic">number</span> &nbsp; of fractions in the Farey sequence for order &nbsp; <span class="rosetta__text--bold">100</span> &nbsp; through &nbsp; <span class="rosetta__text--bold">1,000</span> &nbsp; (inclusive) &nbsp; by hundreds.
+* &nbsp; Show the fractions as &nbsp; <big> <span class="rosetta__text--bold">n/d</span> </big> &nbsp; (using the solidus [or slash] to separate the numerator from the denominator).   
 
 
 ;See also

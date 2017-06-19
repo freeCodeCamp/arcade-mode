@@ -1,9 +1,9 @@
 Topological sort
 
 {{task}}
-Given a mapping between items, and items they depend on, a [[wp:Topological sorting|topological sort]] orders items so that no item precedes an item it depends upon. 
+Given a mapping between items, and items they depend on, a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Topological sorting" title="wp: Topological sorting">topological sort</a> orders items so that no item precedes an item it depends upon. 
 
-The compiling of a library in the [[wp:VHDL|VHDL]] language has the constraint that a library must be compiled after any library it depends on. 
+The compiling of a library in the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/VHDL" title="wp: VHDL">VHDL</a> language has the constraint that a library must be compiled after any library it depends on. 
 
 A tool exists that extracts library dependencies. 
 

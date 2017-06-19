@@ -3,7 +3,7 @@ Higher-order functions
 {{task|Programming language concepts}}
 
 ;Task:
-Pass a function ''as an argument'' to another function.
+Pass a function <span class="rosetta__text--italic">as an argument</span> to another function.
 
 
 ;Related task:

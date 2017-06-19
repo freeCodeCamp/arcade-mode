@@ -2,7 +2,7 @@ UTF-8 encode and decode
 
 {{task}}
 
-As described in [[UTF-8]] and in [[wp:UTF-8|Wikipedia]], UTF-8 is a popular encoding of (multi-byte) [[Unicode]] code-points into eight-bit octets.
+As described in [[UTF-8]] and in <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/UTF-8" title="wp: UTF-8">Wikipedia]], UTF-8 is a popular encoding of (multi-byte) [[Unicode</a> code-points into eight-bit octets.
 
 The goal of this task is to write a encoder that takes a unicode code-point (an integer representing a unicode character) and returns a sequence of 1-4 bytes representing that character in the UTF-8 encoding. 
 

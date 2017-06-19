@@ -9,9 +9,9 @@ Implement a permutation sort, which proceeds by generating the possible permutat
 of the input array/list until discovering the sorted one.
 
 Pseudocode:
- '''while not''' InOrder(list) '''do'''
+ <span class="rosetta__text--bold">while not</span> InOrder(list) <span class="rosetta__text--bold">do</span>
      nextPermutation(list)
- '''done'''
+ <span class="rosetta__text--bold">done</span>
 <br><br>
 
 

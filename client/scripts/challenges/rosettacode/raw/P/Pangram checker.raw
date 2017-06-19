@@ -5,11 +5,11 @@ Pangram checker
 
 A pangram is a sentence that contains all the letters of the English alphabet at least once.
 
-For example: &nbsp; ''The quick brown fox jumps over the lazy dog''.
+For example: &nbsp; <span class="rosetta__text--italic">The quick brown fox jumps over the lazy dog</span>.
 
 
 ;Task:
-Write a function or method to check a sentence to see if it is a &nbsp; [[wp:Pangram|pangram]] &nbsp; (or not) &nbsp; and show its use.
+Write a function or method to check a sentence to see if it is a &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Pangram" title="wp: Pangram">pangram</a> &nbsp; (or not) &nbsp; and show its use.
 <br><br>
 
 

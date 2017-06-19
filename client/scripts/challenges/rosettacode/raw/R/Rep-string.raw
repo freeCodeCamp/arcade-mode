@@ -1,11 +1,11 @@
 Rep-string
 
 {{task}}
-Given a series of ones and zeroes in a string, define a repeated string or ''rep-string'' as a string which is created by repeating a substring of the ''first'' N characters of the string ''truncated on the right to the length of the input string, and in which the substring appears repeated at least twice in the original''.
+Given a series of ones and zeroes in a string, define a repeated string or <span class="rosetta__text--italic">rep-string</span> as a string which is created by repeating a substring of the <span class="rosetta__text--italic">first</span> N characters of the string <span class="rosetta__text--italic">truncated on the right to the length of the input string, and in which the substring appears repeated at least twice in the original</span>.
 
-For example, the string '''10011001100''' is a rep-string as the leftmost four characters of '''1001''' are repeated three times and truncated on the right to give the original string.
+For example, the string <span class="rosetta__text--bold">10011001100</span> is a rep-string as the leftmost four characters of <span class="rosetta__text--bold">1001</span> are repeated three times and truncated on the right to give the original string.
 
-Note that the requirement for having the repeat occur two or more times means that the repeating unit is ''never'' longer than half the length of the input string.
+Note that the requirement for having the repeat occur two or more times means that the repeating unit is <span class="rosetta__text--italic">never</span> longer than half the length of the input string.
 
 
 ;Task:

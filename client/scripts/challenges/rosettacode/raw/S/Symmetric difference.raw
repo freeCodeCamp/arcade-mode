@@ -3,13 +3,13 @@ Symmetric difference
 {{task|Discrete math}}
 
 ;Task
-Given two [[set]]s ''A'' and ''B'', compute <math>(A \setminus B) \cup (B \setminus A).</math>
+Given two [[set]]s <span class="rosetta__text--italic">A</span> and <span class="rosetta__text--italic">B</span>, compute $(A \setminus B) \cup (B \setminus A).$
 
-That is, enumerate the items that are in ''A'' or ''B'' but not both. This set is called the [[wp:Symmetric difference|symmetric difference]] of ''A'' and ''B''. 
+That is, enumerate the items that are in <span class="rosetta__text--italic">A</span> or <span class="rosetta__text--italic">B</span> but not both. This set is called the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Symmetric difference" title="wp: Symmetric difference">symmetric difference</a> of <span class="rosetta__text--italic">A</span> and <span class="rosetta__text--italic">B</span>. 
 
-In other words: <math>(A \cup B) \setminus (A \cap B)</math> (the set of items that are in at least one of ''A'' or ''B'' minus the set of items that are in both ''A'' and ''B'').
+In other words: $(A \cup B) \setminus (A \cap B)$ (the set of items that are in at least one of <span class="rosetta__text--italic">A</span> or <span class="rosetta__text--italic">B</span> minus the set of items that are in both <span class="rosetta__text--italic">A</span> and <span class="rosetta__text--italic">B</span>).
 
-Optionally, give the individual differences (<math>A \setminus B</math> and <math>B \setminus A</math>) as well.
+Optionally, give the individual differences ($A \setminus B$ and $B \setminus A$) as well.
 
 
 ;Test cases
@@ -19,7 +19,7 @@ Optionally, give the individual differences (<math>A \setminus B</math> and <mat
 
 ;Notes
 # If your code uses lists of items to represent sets then ensure duplicate items in lists are correctly handled. For example two lists representing sets of <code>a = ["John", "Serena", "Bob", "Mary", "Serena"]</code> and <code>b = ["Jim", "Mary", "John", "Jim", "Bob"]</code> should produce the result of just two strings: <code>["Serena", "Jim"]</code>, in any order.
-# In the mathematical notation above <code>A \ B</code> gives the set of items in A that are not in B; <code>A ∪ B</code> gives the set of items in both A and B, (their ''union''); and <code>A ∩ B</code> gives the set of items that are in both A and B (their ''intersection'').
+# In the mathematical notation above <code>A \ B</code> gives the set of items in A that are not in B; <code>A ∪ B</code> gives the set of items in both A and B, (their <span class="rosetta__text--italic">union</span>); and <code>A ∩ B</code> gives the set of items that are in both A and B (their <span class="rosetta__text--italic">intersection</span>).
 <br><br>
 
 =={{header|JavaScript}}==

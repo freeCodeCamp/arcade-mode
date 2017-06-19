@@ -2,7 +2,7 @@ Brace expansion
 
 {{task|String manipulation}}
 
-Brace expansion is a type of parameter expansion [[wp:Bash_%28Unix_shell%29#Brace_expansion|made popular by Unix shells]], where it allows users to specify multiple similar string parameters without having to type them all out. E.g. the parameter <code>enable_{audio,video}</code> would be interpreted as if both <code>enable_audio</code> and <code>enable_video</code> had been specified.
+Brace expansion is a type of parameter expansion <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Bash_%28Unix_shell%29#Brace_expansion" title="wp: Bash_%28Unix_shell%29#Brace_expansion">made popular by Unix shells</a>, where it allows users to specify multiple similar string parameters without having to type them all out. E.g. the parameter <code>enable_{audio,video}</code> would be interpreted as if both <code>enable_audio</code> and <code>enable_video</code> had been specified.
 
 {{task heading}}
 
@@ -11,13 +11,13 @@ Demonstrate how it would be used, and that it passes the four test cases given b
 
 {{task heading|Specification}}
 
-In the input string, balanced pairs of braces containing comma-separated substrings <small>(details below)</small> represent ''alternations'' that specify multiple alternatives which are to appear at that position in the output. In general, one can imagine the information conveyed by the input string as a tree of nested alternations interspersed with literal substrings, as shown in the middle part of the following diagram:
+In the input string, balanced pairs of braces containing comma-separated substrings <small>(details below)</small> represent <span class="rosetta__text--italic">alternations</span> that specify multiple alternatives which are to appear at that position in the output. In general, one can imagine the information conveyed by the input string as a tree of nested alternations interspersed with literal substrings, as shown in the middle part of the following diagram:
 
 <!-- BEGINNING OF MAIN DIAGRAM -->
 <table align="center" style="margin-top:0.8em; margin-bottom:1em; border:double 3px #bbb; background:#F9F9F9; color:#111; line-height:1.5em"><tr><td>
 <div style="padding:0.4em 0.6em; margin:0 0 0 0.4em; background:#ddd; font-family:'DejaVu Sans Mono','Courier New',Consolas,Monaco,monospace"><nowiki>It{{em,alic}iz,erat}e{d,}</nowiki></div>
 </td><td>
-<div style="padding:0 0.6em; text-align:center; color:#665">''parse''&nbsp;<br>―――――▶<br>&zwnj;</div>
+<div style="padding:0 0.6em; text-align:center; color:#665"><span class="rosetta__text--italic">parse</span>&nbsp;<br>―――――▶<br>&zwnj;</div>
 </td><td>
 <table style="border-spacing:0; border-collapse:collapse; text-align:center; background:#D5B874; font-family:'DejaVu Sans Mono','Courier New',Consolas,Monaco,monospace">
   <tr>
@@ -70,7 +70,7 @@ In the input string, balanced pairs of braces containing comma-separated substri
   </tr>
 </table>
 </td><td>
-<div style="padding:0 0.6em; text-align:center; color:#665">''expand''&nbsp;<br>―――――▶<br>&zwnj;</div>
+<div style="padding:0 0.6em; text-align:center; color:#665"><span class="rosetta__text--italic">expand</span>&nbsp;<br>―――――▶<br>&zwnj;</div>
 </td><td style"padding:0"><div style="padding:0.5em 0.6em; margin:0.4em 0.4em 0.4em 0; background:#ddd; font-family:'DejaVu Sans Mono','Courier New',Consolas,Monaco,monospace; line-height:1.35em"><span style="padding:0.1em 0;background:#D5B874">It<span style="padding:0.1em 0;background:#F3E0B3">em</span><span style="padding:0.1em 0;background:#E5CD94">iz</span>e<span style="padding:0.1em 0;background:#E5CD94">d</span></span><br><span style="padding:0.1em 0;background:#D5B874">It<span style="padding:0.1em 0;background:#F3E0B3">em</span><span style="padding:0.1em 0;background:#E5CD94">iz</span>e</span><br><span style="padding:0.1em 0;background:#D5B874">It<span style="padding:0.1em 0;background:#F3E0B3">alic</span><span style="padding:0.1em 0;background:#E5CD94">iz</span>e<span style="padding:0.1em 0;background:#E5CD94">d</span></span><br><span style="padding:0.1em 0;background:#D5B874">It<span style="padding:0.1em 0;background:#F3E0B3">alic</span><span style="padding:0.1em 0;background:#E5CD94">iz</span>e</span><br>
 <span style="padding:0.1em 0;background:#D5B874">It<span style="padding:0.1em 0;background:#E5CD94">erat</span>e<span style="padding:0.1em 0;background:#E5CD94">d</span></span><br><span style="padding:0.1em 0;background:#D5B874">It<span style="padding:0.1em 0;background:#E5CD94">erat</span>e</span></div>
 </td></tr>
@@ -79,13 +79,13 @@ In the input string, balanced pairs of braces containing comma-separated substri
   <td></td>
   <td><small>alternation tree</small></td>
   <td></td>
-  <td><small>output ''(list of strings)''</small></td>
+  <td><small>output <span class="rosetta__text--italic">(list of strings)</span></small></td>
 </tr></table>
 <!-- END OF MAIN DIAGRAM -->
 
-This tree can in turn be transformed into the intended list of output strings by, colloquially speaking, determining all the possible ways to walk through it from left to right while only descending into ''one'' branch of each alternation one comes across ''(see the right part of the diagram)''. When implementing it, one can of course combine the parsing and expansion into a single algorithm, but this specification discusses them separately for the sake of clarity.
+This tree can in turn be transformed into the intended list of output strings by, colloquially speaking, determining all the possible ways to walk through it from left to right while only descending into <span class="rosetta__text--italic">one</span> branch of each alternation one comes across <span class="rosetta__text--italic">(see the right part of the diagram)</span>. When implementing it, one can of course combine the parsing and expansion into a single algorithm, but this specification discusses them separately for the sake of clarity.
 
-'''Expansion''' of alternations can be more rigorously described by these rules:
+<span class="rosetta__text--bold">Expansion</span> of alternations can be more rigorously described by these rules:
 
 <!-- BEGINNING OF "EXPANSION" SIDE-DIAGRAM -->
 <table style="margin:0.4em; float:right; position:relative; top:-0.8em; padding:0.22em 0.5em; background:#F9F9F9; border:solid 1px #ccc; color:#111; line-height:1.2em; font-family:'DejaVu Sans Mono', 'Courier New', Consolas, Monaco;"><tr>
@@ -144,17 +144,17 @@ This tree can in turn be transformed into the intended list of output strings by
 An alternation causes the list of alternatives that will be produced by its parent branch to be increased &#119899;-fold, each copy featuring <u>one</u> of the &#119899; alternatives produced by the alternation's child branches, in turn, at that position.
 </li>
 <li>
-This means that multiple alternations inside the same branch are cumulative &nbsp;''(i.e. the complete list of alternatives produced by a branch is the string-concatenating "[[wp:Cartesian product|Cartesian product]]" of its parts)''.
+This means that multiple alternations inside the same branch are cumulative &nbsp;<span class="rosetta__text--italic">(i.e. the complete list of alternatives produced by a branch is the string-concatenating "<a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Cartesian product" title="wp: Cartesian product">Cartesian product</a>" of its parts)</span>.
 </li>
 <li>
-All alternatives (even duplicate and empty ones) are preserved, and they are ordered like the examples demonstrate &nbsp;''(i.e. "[[wp:Lexicographical_order|lexicographically]]" with regard to the alternations)''.
+All alternatives (even duplicate and empty ones) are preserved, and they are ordered like the examples demonstrate &nbsp;<span class="rosetta__text--italic">(i.e. "<a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Lexicographical_order" title="wp: Lexicographical_order">lexicographically</a>" with regard to the alternations)</span>.
 </li>
 <li>
 The alternatives produced by the root branch constitute the final output.
 </li>
 </ul>
 
-'''Parsing''' the input string involves some additional complexity to deal with escaped characters and "incomplete" brace pairs:
+<span class="rosetta__text--bold">Parsing</span> the input string involves some additional complexity to deal with escaped characters and "incomplete" brace pairs:
 
 <!-- BEGINNING OF "PARSING" SIDE-DIAGRAM -->
 <table style="margin:0.4em; border-collapse:collapse; clear:both; float:right; position:relative; top:-0.8em; padding:0.22em 0.5em; background:#F9F9F9; border:solid 1px #ccc; color:#111; line-height:1.2em; text-align:center; font-family:'DejaVu Sans Mono','Courier New',Consolas,Monaco,monospace"><tr>
@@ -208,10 +208,10 @@ The alternatives produced by the root branch constitute the final output.
 
 <ul style="margin-bottom:0.9em">
 <li>
-An unescaped ''backslash'' which precedes another character, [[wp:Escape_character|escapes]] that character (to force it to be treated as literal). The backslashes are passed along to the output unchanged.
+An unescaped <span class="rosetta__text--italic">backslash</span> which precedes another character, <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Escape_character" title="wp: Escape_character">escapes</a> that character (to force it to be treated as literal). The backslashes are passed along to the output unchanged.
 </li>
 <li>
-Balanced ''brace pairs'' are identified by, conceptually, going through the string from left to right and associating each unescaped closing brace that is encountered with the <u>nearest</u> still unassociated unescaped opening brace to its left (if any). Furthermore, each unescaped ''comma'' is associated with the <u>innermost</u> brace pair that contains it (if any). With that in mind:
+Balanced <span class="rosetta__text--italic">brace pairs</span> are identified by, conceptually, going through the string from left to right and associating each unescaped closing brace that is encountered with the <u>nearest</u> still unassociated unescaped opening brace to its left (if any). Furthermore, each unescaped <span class="rosetta__text--italic">comma</span> is associated with the <u>innermost</u> brace pair that contains it (if any). With that in mind:
 <ul>
 <li>
 Each brace pair that has <u>at least one comma</u> associated with it, forms an alternation (whose branches are the brace pair's contents split at its commas). The associated brace and comma characters themselves do not become part of the output.
@@ -223,14 +223,14 @@ Brace characters from pairs without any associated comma, as well as unassociate
 </li>
 </ul>
 
-For every possible input string, your implementation should produce exactly the output which this specification mandates. Please comply with this even when it's inconvenient, to ensure that all implementations are comparable. However, none of the above should be interpreted as instructions (or even recommendations) for '''how''' to implement it. Try to come up with a solution that is idiomatic in your programming language. ''(See [[#Perl]] for a reference implementation.)''
+For every possible input string, your implementation should produce exactly the output which this specification mandates. Please comply with this even when it's inconvenient, to ensure that all implementations are comparable. However, none of the above should be interpreted as instructions (or even recommendations) for <span class="rosetta__text--bold">how</span> to implement it. Try to come up with a solution that is idiomatic in your programming language. <span class="rosetta__text--italic">(See [[#Perl]] for a reference implementation.)</span>
 
 {{task heading|Test Cases}}
 
 {| class="wikitable" style="white-space: nowrap;"
 |-
-! Input<br><small style="font-weight:normal">''(single string)''</small>
-! Ouput<br><small style="font-weight:normal">''(list/array of strings)''</small>
+! Input<br><small style="font-weight:normal"><span class="rosetta__text--italic">(single string)</span></small>
+! Ouput<br><small style="font-weight:normal"><span class="rosetta__text--italic">(list/array of strings)</span></small>
 |- style="vertical-align:top"
 |
 <code>~/{Downloads,Pictures}/*.{jpg,gif,png}</code>

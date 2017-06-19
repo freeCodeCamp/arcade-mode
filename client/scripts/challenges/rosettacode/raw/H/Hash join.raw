@@ -2,7 +2,7 @@ Hash join
 
 {{task}}
 
-An [[wp:Join_(SQL)#Inner_join|inner join]] is an operation that combines two data tables into one table, based on matching column values. The simplest way of implementing this operation is the [[wp:Nested loop join|nested loop join]] algorithm, but a more scalable alternative is the [[wp:hash join|hash join]] algorithm.
+An <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Join_(SQL)#Inner_join" title="wp: Join_(SQL)#Inner_join">inner join]] is an operation that combines two data tables into one table, based on matching column values. The simplest way of implementing this operation is the [[wp:Nested loop join|nested loop join]] algorithm, but a more scalable alternative is the [[wp:hash join|hash join</a> algorithm.
 
 {{task heading}}
 
@@ -14,28 +14,28 @@ You should represent the tables as data structures that feel natural in your pro
 
 The "hash join" algorithm consists of two steps:
 
-# '''Hash phase:''' Create a [[wp:Multimap|multimap]] from one of the two tables, mapping from each join column value to all the rows that contain it.<br>
+# <span class="rosetta__text--bold">Hash phase:</span> Create a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Multimap" title="wp: Multimap">multimap</a> from one of the two tables, mapping from each join column value to all the rows that contain it.<br>
 #* The multimap must support hash-based lookup which scales better than a simple linear search, because that's the whole point of this algorithm.
-#* Ideally we should create the multimap for the ''smaller'' table, thus minimizing its creation time and memory size.
-# '''Join phase:''' Scan the other table, and find matching rows by looking in the multimap created before.
+#* Ideally we should create the multimap for the <span class="rosetta__text--italic">smaller</span> table, thus minimizing its creation time and memory size.
+# <span class="rosetta__text--bold">Join phase:</span> Scan the other table, and find matching rows by looking in the multimap created before.
 
 <br>
 In pseudo-code, the algorithm could be expressed as follows:
 
- '''let''' ''A'' = the first input table (or ideally, the larger one)
- '''let''' ''B'' = the second input table (or ideally, the smaller one)
- '''let''' ''j<sub>A</sub>'' = the join column ID of table ''A''
- '''let''' ''j<sub>B</sub>'' = the join column ID of table ''B''
- '''let''' ''M<sub>B</sub>'' = a multimap for mapping from single values to multiple rows of table ''B'' (starts out empty)
- '''let''' ''C'' = the output table (starts out empty)
+ <span class="rosetta__text--bold">let</span> <span class="rosetta__text--italic">A</span> = the first input table (or ideally, the larger one)
+ <span class="rosetta__text--bold">let</span> <span class="rosetta__text--italic">B</span> = the second input table (or ideally, the smaller one)
+ <span class="rosetta__text--bold">let</span> <span class="rosetta__text--italic">j<sub>A</sub></span> = the join column ID of table <span class="rosetta__text--italic">A</span>
+ <span class="rosetta__text--bold">let</span> <span class="rosetta__text--italic">j<sub>B</sub></span> = the join column ID of table <span class="rosetta__text--italic">B</span>
+ <span class="rosetta__text--bold">let</span> <span class="rosetta__text--italic">M<sub>B</sub></span> = a multimap for mapping from single values to multiple rows of table <span class="rosetta__text--italic">B</span> (starts out empty)
+ <span class="rosetta__text--bold">let</span> <span class="rosetta__text--italic">C</span> = the output table (starts out empty)
  
- '''for each''' row ''b'' '''in''' table ''B''''':'''
-    '''place''' ''b'' '''in''' multimap ''M<sub>B</sub>'' under key ''b''(''j<sub>B</sub>'')
+ <span class="rosetta__text--bold">for each</span> row <span class="rosetta__text--italic">b</span> <span class="rosetta__text--bold">in</span> table <span class="rosetta__text--italic">B<span class="rosetta__text--bold"></span>:</span>
+    <span class="rosetta__text--bold">place</span> <span class="rosetta__text--italic">b</span> <span class="rosetta__text--bold">in</span> multimap <span class="rosetta__text--italic">M<sub>B</sub></span> under key <span class="rosetta__text--italic">b</span>(<span class="rosetta__text--italic">j<sub>B</sub></span>)
  
- '''for each''' row ''a'' '''in''' table ''A''''':'''
-    '''for each''' row ''b'' '''in''' multimap ''M<sub>B</sub>'' under key ''a''(''j<sub>A</sub>'')''':'''
-       '''let''' ''c'' = the concatenation of row ''a'' and row ''b''
-       '''place''' row ''c'' in table ''C''
+ <span class="rosetta__text--bold">for each</span> row <span class="rosetta__text--italic">a</span> <span class="rosetta__text--bold">in</span> table <span class="rosetta__text--italic">A<span class="rosetta__text--bold"></span>:</span>
+    <span class="rosetta__text--bold">for each</span> row <span class="rosetta__text--italic">b</span> <span class="rosetta__text--bold">in</span> multimap <span class="rosetta__text--italic">M<sub>B</sub></span> under key <span class="rosetta__text--italic">a</span>(<span class="rosetta__text--italic">j<sub>A</sub></span>)<span class="rosetta__text--bold">:</span>
+       <span class="rosetta__text--bold">let</span> <span class="rosetta__text--italic">c</span> = the concatenation of row <span class="rosetta__text--italic">a</span> and row <span class="rosetta__text--italic">b</span>
+       <span class="rosetta__text--bold">place</span> row <span class="rosetta__text--italic">c</span> in table <span class="rosetta__text--italic">C</span>
 
 {{task heading|Test-case}}
 
@@ -48,7 +48,7 @@ In pseudo-code, the algorithm could be expressed as follows:
 
 {| style="border:none; border-collapse:collapse;"
 |-
-| style="border:none" | ''A'' = 
+| style="border:none" | <span class="rosetta__text--italic">A</span> = 
 | style="border:none" |
 
 {| class="wikitable"
@@ -67,7 +67,7 @@ In pseudo-code, the algorithm could be expressed as follows:
 |}
 
 | style="border:none; padding-left:1.5em;" rowspan="2" |
-| style="border:none" | ''B'' = 
+| style="border:none" | <span class="rosetta__text--italic">B</span> = 
 | style="border:none" |
 
 {| class="wikitable"
@@ -86,10 +86,10 @@ In pseudo-code, the algorithm could be expressed as follows:
 |}
 
 |-
-| style="border:none" | ''j<sub>A</sub>'' =
+| style="border:none" | <span class="rosetta__text--italic">j<sub>A</sub></span> =
 | style="border:none" | <code>Name</code> (i.e. column 1)
 
-| style="border:none" | ''j<sub>B</sub>'' =
+| style="border:none" | <span class="rosetta__text--italic">j<sub>B</sub></span> =
 | style="border:none" | <code>Character</code> (i.e. column 0)
 |}
 

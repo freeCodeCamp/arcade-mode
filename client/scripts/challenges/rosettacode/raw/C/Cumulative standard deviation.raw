@@ -4,13 +4,13 @@ Cumulative standard deviation
 
 {{task heading}}
 
-Write a stateful function, class, generator or co-routine that takes a series of floating point numbers, ''one at a time'', and returns the running [[wp:Standard Deviation|standard deviation]] of the series. 
+Write a stateful function, class, generator or co-routine that takes a series of floating point numbers, <span class="rosetta__text--italic">one at a time</span>, and returns the running <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Standard Deviation" title="wp: Standard Deviation">standard deviation</a> of the series. 
 
-The task implementation should use the most natural programming style of those listed for the function in the implementation language; the task ''must'' state which is being used. 
+The task implementation should use the most natural programming style of those listed for the function in the implementation language; the task <span class="rosetta__text--italic">must</span> state which is being used. 
 
-Do not apply [[wp:Bessel's correction|Bessel's correction]]; the returned standard deviation should always be computed as if the sample seen so far is the entire population.
+Do not apply <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Bessel's correction" title="wp: Bessel's correction">Bessel's correction</a>; the returned standard deviation should always be computed as if the sample seen so far is the entire population.
 
-Use this to compute the standard deviation of this demonstration set, <math>\{2, 4, 4, 4, 5, 5, 7, 9\}</math>, which is <math>2</math>.
+Use this to compute the standard deviation of this demonstration set, $\{2, 4, 4, 4, 5, 5, 7, 9\}$, which is $2$.
 
 {{task heading|See also}}
 

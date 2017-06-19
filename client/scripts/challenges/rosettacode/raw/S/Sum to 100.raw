@@ -4,15 +4,15 @@ Sum to 100
 {{task}}
 
 ;Task:
-Find solutions to the &nbsp; ''sum to one hundred'' &nbsp; puzzle.
+Find solutions to the &nbsp; <span class="rosetta__text--italic">sum to one hundred</span> &nbsp; puzzle.
 
 
 Add (insert) the mathematical
-operators &nbsp; &nbsp; <big> '''+''' </big> &nbsp; or &nbsp; <big> '''─''' </big> &nbsp; &nbsp; (plus
+operators &nbsp; &nbsp; <big> <span class="rosetta__text--bold">+</span> </big> &nbsp; or &nbsp; <big> <span class="rosetta__text--bold">─</span> </big> &nbsp; &nbsp; (plus
 or minus) &nbsp; before any of the digits in the
-<br>decimal numeric string &nbsp; <big> '''123456789''' </big> &nbsp; such that the
+<br>decimal numeric string &nbsp; <big> <span class="rosetta__text--bold">123456789</span> </big> &nbsp; such that the
 resulting mathematical expression adds up to a
-<br>particular sum &nbsp;  (in this iconic case, &nbsp; '''100''').
+<br>particular sum &nbsp;  (in this iconic case, &nbsp; <span class="rosetta__text--bold">100</span>).
 
 
 Example:   
@@ -21,17 +21,17 @@ Example:
 Show all output here.
 
 
-:* &nbsp; Show all solutions that sum to &nbsp; <big> '''100''' </big>
-:* &nbsp; Show the sum that has the maximum &nbsp; ''number'' &nbsp; of solutions &nbsp; (from zero to infinity<sup>*</sup>)
-:* &nbsp; Show the lowest positive sum that &nbsp; ''can't'' &nbsp; be expressed &nbsp; (has no solutions), using the rules for this task
+:* &nbsp; Show all solutions that sum to &nbsp; <big> <span class="rosetta__text--bold">100</span> </big>
+:* &nbsp; Show the sum that has the maximum &nbsp; <span class="rosetta__text--italic">number</span> &nbsp; of solutions &nbsp; (from zero to infinity<sup>*</sup>)
+:* &nbsp; Show the lowest positive sum that &nbsp; <span class="rosetta__text--italic">can't</span> &nbsp; be expressed &nbsp; (has no solutions), using the rules for this task
 :* &nbsp; Show the ten highest numbers that can be expressed using the rules for this task &nbsp; (extra credit)
 
 
-An example of a sum that can't be expressed (within the rules of this task) is: &nbsp; '''5074'''
+An example of a sum that can't be expressed (within the rules of this task) is: &nbsp; <span class="rosetta__text--bold">5074</span>
 <br>which, of course, is not the lowest positive sum that can't be expressed.
 
 
-<sup>*</sup> &nbsp; (where &nbsp; ''infinity'' &nbsp; would be a relatively small &nbsp; 123,456,789)
+<sup>*</sup> &nbsp; (where &nbsp; <span class="rosetta__text--italic">infinity</span> &nbsp; would be a relatively small &nbsp; 123,456,789)
 <br><br>
 
 =={{header|JavaScript}}==

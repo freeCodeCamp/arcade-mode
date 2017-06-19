@@ -1,14 +1,14 @@
 N'th
 
 {{task|Ordinal numbers}} [[Category:String manipulation]]
-Write a function/method/subroutine/... that when given an integer greater than or equal to zero returns a string of the number followed by an apostrophe then the [[wp:Ordinal number (linguistics)|ordinal suffix]].
+Write a function/method/subroutine/... that when given an integer greater than or equal to zero returns a string of the number followed by an apostrophe then the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Ordinal number (linguistics)" title="wp: Ordinal number (linguistics)">ordinal suffix</a>.
 <br>Example returns would include <code>1'st 2'nd 3'rd 11'th 111'th 1001'st 1012'th</code>
 
 ;Task:
-Use your routine to show here the output for ''at least'' the following (inclusive) ranges of integer inputs:
+Use your routine to show here the output for <span class="rosetta__text--italic">at least</span> the following (inclusive) ranges of integer inputs:
 <code>0..25, 250..265, 1000..1025</code>
 
-'''Note:''' apostrophes are now ''optional'' to allow correct apostrophe-less English.
+<span class="rosetta__text--bold">Note:</span> apostrophes are now <span class="rosetta__text--italic">optional</span> to allow correct apostrophe-less English.
 
 
 =={{header|JavaScript}}==

@@ -1,13 +1,14 @@
 Nonoblock
 
-{{task}} [[Category:Puzzles]]
-Nonoblock is a chip off the old [[Nonogram solver|Nonogram]] puzzle.
+{{task}} <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category:Puzzles]]
+Nonoblock is a chip off the old [[Nonogram solver" title="Category:Puzzles]]
+Nonoblock is a chip off the old [[Nonogram solver">Nonogram</a> puzzle.
 
 ;Given:
 * The number of cells in a row.
 * The size of each, (space separated), connected block of cells to fit in the row, in left-to right order.
 
-'''The task''' is to 
+<span class="rosetta__text--bold">The task</span> is to 
 * show all possible positions 
 * and the number of positions 
 of the blocks for the following cases
@@ -55,7 +56,7 @@ Would also work.
 ;An algorithm:
 * Find the minimum space to the right that is needed to legally hold all but the leftmost block of cells (with a space between blocks remember).
 * The leftmost cell can legitimately be placed in all positions from the LHS up to a RH position that allows enough room for the rest of the blocks.
-* for each position of the LH block recursively compute the position of the rest of the blocks in the ''remaining'' space to the right of the current placement of the LH block.
+* for each position of the LH block recursively compute the position of the rest of the blocks in the <span class="rosetta__text--italic">remaining</span> space to the right of the current placement of the LH block.
 (This is the algorithm used in the [[Nonoblock#Python]] solution).    
 
 ;Reference:

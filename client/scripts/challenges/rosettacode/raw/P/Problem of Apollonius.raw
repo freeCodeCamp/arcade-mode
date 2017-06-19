@@ -1,10 +1,10 @@
 Problem of Apollonius
 
 {{task|arithmetic operations}}
-[[File:Apollonius.png|400px|Two solutions to the problem of Apollonius|right]]
+<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:Apollonius.png" title="File:Apollonius.png">400px|Two solutions to the problem of Apollonius|right</a>
 
 ;Task:
-Implement a solution to the Problem of Apollonius &nbsp; ([[wp:Problem_of_Apollonius|description on Wikipedia]]) &nbsp; which is the problem of finding the circle that is tangent to three specified circles. &nbsp; There is an [[wp:Problem_of_Apollonius#Algebraic_solutions|algebraic solution]] which is pretty straightforward. 
+Implement a solution to the Problem of Apollonius &nbsp; (<a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Problem_of_Apollonius" title="wp: Problem_of_Apollonius">description on Wikipedia]]) &nbsp; which is the problem of finding the circle that is tangent to three specified circles. &nbsp; There is an [[wp:Problem_of_Apollonius#Algebraic_solutions|algebraic solution</a> which is pretty straightforward. 
 
 The solutions to the example in the code are shown in the image (below and right). &nbsp; The red circle is "internally tangent" to all three black circles, and the green circle is "externally tangent" to all three black circles.
 <br><br>

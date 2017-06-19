@@ -17,7 +17,7 @@ Positions in the grid are modified by entering their coordinates where the first
 * Of course you lose if you try to clear space that has a hidden mine.
 * You win when you have correctly identified all mines.
 
-The Task is to '''create a program that allows you to play minesweeper on a 6 by 4 grid, and that assumes all user input is formatted correctly''' and so checking inputs for correct form may be omitted.
+The Task is to <span class="rosetta__text--bold">create a program that allows you to play minesweeper on a 6 by 4 grid, and that assumes all user input is formatted correctly</span> and so checking inputs for correct form may be omitted.
 You may also omit all GUI parts of the task and work using text input and output.
 
 Note: Changes may be made to the method of clearing mines to more closely follow a particular implementation of the game so long as such differences and the implementation that they more accurately follow are described.
