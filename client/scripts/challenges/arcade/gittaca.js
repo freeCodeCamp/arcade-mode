@@ -166,3 +166,4 @@ const benchmark = [
 assert(typeof diff === 'function', 'message: <code>diff</code> is a function.');
 assert.include(tc1Answers, diff(testCase1[0], testCase1[1]), 'message: diff("GTTG", "GTTAC") should return either "G T T +A +C -G" or "G T T -G +A +C"');
 assert.include(tc2Answers, diff(testCase2[0], testCase2[1]), 'message: diff("ATCGTGT", "AGTGCAGC") should return either "A -T -C G T G -T +C +A +G +C" or "A -T -C G T G +C +A +G +C -T"');
+/// id: 59481016e949d6392ed98d4a

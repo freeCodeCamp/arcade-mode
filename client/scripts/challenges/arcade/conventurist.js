@@ -113,3 +113,4 @@ assert(typeof throttle(testFn) === 'function', 'message: <code>throttle</code> s
 assert(typeof debounce(testFn) === 'function', 'message: <code>debounce</code> should return a function.');
 assert.becomes(callFn(throttle(testFn)), answerThrottle, 'message: Throttle test case failed.');
 assert.becomes(callFn(debounce(testFn)), answerDebounce, 'message: Debounce test case failed.');
+/// id: 59481016e949d6392ed98d49

@@ -93,3 +93,4 @@ assert(typeof Queue === 'function', 'message: Queue must be a constructor functi
 assert(q.dequeue() === 1, 'message: 1 is dequeued correctly');
 assert(q2.dequeue() === 5, 'message: 5 is dequeued correctly');
 assert(q3.dequeue() === 'aaa', 'message: aaa is dequeued correctly');
+/// id: 59481016e949d6392ed98d4d

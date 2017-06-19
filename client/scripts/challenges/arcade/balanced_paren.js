@@ -47,3 +47,4 @@ assert.isOk(isBalanced('([{}])'), 'message: <code>([{}])</code> should return tr
 assert.isNotOk(isBalanced('([{}}])'), 'message: <code>([{}}])</code> should return false.');
 assert.isNotOk(isBalanced('((())))'), 'message: <code>((())))</code> should return false.');
 assert.isOk(isBalanced('(a(v(b(fdasf)a)a)e)'), 'message: <code>(a(v(b(fdasf)a)a)e)</code> should return false.');
+/// id: 59481016e949d6392ed98d48

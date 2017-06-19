@@ -114,3 +114,4 @@ assert.deepEqual(hashmap.keys(), ['aaa']);
 assert.equal(hashmap2.keys().length, 0);
 assert.deepEqual(hashmap3.keys(), ['123', '567', '890']);
 assert.equal(accumul(hashmap4), correctSum);
+/// id: 59480eb89c2d6c3741bc116d

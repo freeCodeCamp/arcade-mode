@@ -87,3 +87,4 @@ const decipheredMsg = '';
 /// tests:
 assert(typeof XOR === 'function', 'message: <code>XOR</code> is a function.');
 assert(XOR(OTP, encryptedMsg) === decipheredMsg, 'message: <code>XOR</code> did not produce the right message.');
+/// id: 59481016e949d6392ed98d4c

@@ -82,3 +82,4 @@ assert(c2.get('aaa') === null, 'Item should be already evicted.');
 assert(c2.get('ccc') === 12, 'Item should be still cached.');
 assert(c3.get('bbb') === null, 'The item should be evicted.');
 assert(c3.get('ccc') === 80, 'The item should be evicted.');
+/// id: 59481016e949d6392ed98d4b
