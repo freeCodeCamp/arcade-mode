@@ -23,7 +23,7 @@ const assert = require('chai').assert;
 /// <code>1*8 + 0*5 + 0*3 + 1*2 + 1*1</code> or 010011 would also represent decimal 11. For a
 /// true Zeckendorf number there is the added restriction that ''no two consecutive
 /// Fibonacci numbers can be used'' which leads to the former unique solution.
-/// Instructions:
+/// <br/>
 /// Generate and show here a table of the Zeckendorf number representations of
 /// the decimal numbers zero to twenty, in order.
 /// The intention in this task to find the Zeckendorf form of an arbitrary integer.

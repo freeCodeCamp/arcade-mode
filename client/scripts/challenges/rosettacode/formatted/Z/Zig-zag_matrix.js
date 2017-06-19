@@ -18,7 +18,7 @@ const assert = require('chai').assert;
 /// <big>N<sup>2</sup></big> &nbsp; integers, &nbsp; where the
 /// <br>numbers increase sequentially as you zig-zag along the array's &nbsp;
 /// <a href="https://en.wiktionary.org/wiki/antidiagonal">anti-diagonals</a>.
-///<br/>
+/// <br/>
 /// For example, given &nbsp; '''5''', &nbsp; produce this array:
 /// <pre>
 ///  0  1  5  6 14
@@ -27,7 +27,6 @@ const assert = require('chai').assert;
 ///  9 11 17 20 22
 /// 10 18 19 23 24
 /// </pre>
-/// Instructions:
 /// Write a function that takes the size of the zig-zag matrix, and returns the
 /// corresponding matrix as two-dimensional array.
 
