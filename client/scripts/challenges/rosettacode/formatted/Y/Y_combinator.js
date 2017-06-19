@@ -19,12 +19,12 @@ const assert = require('chai').assert;
 /// This rules out the usual definition of a recursive function wherein a function
 /// is associated with the state of a variable and this variable's state is used in
 /// the body of the function.
-///<br/>
+/// <br/>
 /// The <a href="http://mvanier.livejournal.com/2897.html">Y combinator</a> is itself a
 /// stateless function that, when applied to another stateless function, returns a
 /// recursive version of the function. The Y combinator is the simplest of the
 /// class of such functions, called [[wp:Fixed-point combinator|fixed-point combinators]].
-/// Instructions:
+/// <br/>
 /// Define the stateless Y combinator function and use it to compute
 /// [[wp:Factorial|factorials]]. factorial(N) function is already given to you.
 /// See also <a href="http://vimeo.com/45140590">Jim Weirich: Adventures in Functional Programming</a>.
