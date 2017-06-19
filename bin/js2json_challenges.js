@@ -17,6 +17,7 @@
 const commandLineArgs = require('command-line-args');
 const fs = require('fs');
 const acorn = require('acorn');
+const mongoose = require('mongoose');
 
 const optionDefinitions = [
   { name: 'force', type: Boolean, descr: 'Overwrite output files forcefully.' },
@@ -58,7 +59,8 @@ const optionalProps = {
   head: 'Code',
   tail: 'Code',
   images: String,
-  naive: 'Code'
+  naive: 'Code',
+  id: String
 };
 
 const allProps = Object.assign({}, expectedProps, optionalProps);
@@ -141,6 +143,9 @@ function processLine(parser, line) {
   }
   else if (propLegal && re.lineCommentWithPropAndText.test(line)) {
     const matches = line.match(re.lineCommentWithPropAndText);
+    if (parser.prop !== null) {
+      finishCurrProp(parser);
+    }
     parser.prop = matches[1];
     parser.propValue.push(matches[2]);
     finishCurrProp(parser);
@@ -217,6 +222,13 @@ function verifyExpectedProps(parser, file, props) {
     if (parser.files[file][prop] === undefined) {
       console.warn(`Prop ${prop} missing from file ${file}`);
     }
+
+    // Add unique IDs to files, unless they already exist
+    if (!parser.files[file].id) {
+      const id = mongoose.Types.ObjectId();
+      parser.files[file].id = id;
+      fs.appendFileSync(file, `/// id: ${id}\n`);
+    }
   });
 }
 
@@ -225,10 +237,6 @@ function formatResult(parsedFiles) {
   const challenges = Object.keys(parsedFiles).map(filename =>
     parsedFiles[filename]
   );
-
-  challenges.forEach(challenge => {
-    challenge.id = parseInt(Math.random(), 16);
-  });
 
   const finalFormat = {
     name: 'ArcadeMode Interview Questions',
