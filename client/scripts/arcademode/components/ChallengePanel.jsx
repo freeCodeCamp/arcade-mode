@@ -44,7 +44,11 @@ export default class ChallengePanel extends React.Component {
   }
 
   createMarkup() {
-    const descr = this.props.description.join('\n');
+    let descr;
+    if (typeof this.props.description === 'string') {
+      descr = this.props.description;
+    }
+    else descr = this.props.description.join('\n');
     return { __html: descr };
   }
 
