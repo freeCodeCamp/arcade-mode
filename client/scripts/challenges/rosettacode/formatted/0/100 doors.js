@@ -38,16 +38,6 @@ function getFinalOpenedDoors (numDoors) {
     finalState.push(i ** 2);
     i++;
   }
- /*
-  Array.apply(null, { length: numDoors })
-    .map((v, i) => i + 1)
-    .forEach(door => {
-      const sqrt = Math.sqrt(door);
-      if (sqrt === Math.floor(sqrt)) { // check if equal to floored value
-        finalState.push(door);
-      }
-    });
-   */
   return finalState;
 }
 
@@ -59,7 +49,7 @@ function getFinalOpenedDoors (numDoors) {
     doors[i] = false; // create doors
   }
   for (let i = 1; i <= numDoors; i++) {
-    for (let i2 = i - 1; i2 < numDoors; i2+=i) {
+    for (let i2 = i - 1; i2 < numDoors; i2 += i) {
       doors[i2] = !doors[i2]; // toggle doors
     }
   }
@@ -79,3 +69,4 @@ const solution = [1, 4, 9, 16, 25, 36, 49, 64, 81, 100];
 assert(typeof getFinalOpenedDoors === 'function', 'message: <code>getFinalOpenedDoors</code> is a function.');
 assert(Array.isArray(getFinalOpenedDoors(100)), 'message: <code>getFinalOpenedDoors</code> should return an array.');
 assert.deepEqual(getFinalOpenedDoors(100), solution, 'message: <code>getFinalOpenedDoors</code> did not produce the correct results.');
+/// id: 594810f028c0303b75339acb
