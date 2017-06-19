@@ -3,8 +3,6 @@
 
 import Immutable, { Map, List } from 'immutable';
 
-// import Interpreter from 'js-interpreter';
-
 import { SESSION_FINISH, SESSION_SAVE } from '../actions/session';
 
 import { CHALLENGE_START, CHALLENGE_NEXT } from '../actions/challenge';
@@ -19,7 +17,6 @@ import appConfig from '../../../jsons/appconfig.json';
 
 const getScoreForChallenge = currChallenge => {
   if (currChallenge.get('difficulty')) {
-    // TODO: Might have to be balanced, quick solution for now
     return 100 * currChallenge.get('difficulty');
   }
   return 100;
