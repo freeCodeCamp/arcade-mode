@@ -84,3 +84,4 @@ assert.isTrue(canMakeWord(words[2]), 'message: <code>canMakeWord("TReAT")</code>
 assert.isFalse(canMakeWord(words[3]), 'message: <code>canMakeWord("COMMON")</code> should return false.');
 assert.isTrue(canMakeWord(words[4]), 'message: <code>canMakeWord("squAD")</code> should return true.');
 assert.isTrue(canMakeWord(words[5]), 'message: <code>canMakeWord("conFUSE")</code> should return true.');
+/// id: 594810f028c0303b75339acc
