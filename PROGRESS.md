@@ -1,4 +1,10 @@
 # PROGRESS for Arcade Mode
+## Monday 6/19/17:
+### Tuomas:
+  - Progress:
+    1. Added Vector cross product challenge.
+    2. Added Vector dot product challenge
+
 ## Sunday 6/18/17:
 ### Tim:
   - Progress:
@@ -6,12 +12,25 @@
   - @:
     - [ ] Prevent non-heading lines with colon endings from messing up generated JSON.
 
+### Tuomas:
+  - Progress:
+    1. Added Zig-zag matrix challenge
+    2. Added Y-combinator challenge
+
+
 ## Saturday 6/17/17:
 ### Tim:
   - Progress:
     1. Add Align Columns challenge
   - @:
     - [ ] Pressing enter in already max-height CodeMirror editor (with scrollbar) does not auto scroll the newline into view. Need Vim scrolloff equivalent for Codemirror editor.
+
+### Tuomas:
+  - Progress:
+      1. Created unit tests for Rosetta challenges. Can be run using 'npm run
+         test:rosetta'. Tests use runner.js for quickly checking that they run
+         correctly in Arcade mode environment.
+      2. Added Zhang-suen thinning algorith.
 
 ## Friday 6/16/17:
 ### Tim:
@@ -30,6 +49,10 @@
     - [ ] Conventurist time-based assertion tests capable of returning different results/run.
     - [ ] 100 doors challenge stock solution.
 
+### Tuomas:
+  - Progress:
+      1. Added Linked hash map challenge to ArcadeMode challenges.
+
 ## Tuesday 6/13/17:
 ### Tim:
   - Progress:
@@ -39,6 +62,11 @@
 ### Tim:
   - Progress:
     1. Add Petch challenge.
+
+### Tuomas:
+  - Progress:
+    1. Added Balanced parenthesis challenge.
+    2. Added Rotate array challenge.
 
 ## Thursday 6/8/17:
 ### Tim:
