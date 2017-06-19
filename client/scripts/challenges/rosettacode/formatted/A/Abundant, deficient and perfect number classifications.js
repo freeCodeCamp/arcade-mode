@@ -23,10 +23,10 @@ getDPA(20000);
 /// if <code>P(n) < n</code> then n is classed as "deficient"
 /// if <code>P(n) === n</code> then n is classed as "perfect"
 /// if <code>P(n) > n</code> then n is classed as "abundant"
-/// Example
+/// Example:
 /// 6 has proper divisors of 1, 2, and 3.
 /// 1 + 2 + 3 = 6, so 6 is classed as a perfect number.
-/// Implement an function that calculates how many of hte integers from 1 to 20,000 (inclusive) are in each of the three classes. Output the result as an array in the following format [deficient, perfect, abundant].
+/// Implement a function that calculates how many of the integers from 1 to 20,000 (inclusive) are in each of the three classes. Output the result as an array in the following format [deficient, perfect, abundant].
 
 /// challengeSeed:
 function getDPA (num) {

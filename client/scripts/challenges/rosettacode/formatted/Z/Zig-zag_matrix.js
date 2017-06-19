@@ -15,7 +15,7 @@ const assert = require('chai').assert;
 
 /// description:
 /// A &nbsp; ''zig-zag'' &nbsp; array is a square arrangement of the first &nbsp;
-/// N^2 &nbsp; integers, &nbsp; where the
+/// $N^2$ &nbsp; integers, &nbsp; where the
 /// numbers increase sequentially as you zig-zag along the array's &nbsp;
 /// <a href="https://en.wiktionary.org/wiki/antidiagonal">anti-diagonals</a>.
 /// <br/>

@@ -18,7 +18,7 @@ const assert = require('chai').assert;
 /// difficulty: 3
 
 /// description:
-/// You are given a collection of ABC blocks (e.g., childhood alphabet blocks). There are 20 blocks with two letters on each block. A complete alphabet is guaranteed amongst all sides of the blocks. The sample collection of blocks,
+/// You are given a collection of ABC blocks (e.g., childhood alphabet blocks). There are 20 blocks with two letters on each block. A complete alphabet is guaranteed amongst all sides of the blocks. The sample collection of blocks:
 /// (B O)
 /// (X K)
 /// (D Q)
@@ -39,9 +39,9 @@ const assert = require('chai').assert;
 /// (L Y)
 /// (P C)
 /// (Z M)
-/// Some rules to keep in mind,
-/// 1. Once a letter on a block is used, that block cannot be used again
-/// 2. the function should be case-insensitive
+/// Some rules to keep in mind:
+/// 1. Once a letter on a block is used, that block cannot be used again.
+/// 2. The function should be case-insensitive.
 /// Implement a function that takes a string (word) and determines whether the word can be spelled with the given collection of blocks.
 
 /// challengeSeed:

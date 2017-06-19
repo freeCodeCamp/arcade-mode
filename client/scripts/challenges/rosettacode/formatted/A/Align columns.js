@@ -25,7 +25,7 @@ const assert = require('chai').assert;
 /// column$are$separated$by$at$least$one$space.
 /// Further,$allow$for$each$word$in$a$column$to$be$either$left$
 /// justified,$right$justified,$or$center$justified$within$its$column.</pre>
-/// Note that,
+/// Note that:
 /// 1. The example input texts lines may, or may not, have trailing dollar characters.
 /// 2. All columns should share the same alignment.
 /// 3. Consecutive space characters produced adjacent to the end of lines are insignificant for the purposes of the task.
