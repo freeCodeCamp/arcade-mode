@@ -29,6 +29,7 @@ const optionDefinitions = [
 // Regexp definitions for the script
 const re = {
   lineComment: /^\/\/\//,
+  lineCommentStartsWithProp: /^\/\/\/\s+(\w+):/,
   lineCommentWithProp: /^\/\/\/\s+(\w+):\s*$/,
   lineCommentWithPropAndText: /^\/\/\/\s+(\w+):\s*(\S.*)$/,
   lineCommentWithText: /^\/\/\/\s(.*)$/,
@@ -49,6 +50,18 @@ const expectedProps = {
   solutions: 'Code',
   tests: 'Code'
 };
+
+const optionalProps = {
+  difficulty: Number,
+  bencmark: 'Code',
+  categories: String,
+  head: 'Code',
+  tail: 'Code',
+  images: String,
+  naive: 'Code'
+};
+
+const allProps = Object.assign({}, expectedProps, optionalProps);
 
 if (!opts.infile || opts.infile.length === 0) {
   console.error('Error. No input files were given.');
@@ -113,14 +126,20 @@ function processLine(parser, line) {
   }
   parser.continuedComments = false;
 
-  if (re.lineCommentWithProp.test(line)) {
+  let propLegal = false;
+  if (re.lineCommentStartsWithProp.test(line)) {
+    const matches = line.match(re.lineCommentStartsWithProp);
+    propLegal = isPropLegal(matches[1]);
+  }
+
+  if (propLegal && re.lineCommentWithProp.test(line)) {
     const matches = line.match(re.lineCommentWithProp);
     if (parser.prop !== null) {
       finishCurrProp(parser);
     }
     parser.prop = matches[1];
   }
-  else if (re.lineCommentWithPropAndText.test(line)) {
+  else if (propLegal && re.lineCommentWithPropAndText.test(line)) {
     const matches = line.match(re.lineCommentWithPropAndText);
     parser.prop = matches[1];
     parser.propValue.push(matches[2]);
@@ -246,4 +265,8 @@ function usage(exitCode = 0) {
     }
   });
   process.exit(exitCode);
+}
+
+function isPropLegal(propName) {
+  return allProps.hasOwnProperty(propName);
 }
