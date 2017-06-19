@@ -1,6 +1,7 @@
 
 'use strict';
 
+
 import Immutable, { Map, List } from 'immutable';
 
 import { PLAYER_PASSED } from '../actions/playerstatus';
@@ -14,7 +15,10 @@ import {
   CODE_CHANGED
 } from '../actions/challenge';
 
-import { GAME_CHALLENGE_TYPE_CHANGE } from '../actions/gamesetting';
+import {
+  GAME_CHALLENGE_TYPE_CHANGE,
+  GAME_DIFFICULTY_CHANGE
+} from '../actions/gamesetting';
 
 import { TESTS_FINISHED } from '../actions/test';
 
@@ -26,6 +30,8 @@ import ChallengesArcade from '../../../../public/json/challenges-arcade.json';
 import ChallengesRosetta from '../../../../public/json/challenges-rosetta.json';
 
 import appConfig from '../../../jsons/appconfig.json';
+
+const debug = require('debug')('am:reducers:challenge');
 
 const combinedChallenges = Object.keys(Challenges)
   .reduce((arr, key) => arr.concat(Challenges[key].challenges), []);
@@ -79,7 +85,7 @@ function getNextChallenge(state) {
 
   while (
     state.get('chosenChallenges')[newIndex].difficulty
-    && state.get('chosenChallenges')[newIndex].difficulty > state.get('difficulty')
+    && parseInt(state.get('chosenChallenges')[newIndex].difficulty, 10) > state.get('difficulty')
     && newIndex <= lastIndex
   ) {
     ++newIndex;
@@ -88,6 +94,19 @@ function getNextChallenge(state) {
   return Map(Immutable.fromJS(
     state.get('chosenChallenges')[newIndex])
   );
+}
+
+/* Converts difficulty setting into a number. */
+function getDifficultyNumber(difficulty) {
+  switch (difficulty) {
+    case 'Easy': return 3;
+    case 'Medium': return 6;
+    case 'Hard': return 10;
+    default: {
+      console.error(`Illegal difficulty: ${difficulty}`);
+      return 3;
+    }
+  }
 }
 
 export default function challenge(state = initialState, action) {
@@ -103,8 +122,8 @@ export default function challenge(state = initialState, action) {
       return state
         .set('challengeType', action.challengeType);
     case CHALLENGE_START: // lift to session start
-      console.log('benchmark:');
-      console.log(state.getIn(['currChallenge', 'benchmark']));
+      debug('benchmark:');
+      debug(state.getIn(['currChallenge', 'benchmark']));
       return state
         .update('challengeNumber', challengeNumber => challengeNumber + 1)
         .set('title', state.getIn(['currChallenge', 'title']))
@@ -153,6 +172,9 @@ export default function challenge(state = initialState, action) {
     case MODAL_OPEN:
       return initialState
         .set('challengeType', state.get('challengeType'));
+    case GAME_DIFFICULTY_CHANGE:
+      return state
+        .set('difficulty', getDifficultyNumber(action.difficulty));
     default:
       return state;
   }
