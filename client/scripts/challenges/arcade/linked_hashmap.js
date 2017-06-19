@@ -11,10 +11,11 @@ const assert = require('chai').assert;
 
 /// categories:
 /// data structures
+/// hash map
 
 /// description:
-/// In a hash map, the order of the keys is usually unspecified. We can use
-/// Linked hash map to retain the insertion order of the keys, when iterating
+/// In a hash map, the order of the keys is unspecified. We can use
+/// Linked hash map data structure to retain the insertion order of the keys, when iterating
 /// through the hash map.
 /// Instructions:
 /// Implement a Linked hash map. It should have the following functions:
@@ -24,6 +25,7 @@ const assert = require('chai').assert;
 ///   <code>has</code> for checking if key exists.
 ///   <code>keys</code> for returning all keys in insertion order
 ///   <code>forEach</code> to iterate through the hash map
+/// Note: Re-inserting an existing key does not change the order of the keys.
 
 /// challengeSeed:
 function LinkedHashMap() {
