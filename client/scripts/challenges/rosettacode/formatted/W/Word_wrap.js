@@ -73,3 +73,4 @@ assert(wrapped80.split('\n').length === 4, 'message: wrap(80) must return 4 line
 assert.equal(wrapped80.split('\n')[0], firstRow80);
 assert(wrapped42.split('\n').length === 7, 'message: wrap(42) must return 7 lines.');
 assert.equal(wrapped42.split('\n')[0], firstRow42);
+/// id: 594810f028c0303b75339ad4

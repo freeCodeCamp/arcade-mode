@@ -60,3 +60,4 @@ assert(typeof getDPA === 'function', 'message: <code>getDPA</code> is a function
 assert(Array.isArray(getDPA(100)), 'message: <code>getDPA</code> should return an array.');
 assert(getDPA(100).length === 3, 'message: <code>getDPA</code> return value should have a length of 3.');
 assert.deepEqual(getDPA(20000), solution, 'message: <code>getDPA(20000)</code> should equal [15043, 4, 4953]');
+/// id: 594810f028c0303b75339acd

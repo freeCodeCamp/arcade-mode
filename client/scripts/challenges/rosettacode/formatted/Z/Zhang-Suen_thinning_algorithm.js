@@ -273,3 +273,4 @@ assert.equal(typeof thinImage, 'function', 'thinImage must be a function');
 assert.equal(typeof result, 'object', 'thinImage must return an array of strings');
 assert.equal(typeof result[0], 'string', 'thinImage must return an array of strings');
 assert.deepEqual(result, expected, 'thinImage must return an array of strings');
+/// id: 594810f028c0303b75339ad7

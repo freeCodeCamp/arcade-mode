@@ -93,3 +93,4 @@ const answer = range(1, 20).map(zeckendorf);
 /// tests:
 assert.equal(typeof zeckendorf, 'function', 'message: zeckendorf must be function');
 assert.deepEqual(answer, solution20);
+/// id: 594810f028c0303b75339ad6

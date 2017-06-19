@@ -53,3 +53,4 @@ const exp12 = [-3, 6, -3];
 assert.equal(typeof crossProduct, 'function', 'message: dotProduct must be a function');
 assert.equal(crossProduct(), null, 'message: dotProduct() must return null');
 assert.deepEqual(res12, exp12, 'message: crossProduct([1, 2, 3], [4, 5, 6]) must return [-3, 6, -3].');
+/// id: 594810f028c0303b75339ad2

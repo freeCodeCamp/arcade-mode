@@ -55,3 +55,4 @@ assert.equal(factorial(2), 2, 'message: factorial(2) must return 2.');
 assert.equal(factorial(3), 6, 'message: factorial(3) must return 6.');
 assert.equal(factorial(4), 24, 'message: factorial(4) must return 24.');
 assert.equal(factorial(10), 3628800, 'message: factorial(10) must return 3628800.');
+/// id: 594810f028c0303b75339ad5

@@ -77,3 +77,4 @@ assert.equal(dotProduct([1], [1]), 1, 'message: dotProduct([[1], [1]]) must retu
 assert.equal(dotProduct([1], [1, 2]), null, 'message: dotProduct([[1], [1, 2]]) must return null.');
 assert.equal(dotProduct(...vectorsWp), 3, 'message: dotProduct([[1, 3, -5], [4, -2, -1]]) must return 3.');
 assert.equal(dotProduct(...vectors5x5), 156000);
+/// id: 594810f028c0303b75339ad3

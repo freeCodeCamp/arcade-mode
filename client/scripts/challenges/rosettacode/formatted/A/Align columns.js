@@ -156,3 +156,4 @@ assert(typeof formatText === 'function', 'message: <code>formatText</code> is a 
 assert.strictEqual(formatText(testInput, 'right'), rightAligned, 'message: <code>formatText</code> with the above input and "right" justification should produce the following: ');
 assert.strictEqual(formatText(testInput, 'left'), leftAligned, 'message: <code>formatText</code> with the above input and "left" justification should produce the following: ');
 assert.strictEqual(formatText(testInput, 'center'), centerAligned, 'message: <code>formatText</code> with the above input and "center" justification should produce the following: ');
+/// id: 594810f028c0303b75339ad0

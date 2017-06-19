@@ -47,3 +47,4 @@ assert(typeof accumulator === 'function', 'message: <code>accumulator</code> is 
 assert(typeof accumulator(0) === 'function', 'message: <code>accumulator(0)</code> should return a function.');
 assert(typeof accumulator(0)(2) === 'number', 'message: <code>accumulator(0)(2)</code> should return a number.');
 assert(testFn(5) === 5.5, 'message: Passing in the values 3, -4, 1.5, and 5 should return 5.5.');
+/// id: 594810f028c0303b75339ace

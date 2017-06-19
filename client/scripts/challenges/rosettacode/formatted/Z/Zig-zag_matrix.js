@@ -80,3 +80,4 @@ assert.equal(typeof ZigZagMatrix(1)[0], 'object', 'message: ZigZagMatrix should 
 assert.deepEqual(ZigZagMatrix(1), zm1, 'message: ZigZagMatrix(1) should return [[0]]');
 assert.deepEqual(ZigZagMatrix(2), zm2, 'message: ZigZagMatrix(2) should return [[0, 1], [2, 3]]');
 assert.deepEqual(ZigZagMatrix(5), zm5, 'message: ZigZagMatrix(5) must return specified matrix');
+/// id: 594810f028c0303b75339ad8
