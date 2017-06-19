@@ -16,15 +16,15 @@
 #
 #   <local ref> <local sha1> <remote ref> <remote sha1>
 #
-# This sample shows how to prevent push of commits where the log message starts
-# with "WIP" (work in progress).
 
-my $remote= $ARGV[1];
-my $url= $ARGV[2];
+my $remote= $ARGV[0];
+my $url= $ARGV[1];
 
 print "remote: $remote, url: $url\n";
 
-if (not $remote eq "master") {
+my $branch = `git branch`;
+
+if ($branch !~ /master/) {
     print "Not in master branch. Skipping tests.\n";
     exit 0;
 }
