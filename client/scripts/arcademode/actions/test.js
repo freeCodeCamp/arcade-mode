@@ -1,6 +1,8 @@
 
 'use strict';
 
+const debug = require('debug')('am:actions:test');
+
 export const OUTPUT_CHANGED = 'OUTPUT_CHANGED'; // test
 export const TESTS_STARTED = 'TESTS_STARTED'; // playerstatus, test
 export const TESTS_FINISHED = 'TESTS_FINISHED'; // test
@@ -29,7 +31,7 @@ export function runTests(userCode, currChallenge) {
     // http://stackoverflow.com/questions/9020116/is-it-possible-to-restrict-the-scope-of-a-javascript-function/36255766#36255766
     const perfBefore = performance.now();
     createTestWorker(userCode, currChallenge, dispatch)
-      .then(() => console.log(`Total time to evaluate test cases: ${performance.now() - perfBefore}`))
+      .then(() => debug(`Total time to evaluate test cases: ${performance.now() - perfBefore}`))
       .catch(err => console.error(err));
   };
 }
@@ -40,7 +42,7 @@ export function runBenchmark(userCode, currChallenge) {
 
     const perfBefore = performance.now();
     createTestWorker(userCode, currChallenge, dispatch, true)
-      .then(() => console.log(`Total time to evaluate test cases: ${performance.now() - perfBefore}`))
+      .then(() => debug(`Total time to evaluate test cases: ${performance.now() - perfBefore}`))
       .catch(err => console.error(err));
   };
 }
@@ -119,7 +121,7 @@ const createTestWorker = (userCode, currChallenge, dispatch, isBenchmark = false
                   stockPerf: data.stockPerf,
                   userPerf: data.userPerf
                 };
-                console.log(`Total time to benchmark: ${performance.now() - perfBefore}`);
+                debug(`Total time to benchmark: ${performance.now() - perfBefore}`);
                 dispatch(actionBenchmarkFinished(benchmarkResults));
               })
               .catch(err => console.error(err));
