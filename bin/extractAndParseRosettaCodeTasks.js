@@ -10,6 +10,7 @@
 /* Entire script takes about 2 minutes from start to finish */
 
 /* eslint no-confusing-arrow: 0 */
+/* eslint no-param-reassign: 0 */
 
 const fs = require('fs');
 const fetch = require('node-fetch');
@@ -33,8 +34,6 @@ function getNextBatch (url) {
     .then(checkContinue => {
       console.log(checkContinue);
       if (checkContinue.continue) {
-        console.log('checkContinue.continue');
-        console.log(checkContinue.continue);
         const continueTrue = checkContinue.continue.continue;
         const continueFetch = checkContinue.continue.gcmcontinue;
         nextURL = `${queryURL}${continueTrue}&gcmcontinue=${continueFetch}`;
@@ -80,20 +79,24 @@ function ensureDirectoryExistence(filePath) {
 }
 
 function processRawRosettaCodeTask (taskName, content) {
+  const categories = [];
+
   // PROCESS description:
   // 0. Initial extraction of description segment:
   const descriptionBlobRegex = /^([\s\S]*?)==\{\{header\|/;
   const rawDescription = content.match(descriptionBlobRegex) && content.match(descriptionBlobRegex)[1];
 
   // 1. Regexes for transforming RosettaCode specific syntax to in-house/regular.
+  const categoriesRegex = /\[\[Category:([^\]]*)\]\]/g;
   const wikipediaTemplateRegex = /\[\[(?:wp:)([^|]*)\|(.*)\]\]/g;
-  const rosettaTemplateRegex = /\[\[(?!wp:)([^|]*)\|(.*?)\]\]/g;
+  const rosettaTemplateRegex = /\[\[(?!wp:)(?!Category:)(.*?)(?:\|(.*))?\]\]/g;
   const tripleSingleQuotesRegex = /'''(.*?)'''/g; // convert to bold
   const doubleSingleQuotesRegex = /''(.*?)''/g; // convert to italics
   const doubleBracketRegex = /{{(.*?)}}/g; // remove all double brackets (serves no purpose)
   const colonLineStartRegex = /^:(.*)$/gm; // indent all colon start lines
   const semicolonLineStartRegex = /^;(.*)$/gm; // convert all semicolon start lines to dl/dt
   const asteriskLineStartRegex = /^\*\s(.*)$/gm; // convert all asterisk start lines to li
+  const hashLineStartRegex = /^#\s(.*)$/gm; // convert all hash start lines to numbered
   const wrapAllListElements = /((?:<li [^>]*>.*<\/li>\n?)+)/g;
   const mathRegex = /<\/?math>/gi;
 
@@ -102,6 +105,10 @@ function processRawRosettaCodeTask (taskName, content) {
 
   // 3. Convert description:
   const description = rawDescription
+    .replace(categoriesRegex, (category, first) => {
+      categories.push(`/// ${first}`);
+      return '';
+    })
     .replace(wikipediaTemplateRegex,
       '<a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/$1" title="wp: $1">$2</a>')
     .replace(rosettaTemplateRegex,
@@ -112,8 +119,14 @@ function processRawRosettaCodeTask (taskName, content) {
     .replace(colonLineStartRegex, '<span class="rosetta__text--indented">$1</span>')
     .replace(semicolonLineStartRegex,
       '<dl class="rosetta__description-list"><dt class="rosetta__description-title">$1</dt></dl>')
-    .replace(asteriskLineStartRegex, '<li class="rosetta__list-item">$1</li>')
-    .replace(wrapAllListElements, '<ul class="rosetta__unordered-list">\n$1\n</ul>')
+    .replace(asteriskLineStartRegex, '<li class="rosetta__list-item--unordered">$1</li>')
+    .replace(hashLineStartRegex, '<li class="rosetta__list-item--ordered">$1</li>')
+    .replace(wrapAllListElements, listEls => {
+      if (listEls.match(/<li .*(?=rosetta__list-item--unordered).*>/g)) {
+        return `<ul class="rosetta__unordered-list">\n${listEls}\n</ul>`;
+      }
+      return `<ol class="rosetta__ordered-list">\n${listEls}\n</ol>`;
+    })
     .replace(mathRegex, '$')
     .replace(addTripleSlashAndSpace, match => match === '' ? '/// <br>' : `/// ${match}`);
 
@@ -131,10 +144,14 @@ function processRawRosettaCodeTask (taskName, content) {
   }
 
   // FEED all processed entities into in-house template:
-  return toInHouseTemplate(taskName, description, solution, rawSolutions);
+  return toInHouseTemplate(taskName, categories, description, solution, rawSolutions);
 }
 
-function toInHouseTemplate (title, description, solution, rawSolutions) {
+function toInHouseTemplate (title, categories, description, solution, rawSolutions) {
+  if (categories.length > 1) {
+    categories = categories.join('\n');
+  }
+
   const templatedContent = `
 /* eslint spaced-comment: 0 */
 /* eslint no-redeclare: 0 */
@@ -147,7 +164,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+${categories}
 
 /// difficulty: ?
 
