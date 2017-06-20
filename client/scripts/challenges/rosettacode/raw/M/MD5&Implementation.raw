@@ -26,11 +26,11 @@ replaceWithActualFunctionHere;
 /// <li class="rosetta__list-item--unordered">In addition to coding and verifying your implementation, note any challenges your language presented implementing the solution, implementation choices made, or limitations of your solution.  </li>
 /// <li class="rosetta__list-item--unordered">Solutions on this page should implement MD5 directly and NOT use built in (MD5) functions, call outs to operating system calls or library routines written in other languages as is common in the original <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/MD5" title="MD5"></a> task.</li>
 /// <li class="rosetta__list-item--unordered">The following are acceptable:</li>
+/// <li class="rosetta__list-item--unordered">* An original implementation from the specification, reference implementation, or pseudo-code</li>
+/// <li class="rosetta__list-item--unordered">* A translation of a correct implementation from another language</li>
+/// <li class="rosetta__list-item--unordered">* A library routine in the same language; however, the source must be included here.</li>
 /// <br>
-/// </ul>** An original implementation from the specification, reference implementation, or pseudo-code
-/// ** A translation of a correct implementation from another language
-/// ** A library routine in the same language; however, the source must be included here.
-/// <br>
+/// </ul>
 /// The solutions shown here will provide practical illustrations of bit manipulation, unsigned integers, working with little-endian data.  Additionally, the task requires an attention to details such as boundary conditions since being out by even 1 bit will produce dramatically different results.  Subtle implementation bugs can result in some hashes being correct while others are wrong.  Not only is it critical to get the individual sub functions working correctly, even small errors in padding, endianness, or data layout will result in failure.
 /// <br>
 /// The following verification strings and hashes come from RFC 1321:<pre>                            hash code <== string 

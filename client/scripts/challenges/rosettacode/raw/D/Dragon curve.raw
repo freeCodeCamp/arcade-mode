@@ -46,8 +46,10 @@ replaceWithActualFunctionHere;
 ///                                  / \
 ///                                 L   R
 ///                                /     \
-/// *---L---*      expands to     *       *</pre>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item--unordered">---L---*      expands to     *       *</pre></li>
 /// <br>
+/// </ul>
 /// <span class="rosetta__text--indented"> The co-routines <code>dcl</code> and <code>dcr</code> in various examples do this recursively to a desired expansion level.</span>
 /// <br>
 /// <ul class="rosetta__unordered-list">
@@ -71,13 +73,17 @@ replaceWithActualFunctionHere;
 /// <br>
 /// </ul>
 /// <pre>                       *       
-/// *-----*   becomes     / \      bend to left
-///                      /   \     if N odd
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item--unordered">-----*   becomes     / \      bend to left</li>
+/// <br>
+/// </ul>                     /   \     if N odd
 ///                     *     *
 /// <br>
 ///                     *     *   
-/// *-----*   becomes    \   /     bend to right  
-///                       \ /      if N even 
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item--unordered">-----*   becomes    \   /     bend to right  </li>
+/// <br>
+/// </ul>                      \ /      if N even 
 ///                        *</pre>
 /// <br>
 /// <span class="rosetta__text--indented"> Numbering from the start of the curve built so far, if the segment is at an odd position then the bend introduced is on the right side.  If the segment is an even position then on the left.  The process is then repeated on the new doubled list of segments.  This constructs a full set of line segments before any drawing.</span>

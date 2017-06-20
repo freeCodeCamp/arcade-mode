@@ -29,12 +29,12 @@ replaceWithActualFunctionHere;
 /// <li class="rosetta__list-item--ordered">for each face, a <span class="rosetta__text--italic">face point</span> is created which is the average of all the points of the face.</li>
 /// <li class="rosetta__list-item--ordered">for each edge, an <span class="rosetta__text--italic">edge point</span> is created which is the average between the center of the edge and the center of the segment made with the face points of the two adjacent faces.</li>
 /// <li class="rosetta__list-item--ordered">for each vertex point, its coordinates are updated from (<tt>new_coords</tt>):</li>
+/// <li class="rosetta__list-item--ordered"># the old coordinates (<tt>old_coords</tt>),</li>
+/// <li class="rosetta__list-item--ordered"># the average of the face points of the faces the point belongs to (<tt>avg_face_points</tt>),</li>
+/// <li class="rosetta__list-item--ordered"># the average of the centers of edges the point belongs to (<tt>avg_mid_edges</tt>),</li>
+/// <li class="rosetta__list-item--ordered"># how many faces a point belongs to (<tt>n</tt>), then use this formula:</li>
 /// <br>
-/// </ol>## the old coordinates (<tt>old_coords</tt>),
-/// ## the average of the face points of the faces the point belongs to (<tt>avg_face_points</tt>),
-/// ## the average of the centers of edges the point belongs to (<tt>avg_mid_edges</tt>),
-/// ## how many faces a point belongs to (<tt>n</tt>), then use this formula:
-///       m<sub>1</sub> = (n - 3) / n
+/// </ol>      m<sub>1</sub> = (n - 3) / n
 ///       m<sub>2</sub> = 1 / n
 ///       m<sub>3</sub> = 2 / n
 ///       new_coords = (m<sub>1</sub> * old_coords)
@@ -66,10 +66,10 @@ replaceWithActualFunctionHere;
 /// <ol class="rosetta__ordered-list">
 /// <li class="rosetta__list-item--ordered">for the edges that are on the border of a hole, the edge point is just the middle of the edge.</li>
 /// <li class="rosetta__list-item--ordered">for the vertex points that are on the border of a hole, the new coordinates are calculated as follows:</li>
+/// <li class="rosetta__list-item--ordered"># in all the edges the point belongs to, only take in account the middles of the edges that are on the border of the hole</li>
+/// <li class="rosetta__list-item--ordered"># calculate the average between these points (on the hole boundary) and the old coordinates (also on the hole boundary).</li>
 /// <br>
-/// </ol>## in all the edges the point belongs to, only take in account the middles of the edges that are on the border of the hole
-/// ## calculate the average between these points (on the hole boundary) and the old coordinates (also on the hole boundary).
-/// <br>
+/// </ol>
 /// For edges and vertices not next to a hole, the standard algorithm from above is used.
 /// <br>
 /// <br>

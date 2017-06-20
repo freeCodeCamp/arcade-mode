@@ -36,10 +36,12 @@ replaceWithActualFunctionHere;
 /// <br>
 /// Treat windows or at least window identities as <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/First-class_object" title="wp: First-class_object">first class objects</a>.
 /// <br>
-/// *Store window identities in variables, compare them for equality.
-/// *Provide examples of performing some of the following:
-/// **hide, show, close, minimize, maximize, move, and resize a window. 
-/// The window of interest may or may not have been created by your program.
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item--unordered">Store window identities in variables, compare them for equality.</li>
+/// <li class="rosetta__list-item--unordered">Provide examples of performing some of the following:</li>
+/// <li class="rosetta__list-item--unordered">*hide, show, close, minimize, maximize, move, and resize a window. </li>
+/// <br>
+/// </ul>The window of interest may or may not have been created by your program.
 /// <br>
 /// <br>
 

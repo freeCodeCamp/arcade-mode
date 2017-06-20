@@ -34,10 +34,8 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <ol class="rosetta__ordered-list">
 /// <li class="rosetta__list-item--ordered"><span class="rosetta__text--bold">Hash phase:</span> Create a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Multimap" title="wp: Multimap">multimap</a> from one of the two tables, mapping from each join column value to all the rows that contain it.<br></li>
-/// <br>
-/// </ol>#* The multimap must support hash-based lookup which scales better than a simple linear search, because that's the whole point of this algorithm.
-/// #* Ideally we should create the multimap for the <span class="rosetta__text--italic">smaller</span> table, thus minimizing its creation time and memory size.
-/// <ol class="rosetta__ordered-list">
+/// <li class="rosetta__list-item--ordered">* The multimap must support hash-based lookup which scales better than a simple linear search, because that's the whole point of this algorithm.</li>
+/// <li class="rosetta__list-item--ordered">* Ideally we should create the multimap for the <span class="rosetta__text--italic">smaller</span> table, thus minimizing its creation time and memory size.</li>
 /// <li class="rosetta__list-item--ordered"><span class="rosetta__text--bold">Join phase:</span> Scan the other table, and find matching rows by looking in the multimap created before.</li>
 /// <br>
 /// </ol>

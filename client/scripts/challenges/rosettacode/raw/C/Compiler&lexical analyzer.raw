@@ -155,10 +155,10 @@ replaceWithActualFunctionHere;
 /// <li class="rosetta__list-item--unordered">For char and string literals, the <code>\n</code> escape sequence is supported to represent a new-line character.</li>
 /// <li class="rosetta__list-item--unordered">For char and string literals, to represent a backslash, use <code>\\</code>.</li>
 /// <li class="rosetta__list-item--unordered">No other special sequences are supported. This means that:</li>
+/// <li class="rosetta__list-item--unordered">* Char literals cannot represent a single quote character (value 39).</li>
+/// <li class="rosetta__list-item--unordered">* String literals cannot represent strings containing double quote characters.</li>
 /// <br>
-/// </ul>** Char literals cannot represent a single quote character (value 39).
-/// ** String literals cannot represent strings containing double quote characters.
-/// <br>
+/// </ul>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Zero-width tokens</dt></dl>
 /// <br>
 /// {| class="wikitable"
@@ -174,15 +174,13 @@ replaceWithActualFunctionHere;
 /// <li class="rosetta__list-item--unordered">Zero or more whitespace characters, or comments enclosed in <code>/* ... */</code>, are allowed between any two tokens, with the exceptions noted below.</li>
 /// <li class="rosetta__list-item--unordered">"Longest token matching" is used to resolve conflicts (e.g., in order to match <span class="rosetta__text--bold"><=</span> as a single token rather than the two tokens <span class="rosetta__text--bold"><</span> and <span class="rosetta__text--bold">=</span>).</li>
 /// <li class="rosetta__list-item--unordered">Whitespace is <span class="rosetta__text--italic">required</span> between two tokens that have an alphanumeric character or underscore at the edge.</li>
-/// <br>
-/// </ul>** This means: keywords, identifiers, and integer literals.
-/// ** e.g. <code>ifprint</code> is recognized as an identifier, instead of the keywords <tt>if</tt> and <tt>print</tt>.
-/// ** e.g. <code>42fred</code> is invalid, and neither recognized as a number nor an identifier.
-/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item--unordered">* This means: keywords, identifiers, and integer literals.</li>
+/// <li class="rosetta__list-item--unordered">* e.g. <code>ifprint</code> is recognized as an identifier, instead of the keywords <tt>if</tt> and <tt>print</tt>.</li>
+/// <li class="rosetta__list-item--unordered">* e.g. <code>42fred</code> is invalid, and neither recognized as a number nor an identifier.</li>
 /// <li class="rosetta__list-item--unordered">Whitespace is <span class="rosetta__text--italic">not allowed</span> inside of tokens (except for chars and strings where they are part of the value).</li>
+/// <li class="rosetta__list-item--unordered">* e.g. <code>& &</code> is invalid, and not interpreted as the <tt>&&</tt> operator.</li>
 /// <br>
-/// </ul>** e.g. <code>& &</code> is invalid, and not interpreted as the <tt>&&</tt> operator.
-/// <br>
+/// </ul>
 /// For example, the following two program fragments are equivalent, and should produce the same token stream except for the line and column positions:
 /// <br>
 /// <ul class="rosetta__unordered-list">

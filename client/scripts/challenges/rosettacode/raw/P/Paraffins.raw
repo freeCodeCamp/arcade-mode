@@ -68,19 +68,29 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <lang haskell>*Main> all_paraffins 1
 ///  [CCP H H H H]
-/// *Main> all_paraffins 2
-///  [BCP (C H H H) (C H H H)]
-/// *Main> all_paraffins 3
-///  [CCP H H (C H H H) (C H H H)]
-/// *Main> all_paraffins 4
-///  [BCP (C H H (C H H H)) (C H H (C H H H)),CCP H (C H H H) (C H H H)
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item--unordered">Main> all_paraffins 2</li>
+/// <br>
+/// </ul> [BCP (C H H H) (C H H H)]
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item--unordered">Main> all_paraffins 3</li>
+/// <br>
+/// </ul> [CCP H H (C H H H) (C H H H)]
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item--unordered">Main> all_paraffins 4</li>
+/// <br>
+/// </ul> [BCP (C H H (C H H H)) (C H H (C H H H)),CCP H (C H H H) (C H H H)
 ///  (C H H H)]
-/// *Main> all_paraffins 5
-///  [CCP H H (C H H (C H H H)) (C H H (C H H H)),CCP H (C H H H)
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item--unordered">Main> all_paraffins 5</li>
+/// <br>
+/// </ul> [CCP H H (C H H (C H H H)) (C H H (C H H H)),CCP H (C H H H)
 ///  (C H H H) (C H H (C H H H)),CCP (C H H H) (C H H H) (C H H H)
 ///  (C H H H)]
-/// *Main> all_paraffins 6
-///  [BCP (C H H (C H H (C H H H))) (C H H (C H H (C H H H))),BCP
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item--unordered">Main> all_paraffins 6</li>
+/// <br>
+/// </ul> [BCP (C H H (C H H (C H H H))) (C H H (C H H (C H H H))),BCP
 ///  (C H H (C H H (C H H H))) (C H (C H H H) (C H H H)),BCP (C H
 ///  (C H H H) (C H H H)) (C H (C H H H) (C H H H)),CCP H (C H H H)
 ///  (C H H (C H H H)) (C H H (C H H H)),CCP (C H H H) (C H H H)

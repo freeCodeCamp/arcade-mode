@@ -43,12 +43,10 @@ replaceWithActualFunctionHere;
 /// <li class="rosetta__list-item--ordered">Seed the RNG with the number of the deal.</li>
 /// <li class="rosetta__list-item--ordered">Create an <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/array" title="array"></a> of 52 cards: Ace of Clubs, Ace of Diamonds, Ace of Hearts, Ace of Spades, 2 of Clubs, 2 of Diamonds, and so on through the ranks: Ace, 2, 3, 4, 5, 6, 7, 8, 9, 10, Jack, Queen, King. The array indexes are 0 to 51, with Ace of Clubs at 0, and King of Spades at 51.</li>
 /// <li class="rosetta__list-item--ordered">Until the array is empty:</li>
-/// <br>
-/// </ol>#* Choose a random card at <span class="rosetta__text--italic">index</span> &equiv; <span class="rosetta__text--italic">next random number</span> (mod <span class="rosetta__text--italic">array length</span>).
-/// #* Swap this random card with the last card of the array.
-/// #* Remove this random card from the array. (Array length goes down by 1.)
-/// #* Deal this random card.
-/// <ol class="rosetta__ordered-list">
+/// <li class="rosetta__list-item--ordered">* Choose a random card at <span class="rosetta__text--italic">index</span> &equiv; <span class="rosetta__text--italic">next random number</span> (mod <span class="rosetta__text--italic">array length</span>).</li>
+/// <li class="rosetta__list-item--ordered">* Swap this random card with the last card of the array.</li>
+/// <li class="rosetta__list-item--ordered">* Remove this random card from the array. (Array length goes down by 1.)</li>
+/// <li class="rosetta__list-item--ordered">* Deal this random card.</li>
 /// <li class="rosetta__list-item--ordered">Deal all 52 cards, face up, across 8 columns. The first 8 cards go in 8 columns, the next 8 cards go on the first 8 cards, and so on.</li>
 /// <br>
 /// </ol>

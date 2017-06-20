@@ -26,52 +26,36 @@ replaceWithActualFunctionHere;
 /// <br>
 /// For example, the Sierpinski carpet of order &nbsp; <span class="rosetta__text--bold">3</span> &nbsp; should look like this:
 /// <pre>
-/// ###########################
 /// <ol class="rosetta__ordered-list">
+/// <li class="rosetta__list-item--ordered">##########################</li>
 /// <li class="rosetta__list-item--ordered">## ## ## ## ## ## ## ## #</li>
-/// <br>
-/// </ol>###########################
-/// ###   ######   ######   ###
-/// <ol class="rosetta__ordered-list">
+/// <li class="rosetta__list-item--ordered">##########################</li>
+/// <li class="rosetta__list-item--ordered">##   ######   ######   ###</li>
 /// <li class="rosetta__list-item--ordered">#   # ## #   # ## #   # #</li>
-/// <br>
-/// </ol>###   ######   ######   ###
-/// ###########################
-/// <ol class="rosetta__ordered-list">
+/// <li class="rosetta__list-item--ordered">##   ######   ######   ###</li>
+/// <li class="rosetta__list-item--ordered">##########################</li>
 /// <li class="rosetta__list-item--ordered">## ## ## ## ## ## ## ## #</li>
-/// <br>
-/// </ol>###########################
-/// #########         #########
-/// <ol class="rosetta__ordered-list">
+/// <li class="rosetta__list-item--ordered">##########################</li>
+/// <li class="rosetta__list-item--ordered">########         #########</li>
 /// <li class="rosetta__list-item--ordered">## ## #         # ## ## #</li>
-/// <br>
-/// </ol>#########         #########
-/// ###   ###         ###   ###
-/// <ol class="rosetta__ordered-list">
+/// <li class="rosetta__list-item--ordered">########         #########</li>
+/// <li class="rosetta__list-item--ordered">##   ###         ###   ###</li>
 /// <li class="rosetta__list-item--ordered">#   # #         # #   # #</li>
-/// <br>
-/// </ol>###   ###         ###   ###
-/// #########         #########
-/// <ol class="rosetta__ordered-list">
+/// <li class="rosetta__list-item--ordered">##   ###         ###   ###</li>
+/// <li class="rosetta__list-item--ordered">########         #########</li>
 /// <li class="rosetta__list-item--ordered">## ## #         # ## ## #</li>
-/// <br>
-/// </ol>#########         #########
-/// ###########################
-/// <ol class="rosetta__ordered-list">
+/// <li class="rosetta__list-item--ordered">########         #########</li>
+/// <li class="rosetta__list-item--ordered">##########################</li>
 /// <li class="rosetta__list-item--ordered">## ## ## ## ## ## ## ## #</li>
-/// <br>
-/// </ol>###########################
-/// ###   ######   ######   ###
-/// <ol class="rosetta__ordered-list">
+/// <li class="rosetta__list-item--ordered">##########################</li>
+/// <li class="rosetta__list-item--ordered">##   ######   ######   ###</li>
 /// <li class="rosetta__list-item--ordered">#   # ## #   # ## #   # #</li>
-/// <br>
-/// </ol>###   ######   ######   ###
-/// ###########################
-/// <ol class="rosetta__ordered-list">
+/// <li class="rosetta__list-item--ordered">##   ######   ######   ###</li>
+/// <li class="rosetta__list-item--ordered">##########################</li>
 /// <li class="rosetta__list-item--ordered">## ## ## ## ## ## ## ## #</li>
+/// <li class="rosetta__list-item--ordered">##########################</li>
 /// <br>
-/// </ol>###########################
-/// </pre>
+/// </ol></pre>
 /// <br>
 /// The use of the &nbsp; # &nbsp; character is not rigidly required for ASCII art. 
 /// <br>

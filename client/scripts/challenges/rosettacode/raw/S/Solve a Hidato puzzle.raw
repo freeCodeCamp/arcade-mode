@@ -24,26 +24,22 @@ replaceWithActualFunctionHere;
 /// The rules are:
 /// <ul class="rosetta__unordered-list">
 /// <li class="rosetta__list-item--unordered">You are given a grid with some numbers placed in it. The other squares in the grid will be blank.</li>
-/// <br>
-/// </ul>** The grid is not necessarily rectangular.
-/// ** The grid may have holes in it.
-/// ** The grid is always connected.
-/// ** The number “1” is always present, as is another number that is equal to the number of squares in the grid. Other numbers are present so as to force the solution to be unique.
-/// ** It may be assumed that the difference between numbers present on the grid is not greater than lucky 13.
-/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item--unordered">* The grid is not necessarily rectangular.</li>
+/// <li class="rosetta__list-item--unordered">* The grid may have holes in it.</li>
+/// <li class="rosetta__list-item--unordered">* The grid is always connected.</li>
+/// <li class="rosetta__list-item--unordered">* The number “1” is always present, as is another number that is equal to the number of squares in the grid. Other numbers are present so as to force the solution to be unique.</li>
+/// <li class="rosetta__list-item--unordered">* It may be assumed that the difference between numbers present on the grid is not greater than lucky 13.</li>
 /// <li class="rosetta__list-item--unordered">The aim is to place a natural number in each blank square so that in the sequence of numbered squares from “1” upwards, each square is in the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Moore neighborhood]] of the squares immediately before and after it in the sequence (except for the first and last squares, of course, which only have one-sided constraints).</li>
-/// <br>
-/// </ul>** Thus, if the grid was overlaid on a chessboard, a king would be able to make legal moves along the path from first to last square in numerical order.
-/// ** A square may only contain one number.
-/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item--unordered">* Thus, if the grid was overlaid on a chessboard, a king would be able to make legal moves along the path from first to last square in numerical order.</li>
+/// <li class="rosetta__list-item--unordered">* A square may only contain one number.</li>
 /// <li class="rosetta__list-item--unordered">In a proper Hidato puzzle, the solution is unique.</li>
 /// <br>
 /// </ul>
 /// <br>For example the following problem
 /// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:Hidato_Start.png" title="wp: Moore neighborhood" title="File:Hidato_Start.png" title="wp: Moore neighborhood"></a> of the squares immediately before and after it in the sequence (except for the first and last squares, of course, which only have one-sided constraints).
-/// ** Thus, if the grid was overlaid on a chessboard, a king would be able to make legal moves along the path from first to last square in numerical order.
-/// ** A square may only contain one number.
 /// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item--unordered">* Thus, if the grid was overlaid on a chessboard, a king would be able to make legal moves along the path from first to last square in numerical order.</li>
+/// <li class="rosetta__list-item--unordered">* A square may only contain one number.</li>
 /// <li class="rosetta__list-item--unordered">In a proper Hidato puzzle, the solution is unique.</li>
 /// <br>
 /// </ul>

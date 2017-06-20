@@ -42,9 +42,7 @@ replaceWithActualFunctionHere;
 /// <li class="rosetta__list-item--unordered">The Wiki entry: <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Exponentiation#Zero_to_the_power_of_zero" title="wp: Exponentiation#Zero_to_the_power_of_zero">Zero to the power of zero</a>. </li>
 /// <li class="rosetta__list-item--unordered">The Wiki entry: <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Exponentiation#History_of_differing_points_of_view" title="wp: Exponentiation#History_of_differing_points_of_view">History of differing points of view</a>.</li>
 /// <li class="rosetta__list-item--unordered">The MathWorld™ entry: [http://mathworld.wolfram.com/ExponentLaws.html exponent laws].</li>
-/// <br>
-/// </ul>** Also, in the above MathWorld™ entry, see formula (<span class="rosetta__text--bold">9</span>): $x^0=1$.
-/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item--unordered">* Also, in the above MathWorld™ entry, see formula (<span class="rosetta__text--bold">9</span>): $x^0=1$.</li>
 /// <li class="rosetta__list-item--unordered">The OEIS entry: [https://oeis.org/wiki/The_special_case_of_zero_to_the_zeroth_power The special case of zero to the zeroth power]</li>
 /// <br>
 /// </ul><br><br>

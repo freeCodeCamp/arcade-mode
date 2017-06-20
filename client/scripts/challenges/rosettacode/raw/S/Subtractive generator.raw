@@ -54,10 +54,8 @@ replaceWithActualFunctionHere;
 /// <li class="rosetta__list-item--ordered">Set <big>$s_0 = seed$</big> and <big>$s_1 = 1$</big>. The inclusion of <big>$s_1 = 1$</big> avoids some bad states (like all zeros, or all multiples of 10).</li>
 /// <li class="rosetta__list-item--ordered">Compute <big>$s_2, s_3, ..., s_{54}$</big> using the subtractive formula <big>$s_n = s_{(n - 2)} - s_{(n - 1)} \pmod{10^9}$</big>.</li>
 /// <li class="rosetta__list-item--ordered">Reorder these 55 values so <big>$r_0 = s_{34}$</big>, <big>$r_1 = s_{13}$</big>, <big>$r_2 = s_{47}$</big>, ..., <big>$r_n = s_{(34 * (n + 1) \pmod{55})}$</big>.</li>
-/// <br>
-/// </ol>#* This is the same order as <big>$s_0 = r_{54}$</big>, <big>$s_1 = r_{33}$</big>, <big>$s_2 = r_{12}$</big>, ..., <big>$s_n = r_{((34 * n) - 1 \pmod{55})}$</big>.
-/// #* This rearrangement exploits how 34 and 55 are relatively prime.
-/// <ol class="rosetta__ordered-list">
+/// <li class="rosetta__list-item--ordered">* This is the same order as <big>$s_0 = r_{54}$</big>, <big>$s_1 = r_{33}$</big>, <big>$s_2 = r_{12}$</big>, ..., <big>$s_n = r_{((34 * n) - 1 \pmod{55})}$</big>.</li>
+/// <li class="rosetta__list-item--ordered">* This rearrangement exploits how 34 and 55 are relatively prime.</li>
 /// <li class="rosetta__list-item--ordered">Compute the next 165 values <big>$r_{55}$</big> to <big>$r_{219}$</big>. Store the last 55 values.</li>
 /// <br>
 /// </ol>

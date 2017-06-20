@@ -28,23 +28,25 @@ replaceWithActualFunctionHere;
 /// is a logic puzzle which is to be solved programmatically. <br>
 /// It has several variants, one of them this:
 /// <br>
-/// #There are five houses.
-/// #The English man lives in the red house.
-/// #The Swede has a dog.
-/// #The Dane drinks tea.
-/// #The green house is immediately to the left of the white house.
-/// #They drink coffee in the green house.
-/// #The man who smokes Pall Mall has birds.
-/// #In the yellow house they smoke Dunhill.
-/// #In the middle house they drink milk.
-/// #The Norwegian lives in the first house.
-/// #The man who smokes Blend lives in the house next to the house with cats.
-/// #In a house next to the house where they have a horse, they smoke Dunhill.
-/// #The man who smokes Blue Master drinks beer.
-/// #The German smokes Prince.
-/// #The Norwegian lives next to the blue house.
-/// #They drink water in a house next to the house where they smoke Blend. 
+/// <ol class="rosetta__ordered-list">
+/// <li class="rosetta__list-item--ordered">There are five houses.</li>
+/// <li class="rosetta__list-item--ordered">The English man lives in the red house.</li>
+/// <li class="rosetta__list-item--ordered">The Swede has a dog.</li>
+/// <li class="rosetta__list-item--ordered">The Dane drinks tea.</li>
+/// <li class="rosetta__list-item--ordered">The green house is immediately to the left of the white house.</li>
+/// <li class="rosetta__list-item--ordered">They drink coffee in the green house.</li>
+/// <li class="rosetta__list-item--ordered">The man who smokes Pall Mall has birds.</li>
+/// <li class="rosetta__list-item--ordered">In the yellow house they smoke Dunhill.</li>
+/// <li class="rosetta__list-item--ordered">In the middle house they drink milk.</li>
+/// <li class="rosetta__list-item--ordered">The Norwegian lives in the first house.</li>
+/// <li class="rosetta__list-item--ordered">The man who smokes Blend lives in the house next to the house with cats.</li>
+/// <li class="rosetta__list-item--ordered">In a house next to the house where they have a horse, they smoke Dunhill.</li>
+/// <li class="rosetta__list-item--ordered">The man who smokes Blue Master drinks beer.</li>
+/// <li class="rosetta__list-item--ordered">The German smokes Prince.</li>
+/// <li class="rosetta__list-item--ordered">The Norwegian lives next to the blue house.</li>
+/// <li class="rosetta__list-item--ordered">They drink water in a house next to the house where they smoke Blend. </li>
 /// <br>
+/// </ol>
 /// <br>The question is, who owns the zebra?
 /// <br>
 /// Additionally, list the solution for all the houses. 

@@ -50,10 +50,10 @@ replaceWithActualFunctionHere;
 /// <li class="rosetta__list-item--unordered"><span class="rosetta__text--bold">Permissible symbols:</span> B, 1</li>
 /// <li class="rosetta__list-item--unordered"><span class="rosetta__text--bold">Blank symbol:</span> B</li>
 /// <li class="rosetta__list-item--unordered"><span class="rosetta__text--bold">Rules:</span></li>
+/// <li class="rosetta__list-item--unordered">* (q0, 1, 1, right, q0)</li>
+/// <li class="rosetta__list-item--unordered">* (q0, B, 1, stay,  qf)</li>
 /// <br>
-/// </ul>** (q0, 1, 1, right, q0)
-/// ** (q0, B, 1, stay,  qf)
-/// <br>
+/// </ul>
 /// <br>
 /// The input for this machine should be a tape of <code>1 1 1</code>
 /// <br>
@@ -66,14 +66,14 @@ replaceWithActualFunctionHere;
 /// <li class="rosetta__list-item--unordered"><span class="rosetta__text--bold">Permissible symbols:</span> 0, 1</li>
 /// <li class="rosetta__list-item--unordered"><span class="rosetta__text--bold">Blank symbol:</span> 0</li>
 /// <li class="rosetta__list-item--unordered"><span class="rosetta__text--bold">Rules:</span></li>
+/// <li class="rosetta__list-item--unordered">* (a, 0, 1, right, b)</li>
+/// <li class="rosetta__list-item--unordered">* (a, 1, 1, left,  c)</li>
+/// <li class="rosetta__list-item--unordered">* (b, 0, 1, left,  a)</li>
+/// <li class="rosetta__list-item--unordered">* (b, 1, 1, right, b)</li>
+/// <li class="rosetta__list-item--unordered">* (c, 0, 1, left,  b)</li>
+/// <li class="rosetta__list-item--unordered">* (c, 1, 1, stay,  halt)</li>
 /// <br>
-/// </ul>** (a, 0, 1, right, b)
-/// ** (a, 1, 1, left,  c)
-/// ** (b, 0, 1, left,  a)
-/// ** (b, 1, 1, right, b)
-/// ** (c, 0, 1, left,  b)
-/// ** (c, 1, 1, stay,  halt)
-/// <br>
+/// </ul>
 /// <br>
 /// The input for this machine should be an empty tape.
 /// <br>
@@ -88,18 +88,18 @@ replaceWithActualFunctionHere;
 /// <li class="rosetta__list-item--unordered"><span class="rosetta__text--bold">Permissible symbols:</span> 0, 1</li>
 /// <li class="rosetta__list-item--unordered"><span class="rosetta__text--bold">Blank symbol:</span> 0</li>
 /// <li class="rosetta__list-item--unordered"><span class="rosetta__text--bold">Rules:</span></li>
+/// <li class="rosetta__list-item--unordered">* (A, 0, 1, right, B)</li>
+/// <li class="rosetta__list-item--unordered">* (A, 1, 1, left,  C)</li>
+/// <li class="rosetta__list-item--unordered">* (B, 0, 1, right, C)</li>
+/// <li class="rosetta__list-item--unordered">* (B, 1, 1, right, B)</li>
+/// <li class="rosetta__list-item--unordered">* (C, 0, 1, right, D)</li>
+/// <li class="rosetta__list-item--unordered">* (C, 1, 0, left,  E)</li>
+/// <li class="rosetta__list-item--unordered">* (D, 0, 1, left,  A)</li>
+/// <li class="rosetta__list-item--unordered">* (D, 1, 1, left,  D)</li>
+/// <li class="rosetta__list-item--unordered">* (E, 0, 1, stay,  H)</li>
+/// <li class="rosetta__list-item--unordered">* (E, 1, 0, left,  A)</li>
 /// <br>
-/// </ul>** (A, 0, 1, right, B)
-/// ** (A, 1, 1, left,  C)
-/// ** (B, 0, 1, right, C)
-/// ** (B, 1, 1, right, B)
-/// ** (C, 0, 1, right, D)
-/// ** (C, 1, 0, left,  E)
-/// ** (D, 0, 1, left,  A)
-/// ** (D, 1, 1, left,  D)
-/// ** (E, 0, 1, stay,  H)
-/// ** (E, 1, 0, left,  A)
-/// <br>
+/// </ul>
 /// <br>
 /// The input for this machine should be an empty tape.
 /// <br>

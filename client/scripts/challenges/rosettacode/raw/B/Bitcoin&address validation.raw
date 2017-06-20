@@ -18,8 +18,10 @@ const assert = require('chai').assert;
 replaceWithActualFunctionHere;
 
 /// description:
-/// #C-based_code_.28and_possibly_others.29_improperly_validates" title="#C-based_code_.28and_possibly_others.29_improperly_validates">incomplete</a>. It is recommended that you use an established [https://en.bitcoin.it/wiki/Software#Libraries library] for any projects that are likely to see external use}}
+/// <ol class="rosetta__ordered-list">
+/// <li class="rosetta__list-item--ordered">C-based_code_.28and_possibly_others.29_improperly_validates" title="#C-based_code_.28and_possibly_others.29_improperly_validates">incomplete</a>. It is recommended that you use an established [https://en.bitcoin.it/wiki/Software#Libraries library] for any projects that are likely to see external use}}</li>
 /// <br>
+/// </ol>
 /// <br>
 /// <br>
 /// <br>

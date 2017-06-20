@@ -45,11 +45,9 @@ replaceWithActualFunctionHere;
 /// <ol class="rosetta__ordered-list">
 /// <li class="rosetta__list-item--ordered">write a function/method/subroutine/... that given a list of angles in degrees returns their mean angle. <br> (You should use a built-in function if you have one that does this for degrees or radians). </li>
 /// <li class="rosetta__list-item--ordered">Use the function to compute the means of these lists of angles (in degrees): </li>
-/// <br>
-/// </ol>#* &nbsp; [350, 10]  
-/// #* &nbsp; [90, 180, 270, 360] 
-/// #* &nbsp; [10, 20, 30]
-/// <ol class="rosetta__ordered-list">
+/// <li class="rosetta__list-item--ordered">* &nbsp; [350, 10]  </li>
+/// <li class="rosetta__list-item--ordered">* &nbsp; [90, 180, 270, 360] </li>
+/// <li class="rosetta__list-item--ordered">* &nbsp; [10, 20, 30]</li>
 /// <li class="rosetta__list-item--ordered">Show your output here.</li>
 /// <br>
 /// </ol>

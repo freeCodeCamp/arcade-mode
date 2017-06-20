@@ -106,9 +106,9 @@ replaceWithActualFunctionHere;
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Ruleset 4:</dt></dl>
 /// This tests for correct order of scanning of rules, and may trap replacement routines that scan in the wrong order. &nbsp; It implements a general unary multiplication engine. &nbsp; (Note that the input expression must be placed within underscores in this implementation.)
 /// <pre>
-/// ### Unary Multiplication Engine, for testing Markov Algorithm implementations
-/// ### By Donal Fellows.
 /// <ol class="rosetta__ordered-list">
+/// <li class="rosetta__list-item--ordered">## Unary Multiplication Engine, for testing Markov Algorithm implementations</li>
+/// <li class="rosetta__list-item--ordered">## By Donal Fellows.</li>
 /// <li class="rosetta__list-item--ordered">Unary addition engine</li>
 /// <br>
 /// </ol>_+1 -> _1+

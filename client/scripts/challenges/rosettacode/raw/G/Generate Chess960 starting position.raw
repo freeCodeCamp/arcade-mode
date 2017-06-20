@@ -25,10 +25,8 @@ replaceWithActualFunctionHere;
 /// <ul class="rosetta__unordered-list">
 /// <li class="rosetta__list-item--unordered">as in the standard chess game, all eight white pawns must be placed on the second rank.</li>
 /// <li class="rosetta__list-item--unordered">White pieces must stand on the first rank as in the standard game, in random column order but with the two following constraints:</li>
-/// <br>
-/// </ul>** the bishops must be placed on opposite color squares (i.e. they must be an odd number of spaces apart or there must be an even number of spaces between them)
-/// ** the King must be between two rooks (with any number of other pieces between them all)
-/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item--unordered">* the bishops must be placed on opposite color squares (i.e. they must be an odd number of spaces apart or there must be an even number of spaces between them)</li>
+/// <li class="rosetta__list-item--unordered">* the King must be between two rooks (with any number of other pieces between them all)</li>
 /// <li class="rosetta__list-item--unordered">Black pawns and pieces must be placed respectively on the seventh and eighth ranks, mirroring the white pawns and pieces, just as in the standard game.  (That is, their positions are not independently randomized.)</li>
 /// <br>
 /// </ul>

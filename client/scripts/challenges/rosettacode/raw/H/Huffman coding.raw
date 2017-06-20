@@ -35,11 +35,9 @@ replaceWithActualFunctionHere;
 /// <ol class="rosetta__ordered-list">
 /// <li class="rosetta__list-item--ordered">Create a leaf node for each symbol and add it to the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/priority queue" title="priority queue"></a>.</li>
 /// <li class="rosetta__list-item--ordered">While there is more than one node in the queue:</li>
-/// <br>
-/// </ol>## Remove the node of highest priority (lowest probability) twice to get two nodes.
-/// ## Create a new internal node with these two nodes as children and with probability equal to the sum of the two nodes' probabilities.
-/// ## Add the new node to the queue.
-/// <ol class="rosetta__ordered-list">
+/// <li class="rosetta__list-item--ordered"># Remove the node of highest priority (lowest probability) twice to get two nodes.</li>
+/// <li class="rosetta__list-item--ordered"># Create a new internal node with these two nodes as children and with probability equal to the sum of the two nodes' probabilities.</li>
+/// <li class="rosetta__list-item--ordered"># Add the new node to the queue.</li>
 /// <li class="rosetta__list-item--ordered">The remaining node is the root node and the tree is complete.</li>
 /// <br>
 /// </ol>

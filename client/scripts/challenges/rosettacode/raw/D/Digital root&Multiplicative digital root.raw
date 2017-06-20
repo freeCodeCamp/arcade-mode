@@ -24,10 +24,8 @@ replaceWithActualFunctionHere;
 /// <ol class="rosetta__ordered-list">
 /// <li class="rosetta__list-item--ordered">Set $m$ to $n$ and $i$ to $0$.</li>
 /// <li class="rosetta__list-item--ordered">While $m$ has more than one digit:</li>
-/// <br>
-/// </ol>#* Find a replacement $m$ as the multiplication of the digits of the current value of $m$.
-/// #* Increment $i$.
-/// <ol class="rosetta__ordered-list">
+/// <li class="rosetta__list-item--ordered">* Find a replacement $m$ as the multiplication of the digits of the current value of $m$.</li>
+/// <li class="rosetta__list-item--ordered">* Increment $i$.</li>
 /// <li class="rosetta__list-item--ordered">Return $i$ (= MP) and $m$ (= MDR)</li>
 /// <br>
 /// </ol>
