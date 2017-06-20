@@ -1,0 +1,35 @@
+// _block.rosetta.scss
+
+// formatting for RosettaCode challenges:
+
+.rosetta {
+  &__description {
+    &-list {
+    
+    }
+    &-title {
+      font-weight: bold;
+    }
+  }
+
+  &__text {
+    &--bold {
+      font-weight: bold;
+    }
+    &--italic {
+      font-style: italic;
+    }
+    &--indented {
+      text-indent: 0.5em;
+    }
+  }
+
+  &__unordered-list {
+    
+  }
+
+  &__list-item {
+    list-style-type: disc;
+    list-style-position: outside;
+  }
+}
