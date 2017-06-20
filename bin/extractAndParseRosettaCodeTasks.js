@@ -9,9 +9,10 @@
 
 /* Entire script takes about 2 minutes from start to finish */
 
+/* eslint no-confusing-arrow: 0 */
+
 const fs = require('fs');
 const fetch = require('node-fetch');
-// const commandLineArgs = require('command-line-args');
 
 const batchSize = 50; // this is the limit for queries
 
@@ -46,47 +47,21 @@ function getNextBatch (url) {
     .then(content => content.query.pages)
     .then(pageContents => {
       Object.keys(pageContents).forEach(pageid => {
-        const text = pageContents[pageid].revisions[0]['*'];
-        // unfortunately, the page seems to use a custom template language.
-        const promptRegex = /^([\s\S]*?)==\{\{header\|/;
-        const JSRegex = /(==\{\{header\|JavaScript\}\}==[\s\S]*?)==\{\{header\|/;
-        // combine the following:
         const title = pageContents[pageid].title;
+        const text = pageContents[pageid].revisions[0]['*'];
         const escapedTitle = title.replace(/\//g, '&');
-        const promptText = text.match(promptRegex) && text.match(promptRegex)[1];
 
-        // parse promptText into arcade-mode format:
-        // 1. Create regexes for conversion:
-        const wikipediaTemplateRegex = /\[\[(?:wp:)([^|]*)\|(.*)\]\]/g;
-        const rosettaTemplateRegex = /\[\[(?!wp:)([^|]*)\|(.*?)\]\]/g;
-        const tripleSingleQuotesRegex = /'''(.*?)'''/g; // convert to bold
-        const doubleSingleQuotesRegex = /''(.*?)''/g; // convert to italics
-        const mathRegex = /<\/?math>/gi;
-
-        // 2. Convert one at a time.
-        const parsedPromptText = promptText
-          .replace(wikipediaTemplateRegex,
-            '<a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/$1" title="wp: $1">$2</a>')
-          .replace(rosettaTemplateRegex,
-            '<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/$1" title="$1">$2</a>')
-          .replace(tripleSingleQuotesRegex,
-            '<span class="rosetta__text--bold">$1</span>')
-          .replace(doubleSingleQuotesRegex,
-            '<span class="rosetta__text--italic">$1</span>')
-          .replace(mathRegex, '$');
-
-        const solutions = text.match(JSRegex) && text.match(JSRegex)[1];
-        const fileContents = [`${title}\n`, parsedPromptText, solutions].join('\n');
+        const semiprocessedChallenge = processRawRosettaCodeTask(title, text);
 
         const subFolder = title.charAt(0);
         if (subFolder.match(/[A-Za-z]/)) {
           const destination = `${outputPath}/${subFolder}/`;
           ensureDirectoryExistence(destination);
-          fs.writeFileSync(`${outputPath}/${subFolder}/${escapedTitle}.raw`, fileContents);
+          fs.writeFileSync(`${outputPath}/${subFolder}/${escapedTitle}.raw`, semiprocessedChallenge);
         }
         else {
           ensureDirectoryExistence(`${outputPath}/0/`);
-          fs.writeFileSync(`${outputPath}/0/${escapedTitle}.raw`, fileContents);
+          fs.writeFileSync(`${outputPath}/0/${escapedTitle}.raw`, semiprocessedChallenge);
         }
       });
     })
@@ -102,4 +77,103 @@ function ensureDirectoryExistence(filePath) {
     return true;
   }
   fs.mkdirSync(filePath);
+}
+
+function processRawRosettaCodeTask (taskName, content) {
+  // PROCESS description:
+  // 0. Initial extraction of description segment:
+  const descriptionBlobRegex = /^([\s\S]*?)==\{\{header\|/;
+  const rawDescription = content.match(descriptionBlobRegex) && content.match(descriptionBlobRegex)[1];
+  // 1. Regexes for transforming RosettaCode specific syntax to in-house/regular.
+  const wikipediaTemplateRegex = /\[\[(?:wp:)([^|]*)\|(.*)\]\]/g;
+  const rosettaTemplateRegex = /\[\[(?!wp:)([^|]*)\|(.*?)\]\]/g;
+  const tripleSingleQuotesRegex = /'''(.*?)'''/g; // convert to bold
+  const doubleSingleQuotesRegex = /''(.*?)''/g; // convert to italics
+  const doubleBracketRegex = /{{(.*?)}}/g; // remove all double brackets (serves no purpose)
+  const colonLineStartRegex = /^:(.*)$/gm; // indent all colon start lines
+  const semicolonLineStartRegex = /^;(.*)$/gm; // convert all semicolon start lines to dl/dt
+  const asteriskLineStartRegex = /^\*\s(.*)$/gm; // convert all asterisk start lines to li
+  const wrapAllListElements = /((?:<li [^>]*>.*<\/li>\n?)+)/g;
+  const mathRegex = /<\/?math>/gi;
+
+  // 2. Regex for adding in-house syntax:
+  const addTripleSlashAndSpace = /^(.*)$/gm;
+
+  // 3. Convert description:
+  const description = rawDescription
+    .replace(wikipediaTemplateRegex,
+      '<a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/$1" title="wp: $1">$2</a>')
+    .replace(rosettaTemplateRegex,
+      '<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/$1" title="$1">$2</a>')
+    .replace(tripleSingleQuotesRegex, '<span class="rosetta__text--bold">$1</span>')
+    .replace(doubleSingleQuotesRegex, '<span class="rosetta__text--italic">$1</span>')
+    .replace(doubleBracketRegex, '')
+    .replace(colonLineStartRegex, '<span class="rosetta__text--indented">$1</span>')
+    .replace(semicolonLineStartRegex,
+      '<dl class="rosetta__description-list"><dt class="rosetta__description-title">$1</dt></dl>')
+    .replace(asteriskLineStartRegex, '<li class="rosetta__list-item">$1</li>')
+    .replace(wrapAllListElements, '<ul class="rosetta__unordered-list">\n$1\n</ul>')
+    .replace(mathRegex, '$')
+    .replace(addTripleSlashAndSpace, match => match === '' ? '/// <br>' : `/// ${match}`);
+
+  // PROCESS solution:
+  // 0. Initial extraction of solution segment:
+  const jsSolutionsBlobRegex = /(==\{\{header\|JavaScript\}\}==[\s\S]*?)==\{\{header\|/;
+  const rawSolutions = content.match(jsSolutionsBlobRegex) && content.match(jsSolutionsBlobRegex)[1];
+
+  // 1. Extract first solution, if available, else return an empty string:
+  let solution = '';
+  if (rawSolutions) {
+    const solutionsRegex = /<lang JavaScript>([\s\S]*?)<\/lang>/i;
+    // only processing the first solution by default:
+    solution = rawSolutions.match(solutionsRegex) && rawSolutions.match(solutionsRegex)[1];
+  }
+
+  // FEED processed into in-house template:
+  return toInHouseTemplate(taskName, description, solution, rawSolutions);
+}
+
+function toInHouseTemplate (title, description, solution, rawSolutions) {
+  const templatedContent = `
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: ${title}
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+${description}
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+${solution}
+
+/// rawSolutions:
+${rawSolutions}
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');
+`;
+
+  return templatedContent;
 }
