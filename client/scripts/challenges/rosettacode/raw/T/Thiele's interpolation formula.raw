@@ -1,31 +1,67 @@
-Thiele's interpolation formula
 
-{{task|Arithmetic operations}}
-{{Wikipedia|Thiele's interpolation formula}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-<br>
-<span class="rosetta__text--bold"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Thiele's_interpolation_formula" title="wp: Thiele's_interpolation_formula">Thiele's interpolation formula]]</span> is an interpolation formula for a function <span class="rosetta__text--italic">f</span>(•) of a single variable. &nbsp; It is expressed as a [[continued fraction</a>:
+const assert = require('chai').assert;
 
-:: <big><big>$ f(x) = f(x_1) + \cfrac{x-x_1}{\rho_1(x_1,x_2) + \cfrac{x-x_2}{\rho_2(x_1,x_2,x_3) - f(x_1) + \cfrac{x-x_3}{\rho_3(x_1,x_2,x_3,x_4) - \rho_1(x_1,x_2) + \cdots}}} $</big></big>
+/// title: Thiele's interpolation formula
+/// type: rosetta-code
 
-<big><big>$\rho$</big></big> &nbsp; represents the &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/reciprocal difference" title="wp: reciprocal difference">reciprocal difference</a>, &nbsp; demonstrated here for reference:
+/// categories:
+/// ?
 
-:: <big><big>$\rho_1(x_0, x_1) = \frac{x_0 - x_1}{f(x_0) - f(x_1)}$</big></big>
+/// difficulty: ?
 
-:: <big><big>$\rho_2(x_0, x_1, x_2) = \frac{x_0 - x_2}{\rho_1(x_0, x_1) - \rho_1(x_1, x_2)} + f(x_1)$</big></big>
+/// benchmark:
+replaceWithActualFunctionHere;
 
-:: <big><big>$\rho_n(x_0,x_1,\ldots,x_n)=\frac{x_0-x_n}{\rho_{n-1}(x_0,x_1,\ldots,x_{n-1})-\rho_{n-1}(x_1,x_2,\ldots,x_n)}+\rho_{n-2}(x_1,\ldots,x_{n-1})$</big></big>
+/// description:
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <span class="rosetta__text--bold"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Thiele's_interpolation_formula" title="wp: Thiele's_interpolation_formula">Thiele's interpolation formula]]</span> is an interpolation formula for a function <span class="rosetta__text--italic">f</span>(•) of a single variable. &nbsp; It is expressed as a [[continued fraction</a>:
+/// <br>
+/// <span class="rosetta__text--indented">: <big><big>$ f(x) = f(x_1) + \cfrac{x-x_1}{\rho_1(x_1,x_2) + \cfrac{x-x_2}{\rho_2(x_1,x_2,x_3) - f(x_1) + \cfrac{x-x_3}{\rho_3(x_1,x_2,x_3,x_4) - \rho_1(x_1,x_2) + \cdots}}} $</big></big></span>
+/// <br>
+/// <big><big>$\rho$</big></big> &nbsp; represents the &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/reciprocal difference" title="wp: reciprocal difference">reciprocal difference</a>, &nbsp; demonstrated here for reference:
+/// <br>
+/// <span class="rosetta__text--indented">: <big><big>$\rho_1(x_0, x_1) = \frac{x_0 - x_1}{f(x_0) - f(x_1)}$</big></big></span>
+/// <br>
+/// <span class="rosetta__text--indented">: <big><big>$\rho_2(x_0, x_1, x_2) = \frac{x_0 - x_2}{\rho_1(x_0, x_1) - \rho_1(x_1, x_2)} + f(x_1)$</big></big></span>
+/// <br>
+/// <span class="rosetta__text--indented">: <big><big>$\rho_n(x_0,x_1,\ldots,x_n)=\frac{x_0-x_n}{\rho_{n-1}(x_0,x_1,\ldots,x_{n-1})-\rho_{n-1}(x_1,x_2,\ldots,x_n)}+\rho_{n-2}(x_1,\ldots,x_{n-1})$</big></big></span>
+/// <br>
+/// Demonstrate Thiele's interpolation function by:
+/// # Building a &nbsp; <span class="rosetta__text--bold">32</span> &nbsp; row <span class="rosetta__text--italic">trig table</span> of values &nbsp; for &nbsp; <big><big>$ x $</big></big> &nbsp; from &nbsp; <span class="rosetta__text--bold">0</span> &nbsp; by &nbsp; <span class="rosetta__text--bold">0.05</span> &nbsp; to &nbsp; <span class="rosetta__text--bold">1.55</span> &nbsp; of the trig functions: 
+/// #* &nbsp; <span class="rosetta__text--bold">sin</span>
+/// #* &nbsp; <span class="rosetta__text--bold">cos</span>
+/// #* &nbsp; <span class="rosetta__text--bold">tan</span>
+/// # Using columns from this table define an inverse - using Thiele's interpolation - for each trig function;
+/// # Finally: demonstrate the following well known trigonometric identities:
+/// #* &nbsp; <big><big> 6 &times; sin<sup>-1</sup> &frac12; = $\pi$</big></big>
+/// #* &nbsp; <big><big> 3 &times; cos<sup>-1</sup> &frac12; = $\pi$</big></big>
+/// #* &nbsp; <big><big> 4 &times; tan<sup>-1</sup> 1        = $\pi$</big></big> 
+/// <br><br>
+/// <br>
+/// <br>
 
-Demonstrate Thiele's interpolation function by:
-# Building a &nbsp; <span class="rosetta__text--bold">32</span> &nbsp; row <span class="rosetta__text--italic">trig table</span> of values &nbsp; for &nbsp; <big><big>$ x $</big></big> &nbsp; from &nbsp; <span class="rosetta__text--bold">0</span> &nbsp; by &nbsp; <span class="rosetta__text--bold">0.05</span> &nbsp; to &nbsp; <span class="rosetta__text--bold">1.55</span> &nbsp; of the trig functions: 
-#* &nbsp; <span class="rosetta__text--bold">sin</span>
-#* &nbsp; <span class="rosetta__text--bold">cos</span>
-#* &nbsp; <span class="rosetta__text--bold">tan</span>
-# Using columns from this table define an inverse - using Thiele's interpolation - for each trig function;
-# Finally: demonstrate the following well known trigonometric identities:
-#* &nbsp; <big><big> 6 &times; sin<sup>-1</sup> &frac12; = $\pi$</big></big>
-#* &nbsp; <big><big> 3 &times; cos<sup>-1</sup> &frac12; = $\pi$</big></big>
-#* &nbsp; <big><big> 4 &times; tan<sup>-1</sup> 1        = $\pi$</big></big> 
-<br><br>
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

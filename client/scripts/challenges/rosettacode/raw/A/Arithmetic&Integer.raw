@@ -1,28 +1,82 @@
-Arithmetic/Integer
 
-{{Task|Basic language learning}}
-[[Category:Arithmetic operations]]
-[[Category:Arithmetic]]
-{{basic data operation}} [[Category:Simple]]
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Get two integers from the user, &nbsp;  and then (for those two integers), display their:
-::::* &nbsp; sum 
-::::* &nbsp; difference 
-::::* &nbsp; product 
-::::* &nbsp; integer quotient
-::::* &nbsp; remainder 
-::::* &nbsp; exponentiation &nbsp; (if the operator exists) 
+const assert = require('chai').assert;
 
-<br>
-Don't include error handling. 
+/// title: Arithmetic/Integer
+/// type: rosetta-code
 
-For quotient, indicate how it rounds &nbsp; (e.g. towards zero, towards negative infinity, etc.). 
+/// categories:
+/// ?
 
-For remainder, indicate whether its sign matches the sign of the first operand or of the second operand, if they are different.
-<br><br>
+/// difficulty: ?
 
+/// benchmark:
+replaceWithActualFunctionHere;
 
+/// description:
+/// <br>
+/// [[Category:Arithmetic operations]]
+/// [[Category:Arithmetic]]
+///  [[Category:Simple]]
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Get two integers from the user, &nbsp;  and then (for those two integers), display their:
+/// <span class="rosetta__text--indented">:::* &nbsp; sum </span>
+/// <span class="rosetta__text--indented">:::* &nbsp; difference </span>
+/// <span class="rosetta__text--indented">:::* &nbsp; product </span>
+/// <span class="rosetta__text--indented">:::* &nbsp; integer quotient</span>
+/// <span class="rosetta__text--indented">:::* &nbsp; remainder </span>
+/// <span class="rosetta__text--indented">:::* &nbsp; exponentiation &nbsp; (if the operator exists) </span>
+/// <br>
+/// <br>
+/// Don't include error handling. 
+/// <br>
+/// For quotient, indicate how it rounds &nbsp; (e.g. towards zero, towards negative infinity, etc.). 
+/// <br>
+/// For remainder, indicate whether its sign matches the sign of the first operand or of the second operand, if they are different.
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+var a = parseInt(get_input("Enter an integer"), 10);
+var b = parseInt(get_input("Enter an integer"), 10);
+
+WScript.Echo("a = " + a);
+WScript.Echo("b = " + b);
+WScript.Echo("sum: a + b = "        + (a + b));
+WScript.Echo("difference: a - b = " + (a - b));
+WScript.Echo("product: a * b = "    + (a * b));
+WScript.Echo("quotient: a / b = "   + (a / b | 0)); // "| 0" casts it to an integer
+WScript.Echo("remainder: a % b = "  + (a % b));
+
+function get_input(prompt) {
+    output(prompt);
+    try {
+        return WScript.StdIn.readLine();
+    } catch(e) {
+        return readline();
+    }
+}
+function output(prompt) {
+    try {
+        WScript.Echo(prompt);
+    } catch(e) {
+        print(prompt);
+    }
+}
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 {{works with|JScript}}
 {{works with|SpiderMonkey}}
@@ -66,3 +120,10 @@ product: a * b = -9261
 quotient: a / b = -2
 remainder: a % b = -21</pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

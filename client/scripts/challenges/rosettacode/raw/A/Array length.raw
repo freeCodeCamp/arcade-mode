@@ -1,20 +1,51 @@
-Array length
 
-{{task}}  
-[[Category:Simple]]
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Determine the amount of elements in an array.
+const assert = require('chai').assert;
 
+/// title: Array length
+/// type: rosetta-code
 
-As an example use an array holding the strings 'apple' and 'orange'.
+/// categories:
+/// ?
 
+/// difficulty: ?
 
-;Related task:
-* &nbsp; [[String length]]
-<br><br>
+/// benchmark:
+replaceWithActualFunctionHere;
 
+/// description:
+///   
+/// [[Category:Simple]]
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Determine the amount of elements in an array.
+/// <br>
+/// <br>
+/// As an example use an array holding the strings 'apple' and 'orange'.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related task:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">&nbsp; [[String length]]</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
 
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+console.log(['apple', 'orange'].length);
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 
 <lang javascript>console.log(['apple', 'orange'].length);</lang>
@@ -49,3 +80,10 @@ Or use other built-in functions – this, for example, seems fairly clear, and i
     return list.slice(-1)[0] || defaultValue;
 }</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

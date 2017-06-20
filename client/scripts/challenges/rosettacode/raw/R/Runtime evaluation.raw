@@ -1,18 +1,53 @@
-Runtime evaluation
 
-{{task}} 
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Demonstrate a language's ability for programs to execute code written in the language provided at runtime. 
+const assert = require('chai').assert;
 
-Show what kind of program fragments are permitted (e.g. expressions vs. statements), and how to get values in and out (e.g. environments, arguments, return values), if applicable what lexical/static environment the program is evaluated in, and what facilities for restricting (e.g. sandboxes, resource limits) or customizing (e.g. debugging facilities) the execution.
+/// title: Runtime evaluation
+/// type: rosetta-code
 
-You may not invoke a separate evaluator program, or invoke a compiler and then its output, unless the interface of that program, and the syntax and means of executing it, are considered part of your language/library/platform.
+/// categories:
+/// ?
 
-For a more constrained task giving a specific program fragment to evaluate, see [[Eval in environment]].
-<br><br>
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+///  
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Demonstrate a language's ability for programs to execute code written in the language provided at runtime. 
+/// <br>
+/// Show what kind of program fragments are permitted (e.g. expressions vs. statements), and how to get values in and out (e.g. environments, arguments, return values), if applicable what lexical/static environment the program is evaluated in, and what facilities for restricting (e.g. sandboxes, resource limits) or customizing (e.g. debugging facilities) the execution.
+/// <br>
+/// You may not invoke a separate evaluator program, or invoke a compiler and then its output, unless the interface of that program, and the syntax and means of executing it, are considered part of your language/library/platform.
+/// <br>
+/// For a more constrained task giving a specific program fragment to evaluate, see [[Eval in environment]].
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+var foo = eval('{value: 42}');
+eval('var bar = "Hello, world!";');
+
+typeof foo; // 'object'
+typeof bar; // 'string'
 
 
+/// rawSolutions:
 =={{header|JavaScript}}==
 The eval method handles statements and expressions well:
 <lang javascript>
@@ -23,3 +58,10 @@ typeof foo; // 'object'
 typeof bar; // 'string'
 </lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

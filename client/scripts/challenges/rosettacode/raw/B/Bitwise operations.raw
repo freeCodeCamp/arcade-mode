@@ -1,17 +1,54 @@
-Bitwise operations
 
-{{task|Discrete math}}
-{{basic data operation}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Write a routine to perform a bitwise AND, OR, and XOR on two integers, a bitwise NOT on the first integer, a left shift, right shift, right arithmetic shift, left rotate, and right rotate. 
+const assert = require('chai').assert;
 
-All shifts and rotates should be done on the first integer with a shift/rotate amount of the second integer. 
+/// title: Bitwise operations
+/// type: rosetta-code
 
-If any operation is not available in your language, note it.
-<br><br>
+/// categories:
+/// ?
 
+/// difficulty: ?
 
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Write a routine to perform a bitwise AND, OR, and XOR on two integers, a bitwise NOT on the first integer, a left shift, right shift, right arithmetic shift, left rotate, and right rotate. 
+/// <br>
+/// All shifts and rotates should be done on the first integer with a shift/rotate amount of the second integer. 
+/// <br>
+/// If any operation is not available in your language, note it.
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+function bitwise(a, b){
+   alert("a AND b: " + (a & b));
+   alert("a OR b: "+ (a | b));
+   alert("a XOR b: "+ (a ^ b));
+   alert("NOT a: " + ~a);
+   alert("a << b: " + (a << b)); // left shift
+   alert("a >> b: " + (a >> b)); // arithmetic right shift
+   alert("a >>> b: " + (a >>> b)); // logical right shift
+}
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 There are no integers in Javascript, but there are still bitwise operators. They will convert their number operands into integers before performing they task. In other languages, these operators are very close to the hardware and very fast. In JavaScript, they are very far from the hardware and very slow and rarely used.
 
@@ -25,3 +62,10 @@ There are no integers in Javascript, but there are still bitwise operators. They
    alert("a >>> b: " + (a >>> b)); // logical right shift
 }</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

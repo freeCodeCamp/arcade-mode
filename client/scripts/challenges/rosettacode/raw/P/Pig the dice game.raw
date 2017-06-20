@@ -1,21 +1,59 @@
-Pig the dice game
 
-{{task}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-The &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Pig (dice)" title="wp: Pig (dice)">game of Pig</a> &nbsp; is a multiplayer game played with a single six-sided die. &nbsp; The
-object of the game is to reach &nbsp; <span class="rosetta__text--bold">100</span> &nbsp; points or more. &nbsp; 
-Play is taken in turns. &nbsp; On each person's turn that person has the option of either:
+const assert = require('chai').assert;
 
-:# <span class="rosetta__text--bold">Rolling the dice</span>: &nbsp; where a roll of two to six is added to their score for that turn and the player's turn continues as the player is given the same choice again; &nbsp; or a roll of &nbsp; <span class="rosetta__text--bold">1</span> &nbsp; loses the player's total points &nbsp; <span class="rosetta__text--italic">for that turn</span> &nbsp; and their turn finishes with play passing to the next player.
-:# <span class="rosetta__text--bold">Holding</span>: &nbsp; the player's score for that round is added to their total and becomes safe from the effects of throwing a &nbsp; <span class="rosetta__text--bold">1</span> &nbsp; (one). &nbsp; The player's turn finishes with play passing to the next player.
+/// title: Pig the dice game
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// The &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Pig (dice)" title="wp: Pig (dice)">game of Pig</a> &nbsp; is a multiplayer game played with a single six-sided die. &nbsp; The
+/// object of the game is to reach &nbsp; <span class="rosetta__text--bold">100</span> &nbsp; points or more. &nbsp; 
+/// Play is taken in turns. &nbsp; On each person's turn that person has the option of either:
+/// <br>
+/// <span class="rosetta__text--indented"># <span class="rosetta__text--bold">Rolling the dice</span>: &nbsp; where a roll of two to six is added to their score for that turn and the player's turn continues as the player is given the same choice again; &nbsp; or a roll of &nbsp; <span class="rosetta__text--bold">1</span> &nbsp; loses the player's total points &nbsp; <span class="rosetta__text--italic">for that turn</span> &nbsp; and their turn finishes with play passing to the next player.</span>
+/// <span class="rosetta__text--indented"># <span class="rosetta__text--bold">Holding</span>: &nbsp; the player's score for that round is added to their total and becomes safe from the effects of throwing a &nbsp; <span class="rosetta__text--bold">1</span> &nbsp; (one). &nbsp; The player's turn finishes with play passing to the next player.</span>
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Create a program to score for, and simulate dice throws for, a two-person game. 
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related task:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">&nbsp; [[Pig the dice game/Player]]</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
-;Task:
-Create a program to score for, and simulate dice throws for, a two-person game. 
+/// rawSolutions:
+null
 
+/// tail:
+const replaceThis = 3;
 
-;Related task:
-* &nbsp; [[Pig the dice game/Player]]
-<br><br>
-
-
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

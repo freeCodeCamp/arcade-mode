@@ -1,30 +1,70 @@
-Permutations/Derangements
 
-{{task}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-A [http://mathworld.wolfram.com/Derangement.html derangement] is a permutation of the order of distinct items in which <span class="rosetta__text--italic">no item appears in its original place</span>.
+const assert = require('chai').assert;
 
-For example, the only two derangements of the three items (0, 1, 2) are (1, 2, 0), and (2, 0, 1).
+/// title: Permutations/Derangements
+/// type: rosetta-code
 
-The number of derangements of <span class="rosetta__text--italic">n</span> distinct items is known as the subfactorial of <span class="rosetta__text--italic">n</span>, sometimes written as !<span class="rosetta__text--italic">n</span>. 
-There are various ways to <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Derangement#Counting_derangements" title="wp: Derangement#Counting_derangements">calculate</a> !<span class="rosetta__text--italic">n</span>.
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// A [http://mathworld.wolfram.com/Derangement.html derangement] is a permutation of the order of distinct items in which <span class="rosetta__text--italic">no item appears in its original place</span>.
+/// <br>
+/// For example, the only two derangements of the three items (0, 1, 2) are (1, 2, 0), and (2, 0, 1).
+/// <br>
+/// The number of derangements of <span class="rosetta__text--italic">n</span> distinct items is known as the subfactorial of <span class="rosetta__text--italic">n</span>, sometimes written as !<span class="rosetta__text--italic">n</span>. 
+/// There are various ways to <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Derangement#Counting_derangements" title="wp: Derangement#Counting_derangements">calculate</a> !<span class="rosetta__text--italic">n</span>.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// # Create a named function/method/subroutine/... to generate derangements of the integers <span class="rosetta__text--italic">0..n-1</span>, (or <span class="rosetta__text--italic">1..n</span> if you prefer). 
+/// # Generate <span class="rosetta__text--italic">and show</span> all the derangements of 4 integers using the above routine.
+/// # Create a function that calculates the subfactorial of <span class="rosetta__text--italic">n</span>, !<span class="rosetta__text--italic">n</span>.
+/// # Print and show a table of the <span class="rosetta__text--italic">counted</span> number of derangements of <span class="rosetta__text--italic">n</span> vs. the calculated !<span class="rosetta__text--italic">n</span> for n from 0..9 inclusive.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Optional stretch goal:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">&nbsp; Calculate &nbsp; <big><big> !<span class="rosetta__text--italic">20</span> </big></big></li>
+/// <br>
+/// </ul>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">&nbsp; [[Anagrams/Deranged anagrams]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[Best shuffle]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[Left_factorials]]</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
-;Task:
-# Create a named function/method/subroutine/... to generate derangements of the integers <span class="rosetta__text--italic">0..n-1</span>, (or <span class="rosetta__text--italic">1..n</span> if you prefer). 
-# Generate <span class="rosetta__text--italic">and show</span> all the derangements of 4 integers using the above routine.
-# Create a function that calculates the subfactorial of <span class="rosetta__text--italic">n</span>, !<span class="rosetta__text--italic">n</span>.
-# Print and show a table of the <span class="rosetta__text--italic">counted</span> number of derangements of <span class="rosetta__text--italic">n</span> vs. the calculated !<span class="rosetta__text--italic">n</span> for n from 0..9 inclusive.
+/// rawSolutions:
+null
 
+/// tail:
+const replaceThis = 3;
 
-;Optional stretch goal:
-* &nbsp; Calculate &nbsp; <big><big> !<span class="rosetta__text--italic">20</span> </big></big>
-
-
-;Related tasks:
-* &nbsp; [[Anagrams/Deranged anagrams]]
-* &nbsp; [[Best shuffle]]
-* &nbsp; [[Left_factorials]]
-<br><br>
-
-
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

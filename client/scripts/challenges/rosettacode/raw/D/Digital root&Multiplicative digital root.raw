@@ -1,38 +1,78 @@
-Digital root/Multiplicative digital root
 
-{{task|Mathematics}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-The <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Multiplicative digital root" title="wp: Multiplicative digital root">multiplicative digital root]] (MDR) and multiplicative persistence (MP) of a number, $n$, is calculated rather like the [[Digital root</a> except digits are multiplied instead of being added:
-# Set $m$ to $n$ and $i$ to $0$.
-# While $m$ has more than one digit:
-#* Find a replacement $m$ as the multiplication of the digits of the current value of $m$.
-#* Increment $i$.
-# Return $i$ (= MP) and $m$ (= MDR)
+const assert = require('chai').assert;
+
+/// title: Digital root/Multiplicative digital root
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// The <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Multiplicative digital root" title="wp: Multiplicative digital root">multiplicative digital root]] (MDR) and multiplicative persistence (MP) of a number, $n$, is calculated rather like the [[Digital root</a> except digits are multiplied instead of being added:
+/// # Set $m$ to $n$ and $i$ to $0$.
+/// # While $m$ has more than one digit:
+/// #* Find a replacement $m$ as the multiplication of the digits of the current value of $m$.
+/// #* Increment $i$.
+/// # Return $i$ (= MP) and $m$ (= MDR)
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">Tabulate the MP and MDR of the numbers 123321, 7739, 893, 899998</li>
+/// <li class="rosetta__list-item">Tabulate MDR versus the first five numbers having that MDR, something like:</li>
+/// <br>
+/// </ul><pre>
+/// MDR: [n0..n4]
+/// ===  ========
+///   0: [0, 10, 20, 25, 30]
+///   1: [1, 11, 111, 1111, 11111]
+///   2: [2, 12, 21, 26, 34]
+///   3: [3, 13, 31, 113, 131]
+///   4: [4, 14, 22, 27, 39]
+///   5: [5, 15, 35, 51, 53]
+///   6: [6, 16, 23, 28, 32]
+///   7: [7, 17, 71, 117, 171]
+///   8: [8, 18, 24, 29, 36]
+///   9: [9, 19, 33, 91, 119]
+/// </pre>
+/// Show all output on this page.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">References:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">[http://mathworld.wolfram.com/MultiplicativeDigitalRoot.html Multiplicative Digital Root] on Wolfram Mathworld.</li>
+/// <li class="rosetta__list-item">[http://oeis.org/A031347 Multiplicative digital root] on The On-Line Encyclopedia of Integer Sequences.</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
-;Task:
-* Tabulate the MP and MDR of the numbers 123321, 7739, 893, 899998
-* Tabulate MDR versus the first five numbers having that MDR, something like:
-<pre>
-MDR: [n0..n4]
-===  ========
-  0: [0, 10, 20, 25, 30]
-  1: [1, 11, 111, 1111, 11111]
-  2: [2, 12, 21, 26, 34]
-  3: [3, 13, 31, 113, 131]
-  4: [4, 14, 22, 27, 39]
-  5: [5, 15, 35, 51, 53]
-  6: [6, 16, 23, 28, 32]
-  7: [7, 17, 71, 117, 171]
-  8: [8, 18, 24, 29, 36]
-  9: [9, 19, 33, 91, 119]
-</pre>
-Show all output on this page.
+/// rawSolutions:
+null
 
+/// tail:
+const replaceThis = 3;
 
-;References:
-* [http://mathworld.wolfram.com/MultiplicativeDigitalRoot.html Multiplicative Digital Root] on Wolfram Mathworld.
-* [http://oeis.org/A031347 Multiplicative digital root] on The On-Line Encyclopedia of Integer Sequences.
-<br><br>
-
-
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

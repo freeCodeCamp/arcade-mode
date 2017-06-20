@@ -1,10 +1,46 @@
-Fork
 
-{{task|Programming environment operations}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
+const assert = require('chai').assert;
 
-Spawn a new [[process]] which can run simultaneously with, and independently of, the original parent process.
-<br><br>
+/// title: Fork
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <br>
+/// Spawn a new [[process]] which can run simultaneously with, and independently of, the original parent process.
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

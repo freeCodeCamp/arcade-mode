@@ -1,14 +1,50 @@
-Sorting algorithms/Strand sort
 
-{{task|Sorting Algorithms}}
-{{Sorting Algorithm}}
-{{Wikipedia|Strand sort}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-<br>
-;Task:
-Implement the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Strand sort" title="wp: Strand sort">Strand sort</a>. 
+const assert = require('chai').assert;
 
-This is a way of sorting numbers by extracting shorter sequences of already sorted numbers from an unsorted list.
-<br><br>
+/// title: Sorting algorithms/Strand sort
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Implement the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Strand sort" title="wp: Strand sort">Strand sort</a>. 
+/// <br>
+/// This is a way of sorting numbers by extracting shorter sequences of already sorted numbers from an unsorted list.
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

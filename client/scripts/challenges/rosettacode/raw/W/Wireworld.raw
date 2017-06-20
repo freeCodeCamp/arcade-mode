@@ -1,58 +1,94 @@
-Wireworld
 
-{{task|Games}} 
-[[Category:Cellular automata]]
-{{omit from|GUISS}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-<a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Wireworld" title="wp: Wireworld">Wireworld]] is a cellular automaton with some similarities to [[Conway's Game of Life</a>. 
+const assert = require('chai').assert;
 
-It is capable of doing sophisticated computations with appropriate programs 
-(it is actually <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Turing-complete" title="wp: Turing-complete">Turing complete</a>), 
-and is much simpler to program for.
+/// title: Wireworld
+/// type: rosetta-code
 
-A Wireworld arena consists of a Cartesian grid of cells, 
-each of which can be in one of four states. 
-All cell transitions happen simultaneously. 
+/// categories:
+/// ?
 
-The cell transition rules are this:
-{| class=wikitable
-|-
-! Input State
-! Output State
-! Condition
-|-
-| <tt>empty</tt>
-| <tt>empty</tt>
-|
-|-
-| <tt>electron&nbsp;head&nbsp;</tt>
-| <tt>electron&nbsp;tail&nbsp;</tt>
-|
-|-
-| <tt>electron&nbsp;tail&nbsp;</tt>
-| <tt>conductor</tt>
-|
-|-
-| valign=top | <tt>conductor</tt>
-| valign=top | <tt>electron&nbsp;head&nbsp;</tt>
-| if 1 or 2 cells in the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Moore neighborhood" title="wp: Moore neighborhood">neighborhood</a> of the cell are in the state “<tt>electron head</tt>”
-|-
-| <tt>conductor</tt>
-| <tt>conductor</tt>
-| otherwise
-|}
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+///  
+/// [[Category:Cellular automata]]
+/// <br>
+/// <br>
+/// <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Wireworld" title="wp: Wireworld">Wireworld]] is a cellular automaton with some similarities to [[Conway's Game of Life</a>. 
+/// <br>
+/// It is capable of doing sophisticated computations with appropriate programs 
+/// (it is actually <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Turing-complete" title="wp: Turing-complete">Turing complete</a>), 
+/// and is much simpler to program for.
+/// <br>
+/// A Wireworld arena consists of a Cartesian grid of cells, 
+/// each of which can be in one of four states. 
+/// All cell transitions happen simultaneously. 
+/// <br>
+/// The cell transition rules are this:
+/// {| class=wikitable
+/// |-
+/// ! Input State
+/// ! Output State
+/// ! Condition
+/// |-
+/// | <tt>empty</tt>
+/// | <tt>empty</tt>
+/// |
+/// |-
+/// | <tt>electron&nbsp;head&nbsp;</tt>
+/// | <tt>electron&nbsp;tail&nbsp;</tt>
+/// |
+/// |-
+/// | <tt>electron&nbsp;tail&nbsp;</tt>
+/// | <tt>conductor</tt>
+/// |
+/// |-
+/// | valign=top | <tt>conductor</tt>
+/// | valign=top | <tt>electron&nbsp;head&nbsp;</tt>
+/// | if 1 or 2 cells in the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Moore neighborhood" title="wp: Moore neighborhood">neighborhood</a> of the cell are in the state “<tt>electron head</tt>”
+/// |-
+/// | <tt>conductor</tt>
+/// | <tt>conductor</tt>
+/// | otherwise
+/// |}
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Create a program that reads a Wireworld program from a file and displays an animation of the processing. Here is a sample description file (using "<tt>H</tt>" for an electron head, "<tt>t</tt>" for a tail, "<tt>.</tt>" for a conductor and a space for empty) you may wish to test with, which demonstrates two cycle-3 generators and an inhibit gate:
+/// <pre>
+/// tH.........
+/// .   .
+///    ...
+/// .   .
+/// Ht.. ......
+/// </pre>
+/// While text-only implementations of this task are possible, mapping cells to pixels is advisable if you wish to be able to display large designs. The logic is not significantly more complex.
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
-;Task:
-Create a program that reads a Wireworld program from a file and displays an animation of the processing. Here is a sample description file (using "<tt>H</tt>" for an electron head, "<tt>t</tt>" for a tail, "<tt>.</tt>" for a conductor and a space for empty) you may wish to test with, which demonstrates two cycle-3 generators and an inhibit gate:
-<pre>
-tH.........
-.   .
-   ...
-.   .
-Ht.. ......
-</pre>
-While text-only implementations of this task are possible, mapping cells to pixels is advisable if you wish to be able to display large designs. The logic is not significantly more complex.
-<br><br>
+/// rawSolutions:
+null
 
+/// tail:
+const replaceThis = 3;
 
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

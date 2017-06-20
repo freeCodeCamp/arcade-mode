@@ -1,64 +1,130 @@
-ABC Problem
 
-{{task}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-You are given a collection of ABC blocks &nbsp; (maybe like the ones you had when you were a kid).  
+const assert = require('chai').assert;
 
-There are twenty blocks with two letters on each block. 
+/// title: ABC Problem
+/// type: rosetta-code
 
-A complete alphabet is guaranteed amongst all sides of the blocks. 
+/// categories:
+/// ?
 
-The sample collection of blocks: 
-  (B O)
-  (X K)
-  (D Q)
-  (C P)
-  (N A)
-  (G T)
-  (R E)
-  (T G)
-  (Q D)
-  (F S)
-  (J W)
-  (H U)
-  (V I)
-  (A N)
-  (O B)
-  (E R)
-  (F S)
-  (L Y)
-  (P C)
-  (Z M)
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// You are given a collection of ABC blocks &nbsp; (maybe like the ones you had when you were a kid).  
+/// <br>
+/// There are twenty blocks with two letters on each block. 
+/// <br>
+/// A complete alphabet is guaranteed amongst all sides of the blocks. 
+/// <br>
+/// The sample collection of blocks: 
+///   (B O)
+///   (X K)
+///   (D Q)
+///   (C P)
+///   (N A)
+///   (G T)
+///   (R E)
+///   (T G)
+///   (Q D)
+///   (F S)
+///   (J W)
+///   (H U)
+///   (V I)
+///   (A N)
+///   (O B)
+///   (E R)
+///   (F S)
+///   (L Y)
+///   (P C)
+///   (Z M)
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Write a function that takes a string (word) and determines whether the word can be spelled with the given collection of blocks. 
+/// <br>
+/// <br>
+/// The rules are simple:
+/// <span class="rosetta__text--indented">:# &nbsp; Once a letter on a block is used that block cannot be used again</span>
+/// <span class="rosetta__text--indented">:# &nbsp; The function should be case-insensitive</span>
+/// <span class="rosetta__text--indented">:# &nbsp; Show the output on this page for the following 7 words in the following example</span>
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Example:</dt></dl>
+/// <lang python>    >>> can_make_word("A")
+///     True
+///     >>> can_make_word("BARK")
+///     True
+///     >>> can_make_word("BOOK")
+///     False
+///     >>> can_make_word("TREAT")
+///     True
+///     >>> can_make_word("COMMON")
+///     False
+///     >>> can_make_word("SQUAD")
+///     True
+///     >>> can_make_word("CONFUSE")
+///     True</lang>
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+var blocks = "BO XK DQ CP NA GT RE TG QD FS JW HU VI AN OB ER FS LY PC ZM";
+
+function CheckWord(blocks, word) {
+   // Makes sure that word only contains letters.
+   if(word !== /([a-z]*)/i.exec(word)[1]) return false;
+   // Loops through each character to see if a block exists.
+   for(var i = 0; i < word.length; ++i)
+   {
+      // Gets the ith character.
+      var letter = word.charAt(i);
+      // Stores the length of the blocks to determine if a block was removed.
+      var length = blocks.length;
+      // The regexp gets constructed by eval to allow more browsers to use the function.
+      var reg = eval("/([a-z]"+letter+"|"+letter+"[a-z])/i");
+      // This does the same as above, but some browsers do not support...
+      //var reg = new RegExp("([a-z]"+letter+"|"+letter+"[a-z])", "i");
+      // Removes all occurrences of the match. 
+      blocks = blocks.replace(reg, "");
+      // If the length did not change then a block did not exist.
+      if(blocks.length === length) return false;
+   }
+   // If every character has passed then return true.
+   return true;
+};
+
+var words = [
+   "A",
+   "BARK", 
+   "BOOK", 
+   "TREAT", 
+   "COMMON", 
+   "SQUAD", 
+   "CONFUSE" 
+];
+
+for(var i = 0;i<words.length;++i)
+   console.log(words[i] + ": " + CheckWord(blocks, words[i]));
 
 
-;Task:
-Write a function that takes a string (word) and determines whether the word can be spelled with the given collection of blocks. 
-
-
-The rules are simple:
-::# &nbsp; Once a letter on a block is used that block cannot be used again
-::# &nbsp; The function should be case-insensitive
-::# &nbsp; Show the output on this page for the following 7 words in the following example
-
-
-;Example:
-<lang python>    >>> can_make_word("A")
-    True
-    >>> can_make_word("BARK")
-    True
-    >>> can_make_word("BOOK")
-    False
-    >>> can_make_word("TREAT")
-    True
-    >>> can_make_word("COMMON")
-    False
-    >>> can_make_word("SQUAD")
-    True
-    >>> can_make_word("CONFUSE")
-    True</lang>
-<br><br>
-
-
+/// rawSolutions:
 =={{header|JavaScript}}==
 ===ES5===
 ====Imperative====
@@ -326,3 +392,10 @@ CONFUSE: true</pre>
 ["SQUAD",true]
 ["conFUsE",true]</pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

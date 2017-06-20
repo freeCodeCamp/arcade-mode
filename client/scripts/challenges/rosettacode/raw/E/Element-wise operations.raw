@@ -1,25 +1,61 @@
-Element-wise operations
 
-{{task|Matrices}}
-[[Category:Mathematics]]
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-This task is similar to:
-::* &nbsp; [[Matrix multiplication]]
-::* &nbsp; [[Matrix transposition]]
+const assert = require('chai').assert;
+
+/// title: Element-wise operations
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// [[Category:Mathematics]]
+/// <br>
+/// This task is similar to:
+/// <span class="rosetta__text--indented">:* &nbsp; [[Matrix multiplication]]</span>
+/// <span class="rosetta__text--indented">:* &nbsp; [[Matrix transposition]]</span>
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Implement basic element-wise matrix-matrix and scalar-matrix operations, which can be referred to in other, higher-order tasks. 
+/// <br>
+/// Implement:
+/// <span class="rosetta__text--indented">::* &nbsp; addition</span>
+/// <span class="rosetta__text--indented">::* &nbsp; subtraction</span>
+/// <span class="rosetta__text--indented">::* &nbsp; multiplication</span>
+/// <span class="rosetta__text--indented">::* &nbsp; division</span>
+/// <span class="rosetta__text--indented">::* &nbsp; exponentiation</span>
+/// <br>
+/// <br>
+/// Extend the task if necessary to include additional basic operations, which should not require their own specialised task.
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
-;Task:
-Implement basic element-wise matrix-matrix and scalar-matrix operations, which can be referred to in other, higher-order tasks. 
+/// rawSolutions:
+null
 
-Implement:
-:::* &nbsp; addition
-:::* &nbsp; subtraction
-:::* &nbsp; multiplication
-:::* &nbsp; division
-:::* &nbsp; exponentiation
+/// tail:
+const replaceThis = 3;
 
-<br>
-Extend the task if necessary to include additional basic operations, which should not require their own specialised task.
-<br><br>
-
-
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

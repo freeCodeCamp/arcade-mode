@@ -1,16 +1,52 @@
-Stream Merge
 
-{{task}}
-; 2-stream merge
-: Read two sorted streams of items from external source (e.g. disk, or network), and write one stream of sorted items to external sink.
-: Common algorithm: keep 1 buffered item from each source, select minimal of them, write it, fetch another item from that stream from which the written item was.
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-; <span class="rosetta__text--italic">N</span>-stream merge
-: The same as above, but reading from &nbsp; <b> <span class="rosetta__text--italic">N</span> </b> &nbsp; sources.
-: Common algorithm: same as above, but keep buffered items and their source descriptors in a [[heap]].
+const assert = require('chai').assert;
+
+/// title: Stream Merge
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title"> 2-stream merge</dt></dl>
+/// <span class="rosetta__text--indented"> Read two sorted streams of items from external source (e.g. disk, or network), and write one stream of sorted items to external sink.</span>
+/// <span class="rosetta__text--indented"> Common algorithm: keep 1 buffered item from each source, select minimal of them, write it, fetch another item from that stream from which the written item was.</span>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title"> <span class="rosetta__text--italic">N</span>-stream merge</dt></dl>
+/// <span class="rosetta__text--indented"> The same as above, but reading from &nbsp; <b> <span class="rosetta__text--italic">N</span> </b> &nbsp; sources.</span>
+/// <span class="rosetta__text--indented"> Common algorithm: same as above, but keep buffered items and their source descriptors in a [[heap]].</span>
+/// <br>
+/// <br>
+/// Assume streams are very big. You must not suck them whole in the memory, but read them as streams.
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
-Assume streams are very big. You must not suck them whole in the memory, but read them as streams.
-<br><br>
+/// rawSolutions:
+null
 
+/// tail:
+const replaceThis = 3;
 
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

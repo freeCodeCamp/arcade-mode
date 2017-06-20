@@ -1,35 +1,81 @@
-Digital root
 
-{{task}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-The digital root, $X$, of a number, $n$, is calculated:
-: find $X$ as the sum of the digits of $n$
-: find a new $X$ by summing the digits of $X$, repeating until $X$ has only one digit.
+const assert = require('chai').assert;
 
-The additive persistence is the number of summations required to obtain the single digit. 
+/// title: Digital root
+/// type: rosetta-code
 
-The task is to calculate the additive persistence and the digital root of a number, e.g.:
-:$627615$ has additive persistence $2$ and digital root of $9$;
-:$39390$ has additive persistence $2$ and digital root of $6$;
-:$588225$ has additive persistence $2$ and digital root of $3$;
-:$393900588225$ has additive persistence $2$ and digital root of $9$;
+/// categories:
+/// ?
 
-The digital root may be calculated in bases other than 10.
+/// difficulty: ?
 
+/// benchmark:
+replaceWithActualFunctionHere;
 
-;See:
-* <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Casting out nines]] for this wiki's use of this procedure.
-* [[Digital root/Multiplicative digital root]]
-* [[Sum digits of an integer]]
-* [[oeis:A010888" title="Casting out nines]] for this wiki's use of this procedure.
-* [[Digital root/Multiplicative digital root]]
-* [[Sum digits of an integer]]
-* [[oeis:A010888">Digital root sequence on OEIS</a>
-* <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/oeis:A031286" title="oeis:A031286">Additive persistence sequence on OEIS</a>
-* [[Iterated digits squaring]]
-<br><br>
+/// description:
+/// <br>
+/// <br>
+/// The digital root, $X$, of a number, $n$, is calculated:
+/// <span class="rosetta__text--indented"> find $X$ as the sum of the digits of $n$</span>
+/// <span class="rosetta__text--indented"> find a new $X$ by summing the digits of $X$, repeating until $X$ has only one digit.</span>
+/// <br>
+/// The additive persistence is the number of summations required to obtain the single digit. 
+/// <br>
+/// The task is to calculate the additive persistence and the digital root of a number, e.g.:
+/// <span class="rosetta__text--indented">$627615$ has additive persistence $2$ and digital root of $9$;</span>
+/// <span class="rosetta__text--indented">$39390$ has additive persistence $2$ and digital root of $6$;</span>
+/// <span class="rosetta__text--indented">$588225$ has additive persistence $2$ and digital root of $3$;</span>
+/// <span class="rosetta__text--indented">$393900588225$ has additive persistence $2$ and digital root of $9$;</span>
+/// <br>
+/// The digital root may be calculated in bases other than 10.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">See:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Casting out nines]] for this wiki's use of this procedure.</li>
+/// <li class="rosetta__list-item">[[Digital root/Multiplicative digital root]]</li>
+/// <li class="rosetta__list-item">[[Sum digits of an integer]]</li>
+/// <li class="rosetta__list-item">[[oeis:A010888" title="Casting out nines]] for this wiki's use of this procedure.</li>
+/// <li class="rosetta__list-item">[[Digital root/Multiplicative digital root]]</li>
+/// <li class="rosetta__list-item">[[Sum digits of an integer]]</li>
+/// <li class="rosetta__list-item">[[oeis:A010888">Digital root sequence on OEIS</a></li>
+/// <li class="rosetta__list-item"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/oeis:A031286" title="oeis:A031286">Additive persistence sequence on OEIS</a></li>
+/// <li class="rosetta__list-item">[[Iterated digits squaring]]</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
 
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
+/// solutions:
+/// Digital root of 'x' in base 'b'.
+/// @return {addpers, digrt}
+function digitalRootBase(x,b) {
+   if (x < b)
+      return {addpers:0, digrt:x};
+
+   var fauxroot = 0;
+   while (b <= x) {
+      x = (x / b) | 0;
+      fauxroot += x % b;
+   }
+   
+   var rootobj = digitalRootBase(fauxroot,b);
+   rootobj.addpers += 1;
+   return rootobj;
+}
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 <lang JavaScript>/// Digital root of 'x' in base 'b'.
 /// @return {addpers, digrt}
@@ -48,3 +94,10 @@ function digitalRootBase(x,b) {
    return rootobj;
 }</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

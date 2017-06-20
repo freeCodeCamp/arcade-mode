@@ -1,5 +1,41 @@
-Color of a screen pixel
 
-{{task|GUI}}[[Category:Testing]]Get color information from an arbitrary pixel on the screen, such as the current location of the mouse cursor.  The mouse cursor may or may not have to be active in a GUI created by your program.  These functions are OS related.
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Color of a screen pixel
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// [[Category:Testing]]Get color information from an arbitrary pixel on the screen, such as the current location of the mouse cursor.  The mouse cursor may or may not have to be active in a GUI created by your program.  These functions are OS related.
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

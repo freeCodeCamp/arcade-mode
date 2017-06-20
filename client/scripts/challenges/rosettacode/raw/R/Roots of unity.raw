@@ -1,15 +1,63 @@
-Roots of unity
 
-{{task|Arithmetic operations}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-The purpose of this task is to explore working with &nbsp; [https://en.wikipedia.org/wiki/Complex_number complex numbers].
+const assert = require('chai').assert;
+
+/// title: Roots of unity
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// The purpose of this task is to explore working with &nbsp; [https://en.wikipedia.org/wiki/Complex_number complex numbers].
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Given &nbsp; <tt>n</tt>, &nbsp; find the &nbsp; <tt>n</tt>-th &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Roots of unity" title="wp: Roots of unity">roots of unity</a>.
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+function Root(angle) {
+	with (Math) { this.r = cos(angle); this.i = sin(angle) }
+}
+
+Root.prototype.toFixed = function(p) {
+	return this.r.toFixed(p) + (this.i >= 0 ? '+' : '') + this.i.toFixed(p) + 'i'
+}
+
+function roots(n) {
+	var rs = [], teta = 2*Math.PI/n
+	for (var angle=0, i=0; i<n; angle+=teta, i+=1) rs.push( new Root(angle) )
+	return rs
+}
+
+for (var n=2; n<8; n+=1) {
+	document.write(n, ': ')
+	var rs=roots(n); for (var i=0; i<rs.length; i+=1) document.write( i ? ', ' : '', rs[i].toFixed(5) )
+	document.write('<br>')
+}
 
 
-;Task:
-Given &nbsp; <tt>n</tt>, &nbsp; find the &nbsp; <tt>n</tt>-th &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Roots of unity" title="wp: Roots of unity">roots of unity</a>.
-<br><br>
-
-
+/// rawSolutions:
 =={{header|JavaScript}}==
 <lang javascript>function Root(angle) {
 	with (Math) { this.r = cos(angle); this.i = sin(angle) }
@@ -39,3 +87,10 @@ for (var n=2; n<8; n+=1) {
 6: 1.00000+0.00000i, 0.50000+0.86603i, -0.50000+0.86603i, -1.00000+0.00000i, -0.50000-0.86603i, 0.50000-0.86603i
 7: 1.00000+0.00000i, 0.62349+0.78183i, -0.22252+0.97493i, -0.90097+0.43388i, -0.90097-0.43388i, -0.22252-0.97493i, 0.62349-0.78183i</pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

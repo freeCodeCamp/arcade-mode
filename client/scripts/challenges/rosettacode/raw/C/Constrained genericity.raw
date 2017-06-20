@@ -1,20 +1,56 @@
-Constrained genericity
 
-{{task|Object oriented}} [[Category:Type System]]
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-<span class="rosetta__text--bold">Constrained genericity</span> or <span class="rosetta__text--bold">bounded quantification</span> means 
-that a parametrized type or function (see [[parametric polymorphism]]) 
-can only be instantiated on types fulfilling some conditions, 
-even if those conditions are not used in that function.
+const assert = require('chai').assert;
 
-Say a type is called "eatable" if you can call the function <tt>eat</tt> on it. 
-Write a generic type <tt>FoodBox</tt> which contains a collection of objects of 
-a type given as parameter, but can only be instantiated on eatable types. 
-The FoodBox shall not use the function eat in any way (i.e. without the explicit restriction, it could be instantiated on any type). 
-The specification of a type being eatable should be as generic as possible 
-in your language (i.e. the restrictions on the implementation of eatable types 
-should be as minimal as possible). 
-Also explain the restrictions, if any, on the implementation of eatable types, 
-and show at least one example of an eatable type.
+/// title: Constrained genericity
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+///  [[Category:Type System]]
+/// <br>
+/// <span class="rosetta__text--bold">Constrained genericity</span> or <span class="rosetta__text--bold">bounded quantification</span> means 
+/// that a parametrized type or function (see [[parametric polymorphism]]) 
+/// can only be instantiated on types fulfilling some conditions, 
+/// even if those conditions are not used in that function.
+/// <br>
+/// Say a type is called "eatable" if you can call the function <tt>eat</tt> on it. 
+/// Write a generic type <tt>FoodBox</tt> which contains a collection of objects of 
+/// a type given as parameter, but can only be instantiated on eatable types. 
+/// The FoodBox shall not use the function eat in any way (i.e. without the explicit restriction, it could be instantiated on any type). 
+/// The specification of a type being eatable should be as generic as possible 
+/// in your language (i.e. the restrictions on the implementation of eatable types 
+/// should be as minimal as possible). 
+/// Also explain the restrictions, if any, on the implementation of eatable types, 
+/// and show at least one example of an eatable type.
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,43 +1,92 @@
-Kronecker product
 
-{{task}}{{Wikipedia}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Kronecker product
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Implement the &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Kronecker_product" title="wp: Kronecker_product">Kronecker product</a> &nbsp; of two matrices (arbitrary sized) resulting in a block matrix. <br />
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Test cases:</dt></dl>
+/// Show results for each of the following two samples:<br> 
+/// <br>
+/// Sample 1 (from Wikipedia):
+/// <pre>
+/// │1 2│  x  │0 5│	= │ 0  5  0 10│
+/// │3 4│     │6 7│	  │ 6  7 12 14│
+/// 		  │ 0 15  0 20│
+/// 		  │18 21 24 28│
+/// </pre>
+/// <br>
+/// Sample 2:
+/// <pre>
+/// │0 1 0│ x │1 1 1 1│ = │0 0 0 0 1 1 1 1 0 0 0 0│
+/// │1 1 1│   │1 0 0 1│   │0 0 0 0 1 0 0 1 0 0 0 0│
+/// │0 1 0│   │1 1 1 1│   │0 0 0 0 1 1 1 1 0 0 0 0│
+/// 	              │1 1 1 1 1 1 1 1 1 1 1 1│
+///                       │1 0 0 1 1 0 0 1 1 0 0 1│
+///                       │1 1 1 1 1 1 1 1 1 1 1 1│
+///                       │0 0 0 0 1 1 1 1 0 0 0 0│
+///                       │0 0 0 0 1 0 0 1 0 0 0 0│
+///                       │0 0 0 0 1 1 1 1 0 0 0 0│
+/// </pre>
+/// See implementations and results below in JavaScript and PARI/GP languages.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related task:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Kronecker_product_based_fractals" title="Kronecker_product_based_fractals"> Kronecker product based fractals</a>. </li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+// matkronprod.js
+// Prime function:
+// mkp arrow function: Return the Kronecker product of the a and b matrices.
+// Note: both a and b must be matrices, i.e., 2D rectangular arrays.
+mkp=(a,b)=>a.map(a=>b.map(b=>a.map(y=>b.map(x=>r.push(y*x)),t.push(r=[]))),t=[])&&t;
+// Helper functions:
+// Log title and matrix mat to console
+function matl2cons(title,mat) {console.log(title); console.log(mat.join`\n`)}
+// Print title to document
+function pttl2doc(title) {document.write('<b>'+title+'</b><br />')}
+// Print title and matrix mat to document
+function matp2doc(title,mat) {
+  document.write('<b>'+title+'</b>:<br />');
+  for (var i = 0; i < mat.length; i++) {
+    document.write('&nbsp;&nbsp;'+mat[i].join(' ')+'<br />');
+  }
+}
 
 
-;Task:
-Implement the &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Kronecker_product" title="wp: Kronecker_product">Kronecker product</a> &nbsp; of two matrices (arbitrary sized) resulting in a block matrix. <br />
-
-
-;Test cases:
-Show results for each of the following two samples:<br> 
-
-Sample 1 (from Wikipedia):
-<pre>
-│1 2│  x  │0 5│	= │ 0  5  0 10│
-│3 4│     │6 7│	  │ 6  7 12 14│
-		  │ 0 15  0 20│
-		  │18 21 24 28│
-</pre>
-
-Sample 2:
-<pre>
-│0 1 0│ x │1 1 1 1│ = │0 0 0 0 1 1 1 1 0 0 0 0│
-│1 1 1│   │1 0 0 1│   │0 0 0 0 1 0 0 1 0 0 0 0│
-│0 1 0│   │1 1 1 1│   │0 0 0 0 1 1 1 1 0 0 0 0│
-	              │1 1 1 1 1 1 1 1 1 1 1 1│
-                      │1 0 0 1 1 0 0 1 1 0 0 1│
-                      │1 1 1 1 1 1 1 1 1 1 1 1│
-                      │0 0 0 0 1 1 1 1 0 0 0 0│
-                      │0 0 0 0 1 0 0 1 0 0 0 0│
-                      │0 0 0 0 1 1 1 1 0 0 0 0│
-</pre>
-See implementations and results below in JavaScript and PARI/GP languages.
-
-
-;Related task:
-* <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Kronecker_product_based_fractals" title="Kronecker_product_based_fractals"> Kronecker product based fractals</a>. 
-<br><br>
-
-
+/// rawSolutions:
 =={{header|JavaScript}}==
 ===Imperative===
 ====Version #1.====
@@ -269,3 +318,10 @@ Output is identical to Version #1 above.
 [0,0,0,0,1,0,0,1,0,0,0,0]
 [0,0,0,0,1,1,1,1,0,0,0,0]</pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

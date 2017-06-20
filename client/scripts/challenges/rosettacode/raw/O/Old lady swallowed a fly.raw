@@ -1,15 +1,53 @@
-Old lady swallowed a fly
 
-{{task}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Present a program which emits the lyrics to the song &nbsp; <span class="rosetta__text--italic"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/There Was an Old Lady Who Swallowed a Fly" title="wp: There Was an Old Lady Who Swallowed a Fly">I Knew an Old Lady Who Swallowed a Fly</a></span>, &nbsp; taking advantage of the repetitive structure of the song's lyrics. 
+const assert = require('chai').assert;
 
-This song has multiple versions with slightly different lyrics, so all these programs might not emit identical output.
+/// title: Old lady swallowed a fly
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Present a program which emits the lyrics to the song &nbsp; <span class="rosetta__text--italic"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/There Was an Old Lady Who Swallowed a Fly" title="wp: There Was an Old Lady Who Swallowed a Fly">I Knew an Old Lady Who Swallowed a Fly</a></span>, &nbsp; taking advantage of the repetitive structure of the song's lyrics. 
+/// <br>
+/// This song has multiple versions with slightly different lyrics, so all these programs might not emit identical output.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related task:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">&nbsp; [[99 Bottles of Beer]]</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
-;Related task:
-* &nbsp; [[99 Bottles of Beer]]
-<br><br>
+/// rawSolutions:
+null
 
+/// tail:
+const replaceThis = 3;
 
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

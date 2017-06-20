@@ -1,16 +1,68 @@
-N'th
 
-{{task|Ordinal numbers}} [[Category:String manipulation]]
-Write a function/method/subroutine/... that when given an integer greater than or equal to zero returns a string of the number followed by an apostrophe then the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Ordinal number (linguistics)" title="wp: Ordinal number (linguistics)">ordinal suffix</a>.
-<br>Example returns would include <code>1'st 2'nd 3'rd 11'th 111'th 1001'st 1012'th</code>
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Use your routine to show here the output for <span class="rosetta__text--italic">at least</span> the following (inclusive) ranges of integer inputs:
-<code>0..25, 250..265, 1000..1025</code>
+const assert = require('chai').assert;
 
-<span class="rosetta__text--bold">Note:</span> apostrophes are now <span class="rosetta__text--italic">optional</span> to allow correct apostrophe-less English.
+/// title: N'th
+/// type: rosetta-code
 
+/// categories:
+/// ?
 
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+///  [[Category:String manipulation]]
+/// Write a function/method/subroutine/... that when given an integer greater than or equal to zero returns a string of the number followed by an apostrophe then the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Ordinal number (linguistics)" title="wp: Ordinal number (linguistics)">ordinal suffix</a>.
+/// <br>Example returns would include <code>1'st 2'nd 3'rd 11'th 111'th 1001'st 1012'th</code>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Use your routine to show here the output for <span class="rosetta__text--italic">at least</span> the following (inclusive) ranges of integer inputs:
+/// <code>0..25, 250..265, 1000..1025</code>
+/// <br>
+/// <span class="rosetta__text--bold">Note:</span> apostrophes are now <span class="rosetta__text--italic">optional</span> to allow correct apostrophe-less English.
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+console.log(function () {
+
+  var lstSuffix = 'th st nd rd th th th th th th'.split(' '),
+
+    fnOrdinalForm = function (n) {
+      return n.toString() + (
+        11 <= n % 100 && 13 >= n % 100 ?
+        "th" : lstSuffix[n % 10]
+      );
+    },
+
+    range = function (m, n) {
+      return Array.apply(
+        null, Array(n - m + 1)
+      ).map(function (x, i) {
+        return m + i;
+      });
+    };
+
+  return [[0, 25], [250, 265], [1000, 1025]].map(function (tpl) {
+    return range.apply(null, tpl).map(fnOrdinalForm).join(' ');
+  }).join('\n\n');
+  
+}());
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 
 ===ES5===
@@ -91,3 +143,10 @@ Use your routine to show here the output for <span class="rosetta__text--italic"
 "1014th", "1015th", "1016th", "1017th", "1018th", "1019th", "1020th", 
 "1021st", "1022nd", "1023rd", "1024th", "1025th"]]</pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

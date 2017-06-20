@@ -1,171 +1,221 @@
-Tokenize a string with escaping
 
-{{task|String manipulation}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-{{task heading}}
-Write a function or program that can split a string at each non-escaped occurrence of a separator character.
+const assert = require('chai').assert;
 
-It should accept three input parameters:
-* The <b>string</b>
-* The <b>separator character</b>
-* The <b>escape character</b>
+/// title: Tokenize a string with escaping
+/// type: rosetta-code
 
-<br>
-It should output a list of strings.
+/// categories:
+/// ?
 
-{{task heading|Details}}
+/// difficulty: ?
 
-Rules for splitting:
-* The fields that were separated by the separators, become the elements of the output list.
-* Empty fields should be preserved, even at the start and end.
+/// benchmark:
+replaceWithActualFunctionHere;
 
-<br>
-Rules for escaping:
-* "Escaped" means preceded by an occurrence of the escape character that is not already escaped itself.
-* When the escape character precedes a character that has no special meaning, it still counts as an escape (but does not do anything special).
-* Each occurrences of the escape character that was used to escape something, should <span class="rosetta__text--bold">not</span> become part of the output.
+/// description:
+/// <br>
+/// <br>
+/// <br>
+/// Write a function or program that can split a string at each non-escaped occurrence of a separator character.
+/// <br>
+/// It should accept three input parameters:
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">The <b>string</b></li>
+/// <li class="rosetta__list-item">The <b>separator character</b></li>
+/// <li class="rosetta__list-item">The <b>escape character</b></li>
+/// <br>
+/// </ul>
+/// <br>
+/// It should output a list of strings.
+/// <br>
+/// <br>
+/// <br>
+/// Rules for splitting:
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">The fields that were separated by the separators, become the elements of the output list.</li>
+/// <li class="rosetta__list-item">Empty fields should be preserved, even at the start and end.</li>
+/// <br>
+/// </ul>
+/// <br>
+/// Rules for escaping:
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">"Escaped" means preceded by an occurrence of the escape character that is not already escaped itself.</li>
+/// <li class="rosetta__list-item">When the escape character precedes a character that has no special meaning, it still counts as an escape (but does not do anything special).</li>
+/// <li class="rosetta__list-item">Each occurrences of the escape character that was used to escape something, should <span class="rosetta__text--bold">not</span> become part of the output.</li>
+/// <br>
+/// </ul>
+/// <br>
+/// <br>
+/// Demonstrate that your function satisfies the following test-case:
+/// {| class="wikitable"
+/// |-
+/// ! Input
+/// ! Output
+/// |-
+/// | style="vertical-align:top" |
+/// {| style="border-collapse:collapse; border:none" border="0"
+/// |-
+/// | style="border:none; text-align:right" | string:
+/// | style="border:none" | <pre style="display:inline;padding:0.1em;margin:0.3em;">one^|uno||three^^^^|four^^^|^cuatro|</pre>
+/// |-
+/// | style="border:none; text-align:right" | separator character:
+/// | style="border:none" | <pre style="display:inline;padding:0.1em;margin:0.3em;">|</pre>
+/// |-
+/// | style="border:none; text-align:right" | escape character:
+/// | style="border:none" | <pre style="display:inline;padding:0.1em;margin:0.3em;">^</pre>
+/// |}
+/// |
+/// {| style="border-collapse:collapse; border:none" border="0"
+/// |-
+/// | style="border:none" | <pre style="display:inline;padding:0.1em;margin:0.3em;">one|uno</pre>
+/// |-
+/// | style="border:none" | <pre style="display:inline;padding:0.1em;margin:0.3em;"></pre>
+/// |-
+/// | style="border:none" | <pre style="display:inline;padding:0.1em;margin:0.3em;">three^^</pre>
+/// |-
+/// | style="border:none" | <pre style="display:inline;padding:0.1em;margin:0.3em;">four^|cuatro</pre>
+/// |-
+/// | style="border:none" | <pre style="display:inline;padding:0.1em;margin:0.3em;"></pre>
+/// |}
+/// |}
+/// (Print the output list in any format you like, as long as it is it easy to see what the fields are.)
+/// <br>
+/// <br>
+/// <br>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">[[Tokenize a string]]</li>
+/// <li class="rosetta__list-item">[[Brace expansion]]</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// ====
+/// <br>
+/// <br>
+/// <lang AppleScript>-- tokenize :: String -> Character -> Character -> [String]
+/// on tokenize(str, chrDelim, chrEsc)
+///     
+///     script charParse
+///         -- Record: {esc:Bool, token:String, tokens:[String]}
+///         -- charParse :: Record -> Character -> Record
+///         on lambda(a, x)
+///             set blnEsc to esc of a
+///             set blnEscChar to ((not blnEsc) and (x = chrEsc))
+///             
+///             if ((not blnEsc) and (x = chrDelim)) then
+///                 set strToken to ""
+///                 set lstTokens to (tokens of a) & token of a
+///             else
+///                 set strToken to (token of a) & cond(blnEscChar, "", x)
+///                 set lstTokens to tokens of (a)
+///             end if
+///             
+///             {esc:blnEscChar, token:strToken, tokens:lstTokens}
+///         end lambda
+///     end script
+///     
+///     set recParse to foldl(charParse, ¬
+///         {esc:false, token:"", tokens:[]}, splitOn("", str))
+///     
+///     tokens of recParse & token of recParse
+/// end tokenize
+/// <br>
+/// <br>
+/// -- TEST
+/// on run
+///     
+///     script numberedLine
+///         on lambda(a, s)
+///             set iLine to lineNum of a
+///             {lineNum:iLine + 1, report:report of a & iLine & ":" & tab & s & linefeed}
+///         end lambda
+///     end script
+///     
+///     report of foldl(numberedLine, {lineNum:1, report:""}, ¬
+///         tokenize("one^|uno||three^^^^|four^^^|^cuatro|", "|", "^"))
+/// end run
+/// <br>
+/// <br>
+/// -- GENERIC FUNCTIONS
+/// <br>
+/// -- foldl :: (a -> b -> a) -> a -> [b] -> a
+/// on foldl(f, startValue, xs)
+///     tell mReturn(f)
+///         set v to startValue
+///         set lng to length of xs
+///         repeat with i from 1 to lng
+///             set v to lambda(v, item i of xs, i, xs)
+///         end repeat
+///         return v
+///     end tell
+/// end foldl
+/// <br>
+/// -- Lift 2nd class handler function into 1st class script wrapper 
+/// -- mReturn :: Handler -> Script
+/// on mReturn(f)
+///     if class of f is script then
+///         f
+///     else
+///         script
+///             property lambda : f
+///         end script
+///     end if
+/// end mReturn
+/// <br>
+/// -- splitOn :: Text -> Text -> [Text]
+/// on splitOn(strDelim, strMain)
+///     set {dlm, my text item delimiters} to {my text item delimiters, strDelim}
+///     set xs to text items of strMain
+///     set my text item delimiters to dlm
+///     return xs
+/// end splitOn
+/// <br>
+/// -- cond :: Bool -> a -> a -> a
+/// on cond(bool, f, g)
+///     if bool then
+///         f
+///     else
+///         g
+///     end if
+/// end cond</lang>
+/// <br>
+/// <br>
+/// <pre>1:    one|uno
+/// 2:    
+/// 3:    three^^
+/// 4:    four^|cuatro
+/// 5:    
+/// </pre>
+/// <br>
+/// <br>
 
-{{task heading|Test case}}
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
-Demonstrate that your function satisfies the following test-case:
-{| class="wikitable"
-|-
-! Input
-! Output
-|-
-| style="vertical-align:top" |
-{| style="border-collapse:collapse; border:none" border="0"
-|-
-| style="border:none; text-align:right" | string:
-| style="border:none" | <pre style="display:inline;padding:0.1em;margin:0.3em;">one^|uno||three^^^^|four^^^|^cuatro|</pre>
-|-
-| style="border:none; text-align:right" | separator character:
-| style="border:none" | <pre style="display:inline;padding:0.1em;margin:0.3em;">|</pre>
-|-
-| style="border:none; text-align:right" | escape character:
-| style="border:none" | <pre style="display:inline;padding:0.1em;margin:0.3em;">^</pre>
-|}
-|
-{| style="border-collapse:collapse; border:none" border="0"
-|-
-| style="border:none" | <pre style="display:inline;padding:0.1em;margin:0.3em;">one|uno</pre>
-|-
-| style="border:none" | <pre style="display:inline;padding:0.1em;margin:0.3em;"></pre>
-|-
-| style="border:none" | <pre style="display:inline;padding:0.1em;margin:0.3em;">three^^</pre>
-|-
-| style="border:none" | <pre style="display:inline;padding:0.1em;margin:0.3em;">four^|cuatro</pre>
-|-
-| style="border:none" | <pre style="display:inline;padding:0.1em;margin:0.3em;"></pre>
-|}
-|}
-(Print the output list in any format you like, as long as it is it easy to see what the fields are.)
+/// solutions:
+function tokenize(s, esc, sep) {
+	for (var a=[], t='', i=0, e=s.length; i<e; i+=1) {
+		var c = s.charAt(i)
+		if (c == esc) t+=s.charAt(++i)
+		else if (c != sep) t+=c
+		else a.push(t), t=''		
+	}
+	a.push(t)
+	return a
+}
 
-{{task heading|Related tasks}}
+var s = 'one^|uno||three^^^^|four^^^|^cuatro|'
+document.write(s, '<br>')	
+for (var a=tokenize(s,'^','|'), i=0; i<a.length; i+=1) document.write(i, ': ', a[i], '<br>')
 
-* [[Tokenize a string]]
-* [[Brace expansion]]
-<br><br>
-
-=={{Header|AppleScript}}==
-
-{{Trans|JavaScript}}
-<lang AppleScript>-- tokenize :: String -> Character -> Character -> [String]
-on tokenize(str, chrDelim, chrEsc)
-    
-    script charParse
-        -- Record: {esc:Bool, token:String, tokens:[String]}
-        -- charParse :: Record -> Character -> Record
-        on lambda(a, x)
-            set blnEsc to esc of a
-            set blnEscChar to ((not blnEsc) and (x = chrEsc))
-            
-            if ((not blnEsc) and (x = chrDelim)) then
-                set strToken to ""
-                set lstTokens to (tokens of a) & token of a
-            else
-                set strToken to (token of a) & cond(blnEscChar, "", x)
-                set lstTokens to tokens of (a)
-            end if
-            
-            {esc:blnEscChar, token:strToken, tokens:lstTokens}
-        end lambda
-    end script
-    
-    set recParse to foldl(charParse, ¬
-        {esc:false, token:"", tokens:[]}, splitOn("", str))
-    
-    tokens of recParse & token of recParse
-end tokenize
-
-
--- TEST
-on run
-    
-    script numberedLine
-        on lambda(a, s)
-            set iLine to lineNum of a
-            {lineNum:iLine + 1, report:report of a & iLine & ":" & tab & s & linefeed}
-        end lambda
-    end script
-    
-    report of foldl(numberedLine, {lineNum:1, report:""}, ¬
-        tokenize("one^|uno||three^^^^|four^^^|^cuatro|", "|", "^"))
-end run
-
-
--- GENERIC FUNCTIONS
-
--- foldl :: (a -> b -> a) -> a -> [b] -> a
-on foldl(f, startValue, xs)
-    tell mReturn(f)
-        set v to startValue
-        set lng to length of xs
-        repeat with i from 1 to lng
-            set v to lambda(v, item i of xs, i, xs)
-        end repeat
-        return v
-    end tell
-end foldl
-
--- Lift 2nd class handler function into 1st class script wrapper 
--- mReturn :: Handler -> Script
-on mReturn(f)
-    if class of f is script then
-        f
-    else
-        script
-            property lambda : f
-        end script
-    end if
-end mReturn
-
--- splitOn :: Text -> Text -> [Text]
-on splitOn(strDelim, strMain)
-    set {dlm, my text item delimiters} to {my text item delimiters, strDelim}
-    set xs to text items of strMain
-    set my text item delimiters to dlm
-    return xs
-end splitOn
-
--- cond :: Bool -> a -> a -> a
-on cond(bool, f, g)
-    if bool then
-        f
-    else
-        g
-    end if
-end cond</lang>
-
-{{Out}}
-<pre>1:    one|uno
-2:    
-3:    three^^
-4:    four^|cuatro
-5:    
-</pre>
-
-
+/// rawSolutions:
 =={{header|JavaScript}}==
 ===ES5===
 ====Iterative====
@@ -284,3 +334,10 @@ four^|cuatro
 "four^|cuatro"
 ""</pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,59 +1,210 @@
-Solve the no connection puzzle
 
-{{task|Puzzles}} 
-You are given a box with eight holes labelled A-to-H, connected by fifteen
-straight lines in the pattern as shown
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-         <span class="rosetta__text--bold">A</span>   <span class="rosetta__text--bold">B</span>
-        /|\ /|\
-       / | X | \
-      /  |/ \|  \
-     <span class="rosetta__text--bold">C</span> - <span class="rosetta__text--bold">D</span> - <span class="rosetta__text--bold">E</span> - <span class="rosetta__text--bold">F</span>
-      \  |\ /|  /
-       \ | X | /
-        \|/ \|/
-         <span class="rosetta__text--bold">G</span>   <span class="rosetta__text--bold">H</span>
+const assert = require('chai').assert;
 
-You are also given eight pegs numbered 1-to-8. The idea is to place the pegs in
-the holes so that the (absolute) difference between any two numbers connected by
-any line is greater than one.
+/// title: Solve the no connection puzzle
+/// type: rosetta-code
 
-For example, in this attempt:
+/// categories:
+/// ?
 
-         <span class="rosetta__text--bold">4</span>   <span class="rosetta__text--bold">7</span>
-        /|\ /|\
-       / | X | \
-      /  |/ \|  \
-     <span class="rosetta__text--bold">8</span> - <span class="rosetta__text--bold">1</span> - <span class="rosetta__text--bold">6</span> - <span class="rosetta__text--bold">2</span>
-      \  |\ /|  /
-       \ | X | /
-        \|/ \|/
-         <span class="rosetta__text--bold">3</span>   <span class="rosetta__text--bold">5</span>
+/// difficulty: ?
 
-Note that 7 and 6 are connected and have a difference of 1 so it is <span class="rosetta__text--italic">not</span> a solution.
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+///  
+/// You are given a box with eight holes labelled A-to-H, connected by fifteen
+/// straight lines in the pattern as shown
+/// <br>
+///          <span class="rosetta__text--bold">A</span>   <span class="rosetta__text--bold">B</span>
+///         /|\ /|\
+///        / | X | \
+///       /  |/ \|  \
+///      <span class="rosetta__text--bold">C</span> - <span class="rosetta__text--bold">D</span> - <span class="rosetta__text--bold">E</span> - <span class="rosetta__text--bold">F</span>
+///       \  |\ /|  /
+///        \ | X | /
+///         \|/ \|/
+///          <span class="rosetta__text--bold">G</span>   <span class="rosetta__text--bold">H</span>
+/// <br>
+/// You are also given eight pegs numbered 1-to-8. The idea is to place the pegs in
+/// the holes so that the (absolute) difference between any two numbers connected by
+/// any line is greater than one.
+/// <br>
+/// For example, in this attempt:
+/// <br>
+///          <span class="rosetta__text--bold">4</span>   <span class="rosetta__text--bold">7</span>
+///         /|\ /|\
+///        / | X | \
+///       /  |/ \|  \
+///      <span class="rosetta__text--bold">8</span> - <span class="rosetta__text--bold">1</span> - <span class="rosetta__text--bold">6</span> - <span class="rosetta__text--bold">2</span>
+///       \  |\ /|  /
+///        \ | X | /
+///         \|/ \|/
+///          <span class="rosetta__text--bold">3</span>   <span class="rosetta__text--bold">5</span>
+/// <br>
+/// Note that 7 and 6 are connected and have a difference of 1 so it is <span class="rosetta__text--italic">not</span> a solution.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task</dt></dl>
+/// Produce and show here <span class="rosetta__text--italic">one</span> solution to the puzzle.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">[[A* search algorithm]]</li>
+/// <li class="rosetta__list-item">[[Solve a Holy Knight's tour]]</li>
+/// <li class="rosetta__list-item">[[Knight's tour]]</li>
+/// <li class="rosetta__list-item">[[N-queens problem]]</li>
+/// <li class="rosetta__list-item">[[Solve a Hidato puzzle]]</li>
+/// <li class="rosetta__list-item">[[Solve a Holy Knight's tour]]</li>
+/// <li class="rosetta__list-item">[[Solve a Hopido puzzle]]</li>
+/// <li class="rosetta__list-item">[[Solve a Numbrix puzzle]]</li>
+/// <li class="rosetta__list-item">[[4-rings or 4-squares puzzle]]</li>
+/// <br>
+/// </ul>
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">See also</dt></dl>
+/// [https://www.youtube.com/watch?v=AECElyEyZBQ No Connection Puzzle] (youtube).
+/// <br><br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+(() => {
+    'use strict';
+
+    // GENERIC FUNCTIONS ------------------------------------------------------
+
+    // abs :: Num a => a -> a
+    const abs = Math.abs;
+
+    // all :: (a -> Bool) -> [a] -> Bool
+    const all = (f, xs) => xs.every(f);
+
+    // concatMap :: (a -> [b]) -> [a] -> [b]
+    const concatMap = (f, xs) => [].concat.apply([], xs.map(f));
+
+    // delete_ :: Eq a => a -> [a] -> [a]
+    const delete_ = (x, xs) =>
+        deleteBy((a, b) => a === b, x, xs);
+
+    // deleteBy :: (a -> a -> Bool) -> a -> [a] -> [a]
+    const deleteBy = (f, x, xs) =>
+        xs.length > 0 ? (
+            f(x, xs[0]) ? (
+                xs.slice(1)
+            ) : [xs[0]].concat(deleteBy(f, x, xs.slice(1)))
+        ) : [];
+
+    // enumFromTo :: Enum a => a -> a -> [a]
+    const enumFromTo = (m, n) => {
+        const [tm, tn] = [typeof m, typeof n];
+        return tm !== tn ? undefined : (() => {
+            const
+                blnS = (tm === 'string'),
+                [base, end] = [m, n].map(blnS ? (s => s.codePointAt(0)) : id);
+            return Array.from({
+                length: Math.floor(end - base) + 1
+            }, (_, i) => blnS ? String.fromCodePoint(base + i) : m + i);
+        })();
+    };
+
+    // id :: a -> a
+    const id = x => x;
+
+    // justifyRight :: Int -> Char -> Text -> Text
+    const justifyRight = (n, cFiller, strText) =>
+        n > strText.length ? (
+            (cFiller.repeat(n) + strText)
+            .slice(-n)
+        ) : strText;
+
+    // permutations :: [a] -> [[a]]
+    const permutations = xs =>
+        xs.length ? concatMap(x => concatMap(ys => [
+                [x].concat(ys)
+            ],
+            permutations(delete_(x, xs))), xs) : [
+            []
+        ];
+
+    // show :: a -> String
+    const show = x => JSON.stringify(x);
+
+    // unlines :: [String] -> String
+    const unlines = xs => xs.join('\n');
+
+    // until :: (a -> Bool) -> (a -> a) -> a -> a
+    const until = (p, f, x) => {
+        let v = x;
+        while (!p(v)) v = f(v);
+        return v;
+    };
+
+    // unwords :: [String] -> String
+    const unwords = xs => xs.join(' ');
+
+    // zipWith :: (a -> b -> c) -> [a] -> [b] -> [c]
+    const zipWith = (f, xs, ys) => {
+        const ny = ys.length;
+        return (xs.length <= ny ? xs : xs.slice(0, ny))
+            .map((x, i) => f(x, ys[i]));
+    };
 
 
-;Task
-Produce and show here <span class="rosetta__text--italic">one</span> solution to the puzzle.
+    // CONNECTION PUZZLE ------------------------------------------------------
 
+    // universe :: [[Int]]
+    const universe = permutations(enumFromTo(1, 8));
 
-;Related tasks:
-* [[A* search algorithm]]
-* [[Solve a Holy Knight's tour]]
-* [[Knight's tour]]
-* [[N-queens problem]]
-* [[Solve a Hidato puzzle]]
-* [[Solve a Holy Knight's tour]]
-* [[Solve a Hopido puzzle]]
-* [[Solve a Numbrix puzzle]]
-* [[4-rings or 4-squares puzzle]]
+    // isSolution :: [Int] -> Bool
+    const isSolution = ([a, b, c, d, e, f, g, h]) =>
+        all(x => abs(x) > 1, [a - d, c - d, g - d, e - d, a - c, c - g, g - e,
+            e - a, b - e, d - e, h - e, f - e, b - d, d - h, h - f, f - b
+        ]);
 
+    // firstSolution :: [Int]
+    const firstSolution = universe[until(
+        i => isSolution(universe[i]),
+        i => i + 1,
+        0
+    )];
 
+    // TEST -------------------------------------------------------------------
 
-;See also
-[https://www.youtube.com/watch?v=AECElyEyZBQ No Connection Puzzle] (youtube).
-<br><br>
+    // [Int]
+    const [a, b, c, d, e, f, g, h] = firstSolution;
 
+    return unlines(
+        zipWith(
+            (a, n) => a + ' = ' + n.toString(),
+            enumFromTo('A', 'H'),
+            firstSolution
+        )
+        .concat(
+            [
+                [],
+                [a, b],
+                [c, d, e, f],
+                [g, h]
+            ].map(xs => justifyRight(5, ' ', unwords(xs.map(show))))
+        )
+    );
+})();
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 ===ES6===
 {{Trans|Haskell}}
@@ -192,3 +343,10 @@ H = 6
 7 1 8 2
   5 6</pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

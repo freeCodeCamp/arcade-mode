@@ -1,17 +1,53 @@
-Parallel Brute Force
 
-{{task|Parallel Brute Force}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
+const assert = require('chai').assert;
 
-Find, through brute force, the five-letter passwords corresponding with the following <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/SHA-256" title="wp: SHA-256">SHA-256</a> hashes:
+/// title: Parallel Brute Force
+/// type: rosetta-code
 
- 1. 1115dd800feaacefdf481f1f9070374a2a81e27880f187396db67958b207cbad
- 2. 3a7bd3e2360a3d29eea436fcfb7e44c735d117c42d1c1835420b6b9942dd4f1b
- 3. 74e1bb62f8dabb8125a58852b63bdf6eaef667cb56ac7f7cdba6d7305c50a22f
+/// categories:
+/// ?
 
-Your program should naively iterate through all possible passwords consisting only of five lower-case ASCII English letters.  It should use concurrent or parallel processing, if your language supports that feature.  You may calculate SHA-256 hashes by calling a library or through a custom implementation. Print each matching password, along with its SHA-256 hash. 
+/// difficulty: ?
 
-Related task:  [[SHA-256]]
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <br>
+/// Find, through brute force, the five-letter passwords corresponding with the following <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/SHA-256" title="wp: SHA-256">SHA-256</a> hashes:
+/// <br>
+///  1. 1115dd800feaacefdf481f1f9070374a2a81e27880f187396db67958b207cbad
+///  2. 3a7bd3e2360a3d29eea436fcfb7e44c735d117c42d1c1835420b6b9942dd4f1b
+///  3. 74e1bb62f8dabb8125a58852b63bdf6eaef667cb56ac7f7cdba6d7305c50a22f
+/// <br>
+/// Your program should naively iterate through all possible passwords consisting only of five lower-case ASCII English letters.  It should use concurrent or parallel processing, if your language supports that feature.  You may calculate SHA-256 hashes by calling a library or through a custom implementation. Print each matching password, along with its SHA-256 hash. 
+/// <br>
+/// Related task:  [[SHA-256]]
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,27 +1,63 @@
-Modular inverse
 
-{{task}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-From [http://en.wikipedia.org/wiki/Modular_multiplicative_inverse Wikipedia]:
+const assert = require('chai').assert;
 
-In <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/modular arithmetic" title="wp: modular arithmetic">modular arithmetic]], &nbsp; the <span class="rosetta__text--bold">modular multiplicative inverse</span> of an [[integer]] &nbsp; <big> <span class="rosetta__text--italic">a</span> </big> &nbsp; [[wp:modular arithmetic|modulo</a> &nbsp; <big> <span class="rosetta__text--italic">m</span> </big> &nbsp; is an integer &nbsp; <big> <span class="rosetta__text--italic">x</span> </big> &nbsp; such that
+/// title: Modular inverse
+/// type: rosetta-code
 
-::$a\,x \equiv 1 \pmod{m}.$
+/// categories:
+/// ?
 
-Or in other words, such that:
+/// difficulty: ?
 
-::$\exists k \in\Z,\qquad a\, x = 1 + k\,m$
+/// benchmark:
+replaceWithActualFunctionHere;
 
-It can be shown that such an inverse exists &nbsp; if and only if &nbsp; <big> <span class="rosetta__text--italic">a</span> </big> &nbsp; and &nbsp; <big> <span class="rosetta__text--italic">m</span> </big> &nbsp; are <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/coprime" title="wp: coprime">coprime</a>, &nbsp; but we will ignore this for this task.
+/// description:
+/// <br>
+/// <br>
+/// From [http://en.wikipedia.org/wiki/Modular_multiplicative_inverse Wikipedia]:
+/// <br>
+/// In <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/modular arithmetic" title="wp: modular arithmetic">modular arithmetic]], &nbsp; the <span class="rosetta__text--bold">modular multiplicative inverse</span> of an [[integer]] &nbsp; <big> <span class="rosetta__text--italic">a</span> </big> &nbsp; [[wp:modular arithmetic|modulo</a> &nbsp; <big> <span class="rosetta__text--italic">m</span> </big> &nbsp; is an integer &nbsp; <big> <span class="rosetta__text--italic">x</span> </big> &nbsp; such that
+/// <br>
+/// <span class="rosetta__text--indented">:$a\,x \equiv 1 \pmod{m}.$</span>
+/// <br>
+/// Or in other words, such that:
+/// <br>
+/// <span class="rosetta__text--indented">:$\exists k \in\Z,\qquad a\, x = 1 + k\,m$</span>
+/// <br>
+/// It can be shown that such an inverse exists &nbsp; if and only if &nbsp; <big> <span class="rosetta__text--italic">a</span> </big> &nbsp; and &nbsp; <big> <span class="rosetta__text--italic">m</span> </big> &nbsp; are <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/coprime" title="wp: coprime">coprime</a>, &nbsp; but we will ignore this for this task.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Either by implementing the algorithm, by using a dedicated library or by using a built-in function in 
+/// your language, &nbsp; compute the modular inverse of &nbsp; 42 modulo 2017.
+/// <br>
+/// <br>
+/// <br>
+/// <br>
 
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
-;Task:
-Either by implementing the algorithm, by using a dedicated library or by using a built-in function in 
-your language, &nbsp; compute the modular inverse of &nbsp; 42 modulo 2017.
+/// solutions:
+var modInverse = function(a, b) {
+    a %= b;
+    for (var x = 1; x < b; x++) {
+        if ((a*x)%b == 1) {
+            return x;
+        }
+    }
+}
 
-
-
-
+/// rawSolutions:
 =={{header|JavaScript}}==
 Using brute force.
 <lang javascript>var modInverse = function(a, b) {
@@ -33,3 +69,10 @@ Using brute force.
     }
 }</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

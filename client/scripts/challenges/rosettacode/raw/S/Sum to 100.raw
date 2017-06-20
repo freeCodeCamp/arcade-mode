@@ -1,39 +1,294 @@
-Sum to 100
 
-[[Category:Puzzles]]
-{{task}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Find solutions to the &nbsp; <span class="rosetta__text--italic">sum to one hundred</span> &nbsp; puzzle.
+const assert = require('chai').assert;
 
+/// title: Sum to 100
+/// type: rosetta-code
 
-Add (insert) the mathematical
-operators &nbsp; &nbsp; <big> <span class="rosetta__text--bold">+</span> </big> &nbsp; or &nbsp; <big> <span class="rosetta__text--bold">─</span> </big> &nbsp; &nbsp; (plus
-or minus) &nbsp; before any of the digits in the
-<br>decimal numeric string &nbsp; <big> <span class="rosetta__text--bold">123456789</span> </big> &nbsp; such that the
-resulting mathematical expression adds up to a
-<br>particular sum &nbsp;  (in this iconic case, &nbsp; <span class="rosetta__text--bold">100</span>).
+/// categories:
+/// ?
 
+/// difficulty: ?
 
-Example:   
-         <b> <big>  123 + 4 - 5 + 67 - 89   =   100  </big> </b>
+/// benchmark:
+replaceWithActualFunctionHere;
 
-Show all output here.
+/// description:
+/// [[Category:Puzzles]]
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Find solutions to the &nbsp; <span class="rosetta__text--italic">sum to one hundred</span> &nbsp; puzzle.
+/// <br>
+/// <br>
+/// Add (insert) the mathematical
+/// operators &nbsp; &nbsp; <big> <span class="rosetta__text--bold">+</span> </big> &nbsp; or &nbsp; <big> <span class="rosetta__text--bold">─</span> </big> &nbsp; &nbsp; (plus
+/// or minus) &nbsp; before any of the digits in the
+/// <br>decimal numeric string &nbsp; <big> <span class="rosetta__text--bold">123456789</span> </big> &nbsp; such that the
+/// resulting mathematical expression adds up to a
+/// <br>particular sum &nbsp;  (in this iconic case, &nbsp; <span class="rosetta__text--bold">100</span>).
+/// <br>
+/// <br>
+/// Example:   
+///          <b> <big>  123 + 4 - 5 + 67 - 89   =   100  </big> </b>
+/// <br>
+/// Show all output here.
+/// <br>
+/// <br>
+/// <span class="rosetta__text--indented">* &nbsp; Show all solutions that sum to &nbsp; <big> <span class="rosetta__text--bold">100</span> </big></span>
+/// <span class="rosetta__text--indented">* &nbsp; Show the sum that has the maximum &nbsp; <span class="rosetta__text--italic">number</span> &nbsp; of solutions &nbsp; (from zero to infinity<sup>*</sup>)</span>
+/// <span class="rosetta__text--indented">* &nbsp; Show the lowest positive sum that &nbsp; <span class="rosetta__text--italic">can't</span> &nbsp; be expressed &nbsp; (has no solutions), using the rules for this task</span>
+/// <span class="rosetta__text--indented">* &nbsp; Show the ten highest numbers that can be expressed using the rules for this task &nbsp; (extra credit)</span>
+/// <br>
+/// <br>
+/// An example of a sum that can't be expressed (within the rules of this task) is: &nbsp; <span class="rosetta__text--bold">5074</span>
+/// <br>which, of course, is not the lowest positive sum that can't be expressed.
+/// <br>
+/// <br>
+/// <sup>*</sup> &nbsp; (where &nbsp; <span class="rosetta__text--italic">infinity</span> &nbsp; would be a relatively small &nbsp; 123,456,789)
+/// <br><br>
+/// <br>
 
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
-:* &nbsp; Show all solutions that sum to &nbsp; <big> <span class="rosetta__text--bold">100</span> </big>
-:* &nbsp; Show the sum that has the maximum &nbsp; <span class="rosetta__text--italic">number</span> &nbsp; of solutions &nbsp; (from zero to infinity<sup>*</sup>)
-:* &nbsp; Show the lowest positive sum that &nbsp; <span class="rosetta__text--italic">can't</span> &nbsp; be expressed &nbsp; (has no solutions), using the rules for this task
-:* &nbsp; Show the ten highest numbers that can be expressed using the rules for this task &nbsp; (extra credit)
+/// solutions:
+(function () {
+    'use strict';
 
+    // GENERIC FUNCTIONS ----------------------------------------------------
 
-An example of a sum that can't be expressed (within the rules of this task) is: &nbsp; <span class="rosetta__text--bold">5074</span>
-<br>which, of course, is not the lowest positive sum that can't be expressed.
+    // permutationsWithRepetition :: Int -> [a] -> [[a]]
+    var permutationsWithRepetition = function (n, as) {
+        return as.length > 0 ?
+            foldl1(curry(cartesianProduct)(as), replicate(n, as)) : [];
+    };
 
+    // cartesianProduct :: [a] -> [b] -> [[a, b]]
+    var cartesianProduct = function (xs, ys) {
+        return [].concat.apply([], xs.map(function (x) {
+            return [].concat.apply([], ys.map(function (y) {
+                return [
+                    [x].concat(y)
+                ];
+            }));
+        }));
+    };
 
-<sup>*</sup> &nbsp; (where &nbsp; <span class="rosetta__text--italic">infinity</span> &nbsp; would be a relatively small &nbsp; 123,456,789)
-<br><br>
+    // curry :: ((a, b) -> c) -> a -> b -> c
+    var curry = function (f) {
+        return function (a) {
+            return function (b) {
+                return f(a, b);
+            };
+        };
+    };
 
+    // flip :: (a -> b -> c) -> b -> a -> c
+    var flip = function (f) {
+        return function (a, b) {
+            return f.apply(null, [b, a]);
+        };
+    };
+
+    // foldl1 :: (a -> a -> a) -> [a] -> a
+    var foldl1 = function (f, xs) {
+        return xs.length > 0 ? xs.slice(1)
+            .reduce(f, xs[0]) : [];
+    };
+
+    // replicate :: Int -> a -> [a]
+    var replicate = function (n, a) {
+        var v = [a],
+            o = [];
+        if (n < 1) return o;
+        while (n > 1) {
+            if (n & 1) o = o.concat(v);
+            n >>= 1;
+            v = v.concat(v);
+        }
+        return o.concat(v);
+    };
+
+    // group :: Eq a => [a] -> [[a]]
+    var group = function (xs) {
+        return groupBy(function (a, b) {
+            return a === b;
+        }, xs);
+    };
+
+    // groupBy :: (a -> a -> Bool) -> [a] -> [[a]]
+    var groupBy = function (f, xs) {
+        var dct = xs.slice(1)
+            .reduce(function (a, x) {
+                var h = a.active.length > 0 ? a.active[0] : undefined,
+                    blnGroup = h !== undefined && f(h, x);
+
+                return {
+                    active: blnGroup ? a.active.concat(x) : [x],
+                    sofar: blnGroup ? a.sofar : a.sofar.concat([a.active])
+                };
+            }, {
+                active: xs.length > 0 ? [xs[0]] : [],
+                sofar: []
+            });
+        return dct.sofar.concat(dct.active.length > 0 ? [dct.active] : []);
+    };
+
+    // compare :: a -> a -> Ordering
+    var compare = function (a, b) {
+        return a < b ? -1 : a > b ? 1 : 0;
+    };
+
+    // on :: (b -> b -> c) -> (a -> b) -> a -> a -> c
+    var on = function (f, g) {
+        return function (a, b) {
+            return f(g(a), g(b));
+        };
+    };
+
+    // nub :: [a] -> [a]
+    var nub = function (xs) {
+        return nubBy(function (a, b) {
+            return a === b;
+        }, xs);
+    };
+
+    // nubBy :: (a -> a -> Bool) -> [a] -> [a]
+    var nubBy = function (p, xs) {
+        var x = xs.length ? xs[0] : undefined;
+
+        return x !== undefined ? [x].concat(nubBy(p, xs.slice(1)
+            .filter(function (y) {
+                return !p(x, y);
+            }))) : [];
+    };
+
+    // find :: (a -> Bool) -> [a] -> Maybe a
+    var find = function (f, xs) {
+        for (var i = 0, lng = xs.length; i < lng; i++) {
+            if (f(xs[i], i)) return xs[i];
+        }
+        return undefined;
+    };
+
+    // Int -> [a] -> [a]
+    var take = function (n, xs) {
+        return xs.slice(0, n);
+    };
+
+    // unlines :: [String] -> String
+    var unlines = function (xs) {
+        return xs.join('\n');
+    };
+
+    // show :: a -> String
+    var show = function (x) {
+        return JSON.stringify(x);
+    }; //, null, 2);
+
+    // head :: [a] -> a
+    var head = function (xs) {
+        return xs.length ? xs[0] : undefined;
+    };
+
+    // tail :: [a] -> [a]
+    var tail = function (xs) {
+        return xs.length ? xs.slice(1) : undefined;
+    };
+
+    // length :: [a] -> Int
+    var length = function (xs) {
+        return xs.length;
+    };
+
+    // SIGNED DIGIT SEQUENCES  (mapped to sums and to strings)
+
+    // data Sign :: [ 0 | 1 | -1 ] = ( Unsigned | Plus | Minus )
+    // asSum :: [Sign] -> Int
+    var asSum = function (xs) {
+        var dct = xs.reduceRight(function (a, sign, i) {
+            var d = i + 1; //  zero-based index to [1-9] positions
+            if (sign !== 0) {
+                // Sum increased, digits cleared
+                return {
+                    digits: [],
+                    n: a.n + sign * parseInt([d].concat(a.digits)
+                        .join(''), 10)
+                };
+            } else return { // Digits extended, sum unchanged
+                digits: [d].concat(a.digits),
+                n: a.n
+            };
+        }, {
+            digits: [],
+            n: 0
+        });
+        return dct.n + (
+            dct.digits.length > 0 ? parseInt(dct.digits.join(''), 10) : 0
+        );
+    };
+
+    // data Sign :: [ 0 | 1 | -1 ] = ( Unsigned | Plus | Minus )
+    // asString :: [Sign] -> String
+    var asString = function (xs) {
+        var ns = xs.reduce(function (a, sign, i) {
+            var d = (i + 1)
+                .toString();
+            return sign === 0 ? a + d : a + (sign > 0 ? ' +' : ' -') + d;
+        }, '');
+
+        return ns[0] === '+' ? tail(ns) : ns;
+    };
+
+    // SUM T0 100 ------------------------------------------------------------
+
+    // universe :: [[Sign]]
+    var universe = permutationsWithRepetition(9, [0, 1, -1])
+        .filter(function (x) {
+            return x[0] !== 1;
+        });
+
+    // allNonNegativeSums :: [Int]
+    var allNonNegativeSums = universe.map(asSum)
+        .filter(function (x) {
+            return x >= 0;
+        })
+        .sort();
+
+    // uniqueNonNegativeSums :: [Int]
+    var uniqueNonNegativeSums = nub(allNonNegativeSums);
+
+    return ["Sums to 100:\n", unlines(universe.filter(function (x) {
+                return asSum(x) === 100;
+            })
+            .map(asString)),
+
+        "\n\n10 commonest sums (sum, followed by number of routes to it):\n",
+        show(take(10, group(allNonNegativeSums)
+            .sort(on(flip(compare), length))
+            .map(function (xs) {
+                return [xs[0], xs.length];
+            }))),
+
+        "\n\nFirst positive integer not expressible as a sum of this kind:\n",
+        show(find(function (x, i) {
+            return x !== i;
+        }, uniqueNonNegativeSums.sort(compare)) - 1), // zero-based index
+
+        "\n10 largest sums:\n",
+        show(take(10, uniqueNonNegativeSums.sort(flip(compare))))
+    ].join('\n') + '\n';
+})();
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 ===ES5===
 {{Trans|Haskell}}
@@ -681,3 +936,10 @@ Show the ten highest numbers that can be expressed
 3456788 = 1-2+3456789
 3456786 = -1-2+3456789</pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

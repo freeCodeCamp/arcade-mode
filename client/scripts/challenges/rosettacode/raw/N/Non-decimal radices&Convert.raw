@@ -1,25 +1,58 @@
-Non-decimal radices/Convert
 
-{{task|Arithmetic operations}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-Number base conversion is when you express a stored integer in an integer base, such as in octal (base 8) or binary (base 2). It also is involved when you take a string representing a number in a given base and convert it to the stored integer form. Normally, a stored integer is in binary, but that's typically invisible to the user, who normally enters or sees stored integers as decimal.  
+const assert = require('chai').assert;
 
+/// title: Non-decimal radices/Convert
+/// type: rosetta-code
 
-;Task:
-Write a function (or identify the built-in function) which is passed a non-negative integer to convert, and another integer representing the base. 
+/// categories:
+/// ?
 
-It should return a string containing the digits of the resulting number, without leading zeros except for the number &nbsp; <span class="rosetta__text--bold">0</span> &nbsp; itself. 
+/// difficulty: ?
 
-For the digits beyond 9, one should use the lowercase English alphabet, where the digit &nbsp; <span class="rosetta__text--bold">a</span> = 9+1, &nbsp; <span class="rosetta__text--bold">b</span> = a+1, &nbsp; etc. 
+/// benchmark:
+replaceWithActualFunctionHere;
 
-For example: &nbsp; the decimal number &nbsp; <span class="rosetta__text--bold">26</span> &nbsp; expressed in base &nbsp; <span class="rosetta__text--bold">16</span> &nbsp; would be &nbsp; <span class="rosetta__text--bold">1a</span>.
+/// description:
+/// <br>
+/// <br>
+/// Number base conversion is when you express a stored integer in an integer base, such as in octal (base 8) or binary (base 2). It also is involved when you take a string representing a number in a given base and convert it to the stored integer form. Normally, a stored integer is in binary, but that's typically invisible to the user, who normally enters or sees stored integers as decimal.  
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Write a function (or identify the built-in function) which is passed a non-negative integer to convert, and another integer representing the base. 
+/// <br>
+/// It should return a string containing the digits of the resulting number, without leading zeros except for the number &nbsp; <span class="rosetta__text--bold">0</span> &nbsp; itself. 
+/// <br>
+/// For the digits beyond 9, one should use the lowercase English alphabet, where the digit &nbsp; <span class="rosetta__text--bold">a</span> = 9+1, &nbsp; <span class="rosetta__text--bold">b</span> = a+1, &nbsp; etc. 
+/// <br>
+/// For example: &nbsp; the decimal number &nbsp; <span class="rosetta__text--bold">26</span> &nbsp; expressed in base &nbsp; <span class="rosetta__text--bold">16</span> &nbsp; would be &nbsp; <span class="rosetta__text--bold">1a</span>.
+/// <br>
+/// Write a second function which is passed a string and an integer base, and it returns an integer representing that string interpreted in that base.
+/// <br>
+/// The programs may be limited by the word size or other such constraint of a given language. There is no need to do error checking for negatives, bases less than 2, or inappropriate digits.
+/// <br><br>
+/// <br>
+/// <br>
 
-Write a second function which is passed a string and an integer base, and it returns an integer representing that string interpreted in that base.
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
-The programs may be limited by the word size or other such constraint of a given language. There is no need to do error checking for negatives, bases less than 2, or inappropriate digits.
-<br><br>
+/// solutions:
+k = 26
+s = k.toString(16) //gives 1a
+i = parseInt('1a',16) //gives 26
+//optional special case for hex:
+i = +('0x'+s) //hexadecimal base 16, if s='1a' then i=26.
 
-
+/// rawSolutions:
 =={{header|JavaScript}}==
 ===ES5===
 <lang javascript>k = 26
@@ -198,3 +231,10 @@ For more flexibility with digit variants (upper and lower case hex, digits in ot
   "devanagariDecimal": "२४०"
 }</pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

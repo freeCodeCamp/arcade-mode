@@ -1,26 +1,64 @@
-Percolation/Mean cluster density
 
-{{task|Percolation Simulations}}{{Percolation Simulation}}
-Let $c$ be a 2D boolean square matrix of $n \times n$ values of either <tt>1</tt> or <tt>0</tt> where the 
-probability of any value being <tt>1</tt> is $p$, (and of <tt>0</tt> is therefore $1-p$). 
-We define a <span class="rosetta__text--italic">cluster</span> of <tt>1</tt>'s as being a group of <tt>1</tt>'s connected vertically or
-horizontally (i.e., using the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Von Neumann neighborhood" title="wp: Von Neumann neighborhood">Von Neumann neighborhood rule</a>) and bounded by either $0$ or by the limits of the matrix.
-Let the number of such clusters in such a randomly constructed matrix be $C_n$.
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-Percolation theory states that $K(p)$ (the mean cluster density) will satisfy $K(p) = C_n / n^2$ as $n$ tends to infinity. For $p = 0.5$, $K(p)$ is found numerically to approximate $0.065770$...
+const assert = require('chai').assert;
 
-;Task
+/// title: Percolation/Mean cluster density
+/// type: rosetta-code
 
-Show the effect of varying $n$ on the accuracy of simulated $K(p)$ for $p = 0.5$ and 
-for values of $n$ up to at least $1000$.
-Any calculation of $C_n$ for finite $n$ is subject to randomness, so an approximation should be 
-computed as the average of $t$ runs, where $t$ &ge; $5$.
+/// categories:
+/// ?
 
-For extra credit, graphically show clusters in a $15\times 15$, $p=0.5$ grid.
+/// difficulty: ?
 
-Show your output here.
+/// benchmark:
+replaceWithActualFunctionHere;
 
-;See also
-* [http://mathworld.wolfram.com/s-Cluster.html s-Cluster] on Wolfram mathworld.
+/// description:
+/// <br>
+/// Let $c$ be a 2D boolean square matrix of $n \times n$ values of either <tt>1</tt> or <tt>0</tt> where the 
+/// probability of any value being <tt>1</tt> is $p$, (and of <tt>0</tt> is therefore $1-p$). 
+/// We define a <span class="rosetta__text--italic">cluster</span> of <tt>1</tt>'s as being a group of <tt>1</tt>'s connected vertically or
+/// horizontally (i.e., using the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Von Neumann neighborhood" title="wp: Von Neumann neighborhood">Von Neumann neighborhood rule</a>) and bounded by either $0$ or by the limits of the matrix.
+/// Let the number of such clusters in such a randomly constructed matrix be $C_n$.
+/// <br>
+/// Percolation theory states that $K(p)$ (the mean cluster density) will satisfy $K(p) = C_n / n^2$ as $n$ tends to infinity. For $p = 0.5$, $K(p)$ is found numerically to approximate $0.065770$...
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task</dt></dl>
+/// <br>
+/// Show the effect of varying $n$ on the accuracy of simulated $K(p)$ for $p = 0.5$ and 
+/// for values of $n$ up to at least $1000$.
+/// Any calculation of $C_n$ for finite $n$ is subject to randomness, so an approximation should be 
+/// computed as the average of $t$ runs, where $t$ &ge; $5$.
+/// <br>
+/// For extra credit, graphically show clusters in a $15\times 15$, $p=0.5$ grid.
+/// <br>
+/// Show your output here.
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">See also</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">[http://mathworld.wolfram.com/s-Cluster.html s-Cluster] on Wolfram mathworld.</li>
+/// <br>
+/// </ul>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

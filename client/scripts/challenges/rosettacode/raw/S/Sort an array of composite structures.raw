@@ -1,26 +1,63 @@
-Sort an array of composite structures
 
-{{task|Sorting}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-Sort an array of composite structures by a key. 
+const assert = require('chai').assert;
+
+/// title: Sort an array of composite structures
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// Sort an array of composite structures by a key. 
+/// <br>
+/// <br>
+/// For example, if you define a composite structure that presents a name-value pair (in pseudo-code):
+/// <br>
+///  Define structure pair such that: 
+///     name as a string
+///     value as a string
+/// <br>
+/// and an array of such pairs:
+/// <br>
+///  x: array of pairs
+/// <br>
+/// then define a sort routine that sorts the array <span class="rosetta__text--italic">x</span> by the key <span class="rosetta__text--italic">name</span>.
+/// <br>
+/// This task can always be accomplished with [[Sorting Using a Custom Comparator]]. If your language is not listed here, please see the other article.
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+var arr = [
+  {id: 3, value: "foo"},
+  {id: 2, value: "bar"},
+  {id: 4, value: "baz"},
+  {id: 1, value: 42},
+  {id: 5, something: "another string"} // Works with any object declaring 'id' as a number.
+];
+arr = arr.sort(function(a, b) {return a.id - b.id}); // Sort with comparator checking the id.
 
 
-For example, if you define a composite structure that presents a name-value pair (in pseudo-code):
-
- Define structure pair such that: 
-    name as a string
-    value as a string
-
-and an array of such pairs:
-
- x: array of pairs
-
-then define a sort routine that sorts the array <span class="rosetta__text--italic">x</span> by the key <span class="rosetta__text--italic">name</span>.
-
-This task can always be accomplished with [[Sorting Using a Custom Comparator]]. If your language is not listed here, please see the other article.
-<br><br>
-
-
+/// rawSolutions:
 =={{header|JavaScript}}==
 ===ES5===
 <lang javascript>var arr = [
@@ -222,3 +259,10 @@ arr = arr.sort(function(a, b) {return a.id - b.id}); // Sort with comparator che
   ]
 }</pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

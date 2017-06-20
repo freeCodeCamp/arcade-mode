@@ -1,26 +1,62 @@
-Atomic updates
 
-{{task|Concurrency}}
-{{requires|Concurrency}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Define a data type consisting of a fixed number of 'buckets', each containing a nonnegative integer value, which supports operations to:
-# get the current value of any bucket
-# remove a specified amount from one specified bucket and add it to another, preserving the total of all bucket values, and <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Clamping (graphics)" title="wp: Clamping (graphics)">clamping</a> the transferred amount to ensure the values remain non-negative
+const assert = require('chai').assert;
 
-----
+/// title: Atomic updates
+/// type: rosetta-code
 
-In order to exercise this data type, create one set of buckets, and start three concurrent tasks:
-# As often as possible, pick two buckets and make their values closer to equal.
-# As often as possible, pick two buckets and arbitrarily redistribute their values.
-# At whatever rate is convenient, display (by any means) the total value and, optionally, the individual values of each bucket.
+/// categories:
+/// ?
 
-<br>
-The display task need not be explicit; use of e.g. a debugger or trace tool is acceptable provided it is simple to set up to provide the display.
+/// difficulty: ?
 
-----
+/// benchmark:
+replaceWithActualFunctionHere;
 
-This task is intended as an exercise in <span class="rosetta__text--italic">atomic</span> operations. &nbsp; The sum of the bucket values must be preserved even if the two tasks attempt to perform transfers simultaneously, and a straightforward solution is to ensure that at any time, only one transfer is actually occurring — that the transfer operation is <span class="rosetta__text--italic">atomic</span>.
-<br><br>
+/// description:
+/// <br>
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Define a data type consisting of a fixed number of 'buckets', each containing a nonnegative integer value, which supports operations to:
+/// # get the current value of any bucket
+/// # remove a specified amount from one specified bucket and add it to another, preserving the total of all bucket values, and <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Clamping (graphics)" title="wp: Clamping (graphics)">clamping</a> the transferred amount to ensure the values remain non-negative
+/// <br>
+/// ----
+/// <br>
+/// In order to exercise this data type, create one set of buckets, and start three concurrent tasks:
+/// # As often as possible, pick two buckets and make their values closer to equal.
+/// # As often as possible, pick two buckets and arbitrarily redistribute their values.
+/// # At whatever rate is convenient, display (by any means) the total value and, optionally, the individual values of each bucket.
+/// <br>
+/// <br>
+/// The display task need not be explicit; use of e.g. a debugger or trace tool is acceptable provided it is simple to set up to provide the display.
+/// <br>
+/// ----
+/// <br>
+/// This task is intended as an exercise in <span class="rosetta__text--italic">atomic</span> operations. &nbsp; The sum of the bucket values must be preserved even if the two tasks attempt to perform transfers simultaneously, and a straightforward solution is to ensure that at any time, only one transfer is actually occurring — that the transfer operation is <span class="rosetta__text--italic">atomic</span>.
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

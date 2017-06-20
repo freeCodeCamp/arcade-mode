@@ -1,40 +1,137 @@
-Text processing/1
 
-{{task|Text processing}}{{Template:clarify task}}
-Often data is produced by one program, in the wrong format for later use by another program or person. In these situations another program can be written to parse and transform the original data into a format useful to the other. The term "Data Munging" is [http://www.google.co.uk/search?q=%22data+munging%22 often] used in programming circles for this task.
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-A [http://groups.google.co.uk/group/comp.lang.awk/msg/0ecba3a3fbf247d8?hl=en request] on the comp.lang.awk newsgroup led to a typical data munging task:
-<pre>I have to analyse data files that have the following format:
-Each row corresponds to 1 day and the field logic is: $1 is the date,
-followed by 24 value/flag pairs, representing measurements at 01:00,
-02:00 ... 24:00 of the respective day. In short:
+const assert = require('chai').assert;
 
-<date> <val1> <flag1> <val2> <flag2> ...  <val24> <flag24>
+/// title: Text processing/1
+/// type: rosetta-code
 
-Some test data is available at: 
-... (nolonger available at original location)
+/// categories:
+/// ?
 
-I have to sum up the values (per day and only valid data, i.e. with
-flag>0) in order to calculate the mean. That's not too difficult.
-However, I also need to know what the "maximum data gap" is, i.e. the
-longest period with successive invalid measurements (i.e values with
-flag<=0)</pre>
+/// difficulty: ?
 
-The data is [http://www.eea.europa.eu/help/eea-help-centre/faqs/how-do-i-obtain-eea-reports free to download and use] and is of this format:
-<pre style="overflow:scroll">
-1991-03-30	10.000	1	10.000	1	10.000	1	10.000	1	10.000	1	10.000	1	10.000	1	10.000	1	10.000	1	10.000	1	10.000	1	10.000	1	10.000	1	10.000	1	10.000	1	10.000	1	10.000	1	10.000	1	10.000	1	10.000	1	10.000	1	10.000	1	10.000	1	10.000	1
-1991-03-31	10.000	1	10.000	1	10.000	1	10.000	1	10.000	1	10.000	1	10.000	1	20.000	1	20.000	1	20.000	1	35.000	1	50.000	1	60.000	1	40.000	1	30.000	1	30.000	1	30.000	1	25.000	1	20.000	1	20.000	1	20.000	1	20.000	1	20.000	1	35.000	1
-1991-03-31	40.000	1	0.000	-2	0.000	-2	0.000	-2	0.000	-2	0.000	-2	0.000	-2	0.000	-2	0.000	-2	0.000	-2	0.000	-2	0.000	-2	0.000	-2	0.000	-2	0.000	-2	0.000	-2	0.000	-2	0.000	-2	0.000	-2	0.000	-2	0.000	-2	0.000	-2	0.000	-2	0.000	-2
-1991-04-01	0.000	-2	13.000	1	16.000	1	21.000	1	24.000	1	22.000	1	20.000	1	18.000	1	29.000	1	44.000	1	50.000	1	43.000	1	38.000	1	27.000	1	27.000	1	24.000	1	23.000	1	18.000	1	12.000	1	13.000	1	14.000	1	15.000	1	13.000	1	10.000	1
-1991-04-02	8.000	1	9.000	1	11.000	1	12.000	1	12.000	1	12.000	1	27.000	1	26.000	1	27.000	1	33.000	1	32.000	1	31.000	1	29.000	1	31.000	1	25.000	1	25.000	1	24.000	1	21.000	1	17.000	1	14.000	1	15.000	1	12.000	1	12.000	1	10.000	1
-1991-04-03	10.000	1	9.000	1	10.000	1	10.000	1	9.000	1	10.000	1	15.000	1	24.000	1	28.000	1	24.000	1	18.000	1	14.000	1	12.000	1	13.000	1	14.000	1	15.000	1	14.000	1	15.000	1	13.000	1	13.000	1	13.000	1	12.000	1	10.000	1	10.000	1
-</pre>
+/// benchmark:
+replaceWithActualFunctionHere;
 
-Only a sample of the data showing its format is given above. The full example file may be downloaded [http://rosettacode.org/resources/readings.zip here].
+/// description:
+/// <br>
+/// Often data is produced by one program, in the wrong format for later use by another program or person. In these situations another program can be written to parse and transform the original data into a format useful to the other. The term "Data Munging" is [http://www.google.co.uk/search?q=%22data+munging%22 often] used in programming circles for this task.
+/// <br>
+/// A [http://groups.google.co.uk/group/comp.lang.awk/msg/0ecba3a3fbf247d8?hl=en request] on the comp.lang.awk newsgroup led to a typical data munging task:
+/// <pre>I have to analyse data files that have the following format:
+/// Each row corresponds to 1 day and the field logic is: $1 is the date,
+/// followed by 24 value/flag pairs, representing measurements at 01:00,
+/// 02:00 ... 24:00 of the respective day. In short:
+/// <br>
+/// <date> <val1> <flag1> <val2> <flag2> ...  <val24> <flag24>
+/// <br>
+/// Some test data is available at: 
+/// ... (nolonger available at original location)
+/// <br>
+/// I have to sum up the values (per day and only valid data, i.e. with
+/// flag>0) in order to calculate the mean. That's not too difficult.
+/// However, I also need to know what the "maximum data gap" is, i.e. the
+/// longest period with successive invalid measurements (i.e values with
+/// flag<=0)</pre>
+/// <br>
+/// The data is [http://www.eea.europa.eu/help/eea-help-centre/faqs/how-do-i-obtain-eea-reports free to download and use] and is of this format:
+/// <pre style="overflow:scroll">
+/// 1991-03-30	10.000	1	10.000	1	10.000	1	10.000	1	10.000	1	10.000	1	10.000	1	10.000	1	10.000	1	10.000	1	10.000	1	10.000	1	10.000	1	10.000	1	10.000	1	10.000	1	10.000	1	10.000	1	10.000	1	10.000	1	10.000	1	10.000	1	10.000	1	10.000	1
+/// 1991-03-31	10.000	1	10.000	1	10.000	1	10.000	1	10.000	1	10.000	1	10.000	1	20.000	1	20.000	1	20.000	1	35.000	1	50.000	1	60.000	1	40.000	1	30.000	1	30.000	1	30.000	1	25.000	1	20.000	1	20.000	1	20.000	1	20.000	1	20.000	1	35.000	1
+/// 1991-03-31	40.000	1	0.000	-2	0.000	-2	0.000	-2	0.000	-2	0.000	-2	0.000	-2	0.000	-2	0.000	-2	0.000	-2	0.000	-2	0.000	-2	0.000	-2	0.000	-2	0.000	-2	0.000	-2	0.000	-2	0.000	-2	0.000	-2	0.000	-2	0.000	-2	0.000	-2	0.000	-2	0.000	-2
+/// 1991-04-01	0.000	-2	13.000	1	16.000	1	21.000	1	24.000	1	22.000	1	20.000	1	18.000	1	29.000	1	44.000	1	50.000	1	43.000	1	38.000	1	27.000	1	27.000	1	24.000	1	23.000	1	18.000	1	12.000	1	13.000	1	14.000	1	15.000	1	13.000	1	10.000	1
+/// 1991-04-02	8.000	1	9.000	1	11.000	1	12.000	1	12.000	1	12.000	1	27.000	1	26.000	1	27.000	1	33.000	1	32.000	1	31.000	1	29.000	1	31.000	1	25.000	1	25.000	1	24.000	1	21.000	1	17.000	1	14.000	1	15.000	1	12.000	1	12.000	1	10.000	1
+/// 1991-04-03	10.000	1	9.000	1	10.000	1	10.000	1	9.000	1	10.000	1	15.000	1	24.000	1	28.000	1	24.000	1	18.000	1	14.000	1	12.000	1	13.000	1	14.000	1	15.000	1	14.000	1	15.000	1	13.000	1	13.000	1	13.000	1	12.000	1	10.000	1	10.000	1
+/// </pre>
+/// <br>
+/// Only a sample of the data showing its format is given above. The full example file may be downloaded [http://rosettacode.org/resources/readings.zip here].
+/// <br>
+/// Structure your program to show statistics for each line of the file, (similar to the original Python, Perl, and AWK examples below), followed by summary statistics for the file. When showing example output just show a few line statistics and the full end summary.
+/// <br>
+/// <br>
 
-Structure your program to show statistics for each line of the file, (similar to the original Python, Perl, and AWK examples below), followed by summary statistics for the file. When showing example output just show a few line statistics and the full end summary.
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
+/// solutions:
+var filename = 'readings.txt';
+var show_lines = 5;
+var file_stats = {
+    'num_readings': 0,
+    'total': 0,
+    'reject_run': 0,
+    'reject_run_max': 0,
+    'reject_run_date': ''
+};
 
+var fh = new ActiveXObject("Scripting.FileSystemObject").openTextFile(filename, 1); // 1 = for reading
+while ( ! fh.atEndOfStream) {
+    var line = fh.ReadLine();
+    line_stats(line, (show_lines-- > 0));
+}
+fh.close();
+
+WScript.echo(
+    "\nFile(s)  = " + filename + "\n" +
+    "Total    = " + dec3(file_stats.total) + "\n" +
+    "Readings = " + file_stats.num_readings + "\n" +
+    "Average  = " + dec3(file_stats.total / file_stats.num_readings) + "\n\n" +
+    "Maximum run of " + file_stats.reject_run_max + 
+    " consecutive false readings ends at " + file_stats.reject_run_date
+);
+
+function line_stats(line, print_line) {
+    var readings = 0;
+    var rejects = 0;
+    var total = 0;
+    var fields = line.split('\t');
+    var date = fields.shift();
+
+    while (fields.length > 0) {
+        var value = parseFloat(fields.shift());
+        var flag = parseInt(fields.shift(), 10);
+        readings++;
+        if (flag <= 0) {
+            rejects++;
+            file_stats.reject_run++;
+        }
+        else {
+            total += value;
+            if (file_stats.reject_run > file_stats.reject_run_max) {
+                file_stats.reject_run_max = file_stats.reject_run;
+                file_stats.reject_run_date = date;
+            }
+            file_stats.reject_run = 0;
+        }
+    }
+
+    file_stats.num_readings += readings - rejects;
+    file_stats.total += total;
+
+    if (print_line) {
+        WScript.echo(
+            "Line: " + date + "\t" +
+            "Reject: " + rejects + "\t" +
+            "Accept: " + (readings - rejects) + "\t" +
+            "Line_tot: " + dec3(total) + "\t" +
+            "Line_avg: " + ((readings == rejects) ? "0.0" : dec3(total / (readings - rejects)))
+        );
+    }
+}
+
+// round a number to 3 decimal places
+function dec3(value) {
+    return Math.round(value * 1e3) / 1e3;
+}
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 {{works with|JScript}} 
 <lang javascript>var filename = 'readings.txt';
@@ -120,3 +217,10 @@ Average  = 10.497
 
 Maximum run of 589 consecutive false readings ends at 1993-03-05</pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

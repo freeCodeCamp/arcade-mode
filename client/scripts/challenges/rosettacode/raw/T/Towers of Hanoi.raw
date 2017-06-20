@@ -1,14 +1,50 @@
-Towers of Hanoi
 
-{{task|Classic CS problems and programs}}
-[[Category:Recursion]]
-[[Category:Games]]
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Solve the &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Towers_of_Hanoi" title="wp: Towers_of_Hanoi">Towers of Hanoi</a> &nbsp; problem with recursion.
-<br><br>
+const assert = require('chai').assert;
 
+/// title: Towers of Hanoi
+/// type: rosetta-code
 
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// [[Category:Recursion]]
+/// [[Category:Games]]
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Solve the &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Towers_of_Hanoi" title="wp: Towers_of_Hanoi">Towers of Hanoi</a> &nbsp; problem with recursion.
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+function move(n, a, b, c) {
+  if (n > 0) {
+    move(n-1, a, c, b);
+    console.log("Move disk from " + a + " to " + c);
+    move(n-1, b, a, c);
+  }
+}
+move(4, "A", "B", "C");
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 ===ES5===
 <lang javascript>function move(n, a, b, c) {
@@ -79,3 +115,10 @@ Or, as a functional expression, rather than a statement with side effects:
   "left -> right"
 ]</pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

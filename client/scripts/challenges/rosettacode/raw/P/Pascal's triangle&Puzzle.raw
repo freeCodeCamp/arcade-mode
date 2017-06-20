@@ -1,22 +1,58 @@
-Pascal's triangle/Puzzle
 
-{{task}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-This puzzle involves a [http://xunor.free.fr/en/riddles/auto/pyramidnb.php Pascals Triangle], also known as a [http://xunor.free.fr/en/riddles/auto/pyramidnb.php Pyramid of Numbers].
-<pre>
-           [ 151]
-          [  ][  ]
-        [40][  ][  ]
-      [  ][  ][  ][  ]
-    [ X][11][ Y][ 4][ Z]
-</pre>
-Each brick of the pyramid is the sum of the two bricks situated below it.<br>
-Of the three missing numbers at the base of the pyramid, 
-the middle one is the sum of the other two (that is, Y = X + Z).
+const assert = require('chai').assert;
+
+/// title: Pascal's triangle/Puzzle
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// This puzzle involves a [http://xunor.free.fr/en/riddles/auto/pyramidnb.php Pascals Triangle], also known as a [http://xunor.free.fr/en/riddles/auto/pyramidnb.php Pyramid of Numbers].
+/// <pre>
+///            [ 151]
+///           [  ][  ]
+///         [40][  ][  ]
+///       [  ][  ][  ][  ]
+///     [ X][11][ Y][ 4][ Z]
+/// </pre>
+/// Each brick of the pyramid is the sum of the two bricks situated below it.<br>
+/// Of the three missing numbers at the base of the pyramid, 
+/// the middle one is the sum of the other two (that is, Y = X + Z).
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Write a program to find a solution to this puzzle.
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
-;Task:
-Write a program to find a solution to this puzzle.
-<br><br>
+/// rawSolutions:
+null
 
+/// tail:
+const replaceThis = 3;
 
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

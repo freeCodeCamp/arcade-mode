@@ -1,21 +1,56 @@
-Non-decimal radices/Output
 
-{{task|Arithmetic operations}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-Programming languages often have built-in routines to convert a non-negative integer for printing in different number bases. Such common number bases might include binary, [[Octal]] and [[Hexadecimal]].
+const assert = require('chai').assert;
 
+/// title: Non-decimal radices/Output
+/// type: rosetta-code
 
-;Task:
-Print a small range of integers in some different bases, as supported by standard routines of your programming language. 
+/// categories:
+/// ?
 
+/// difficulty: ?
 
-;Note:
-This is distinct from [[Number base conversion]] as a user-defined conversion function is <span class="rosetta__text--bold">not</span> asked for.)
+/// benchmark:
+replaceWithActualFunctionHere;
 
-The reverse operation is [[Common number base parsing]].
-<br><br>
+/// description:
+/// <br>
+/// <br>
+/// Programming languages often have built-in routines to convert a non-negative integer for printing in different number bases. Such common number bases might include binary, [[Octal]] and [[Hexadecimal]].
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Print a small range of integers in some different bases, as supported by standard routines of your programming language. 
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Note:</dt></dl>
+/// This is distinct from [[Number base conversion]] as a user-defined conversion function is <span class="rosetta__text--bold">not</span> asked for.)
+/// <br>
+/// The reverse operation is [[Common number base parsing]].
+/// <br><br>
+/// <br>
+/// <br>
 
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
+/// solutions:
+var bases = [2, 8, 10, 16, 24];
+for (var n = 0; n <= 33; n++) {
+    var row = [];
+    for (var i = 0; i < bases.length; i++)
+        row.push( n.toString(bases[i]) );
+    print(row.join(', '));
+}
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 The <code><i>number</i>.toString(<i>radix</i>)</code> method produces a string representation of a number in any radix between 2 and 36.
 
@@ -63,3 +98,10 @@ outputs
 100000, 40, 32, 20, 18
 100001, 41, 33, 21, 19</pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

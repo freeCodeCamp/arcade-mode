@@ -1,18 +1,51 @@
-Logical operations
 
-{{task|Basic Data Operations}}
-{{basic data operation}} 
-[[Category:Simple]]
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Write a function that takes two logical (boolean) values, and outputs the result of "and" and "or" on both arguments as well as "not" on the first arguments. 
+const assert = require('chai').assert;
 
-If the programming language doesn't provide a separate type for logical values, use the type most commonly used for that purpose.
+/// title: Logical operations
+/// type: rosetta-code
 
-If the language supports additional logical operations on booleans such as XOR, list them as well.
-<br><br>
+/// categories:
+/// ?
 
+/// difficulty: ?
 
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+///  
+/// [[Category:Simple]]
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Write a function that takes two logical (boolean) values, and outputs the result of "and" and "or" on both arguments as well as "not" on the first arguments. 
+/// <br>
+/// If the programming language doesn't provide a separate type for logical values, use the type most commonly used for that purpose.
+/// <br>
+/// If the language supports additional logical operations on booleans such as XOR, list them as well.
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+function logic(a,b) {
+  print("a AND b: " + (a && b));
+  print("a OR b: " + (a || b));
+  print("NOT a: " + (!a));
+}
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 <lang javascript>function logic(a,b) {
   print("a AND b: " + (a && b));
@@ -20,3 +53,10 @@ If the language supports additional logical operations on booleans such as XOR, 
   print("NOT a: " + (!a));
 }</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

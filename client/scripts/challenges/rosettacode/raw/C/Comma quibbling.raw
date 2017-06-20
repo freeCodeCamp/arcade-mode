@@ -1,29 +1,72 @@
-Comma quibbling
 
-{{task}}
-Comma quibbling is a task originally set by Eric Lippert in his [http://blogs.msdn.com/b/ericlippert/archive/2009/04/15/comma-quibbling.aspx blog].
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
+const assert = require('chai').assert;
 
-;Task:
+/// title: Comma quibbling
+/// type: rosetta-code
 
-Write a function to generate a string output which is the concatenation of input words from a list/sequence where:
-# An input of no words produces the output string of just the two brace characters "{}".
-# An input of just one word, e.g. ["ABC"], produces the output string of the word inside the two braces, e.g. "{ABC}".
-# An input of two words, e.g. ["ABC", "DEF"], produces the output string of the two words inside the two braces with the words separated by the string " and ", e.g. "{ABC and DEF}".
-# An input of three or more words, e.g. ["ABC", "DEF", "G", "H"], produces the output string of all but the last word separated by ", " with the last word separated by " and " and all within braces; e.g. "{ABC, DEF, G and H}".
+/// categories:
+/// ?
 
-<br>
-Test your function with the following series of inputs showing your output here on this page:
-* []                       # (No input words).
-* ["ABC"]
-* ["ABC", "DEF"]
-* ["ABC", "DEF", "G", "H"]
+/// difficulty: ?
 
-<br>
-Note: Assume words are non-empty strings of uppercase characters for this task.
-<br><br>
+/// benchmark:
+replaceWithActualFunctionHere;
 
+/// description:
+/// <br>
+/// Comma quibbling is a task originally set by Eric Lippert in his [http://blogs.msdn.com/b/ericlippert/archive/2009/04/15/comma-quibbling.aspx blog].
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <br>
+/// Write a function to generate a string output which is the concatenation of input words from a list/sequence where:
+/// # An input of no words produces the output string of just the two brace characters "{}".
+/// # An input of just one word, e.g. ["ABC"], produces the output string of the word inside the two braces, e.g. "{ABC}".
+/// # An input of two words, e.g. ["ABC", "DEF"], produces the output string of the two words inside the two braces with the words separated by the string " and ", e.g. "{ABC and DEF}".
+/// # An input of three or more words, e.g. ["ABC", "DEF", "G", "H"], produces the output string of all but the last word separated by ", " with the last word separated by " and " and all within braces; e.g. "{ABC, DEF, G and H}".
+/// <br>
+/// <br>
+/// Test your function with the following series of inputs showing your output here on this page:
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">[]                       # (No input words).</li>
+/// <li class="rosetta__list-item">["ABC"]</li>
+/// <li class="rosetta__list-item">["ABC", "DEF"]</li>
+/// <li class="rosetta__list-item">["ABC", "DEF", "G", "H"]</li>
+/// <br>
+/// </ul>
+/// <br>
+/// Note: Assume words are non-empty strings of uppercase characters for this task.
+/// <br><br>
+/// <br>
+/// <br>
 
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+function quibble(words) {
+  return "{" + 
+    words.slice(0, words.length-1).join(",") +
+   (words.length > 1 ? " and " : "") +
+   (words[words.length-1] || '') +
+  "}";
+}
+
+[[], ["ABC"], ["ABC", "DEF"], ["ABC", "DEF", "G", "H"]].forEach(
+  function(s) {
+    console.log(quibble(s));
+  }
+);
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 ===ES5===
 <lang javascript>function quibble(words) {
@@ -152,3 +195,10 @@ Composing from a set of generic functions:
 {Jack and Jill}
 {Loner}</pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

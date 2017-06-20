@@ -1,28 +1,78 @@
-Menu
 
-{{task|Text processing}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Given a prompt and a list containing a number of strings of which one is to be selected, create a function that:
+const assert = require('chai').assert;
 
-* prints a textual menu formatted as an index value followed by its corresponding string for each item in the list;
-* prompts the user to enter a number;
-* returns the string corresponding to the selected index number.
+/// title: Menu
+/// type: rosetta-code
 
-<br>
-The function should reject input that is not an integer or is out of range by redisplaying the whole menu before asking again for a number. The function should return an empty string if called with an empty list. 
+/// categories:
+/// ?
 
-For test purposes use the following four phrases in a list:
-    fee fie
-    huff and puff
-    mirror mirror
-    tick tock
+/// difficulty: ?
 
-;Note:
-This task is fashioned after the action of the [http://www.softpanorama.org/Scripting/Shellorama/Control_structures/select_statements.shtml Bash select statement].
-<br><br>
+/// benchmark:
+replaceWithActualFunctionHere;
 
+/// description:
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Given a prompt and a list containing a number of strings of which one is to be selected, create a function that:
+/// <br>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">prints a textual menu formatted as an index value followed by its corresponding string for each item in the list;</li>
+/// <li class="rosetta__list-item">prompts the user to enter a number;</li>
+/// <li class="rosetta__list-item">returns the string corresponding to the selected index number.</li>
+/// <br>
+/// </ul>
+/// <br>
+/// The function should reject input that is not an integer or is out of range by redisplaying the whole menu before asking again for a number. The function should return an empty string if called with an empty list. 
+/// <br>
+/// For test purposes use the following four phrases in a list:
+///     fee fie
+///     huff and puff
+///     mirror mirror
+///     tick tock
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Note:</dt></dl>
+/// This task is fashioned after the action of the [http://www.softpanorama.org/Scripting/Shellorama/Control_structures/select_statements.shtml Bash select statement].
+/// <br><br>
+/// <br>
+/// <br>
 
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+function select(question, choices) {
+    var prompt = "";
+    for (var i in choices) 
+        prompt += i + ". " + choices[i] + "\n";
+    prompt += question;
+
+    var input;
+    while (1) {
+        WScript.Echo(prompt);
+        input = parseInt( WScript.StdIn.readLine() );
+        if (0 <= input && input < choices.length)
+            break;
+        WScript.Echo("\nTry again.");
+    }
+    return input;
+}
+
+var choices = ['fee fie', 'huff and puff', 'mirror mirror', 'tick tock'];
+var choice = select("Which is from the three pigs?", choices);
+WScript.Echo("you selected: " + choice + " -> " + choices[choice]);
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 {{works with|JScript}} for the I/O.
 <lang javascript>function select(question, choices) {
@@ -46,3 +96,10 @@ var choices = ['fee fie', 'huff and puff', 'mirror mirror', 'tick tock'];
 var choice = select("Which is from the three pigs?", choices);
 WScript.Echo("you selected: " + choice + " -> " + choices[choice]);</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

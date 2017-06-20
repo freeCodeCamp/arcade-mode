@@ -1,7 +1,43 @@
-Determine if only one instance is running
 
-{{task|Programming environment operations}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-This task is to determine if there is only one instance of an application running. If the program discovers that an instance of it is already running, then it should display a message indicating that it is already running and exit.
+const assert = require('chai').assert;
+
+/// title: Determine if only one instance is running
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// This task is to determine if there is only one instance of an application running. If the program discovers that an instance of it is already running, then it should display a message indicating that it is already running and exit.
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

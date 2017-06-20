@@ -1,46 +1,133 @@
-9 billion names of God the integer
 
-{{task}}
-This task is a variation of the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/The Nine Billion Names of God#Plot_summary" title="wp: The Nine Billion Names of God#Plot_summary">short story by Arthur C. Clarke</a>.
- 
-(Solvers should be aware of the consequences of completing this task.)
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-In detail, to specify what is meant by a &nbsp; “name”:
-:The integer 1 has 1 name  &nbsp; &nbsp;  “1”.
-:The integer 2 has 2 names &nbsp; “1+1”, &nbsp; and &nbsp; “2”.
-:The integer 3 has 3 names &nbsp; “1+1+1”, &nbsp; “2+1”, &nbsp; and &nbsp; “3”.
-:The integer 4 has 5 names &nbsp; “1+1+1+1”, &nbsp; “2+1+1”, &nbsp; “2+2”, &nbsp; “3+1”, &nbsp; “4”.
-:The integer 5 has 7 names &nbsp; “1+1+1+1+1”, &nbsp; “2+1+1+1”, &nbsp; “2+2+1”, &nbsp; “3+1+1”, &nbsp; “3+2”, &nbsp; “4+1”, &nbsp; “5”.
+const assert = require('chai').assert;
+
+/// title: 9 billion names of God the integer
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// This task is a variation of the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/The Nine Billion Names of God#Plot_summary" title="wp: The Nine Billion Names of God#Plot_summary">short story by Arthur C. Clarke</a>.
+///  
+/// (Solvers should be aware of the consequences of completing this task.)
+/// <br>
+/// In detail, to specify what is meant by a &nbsp; “name”:
+/// <span class="rosetta__text--indented">The integer 1 has 1 name  &nbsp; &nbsp;  “1”.</span>
+/// <span class="rosetta__text--indented">The integer 2 has 2 names &nbsp; “1+1”, &nbsp; and &nbsp; “2”.</span>
+/// <span class="rosetta__text--indented">The integer 3 has 3 names &nbsp; “1+1+1”, &nbsp; “2+1”, &nbsp; and &nbsp; “3”.</span>
+/// <span class="rosetta__text--indented">The integer 4 has 5 names &nbsp; “1+1+1+1”, &nbsp; “2+1+1”, &nbsp; “2+2”, &nbsp; “3+1”, &nbsp; “4”.</span>
+/// <span class="rosetta__text--indented">The integer 5 has 7 names &nbsp; “1+1+1+1+1”, &nbsp; “2+1+1+1”, &nbsp; “2+2+1”, &nbsp; “3+1+1”, &nbsp; “3+2”, &nbsp; “4+1”, &nbsp; “5”.</span>
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task</dt></dl>
+/// Display the first 25 rows of a number triangle which begins:
+/// <pre>
+///                                       1
+///                                     1   1
+///                                   1   1   1 
+///                                 1   2   1   1
+///                               1   2   2   1   1
+///                             1   3   3   2   1   1
+/// </pre>
+/// <br>
+/// Where row &nbsp; $n$ &nbsp; corresponds to integer &nbsp; $n$, &nbsp; and each column &nbsp; $C$ &nbsp; in row &nbsp; $m$ &nbsp; from left to right corresponds to the number of names beginning with &nbsp; $C$.
+/// <br>
+/// A function &nbsp; $G(n)$ &nbsp; should return the sum of the &nbsp; $n$-th &nbsp; row. 
+/// <br>
+/// Demonstrate this function by displaying: &nbsp; $G(23)$, &nbsp; $G(123)$, &nbsp; $G(1234)$, &nbsp; and &nbsp; $G(12345)$.  
+/// <br>
+/// Optionally note that the sum of the &nbsp; $n$-th &nbsp; row &nbsp; $P(n)$ &nbsp; is the &nbsp;  [http://mathworld.wolfram.com/PartitionFunctionP.html &nbsp; integer partition function]. 
+/// <br>
+/// Demonstrate this is equivalent to &nbsp; $G(n)$ &nbsp; by displaying: &nbsp; $P(23)$, &nbsp; $P(123)$, &nbsp; $P(1234)$, &nbsp; and &nbsp; $P(12345)$.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Extra credit</dt></dl>
+/// <br>
+/// If your environment is able, plot &nbsp; $P(n)$ &nbsp; against &nbsp; $n$ &nbsp; for &nbsp; $n=1\ldots 999$.
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+(function () {
+    var cache = [
+        [1]
+    ];
+//this was never needed.
+   /* function PyRange(start, end, step) {
+        step = step || 1;
+        if (!end) {
+            end = start;
+            start = 0;
+        }
+        var arr = [];
+        for (var i = start; i < end; i += step) arr.push(i);
+        return arr;
+    }*/ 
+
+    function cumu(n) {
+        var /*ra = PyRange(cache.length, n + 1),*/ //Seems there is a better version for this
+            r, l, x, Aa, Mi;
+       // for (ll in ra) { too pythony
+       for (l=cache.length;l<n+1;l++) {
+            r = [0];
+//            l = ra[ll];
+//            ran = PyRange(1, l + 1);
+//            for (xx in ran) {
+            for(x=1;x<l+1;x++){
+//                x = ran[xx];
+                r.push(r[r.length - 1] + (Aa = cache[l - x < 0 ? cache.length - (l - x) : l - x])[(Mi = Math.min(x, l - x)) < 0 ? Aa.length - Mi : Mi]);
+            }
+            cache.push(r);
+        }
+        return cache[n];
+    }
+
+    function row(n) {
+        var r = cumu(n),
+//            rra = PyRange(n),
+            leArray = [],
+            i;
+//        for (ii in rra) {
+        for (i=0;i<n;i++) {
+//            i = rra[ii];
+            leArray.push(r[i + 1] - r[i]);
+        }
+        return leArray;
+    }
+
+    console.log("Rows:");
+    for (iterator = 1; iterator < 12; iterator++) {
+        console.log(row(iterator));
+    }
+
+    console.log("Sums")[23, 123, 1234, 12345].foreach(function (a) {
+        var s = cumu(a);
+        console.log(a, s[s.length - 1]);
+    });
+})()
 
 
-;Task
-Display the first 25 rows of a number triangle which begins:
-<pre>
-                                      1
-                                    1   1
-                                  1   1   1 
-                                1   2   1   1
-                              1   2   2   1   1
-                            1   3   3   2   1   1
-</pre>
-
-Where row &nbsp; $n$ &nbsp; corresponds to integer &nbsp; $n$, &nbsp; and each column &nbsp; $C$ &nbsp; in row &nbsp; $m$ &nbsp; from left to right corresponds to the number of names beginning with &nbsp; $C$.
-
-A function &nbsp; $G(n)$ &nbsp; should return the sum of the &nbsp; $n$-th &nbsp; row. 
-
-Demonstrate this function by displaying: &nbsp; $G(23)$, &nbsp; $G(123)$, &nbsp; $G(1234)$, &nbsp; and &nbsp; $G(12345)$.  
-
-Optionally note that the sum of the &nbsp; $n$-th &nbsp; row &nbsp; $P(n)$ &nbsp; is the &nbsp;  [http://mathworld.wolfram.com/PartitionFunctionP.html &nbsp; integer partition function]. 
-
-Demonstrate this is equivalent to &nbsp; $G(n)$ &nbsp; by displaying: &nbsp; $P(23)$, &nbsp; $P(123)$, &nbsp; $P(1234)$, &nbsp; and &nbsp; $P(12345)$.
-
-
-;Extra credit
-
-If your environment is able, plot &nbsp; $P(n)$ &nbsp; against &nbsp; $n$ &nbsp; for &nbsp; $n=1\ldots 999$.
-<br><br>
-
-
+/// rawSolutions:
 =={{header|JavaScript}}==
 {{trans|Python}}
 <lang JavaScript>
@@ -103,3 +190,10 @@ If your environment is able, plot &nbsp; $P(n)$ &nbsp; against &nbsp; $n$ &nbsp;
 })()
 </lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

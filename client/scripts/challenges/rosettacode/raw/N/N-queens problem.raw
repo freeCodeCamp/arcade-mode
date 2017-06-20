@@ -1,27 +1,65 @@
-N-queens problem
 
-{{task}}
-<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:chess_queen.jpg" title="File:chess_queen.jpg">400px||right</a>
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:N_queens_problem.png" title="File:N_queens_problem.png">400px||right</a>
+const assert = require('chai').assert;
 
-Solve the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/WP:Eight_queens_puzzle" title="WP:Eight_queens_puzzle">eight queens puzzle</a>. 
+/// title: N-queens problem
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:chess_queen.jpg" title="File:chess_queen.jpg">400px||right</a>
+/// <br>
+/// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:N_queens_problem.png" title="File:N_queens_problem.png">400px||right</a>
+/// <br>
+/// Solve the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/WP:Eight_queens_puzzle" title="WP:Eight_queens_puzzle">eight queens puzzle</a>. 
+/// <br>
+/// <br>
+/// You can extend the problem to solve the puzzle with a board of size &nbsp; <big><span class="rosetta__text--bold">N</span>x<span class="rosetta__text--bold">N</span></big>.
+///  
+/// For the number of solutions for small values of &nbsp; <span class="rosetta__text--bold">N</span>, &nbsp; see &nbsp; [http://oeis.org/A000170 oeis.org sequence A170].
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">[[A* search algorithm]]</li>
+/// <li class="rosetta__list-item">[[Solve a Hidato puzzle]]</li>
+/// <li class="rosetta__list-item">[[Solve a Holy Knight's tour]]</li>
+/// <li class="rosetta__list-item">[[Knight's tour]]</li>
+/// <li class="rosetta__list-item">[[Solve a Hopido puzzle]]</li>
+/// <li class="rosetta__list-item">[[Solve a Numbrix puzzle]]</li>
+/// <li class="rosetta__list-item">[[Solve the no connection puzzle]]</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
-You can extend the problem to solve the puzzle with a board of size &nbsp; <big><span class="rosetta__text--bold">N</span>x<span class="rosetta__text--bold">N</span></big>.
- 
-For the number of solutions for small values of &nbsp; <span class="rosetta__text--bold">N</span>, &nbsp; see &nbsp; [http://oeis.org/A000170 oeis.org sequence A170].
+/// rawSolutions:
+null
 
+/// tail:
+const replaceThis = 3;
 
-;Related tasks:
-* [[A* search algorithm]]
-* [[Solve a Hidato puzzle]]
-* [[Solve a Holy Knight's tour]]
-* [[Knight's tour]]
-* [[Solve a Hopido puzzle]]
-* [[Solve a Numbrix puzzle]]
-* [[Solve the no connection puzzle]]
-<br><br>
-
-
-
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

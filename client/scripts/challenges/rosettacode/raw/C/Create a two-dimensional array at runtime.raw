@@ -1,10 +1,55 @@
-Create a two-dimensional array at runtime
 
-{{task|Basic language learning}}
-{{data structure}}
-Get two integers from the user, then create a two-dimensional array where the two dimensions have the sizes given by those numbers, and which can be accessed in the most natural way possible. Write some element of that array, and then output that element. Finally destroy the array if not done by the language itself.
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
+const assert = require('chai').assert;
 
+/// title: Create a two-dimensional array at runtime
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// Get two integers from the user, then create a two-dimensional array where the two dimensions have the sizes given by those numbers, and which can be accessed in the most natural way possible. Write some element of that array, and then output that element. Finally destroy the array if not done by the language itself.
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+var width = Number(prompt("Enter width: "));
+var height = Number(prompt("Enter height: "));
+
+//make 2D array
+var arr = new Array(height);
+
+for (var i = 0; i < h; i++) {
+  arr[i] = new Array(width);
+}
+
+//set value of element
+a[0][0] = 'foo';
+//print value of element
+console.log('arr[0][0] = ' + arr[0][0]);
+
+//cleanup array
+arr = void(0);
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 <lang javascript>var width = Number(prompt("Enter width: "));
 var height = Number(prompt("Enter height: "));
@@ -24,3 +69,10 @@ console.log('arr[0][0] = ' + arr[0][0]);
 //cleanup array
 arr = void(0);</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,38 +1,74 @@
-Last letter-first letter
 
-{{task}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-A certain children's game involves starting with a word in a particular category. &nbsp; Each participant in turn says a word, but that word must begin with the final letter of the previous word. &nbsp; Once a word has been given, it cannot be repeated. &nbsp; If an opponent cannot give a word in the category, they fall out of the game. 
+const assert = require('chai').assert;
+
+/// title: Last letter-first letter
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// A certain children's game involves starting with a word in a particular category. &nbsp; Each participant in turn says a word, but that word must begin with the final letter of the previous word. &nbsp; Once a word has been given, it cannot be repeated. &nbsp; If an opponent cannot give a word in the category, they fall out of the game. 
+/// <br>
+/// <br>
+/// For example, with &nbsp; "animals" &nbsp; as the category,
+/// <pre>
+/// Child 1: dog 
+/// Child 2: goldfish
+/// Child 1: hippopotamus
+/// Child 2: snake
+/// ...
+/// </pre>
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Take the following selection of 70 English Pokemon names &nbsp; (extracted from &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/List of Pokémon" title="wp: List of Pokémon">Wikipedia's list of Pokemon</a>) &nbsp; and generate the/a sequence with the highest possible number of Pokemon names where the subsequent name starts with the final letter of the preceding name. 
+/// <br>
+/// No Pokemon name is to be repeated.
+/// <br>
+/// <pre>
+/// audino bagon baltoy banette bidoof braviary bronzor carracosta charmeleon
+/// cresselia croagunk darmanitan deino emboar emolga exeggcute gabite
+/// girafarig gulpin haxorus heatmor heatran ivysaur jellicent jumpluff kangaskhan
+/// kricketune landorus ledyba loudred lumineon lunatone machamp magnezone mamoswine
+/// nosepass petilil pidgeotto pikachu pinsir poliwrath poochyena porygon2
+/// porygonz registeel relicanth remoraid rufflet sableye scolipede scrafty seaking
+/// sealeo silcoon simisear snivy snorlax spoink starly tirtouga trapinch treecko
+/// tyrogue vigoroth vulpix wailord wartortle whismur wingull yamask
+/// </pre>
+/// <br>
+/// <br>
+/// Extra brownie points for dealing with the full list of &nbsp; 646 &nbsp; names.
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
-For example, with &nbsp; "animals" &nbsp; as the category,
-<pre>
-Child 1: dog 
-Child 2: goldfish
-Child 1: hippopotamus
-Child 2: snake
-...
-</pre>
+/// rawSolutions:
+null
 
+/// tail:
+const replaceThis = 3;
 
-;Task:
-Take the following selection of 70 English Pokemon names &nbsp; (extracted from &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/List of Pokémon" title="wp: List of Pokémon">Wikipedia's list of Pokemon</a>) &nbsp; and generate the/a sequence with the highest possible number of Pokemon names where the subsequent name starts with the final letter of the preceding name. 
-
-No Pokemon name is to be repeated.
-
-<pre>
-audino bagon baltoy banette bidoof braviary bronzor carracosta charmeleon
-cresselia croagunk darmanitan deino emboar emolga exeggcute gabite
-girafarig gulpin haxorus heatmor heatran ivysaur jellicent jumpluff kangaskhan
-kricketune landorus ledyba loudred lumineon lunatone machamp magnezone mamoswine
-nosepass petilil pidgeotto pikachu pinsir poliwrath poochyena porygon2
-porygonz registeel relicanth remoraid rufflet sableye scolipede scrafty seaking
-sealeo silcoon simisear snivy snorlax spoink starly tirtouga trapinch treecko
-tyrogue vigoroth vulpix wailord wartortle whismur wingull yamask
-</pre>
-
-
-Extra brownie points for dealing with the full list of &nbsp; 646 &nbsp; names.
-<br><br>
-
-
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

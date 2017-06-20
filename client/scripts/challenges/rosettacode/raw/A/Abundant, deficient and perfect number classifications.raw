@@ -1,33 +1,68 @@
-Abundant, deficient and perfect number classifications
 
-{{task}}
-These define three classifications of positive integers based on their &nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Proper divisors" title="Proper divisors">proper divisors</a>.
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-Let &nbsp; P(n) &nbsp; be the sum of the proper divisors of &nbsp; <span class="rosetta__text--bold">n</span> &nbsp; where the proper divisors are all positive divisors of &nbsp; <span class="rosetta__text--bold">n</span> &nbsp; other than &nbsp; <span class="rosetta__text--bold">n</span> &nbsp; itself. 
-    if   <code> P(n) <  n </code>   then  <span class="rosetta__text--bold">n</span>  is classed as  <span class="rosetta__text--bold">deficient</span>  ([https://oeis.org/A005100 OEIS A005100]).
-    if   <code> P(n) == n </code>   then  <span class="rosetta__text--bold">n</span>  is classed as  <span class="rosetta__text--bold">perfect</span>    ([https://oeis.org/A000396 OEIS A000396]).
-    if   <code> P(n) >  n </code>   then  <span class="rosetta__text--bold">n</span>  is classed as  <span class="rosetta__text--bold">abundant</span>   ([https://oeis.org/A005101 OEIS A005101]).
+const assert = require('chai').assert;
 
+/// title: Abundant, deficient and perfect number classifications
+/// type: rosetta-code
 
-;Example:
-<span class="rosetta__text--bold">6</span> &nbsp; has proper divisors of &nbsp; <span class="rosetta__text--bold">1</span>, &nbsp; <span class="rosetta__text--bold">2</span>, &nbsp; and &nbsp; <span class="rosetta__text--bold">3</span>. 
+/// categories:
+/// ?
 
-<span class="rosetta__text--bold">1 + 2 + 3 = 6</span>, &nbsp; so &nbsp; <span class="rosetta__text--bold">6</span> &nbsp;  is classed as a perfect number.
+/// difficulty: ?
 
+/// benchmark:
+replaceWithActualFunctionHere;
 
-;Task:
-Calculate how many of the integers &nbsp; <span class="rosetta__text--bold">1</span> &nbsp; to &nbsp; <span class="rosetta__text--bold">20,000</span> &nbsp; (inclusive) are in each of the three classes.
+/// description:
+/// <br>
+/// These define three classifications of positive integers based on their &nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Proper divisors" title="Proper divisors">proper divisors</a>.
+/// <br>
+/// Let &nbsp; P(n) &nbsp; be the sum of the proper divisors of &nbsp; <span class="rosetta__text--bold">n</span> &nbsp; where the proper divisors are all positive divisors of &nbsp; <span class="rosetta__text--bold">n</span> &nbsp; other than &nbsp; <span class="rosetta__text--bold">n</span> &nbsp; itself. 
+///     if   <code> P(n) <  n </code>   then  <span class="rosetta__text--bold">n</span>  is classed as  <span class="rosetta__text--bold">deficient</span>  ([https://oeis.org/A005100 OEIS A005100]).
+///     if   <code> P(n) == n </code>   then  <span class="rosetta__text--bold">n</span>  is classed as  <span class="rosetta__text--bold">perfect</span>    ([https://oeis.org/A000396 OEIS A000396]).
+///     if   <code> P(n) >  n </code>   then  <span class="rosetta__text--bold">n</span>  is classed as  <span class="rosetta__text--bold">abundant</span>   ([https://oeis.org/A005101 OEIS A005101]).
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Example:</dt></dl>
+/// <span class="rosetta__text--bold">6</span> &nbsp; has proper divisors of &nbsp; <span class="rosetta__text--bold">1</span>, &nbsp; <span class="rosetta__text--bold">2</span>, &nbsp; and &nbsp; <span class="rosetta__text--bold">3</span>. 
+/// <br>
+/// <span class="rosetta__text--bold">1 + 2 + 3 = 6</span>, &nbsp; so &nbsp; <span class="rosetta__text--bold">6</span> &nbsp;  is classed as a perfect number.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Calculate how many of the integers &nbsp; <span class="rosetta__text--bold">1</span> &nbsp; to &nbsp; <span class="rosetta__text--bold">20,000</span> &nbsp; (inclusive) are in each of the three classes.
+/// <br>
+/// Show the results here.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">&nbsp; [[Aliquot sequence classifications]]. &nbsp; (The whole series from which this task is a subset.)</li>
+/// <li class="rosetta__list-item">&nbsp; [[Proper divisors]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[Amicable pairs]]</li>
+/// <br>
+/// </ul>
+/// <br>
+/// <br>
 
-Show the results here.
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
+/// solutions:
+for (var dpa=[1,0,0], n=2; n<=20000; n+=1) {
+    for (var ds=0, d=1, e=n/2+1; d<e; d+=1) if (n%d==0) ds+=d
+    dpa[ds<n ? 0 : ds==n ? 1 : 2]+=1
+}
+document.write('Deficient:',dpa[0], ', Perfect:',dpa[1], ', Abundant:',dpa[2], '<br>' )
 
-;Related tasks:
-* &nbsp; [[Aliquot sequence classifications]]. &nbsp; (The whole series from which this task is a subset.)
-* &nbsp; [[Proper divisors]]
-* &nbsp; [[Amicable pairs]]
-
-
-
+/// rawSolutions:
 =={{header|JavaScript}}==
 
 ===ES5===
@@ -145,3 +180,10 @@ document.write('Deficient:',dpa[0], ', Perfect:',dpa[1], ', Abundant:',dpa[2], '
 perfect: 4
 abundant: 4953</pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

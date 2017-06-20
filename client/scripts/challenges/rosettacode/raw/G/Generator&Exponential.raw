@@ -1,27 +1,96 @@
-Generator/Exponential
 
-{{task}}
-{{omit from|Lilypond}}
-[[Category:Non parametric generators]]
-[[Category:Stateful transactions]]
-A generator is an executable entity (like a function or procedure) that contains code that yields a sequence of values, one at a time, so that each time you call the generator, the next value in the sequence is provided. 
-Generators are often built on top of coroutines or objects so that the internal state of the object is handled “naturally”. 
-Generators are often used in situations where a sequence is potentially infinite, and where it is possible to construct the next value of the sequence with only minimal state.
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-<span class="rosetta__text--bold">Task description</span> 
+const assert = require('chai').assert;
 
-# Create a function that returns a generation of the m'th powers of the positive integers starting from zero, in order, and without obvious or simple upper limit. (Any upper limit to the generator should not be stated in the source but should be down to factors such as the languages natural integer size limit or computational time/size).
-# Use it to create a generator of:
-:# Squares.
-:# Cubes. 
-# Create a new generator that filters all cubes from the generator of squares.
-# Drop the first 20 values from this last generator of filtered results then show the next 10 values
-Note that this task <span class="rosetta__text--italic">requires</span> the use of generators in the calculation of the result.
+/// title: Generator/Exponential
+/// type: rosetta-code
 
-<span class="rosetta__text--bold">See also</span>
-* <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Generator (computer_science)" title="wp: Generator (computer_science)">Generator</a>
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// [[Category:Non parametric generators]]
+/// [[Category:Stateful transactions]]
+/// A generator is an executable entity (like a function or procedure) that contains code that yields a sequence of values, one at a time, so that each time you call the generator, the next value in the sequence is provided. 
+/// Generators are often built on top of coroutines or objects so that the internal state of the object is handled “naturally”. 
+/// Generators are often used in situations where a sequence is potentially infinite, and where it is possible to construct the next value of the sequence with only minimal state.
+/// <br>
+/// <span class="rosetta__text--bold">Task description</span> 
+/// <br>
+/// # Create a function that returns a generation of the m'th powers of the positive integers starting from zero, in order, and without obvious or simple upper limit. (Any upper limit to the generator should not be stated in the source but should be down to factors such as the languages natural integer size limit or computational time/size).
+/// # Use it to create a generator of:
+/// <span class="rosetta__text--indented"># Squares.</span>
+/// <span class="rosetta__text--indented"># Cubes. </span>
+/// # Create a new generator that filters all cubes from the generator of squares.
+/// # Drop the first 20 values from this last generator of filtered results then show the next 10 values
+/// Note that this task <span class="rosetta__text--italic">requires</span> the use of generators in the calculation of the result.
+/// <br>
+/// <span class="rosetta__text--bold">See also</span>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Generator (computer_science)" title="wp: Generator (computer_science)">Generator</a></li>
+/// <br>
+/// </ul>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+function PowersGenerator(m) {
+	var n=0;
+	while(1) {
+		yield Math.pow(n, m);
+		n += 1;	
+	}
+}
+
+function FilteredGenerator(g, f){
+	var value = g.next();
+	var filter = f.next();
+	
+	while(1) {
+		if( value < filter ) {
+			yield value;
+			value = g.next();
+		} else if ( value > filter ) {
+			filter = f.next();
+		} else {
+			value = g.next();
+			filter = f.next();
+		}
+	}	
+}
 
 
+
+var squares = PowersGenerator(2);
+var cubes = PowersGenerator(3);
+
+var filtered = FilteredGenerator(squares, cubes);
+
+
+
+for( var x = 0; x < 20; x++ ) filtered.next()
+for( var x = 20; x < 30; x++ ) console.logfiltered.next());
+
+
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 {{works with|Firefox 3.6 using JavaScript 1.7|}} 
 
@@ -101,3 +170,10 @@ for (let n = 0; n < 10; n++) {
 1024
 1089</pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

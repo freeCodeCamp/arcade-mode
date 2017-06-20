@@ -1,12 +1,63 @@
-Execute HQ9+
 
-{{task}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Implement a &nbsp; <span class="rosetta__text--bold"> [[HQ9+]] </span> &nbsp; interpreter or compiler.
-<br><br>
+const assert = require('chai').assert;
 
+/// title: Execute HQ9+
+/// type: rosetta-code
 
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Implement a &nbsp; <span class="rosetta__text--bold"> [[HQ9+]] </span> &nbsp; interpreter or compiler.
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+function hq9plus(code) {
+  var out = '';
+  var acc = 0;
+  
+  for (var i=0; i<code.length; i++) {
+    switch (code.charAt(i)) {
+      case 'H': out += "hello, world\n"; break;
+      case 'Q': out += code + "\n"; break;
+      case '9':
+        for (var j=99; j>1; j--) {
+          out += j + " bottles of beer on the wall, " + j + " bottles of beer.\n";
+          out += "Take one down and pass it around, " + (j-1) + " bottles of beer.\n\n";
+        }
+        out += "1 bottle of beer on the wall, 1 bottle of beer.\n" +
+            "Take one down and pass it around, no more bottles of beer on the wall.\n\n" +
+            "No more bottles of beer on the wall, no more bottles of beer.\n" +
+            "Go to the store and buy some more, 99 bottles of beer on the wall.\n";
+        break;
+      case '+': acc++; break;
+    }
+  }
+  return out;
+}
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 The function below executes a HQ9+ program and returns the program output as a string.
 <lang javascript>function hq9plus(code) {
@@ -33,3 +84,10 @@ The function below executes a HQ9+ program and returns the program output as a s
   return out;
 }</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

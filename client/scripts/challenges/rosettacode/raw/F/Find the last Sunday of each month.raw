@@ -1,30 +1,71 @@
-Find the last Sunday of each month
 
-{{task}}  [[Category:Date and time]]
-Write a program or a script that returns the last Sundays of each month of a given year. The year may be given through any simple input method in your language (command line, std in, etc).
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-Example of an expected output:
+const assert = require('chai').assert;
 
-<pre>./last_sundays 2013
-2013-01-27
-2013-02-24
-2013-03-31
-2013-04-28
-2013-05-26
-2013-06-30
-2013-07-28
-2013-08-25
-2013-09-29
-2013-10-27
-2013-11-24
-2013-12-29</pre>
-<br>
-;Related tasks
-* [[Day of the week]]
-* [[Five weekends]]
-* [[Last Friday of each month]]
-<br><br>
+/// title: Find the last Sunday of each month
+/// type: rosetta-code
 
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+///   [[Category:Date and time]]
+/// Write a program or a script that returns the last Sundays of each month of a given year. The year may be given through any simple input method in your language (command line, std in, etc).
+/// <br>
+/// Example of an expected output:
+/// <br>
+/// <pre>./last_sundays 2013
+/// 2013-01-27
+/// 2013-02-24
+/// 2013-03-31
+/// 2013-04-28
+/// 2013-05-26
+/// 2013-06-30
+/// 2013-07-28
+/// 2013-08-25
+/// 2013-09-29
+/// 2013-10-27
+/// 2013-11-24
+/// 2013-12-29</pre>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">[[Day of the week]]</li>
+/// <li class="rosetta__list-item">[[Five weekends]]</li>
+/// <li class="rosetta__list-item">[[Last Friday of each month]]</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+function lastSundayOfEachMonths(year) {
+	var lastDay = [31,28,31,30,31,30,31,31,30,31,30,31]
+	if (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0)) lastDay[2] = 29
+	for (var date = new Date(), month=0; month<12; month+=1) {
+		date.setFullYear(year, month, lastDay[month])
+		date.setDate(date.getDate()-date.getDay())
+		document.write(date.toISOString().substring(0,10), '<br>')
+	}   
+}
+	
+lastSundayOfEachMonths(2013)
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 ===ES5===
 ====Iteration====
@@ -212,3 +253,10 @@ lastSundayOfEachMonths(2013)</lang>
 2015-11-29    2016-11-27    2017-11-26    2018-11-25    2019-11-24
 2015-12-27    2016-12-25    2017-12-31    2018-12-30    2019-12-29</pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

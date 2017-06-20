@@ -1,39 +1,78 @@
-Jensen's Device
 
-{{wikipedia}}
-{{task|Classic CS problems and programs}}
-This task is an exercise in <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Call-by-name#Call_by_name" title="wp: Call-by-name#Call_by_name">call by name</a>.
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-<span class="rosetta__text--bold">Jensen's Device</span> is a computer programming technique devised by Danish computer scientist <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Jørn_Jensen" title="wp: Jørn_Jensen">Jørn Jensen]] after studying the [[ALGOL 60</a> Report.
+const assert = require('chai').assert;
 
-The following program was proposed to illustrate the technique. It computes the 100th <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Harmonic_number" title="wp: Harmonic_number">harmonic number</a>:
+/// title: Jensen's Device
+/// type: rosetta-code
 
- <span class="rosetta__text--bold">begin</span>
-    <span class="rosetta__text--bold">integer</span> i;
-    <span class="rosetta__text--bold">real procedure</span> sum (i, lo, hi, term);
-       <span class="rosetta__text--bold">value</span> lo, hi;
-       <span class="rosetta__text--bold">integer</span> i, lo, hi;
-       <span class="rosetta__text--bold">real</span> term;
-       <span class="rosetta__text--bold">comment</span> term is passed by-name, and so is i;
-    <span class="rosetta__text--bold">begin</span>
-       <span class="rosetta__text--bold">real</span> temp;
-       temp := 0;
-       <span class="rosetta__text--bold">for</span> i := lo <span class="rosetta__text--bold">step</span> 1 <span class="rosetta__text--bold">until</span> hi <span class="rosetta__text--bold">do</span>
-          temp := temp + term;
-       sum := temp
-    <span class="rosetta__text--bold">end</span>;
-    <span class="rosetta__text--bold">comment</span> note the correspondence between the mathematical notation and the call to sum;
-    print (sum (i, 1, 100, 1/i))
- <span class="rosetta__text--bold">end</span>
+/// categories:
+/// ?
 
-The above exploits <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Call-by-name#Call_by_name" title="wp: Call-by-name#Call_by_name">call by name</a> to produce the correct answer (5.187...). It depends on the assumption that an expression passed as an actual parameter to a procedure would be re-evaluated in the caller's context every time the corresponding formal parameter's value was required. If the last parameter to <span class="rosetta__text--italic">sum</span> had been passed by value, and assuming the initial value of <span class="rosetta__text--italic">i</span> were 1, the result would have been 100 &times; 1/1 = 100.
+/// difficulty: ?
 
-Moreover, the <span class="rosetta__text--italic">first</span> parameter to <span class="rosetta__text--italic">sum</span>, representing the "bound" variable of the summation, must also be passed by name (or at least by reference), otherwise changes to it (made within <span class="rosetta__text--italic">sum</span>) would not be visible in the caller's context when computing each of the values to be added.
-(On the other hand, the global variable does not have to use the same identifier, in this case <span class="rosetta__text--italic">i</span>, as the formal parameter.)
+/// benchmark:
+replaceWithActualFunctionHere;
 
-<a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Donald_Knuth" title="wp: Donald_Knuth">Donald Knuth]] later proposed the [[Man or boy test|Man or Boy Test</a> as a more rigorous exercise.
-<br><br>
+/// description:
+/// <br>
+/// <br>
+/// This task is an exercise in <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Call-by-name#Call_by_name" title="wp: Call-by-name#Call_by_name">call by name</a>.
+/// <br>
+/// <span class="rosetta__text--bold">Jensen's Device</span> is a computer programming technique devised by Danish computer scientist <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Jørn_Jensen" title="wp: Jørn_Jensen">Jørn Jensen]] after studying the [[ALGOL 60</a> Report.
+/// <br>
+/// The following program was proposed to illustrate the technique. It computes the 100th <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Harmonic_number" title="wp: Harmonic_number">harmonic number</a>:
+/// <br>
+///  <span class="rosetta__text--bold">begin</span>
+///     <span class="rosetta__text--bold">integer</span> i;
+///     <span class="rosetta__text--bold">real procedure</span> sum (i, lo, hi, term);
+///        <span class="rosetta__text--bold">value</span> lo, hi;
+///        <span class="rosetta__text--bold">integer</span> i, lo, hi;
+///        <span class="rosetta__text--bold">real</span> term;
+///        <span class="rosetta__text--bold">comment</span> term is passed by-name, and so is i;
+///     <span class="rosetta__text--bold">begin</span>
+///        <span class="rosetta__text--bold">real</span> temp;
+///        temp := 0;
+///        <span class="rosetta__text--bold">for</span> i := lo <span class="rosetta__text--bold">step</span> 1 <span class="rosetta__text--bold">until</span> hi <span class="rosetta__text--bold">do</span>
+///           temp := temp + term;
+///        sum := temp
+///     <span class="rosetta__text--bold">end</span>;
+///     <span class="rosetta__text--bold">comment</span> note the correspondence between the mathematical notation and the call to sum;
+///     print (sum (i, 1, 100, 1/i))
+///  <span class="rosetta__text--bold">end</span>
+/// <br>
+/// The above exploits <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Call-by-name#Call_by_name" title="wp: Call-by-name#Call_by_name">call by name</a> to produce the correct answer (5.187...). It depends on the assumption that an expression passed as an actual parameter to a procedure would be re-evaluated in the caller's context every time the corresponding formal parameter's value was required. If the last parameter to <span class="rosetta__text--italic">sum</span> had been passed by value, and assuming the initial value of <span class="rosetta__text--italic">i</span> were 1, the result would have been 100 &times; 1/1 = 100.
+/// <br>
+/// Moreover, the <span class="rosetta__text--italic">first</span> parameter to <span class="rosetta__text--italic">sum</span>, representing the "bound" variable of the summation, must also be passed by name (or at least by reference), otherwise changes to it (made within <span class="rosetta__text--italic">sum</span>) would not be visible in the caller's context when computing each of the values to be added.
+/// (On the other hand, the global variable does not have to use the same identifier, in this case <span class="rosetta__text--italic">i</span>, as the formal parameter.)
+/// <br>
+/// <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Donald_Knuth" title="wp: Donald_Knuth">Donald Knuth]] later proposed the [[Man or boy test|Man or Boy Test</a> as a more rigorous exercise.
+/// <br><br>
+/// <br>
 
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+var obj;
+
+function sum(o, lo, hi, term) {
+  var tmp = 0;
+  for (o.val = lo; o.val <= hi; o.val++)
+    tmp += term();
+  return tmp;
+}
+
+obj = {val: 0};
+alert(sum(obj, 1, 100, function() {return 1 / obj.val}));
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 {{trans|C}}
 
@@ -52,3 +91,10 @@ obj = {val: 0};
 alert(sum(obj, 1, 100, function() {return 1 / obj.val}));</lang>
 The alert shows us '5.187377517639621'.
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,35 +1,83 @@
-Monte Carlo methods
 
-{{task|Probability and statistics}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-A <span class="rosetta__text--bold">Monte Carlo Simulation</span> is a way of approximating the value of a function 
-where calculating the actual value is difficult or impossible. <br>
-It uses random sampling to define constraints on the value 
-and then makes a sort of "best guess."
+const assert = require('chai').assert;
 
-A simple Monte Carlo Simulation can be used to calculate the value for <big>$\pi$</big>. 
+/// title: Monte Carlo methods
+/// type: rosetta-code
 
-If you had a circle and a square where the length of a side of the square 
-was the same as the diameter of the circle, the ratio of the area of the circle 
-to the area of the square would be <big>$\pi/4$</big>.
- 
-So, if you put this circle inside the square and select many random points 
-inside the square, the number of points inside the circle 
-divided by the number of points inside the square and the circle 
-would be approximately <big>$\pi/4$</big>.
+/// categories:
+/// ?
 
+/// difficulty: ?
 
-;Task:
-Write a function to run a simulation like this, with a variable number of random points to select.
+/// benchmark:
+replaceWithActualFunctionHere;
 
-Also, show the results of a few different sample sizes.
+/// description:
+/// <br>
+/// <br>
+/// A <span class="rosetta__text--bold">Monte Carlo Simulation</span> is a way of approximating the value of a function 
+/// where calculating the actual value is difficult or impossible. <br>
+/// It uses random sampling to define constraints on the value 
+/// and then makes a sort of "best guess."
+/// <br>
+/// A simple Monte Carlo Simulation can be used to calculate the value for <big>$\pi$</big>. 
+/// <br>
+/// If you had a circle and a square where the length of a side of the square 
+/// was the same as the diameter of the circle, the ratio of the area of the circle 
+/// to the area of the square would be <big>$\pi/4$</big>.
+///  
+/// So, if you put this circle inside the square and select many random points 
+/// inside the square, the number of points inside the circle 
+/// divided by the number of points inside the square and the circle 
+/// would be approximately <big>$\pi/4$</big>.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Write a function to run a simulation like this, with a variable number of random points to select.
+/// <br>
+/// Also, show the results of a few different sample sizes.
+/// <br>
+/// For software where the number <big>$\pi$</big> is not built-in, 
+/// we give <big>$\pi$</big> as a number of digits: 
+///              3.141592653589793238462643383280
+/// <br><br>
+/// <br>
+/// <br>
 
-For software where the number <big>$\pi$</big> is not built-in, 
-we give <big>$\pi$</big> as a number of digits: 
-             3.141592653589793238462643383280
-<br><br>
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
+/// solutions:
+function mcpi(n) {
+    var x, y, m = 0;
 
+    for (var i = 0; i < n; i += 1) {
+        x = Math.random();
+        y = Math.random();
+
+        if (x * x + y * y < 1) {
+            m += 1;
+        }
+    }
+
+    return 4 * m / n;
+}
+
+console.log(mcpi(1000));
+console.log(mcpi(10000));
+console.log(mcpi(100000));
+console.log(mcpi(1000000));
+console.log(mcpi(10000000));
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 ===ES5===
 <lang JavaScript>function mcpi(n) {
@@ -95,3 +143,10 @@ console.log(mcpi(10000000));</lang>
 {{Out}} (5 sample runs with increasing sample sizes)
 <lang JavaScript>[3.14, 3.1404, 3.13304, 3.142408, 3.1420304, 3.14156788]</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

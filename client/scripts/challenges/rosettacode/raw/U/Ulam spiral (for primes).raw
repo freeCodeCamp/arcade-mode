@@ -1,117 +1,157 @@
-Ulam spiral (for primes)
 
-{{task}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-An Ulam spiral (of primes numbers) is a method of visualizing prime numbers when expressed in a (normally counter-clockwise) outward spiral (usually starting at <big><span class="rosetta__text--bold">1</span></big>), &nbsp; constructed on a square grid, starting at the "center". 
+const assert = require('chai').assert;
 
-An Ulam spiral is also known as a &nbsp; <span class="rosetta__text--italic">prime spiral</span>. 
+/// title: Ulam spiral (for primes)
+/// type: rosetta-code
 
-The first grid (green) is shown with all numbers (primes and non-primes) shown, starting at &nbsp; <big><span class="rosetta__text--bold">1</span></big>. 
+/// categories:
+/// ?
 
-In an Ulam spiral of primes, only the primes are shown (usually indicated by some glyph such as a dot or asterisk), &nbsp; and all non-primes as shown as a blank &nbsp; (or some other whitespace). 
+/// difficulty: ?
 
-Of course, the grid and border are not to be displayed (but they are displayed here when using these Wiki HTML tables).
+/// benchmark:
+replaceWithActualFunctionHere;
 
-Normally, the spiral starts in the "center", &nbsp; and the &nbsp; 2<sup>nd</sup> &nbsp; number is to the viewer's right and the number spiral starts from there in a counter-clockwise direction. 
+/// description:
+/// <br>
+/// <br>
+/// An Ulam spiral (of primes numbers) is a method of visualizing prime numbers when expressed in a (normally counter-clockwise) outward spiral (usually starting at <big><span class="rosetta__text--bold">1</span></big>), &nbsp; constructed on a square grid, starting at the "center". 
+/// <br>
+/// An Ulam spiral is also known as a &nbsp; <span class="rosetta__text--italic">prime spiral</span>. 
+/// <br>
+/// The first grid (green) is shown with all numbers (primes and non-primes) shown, starting at &nbsp; <big><span class="rosetta__text--bold">1</span></big>. 
+/// <br>
+/// In an Ulam spiral of primes, only the primes are shown (usually indicated by some glyph such as a dot or asterisk), &nbsp; and all non-primes as shown as a blank &nbsp; (or some other whitespace). 
+/// <br>
+/// Of course, the grid and border are not to be displayed (but they are displayed here when using these Wiki HTML tables).
+/// <br>
+/// Normally, the spiral starts in the "center", &nbsp; and the &nbsp; 2<sup>nd</sup> &nbsp; number is to the viewer's right and the number spiral starts from there in a counter-clockwise direction. 
+/// <br>
+/// There are other geometric shapes that are used as well, including clock-wise spirals. 
+/// <br>
+/// Also, some spirals (for the &nbsp; 2<sup>nd</sup> &nbsp; number) &nbsp; is viewed upwards from the &nbsp; 1<sup>st</sup> &nbsp; number instead of to the right, but that is just a matter of orientation.
+/// <br>
+/// Sometimes, the starting number can be specified to show more visual striking patterns (of prime densities).
+/// <br>
+/// [A larger than necessary grid (numbers wise) is shown here to illustrate the pattern of numbers on the diagonals &nbsp; (which may be used by the method to orientate the direction of spiral-construction algorithm within the example computer programs)]. 
+/// <br>
+/// Then, in the next phase in the transformation of the Ulam prime spiral, &nbsp; the non-primes are translated to blanks. 
+/// <br>
+/// In the orange grid below, &nbsp; the primes are left intact, &nbsp; and all non-primes are changed to blanks.  
+/// <br>
+/// Then, in the final transformation of the Ulam spiral (the yellow grid), &nbsp; translate the primes to a glyph such as a &nbsp; <big><big><b> ∙ </b></big></big> &nbsp; or some other suitable glyph.
+/// <br>
+/// <br>
+/// {| class="wikitable" style="float:left;border: 2px solid black; background:lightgreen; color:black; margin-left:0;margin-right:auto;text-align:center;width:34em;height:34em;table-layout:fixed;font-size:70%"
+/// |-
+/// | <big><big><span class="rosetta__text--bold">65</span></big></big> || <big><big><span class="rosetta__text--bold">64</span></big></big> || <big><big><span class="rosetta__text--bold">63</span></big></big> || <big><big><span class="rosetta__text--bold">62</span></big></big> || <big><big><span class="rosetta__text--bold">61</span></big></big> || <big><big><span class="rosetta__text--bold">60</span></big></big> || <big><big><span class="rosetta__text--bold">59</span></big></big> || <big><big><span class="rosetta__text--bold">58</span></big></big> || <big><big><span class="rosetta__text--bold">57</span></big></big>
+/// |->
+/// | <big><big><span class="rosetta__text--bold">66</span></big></big> || <big><big><span class="rosetta__text--bold">37</span></big></big> || <big><big><span class="rosetta__text--bold">36</span></big></big> || <big><big><span class="rosetta__text--bold">35</span></big></big> || <big><big><span class="rosetta__text--bold">34</span></big></big> || <big><big><span class="rosetta__text--bold">33</span></big></big> || <big><big><span class="rosetta__text--bold">32</span></big></big> || <big><big><span class="rosetta__text--bold">31</span></big></big> || <big><big><span class="rosetta__text--bold">56</span></big></big>
+/// |-
+/// | <big><big><span class="rosetta__text--bold">67</span></big></big> || <big><big><span class="rosetta__text--bold">38</span></big></big> || <big><big><span class="rosetta__text--bold">17</span></big></big> || <big><big><span class="rosetta__text--bold">16</span></big></big> || <big><big><span class="rosetta__text--bold">15</span></big></big> || <big><big><span class="rosetta__text--bold">14</span></big></big> || <big><big><span class="rosetta__text--bold">13</span></big></big> || <big><big><span class="rosetta__text--bold">30</span></big></big> || <big><big><span class="rosetta__text--bold">55</span></big></big>
+/// |-
+/// | <big><big><span class="rosetta__text--bold">68</span></big></big> || <big><big><span class="rosetta__text--bold">39</span></big></big> || <big><big><span class="rosetta__text--bold">18</span></big></big> || <big><big><span class="rosetta__text--bold"> 5</span></big></big> || <big><big><span class="rosetta__text--bold"> 4</span></big></big> || <big><big><span class="rosetta__text--bold"> 3</span></big></big> || <big><big><span class="rosetta__text--bold">12</span></big></big> || <big><big><span class="rosetta__text--bold">29</span></big></big> || <big><big><span class="rosetta__text--bold">54</span></big></big>
+/// |-
+/// | <big><big><span class="rosetta__text--bold">69</span></big></big> || <big><big><span class="rosetta__text--bold">40</span></big></big> || <big><big><span class="rosetta__text--bold">19</span></big></big> || <big><big><span class="rosetta__text--bold"> 6</span></big></big> || <big><big><span class="rosetta__text--bold"> 1</span></big></big> || <big><big><span class="rosetta__text--bold"> 2</span></big></big> || <big><big><span class="rosetta__text--bold">11</span></big></big> || <big><big><span class="rosetta__text--bold">28</span></big></big> || <big><big><span class="rosetta__text--bold">53</span></big></big>
+/// |-
+/// | <big><big><span class="rosetta__text--bold">70</span></big></big> || <big><big><span class="rosetta__text--bold">41</span></big></big> || <big><big><span class="rosetta__text--bold">20</span></big></big> || <big><big><span class="rosetta__text--bold"> 7</span></big></big> || <big><big><span class="rosetta__text--bold"> 8</span></big></big> || <big><big><span class="rosetta__text--bold"> 9</span></big></big> || <big><big><span class="rosetta__text--bold">10</span></big></big> || <big><big><span class="rosetta__text--bold">27</span></big></big> || <big><big><span class="rosetta__text--bold">52</span></big></big>
+/// |-
+/// | <big><big><span class="rosetta__text--bold">71</span></big></big> || <big><big><span class="rosetta__text--bold">42</span></big></big> || <big><big><span class="rosetta__text--bold">21</span></big></big> || <big><big><span class="rosetta__text--bold">22</span></big></big> || <big><big><span class="rosetta__text--bold">23</span></big></big> || <big><big><span class="rosetta__text--bold">24</span></big></big> || <big><big><span class="rosetta__text--bold">25</span></big></big> || <big><big><span class="rosetta__text--bold">26</span></big></big> || <big><big><span class="rosetta__text--bold">51</span></big></big>
+/// |-
+/// | <big><big><span class="rosetta__text--bold">72</span></big></big> || <big><big><span class="rosetta__text--bold">43</span></big></big> || <big><big><span class="rosetta__text--bold">44</span></big></big> || <big><big><span class="rosetta__text--bold">45</span></big></big> || <big><big><span class="rosetta__text--bold">46</span></big></big> || <big><big><span class="rosetta__text--bold">47</span></big></big> || <big><big><span class="rosetta__text--bold">48</span></big></big> || <big><big><span class="rosetta__text--bold">49</span></big></big> || <big><big><span class="rosetta__text--bold">50</span></big></big>
+/// |-
+/// | <big><big><span class="rosetta__text--bold">73</span></big></big> || <big><big><span class="rosetta__text--bold">74</span></big></big> || <big><big><span class="rosetta__text--bold">75</span></big></big> || <big><big><span class="rosetta__text--bold">76</span></big></big> || <big><big><span class="rosetta__text--bold">77</span></big></big> || <big><big><span class="rosetta__text--bold">78</span></big></big> || <big><big><span class="rosetta__text--bold">79</span></big></big> || <big><big><span class="rosetta__text--bold">80</span></big></big> || <big><big><span class="rosetta__text--bold">81</span></big></big>
+/// |}
+/// <br>
+/// {| class="wikitable" style="float:left;border: 2px solid black; background:orange; color:black; margin-left:20px;margin-right:auto;text-align:center;width:34em;height:34em;table-layout:fixed;font-size:70%"
+/// |-
+/// | <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">61</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">59</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big>
+/// |-
+/// | <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">37</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">31</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big>
+/// |-
+/// | <big><big><span class="rosetta__text--bold">67</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">17</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">13</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big>
+/// |-
+/// | <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold"> 5</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold"> 3</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">29</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big>
+/// |-
+/// | <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">19</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold"> 2</span></big></big> || <big><big><span class="rosetta__text--bold">11</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">53</span></big></big>
+/// |-
+/// | <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">41</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold"> 7</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big>
+/// |-
+/// | <big><big><span class="rosetta__text--bold">71</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">23</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big>
+/// |-
+/// | <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">43</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">47</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big>
+/// |-
+/// | <big><big><span class="rosetta__text--bold">73</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">79</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big>
+/// |}
+/// <br>
+/// {| class="wikitable" style="float:left;border: 2px solid black; background:yellow; color:black; margin-left:20px;margin-right:auto;text-align:center;width:34em;height:34em;table-layout:fixed;font-size:70%"
+/// |-
+/// | <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold"> ∙</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold"> ∙</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big>
+/// |-
+/// | <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold"> ∙</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold"> ∙</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big>
+/// |-
+/// | <big><big><span class="rosetta__text--bold"> ∙</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold"> ∙</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold"> ∙</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big>
+/// |-
+/// | <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold"> ∙</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold"> ∙</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold"> ∙</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big>
+/// |-
+/// | <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold"> ∙</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold"> ∙</span></big></big> || <big><big><span class="rosetta__text--bold"> ∙</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold"> ∙</span></big></big>
+/// |-
+/// | <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold"> ∙</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold"> ∙</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big>
+/// |-
+/// | <big><big><span class="rosetta__text--bold"> ∙</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold"> ∙</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big>
+/// |-
+/// | <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold"> ∙</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold"> ∙</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big>
+/// |-
+/// | <big><big><span class="rosetta__text--bold"> ∙</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold"> ∙</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big>
+/// |}
+/// <br>
+/// <br>
+/// <br style="clear:both">
+/// The Ulam spiral becomes more visually obvious as the grid increases in size. 
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task</dt></dl>
+/// For any sized &nbsp; <big><span class="rosetta__text--bold">N x N</span></big> &nbsp; grid, &nbsp; construct and show an Ulam spiral (counter-clockwise) of primes starting at some specified initial number &nbsp; (the default would be <span class="rosetta__text--bold">1</span>), &nbsp; with some suitably &nbsp; <span class="rosetta__text--italic">dotty</span> &nbsp; (glyph) representation to indicate primes, &nbsp; and the absence of dots to indicate non-primes.   
+/// <br>
+/// You should demonstrate the generator by showing at Ulam prime spiral large enough to (almost) fill your terminal screen.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">&nbsp; [[Spiral matrix]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[Zig-zag matrix]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[Identity_matrix]] </li>
+/// <br>
+/// </ul>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">See also</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">Wikipedia entry:        &nbsp; [http://en.wikipedia.org/wiki/Ulam_spiral Ulam spiral]  </li>
+/// <li class="rosetta__list-item">MathWorld&trade; entry: &nbsp; [http://mathworld.wolfram.com/PrimeSpiral.html Prime Spiral]</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
 
-There are other geometric shapes that are used as well, including clock-wise spirals. 
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
-Also, some spirals (for the &nbsp; 2<sup>nd</sup> &nbsp; number) &nbsp; is viewed upwards from the &nbsp; 1<sup>st</sup> &nbsp; number instead of to the right, but that is just a matter of orientation.
-
-Sometimes, the starting number can be specified to show more visual striking patterns (of prime densities).
-
-[A larger than necessary grid (numbers wise) is shown here to illustrate the pattern of numbers on the diagonals &nbsp; (which may be used by the method to orientate the direction of spiral-construction algorithm within the example computer programs)]. 
-
-Then, in the next phase in the transformation of the Ulam prime spiral, &nbsp; the non-primes are translated to blanks. 
-
-In the orange grid below, &nbsp; the primes are left intact, &nbsp; and all non-primes are changed to blanks.  
-
-Then, in the final transformation of the Ulam spiral (the yellow grid), &nbsp; translate the primes to a glyph such as a &nbsp; <big><big><b> ∙ </b></big></big> &nbsp; or some other suitable glyph.
-<br>
-
-{| class="wikitable" style="float:left;border: 2px solid black; background:lightgreen; color:black; margin-left:0;margin-right:auto;text-align:center;width:34em;height:34em;table-layout:fixed;font-size:70%"
-|-
-| <big><big><span class="rosetta__text--bold">65</span></big></big> || <big><big><span class="rosetta__text--bold">64</span></big></big> || <big><big><span class="rosetta__text--bold">63</span></big></big> || <big><big><span class="rosetta__text--bold">62</span></big></big> || <big><big><span class="rosetta__text--bold">61</span></big></big> || <big><big><span class="rosetta__text--bold">60</span></big></big> || <big><big><span class="rosetta__text--bold">59</span></big></big> || <big><big><span class="rosetta__text--bold">58</span></big></big> || <big><big><span class="rosetta__text--bold">57</span></big></big>
-|->
-| <big><big><span class="rosetta__text--bold">66</span></big></big> || <big><big><span class="rosetta__text--bold">37</span></big></big> || <big><big><span class="rosetta__text--bold">36</span></big></big> || <big><big><span class="rosetta__text--bold">35</span></big></big> || <big><big><span class="rosetta__text--bold">34</span></big></big> || <big><big><span class="rosetta__text--bold">33</span></big></big> || <big><big><span class="rosetta__text--bold">32</span></big></big> || <big><big><span class="rosetta__text--bold">31</span></big></big> || <big><big><span class="rosetta__text--bold">56</span></big></big>
-|-
-| <big><big><span class="rosetta__text--bold">67</span></big></big> || <big><big><span class="rosetta__text--bold">38</span></big></big> || <big><big><span class="rosetta__text--bold">17</span></big></big> || <big><big><span class="rosetta__text--bold">16</span></big></big> || <big><big><span class="rosetta__text--bold">15</span></big></big> || <big><big><span class="rosetta__text--bold">14</span></big></big> || <big><big><span class="rosetta__text--bold">13</span></big></big> || <big><big><span class="rosetta__text--bold">30</span></big></big> || <big><big><span class="rosetta__text--bold">55</span></big></big>
-|-
-| <big><big><span class="rosetta__text--bold">68</span></big></big> || <big><big><span class="rosetta__text--bold">39</span></big></big> || <big><big><span class="rosetta__text--bold">18</span></big></big> || <big><big><span class="rosetta__text--bold"> 5</span></big></big> || <big><big><span class="rosetta__text--bold"> 4</span></big></big> || <big><big><span class="rosetta__text--bold"> 3</span></big></big> || <big><big><span class="rosetta__text--bold">12</span></big></big> || <big><big><span class="rosetta__text--bold">29</span></big></big> || <big><big><span class="rosetta__text--bold">54</span></big></big>
-|-
-| <big><big><span class="rosetta__text--bold">69</span></big></big> || <big><big><span class="rosetta__text--bold">40</span></big></big> || <big><big><span class="rosetta__text--bold">19</span></big></big> || <big><big><span class="rosetta__text--bold"> 6</span></big></big> || <big><big><span class="rosetta__text--bold"> 1</span></big></big> || <big><big><span class="rosetta__text--bold"> 2</span></big></big> || <big><big><span class="rosetta__text--bold">11</span></big></big> || <big><big><span class="rosetta__text--bold">28</span></big></big> || <big><big><span class="rosetta__text--bold">53</span></big></big>
-|-
-| <big><big><span class="rosetta__text--bold">70</span></big></big> || <big><big><span class="rosetta__text--bold">41</span></big></big> || <big><big><span class="rosetta__text--bold">20</span></big></big> || <big><big><span class="rosetta__text--bold"> 7</span></big></big> || <big><big><span class="rosetta__text--bold"> 8</span></big></big> || <big><big><span class="rosetta__text--bold"> 9</span></big></big> || <big><big><span class="rosetta__text--bold">10</span></big></big> || <big><big><span class="rosetta__text--bold">27</span></big></big> || <big><big><span class="rosetta__text--bold">52</span></big></big>
-|-
-| <big><big><span class="rosetta__text--bold">71</span></big></big> || <big><big><span class="rosetta__text--bold">42</span></big></big> || <big><big><span class="rosetta__text--bold">21</span></big></big> || <big><big><span class="rosetta__text--bold">22</span></big></big> || <big><big><span class="rosetta__text--bold">23</span></big></big> || <big><big><span class="rosetta__text--bold">24</span></big></big> || <big><big><span class="rosetta__text--bold">25</span></big></big> || <big><big><span class="rosetta__text--bold">26</span></big></big> || <big><big><span class="rosetta__text--bold">51</span></big></big>
-|-
-| <big><big><span class="rosetta__text--bold">72</span></big></big> || <big><big><span class="rosetta__text--bold">43</span></big></big> || <big><big><span class="rosetta__text--bold">44</span></big></big> || <big><big><span class="rosetta__text--bold">45</span></big></big> || <big><big><span class="rosetta__text--bold">46</span></big></big> || <big><big><span class="rosetta__text--bold">47</span></big></big> || <big><big><span class="rosetta__text--bold">48</span></big></big> || <big><big><span class="rosetta__text--bold">49</span></big></big> || <big><big><span class="rosetta__text--bold">50</span></big></big>
-|-
-| <big><big><span class="rosetta__text--bold">73</span></big></big> || <big><big><span class="rosetta__text--bold">74</span></big></big> || <big><big><span class="rosetta__text--bold">75</span></big></big> || <big><big><span class="rosetta__text--bold">76</span></big></big> || <big><big><span class="rosetta__text--bold">77</span></big></big> || <big><big><span class="rosetta__text--bold">78</span></big></big> || <big><big><span class="rosetta__text--bold">79</span></big></big> || <big><big><span class="rosetta__text--bold">80</span></big></big> || <big><big><span class="rosetta__text--bold">81</span></big></big>
-|}
-
-{| class="wikitable" style="float:left;border: 2px solid black; background:orange; color:black; margin-left:20px;margin-right:auto;text-align:center;width:34em;height:34em;table-layout:fixed;font-size:70%"
-|-
-| <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">61</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">59</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big>
-|-
-| <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">37</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">31</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big>
-|-
-| <big><big><span class="rosetta__text--bold">67</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">17</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">13</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big>
-|-
-| <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold"> 5</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold"> 3</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">29</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big>
-|-
-| <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">19</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold"> 2</span></big></big> || <big><big><span class="rosetta__text--bold">11</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">53</span></big></big>
-|-
-| <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">41</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold"> 7</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big>
-|-
-| <big><big><span class="rosetta__text--bold">71</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">23</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big>
-|-
-| <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">43</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">47</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big>
-|-
-| <big><big><span class="rosetta__text--bold">73</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">79</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big>
-|}
-
-{| class="wikitable" style="float:left;border: 2px solid black; background:yellow; color:black; margin-left:20px;margin-right:auto;text-align:center;width:34em;height:34em;table-layout:fixed;font-size:70%"
-|-
-| <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold"> ∙</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold"> ∙</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big>
-|-
-| <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold"> ∙</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold"> ∙</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big>
-|-
-| <big><big><span class="rosetta__text--bold"> ∙</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold"> ∙</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold"> ∙</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big>
-|-
-| <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold"> ∙</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold"> ∙</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold"> ∙</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big>
-|-
-| <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold"> ∙</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold"> ∙</span></big></big> || <big><big><span class="rosetta__text--bold"> ∙</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold"> ∙</span></big></big>
-|-
-| <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold"> ∙</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold"> ∙</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big>
-|-
-| <big><big><span class="rosetta__text--bold"> ∙</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold"> ∙</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big>
-|-
-| <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold"> ∙</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold"> ∙</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big>
-|-
-| <big><big><span class="rosetta__text--bold"> ∙</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold"> ∙</span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big> || <big><big><span class="rosetta__text--bold">  </span></big></big>
-|}
+/// solutions:
 
 
-<br style="clear:both">
-The Ulam spiral becomes more visually obvious as the grid increases in size. 
+/// rawSolutions:
+null
 
+/// tail:
+const replaceThis = 3;
 
-;Task
-For any sized &nbsp; <big><span class="rosetta__text--bold">N x N</span></big> &nbsp; grid, &nbsp; construct and show an Ulam spiral (counter-clockwise) of primes starting at some specified initial number &nbsp; (the default would be <span class="rosetta__text--bold">1</span>), &nbsp; with some suitably &nbsp; <span class="rosetta__text--italic">dotty</span> &nbsp; (glyph) representation to indicate primes, &nbsp; and the absence of dots to indicate non-primes.   
-
-You should demonstrate the generator by showing at Ulam prime spiral large enough to (almost) fill your terminal screen.
-
-
-;Related tasks:
-* &nbsp; [[Spiral matrix]]
-* &nbsp; [[Zig-zag matrix]]
-* &nbsp; [[Identity_matrix]] 
-
-
-;See also
-* Wikipedia entry:        &nbsp; [http://en.wikipedia.org/wiki/Ulam_spiral Ulam spiral]  
-* MathWorld&trade; entry: &nbsp; [http://mathworld.wolfram.com/PrimeSpiral.html Prime Spiral]
-<br><br>
-
-
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

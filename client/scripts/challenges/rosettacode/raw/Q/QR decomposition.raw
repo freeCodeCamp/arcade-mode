@@ -1,100 +1,136 @@
-QR decomposition
 
-{{task|Matrices}}[[Category:Mathematics]]
-Any rectangular $m \times n$ matrix $\mathit A$ can be decomposed to a product of an orthogonal matrix $\mathit Q$ and an upper (right) triangular matrix $\mathit R$, as described in <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/QR decomposition" title="wp: QR decomposition">QR decomposition</a>. 
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-<span class="rosetta__text--bold">Task</span>
+const assert = require('chai').assert;
 
-Demonstrate the QR decomposition on the example matrix from the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/QR_decomposition#Example_2" title="wp: QR_decomposition#Example_2">Wikipedia article</a>:
+/// title: QR decomposition
+/// type: rosetta-code
 
-::$A = \begin{pmatrix}
-12 & -51 & 4 \\
-6 & 167 & -68 \\
--4 & 24 & -41 \end{pmatrix}$
+/// categories:
+/// ?
 
-and the usage for linear least squares problems on the example from [[Polynomial_regression]]. The method of <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/ Householder transformation" title="wp:  Householder transformation">Householder reflections</a> should be used:
+/// difficulty: ?
 
-<span class="rosetta__text--bold">Method</span>
+/// benchmark:
+replaceWithActualFunctionHere;
 
-Multiplying a given vector $\mathit a$, for example the first column of matrix $\mathit A$, with the Householder matrix $\mathit H$, which is given as
+/// description:
+/// [[Category:Mathematics]]
+/// Any rectangular $m \times n$ matrix $\mathit A$ can be decomposed to a product of an orthogonal matrix $\mathit Q$ and an upper (right) triangular matrix $\mathit R$, as described in <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/QR decomposition" title="wp: QR decomposition">QR decomposition</a>. 
+/// <br>
+/// <span class="rosetta__text--bold">Task</span>
+/// <br>
+/// Demonstrate the QR decomposition on the example matrix from the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/QR_decomposition#Example_2" title="wp: QR_decomposition#Example_2">Wikipedia article</a>:
+/// <br>
+/// <span class="rosetta__text--indented">:$A = \begin{pmatrix}</span>
+/// 12 & -51 & 4 \\
+/// 6 & 167 & -68 \\
+/// -4 & 24 & -41 \end{pmatrix}$
+/// <br>
+/// and the usage for linear least squares problems on the example from [[Polynomial_regression]]. The method of <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/ Householder transformation" title="wp:  Householder transformation">Householder reflections</a> should be used:
+/// <br>
+/// <span class="rosetta__text--bold">Method</span>
+/// <br>
+/// Multiplying a given vector $\mathit a$, for example the first column of matrix $\mathit A$, with the Householder matrix $\mathit H$, which is given as
+/// <br>
+/// <span class="rosetta__text--indented">:$H = I - \frac {2} {u^T u} u u^T$</span>
+/// <br>
+/// reflects $\mathit a$ about a plane given by its normal vector $\mathit u$. When the normal vector of the plane $\mathit u$ is given as
+/// <br>
+/// <span class="rosetta__text--indented">:$u = a - \|a\|_2 \; e_1$</span>
+/// <br>
+/// then the transformation reflects $\mathit a$ onto the first standard basis vector 
+/// <br>
+/// <span class="rosetta__text--indented">:$e_1 = [1 \; 0 \; 0 \; ...]^T$</span>
+/// <br>
+/// which means that all entries but the first become zero. To avoid numerical cancellation errors, we should take the opposite sign of $a_1$:
+/// <br>
+/// <span class="rosetta__text--indented">:$u = a + \textrm{sign}(a_1)\|a\|_2 \; e_1$</span>
+/// <br>
+/// and normalize with respect to the first element:
+/// <br>
+/// <span class="rosetta__text--indented">:$v = \frac{u}{u_1}$</span>
+/// <br>
+/// The equation for $H$ thus becomes:
+/// <br>
+/// <span class="rosetta__text--indented">:$H = I - \frac {2} {v^T v} v v^T$</span>
+/// <br>
+/// or, in another form
+/// <br>
+/// <span class="rosetta__text--indented">:$H = I - \beta v v^T$</span>
+/// <br>
+/// with
+/// <span class="rosetta__text--indented">:$\beta = \frac {2} {v^T v}$</span>
+/// <br>
+/// Applying $\mathit H$ on $\mathit a$ then gives
+/// <br>
+/// <span class="rosetta__text--indented">:$H \; a = -\textrm{sign}(a_1) \; \|a\|_2 \; e_1$</span>
+/// <br>
+/// and applying $\mathit H$ on the matrix $\mathit A$ zeroes all subdiagonal elements of the first column:
+/// <br>
+/// <span class="rosetta__text--indented">:$H_1 \; A = \begin{pmatrix}</span>
+/// r_{11} & r_{12} & r_{13} \\
+/// 0    & *    & * \\
+/// 0    & *    & * \end{pmatrix}$
+/// <br>
+/// In the second step, the second column of $\mathit A$, we want to zero all elements but the first two, which means that we have to calculate $\mathit H$ with the first column of the <span class="rosetta__text--italic">submatrix</span> (denoted *), not on the whole second column of $\mathit A$.
+/// <br>
+/// To get $H_2$, we then embed the new $\mathit H$ into an $m \times n$ identity:
+/// <br>
+/// <span class="rosetta__text--indented">:$H_2 = \begin{pmatrix}</span>
+/// 1 & 0 & 0 \\
+/// 0 & H & \\
+/// 0 &   & \end{pmatrix}$
+/// <br>
+/// This is how we can, column by column, remove all subdiagonal elements of $\mathit A$ and thus transform it into $\mathit R$. 
+/// <br>
+/// <span class="rosetta__text--indented">:$H_n \; ... \; H_3 H_2 H_1 A = R$</span>
+/// <br>
+/// The product of all the Householder matrices $\mathit H$, for every column, in reverse order, will then yield the orthogonal matrix $\mathit Q$.
+/// <br>
+/// <span class="rosetta__text--indented">:$H_1 H_2 H_3 \; ... \; H_n = Q$</span>
+/// <br>
+/// The QR decomposition should then be used to solve linear least squares ([[Multiple regression]]) problems $\mathit A x = b$ by solving
+/// <br>
+/// <span class="rosetta__text--indented">:$R \; x = Q^T \; b$</span>
+/// <br>
+/// When $\mathit R$ is not square, i.e. $m > n$ we have to cut off the $\mathit m - n$ zero padded bottom rows.
+/// <br>
+/// <span class="rosetta__text--indented">:$R =</span>
+/// \begin{pmatrix}
+/// R_1 \\
+/// 0 \end{pmatrix}$
+/// <br>
+/// and the same for the RHS:
+/// <br>
+/// <span class="rosetta__text--indented">:$Q^T \; b =</span>
+/// \begin{pmatrix}
+/// q_1 \\
+/// q_2 \end{pmatrix}$
+/// <br>
+/// Finally, solve the square upper triangular system by back substitution:
+/// <br>
+/// <span class="rosetta__text--indented">:$R_1 \; x = q_1$</span>
+/// <br>
+/// <br>
 
-::$H = I - \frac {2} {u^T u} u u^T$
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
-reflects $\mathit a$ about a plane given by its normal vector $\mathit u$. When the normal vector of the plane $\mathit u$ is given as
-
-::$u = a - \|a\|_2 \; e_1$
-
-then the transformation reflects $\mathit a$ onto the first standard basis vector 
-
-::$e_1 = [1 \; 0 \; 0 \; ...]^T$
-
-which means that all entries but the first become zero. To avoid numerical cancellation errors, we should take the opposite sign of $a_1$:
-
-::$u = a + \textrm{sign}(a_1)\|a\|_2 \; e_1$
-
-and normalize with respect to the first element:
-
-::$v = \frac{u}{u_1}$
-
-The equation for $H$ thus becomes:
-
-::$H = I - \frac {2} {v^T v} v v^T$
-
-or, in another form
-
-::$H = I - \beta v v^T$
-
-with
-::$\beta = \frac {2} {v^T v}$
-
-Applying $\mathit H$ on $\mathit a$ then gives
-
-::$H \; a = -\textrm{sign}(a_1) \; \|a\|_2 \; e_1$
-
-and applying $\mathit H$ on the matrix $\mathit A$ zeroes all subdiagonal elements of the first column:
-
-::$H_1 \; A = \begin{pmatrix}
-r_{11} & r_{12} & r_{13} \\
-0    & *    & * \\
-0    & *    & * \end{pmatrix}$
-
-In the second step, the second column of $\mathit A$, we want to zero all elements but the first two, which means that we have to calculate $\mathit H$ with the first column of the <span class="rosetta__text--italic">submatrix</span> (denoted *), not on the whole second column of $\mathit A$.
-
-To get $H_2$, we then embed the new $\mathit H$ into an $m \times n$ identity:
-
-::$H_2 = \begin{pmatrix}
-1 & 0 & 0 \\
-0 & H & \\
-0 &   & \end{pmatrix}$
-
-This is how we can, column by column, remove all subdiagonal elements of $\mathit A$ and thus transform it into $\mathit R$. 
-
-::$H_n \; ... \; H_3 H_2 H_1 A = R$
-
-The product of all the Householder matrices $\mathit H$, for every column, in reverse order, will then yield the orthogonal matrix $\mathit Q$.
-
-::$H_1 H_2 H_3 \; ... \; H_n = Q$
-
-The QR decomposition should then be used to solve linear least squares ([[Multiple regression]]) problems $\mathit A x = b$ by solving
-
-::$R \; x = Q^T \; b$
-
-When $\mathit R$ is not square, i.e. $m > n$ we have to cut off the $\mathit m - n$ zero padded bottom rows.
-
-::$R =
-\begin{pmatrix}
-R_1 \\
-0 \end{pmatrix}$
-
-and the same for the RHS:
-
-::$Q^T \; b =
-\begin{pmatrix}
-q_1 \\
-q_2 \end{pmatrix}$
-
-Finally, solve the square upper triangular system by back substitution:
-
-::$R_1 \; x = q_1$
+/// solutions:
 
 
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

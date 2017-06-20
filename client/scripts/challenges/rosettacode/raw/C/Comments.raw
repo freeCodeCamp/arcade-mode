@@ -1,24 +1,57 @@
-Comments
 
-{{task|Basic language learning}}
-[[Category:Initialization]]
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Show all ways to include text in a language source file 
-that's completely ignored by the compiler or interpreter.
+const assert = require('chai').assert;
 
+/// title: Comments
+/// type: rosetta-code
 
-;Related tasks:
-* &nbsp; [[Documentation]]
-* &nbsp; [[Here_document]]
+/// categories:
+/// ?
 
+/// difficulty: ?
 
-;See also:
-* &nbsp; [https://en.wikipedia.org/wiki/Comment_(computer_programming) Wikipedia]
-* &nbsp; [http://xkcd.com/156 xkcd] (Humor: hand gesture denoting <code>//</code> for "commenting out" people.)
-<br><br>
+/// benchmark:
+replaceWithActualFunctionHere;
 
+/// description:
+/// <br>
+/// [[Category:Initialization]]
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Show all ways to include text in a language source file 
+/// that's completely ignored by the compiler or interpreter.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">&nbsp; [[Documentation]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[Here_document]]</li>
+/// <br>
+/// </ul>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">See also:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">&nbsp; [https://en.wikipedia.org/wiki/Comment_(computer_programming) Wikipedia]</li>
+/// <li class="rosetta__list-item">&nbsp; [http://xkcd.com/156 xkcd] (Humor: hand gesture denoting <code>//</code> for "commenting out" people.)</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
 
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+n = n + 1; // This is a comment
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 <lang javascript>n = n + 1; // This is a comment</lang>
 <lang javascript>// This is a valid comment // with a "nested" comment</lang>
@@ -29,3 +62,10 @@ comment
 and another line in the comment
 */</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

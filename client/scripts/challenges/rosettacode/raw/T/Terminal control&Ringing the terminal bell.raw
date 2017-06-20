@@ -1,15 +1,51 @@
-Terminal control/Ringing the terminal bell
 
-{{task|Terminal control}}
-<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Terminal Control::task" title="Terminal Control::task"> </a>
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Make the terminal running the program ring its "bell". 
+const assert = require('chai').assert;
+
+/// title: Terminal control/Ringing the terminal bell
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Terminal Control::task" title="Terminal Control::task"> </a>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Make the terminal running the program ring its "bell". 
+/// <br>
+/// <br>
+/// On modern terminal emulators, this may be done by playing some other sound which might or might not be configurable, or by flashing the title bar or inverting the colors of the screen, but was classically a physical bell within the terminal. &nbsp; It is usually used to indicate a problem where a wrong character has been typed.
+/// <br>
+/// In most terminals, if the &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Bell character" title="wp: Bell character">Bell character</a> &nbsp; (ASCII code <span class="rosetta__text--bold">7</span>, &nbsp; <big><code> \a </code></big> in C) &nbsp; is printed by the program, it will cause the terminal to ring its bell. &nbsp; This is a function of the terminal, and is independent of the programming language of the program, other than the ability to print a particular character to standard out.
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
-On modern terminal emulators, this may be done by playing some other sound which might or might not be configurable, or by flashing the title bar or inverting the colors of the screen, but was classically a physical bell within the terminal. &nbsp; It is usually used to indicate a problem where a wrong character has been typed.
+/// rawSolutions:
+null
 
-In most terminals, if the &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Bell character" title="wp: Bell character">Bell character</a> &nbsp; (ASCII code <span class="rosetta__text--bold">7</span>, &nbsp; <big><code> \a </code></big> in C) &nbsp; is printed by the program, it will cause the terminal to ring its bell. &nbsp; This is a function of the terminal, and is independent of the programming language of the program, other than the ability to print a particular character to standard out.
-<br><br>
+/// tail:
+const replaceThis = 3;
 
-
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

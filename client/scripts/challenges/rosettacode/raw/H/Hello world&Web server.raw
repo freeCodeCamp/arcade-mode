@@ -1,32 +1,66 @@
-Hello world/Web server
 
-{{task|Networking and Web Interaction}} [[Category:Web]]
-{{omit from|GUISS}}
-{{omit from|Locomotive Basic|No sockets}}
-{{omit from|Lotus 123 Macro Scripting}}
-{{omit from|Maxima}}
-{{omit from|ML/I|No sockets}}
-{{omit from|Retro}}
-{{omit from|TI-83 BASIC}}
-{{omit from|ZX Spectrum Basic|No sockets}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-The browser is the new [[GUI]] !
+const assert = require('chai').assert;
 
+/// title: Hello world/Web server
+/// type: rosetta-code
 
-;Task:
-Serve our standard text &nbsp; <big><big><code>Goodbye, World!</code></big></big> &nbsp; to &nbsp; http://localhost:8080/ &nbsp; so that it can be viewed with a web browser. 
+/// categories:
+/// ?
 
-The provided solution must start or implement a server that accepts multiple client connections and serves text as requested.
+/// difficulty: ?
 
-Note that starting a web browser or opening a new window with this URL 
-is not part of the task. 
+/// benchmark:
+replaceWithActualFunctionHere;
 
-Additionally, it is permissible to serve the provided page as a plain text file (there is no requirement to serve properly formatted [[HTML]] here). 
+/// description:
+///  [[Category:Web]]
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// The browser is the new [[GUI]] !
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Serve our standard text &nbsp; <big><big><code>Goodbye, World!</code></big></big> &nbsp; to &nbsp; http://localhost:8080/ &nbsp; so that it can be viewed with a web browser. 
+/// <br>
+/// The provided solution must start or implement a server that accepts multiple client connections and serves text as requested.
+/// <br>
+/// Note that starting a web browser or opening a new window with this URL 
+/// is not part of the task. 
+/// <br>
+/// Additionally, it is permissible to serve the provided page as a plain text file (there is no requirement to serve properly formatted [[HTML]] here). 
+/// <br>
+/// The browser will generally do the right thing with simple text like this.  
+/// <br><br>
+/// <br>
+/// <br>
 
-The browser will generally do the right thing with simple text like this.  
-<br><br>
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
+/// solutions:
+var http = require('http');
 
+http.createServer(function (req, res) {
+    res.writeHead(200, {'Content-Type': 'text/plain'});
+    res.end('Goodbye, World!\n');
+}).listen(8080, '127.0.0.1');
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 
 {{works with|Node.js}}
@@ -51,3 +85,10 @@ It scales:
 
 with no errors.
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

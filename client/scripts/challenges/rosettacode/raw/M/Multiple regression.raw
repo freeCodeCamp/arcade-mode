@@ -1,22 +1,97 @@
-Multiple regression
 
-{{task|Matrices}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Given a set of data vectors in the following format:
+const assert = require('chai').assert;
 
-    $y = \{ y_1, y_2, ..., y_n \}\,$
+/// title: Multiple regression
+/// type: rosetta-code
 
-    $X_i = \{ x_{i1}, x_{i2}, ..., x_{in} \}, i \in 1..k\,$
+/// categories:
+/// ?
 
-Compute the vector $\beta = \{ \beta_1, \beta_2, ..., \beta_k \}$ using <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Ordinary least squares" title="wp: Ordinary least squares">ordinary least squares</a> regression using the following equation:
+/// difficulty: ?
 
-    $y_j = \Sigma_i \beta_i \cdot x_{ij} ,    j \in 1..n$
+/// benchmark:
+replaceWithActualFunctionHere;
 
-You can assume <i> y </i> is given to you as a vector (a one-dimensional array), and <i> X </i> is given to you as a two-dimensional array (i.e. matrix).
-<br><br>
+/// description:
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Given a set of data vectors in the following format:
+/// <br>
+///     $y = \{ y_1, y_2, ..., y_n \}\,$
+/// <br>
+///     $X_i = \{ x_{i1}, x_{i2}, ..., x_{in} \}, i \in 1..k\,$
+/// <br>
+/// Compute the vector $\beta = \{ \beta_1, \beta_2, ..., \beta_k \}$ using <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Ordinary least squares" title="wp: Ordinary least squares">ordinary least squares</a> regression using the following equation:
+/// <br>
+///     $y_j = \Sigma_i \beta_i \cdot x_{ij} ,    j \in 1..n$
+/// <br>
+/// You can assume <i> y </i> is given to you as a vector (a one-dimensional array), and <i> X </i> is given to you as a two-dimensional array (i.e. matrix).
+/// <br><br>
+/// <br>
+/// <br>
 
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
+/// solutions:
+// modifies the matrix "in place"
+Matrix.prototype.inverse = function() {
+    if (this.height != this.width) {
+        throw "can't invert a non-square matrix";
+    }   
+
+    var I = new IdentityMatrix(this.height);
+    for (var i = 0; i < this.height; i++) 
+        this.mtx[i] = this.mtx[i].concat(I.mtx[i])
+    this.width *= 2;
+
+    this.toReducedRowEchelonForm();
+
+    for (var i = 0; i < this.height; i++) 
+        this.mtx[i].splice(0, this.height);
+    this.width /= 2;
+
+    return this;
+}
+
+function ColumnVector(ary) {
+    return new Matrix(ary.map(function(v) {return [v]}))
+}
+ColumnVector.prototype = Matrix.prototype
+
+Matrix.prototype.regression_coefficients = function(x) {
+    var x_t = x.transpose();
+    return x_t.mult(x).inverse().mult(x_t).mult(this);
+}
+
+// the Ruby example
+var y = new ColumnVector([1,2,3,4,5]);
+var x = new ColumnVector([2,1,3,4,5]);
+print(y.regression_coefficients(x));
+print();
+
+// the Tcl example
+y = new ColumnVector([
+    52.21, 53.12, 54.48, 55.84, 57.20, 58.57, 59.93, 61.29, 
+    63.11, 64.47, 66.28, 68.10, 69.92, 72.19, 74.46
+]);
+x = new Matrix(
+    [1.47,1.50,1.52,1.55,1.57,1.60,1.63,1.65,1.68,1.70,1.73,1.75,1.78,1.80,1.83].map(
+        function(v) {return [Math.pow(v,0), Math.pow(v,1), Math.pow(v,2)]}
+    )
+);
+print(y.regression_coefficients(x));
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 {{works with|SpiderMonkey}} for the <code>print()</code> and <code>''Array''.map()</code> functions.
 
@@ -78,3 +153,10 @@ print(y.regression_coefficients(x));</lang>
 -143.1620228653037
 61.960325442985436</pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

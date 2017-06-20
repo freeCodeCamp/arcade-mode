@@ -1,20 +1,72 @@
-Associative array/Creation
 
-{{task|Basic language learning}}[[Category:Data Structures]]
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-The goal is to create an [[associative array]] (also known as a dictionary, map, or hash).
+const assert = require('chai').assert;
 
+/// title: Associative array/Creation
+/// type: rosetta-code
 
-Related tasks:
-* [[Associative arrays/Iteration]]
-* [[Hash from two arrays]]
+/// categories:
+/// ?
 
+/// difficulty: ?
 
-{{Template:See also lists}}
-<br><br>
+/// benchmark:
+replaceWithActualFunctionHere;
 
+/// description:
+/// [[Category:Data Structures]]
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// The goal is to create an [[associative array]] (also known as a dictionary, map, or hash).
+/// <br>
+/// <br>
+/// Related tasks:
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">[[Associative arrays/Iteration]]</li>
+/// <li class="rosetta__list-item">[[Hash from two arrays]]</li>
+/// <br>
+/// </ul>
+/// <br>
+/// <br>
+/// <br><br>
+/// <br>
+/// <br>
 
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+var assoc = {};
+
+assoc['foo'] = 'bar';
+assoc['another-key'] = 3;
+
+// dot notation can be used if the property name is a valid identifier
+assoc.thirdKey = 'we can also do this!';
+assoc[2] = "the index here is the string '2'";
+
+//using JavaScript's object literal notation
+var assoc = {
+  foo: 'bar',
+  'another-key': 3 //the key can either be enclosed by quotes or not
+};
+
+//iterating keys
+for (var key in assoc) {
+  // hasOwnProperty() method ensures the property isn't inherited
+  if (assoc.hasOwnProperty(key)) {
+    alert('key:"' + key + '", value:"' + assoc[key] + '"');
+  }
+}
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 ECMAScript5.1 does not have associative arrays, however Objects (which are just an unordered bundle of name/value pairs) can be used like associative arrays. JavaScript Arrays may also be used, but Objects are the convention.
 
@@ -66,3 +118,10 @@ for (var key of map.keys()) {
   console.log(key + ' => ' + map.get(key));
 }</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

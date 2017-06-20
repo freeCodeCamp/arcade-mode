@@ -1,22 +1,51 @@
-Narcissist
 
-{{task}}
-Quoting from the [http://esolangs.org/wiki/Narcissist Esolangs wiki page]:
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-<blockquote>
-A <span class="rosetta__text--bold">narcissist</span> (or <span class="rosetta__text--bold">Narcissus program</span>) is the decision-problem version of a [[quine]].
-</blockquote><blockquote>
-A quine, when run, takes no input, but produces a copy of its own source code at its output. In contrast, a narcissist reads a string of symbols from its input, and produces no output except a "1" or "accept" if that string matches its own source code, or a "0" or "reject" if it does not.
-</blockquote>
+const assert = require('chai').assert;
 
-For concreteness, in this task we shall assume that symbol = character. 
+/// title: Narcissist
+/// type: rosetta-code
 
-The narcissist should be able to cope with any finite input, whatever its length. 
+/// categories:
+/// ?
 
-Any form of output is allowed, as long as the program always halts, and "accept", "reject" and "not yet finished" are distinguishable.
-<br><br>
+/// difficulty: ?
 
+/// benchmark:
+replaceWithActualFunctionHere;
 
+/// description:
+/// <br>
+/// Quoting from the [http://esolangs.org/wiki/Narcissist Esolangs wiki page]:
+/// <br>
+/// <blockquote>
+/// A <span class="rosetta__text--bold">narcissist</span> (or <span class="rosetta__text--bold">Narcissus program</span>) is the decision-problem version of a [[quine]].
+/// </blockquote><blockquote>
+/// A quine, when run, takes no input, but produces a copy of its own source code at its output. In contrast, a narcissist reads a string of symbols from its input, and produces no output except a "1" or "accept" if that string matches its own source code, or a "0" or "reject" if it does not.
+/// </blockquote>
+/// <br>
+/// For concreteness, in this task we shall assume that symbol = character. 
+/// <br>
+/// The narcissist should be able to cope with any finite input, whatever its length. 
+/// <br>
+/// Any form of output is allowed, as long as the program always halts, and "accept", "reject" and "not yet finished" are distinguishable.
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+var code='var q=String.fromCharCode(39);print("var code=" + q + code + q + "; eval(code)" == readline())'; eval(code)
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 {{works with|SpiderMonkey|1.7.0}}
 Based upon [[Quine#Using_eval|one of the quines]]. Outputs 'true' if source is equal to inputted line (newline terminated), 'false' otherwise.
@@ -45,3 +74,10 @@ var whatever = readfile(WScript.Arguments.UnNamed(0));
 WScript.Echo(self === whatever ? "Accept" : "Reject");
 </lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

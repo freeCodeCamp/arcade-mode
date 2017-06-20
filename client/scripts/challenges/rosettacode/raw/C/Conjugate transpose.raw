@@ -1,41 +1,81 @@
-Conjugate transpose
 
-{{task}} 
-<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category:Matrices]]
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-Suppose that a [[matrix]] <big>$M$</big> contains [[Arithmetic/Complex" title="Category:Matrices]]
+const assert = require('chai').assert;
 
-Suppose that a [[matrix]] <big>$M$</big> contains [[Arithmetic/Complex">complex numbers</a>. Then the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/conjugate transpose" title="wp: conjugate transpose">conjugate transpose]] of $M$ is a matrix $M^H$ containing the [[complex conjugate]]s of the [[matrix transposition</a> of $M$.
+/// title: Conjugate transpose
+/// type: rosetta-code
 
-::: <big>$(M^H)_{ji} = \overline{M_{ij}}$</big>
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+///  
+/// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category:Matrices]]
+/// <br>
+/// Suppose that a [[matrix]] <big>$M$</big> contains [[Arithmetic/Complex" title="Category:Matrices]]
+/// <br>
+/// Suppose that a [[matrix]] <big>$M$</big> contains [[Arithmetic/Complex">complex numbers</a>. Then the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/conjugate transpose" title="wp: conjugate transpose">conjugate transpose]] of $M$ is a matrix $M^H$ containing the [[complex conjugate]]s of the [[matrix transposition</a> of $M$.
+/// <br>
+/// <span class="rosetta__text--indented">:: <big>$(M^H)_{ji} = \overline{M_{ij}}$</big></span>
+/// <br>
+/// <br>
+/// This means that   row <big>$j$</big>, column <big>$i$</big> of the conjugate transpose equals the 
+/// <br>complex conjugate of row <big>$i$</big>, column <big>$j$</big> of the original matrix.
+/// <br>
+/// <br>
+/// In the next list, <big>$M$</big> must also be a square matrix.
+/// <br>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">A <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Hermitian matrix" title="wp: Hermitian matrix">Hermitian matrix</a> equals its own conjugate transpose: $M^H = M$.</li>
+/// <li class="rosetta__list-item">A <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/normal matrix" title="wp: normal matrix">normal matrix]] is commutative in [[matrix multiplication|multiplication</a> with its conjugate transpose: $M^HM = MM^H$.</li>
+/// <li class="rosetta__list-item">A <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/unitary matrix" title="wp: unitary matrix">unitary matrix]] has its <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/inverse matrix" title="inverse matrix">inverse</a> equal to its conjugate transpose: $M^H = M^{-1}$. <br> This is true [[wikt:iff|iff</a> $M^HM = I_n$ and iff $MM^H = I_n$, where $I_n$ is the identity matrix.</li>
+/// <br>
+/// </ul>
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Given some matrix of complex numbers, find its conjugate transpose. 
+/// <br>
+/// Also determine if the matrix is a:
+/// <span class="rosetta__text--indented">:* Hermitian matrix,</span>
+/// <span class="rosetta__text--indented">:* normal matrix,  or </span>
+/// <span class="rosetta__text--indented">:* unitary matrix.</span>
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">See also:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">MathWorld entry: [http://mathworld.wolfram.com/ConjugateTranspose.html conjugate transpose]</li>
+/// <li class="rosetta__list-item">MathWorld entry: [http://mathworld.wolfram.com/HermitianMatrix.html Hermitian matrix]</li>
+/// <li class="rosetta__list-item">MathWorld entry: [http://mathworld.wolfram.com/NormalMatrix.html normal matrix]</li>
+/// <li class="rosetta__list-item">MathWorld entry: [http://mathworld.wolfram.com/UnitaryMatrix.html unitary matrix]</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
-This means that   row <big>$j$</big>, column <big>$i$</big> of the conjugate transpose equals the 
-<br>complex conjugate of row <big>$i$</big>, column <big>$j$</big> of the original matrix.
+/// rawSolutions:
+null
 
+/// tail:
+const replaceThis = 3;
 
-In the next list, <big>$M$</big> must also be a square matrix.
-
-* A <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Hermitian matrix" title="wp: Hermitian matrix">Hermitian matrix</a> equals its own conjugate transpose: $M^H = M$.
-* A <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/normal matrix" title="wp: normal matrix">normal matrix]] is commutative in [[matrix multiplication|multiplication</a> with its conjugate transpose: $M^HM = MM^H$.
-* A <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/unitary matrix" title="wp: unitary matrix">unitary matrix]] has its <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/inverse matrix" title="inverse matrix">inverse</a> equal to its conjugate transpose: $M^H = M^{-1}$. <br> This is true [[wikt:iff|iff</a> $M^HM = I_n$ and iff $MM^H = I_n$, where $I_n$ is the identity matrix.
-
-
-<br>
-;Task:
-Given some matrix of complex numbers, find its conjugate transpose. 
-
-Also determine if the matrix is a:
-::* Hermitian matrix,
-::* normal matrix,  or 
-::* unitary matrix.
-
-
-;See also:
-* MathWorld entry: [http://mathworld.wolfram.com/ConjugateTranspose.html conjugate transpose]
-* MathWorld entry: [http://mathworld.wolfram.com/HermitianMatrix.html Hermitian matrix]
-* MathWorld entry: [http://mathworld.wolfram.com/NormalMatrix.html normal matrix]
-* MathWorld entry: [http://mathworld.wolfram.com/UnitaryMatrix.html unitary matrix]
-<br><br>
-
-
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

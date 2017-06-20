@@ -1,48 +1,91 @@
-URL encoding
 
-{{task}}
-[[Category:String manipulation]]
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Provide a function or mechanism to convert a provided string into URL encoding representation.
+const assert = require('chai').assert;
 
-In URL encoding, special characters, control characters and extended characters 
-are converted into a percent symbol followed by a two digit hexadecimal code, 
-So a space character encodes into %20 within the string.
+/// title: URL encoding
+/// type: rosetta-code
 
-For the purposes of this task, every character except 0-9, A-Z and a-z requires conversion, so the following characters all require conversion by default:
+/// categories:
+/// ?
 
-* ASCII control codes (Character ranges 00-1F hex (0-31 decimal) and 7F (127 decimal).
-* ASCII symbols (Character ranges 32-47 decimal (20-2F hex))
-* ASCII symbols (Character ranges 58-64 decimal (3A-40 hex))
-* ASCII symbols (Character ranges 91-96 decimal (5B-60 hex))
-* ASCII symbols (Character ranges 123-126 decimal (7B-7E hex))
-* Extended characters with character codes of 128 decimal (80 hex) and above.
+/// difficulty: ?
 
-<br>
-;Example:
-The string "<code><nowiki>http://foo bar/</nowiki></code>" would be encoded as "<code><nowiki>http%3A%2F%2Ffoo%20bar%2F</nowiki></code>".
+/// benchmark:
+replaceWithActualFunctionHere;
 
+/// description:
+/// <br>
+/// [[Category:String manipulation]]
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Provide a function or mechanism to convert a provided string into URL encoding representation.
+/// <br>
+/// In URL encoding, special characters, control characters and extended characters 
+/// are converted into a percent symbol followed by a two digit hexadecimal code, 
+/// So a space character encodes into %20 within the string.
+/// <br>
+/// For the purposes of this task, every character except 0-9, A-Z and a-z requires conversion, so the following characters all require conversion by default:
+/// <br>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">ASCII control codes (Character ranges 00-1F hex (0-31 decimal) and 7F (127 decimal).</li>
+/// <li class="rosetta__list-item">ASCII symbols (Character ranges 32-47 decimal (20-2F hex))</li>
+/// <li class="rosetta__list-item">ASCII symbols (Character ranges 58-64 decimal (3A-40 hex))</li>
+/// <li class="rosetta__list-item">ASCII symbols (Character ranges 91-96 decimal (5B-60 hex))</li>
+/// <li class="rosetta__list-item">ASCII symbols (Character ranges 123-126 decimal (7B-7E hex))</li>
+/// <li class="rosetta__list-item">Extended characters with character codes of 128 decimal (80 hex) and above.</li>
+/// <br>
+/// </ul>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Example:</dt></dl>
+/// The string "<code><nowiki>http://foo bar/</nowiki></code>" would be encoded as "<code><nowiki>http%3A%2F%2Ffoo%20bar%2F</nowiki></code>".
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Variations:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">Lowercase escapes are legal, as in "<code><nowiki>http%3a%2f%2ffoo%20bar%2f</nowiki></code>".</li>
+/// <li class="rosetta__list-item">Some standards give different rules: RFC 3986, <span class="rosetta__text--italic">Uniform Resource Identifier (URI): Generic Syntax</span>, section 2.3, says that "-._~" should not be encoded. HTML 5, section [http://www.whatwg.org/specs/web-apps/current-work/multipage/association-of-controls-and-forms.html#url-encoded-form-data 4.10.22.5 URL-encoded form data], says to preserve "-._*", and to encode space " " to "+". The options below provide for utilization of an exception string, enabling preservation (non encoding) of particular characters to meet specific standards.</li>
+/// <br>
+/// </ul>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Options:</dt></dl>
+/// It is permissible to use an exception string (containing a set of symbols 
+/// that do not need to be converted). 
+/// However, this is an optional feature and is not a requirement of this task.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks: </dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">&nbsp; [[URL decoding]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[URL parser]]</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
 
-;Variations:
-* Lowercase escapes are legal, as in "<code><nowiki>http%3a%2f%2ffoo%20bar%2f</nowiki></code>".
-* Some standards give different rules: RFC 3986, <span class="rosetta__text--italic">Uniform Resource Identifier (URI): Generic Syntax</span>, section 2.3, says that "-._~" should not be encoded. HTML 5, section [http://www.whatwg.org/specs/web-apps/current-work/multipage/association-of-controls-and-forms.html#url-encoded-form-data 4.10.22.5 URL-encoded form data], says to preserve "-._*", and to encode space " " to "+". The options below provide for utilization of an exception string, enabling preservation (non encoding) of particular characters to meet specific standards.
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
+/// solutions:
+var normal = 'http://foo/bar/';
+var encoded = encodeURIComponent(normal);
 
-;Options:
-It is permissible to use an exception string (containing a set of symbols 
-that do not need to be converted). 
-However, this is an optional feature and is not a requirement of this task.
-
-
-;Related tasks: 
-* &nbsp; [[URL decoding]]
-* &nbsp; [[URL parser]]
-<br><br>
-
-
+/// rawSolutions:
 =={{header|JavaScript}}==
 Confusingly, there are 3 different URI encoding functions in JavaScript: <code>escape()</code>, <code>encodeURI()</code>, and <code>encodeURIComponent()</code>. Each of them encodes a different set of characters. See [http://www.javascripter.net/faq/escape.htm this article] and [http://xkr.us/articles/javascript/encode-compare/ this article] for more information and comparisons.
 <lang javascript>var normal = 'http://foo/bar/';
 var encoded = encodeURIComponent(normal);</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

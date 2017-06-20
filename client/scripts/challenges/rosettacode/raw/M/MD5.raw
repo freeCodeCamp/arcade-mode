@@ -1,18 +1,54 @@
-MD5
 
-{{task|Checksums}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Encode a string using an MD5 algorithm. &nbsp; The algorithm can be found on &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Md5#Algorithm" title="wp: Md5#Algorithm">Wikipedia</a>.
+const assert = require('chai').assert;
+
+/// title: MD5
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Encode a string using an MD5 algorithm. &nbsp; The algorithm can be found on &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Md5#Algorithm" title="wp: Md5#Algorithm">Wikipedia</a>.
+/// <br>
+/// <br>
+/// Optionally, validate your implementation by running all of the test values in &nbsp; [http://tools.ietf.org/html/rfc1321 IETF RFC (1321) &nbsp; for MD5]. 
+/// <br>
+/// Additionally, &nbsp; RFC 1321 &nbsp; provides more precise information on the algorithm than the Wikipedia article.
+/// <br>
+/// <br>
+/// <br>
+/// If the solution on this page is a library solution, see &nbsp; [[MD5/Implementation]] &nbsp; for an implementation from scratch.
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
-Optionally, validate your implementation by running all of the test values in &nbsp; [http://tools.ietf.org/html/rfc1321 IETF RFC (1321) &nbsp; for MD5]. 
+/// rawSolutions:
+null
 
-Additionally, &nbsp; RFC 1321 &nbsp; provides more precise information on the algorithm than the Wikipedia article.
+/// tail:
+const replaceThis = 3;
 
-{{alertbox|lightgray|<span class="rosetta__text--bold">Warning:</span> &nbsp; MD5 has [http://tools.ietf.org/html/rfc6151 known weaknesses], including <span class="rosetta__text--bold">collisions</span> and [http://www.win.tue.nl/hashclash/rogue-ca/ forged signatures]. &nbsp; Users may consider a stronger alternative when doing production-grade cryptography, such as SHA-256 (from the SHA-2 family), or the upcoming SHA-3.}}
-
-If the solution on this page is a library solution, see &nbsp; [[MD5/Implementation]] &nbsp; for an implementation from scratch.
-<br><br>
-
-
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

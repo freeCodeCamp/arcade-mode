@@ -1,32 +1,84 @@
-Spiral matrix
 
-{{task|Matrices}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Produce a spiral array. 
+const assert = require('chai').assert;
+
+/// title: Spiral matrix
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Produce a spiral array. 
+/// <br>
+/// <br>
+/// A &nbsp; <span class="rosetta__text--italic">spiral array</span> &nbsp; is a square arrangement of the first &nbsp; <big> N<sup>2</sup></big> &nbsp; natural numbers, &nbsp; where the
+/// <br>numbers increase sequentially as you go around the edges of the array spiraling inwards.
+/// <br>
+/// <br>
+/// For example, given &nbsp; <span class="rosetta__text--bold">5</span>, &nbsp; produce this array:
+/// <pre>
+///  0  1  2  3  4
+/// 15 16 17 18  5
+/// 14 23 24 19  6
+/// 13 22 21 20  7
+/// 12 11 10  9  8
+/// </pre>
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">&nbsp; [[Zig-zag matrix]] </li>
+/// <li class="rosetta__list-item">&nbsp; [[Identity_matrix]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[Ulam_spiral_(for_primes)]]</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+spiralArray = function (edge) {
+    var arr = Array(edge),
+        x = 0, y = edge,
+        total = edge * edge--,
+        dx = 1, dy = 0,
+        i = 0, j = 0;
+    while (y) arr[--y] = [];
+    while (i < total) {
+        arr[y][x] = i++;
+        x += dx; y += dy;
+        if (++j == edge) {
+            if (dy < 0) {x++; y++; edge -= 2}
+            j = dx; dx = -dy; dy = j; j = 0;
+       }
+    }
+    return arr;
+}
+
+// T E S T:
+arr = spiralArray(edge = 5);
+for (y= 0; y < edge; y++) console.log(arr[y].join(" "));
 
 
-A &nbsp; <span class="rosetta__text--italic">spiral array</span> &nbsp; is a square arrangement of the first &nbsp; <big> N<sup>2</sup></big> &nbsp; natural numbers, &nbsp; where the
-<br>numbers increase sequentially as you go around the edges of the array spiraling inwards.
-
-
-For example, given &nbsp; <span class="rosetta__text--bold">5</span>, &nbsp; produce this array:
-<pre>
- 0  1  2  3  4
-15 16 17 18  5
-14 23 24 19  6
-13 22 21 20  7
-12 11 10  9  8
-</pre>
-
-
-;Related tasks:
-* &nbsp; [[Zig-zag matrix]] 
-* &nbsp; [[Identity_matrix]]
-* &nbsp; [[Ulam_spiral_(for_primes)]]
-<br><br>
-
-
+/// rawSolutions:
 =={{header|JavaScript}}==
 
 ===Imperative===
@@ -230,3 +282,10 @@ Output:
 13  22  21  20   7
 12  11  10   9   8</pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,26 +1,93 @@
-Percentage difference between images
 
-{{task|Image processing}}Compute the percentage of difference between 2 JPEG images of the same size. Alternatively, compare two bitmaps as defined in [[basic bitmap storage]].
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-Useful for comparing two JPEG images saved with a different compression ratios.
+const assert = require('chai').assert;
 
-You can use these pictures for testing (use the full-size version of each):
+/// title: Percentage difference between images
+/// type: rosetta-code
 
-{|
-|-
-!50% quality JPEG
-!100% quality JPEG
-|-
-|<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Image:Lenna50.jpg" title="Image:Lenna50.jpg">200px</a>
-|<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Image:Lenna100.jpg" title="Image:Lenna100.jpg">200px</a>
-|-
-|[http://rosettacode.org/mw/images/3/3c/Lenna50.jpg link to full size 50% image]
-|[http://rosettacode.org/mw/images/b/b6/Lenna100.jpg link to full size 100% image]
-|}
+/// categories:
+/// ?
 
-The expected difference for these two images is 1.62125%
+/// difficulty: ?
 
+/// benchmark:
+replaceWithActualFunctionHere;
 
+/// description:
+/// Compute the percentage of difference between 2 JPEG images of the same size. Alternatively, compare two bitmaps as defined in [[basic bitmap storage]].
+/// <br>
+/// Useful for comparing two JPEG images saved with a different compression ratios.
+/// <br>
+/// You can use these pictures for testing (use the full-size version of each):
+/// <br>
+/// {|
+/// |-
+/// !50% quality JPEG
+/// !100% quality JPEG
+/// |-
+/// |<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Image:Lenna50.jpg" title="Image:Lenna50.jpg">200px</a>
+/// |<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Image:Lenna100.jpg" title="Image:Lenna100.jpg">200px</a>
+/// |-
+/// |[http://rosettacode.org/mw/images/3/3c/Lenna50.jpg link to full size 50% image]
+/// |[http://rosettacode.org/mw/images/b/b6/Lenna100.jpg link to full size 100% image]
+/// |}
+/// <br>
+/// The expected difference for these two images is 1.62125%
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+function getImageData(url, callback) {
+	var img = document.createElement('img');
+	var canvas = document.createElement('canvas');
+
+	img.onload = function () {
+		canvas.width = img.width;
+		canvas.height = img.height;
+		var ctx = canvas.getContext('2d');
+		ctx.drawImage(img, 0, 0);
+		callback(ctx.getImageData(0, 0, img.width, img.height));
+	};
+
+	img.src = url;
+}
+
+function compare(firstImage, secondImage, callback) {
+	getImageData(firstImage, function (img1) {
+		getImageData(secondImage, function (img2) {
+			if (img1.width !== img2.width || img1.height != img2.height) {
+				callback(NaN);
+				return;
+			}
+
+			var diff = 0;
+			
+			for (var i = 0; i < img1.data.length / 4; i++) {
+				diff += Math.abs(img1.data[4 * i + 0] - img2.data[4 * i + 0]) / 255;
+				diff += Math.abs(img1.data[4 * i + 1] - img2.data[4 * i + 1]) / 255;
+				diff += Math.abs(img1.data[4 * i + 2] - img2.data[4 * i + 2]) / 255;
+			}
+
+			callback(100 * diff / (img1.width * img1.height * 3));
+		});
+	});
+}
+
+compare('Lenna50.jpg', 'Lenna100.jpg', function (result) {
+	console.log(result);
+});
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 
 <lang javascript>function getImageData(url, callback) {
@@ -63,3 +130,10 @@ compare('Lenna50.jpg', 'Lenna100.jpg', function (result) {
 	console.log(result);
 });</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

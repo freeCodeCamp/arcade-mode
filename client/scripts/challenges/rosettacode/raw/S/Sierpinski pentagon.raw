@@ -1,14 +1,45 @@
-Sierpinski pentagon
 
-{{task}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-Produce a graphical or ASCII-art representation of a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/N-flake#Pentaflake" title="wp: N-flake#Pentaflake">Sierpinski pentagon</a> (aka a Pentaflake) of order 5. Your code should also be able to correctly generate representations of lower orders: 1 to 4.
-<br>
-<br>
-;See also
-* [http://ecademy.agnesscott.edu/~lriddle/ifs/pentagon/pentagon.htm Sierpinski pentagon]
-<br><br>
+const assert = require('chai').assert;
 
+/// title: Sierpinski pentagon
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// Produce a graphical or ASCII-art representation of a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/N-flake#Pentaflake" title="wp: N-flake#Pentaflake">Sierpinski pentagon</a> (aka a Pentaflake) of order 5. Your code should also be able to correctly generate representations of lower orders: 1 to 4.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">See also</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">[http://ecademy.agnesscott.edu/~lriddle/ifs/pentagon/pentagon.htm Sierpinski pentagon]</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+null
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 ;Notes:
 * I didn't try to, but got the first of 2 possible versions according to [[wp:N-flake| WP N-flake]] article. Mine has central pentagon. All others here got second version.
@@ -115,3 +146,10 @@ Page with Pentaflakejs.png
 Clicking Pentaflake you can see orders 1-6 of it in different colors.
 </pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

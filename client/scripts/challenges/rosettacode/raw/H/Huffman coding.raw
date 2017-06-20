@@ -1,37 +1,128 @@
-Huffman coding
 
-{{task|Compression}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-Huffman encoding is a way to assign binary codes to symbols that reduces the overall number of bits used to encode a typical string of those symbols.
+const assert = require('chai').assert;
 
-For example, if you use letters as symbols and have details of the frequency of occurrence of those letters in typical strings, then you could just encode each letter with a fixed number of bits, such as in ASCII codes. You can do better than this by encoding more frequently occurring letters such as e and a, with smaller bit strings; and  less frequently occurring letters such as q and x with longer bit strings.
+/// title: Huffman coding
+/// type: rosetta-code
 
-Any string of letters will be encoded as a string of bits that are no-longer of the same length per letter. To successfully decode such as string, the  smaller codes assigned to letters such as 'e' cannot occur as a prefix in the larger codes such as that for 'x'.
-:If you were to assign a code 01 for 'e' and code 011 for 'x', then if the bits to decode started as 011... then you would not know if you should decode an 'e' or an 'x'.
+/// categories:
+/// ?
 
-The Huffman coding scheme takes each symbol and its weight (or frequency of occurrence), and generates proper encodings for each symbol taking account of the weights of each symbol, so that higher weighted symbols have fewer bits in their encoding. (See the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Huffman_coding" title="wp: Huffman_coding">WP article</a> for more information).
+/// difficulty: ?
 
-A Huffman encoding can be computed by first creating a tree of nodes:
+/// benchmark:
+replaceWithActualFunctionHere;
 
-<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Image:Huffman_coding_example.jpg" title="Image:Huffman_coding_example.jpg">right|250px</a>
-# Create a leaf node for each symbol and add it to the [[priority queue]].
-# While there is more than one node in the queue:
-## Remove the node of highest priority (lowest probability) twice to get two nodes.
-## Create a new internal node with these two nodes as children and with probability equal to the sum of the two nodes' probabilities.
-## Add the new node to the queue.
-# The remaining node is the root node and the tree is complete.
+/// description:
+/// <br>
+/// <br>
+/// Huffman encoding is a way to assign binary codes to symbols that reduces the overall number of bits used to encode a typical string of those symbols.
+/// <br>
+/// For example, if you use letters as symbols and have details of the frequency of occurrence of those letters in typical strings, then you could just encode each letter with a fixed number of bits, such as in ASCII codes. You can do better than this by encoding more frequently occurring letters such as e and a, with smaller bit strings; and  less frequently occurring letters such as q and x with longer bit strings.
+/// <br>
+/// Any string of letters will be encoded as a string of bits that are no-longer of the same length per letter. To successfully decode such as string, the  smaller codes assigned to letters such as 'e' cannot occur as a prefix in the larger codes such as that for 'x'.
+/// <span class="rosetta__text--indented">If you were to assign a code 01 for 'e' and code 011 for 'x', then if the bits to decode started as 011... then you would not know if you should decode an 'e' or an 'x'.</span>
+/// <br>
+/// The Huffman coding scheme takes each symbol and its weight (or frequency of occurrence), and generates proper encodings for each symbol taking account of the weights of each symbol, so that higher weighted symbols have fewer bits in their encoding. (See the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Huffman_coding" title="wp: Huffman_coding">WP article</a> for more information).
+/// <br>
+/// A Huffman encoding can be computed by first creating a tree of nodes:
+/// <br>
+/// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Image:Huffman_coding_example.jpg" title="Image:Huffman_coding_example.jpg">right|250px</a>
+/// # Create a leaf node for each symbol and add it to the [[priority queue]].
+/// # While there is more than one node in the queue:
+/// ## Remove the node of highest priority (lowest probability) twice to get two nodes.
+/// ## Create a new internal node with these two nodes as children and with probability equal to the sum of the two nodes' probabilities.
+/// ## Add the new node to the queue.
+/// # The remaining node is the root node and the tree is complete.
+/// <br>
+/// <br>
+/// Traverse the constructed binary tree from root to leaves assigning and accumulating a '0' for one branch and a '1' for the other at each node. The accumulated  zeros and ones at each leaf constitute a Huffman encoding for those symbols and weights:
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Using the characters and their frequency from the string:
+/// <span class="rosetta__text--indented">:::: &nbsp; <span class="rosetta__text--bold"> <span class="rosetta__text--italic"> this is an example for huffman encoding </span> </span></span>
+/// create a program to generate a Huffman encoding for each character as a table.
+/// <br><br>
+/// <br>
+/// <br>
 
-<br>
-Traverse the constructed binary tree from root to leaves assigning and accumulating a '0' for one branch and a '1' for the other at each node. The accumulated  zeros and ones at each leaf constitute a Huffman encoding for those symbols and weights:
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
+/// solutions:
+function HuffmanEncoding(str) {
+    this.str = str;
 
-;Task:
-Using the characters and their frequency from the string:
-::::: &nbsp; <span class="rosetta__text--bold"> <span class="rosetta__text--italic"> this is an example for huffman encoding </span> </span>
-create a program to generate a Huffman encoding for each character as a table.
-<br><br>
+    var count_chars = {};
+    for (var i = 0; i < str.length; i++) 
+        if (str[i] in count_chars) 
+            count_chars[str[i]] ++;
+        else 
+            count_chars[str[i]] = 1;
 
+    var pq = new BinaryHeap(function(x){return x[0];});
+    for (var ch in count_chars) 
+        pq.push([count_chars[ch], ch]);
 
+    while (pq.size() > 1) {
+        var pair1 = pq.pop();
+        var pair2 = pq.pop();
+        pq.push([pair1[0]+pair2[0], [pair1[1], pair2[1]]]);
+    }
+
+    var tree = pq.pop();
+    this.encoding = {};
+    this._generate_encoding(tree[1], "");
+
+    this.encoded_string = ""
+    for (var i = 0; i < this.str.length; i++) {
+        this.encoded_string += this.encoding[str[i]];
+    }
+}
+
+HuffmanEncoding.prototype._generate_encoding = function(ary, prefix) {
+    if (ary instanceof Array) {
+        this._generate_encoding(ary[0], prefix + "0");
+        this._generate_encoding(ary[1], prefix + "1");
+    }
+    else {
+        this.encoding[ary] = prefix;
+    }
+}
+
+HuffmanEncoding.prototype.inspect_encoding = function() {
+    for (var ch in this.encoding) {
+        print("'" + ch + "': " + this.encoding[ch])
+    }
+}
+
+HuffmanEncoding.prototype.decode = function(encoded) {
+    var rev_enc = {};
+    for (var ch in this.encoding) 
+        rev_enc[this.encoding[ch]] = ch;
+
+    var decoded = "";
+    var pos = 0;
+    while (pos < encoded.length) {
+        var key = ""
+        while (!(key in rev_enc)) {
+            key += encoded[pos];
+            pos++;
+        }
+        decoded += rev_enc[key];
+    }
+    return decoded;
+}
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 {{trans|Ruby}}
 
@@ -144,3 +235,10 @@ print("is decoded string same as original? " + (s==t));</lang>
 this is an example for huffman encoding
 is decoded string same as original? true</pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

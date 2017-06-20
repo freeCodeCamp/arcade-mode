@@ -1,21 +1,67 @@
-Sort disjoint sublist
 
-{{task}}
-Given a list of values and a set of integer indices into that value list, the task is to sort the values at the given indices, but preserving the values at indices outside the set of those to be sorted.
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-Make your example work with the following list of values and set of indices:
-<code>
-    values: [7, <b>6</b>, 5, 4, 3, 2, <b>1</b>, <b>0</b>]
-    indices: {6, 1, 7}</code>
-Where the correct result would be: 
-    <code>[7, <b>0</b>, 5, 4, 3, 2, <b>1</b>, <b>6</b>]</code>.
+const assert = require('chai').assert;
 
-Note that for one based, rather than the zero-based indexing above, use the <code>indices: {7, 2, 8}</code>. The indices are described as a set rather than a list but any collection-type of those indices without duplication may be used as long as the example is insensitive to the order of indices given.
+/// title: Sort disjoint sublist
+/// type: rosetta-code
 
-;Cf.
-* [[Order disjoint list items]]
+/// categories:
+/// ?
 
+/// difficulty: ?
 
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// Given a list of values and a set of integer indices into that value list, the task is to sort the values at the given indices, but preserving the values at indices outside the set of those to be sorted.
+/// <br>
+/// Make your example work with the following list of values and set of indices:
+/// <code>
+///     values: [7, <b>6</b>, 5, 4, 3, 2, <b>1</b>, <b>0</b>]
+///     indices: {6, 1, 7}</code>
+/// Where the correct result would be: 
+///     <code>[7, <b>0</b>, 5, 4, 3, 2, <b>1</b>, <b>6</b>]</code>.
+/// <br>
+/// Note that for one based, rather than the zero-based indexing above, use the <code>indices: {7, 2, 8}</code>. The indices are described as a set rather than a list but any collection-type of those indices without duplication may be used as long as the example is insensitive to the order of indices given.
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Cf.</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">[[Order disjoint list items]]</li>
+/// <br>
+/// </ul>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+function sort_disjoint(values, indices) {
+  var sublist = [];
+  indices.sort(function(a, b) { return a > b; });
+
+  for (var i = 0; i < indices.length; i += 1) {
+    sublist.push(values[indices[i]]);
+  }
+
+  sublist.sort(function(a, b) { return a < b; });
+
+  for (var i = 0; i < indices.length; i += 1) {
+    values[indices[i]] = sublist.pop();
+  }
+
+  return values;
+}
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 ===ES5===
 ====Iterative====
@@ -99,3 +145,10 @@ Does not check for duplicate indices.
 {{Out}}
 <pre>[7, 0, 5, 4, 3, 2, 1, 6]</pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

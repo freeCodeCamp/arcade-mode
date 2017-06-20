@@ -1,27 +1,63 @@
-SHA-1
 
-{{task}} <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category:Checksums]]
-<span class="rosetta__text--bold">SHA-1</span> or <span class="rosetta__text--bold">SHA1</span> is a one-way hash function; 
-it computes a 160-bit message digest. 
-SHA-1 often appears in security protocols; for example, 
-many HTTPS websites use RSA with SHA-1 to secure their connections. 
-BitTorrent uses SHA-1 to verify downloads. 
-Git and Mercurial use SHA-1 digests to identify commits.
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-A US government standard, [[SHA-1/FIPS-180-1" title="Category:Checksums]]
-<span class="rosetta__text--bold">SHA-1</span> or <span class="rosetta__text--bold">SHA1</span> is a one-way hash function; 
-it computes a 160-bit message digest. 
-SHA-1 often appears in security protocols; for example, 
-many HTTPS websites use RSA with SHA-1 to secure their connections. 
-BitTorrent uses SHA-1 to verify downloads. 
-Git and Mercurial use SHA-1 digests to identify commits.
+const assert = require('chai').assert;
 
-A US government standard, [[SHA-1/FIPS-180-1">FIPS 180-1</a>, defines SHA-1.
+/// title: SHA-1
+/// type: rosetta-code
 
-Find the SHA-1 message digest for a string of [[octet]]s. You may either call a SHA-1 library, or implement SHA-1 in your language. Both approaches interest Rosetta Code.
+/// categories:
+/// ?
 
-{{alertbox|lightgray|<span class="rosetta__text--bold">Warning:</span> SHA-1 has [https://en.wikinews.org/wiki/Chinese_researchers_crack_major_U.S._government_algorithm_used_in_digital_signatures known weaknesses]. Theoretical attacks may find a collision after [http://lwn.net/Articles/337745/ 2<sup>52</sup> operations], or perhaps fewer. 
-This is much faster than a brute force attack of 2<sup>80</sup> operations. USgovernment [http://csrc.nist.gov/groups/ST/hash/statement.html deprecated SHA-1]. 
-For production-grade cryptography, users may consider a stronger alternative, such as SHA-256 (from the SHA-2 family) or the upcoming SHA-3.}}
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+///  <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category:Checksums]]
+/// <span class="rosetta__text--bold">SHA-1</span> or <span class="rosetta__text--bold">SHA1</span> is a one-way hash function; 
+/// it computes a 160-bit message digest. 
+/// SHA-1 often appears in security protocols; for example, 
+/// many HTTPS websites use RSA with SHA-1 to secure their connections. 
+/// BitTorrent uses SHA-1 to verify downloads. 
+/// Git and Mercurial use SHA-1 digests to identify commits.
+/// <br>
+/// A US government standard, [[SHA-1/FIPS-180-1" title="Category:Checksums]]
+/// <span class="rosetta__text--bold">SHA-1</span> or <span class="rosetta__text--bold">SHA1</span> is a one-way hash function; 
+/// it computes a 160-bit message digest. 
+/// SHA-1 often appears in security protocols; for example, 
+/// many HTTPS websites use RSA with SHA-1 to secure their connections. 
+/// BitTorrent uses SHA-1 to verify downloads. 
+/// Git and Mercurial use SHA-1 digests to identify commits.
+/// <br>
+/// A US government standard, [[SHA-1/FIPS-180-1">FIPS 180-1</a>, defines SHA-1.
+/// <br>
+/// Find the SHA-1 message digest for a string of [[octet]]s. You may either call a SHA-1 library, or implement SHA-1 in your language. Both approaches interest Rosetta Code.
+/// <br>
+/// {{alertbox|lightgray|<span class="rosetta__text--bold">Warning:</span> SHA-1 has [https://en.wikinews.org/wiki/Chinese_researchers_crack_major_U.S._government_algorithm_used_in_digital_signatures known weaknesses]. Theoretical attacks may find a collision after [http://lwn.net/Articles/337745/ 2<sup>52</sup> operations], or perhaps fewer. 
+/// This is much faster than a brute force attack of 2<sup>80</sup> operations. USgovernment [http://csrc.nist.gov/groups/ST/hash/statement.html deprecated SHA-1]. 
+/// For production-grade cryptography, users may consider a stronger alternative, such as SHA-256 (from the SHA-2 family) or the upcoming SHA-3.}}
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

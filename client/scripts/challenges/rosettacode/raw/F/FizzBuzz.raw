@@ -1,29 +1,68 @@
-FizzBuzz
 
-{{task|Classic CS problems and programs}} 
-[[Category:Iteration]] 
-[[Category:Recursion]] 
-[[Category:Simple]]
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Write a program that prints the integers from &nbsp; <span class="rosetta__text--bold">1</span> &nbsp; to &nbsp; <span class="rosetta__text--bold">100</span> &nbsp; (inclusive). 
+const assert = require('chai').assert;
 
+/// title: FizzBuzz
+/// type: rosetta-code
 
-But:
-:* &nbsp; for multiples of three, &nbsp; print &nbsp; <span class="rosetta__text--bold">Fizz</span> &nbsp; &nbsp; (instead of the number)
-:* &nbsp; for multiples of five, &nbsp; print &nbsp; <span class="rosetta__text--bold">Buzz</span> &nbsp; &nbsp; (instead of the number)
-:* &nbsp; for multiples of both three and five, &nbsp; print &nbsp; <span class="rosetta__text--bold">FizzBuzz</span> &nbsp; &nbsp; (instead of the number) 
+/// categories:
+/// ?
 
+/// difficulty: ?
 
-The &nbsp; <span class="rosetta__text--italic">FizzBuzz</span> &nbsp; problem was presented as the lowest level of comprehension required to illustrate adequacy.
+/// benchmark:
+replaceWithActualFunctionHere;
 
+/// description:
+///  
+/// [[Category:Iteration]] 
+/// [[Category:Recursion]] 
+/// [[Category:Simple]]
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Write a program that prints the integers from &nbsp; <span class="rosetta__text--bold">1</span> &nbsp; to &nbsp; <span class="rosetta__text--bold">100</span> &nbsp; (inclusive). 
+/// <br>
+/// <br>
+/// But:
+/// <span class="rosetta__text--indented">* &nbsp; for multiples of three, &nbsp; print &nbsp; <span class="rosetta__text--bold">Fizz</span> &nbsp; &nbsp; (instead of the number)</span>
+/// <span class="rosetta__text--indented">* &nbsp; for multiples of five, &nbsp; print &nbsp; <span class="rosetta__text--bold">Buzz</span> &nbsp; &nbsp; (instead of the number)</span>
+/// <span class="rosetta__text--indented">* &nbsp; for multiples of both three and five, &nbsp; print &nbsp; <span class="rosetta__text--bold">FizzBuzz</span> &nbsp; &nbsp; (instead of the number) </span>
+/// <br>
+/// <br>
+/// The &nbsp; <span class="rosetta__text--italic">FizzBuzz</span> &nbsp; problem was presented as the lowest level of comprehension required to illustrate adequacy.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Also see:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">&nbsp; (a blog) &nbsp; [http://weblog.raganwald.com/2007/01/dont-overthink-fizzbuzz.html dont-overthink-fizzbuzz]</li>
+/// <li class="rosetta__list-item">&nbsp; (a blog) &nbsp; [http://blog.codinghorror.com/fizzbuzz-the-programmers-stairway-to-heaven/ fizzbuzz-the-programmers-stairway-to-heaven]</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
 
-;Also see:
-* &nbsp; (a blog) &nbsp; [http://weblog.raganwald.com/2007/01/dont-overthink-fizzbuzz.html dont-overthink-fizzbuzz]
-* &nbsp; (a blog) &nbsp; [http://blog.codinghorror.com/fizzbuzz-the-programmers-stairway-to-heaven/ fizzbuzz-the-programmers-stairway-to-heaven]
-<br><br>
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
+/// solutions:
+var fizzBuzz = function () {
+  var i, output;
+  for (i = 1; i < 101; i += 1) {
+    output = '';
+    if (!(i % 3)) { output += 'Fizz'; }
+    if (!(i % 5)) { output += 'Buzz'; }
+    console.log(output || i);//empty string is false, so we short-circuit
+  }
+};
 
+/// rawSolutions:
 =={{header|JavaScript}}==
 
 ===ES5===
@@ -100,3 +139,10 @@ Or, in a more functional style, without mutations
         .join('\n');
 })();</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

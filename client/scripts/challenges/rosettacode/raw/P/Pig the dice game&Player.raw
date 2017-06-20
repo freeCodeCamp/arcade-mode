@@ -1,28 +1,70 @@
-Pig the dice game/Player
 
-{{task}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Create a dice simulator and scorer of [[Pig the dice game]] and add to it the ability to play the game to at least one strategy.
-* State here the play strategies involved.
-* Show play during a game here.
+const assert = require('chai').assert;
+
+/// title: Pig the dice game/Player
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Create a dice simulator and scorer of [[Pig the dice game]] and add to it the ability to play the game to at least one strategy.
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">State here the play strategies involved.</li>
+/// <li class="rosetta__list-item">Show play during a game here.</li>
+/// <br>
+/// </ul>
+/// <br>
+/// As a stretch goal:
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">Simulate playing the game a number of times with two players of given strategies and report here summary statistics such as, but not restricted to, the influence of going first or which strategy seems stronger.</li>
+/// <br>
+/// </ul>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Game Rules:</dt></dl>
+/// The game of Pig is a multiplayer game played with a single six-sided die. The
+/// object of the game is to reach 100 points or more.
+/// Play is taken in turns. On each person's turn that person has the option of either
+/// <br>
+/// # <span class="rosetta__text--bold">Rolling the dice</span>: where a roll of two to six is added to their score for that turn and the player's turn continues as the player is given the same choice again; or a roll of 1 loses the player's total points <span class="rosetta__text--italic">for that turn</span> and their turn finishes with play passing to the next player.
+/// # <span class="rosetta__text--bold">Holding</span>: The player's score for that round is added to their total and becomes safe from the effects of throwing a one. The player's turn finishes with play passing to the next player.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Reference</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Pig (dice)" title="wp: Pig (dice)">Pig (dice)</a></li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
-As a stretch goal:
-* Simulate playing the game a number of times with two players of given strategies and report here summary statistics such as, but not restricted to, the influence of going first or which strategy seems stronger.
+/// rawSolutions:
+null
 
+/// tail:
+const replaceThis = 3;
 
-;Game Rules:
-The game of Pig is a multiplayer game played with a single six-sided die. The
-object of the game is to reach 100 points or more.
-Play is taken in turns. On each person's turn that person has the option of either
-
-# <span class="rosetta__text--bold">Rolling the dice</span>: where a roll of two to six is added to their score for that turn and the player's turn continues as the player is given the same choice again; or a roll of 1 loses the player's total points <span class="rosetta__text--italic">for that turn</span> and their turn finishes with play passing to the next player.
-# <span class="rosetta__text--bold">Holding</span>: The player's score for that round is added to their total and becomes safe from the effects of throwing a one. The player's turn finishes with play passing to the next player.
-
-
-;Reference
-* <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Pig (dice)" title="wp: Pig (dice)">Pig (dice)</a>
-<br><br>
-
-
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

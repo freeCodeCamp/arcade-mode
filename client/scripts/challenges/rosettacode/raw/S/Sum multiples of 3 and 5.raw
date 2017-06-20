@@ -1,17 +1,46 @@
-Sum multiples of 3 and 5
 
-{{task}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-The objective is to write a function that finds the sum of all positive multiples of 3 or 5 below <span class="rosetta__text--italic">n</span>. 
+const assert = require('chai').assert;
 
-Show output for <span class="rosetta__text--italic">n</span> = 1000.
+/// title: Sum multiples of 3 and 5
+/// type: rosetta-code
 
+/// categories:
+/// ?
 
-<span class="rosetta__text--bold">Extra credit:</span> do this efficiently for <span class="rosetta__text--italic">n</span> = 1e20 or higher.
-<br><br>
+/// difficulty: ?
 
+/// benchmark:
+replaceWithActualFunctionHere;
 
+/// description:
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// The objective is to write a function that finds the sum of all positive multiples of 3 or 5 below <span class="rosetta__text--italic">n</span>. 
+/// <br>
+/// Show output for <span class="rosetta__text--italic">n</span> = 1000.
+/// <br>
+/// <br>
+/// <span class="rosetta__text--bold">Extra credit:</span> do this efficiently for <span class="rosetta__text--italic">n</span> = 1e20 or higher.
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+ Number.MAX_SAFE_INTEGER
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 
 ===ES5===
@@ -181,3 +210,10 @@ For [3,5]:
 "100000":2333316668, "1000000":233333166668, "10000000":23333331666668,
 "100000000":2333333316666668}</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

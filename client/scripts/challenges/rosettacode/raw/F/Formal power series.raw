@@ -1,22 +1,58 @@
-Formal power series
 
-{{task|Arithmetic operations}}
-A <span class="rosetta__text--italic">power series</span> is an infinite sum of the form
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-$a_0 + a_1 \cdot x + a_2 \cdot x^2 + a_3 \cdot x^3 + \cdots$
+const assert = require('chai').assert;
 
-The <span class="rosetta__text--italic">a<sub>i</sub></span> are called the <span class="rosetta__text--italic">coefficients</span> of the series. Such sums can be added, multiplied etc., where the new coefficients of the powers of <span class="rosetta__text--italic">x</span> are calculated according to the usual rules.
+/// title: Formal power series
+/// type: rosetta-code
 
-If one is not interested in evaluating such a series for particular values of <span class="rosetta__text--italic">x</span>, or in other words, if convergence doesn't play a role, then such a collection of coefficients is called <span class="rosetta__text--italic">formal power series</span>. It can be treated like a new kind of number.
+/// categories:
+/// ?
 
-<span class="rosetta__text--bold">Task</span>: Implement formal power series as a numeric type. Operations should at least include <span class="rosetta__text--italic">addition</span>, <span class="rosetta__text--italic">multiplication</span>, <span class="rosetta__text--italic">division</span> and additionally non-numeric operations like <span class="rosetta__text--italic">differentiation</span> and <span class="rosetta__text--italic">integration</span> (with an integration constant of zero). Take care that your implementation deals with the potentially infinite number of coefficients.
+/// difficulty: ?
 
-As an example, define the power series of sine and cosine in terms of each other using integration, as in
+/// benchmark:
+replaceWithActualFunctionHere;
 
-$\sin x = \int_0^x \cos t\, dt$
+/// description:
+/// <br>
+/// A <span class="rosetta__text--italic">power series</span> is an infinite sum of the form
+/// <br>
+/// $a_0 + a_1 \cdot x + a_2 \cdot x^2 + a_3 \cdot x^3 + \cdots$
+/// <br>
+/// The <span class="rosetta__text--italic">a<sub>i</sub></span> are called the <span class="rosetta__text--italic">coefficients</span> of the series. Such sums can be added, multiplied etc., where the new coefficients of the powers of <span class="rosetta__text--italic">x</span> are calculated according to the usual rules.
+/// <br>
+/// If one is not interested in evaluating such a series for particular values of <span class="rosetta__text--italic">x</span>, or in other words, if convergence doesn't play a role, then such a collection of coefficients is called <span class="rosetta__text--italic">formal power series</span>. It can be treated like a new kind of number.
+/// <br>
+/// <span class="rosetta__text--bold">Task</span>: Implement formal power series as a numeric type. Operations should at least include <span class="rosetta__text--italic">addition</span>, <span class="rosetta__text--italic">multiplication</span>, <span class="rosetta__text--italic">division</span> and additionally non-numeric operations like <span class="rosetta__text--italic">differentiation</span> and <span class="rosetta__text--italic">integration</span> (with an integration constant of zero). Take care that your implementation deals with the potentially infinite number of coefficients.
+/// <br>
+/// As an example, define the power series of sine and cosine in terms of each other using integration, as in
+/// <br>
+/// $\sin x = \int_0^x \cos t\, dt$
+/// <br>
+/// $\cos x = 1 - \int_0^x \sin t\, dt$
+/// <br>
+/// <span class="rosetta__text--bold">Goals</span>: Demonstrate how the language handles new numeric types and delayed (or <span class="rosetta__text--italic">lazy</span>) evaluation.
+/// <br>
+/// <br>
 
-$\cos x = 1 - \int_0^x \sin t\, dt$
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
-<span class="rosetta__text--bold">Goals</span>: Demonstrate how the language handles new numeric types and delayed (or <span class="rosetta__text--italic">lazy</span>) evaluation.
+/// solutions:
 
 
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

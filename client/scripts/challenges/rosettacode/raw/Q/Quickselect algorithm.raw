@@ -1,10 +1,48 @@
-Quickselect algorithm
 
-{{task}}
-Use the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Quickselect" title="wp: Quickselect">quickselect algorithm</a> on the vector
-: [9, 8, 7, 6, 5, 0, 1, 2, 3, 4]
-To show the first, second, third, ... up to the tenth largest member of the vector, in order, here on this page.
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-* Note: Quick<span class="rosetta__text--italic">sort</span> has a separate <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Sorting algorithms/Quicksort" title="Sorting algorithms/Quicksort">task</a>. <br><br>
+const assert = require('chai').assert;
+
+/// title: Quickselect algorithm
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// Use the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Quickselect" title="wp: Quickselect">quickselect algorithm</a> on the vector
+/// <span class="rosetta__text--indented"> [9, 8, 7, 6, 5, 0, 1, 2, 3, 4]</span>
+/// To show the first, second, third, ... up to the tenth largest member of the vector, in order, here on this page.
+/// <br>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">Note: Quick<span class="rosetta__text--italic">sort</span> has a separate <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Sorting algorithms/Quicksort" title="Sorting algorithms/Quicksort">task</a>. <br><br></li>
+/// <br>
+/// </ul>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

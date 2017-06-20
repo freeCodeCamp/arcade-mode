@@ -1,657 +1,695 @@
-Compiler/syntax analyzer
 
-{{task}}Syntax Analyzer
-
-A Syntax analyzer transforms a token stream (from the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/lexical_analyzer" title="Compiler/lexical_analyzer">Lexical analyzer</a>)
-into a Syntax tree, based on a grammar.
-
-{{task heading}}
-
-Take the output from the Lexical analyzer <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/lexical_analyzer" title="Compiler/lexical_analyzer">task</a>,
-and convert it to an [https://en.wikipedia.org/wiki/Abstract_syntax_tree Abstract Syntax Tree (AST)],
-based on the grammar below.  The output should be in a <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Flatten_a_list" title="Flatten_a_list">flattened format.</a>
-
-The program should read input from a file and/or stdin, and write output to a file and/or
-stdout.  If the language being used has a parser module/library/class, it would be great
-if two versions of the solution are provided:  One without the parser module, and one
-with.
-
-{{task heading|Grammar}}
-
-The simple programming language to be analyzed is more or less a (very tiny) subset of
-[[C]]. The formal grammar in
-[https://en.wikipedia.org/wiki/Extended_Backus%E2%80%93Naur_Form Extended Backus-Naur Form (EBNF)]:
-
-<lang EBNF>
-    stmt_list           =   {stmt} ;
-
-    stmt                =   ';'
-                          | Identifier '=' expr ';'
-                          | 'while' paren_expr stmt
-                          | 'if' paren_expr stmt ['else' stmt]
-                          | 'print' '(' prt_list ')' ';'
-                          | 'putc' paren_expr ';'
-                          | '{' stmt_list '}'
-                          ;
-
-    paren_expr          =   '(' expr ')' ;
-
-    prt_list            =   string | expr {',' String | expr} ;
-
-    expr                =   and_expr            {'||' and_expr} ;
-    and_expr            =   equality_expr       {'&&' equality_expr} ;
-    equality_expr       =   relational_expr     [('==' | '!=') relational_expr] ;
-    relational_expr     =   addition_expr       [('<' | '<=' | '>' | '>=') addition_expr] ;
-    addition_expr       =   multiplication_expr {('+' | '-') multiplication_expr} ;
-    multiplication_expr =   primary             {('*' | '/' | '%') primary } ;
-    primary             =   Identifier
-                          | Integer
-                          | '(' expr ')'
-                          | ('+' | '-' | '!') primary
-                          ;</lang>
-
-The resulting AST should be formulated as a Binary Tree.
-
-;Example - given the simple program (below), stored in a file called while.t, create the list of tokens, using one of the Lexical analyzer <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/lexical_analyzer" title="Compiler/lexical_analyzer">solutions</a>
-
- lex < while.t > while.lex
-
-;Run one of the Syntax analyzer <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/syntax_analyzer" title="Compiler/syntax_analyzer">solutions</a>:
-
- parse < while.lex > while.ast
-
-;The following table shows the input to lex, lex output, and the AST produced by the parser:
-
-{| class="wikitable"
-|-
-! Input to lex
-! Output from lex, input to parse
-! Output from parse
-|-
-| style="vertical-align:top" |
-<lang c>count = 1;
- while (count < 10) {
-     print("count is: ", count, "\n");
-     count = count + 1;
- }</lang>
-
-| style="vertical-align:top" |
-<b><pre>
-    1      1 Identifier      count
-    1      7 Op_assign
-    1      9 Integer             1
-    1     10 Semicolon
-    2      1 Keyword_while
-    2      7 LeftParen
-    2      8 Identifier      count
-    2     14 Op_less
-    2     16 Integer            10
-    2     18 RightParen
-    2     20 LeftBrace
-    3      5 Keyword_print
-    3     10 LeftParen
-    3     11 String          "count is: "
-    3     23 Comma
-    3     25 Identifier      count
-    3     30 Comma
-    3     32 String          "\n"
-    3     36 RightParen
-    3     37 Semicolon
-    4      5 Identifier      count
-    4     11 Op_assign
-    4     13 Identifier      count
-    4     19 Op_add
-    4     21 Integer             1
-    4     22 Semicolon
-    5      1 RightBrace
-    6      1 End_of_input
-</pre></b>
-
-| style="vertical-align:top" |
-<b><pre>
-Sequence
-Sequence
-;
-Assign
-Identifier    count
-Integer       1
-While
-Less
-Identifier    count
-Integer       10
-Sequence
-Sequence
-;
-Sequence
-Sequence
-Sequence
-;
-Prts
-String        "count is: "
-;
-Prti
-Identifier    count
-;
-Prts
-String        "\n"
-;
-Assign
-Identifier    count
-Add
-Identifier    count
-Integer       1
-</pre></b>
-|}
-
-;Specifications
-
-;List of node type names:
-
-<pre>
-Identifier String Integer Sequence If Prtc Prts Prti While Assign Negate Not Multiply Divide Mod
-Add Subtract Less LessEqual Greater GreaterEqual Equal NotEqual And Or
-</pre>
-
-In the text below, Null/Empty nodes are represented by ";".
-
-;Non-terminal (internal) nodes:
-
-For Operators, the following nodes should be created:
-
- Multiply Divide Mod Add Subtract Less LessEqual Greater GreaterEqual Equal NotEqual And Or
-
-For each of the above nodes, the left and right sub-nodes are the operands of the
-respective operation.
-
-In pseudo S-Expression format:
-
- (Operator expression expression)
-
-Negate, Not
-
-For these node types, the left node is the operand, and the right node is null.
-
- (Operator expression ;)
-
-Sequence - sub-nodes are either statements or Sequences.
-
-If - left node is the expression, the right node is If node, with it's left node being the
-if-true statement part, and the right node being the if-false (else) statement part.
-
- (If expression (If statement else-statement))
-
-If there is not an else, the tree becomes:
-
- (If expression (If statement ;))
-
-Prtc
-
- (Prtc (expression) ;)
-
-Prts
-
- (Prts (String "the string") ;)
-
-Prti
-
- (Prti (Integer 12345) ;)
-
-While - left node is the expression, the right node is the statement.
-
- (While expression statement)
-
-Assign - left node is the left-hand side of the assignment, the right node is the
-right-hand side of the assignment.
-
- (Assign Identifier expression)
-
-Terminal (leaf) nodes:
-
- Identifier: (Identifier ident_name)
- Integer:    (Integer 12345)
- String:     (String "Hello World!")
- ";":        Empty node
-
-;Some simple examples
-Sequences denote a list node; they are used to represent a list. semicolon's represent a null node, e.g., the end of this path.
-
-This simple program:
-
-    a=11;
-
-Produces the following AST, encoded as a binary tree:
-
-Under each non-leaf node are two '|' lines.  The first represents the left sub-node, the second represents the right sub-node:
-
-    (1) Sequence
-    (2)     |-- ;
-    (3)     |-- Assign
-    (4)         |-- Identifier: a
-    (5)         |-- Integer: 11
-
-In flattened form:
-
-    (1) Sequence
-    (2) ;
-    (3) Assign
-    (4) Identifier    a
-    (5) Integer       11
-
-
-This program:
-
-    a=11;
-    b=22;
-    c=33;
-
-Produces the following AST:
-
-    ( 1) Sequence
-    ( 2)     |-- Sequence
-    ( 3)     |   |-- Sequence
-    ( 4)     |   |   |-- ;
-    ( 5)     |   |   |-- Assign
-    ( 6)     |   |       |-- Identifier: a
-    ( 7)     |   |       |-- Integer: 11
-    ( 8)     |   |-- Assign
-    ( 9)     |       |-- Identifier: b
-    (10)     |       |-- Integer: 22
-    (11)     |-- Assign
-    (12)         |-- Identifier: c
-    (13)         |-- Integer: 33
-
-In flattened form:
-
-    ( 1) Sequence
-    ( 2) Sequence
-    ( 3) Sequence
-    ( 4) ;
-    ( 5) Assign
-    ( 6) Identifier    a
-    ( 7) Integer       11
-    ( 8) Assign
-    ( 9) Identifier    b
-    (10) Integer       22
-    (11) Assign
-    (12) Identifier    c
-    (13) Integer       33
-
-;Pseudo-code for the parser.  
-
-Uses [https://www.engr.mun.ca/~theo/Misc/exp_parsing.htm Precedence Climbing] for expression parsing, and
-[https://en.wikipedia.org/wiki/Recursive_descent_parser Recursive Descent] for statement parsing. The AST is also built:
-
-<lang python>def expr(p)
-    if tok is "("
-        x = paren_expr()
-    elif tok in ["-", "+", "!"]
-        gettok()
-        y = expr(precedence of operator)
-        if operator was "+"
-            x = y
-        else
-            x = make_node(operator, y)
-    elif tok is an Identifier
-        x = make_leaf(Identifier, variable name)
-        gettok()
-    elif tok is an Integer constant
-        x = make_leaf(Integer, integer value)
-        gettok()
-    else
-        error()
-
-    while tok is a binary operator and precedence of tok >= p
-        save_tok = tok
-        gettok()
-        q = precedence of save_tok
-        if save_tok is not right associative
-            q += 1
-        x = make_node(Operator save_tok represents, x, expr(q))
-
-    return x
-
-def paren_expr()
-    expect("(")
-    x = expr(0)
-    expect(")")
-    return x
-
-def stmt()
-    t = NULL
-    if accept("if")
-        e = paren_expr()
-        s = stmt()
-        t = make_node(If, e, make_node(If, s, accept("else") ? stmt() : NULL))
-    elif accept("putc")
-        t = make_node(Prtc, paren_expr())
-        expect(";")
-    elif accept("print")
-        expect("(")
-        repeat
-            if tok is a string
-                e = make_node(Prts, make_leaf(String, the string))
-                gettok()
-            else
-                e = make_node(Prti, expr(0))
-
-            t = make_node(Sequence, t, e)
-        until not accept(",")
-        expect(")")
-        expect(";")
-    elif tok is ";"
-        gettok()
-    elif tok is an Identifier
-        v = make_leaf(Identifier, variable name)
-        gettok()
-        expect("=")
-        t = make_node(Assign, v, expr(0))
-        expect(";")
-    elif accept("while")
-        e = paren_expr()
-        t = make_node(While, e, stmt()
-    elif accept("{")
-        while tok not equal "}" and tok not equal end-of-file
-            t = make_node(Sequence, t, stmt())
-        expect("}")
-    elif tok is end-of-file
-        pass
-    else
-        error()
-    return t
-
-def parse()
-    t = NULL
-    gettok()
-    repeat
-        t = make_node(Sequence, t, stmt())
-    until tok is end-of-file
-    return t</lang>
-
-;Once the AST is built, it should be output in a <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Flatten_a_list" title="Flatten_a_list">flattened format.</a>  This can be as simple as the following:
-
-<lang python>def prt_ast(t)
-    if t == NULL
-        print(";\n")
-    else
-        print(t.node_type)
-        if t.node_type in [Identifier, Integer, String]     # leaf node
-            print the value of the Ident, Integer or String, "\n"
-        else
-            print("\n")
-            prt_ast(t.left)
-            prt_ast(t.right)</lang>
-
-;If the AST is correctly built, loading it into a subsequent program should be as simple as:
-
-<lang python>def load_ast()
-    line = readline()
-    # Each line has at least one token
-    line_list = tokenize the line, respecting double quotes
-
-    text = line_list[0] # first token is always the node type
-
-    if text == ";"   # a terminal node
-        return NULL
-
-    node_type = text # could convert to internal form if desired
-
-    # A line with two tokens is a leaf node
-    # Leaf nodes are: Identifier, Integer, String
-    # The 2nd token is the value
-    if len(line_list) > 1
-        return make_leaf(node_type, line_list[1])
-
-    left = load_ast()
-    right = load_ast()
-    return make_node(node_type, left, right)</lang>
-
-Finally, the AST can also be tested by running it against one of the AST Interpreter <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/AST_interpreter" title="Compiler/AST_interpreter">solutions</a>.
-
-;Test program, assuming this is in a file called prime.t:  lex <prime.t | parse
-
-{| class="wikitable"
-|-
-! Input to lex
-! Output from lex, input to parse
-! Output from parse
-|-
-| style="vertical-align:top" |
-<lang c>/*
- Simple prime number generator
- */
-count = 1;
-n = 1;
-limit = 100;
-while (n < limit) {
-    k=3;
-    p=1;
-    n=n+2;
-    while ((k*k<=n) && (p)) {
-        p=n/k*k!=n;
-        k=k+2;
-    }
-    if (p) {
-        print(n, " is prime\n");
-        count = count + 1;
-    }
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Compiler/syntax analyzer
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// Syntax Analyzer
+/// <br>
+/// A Syntax analyzer transforms a token stream (from the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/lexical_analyzer" title="Compiler/lexical_analyzer">Lexical analyzer</a>)
+/// into a Syntax tree, based on a grammar.
+/// <br>
+/// <br>
+/// <br>
+/// Take the output from the Lexical analyzer <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/lexical_analyzer" title="Compiler/lexical_analyzer">task</a>,
+/// and convert it to an [https://en.wikipedia.org/wiki/Abstract_syntax_tree Abstract Syntax Tree (AST)],
+/// based on the grammar below.  The output should be in a <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Flatten_a_list" title="Flatten_a_list">flattened format.</a>
+/// <br>
+/// The program should read input from a file and/or stdin, and write output to a file and/or
+/// stdout.  If the language being used has a parser module/library/class, it would be great
+/// if two versions of the solution are provided:  One without the parser module, and one
+/// with.
+/// <br>
+/// <br>
+/// <br>
+/// The simple programming language to be analyzed is more or less a (very tiny) subset of
+/// [[C]]. The formal grammar in
+/// [https://en.wikipedia.org/wiki/Extended_Backus%E2%80%93Naur_Form Extended Backus-Naur Form (EBNF)]:
+/// <br>
+/// <lang EBNF>
+///     stmt_list           =   {stmt} ;
+/// <br>
+///     stmt                =   ';'
+///                           | Identifier '=' expr ';'
+///                           | 'while' paren_expr stmt
+///                           | 'if' paren_expr stmt ['else' stmt]
+///                           | 'print' '(' prt_list ')' ';'
+///                           | 'putc' paren_expr ';'
+///                           | '{' stmt_list '}'
+///                           ;
+/// <br>
+///     paren_expr          =   '(' expr ')' ;
+/// <br>
+///     prt_list            =   string | expr {',' String | expr} ;
+/// <br>
+///     expr                =   and_expr            {'||' and_expr} ;
+///     and_expr            =   equality_expr       {'&&' equality_expr} ;
+///     equality_expr       =   relational_expr     [('==' | '!=') relational_expr] ;
+///     relational_expr     =   addition_expr       [('<' | '<=' | '>' | '>=') addition_expr] ;
+///     addition_expr       =   multiplication_expr {('+' | '-') multiplication_expr} ;
+///     multiplication_expr =   primary             {('*' | '/' | '%') primary } ;
+///     primary             =   Identifier
+///                           | Integer
+///                           | '(' expr ')'
+///                           | ('+' | '-' | '!') primary
+///                           ;</lang>
+/// <br>
+/// The resulting AST should be formulated as a Binary Tree.
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Example - given the simple program (below), stored in a file called while.t, create the list of tokens, using one of the Lexical analyzer <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/lexical_analyzer" title="Compiler/lexical_analyzer">solutions</a></dt></dl>
+/// <br>
+///  lex < while.t > while.lex
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Run one of the Syntax analyzer <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/syntax_analyzer" title="Compiler/syntax_analyzer">solutions</a>:</dt></dl>
+/// <br>
+///  parse < while.lex > while.ast
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">The following table shows the input to lex, lex output, and the AST produced by the parser:</dt></dl>
+/// <br>
+/// {| class="wikitable"
+/// |-
+/// ! Input to lex
+/// ! Output from lex, input to parse
+/// ! Output from parse
+/// |-
+/// | style="vertical-align:top" |
+/// <lang c>count = 1;
+///  while (count < 10) {
+///      print("count is: ", count, "\n");
+///      count = count + 1;
+///  }</lang>
+/// <br>
+/// | style="vertical-align:top" |
+/// <b><pre>
+///     1      1 Identifier      count
+///     1      7 Op_assign
+///     1      9 Integer             1
+///     1     10 Semicolon
+///     2      1 Keyword_while
+///     2      7 LeftParen
+///     2      8 Identifier      count
+///     2     14 Op_less
+///     2     16 Integer            10
+///     2     18 RightParen
+///     2     20 LeftBrace
+///     3      5 Keyword_print
+///     3     10 LeftParen
+///     3     11 String          "count is: "
+///     3     23 Comma
+///     3     25 Identifier      count
+///     3     30 Comma
+///     3     32 String          "\n"
+///     3     36 RightParen
+///     3     37 Semicolon
+///     4      5 Identifier      count
+///     4     11 Op_assign
+///     4     13 Identifier      count
+///     4     19 Op_add
+///     4     21 Integer             1
+///     4     22 Semicolon
+///     5      1 RightBrace
+///     6      1 End_of_input
+/// </pre></b>
+/// <br>
+/// | style="vertical-align:top" |
+/// <b><pre>
+/// Sequence
+/// Sequence
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title"></dt></dl>
+/// Assign
+/// Identifier    count
+/// Integer       1
+/// While
+/// Less
+/// Identifier    count
+/// Integer       10
+/// Sequence
+/// Sequence
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title"></dt></dl>
+/// Sequence
+/// Sequence
+/// Sequence
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title"></dt></dl>
+/// Prts
+/// String        "count is: "
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title"></dt></dl>
+/// Prti
+/// Identifier    count
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title"></dt></dl>
+/// Prts
+/// String        "\n"
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title"></dt></dl>
+/// Assign
+/// Identifier    count
+/// Add
+/// Identifier    count
+/// Integer       1
+/// </pre></b>
+/// |}
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Specifications</dt></dl>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">List of node type names:</dt></dl>
+/// <br>
+/// <pre>
+/// Identifier String Integer Sequence If Prtc Prts Prti While Assign Negate Not Multiply Divide Mod
+/// Add Subtract Less LessEqual Greater GreaterEqual Equal NotEqual And Or
+/// </pre>
+/// <br>
+/// In the text below, Null/Empty nodes are represented by ";".
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Non-terminal (internal) nodes:</dt></dl>
+/// <br>
+/// For Operators, the following nodes should be created:
+/// <br>
+///  Multiply Divide Mod Add Subtract Less LessEqual Greater GreaterEqual Equal NotEqual And Or
+/// <br>
+/// For each of the above nodes, the left and right sub-nodes are the operands of the
+/// respective operation.
+/// <br>
+/// In pseudo S-Expression format:
+/// <br>
+///  (Operator expression expression)
+/// <br>
+/// Negate, Not
+/// <br>
+/// For these node types, the left node is the operand, and the right node is null.
+/// <br>
+///  (Operator expression ;)
+/// <br>
+/// Sequence - sub-nodes are either statements or Sequences.
+/// <br>
+/// If - left node is the expression, the right node is If node, with it's left node being the
+/// if-true statement part, and the right node being the if-false (else) statement part.
+/// <br>
+///  (If expression (If statement else-statement))
+/// <br>
+/// If there is not an else, the tree becomes:
+/// <br>
+///  (If expression (If statement ;))
+/// <br>
+/// Prtc
+/// <br>
+///  (Prtc (expression) ;)
+/// <br>
+/// Prts
+/// <br>
+///  (Prts (String "the string") ;)
+/// <br>
+/// Prti
+/// <br>
+///  (Prti (Integer 12345) ;)
+/// <br>
+/// While - left node is the expression, the right node is the statement.
+/// <br>
+///  (While expression statement)
+/// <br>
+/// Assign - left node is the left-hand side of the assignment, the right node is the
+/// right-hand side of the assignment.
+/// <br>
+///  (Assign Identifier expression)
+/// <br>
+/// Terminal (leaf) nodes:
+/// <br>
+///  Identifier: (Identifier ident_name)
+///  Integer:    (Integer 12345)
+///  String:     (String "Hello World!")
+///  ";":        Empty node
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Some simple examples</dt></dl>
+/// Sequences denote a list node; they are used to represent a list. semicolon's represent a null node, e.g., the end of this path.
+/// <br>
+/// This simple program:
+/// <br>
+///     a=11;
+/// <br>
+/// Produces the following AST, encoded as a binary tree:
+/// <br>
+/// Under each non-leaf node are two '|' lines.  The first represents the left sub-node, the second represents the right sub-node:
+/// <br>
+///     (1) Sequence
+///     (2)     |-- ;
+///     (3)     |-- Assign
+///     (4)         |-- Identifier: a
+///     (5)         |-- Integer: 11
+/// <br>
+/// In flattened form:
+/// <br>
+///     (1) Sequence
+///     (2) ;
+///     (3) Assign
+///     (4) Identifier    a
+///     (5) Integer       11
+/// <br>
+/// <br>
+/// This program:
+/// <br>
+///     a=11;
+///     b=22;
+///     c=33;
+/// <br>
+/// Produces the following AST:
+/// <br>
+///     ( 1) Sequence
+///     ( 2)     |-- Sequence
+///     ( 3)     |   |-- Sequence
+///     ( 4)     |   |   |-- ;
+///     ( 5)     |   |   |-- Assign
+///     ( 6)     |   |       |-- Identifier: a
+///     ( 7)     |   |       |-- Integer: 11
+///     ( 8)     |   |-- Assign
+///     ( 9)     |       |-- Identifier: b
+///     (10)     |       |-- Integer: 22
+///     (11)     |-- Assign
+///     (12)         |-- Identifier: c
+///     (13)         |-- Integer: 33
+/// <br>
+/// In flattened form:
+/// <br>
+///     ( 1) Sequence
+///     ( 2) Sequence
+///     ( 3) Sequence
+///     ( 4) ;
+///     ( 5) Assign
+///     ( 6) Identifier    a
+///     ( 7) Integer       11
+///     ( 8) Assign
+///     ( 9) Identifier    b
+///     (10) Integer       22
+///     (11) Assign
+///     (12) Identifier    c
+///     (13) Integer       33
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Pseudo-code for the parser.  </dt></dl>
+/// <br>
+/// Uses [https://www.engr.mun.ca/~theo/Misc/exp_parsing.htm Precedence Climbing] for expression parsing, and
+/// [https://en.wikipedia.org/wiki/Recursive_descent_parser Recursive Descent] for statement parsing. The AST is also built:
+/// <br>
+/// <lang python>def expr(p)
+///     if tok is "("
+///         x = paren_expr()
+///     elif tok in ["-", "+", "!"]
+///         gettok()
+///         y = expr(precedence of operator)
+///         if operator was "+"
+///             x = y
+///         else
+///             x = make_node(operator, y)
+///     elif tok is an Identifier
+///         x = make_leaf(Identifier, variable name)
+///         gettok()
+///     elif tok is an Integer constant
+///         x = make_leaf(Integer, integer value)
+///         gettok()
+///     else
+///         error()
+/// <br>
+///     while tok is a binary operator and precedence of tok >= p
+///         save_tok = tok
+///         gettok()
+///         q = precedence of save_tok
+///         if save_tok is not right associative
+///             q += 1
+///         x = make_node(Operator save_tok represents, x, expr(q))
+/// <br>
+///     return x
+/// <br>
+/// def paren_expr()
+///     expect("(")
+///     x = expr(0)
+///     expect(")")
+///     return x
+/// <br>
+/// def stmt()
+///     t = NULL
+///     if accept("if")
+///         e = paren_expr()
+///         s = stmt()
+///         t = make_node(If, e, make_node(If, s, accept("else") ? stmt() : NULL))
+///     elif accept("putc")
+///         t = make_node(Prtc, paren_expr())
+///         expect(";")
+///     elif accept("print")
+///         expect("(")
+///         repeat
+///             if tok is a string
+///                 e = make_node(Prts, make_leaf(String, the string))
+///                 gettok()
+///             else
+///                 e = make_node(Prti, expr(0))
+/// <br>
+///             t = make_node(Sequence, t, e)
+///         until not accept(",")
+///         expect(")")
+///         expect(";")
+///     elif tok is ";"
+///         gettok()
+///     elif tok is an Identifier
+///         v = make_leaf(Identifier, variable name)
+///         gettok()
+///         expect("=")
+///         t = make_node(Assign, v, expr(0))
+///         expect(";")
+///     elif accept("while")
+///         e = paren_expr()
+///         t = make_node(While, e, stmt()
+///     elif accept("{")
+///         while tok not equal "}" and tok not equal end-of-file
+///             t = make_node(Sequence, t, stmt())
+///         expect("}")
+///     elif tok is end-of-file
+///         pass
+///     else
+///         error()
+///     return t
+/// <br>
+/// def parse()
+///     t = NULL
+///     gettok()
+///     repeat
+///         t = make_node(Sequence, t, stmt())
+///     until tok is end-of-file
+///     return t</lang>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Once the AST is built, it should be output in a <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Flatten_a_list" title="Flatten_a_list">flattened format.</a>  This can be as simple as the following:</dt></dl>
+/// <br>
+/// <lang python>def prt_ast(t)
+///     if t == NULL
+///         print(";\n")
+///     else
+///         print(t.node_type)
+///         if t.node_type in [Identifier, Integer, String]     # leaf node
+///             print the value of the Ident, Integer or String, "\n"
+///         else
+///             print("\n")
+///             prt_ast(t.left)
+///             prt_ast(t.right)</lang>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">If the AST is correctly built, loading it into a subsequent program should be as simple as:</dt></dl>
+/// <br>
+/// <lang python>def load_ast()
+///     line = readline()
+///     # Each line has at least one token
+///     line_list = tokenize the line, respecting double quotes
+/// <br>
+///     text = line_list[0] # first token is always the node type
+/// <br>
+///     if text == ";"   # a terminal node
+///         return NULL
+/// <br>
+///     node_type = text # could convert to internal form if desired
+/// <br>
+///     # A line with two tokens is a leaf node
+///     # Leaf nodes are: Identifier, Integer, String
+///     # The 2nd token is the value
+///     if len(line_list) > 1
+///         return make_leaf(node_type, line_list[1])
+/// <br>
+///     left = load_ast()
+///     right = load_ast()
+///     return make_node(node_type, left, right)</lang>
+/// <br>
+/// Finally, the AST can also be tested by running it against one of the AST Interpreter <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/AST_interpreter" title="Compiler/AST_interpreter">solutions</a>.
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Test program, assuming this is in a file called prime.t:  lex <prime.t | parse</dt></dl>
+/// <br>
+/// {| class="wikitable"
+/// |-
+/// ! Input to lex
+/// ! Output from lex, input to parse
+/// ! Output from parse
+/// |-
+/// | style="vertical-align:top" |
+/// <lang c>/*
+///  Simple prime number generator
+///  */
+/// count = 1;
+/// n = 1;
+/// limit = 100;
+/// while (n < limit) {
+///     k=3;
+///     p=1;
+///     n=n+2;
+///     while ((k*k<=n) && (p)) {
+///         p=n/k*k!=n;
+///         k=k+2;
+///     }
+///     if (p) {
+///         print(n, " is prime\n");
+///         count = count + 1;
+///     }
+/// }
+/// print("Total primes found: ", count, "\n");</lang>
+/// <br>
+/// | style="vertical-align:top" |
+/// <b><pre>
+///     4      1 Identifier      count
+///     4      7 Op_assign
+///     4      9 Integer             1
+///     4     10 Semicolon
+///     5      1 Identifier      n
+///     5      3 Op_assign
+///     5      5 Integer             1
+///     5      6 Semicolon
+///     6      1 Identifier      limit
+///     6      7 Op_assign
+///     6      9 Integer           100
+///     6     12 Semicolon
+///     7      1 Keyword_while
+///     7      7 LeftParen
+///     7      8 Identifier      n
+///     7     10 Op_less
+///     7     12 Identifier      limit
+///     7     17 RightParen
+///     7     19 LeftBrace
+///     8      5 Identifier      k
+///     8      6 Op_assign
+///     8      7 Integer             3
+///     8      8 Semicolon
+///     9      5 Identifier      p
+///     9      6 Op_assign
+///     9      7 Integer             1
+///     9      8 Semicolon
+///    10      5 Identifier      n
+///    10      6 Op_assign
+///    10      7 Identifier      n
+///    10      8 Op_add
+///    10      9 Integer             2
+///    10     10 Semicolon
+///    11      5 Keyword_while
+///    11     11 LeftParen
+///    11     12 LeftParen
+///    11     13 Identifier      k
+///    11     14 Op_multiply
+///    11     15 Identifier      k
+///    11     16 Op_lessequal
+///    11     18 Identifier      n
+///    11     19 RightParen
+///    11     21 Op_and
+///    11     24 LeftParen
+///    11     25 Identifier      p
+///    11     26 RightParen
+///    11     27 RightParen
+///    11     29 LeftBrace
+///    12      9 Identifier      p
+///    12     10 Op_assign
+///    12     11 Identifier      n
+///    12     12 Op_divide
+///    12     13 Identifier      k
+///    12     14 Op_multiply
+///    12     15 Identifier      k
+///    12     16 Op_notequal
+///    12     18 Identifier      n
+///    12     19 Semicolon
+///    13      9 Identifier      k
+///    13     10 Op_assign
+///    13     11 Identifier      k
+///    13     12 Op_add
+///    13     13 Integer             2
+///    13     14 Semicolon
+///    14      5 RightBrace
+///    15      5 Keyword_if
+///    15      8 LeftParen
+///    15      9 Identifier      p
+///    15     10 RightParen
+///    15     12 LeftBrace
+///    16      9 Keyword_print
+///    16     14 LeftParen
+///    16     15 Identifier      n
+///    16     16 Comma
+///    16     18 String          " is prime\n"
+///    16     31 RightParen
+///    16     32 Semicolon
+///    17      9 Identifier      count
+///    17     15 Op_assign
+///    17     17 Identifier      count
+///    17     23 Op_add
+///    17     25 Integer             1
+///    17     26 Semicolon
+///    18      5 RightBrace
+///    19      1 RightBrace
+///    20      1 Keyword_print
+///    20      6 LeftParen
+///    20      7 String          "Total primes found: "
+///    20     29 Comma
+///    20     31 Identifier      count
+///    20     36 Comma
+///    20     38 String          "\n"
+///    20     42 RightParen
+///    20     43 Semicolon
+///    21      1 End_of_input
+/// </pre></b>
+/// <br>
+/// | style="vertical-align:top" |
+/// <b><pre>
+/// Sequence
+/// Sequence
+/// Sequence
+/// Sequence
+/// Sequence
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title"></dt></dl>
+/// Assign
+/// Identifier    count
+/// Integer       1
+/// Assign
+/// Identifier    n
+/// Integer       1
+/// Assign
+/// Identifier    limit
+/// Integer       100
+/// While
+/// Less
+/// Identifier    n
+/// Identifier    limit
+/// Sequence
+/// Sequence
+/// Sequence
+/// Sequence
+/// Sequence
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title"></dt></dl>
+/// Assign
+/// Identifier    k
+/// Integer       3
+/// Assign
+/// Identifier    p
+/// Integer       1
+/// Assign
+/// Identifier    n
+/// Add
+/// Identifier    n
+/// Integer       2
+/// While
+/// And
+/// LessEqual
+/// Multiply
+/// Identifier    k
+/// Identifier    k
+/// Identifier    n
+/// Identifier    p
+/// Sequence
+/// Sequence
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title"></dt></dl>
+/// Assign
+/// Identifier    p
+/// NotEqual
+/// Multiply
+/// Divide
+/// Identifier    n
+/// Identifier    k
+/// Identifier    k
+/// Identifier    n
+/// Assign
+/// Identifier    k
+/// Add
+/// Identifier    k
+/// Integer       2
+/// If
+/// Identifier    p
+/// If
+/// Sequence
+/// Sequence
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title"></dt></dl>
+/// Sequence
+/// Sequence
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title"></dt></dl>
+/// Prti
+/// Identifier    n
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title"></dt></dl>
+/// Prts
+/// String        " is prime\n"
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title"></dt></dl>
+/// Assign
+/// Identifier    count
+/// Add
+/// Identifier    count
+/// Integer       1
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title"></dt></dl>
+/// Sequence
+/// Sequence
+/// Sequence
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title"></dt></dl>
+/// Prts
+/// String        "Total primes found: "
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title"></dt></dl>
+/// Prti
+/// Identifier    count
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title"></dt></dl>
+/// Prts
+/// String        "\n"
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title"></dt></dl>
+/// </pre></b>
+/// |}
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title"> Additional examples</dt></dl>
+/// <br>
+/// Your solution should pass all the test cases above and the additional tests found <span class="rosetta__text--bold"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/Sample_programs" title="Compiler/Sample_programs">Here</a></span>.
+/// <br>
+/// <br>
+/// <br>
+/// The C and Python versions can be considered reference implementations.
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related Tasks</dt></dl>
+/// <br>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/lexical_analyzer" title="Compiler/lexical_analyzer">Lexical Analyzer task</a></li>
+/// <li class="rosetta__list-item"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/code_generator" title="Compiler/code_generator">Code Generator task</a></li>
+/// <li class="rosetta__list-item"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/virtual_machine_interpreter" title="Compiler/virtual_machine_interpreter">Virtual Machine Interpreter task</a></li>
+/// <li class="rosetta__list-item"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/AST_interpreter" title="Compiler/AST_interpreter">AST Interpreter task</a></li>
+/// <br>
+/// </ul>
+/// <hr>
+/// __TOC__
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
 }
-print("Total primes found: ", count, "\n");</lang>
 
-| style="vertical-align:top" |
-<b><pre>
-    4      1 Identifier      count
-    4      7 Op_assign
-    4      9 Integer             1
-    4     10 Semicolon
-    5      1 Identifier      n
-    5      3 Op_assign
-    5      5 Integer             1
-    5      6 Semicolon
-    6      1 Identifier      limit
-    6      7 Op_assign
-    6      9 Integer           100
-    6     12 Semicolon
-    7      1 Keyword_while
-    7      7 LeftParen
-    7      8 Identifier      n
-    7     10 Op_less
-    7     12 Identifier      limit
-    7     17 RightParen
-    7     19 LeftBrace
-    8      5 Identifier      k
-    8      6 Op_assign
-    8      7 Integer             3
-    8      8 Semicolon
-    9      5 Identifier      p
-    9      6 Op_assign
-    9      7 Integer             1
-    9      8 Semicolon
-   10      5 Identifier      n
-   10      6 Op_assign
-   10      7 Identifier      n
-   10      8 Op_add
-   10      9 Integer             2
-   10     10 Semicolon
-   11      5 Keyword_while
-   11     11 LeftParen
-   11     12 LeftParen
-   11     13 Identifier      k
-   11     14 Op_multiply
-   11     15 Identifier      k
-   11     16 Op_lessequal
-   11     18 Identifier      n
-   11     19 RightParen
-   11     21 Op_and
-   11     24 LeftParen
-   11     25 Identifier      p
-   11     26 RightParen
-   11     27 RightParen
-   11     29 LeftBrace
-   12      9 Identifier      p
-   12     10 Op_assign
-   12     11 Identifier      n
-   12     12 Op_divide
-   12     13 Identifier      k
-   12     14 Op_multiply
-   12     15 Identifier      k
-   12     16 Op_notequal
-   12     18 Identifier      n
-   12     19 Semicolon
-   13      9 Identifier      k
-   13     10 Op_assign
-   13     11 Identifier      k
-   13     12 Op_add
-   13     13 Integer             2
-   13     14 Semicolon
-   14      5 RightBrace
-   15      5 Keyword_if
-   15      8 LeftParen
-   15      9 Identifier      p
-   15     10 RightParen
-   15     12 LeftBrace
-   16      9 Keyword_print
-   16     14 LeftParen
-   16     15 Identifier      n
-   16     16 Comma
-   16     18 String          " is prime\n"
-   16     31 RightParen
-   16     32 Semicolon
-   17      9 Identifier      count
-   17     15 Op_assign
-   17     17 Identifier      count
-   17     23 Op_add
-   17     25 Integer             1
-   17     26 Semicolon
-   18      5 RightBrace
-   19      1 RightBrace
-   20      1 Keyword_print
-   20      6 LeftParen
-   20      7 String          "Total primes found: "
-   20     29 Comma
-   20     31 Identifier      count
-   20     36 Comma
-   20     38 String          "\n"
-   20     42 RightParen
-   20     43 Semicolon
-   21      1 End_of_input
-</pre></b>
-
-| style="vertical-align:top" |
-<b><pre>
-Sequence
-Sequence
-Sequence
-Sequence
-Sequence
-;
-Assign
-Identifier    count
-Integer       1
-Assign
-Identifier    n
-Integer       1
-Assign
-Identifier    limit
-Integer       100
-While
-Less
-Identifier    n
-Identifier    limit
-Sequence
-Sequence
-Sequence
-Sequence
-Sequence
-;
-Assign
-Identifier    k
-Integer       3
-Assign
-Identifier    p
-Integer       1
-Assign
-Identifier    n
-Add
-Identifier    n
-Integer       2
-While
-And
-LessEqual
-Multiply
-Identifier    k
-Identifier    k
-Identifier    n
-Identifier    p
-Sequence
-Sequence
-;
-Assign
-Identifier    p
-NotEqual
-Multiply
-Divide
-Identifier    n
-Identifier    k
-Identifier    k
-Identifier    n
-Assign
-Identifier    k
-Add
-Identifier    k
-Integer       2
-If
-Identifier    p
-If
-Sequence
-Sequence
-;
-Sequence
-Sequence
-;
-Prti
-Identifier    n
-;
-Prts
-String        " is prime\n"
-;
-Assign
-Identifier    count
-Add
-Identifier    count
-Integer       1
-;
-Sequence
-Sequence
-Sequence
-;
-Prts
-String        "Total primes found: "
-;
-Prti
-Identifier    count
-;
-Prts
-String        "\n"
-;
-</pre></b>
-|}
-
-; Additional examples
-
-Your solution should pass all the test cases above and the additional tests found <span class="rosetta__text--bold"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/Sample_programs" title="Compiler/Sample_programs">Here</a></span>.
-
-{{task heading|Reference}}
-
-The C and Python versions can be considered reference implementations.
-
-;Related Tasks
-
-* <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/lexical_analyzer" title="Compiler/lexical_analyzer">Lexical Analyzer task</a>
-* <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/code_generator" title="Compiler/code_generator">Code Generator task</a>
-* <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/virtual_machine_interpreter" title="Compiler/virtual_machine_interpreter">Virtual Machine Interpreter task</a>
-* <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/AST_interpreter" title="Compiler/AST_interpreter">AST Interpreter task</a>
-
-<hr>
-__TOC__
+/// solutions:
 
 
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

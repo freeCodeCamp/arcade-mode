@@ -1,59 +1,189 @@
-Sum and Product Puzzle
 
-{{task}}
-{{task heading}}
-Solve the "<i>Impossible Puzzle</i>":
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-{{quote|
-X and Y are two different whole numbers greater than 1. Their sum is no greater than 100, and Y is greater than X. S and P are two mathematicians (and consequently perfect logicians); S knows the sum X+Y and P knows the product X*Y. Both S and P know all the information in this paragraph.
+const assert = require('chai').assert;
 
-The following conversation occurs:
+/// title: Sum and Product Puzzle
+/// type: rosetta-code
 
-* S says "P does not know X and Y."
-* P says "Now I know X and Y."
-* S says "Now I also know X and Y!"
+/// categories:
+/// ?
 
-What are X and Y?
-}}
+/// difficulty: ?
 
-{{task heading|Guidance}}
+/// benchmark:
+replaceWithActualFunctionHere;
 
-It can be hard to wrap one's head around what the three lines of dialog between S (the "sum guy") and P (the "product guy") convey about the values of X and Y.<br>
-So for your convenience, here's a break-down:
+/// description:
+/// <br>
+/// <br>
+/// Solve the "<i>Impossible Puzzle</i>":
+/// <br>
+/// {{quote|
+/// X and Y are two different whole numbers greater than 1. Their sum is no greater than 100, and Y is greater than X. S and P are two mathematicians (and consequently perfect logicians); S knows the sum X+Y and P knows the product X*Y. Both S and P know all the information in this paragraph.
+/// <br>
+/// The following conversation occurs:
+/// <br>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">S says "P does not know X and Y."</li>
+/// <li class="rosetta__list-item">P says "Now I know X and Y."</li>
+/// <li class="rosetta__list-item">S says "Now I also know X and Y!"</li>
+/// <br>
+/// </ul>
+/// What are X and Y?
+/// }}
+/// <br>
+/// <br>
+/// <br>
+/// It can be hard to wrap one's head around what the three lines of dialog between S (the "sum guy") and P (the "product guy") convey about the values of X and Y.<br>
+/// So for your convenience, here's a break-down:
+/// <br>
+/// {| class="wikitable"
+/// |-
+/// ! 
+/// ! Quote
+/// ! Implied fact
+/// |-
+/// ! 1) 
+/// | S says "P does not know X and Y."
+/// | For every possible sum decomposition of the number <tt>X+Y</tt>, the product has in turn <span class="rosetta__text--italic">more than one</span> product decomposition.
+/// |-
+/// ! 2)
+/// | P says "Now I know X and Y."
+/// | The number <tt>X*Y</tt> has <span class="rosetta__text--italic">only one</span> product decomposition for which fact 1 is true.
+/// |-
+/// ! 3)
+/// | S says "Now I also know X and Y."
+/// | The number <tt>X+Y</tt> has <span class="rosetta__text--italic">only one</span> sum decomposition for which fact 2 is true.
+/// |}
+/// <br>
+/// Terminology:
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item"><span class="rosetta__text--italic">"sum decomposition" of a number</span> = Any pair of positive integers <tt>(A, B)</tt> so that <tt>A+B</tt> equals the number. Here, with the additional constraint <tt>2 ≤ A < B</tt>.</li>
+/// <li class="rosetta__list-item"><span class="rosetta__text--italic">"product decomposition" of a number</span> = Any pair of positive integers <tt>(A, B)</tt> so that <tt>A*B</tt> equals the number. Here, with the additional constraint <tt>2 ≤ A < B</tt>.</li>
+/// <br>
+/// </ul><br>
+/// <br>
+/// Your program can solve the puzzle by considering all possible pairs <tt>(X, Y)</tt> in the range <tt>2 ≤ X < Y ≤ 98</tt>, and then successively eliminating candidates based on the three facts. It turns out only one solution remains!<br>
+/// See the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/#Python" title="#Python">Python example</a> for an implementation that uses this approach with a few optimizations.
+/// <br>
+/// <br>
+/// <br>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">&nbsp; Wikipedia: &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Sum and Product Puzzle" title="wp: Sum and Product Puzzle">Sum and Product Puzzle</a></li>
+/// <br>
+/// </ul><hr>
+/// <br>
+/// <br>
 
-{| class="wikitable"
-|-
-! 
-! Quote
-! Implied fact
-|-
-! 1) 
-| S says "P does not know X and Y."
-| For every possible sum decomposition of the number <tt>X+Y</tt>, the product has in turn <span class="rosetta__text--italic">more than one</span> product decomposition.
-|-
-! 2)
-| P says "Now I know X and Y."
-| The number <tt>X*Y</tt> has <span class="rosetta__text--italic">only one</span> product decomposition for which fact 1 is true.
-|-
-! 3)
-| S says "Now I also know X and Y."
-| The number <tt>X+Y</tt> has <span class="rosetta__text--italic">only one</span> sum decomposition for which fact 2 is true.
-|}
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
-Terminology:
-* <span class="rosetta__text--italic">"sum decomposition" of a number</span> = Any pair of positive integers <tt>(A, B)</tt> so that <tt>A+B</tt> equals the number. Here, with the additional constraint <tt>2 ≤ A < B</tt>.
-* <span class="rosetta__text--italic">"product decomposition" of a number</span> = Any pair of positive integers <tt>(A, B)</tt> so that <tt>A*B</tt> equals the number. Here, with the additional constraint <tt>2 ≤ A < B</tt>.
-<br>
+/// solutions:
+(function () {
+    'use strict';
 
-Your program can solve the puzzle by considering all possible pairs <tt>(X, Y)</tt> in the range <tt>2 ≤ X < Y ≤ 98</tt>, and then successively eliminating candidates based on the three facts. It turns out only one solution remains!<br>
-See the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/#Python" title="#Python">Python example</a> for an implementation that uses this approach with a few optimizations.
+    // GENERIC FUNCTIONS
 
-{{task heading|See also}}
+    // concatMap :: (a -> [b]) -> [a] -> [b]
+    var concatMap = function concatMap(f, xs) {
+            return [].concat.apply([], xs.map(f));
+        },
 
-* &nbsp; Wikipedia: &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Sum and Product Puzzle" title="wp: Sum and Product Puzzle">Sum and Product Puzzle</a>
-<hr>
+        // curry :: ((a, b) -> c) -> a -> b -> c
+        curry = function curry(f) {
+            return function (a) {
+                return function (b) {
+                    return f(a, b);
+                };
+            };
+        },
+
+        // intersectBy :: (a - > a - > Bool) - > [a] - > [a] - > [a]
+        intersectBy = function intersectBy(eq, xs, ys) {
+            return xs.length && ys.length ? xs.filter(function (x) {
+                return ys.some(curry(eq)(x));
+            }) : [];
+        },
+
+        // range :: Int -> Int -> Maybe Int -> [Int]
+        range = function range(m, n, step) {
+            var d = (step || 1) * (n >= m ? 1 : -1);
+            return Array.from({
+                length: Math.floor((n - m) / d) + 1
+            }, function (_, i) {
+                return m + i * d;
+            });
+        };
+
+    // PROBLEM FUNCTIONS
+
+    // add, mul :: (Int, Int) -> Int
+    var add = function add(xy) {
+            return xy[0] + xy[1];
+        },
+        mul = function mul(xy) {
+            return xy[0] * xy[1];
+        };
+
+    // sumEq, mulEq :: (Int, Int) -> [(Int, Int)]
+    var sumEq = function sumEq(p) {
+            var addP = add(p);
+            return s1.filter(function (q) {
+                return add(q) === addP;
+            });
+        },
+        mulEq = function mulEq(p) {
+            var mulP = mul(p);
+            return s1.filter(function (q) {
+                return mul(q) === mulP;
+            });
+        };
+
+    // pairEQ :: ((a, a) -> (a, a)) -> Bool
+    var pairEQ = function pairEQ(a, b) {
+        return a[0] === b[0] && a[1] === b[1];
+    };
+
+    // MAIN
+
+    // xs :: [Int]
+    var xs = range(1, 100);
+
+    // s1 s2, s3, s4 :: [(Int, Int)]
+    var s1 = concatMap(function (x) {
+            return concatMap(function (y) {
+                return 1 < x && x < y && x + y < 100 ? [
+                    [x, y]
+                ] : [];
+            }, xs);
+        }, xs),
+
+        s2 = s1.filter(function (p) {
+            return sumEq(p).every(function (q) {
+                return mulEq(q).length > 1;
+            });
+        }),
+
+        s3 = s2.filter(function (p) {
+            return intersectBy(pairEQ, mulEq(p), s2).length === 1;
+        }),
+
+        s4 = s3.filter(function (p) {
+            return intersectBy(pairEQ, sumEq(p), s3).length === 1;
+        });
+
+    return s4;
+})();
 
 
+/// rawSolutions:
 =={{header|JavaScript}}==
 
 ===ES5===
@@ -246,3 +376,10 @@ See the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/#Pyt
 <lang JavaScript>[[4, 13]]</lang>
 (Finished in 0.77s)
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,25 +1,63 @@
-Here document
 
-{{task}} [[Category: Syntax elements]]
-{{omit from|BBC BASIC}}
-{{omit from|Déjà Vu}}
-{{omit from|Gambas}}
-{{omit from|GW-BASIC}}
-{{omit from|MATLAB|MATLAB has no multiline string literal functionality}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-A &nbsp; <span class="rosetta__text--italic">here document</span> &nbsp;  (or "heredoc") &nbsp; is a way of specifying a text block, preserving the line breaks, indentation and other whitespace within the text. 
+const assert = require('chai').assert;
 
-Depending on the language being used, a &nbsp; <span class="rosetta__text--italic">here document</span> &nbsp; is constructed using a command followed by "<<" (or some other symbol) followed by a token string. 
+/// title: Here document
+/// type: rosetta-code
 
-The text block will then start on the next line, and will be followed by the chosen token at the beginning of the following line, which is used to mark the end of the text block.
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+///  [[Category: Syntax elements]]
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// A &nbsp; <span class="rosetta__text--italic">here document</span> &nbsp;  (or "heredoc") &nbsp; is a way of specifying a text block, preserving the line breaks, indentation and other whitespace within the text. 
+/// <br>
+/// Depending on the language being used, a &nbsp; <span class="rosetta__text--italic">here document</span> &nbsp; is constructed using a command followed by "<<" (or some other symbol) followed by a token string. 
+/// <br>
+/// The text block will then start on the next line, and will be followed by the chosen token at the beginning of the following line, which is used to mark the end of the text block.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Demonstrate the use of &nbsp; <span class="rosetta__text--italic">here documents</span> &nbsp; within the language.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related task:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">&nbsp; [[Documentation]]</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
-;Task:
-Demonstrate the use of &nbsp; <span class="rosetta__text--italic">here documents</span> &nbsp; within the language.
+/// rawSolutions:
+null
 
+/// tail:
+const replaceThis = 3;
 
-;Related task:
-* &nbsp; [[Documentation]]
-<br><br>
-
-
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

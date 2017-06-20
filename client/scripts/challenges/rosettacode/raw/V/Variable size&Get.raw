@@ -1,26 +1,62 @@
-Variable size/Get
 
-{{task|Type System}}
-{{omit from|AWK}}
-{{omit from|Clojure}}
-{{omit from|E}}ruby
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-{{omit from|gnuplot}}
-{{omit from|Groovy}}
-{{omit from|GUISS|Does not have variables.}}
-{{omit from|Java}}
-{{omit from|JavaScript}}
-{{omit from|LaTeX}}
-{{omit from|Logtalk}}
-{{omit from|Make}}
-{{omit from|Maxima}}
-{{omit from|NetRexx}}
-{{omit from|PlainTeX}}
-{{omit from|XSLT}}
-{{omit from|Unlambda|Does not have variables.}}
+const assert = require('chai').assert;
 
-Demonstrate how to get the size of a variable.
+/// title: Variable size/Get
+/// type: rosetta-code
 
-See also: [[Host introspection]]
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// <br>
+/// ruby
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// Demonstrate how to get the size of a variable.
+/// <br>
+/// See also: [[Host introspection]]
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

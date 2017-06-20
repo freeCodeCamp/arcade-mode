@@ -1,23 +1,60 @@
-Binary digits
 
-{{task|Basic language learning}}
-[[Category:Radices]]
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Create and display the sequence of binary digits for a given &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Natural number" title="wp: Natural number">non-negative integer</a>.
+const assert = require('chai').assert;
 
-    The decimal value &nbsp;    <span class="rosetta__text--bold">5</span> &nbsp; should produce an output of &nbsp;             <span class="rosetta__text--bold">101</span>
-    The decimal value &nbsp;   <span class="rosetta__text--bold">50</span> &nbsp; should produce an output of &nbsp;          <span class="rosetta__text--bold">110010</span>
-    The decimal value &nbsp; <span class="rosetta__text--bold">9000</span> &nbsp; should produce an output of &nbsp;  <span class="rosetta__text--bold">10001100101000</span>
+/// title: Binary digits
+/// type: rosetta-code
 
-The results can be achieved using built-in radix functions within the language &nbsp; (if these are available), &nbsp; or alternatively a user defined function can be used. 
+/// categories:
+/// ?
 
-The output produced should consist just of the binary digits of each number followed by a &nbsp; <span class="rosetta__text--italic">newline</span>. 
+/// difficulty: ?
 
-There should be no other whitespace, radix or sign markers in the produced output, and <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Leading zero" title="wp: Leading zero">leading zeros</a> should not appear in the results.
-<br><br>
+/// benchmark:
+replaceWithActualFunctionHere;
 
+/// description:
+/// <br>
+/// [[Category:Radices]]
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Create and display the sequence of binary digits for a given &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Natural number" title="wp: Natural number">non-negative integer</a>.
+/// <br>
+///     The decimal value &nbsp;    <span class="rosetta__text--bold">5</span> &nbsp; should produce an output of &nbsp;             <span class="rosetta__text--bold">101</span>
+///     The decimal value &nbsp;   <span class="rosetta__text--bold">50</span> &nbsp; should produce an output of &nbsp;          <span class="rosetta__text--bold">110010</span>
+///     The decimal value &nbsp; <span class="rosetta__text--bold">9000</span> &nbsp; should produce an output of &nbsp;  <span class="rosetta__text--bold">10001100101000</span>
+/// <br>
+/// The results can be achieved using built-in radix functions within the language &nbsp; (if these are available), &nbsp; or alternatively a user defined function can be used. 
+/// <br>
+/// The output produced should consist just of the binary digits of each number followed by a &nbsp; <span class="rosetta__text--italic">newline</span>. 
+/// <br>
+/// There should be no other whitespace, radix or sign markers in the produced output, and <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Leading zero" title="wp: Leading zero">leading zeros</a> should not appear in the results.
+/// <br><br>
+/// <br>
+/// <br>
 
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+function toBinary(number) {
+    return new Number(number)
+        .toString(2);
+}
+var demoValues = [5, 50, 9000];
+for (var i = 0; i < demoValues.length; ++i) {
+    // alert() in a browser, wscript.echo in WSH, etc.
+    print(toBinary(demoValues[i])); 
+}
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 ===ES5===
 <lang javascript>function toBinary(number) {
@@ -122,3 +159,10 @@ Or, if we need more flexibility with the set of digits used, we can write a vers
 50 -> 一一〇〇一〇
 9000 -> 一〇〇〇一一〇〇一〇一〇〇〇</pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

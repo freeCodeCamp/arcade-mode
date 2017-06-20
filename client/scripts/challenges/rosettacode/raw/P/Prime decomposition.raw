@@ -1,40 +1,109 @@
-Prime decomposition
 
-{{task|Prime Numbers}}[[Category:Arbitrary precision]]
-{{omit from|GUISS}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-The prime decomposition of a number is defined as a list of prime numbers 
-which when all multiplied together, are equal to that number. 
+const assert = require('chai').assert;
 
+/// title: Prime decomposition
+/// type: rosetta-code
 
-;Example:
-  12 = 2 &times; 2 &times; 3,  so its prime decomposition is  {2, 2, 3}
+/// categories:
+/// ?
 
+/// difficulty: ?
 
-;Task:
-Write a function which returns an <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Arrays" title="Arrays">array</a> or <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Collections" title="Collections">collection</a> which contains the prime decomposition of a given number &nbsp; <big><big>$n$</big></big> &nbsp; greater than &nbsp; <span class="rosetta__text--bold">1</span>. 
+/// benchmark:
+replaceWithActualFunctionHere;
 
-If your language does not have an isPrime-like function available, 
-you may assume that you have a function which determines 
-whether a number is prime (note its name before your code). 
+/// description:
+/// [[Category:Arbitrary precision]]
+/// <br>
+/// <br>
+/// The prime decomposition of a number is defined as a list of prime numbers 
+/// which when all multiplied together, are equal to that number. 
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Example:</dt></dl>
+///   12 = 2 &times; 2 &times; 3,  so its prime decomposition is  {2, 2, 3}
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Write a function which returns an <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Arrays" title="Arrays">array</a> or <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Collections" title="Collections">collection</a> which contains the prime decomposition of a given number &nbsp; <big><big>$n$</big></big> &nbsp; greater than &nbsp; <span class="rosetta__text--bold">1</span>. 
+/// <br>
+/// If your language does not have an isPrime-like function available, 
+/// you may assume that you have a function which determines 
+/// whether a number is prime (note its name before your code). 
+/// <br>
+/// If you would like to test code from this task, you may use code from <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Primality by trial division" title="Primality by trial division">trial division</a> or the [[Sieve of Eratosthenes]].
+/// <br>
+/// Note: The program must not be limited by the word size of your computer or some other artificial limit; it should work for any number regardless of size (ignoring the physical limits of RAM etc).
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">&nbsp; [[count in factors]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[factors of an integer]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[Sieve of Eratosthenes]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[primality by trial division]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[factors of a Mersenne number]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[trial factoring of a Mersenne number]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[partition an integer X into N primes]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[sequence of primes by Trial Division]]</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
 
-If you would like to test code from this task, you may use code from <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Primality by trial division" title="Primality by trial division">trial division</a> or the [[Sieve of Eratosthenes]].
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
-Note: The program must not be limited by the word size of your computer or some other artificial limit; it should work for any number regardless of size (ignoring the physical limits of RAM etc).
+/// solutions:
+function run_factorize(input, output) {
+    var n = new BigInteger(input.value, 10);
+    var TWO = new BigInteger("2", 10);
+    var divisor = new BigInteger("3", 10);
+    var prod = false;
 
+    if (n.compareTo(TWO) < 0) 
+        return; 
 
-;Related tasks:
-* &nbsp; [[count in factors]]
-* &nbsp; [[factors of an integer]]
-* &nbsp; [[Sieve of Eratosthenes]]
-* &nbsp; [[primality by trial division]]
-* &nbsp; [[factors of a Mersenne number]]
-* &nbsp; [[trial factoring of a Mersenne number]]
-* &nbsp; [[partition an integer X into N primes]]
-* &nbsp; [[sequence of primes by Trial Division]]
-<br><br>
+    output.value = "";
 
+    while (true) {
+        var qr = n.divideAndRemainder(TWO);
+        if (qr[1].equals(BigInteger.ZERO)) {
+            if (prod) 
+                output.value += "*"; 
+            else 
+                prod = true; 
+            output.value += "2";
+            n = qr[0];
+        }
+        else 
+            break; 
+    }
 
+    while (!n.equals(BigInteger.ONE)) {
+        var qr = n.divideAndRemainder(divisor);
+        if (qr[1].equals(BigInteger.ZERO)) {
+            if (prod) 
+                output.value += "*"; 
+            else 
+                prod = true; 
+            output.value += divisor;
+            n = qr[0];
+        }
+        else 
+            divisor = divisor.add(TWO); 
+    }
+}
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 This code uses the BigInteger Library [http://xenon.stanford.edu/~tjw/jsbn/jsbn.js jsbn] and [http://xenon.stanford.edu/~tjw/jsbn/jsbn2.js jsbn2]
 <lang javascript>function run_factorize(input, output) {
@@ -190,3 +259,10 @@ describe("Prime Factors", function() {
 });
 </lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

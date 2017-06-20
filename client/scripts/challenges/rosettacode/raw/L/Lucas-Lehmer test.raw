@@ -1,15 +1,51 @@
-Lucas-Lehmer test
 
-{{task|Prime Numbers}}
-[[Category:Arbitrary precision]]
-[[Category:Arithmetic operations]]
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-Lucas-Lehmer Test: for $p$ an odd prime, the Mersenne number $2^p-1$ is prime if and only if $2^p-1$ divides $S(p-1)$ where $S(n+1)=(S(n))^2-2$, and $S(1)=4$.
+const assert = require('chai').assert;
+
+/// title: Lucas-Lehmer test
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// [[Category:Arbitrary precision]]
+/// [[Category:Arithmetic operations]]
+/// <br>
+/// Lucas-Lehmer Test: for $p$ an odd prime, the Mersenne number $2^p-1$ is prime if and only if $2^p-1$ divides $S(p-1)$ where $S(n+1)=(S(n))^2-2$, and $S(1)=4$.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Calculate all Mersenne primes up to the implementation's 
+/// maximum precision, or the 47th Mersenne prime &nbsp; (whichever comes first).
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
-;Task:
-Calculate all Mersenne primes up to the implementation's 
-maximum precision, or the 47th Mersenne prime &nbsp; (whichever comes first).
-<br><br>
+/// rawSolutions:
+null
 
+/// tail:
+const replaceThis = 3;
 
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

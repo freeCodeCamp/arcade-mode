@@ -1,30 +1,75 @@
-Count in factors
 
-{{task|Prime Numbers}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Write a program which counts up from &nbsp; <span class="rosetta__text--bold">1</span>, &nbsp; displaying each number as the multiplication of its prime factors. 
+const assert = require('chai').assert;
 
-For the purpose of this task, &nbsp; <span class="rosetta__text--bold">1</span> &nbsp; (unity) &nbsp; may be shown as itself.
+/// title: Count in factors
+/// type: rosetta-code
 
+/// categories:
+/// ?
 
-;Example:
-&nbsp; &nbsp; &nbsp; <span class="rosetta__text--bold">2</span> &nbsp; is prime, &nbsp; so it would be shown as itself. 
-<br>&nbsp; &nbsp; &nbsp; <span class="rosetta__text--bold">6</span> &nbsp; is not prime; &nbsp; it would be shown as &nbsp; <span class="rosetta__text--bold">$2\times3$.</span> 
-<br><span class="rosetta__text--bold">2144</span> &nbsp; is not prime; &nbsp; it would be shown as &nbsp; <span class="rosetta__text--bold">$2\times2\times2\times2\times2\times67$.</span>
+/// difficulty: ?
 
+/// benchmark:
+replaceWithActualFunctionHere;
 
-;Related tasks:
-* &nbsp; [[prime decomposition]]
-* &nbsp; [[factors of an integer]]
-* &nbsp; [[Sieve of Eratosthenes]]
-* &nbsp; [[primality by trial division]]
-* &nbsp; [[factors of a Mersenne number]]
-* &nbsp; [[trial factoring of a Mersenne number]]
-* &nbsp; [[partition an integer X into N primes]]
-<br><br>
+/// description:
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Write a program which counts up from &nbsp; <span class="rosetta__text--bold">1</span>, &nbsp; displaying each number as the multiplication of its prime factors. 
+/// <br>
+/// For the purpose of this task, &nbsp; <span class="rosetta__text--bold">1</span> &nbsp; (unity) &nbsp; may be shown as itself.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Example:</dt></dl>
+/// &nbsp; &nbsp; &nbsp; <span class="rosetta__text--bold">2</span> &nbsp; is prime, &nbsp; so it would be shown as itself. 
+/// <br>&nbsp; &nbsp; &nbsp; <span class="rosetta__text--bold">6</span> &nbsp; is not prime; &nbsp; it would be shown as &nbsp; <span class="rosetta__text--bold">$2\times3$.</span> 
+/// <br><span class="rosetta__text--bold">2144</span> &nbsp; is not prime; &nbsp; it would be shown as &nbsp; <span class="rosetta__text--bold">$2\times2\times2\times2\times2\times67$.</span>
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">&nbsp; [[prime decomposition]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[factors of an integer]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[Sieve of Eratosthenes]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[primality by trial division]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[factors of a Mersenne number]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[trial factoring of a Mersenne number]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[partition an integer X into N primes]]</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
 
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
+/// solutions:
+for(i = 1; i <= 10; i++)
+    console.log(i + " : " + factor(i).join(" x "));
+
+function factor(n) {
+    var factors = [];
+    if (n == 1) return [1];
+    for(p = 2; p <= n; ) {
+	if((n % p) == 0) {
+	    factors[factors.length] = p;
+	    n /= p;
+	}
+	else p++;
+    }
+    return factors;
+}
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 <lang javascript>for(i = 1; i <= 10; i++)
     console.log(i + " : " + factor(i).join(" x "));
@@ -55,3 +100,10 @@ function factor(n) {
 10 : 2 x 5
 </pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

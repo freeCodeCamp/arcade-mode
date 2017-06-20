@@ -1,15 +1,51 @@
-Rosetta Code/Find bare lang tags
 
-{{task|Rosetta Code related}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Find all &nbsp; <big><big> <nowiki><lang></nowiki> </big></big> &nbsp; tags without a language specified in the text of a page.  
+const assert = require('chai').assert;
 
-Display counts by language section:
+/// title: Rosetta Code/Find bare lang tags
+/// type: rosetta-code
 
-<pre>
-<nowiki>Description
+/// categories:
+/// ?
 
-<lang>Pseudocode</lang>
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Find all &nbsp; <big><big> <nowiki><lang></nowiki> </big></big> &nbsp; tags without a language specified in the text of a page.  
+/// <br>
+/// Display counts by language section:
+/// <br>
+/// <pre>
+/// <nowiki>Description
+/// <br>
+/// <lang>Pseudocode</lang>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,26 +1,100 @@
-Death Star
 
-{{task|Constructive Solid Geometry}}
-{{requires|Graphics}}
-[[Category:Geometric Subtraction]]
-{{omit from|AWK|Does not have this functionality in the language}}
-{{omit from|Lotus 123 Macro Scripting}}
-{{omit from|ML/I}}
-{{omit from|Retro}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:Deathstar-tcl.gif" title="File:Deathstar-tcl.gif">400px|thumb</a>
+const assert = require('chai').assert;
 
-;Task:
-Display a region that consists of a large sphere with part of a smaller sphere removed from it as a result of geometric subtraction. 
+/// title: Death Star
+/// type: rosetta-code
 
-(This will basically produce a shape like a "death star".)
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// [[Category:Geometric Subtraction]]
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:Deathstar-tcl.gif" title="File:Deathstar-tcl.gif">400px|thumb</a>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Display a region that consists of a large sphere with part of a smaller sphere removed from it as a result of geometric subtraction. 
+/// <br>
+/// (This will basically produce a shape like a "death star".)
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related task:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">&nbsp; [[Draw a sphere]]</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+<!DOCTYPE html>
+<html>
+<body style="margin:0">
+  <canvas id="myCanvas" width="250" height="250" style="border:1px solid #d3d3d3;">
+    Your browser does not support the HTML5 canvas tag.
+  </canvas>
+  <script>
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+    //Fill the canvas with a dark gray background
+    ctx.fillStyle = "#222222";
+    ctx.fillRect(0,0,250,250);
+
+    // Create radial gradient for large base circle
+    var grd = ctx.createRadialGradient(225,175,190,225,150,130);
+    grd.addColorStop(0,"#EEEEEE");
+    grd.addColorStop(1,"black");
+    //Apply gradient and fill circle
+    ctx.fillStyle = grd;
+    ctx.beginPath();
+    ctx.arc(125,125,105,0,2*Math.PI);
+    ctx.fill();
+    
+    // Create linear gradient for small inner circle
+    var grd = ctx.createLinearGradient(75,90,102,90);
+    grd.addColorStop(0,"black");
+    grd.addColorStop(1,"gray");
+    //Apply gradient and fill circle
+    ctx.fillStyle = grd;
+    ctx.beginPath();
+    ctx.arc(90,90,30,0,2*Math.PI);
+    ctx.fill();
+    
+    //Add another small circle on top of the previous one to enhance the "shadow"
+    ctx.fillStyle = "black";
+    ctx.beginPath();
+    ctx.arc(80,90,17,0,2*Math.PI);
+    ctx.fill();
+  </script> 
+</body>
+</html>
 
 
-;Related task:
-* &nbsp; [[Draw a sphere]]
-<br><br>
 
-
+/// rawSolutions:
 =={{header|JavaScript}}==
 Layer circles and gradients to achieve result similar to that of the Wikipedia page for the [http://en.wikipedia.org/wiki/Death_Star Death Star].
 <lang JavaScript>
@@ -68,3 +142,10 @@ Layer circles and gradients to achieve result similar to that of the Wikipedia p
 
 </lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

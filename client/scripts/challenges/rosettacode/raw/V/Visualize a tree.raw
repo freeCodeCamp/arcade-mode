@@ -1,27 +1,56 @@
-Visualize a tree
 
-{{task}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-A tree structure &nbsp; (i.e. a rooted, connected acyclic graph) &nbsp; is often used in programming.  
+const assert = require('chai').assert;
 
-It's often helpful to visually examine such a structure. 
+/// title: Visualize a tree
+/// type: rosetta-code
 
-There are many ways to represent trees to a reader, such as:
-:::* &nbsp; indented text &nbsp; (à la unix <code> tree </code> command)
-:::* &nbsp; nested HTML tables
-:::* &nbsp; hierarchical GUI widgets
-:::* &nbsp; 2D &nbsp; or &nbsp; 3D &nbsp; images
-:::* &nbsp; etc.
+/// categories:
+/// ?
 
-;Task:
-Write a program to produce a visual representation of some tree.  
+/// difficulty: ?
 
-The content of the tree doesn't matter, nor does the output format, the only requirement being that the output is human friendly. 
+/// benchmark:
+replaceWithActualFunctionHere;
 
-Make do with the vague term "friendly" the best you can.
-<br><br>
+/// description:
+/// <br>
+/// <br>
+/// A tree structure &nbsp; (i.e. a rooted, connected acyclic graph) &nbsp; is often used in programming.  
+/// <br>
+/// It's often helpful to visually examine such a structure. 
+/// <br>
+/// There are many ways to represent trees to a reader, such as:
+/// <span class="rosetta__text--indented">::* &nbsp; indented text &nbsp; (à la unix <code> tree </code> command)</span>
+/// <span class="rosetta__text--indented">::* &nbsp; nested HTML tables</span>
+/// <span class="rosetta__text--indented">::* &nbsp; hierarchical GUI widgets</span>
+/// <span class="rosetta__text--indented">::* &nbsp; 2D &nbsp; or &nbsp; 3D &nbsp; images</span>
+/// <span class="rosetta__text--indented">::* &nbsp; etc.</span>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Write a program to produce a visual representation of some tree.  
+/// <br>
+/// The content of the tree doesn't matter, nor does the output format, the only requirement being that the output is human friendly. 
+/// <br>
+/// Make do with the vague term "friendly" the best you can.
+/// <br><br>
+/// <br>
+/// <br>
 
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
+/// solutions:
+null
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 Javascript wrapped in HTML5 document. ''Should'' work in modern browsers.
 <lang html><!doctype html>
@@ -108,3 +137,10 @@ Javascript wrapped in HTML5 document. ''Should'' work in modern browsers.
   </body>
 </html></lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

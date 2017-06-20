@@ -1,22 +1,58 @@
-Simulate input/Keyboard
 
-{{task|GUI}}[[Category:Testing]]
-{{omit from|ACL2}}
-{{omit from|Batch File}}
-{{omit from|Brainf***}}
-{{omit from|Maxima}}
-{{Omit From|Modula-3}}
-{{omit from|PARI/GP}}
-{{omit from|PHP}}
-{{omit from|PostScript}}
-{{omit from|R}}
-{{omit from|Retro}}
-{{omit from|TI-83 BASIC}} {{omit from|TI-89 BASIC}}
-{{omit from|zkl}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-Send simulated keystrokes to a GUI window, or terminal. 
-You should specify whether the target may be externally created 
-(i.e., if the keystrokes are going to an application 
-other than the application that is creating them).
+const assert = require('chai').assert;
+
+/// title: Simulate input/Keyboard
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// [[Category:Testing]]
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+///  
+/// <br>
+/// <br>
+/// Send simulated keystrokes to a GUI window, or terminal. 
+/// You should specify whether the target may be externally created 
+/// (i.e., if the keystrokes are going to an application 
+/// other than the application that is creating them).
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

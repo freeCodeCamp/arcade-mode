@@ -1,32 +1,107 @@
-Casting out nines
 
-{{task}}
-[[Category:Checksums]]
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task &nbsp; (in three parts):
+const assert = require('chai').assert;
 
+/// title: Casting out nines
+/// type: rosetta-code
 
-;Part 1
-Write a procedure (say $\mathit{co9}(x)$) which implements [http://mathforum.org/library/drmath/view/55926.html Casting Out Nines] as described by returning the checksum for $x$. Demonstrate the procedure using the examples given there, or others you may consider lucky.
+/// categories:
+/// ?
 
-;Part 2
-Notwithstanding past Intel microcode errors, checking computer calculations like this would not be sensible. To find a computer use for your procedure:
-: Consider the statement "318682 is 101558 + 217124 and squared is 101558217124" (see: [[Kaprekar numbers#Casting Out Nines (fast)]]).
-: note that $318682$ has the same checksum as ($101558 + 217124$);
-: note that $101558217124$ has the same checksum as ($101558 + 217124$) because for a Kaprekar they are made up of the same digits (sometimes with extra zeroes);
-: note that this implies that for Kaprekar numbers the checksum of $k$ equals the checksum of $k^2$.
+/// difficulty: ?
 
-Demonstrate that your procedure can be used to generate or filter a range of numbers with the property $\mathit{co9}(k) = \mathit{co9}(k^2)$ and show that this subset is a small proportion of the range and contains all the Kaprekar in the range.
+/// benchmark:
+replaceWithActualFunctionHere;
 
-;Part 3
-Considering [http://mathworld.wolfram.com/CastingOutNines.html this MathWorld page], produce a efficient algorithm based on the more mathematical treatment of Casting Out Nines, and realizing:
-: $\mathit{co9}(x)$ is the residual of $x$ mod $9$;
-: the procedure can be extended to bases other than 9.
+/// description:
+/// <br>
+/// [[Category:Checksums]]
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task &nbsp; (in three parts):</dt></dl>
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Part 1</dt></dl>
+/// Write a procedure (say $\mathit{co9}(x)$) which implements [http://mathforum.org/library/drmath/view/55926.html Casting Out Nines] as described by returning the checksum for $x$. Demonstrate the procedure using the examples given there, or others you may consider lucky.
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Part 2</dt></dl>
+/// Notwithstanding past Intel microcode errors, checking computer calculations like this would not be sensible. To find a computer use for your procedure:
+/// <span class="rosetta__text--indented"> Consider the statement "318682 is 101558 + 217124 and squared is 101558217124" (see: [[Kaprekar numbers#Casting Out Nines (fast)]]).</span>
+/// <span class="rosetta__text--indented"> note that $318682$ has the same checksum as ($101558 + 217124$);</span>
+/// <span class="rosetta__text--indented"> note that $101558217124$ has the same checksum as ($101558 + 217124$) because for a Kaprekar they are made up of the same digits (sometimes with extra zeroes);</span>
+/// <span class="rosetta__text--indented"> note that this implies that for Kaprekar numbers the checksum of $k$ equals the checksum of $k^2$.</span>
+/// <br>
+/// Demonstrate that your procedure can be used to generate or filter a range of numbers with the property $\mathit{co9}(k) = \mathit{co9}(k^2)$ and show that this subset is a small proportion of the range and contains all the Kaprekar in the range.
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Part 3</dt></dl>
+/// Considering [http://mathworld.wolfram.com/CastingOutNines.html this MathWorld page], produce a efficient algorithm based on the more mathematical treatment of Casting Out Nines, and realizing:
+/// <span class="rosetta__text--indented"> $\mathit{co9}(x)$ is the residual of $x$ mod $9$;</span>
+/// <span class="rosetta__text--indented"> the procedure can be extended to bases other than 9.</span>
+/// <br>
+/// Demonstrate your algorithm by generating or filtering a range of numbers with the property $k%(\mathit{Base}-1) == (k^2)%(\mathit{Base}-1)$ and show that this subset is a small proportion of the range and contains all the Kaprekar in the range.
+/// <br><br>
+/// <br>
+/// <br>
 
-Demonstrate your algorithm by generating or filtering a range of numbers with the property $k%(\mathit{Base}-1) == (k^2)%(\mathit{Base}-1)$ and show that this subset is a small proportion of the range and contains all the Kaprekar in the range.
-<br><br>
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
+/// solutions:
+function main(s, e, bs, pbs) {
+    bs = bs || 10;
+    pbs = pbs || 10
+    document.write('start:', toString(s), ' end:', toString(e),
+        ' base:', bs, ' printBase:', pbs)
+    document.write('<br>castOutNine: ');
+    castOutNine()
+    document.write('<br>kaprekar: ');
+    kaprekar()
+    document.write('<br><br>')
 
+    function castOutNine() {
+        for (var n = s, k = 0, bsm1 = bs - 1; n <= e; n += 1)
+            if (n % bsm1 == (n * n) % bsm1) k += 1,
+                document.write(toString(n), ' ')
+        document.write('<br>trying ', k, ' numbers instead of ', n = e - s + 1,
+            ' numbers saves ', (100 - k / n * 100)
+            .toFixed(3), '%')
+    }
+
+    function kaprekar() {
+        for (var n = s; n <= e; n += 1)
+            if (isKaprekar(n)) document.write(toString(n), ' ')
+
+        function isKaprekar(n) {
+            if (n < 1) return false
+            if (n == 1) return true
+            var s = (n * n)
+                .toString(bs)
+            for (var i = 1, e = s.length; i < e; i += 1) {
+                var a = parseInt(s.substr(0, i), bs)
+                var b = parseInt(s.substr(i), bs)
+                if (b && a + b == n) return true
+            }
+            return false
+        }
+    }
+
+    function toString(n) {
+        return n.toString(pbs)
+            .toUpperCase()
+    }
+}
+main(1, 10 * 10 - 1)
+main(1, 16 * 16 - 1, 16)
+main(1, 17 * 17 - 1, 17)
+main(parseInt('10', 17), parseInt('gg', 17), 17, 17)
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 ===ES5===
 Assuming the context of a web page:
@@ -195,3 +270,10 @@ kaprekar: 3D D4 GG </pre>
   ]
 }</pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

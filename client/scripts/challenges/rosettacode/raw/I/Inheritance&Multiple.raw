@@ -1,16 +1,52 @@
-Inheritance/Multiple
 
-{{Task|Basic language learning}}
-<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category:Object oriented]] [[Category:Type System]]
-Multiple inheritance allows to specify that one [[classes " title="Category:Object oriented]] [[Category:Type System]]
-Multiple inheritance allows to specify that one [[classes "> class</a> is a subclass of several other classes. 
-Some languages allow multiple [[inheritance]] for arbitrary classes, 
-others restrict it to interfaces, some don't allow it at all.
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-Write two classes (or interfaces) <tt>Camera</tt> and <tt>MobilePhone</tt>, 
-then write a class <tt>CameraPhone</tt> which is both a <tt>Camera</tt> and 
-a <tt>MobilePhone</tt>.
+const assert = require('chai').assert;
 
-There is no need to implement any functions for those classes.
+/// title: Inheritance/Multiple
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category:Object oriented]] [[Category:Type System]]
+/// Multiple inheritance allows to specify that one [[classes " title="Category:Object oriented]] [[Category:Type System]]
+/// Multiple inheritance allows to specify that one [[classes "> class</a> is a subclass of several other classes. 
+/// Some languages allow multiple [[inheritance]] for arbitrary classes, 
+/// others restrict it to interfaces, some don't allow it at all.
+/// <br>
+/// Write two classes (or interfaces) <tt>Camera</tt> and <tt>MobilePhone</tt>, 
+/// then write a class <tt>CameraPhone</tt> which is both a <tt>Camera</tt> and 
+/// a <tt>MobilePhone</tt>.
+/// <br>
+/// There is no need to implement any functions for those classes.
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,27 +1,85 @@
-Self-describing numbers
 
-{{clarified-review}}{{task}}
-There are several so-called "self-describing" or "<a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Self-descriptive number" title="wp: Self-descriptive number">self-descriptive</a>" integers.
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-An integer is said to be "self-describing" if it has the property that, when digit positions are labeled 0 to N-1, the digit in each position is equal to the number of times that that digit appears in the number.
+const assert = require('chai').assert;
 
-For example, &nbsp; <span class="rosetta__text--bold">2020</span> &nbsp; is a four-digit self describing number:
+/// title: Self-describing numbers
+/// type: rosetta-code
 
-* &nbsp; position &nbsp; 0 &nbsp; has value &nbsp; 2 &nbsp; and there are two 0s in the number;
-* &nbsp; position &nbsp; 1 &nbsp; has value &nbsp; 0 &nbsp; and there are no 1s in the number;
-* &nbsp; position &nbsp; 2 &nbsp; has value &nbsp; 2 &nbsp; and there are two 2s;
-* &nbsp; position &nbsp; 3 &nbsp; has value &nbsp; 0 &nbsp; and there are zero 3s.
+/// categories:
+/// ?
 
-<br>
-Self-describing numbers < 100.000.000&nbsp; are: &nbsp; &nbsp; 1210, &nbsp; 2020, &nbsp; 21200, &nbsp; 3211000, &nbsp; 42101000.
+/// difficulty: ?
 
+/// benchmark:
+replaceWithActualFunctionHere;
 
-;Task Description
-# Write a function/routine/method/... that will check whether a given positive integer is self-describing.
-# As an optional stretch goal - generate and display the set of self-describing numbers.
-<br><br>
+/// description:
+/// <br>
+/// There are several so-called "self-describing" or "<a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Self-descriptive number" title="wp: Self-descriptive number">self-descriptive</a>" integers.
+/// <br>
+/// An integer is said to be "self-describing" if it has the property that, when digit positions are labeled 0 to N-1, the digit in each position is equal to the number of times that that digit appears in the number.
+/// <br>
+/// For example, &nbsp; <span class="rosetta__text--bold">2020</span> &nbsp; is a four-digit self describing number:
+/// <br>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">&nbsp; position &nbsp; 0 &nbsp; has value &nbsp; 2 &nbsp; and there are two 0s in the number;</li>
+/// <li class="rosetta__list-item">&nbsp; position &nbsp; 1 &nbsp; has value &nbsp; 0 &nbsp; and there are no 1s in the number;</li>
+/// <li class="rosetta__list-item">&nbsp; position &nbsp; 2 &nbsp; has value &nbsp; 2 &nbsp; and there are two 2s;</li>
+/// <li class="rosetta__list-item">&nbsp; position &nbsp; 3 &nbsp; has value &nbsp; 0 &nbsp; and there are zero 3s.</li>
+/// <br>
+/// </ul>
+/// <br>
+/// Self-describing numbers < 100.000.000&nbsp; are: &nbsp; &nbsp; 1210, &nbsp; 2020, &nbsp; 21200, &nbsp; 3211000, &nbsp; 42101000.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task Description</dt></dl>
+/// # Write a function/routine/method/... that will check whether a given positive integer is self-describing.
+/// # As an optional stretch goal - generate and display the set of self-describing numbers.
+/// <br><br>
+/// <br>
+/// <br>
 
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
+/// solutions:
+function is_self_describing(n) {
+    var digits = Number(n).toString().split("").map(function(elem) {return Number(elem)});
+    var len = digits.length;
+    var count = digits.map(function(x){return 0});
+
+    digits.forEach(function(digit, idx, ary) {
+        if (digit >= count.length)
+            return false
+        count[digit] ++;
+    });
+
+    return digits.equals(count);
+}
+
+Array.prototype.equals = function(other) {
+    if (this === other)
+        return true;  // same object
+    if (this.length != other.length)
+        return false;
+    for (idx in this)
+        if (this[idx] !== other[idx])
+            return false;
+    return true;
+}
+
+for (var i=1; i<=3300000; i++)
+    if (is_self_describing(i))
+        print(i);
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 {{works with|SpiderMonkey}}
 
@@ -60,3 +118,10 @@ outputs
 21200
 3211000</pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

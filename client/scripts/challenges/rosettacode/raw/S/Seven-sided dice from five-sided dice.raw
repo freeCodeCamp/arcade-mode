@@ -1,23 +1,69 @@
-Seven-sided dice from five-sided dice
 
-{{task|Probability and statistics}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-(Given an equal-probability generator of one of the integers 1 to 5
-as <code>dice5</code>), &nbsp; create <code>dice7</code> that generates a pseudo-random integer from
-1 to 7 in equal probability using only <code>dice5</code> as a source of random
-numbers, &nbsp; and check the distribution for at least one million calls using the function created in &nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Verify distribution uniformity/Naive" title="Verify distribution uniformity/Naive">Simple Random Distribution Checker</a>.
+const assert = require('chai').assert;
 
+/// title: Seven-sided dice from five-sided dice
+/// type: rosetta-code
 
-<span class="rosetta__text--bold">Implementation suggestion:</span>
-<code>dice7</code> might call <code>dice5</code> twice, re-call if four of the 25
-combinations are given, otherwise split the other 21 combinations
-into 7 groups of three, and return the group index from the rolls.
+/// categories:
+/// ?
 
-<small>(Task adapted from an answer [http://stackoverflow.com/questions/90715/what-are-the-best-programming-puzzles-you-came-across here])</small>
-<br><br>
+/// difficulty: ?
 
+/// benchmark:
+replaceWithActualFunctionHere;
 
+/// description:
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// (Given an equal-probability generator of one of the integers 1 to 5
+/// as <code>dice5</code>), &nbsp; create <code>dice7</code> that generates a pseudo-random integer from
+/// 1 to 7 in equal probability using only <code>dice5</code> as a source of random
+/// numbers, &nbsp; and check the distribution for at least one million calls using the function created in &nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Verify distribution uniformity/Naive" title="Verify distribution uniformity/Naive">Simple Random Distribution Checker</a>.
+/// <br>
+/// <br>
+/// <span class="rosetta__text--bold">Implementation suggestion:</span>
+/// <code>dice7</code> might call <code>dice5</code> twice, re-call if four of the 25
+/// combinations are given, otherwise split the other 21 combinations
+/// into 7 groups of three, and return the group index from the rolls.
+/// <br>
+/// <small>(Task adapted from an answer [http://stackoverflow.com/questions/90715/what-are-the-best-programming-puzzles-you-came-across here])</small>
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+function dice5()
+{
+ return 1 + Math.floor(5 * Math.random());
+}
+
+function dice7()
+{
+ while (true)
+ {
+  var dice55 = 5 * dice5() + dice5() - 6;
+  if (dice55 < 21)
+   return dice55 % 7 + 1;
+ }
+}
+
+distcheck(dice5, 1000000);
+print();
+distcheck(dice7, 1000000);
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 {{trans|Ruby}}
 <lang javascript>function dice5()
@@ -53,3 +99,10 @@ distcheck(dice7, 1000000);</lang>
 6       142648
 7       142619 </pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

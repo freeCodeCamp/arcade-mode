@@ -1,19 +1,52 @@
-Day of the week
 
-{{task|Date and time}}
-{{omit from|GUISS|We could open a calendar, but the operator would have to read it}}
-{{omit from|ML/I}}
-{{omit from|PARI/GP|No standard date handling library}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-A company decides that whenever Xmas falls on a Sunday they will give their workers all extra paid holidays so that, together with any public holidays, workers will not have to work the following week (between the 25th of December and the first of January).
- 
-<span class="rosetta__text--bold">In what years between 2008 and 2121 will the 25th of December be a Sunday?</span>
+const assert = require('chai').assert;
 
-Using any standard date handling libraries of your programming language; 
-compare the dates calculated with the output of other languages to discover any anomalies in the handling of dates which may be due to, for example, overflow in types used to represent dates/times similar to &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Y2k#See_also" title="wp: Y2k#See_also">y2k</a> &nbsp; type problems.
-<br><br>
+/// title: Day of the week
+/// type: rosetta-code
 
+/// categories:
+/// ?
 
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// A company decides that whenever Xmas falls on a Sunday they will give their workers all extra paid holidays so that, together with any public holidays, workers will not have to work the following week (between the 25th of December and the first of January).
+///  
+/// <span class="rosetta__text--bold">In what years between 2008 and 2121 will the 25th of December be a Sunday?</span>
+/// <br>
+/// Using any standard date handling libraries of your programming language; 
+/// compare the dates calculated with the output of other languages to discover any anomalies in the handling of dates which may be due to, for example, overflow in types used to represent dates/times similar to &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Y2k#See_also" title="wp: Y2k#See_also">y2k</a> &nbsp; type problems.
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+for (var year = 2008; year <= 2121; year++){
+    var xmas = new Date(year, 11, 25)
+    if ( xmas.getDay() === 0 )
+        console.log(year)
+}
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 
 ===ES5===
@@ -95,3 +128,10 @@ compare the dates calculated with the output of other languages to discover any 
 {{Out}}
 <lang JavaScript>[2011, 2016, 2022, 2033, 2039, 2044, 2050, 2061, 2067, 2072, 2078, 2089, 2095, 2101, 2107, 2112, 2118]</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

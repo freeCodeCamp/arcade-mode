@@ -1,16 +1,58 @@
-Bitmap/Bresenham's line algorithm
 
-{{task|Raster graphics operations}}
-<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category:Graphics algorithms]]
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Using the data storage type defined [[Basic_bitmap_storage" title="Category:Graphics algorithms]]
+const assert = require('chai').assert;
 
-;Task:
-Using the data storage type defined [[Basic_bitmap_storage">on this page</a> for raster graphics images, draw a line given two points with the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Bresenham's line algorithm" title="wp: Bresenham's line algorithm">Bresenham's line algorithm</a>.
-<br><br>
+/// title: Bitmap/Bresenham's line algorithm
+/// type: rosetta-code
 
+/// categories:
+/// ?
 
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category:Graphics algorithms]]
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Using the data storage type defined [[Basic_bitmap_storage" title="Category:Graphics algorithms]]
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Using the data storage type defined [[Basic_bitmap_storage">on this page</a> for raster graphics images, draw a line given two points with the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Bresenham's line algorithm" title="wp: Bresenham's line algorithm">Bresenham's line algorithm</a>.
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+function bline(x0, y0, x1, y1) {
+
+  var dx = Math.abs(x1 - x0), sx = x0 < x1 ? 1 : -1;
+  var dy = Math.abs(y1 - y0), sy = y0 < y1 ? 1 : -1; 
+  var err = (dx>dy ? dx : -dy)/2;
+
+  while (true) {
+    setPixel(x0,y0);
+    if (x0 === x1 && y0 === y1) break;
+    var e2 = err;
+    if (e2 > -dx) { err -= dy; x0 += sx; }
+    if (e2 < dy) { err += dx; y0 += sy; }
+  }
+}
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 Instead of swaps in the initialisation use error calculation for both directions x and y simultaneously:
 <lang javascript>function bline(x0, y0, x1, y1) {
@@ -28,3 +70,10 @@ Instead of swaps in the initialisation use error calculation for both directions
   }
 }</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

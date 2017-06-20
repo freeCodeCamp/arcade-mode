@@ -1,25 +1,60 @@
-Sum of a series
 
-{{task|Arithmetic operations}}
-Compute the &nbsp; <span class="rosetta__text--bold">n</span><sup>th</sup> &nbsp; term of a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Series (mathematics)" title="wp: Series (mathematics)">series]], &nbsp; i.e. the sum of the &nbsp; <span class="rosetta__text--bold">n</span> &nbsp; first terms  of the corresponding [[wp:sequence|sequence</a>.  
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-Informally this value, or its limit when &nbsp; <span class="rosetta__text--bold">n</span> &nbsp; tends to infinity, is also called the <span class="rosetta__text--italic">sum of the series</span>, thus the title of this task.
+const assert = require('chai').assert;
 
-For this task, use:
-:::::: <big>$S_n = \sum_{k=1}^n \frac{1}{k^2}$</big>
+/// title: Sum of a series
+/// type: rosetta-code
 
-<br>
-:: and compute &nbsp; <big>$S_{1000}$</big>
+/// categories:
+/// ?
 
+/// difficulty: ?
 
-This approximates the &nbsp;  <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Riemann zeta function" title="wp: Riemann zeta function">zeta function</a> &nbsp; for &nbsp; <big>S=2</big>, &nbsp; whose exact value
+/// benchmark:
+replaceWithActualFunctionHere;
 
-:::::: <big>$\zeta(2) = {\pi^2\over 6}$</big>
+/// description:
+/// <br>
+/// Compute the &nbsp; <span class="rosetta__text--bold">n</span><sup>th</sup> &nbsp; term of a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Series (mathematics)" title="wp: Series (mathematics)">series]], &nbsp; i.e. the sum of the &nbsp; <span class="rosetta__text--bold">n</span> &nbsp; first terms  of the corresponding [[wp:sequence|sequence</a>.  
+/// <br>
+/// Informally this value, or its limit when &nbsp; <span class="rosetta__text--bold">n</span> &nbsp; tends to infinity, is also called the <span class="rosetta__text--italic">sum of the series</span>, thus the title of this task.
+/// <br>
+/// For this task, use:
+/// <span class="rosetta__text--indented">::::: <big>$S_n = \sum_{k=1}^n \frac{1}{k^2}$</big></span>
+/// <br>
+/// <br>
+/// <span class="rosetta__text--indented">: and compute &nbsp; <big>$S_{1000}$</big></span>
+/// <br>
+/// <br>
+/// This approximates the &nbsp;  <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Riemann zeta function" title="wp: Riemann zeta function">zeta function</a> &nbsp; for &nbsp; <big>S=2</big>, &nbsp; whose exact value
+/// <br>
+/// <span class="rosetta__text--indented">::::: <big>$\zeta(2) = {\pi^2\over 6}$</big></span>
+/// <br>
+/// is the solution of the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Basel problem" title="wp: Basel problem">Basel problem</a>.
+/// <br><br>
+/// <br>
+/// <br>
 
-is the solution of the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Basel problem" title="wp: Basel problem">Basel problem</a>.
-<br><br>
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
+/// solutions:
+function sum(a,b,fn) {
+   var s = 0;
+   for ( ; a <= b; a++) s += fn(a);
+   return s;
+}
+ 
+ sum(1,1000, function(x) { return 1/(x*x) } )  // 1.64393456668156
 
+/// rawSolutions:
 =={{header|JavaScript}}==
 ===ES5===
 <lang javascript>function sum(a,b,fn) {
@@ -88,3 +123,10 @@ or, in a functional idiom:
 {{Out}}
 <lang JavaScript>1.6439345666815615</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

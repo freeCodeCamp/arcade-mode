@@ -1,16 +1,51 @@
-Sum digits of an integer
 
-{{task}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Take a &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Natural_number" title="wp: Natural_number">Natural Number</a> &nbsp; in a given base and return the sum of its digits:
-:* &nbsp; <span class="rosetta__text--bold">1</span><sub>10</sub> &nbsp; &nbsp; &nbsp;          &nbsp; sums to &nbsp; <span class="rosetta__text--bold">1</span>
-:* &nbsp; <span class="rosetta__text--bold">1234</span><sub>10</sub>     &nbsp; sums to &nbsp; <span class="rosetta__text--bold">10</span>
-:* &nbsp; <span class="rosetta__text--bold">fe</span><sub>16</sub> &nbsp; &nbsp;        &nbsp; sums to &nbsp; <span class="rosetta__text--bold">29</span>
-:* &nbsp; <span class="rosetta__text--bold">f0e</span><sub>16</sub> &nbsp;       &nbsp; sums to &nbsp; <span class="rosetta__text--bold">29</span>
-<br><br>
+const assert = require('chai').assert;
+
+/// title: Sum digits of an integer
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Take a &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Natural_number" title="wp: Natural_number">Natural Number</a> &nbsp; in a given base and return the sum of its digits:
+/// <span class="rosetta__text--indented">* &nbsp; <span class="rosetta__text--bold">1</span><sub>10</sub> &nbsp; &nbsp; &nbsp;          &nbsp; sums to &nbsp; <span class="rosetta__text--bold">1</span></span>
+/// <span class="rosetta__text--indented">* &nbsp; <span class="rosetta__text--bold">1234</span><sub>10</sub>     &nbsp; sums to &nbsp; <span class="rosetta__text--bold">10</span></span>
+/// <span class="rosetta__text--indented">* &nbsp; <span class="rosetta__text--bold">fe</span><sub>16</sub> &nbsp; &nbsp;        &nbsp; sums to &nbsp; <span class="rosetta__text--bold">29</span></span>
+/// <span class="rosetta__text--indented">* &nbsp; <span class="rosetta__text--bold">f0e</span><sub>16</sub> &nbsp;       &nbsp; sums to &nbsp; <span class="rosetta__text--bold">29</span></span>
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+function sumDigits(n) {
+	n += ''
+	for (var s=0, i=0, e=n.length; i<e; i+=1) s+=parseInt(n.charAt(i),36)
+	return s
+}
+for (var n of [1, 12345, 0xfe, 'fe', 'f0e', '999ABCXYZ']) document.write(n, ' sum to ', sumDigits(n), '<br>')
 
 
+/// rawSolutions:
 =={{header|JavaScript}}==
 
 ===Imperative===
@@ -71,3 +106,10 @@ fe -> 29
 f0e -> 29
 999ABCXYZ -> 162</pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

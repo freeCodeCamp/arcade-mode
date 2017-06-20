@@ -1,14 +1,51 @@
-Send an unknown method call
 
-{{task|Object oriented}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-Invoke an object method where the name of the method to be invoked can be generated at run time. 
+const assert = require('chai').assert;
 
-;Cf:
-* [[Respond to an unknown method call]].
-* [[Runtime evaluation]]
+/// title: Send an unknown method call
+/// type: rosetta-code
 
+/// categories:
+/// ?
 
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// Invoke an object method where the name of the method to be invoked can be generated at run time. 
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Cf:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">[[Respond to an unknown method call]].</li>
+/// <li class="rosetta__list-item">[[Runtime evaluation]]</li>
+/// <br>
+/// </ul>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+example = new Object;
+example.foo = function(x) {
+    return 42 + x;
+};
+
+name = "foo";
+example[name](5)      # => 47
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 String literal "foo" may be replaced by any expression resulting in a string
 <lang javascript>example = new Object;
@@ -18,3 +55,10 @@ example.foo = function(x) {
 
 name = "foo";
 example[name](5)      # => 47</lang>
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

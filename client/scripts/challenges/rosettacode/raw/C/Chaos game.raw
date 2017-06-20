@@ -1,21 +1,104 @@
-Chaos game
 
-{{task}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-The <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Chaos_game" title="wp: Chaos_game">Chaos Game</a> is a method of generating the attractor of an iterated function system (IFS). One of the best-known and simplest examples creates a fractal, using a polygon and an initial point selected at random.
-<br><br>
+const assert = require('chai').assert;
 
-;Task
-Play the Chaos Game using the corners of an equilateral triangle as the reference points. Add a starting point at random (preferably inside the triangle). Then add the next point halfway between the starting point and one of the reference points. This reference point is chosen at random.
+/// title: Chaos game
+/// type: rosetta-code
 
-After a sufficient number of iterations, the image of a Sierpinski Triangle should emerge.
-<br><br>
+/// categories:
+/// ?
 
-;See also
-* [http://www.geoastro.de/ChaosSpiel/ChaosEnglish.html The Game of Chaos]
-<br><br>
+/// difficulty: ?
 
+/// benchmark:
+replaceWithActualFunctionHere;
 
+/// description:
+/// <br>
+/// <br>
+/// The <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Chaos_game" title="wp: Chaos_game">Chaos Game</a> is a method of generating the attractor of an iterated function system (IFS). One of the best-known and simplest examples creates a fractal, using a polygon and an initial point selected at random.
+/// <br><br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task</dt></dl>
+/// Play the Chaos Game using the corners of an equilateral triangle as the reference points. Add a starting point at random (preferably inside the triangle). Then add the next point halfway between the starting point and one of the reference points. This reference point is chosen at random.
+/// <br>
+/// After a sufficient number of iterations, the image of a Sierpinski Triangle should emerge.
+/// <br><br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">See also</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">[http://www.geoastro.de/ChaosSpiel/ChaosEnglish.html The Game of Chaos]</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>Chaos Game</title>
+
+</head>
+
+<body>
+
+<p>
+<canvas id="sierpinski" width=400 height=346></canvas>
+</p>
+
+<p>
+<button onclick="chaosGame()">Click here to see a Sierpiński triangle</button>
+</p>
+
+<script>
+
+function chaosGame() {
+    var canv = document.getElementById('sierpinski').getContext('2d');
+    var x = Math.random() * 400;
+    var y = Math.random() * 346;
+    for (var i=0; i<30000; i++) {
+        var vertex = Math.floor(Math.random() * 3);
+        switch(vertex) {
+            case 0:
+                x = x / 2;
+                y = y / 2;
+                canv.fillStyle = 'green';
+                break;
+            case 1:
+                x = 200 + (200 - x) / 2
+                y = 346 - (346 - y) / 2
+                canv.fillStyle = 'red';
+                break;
+            case 2:
+                x = 400 - (400 - x) / 2
+                y = y / 2;
+                canv.fillStyle = 'blue';
+        }
+        canv.fillRect(x,y, 1,1);
+    }
+}
+
+</script>
+
+</body>
+
+</html>
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 Plots the fractal on an HTML <tt>canvas</tt> element.
 <lang javascript><html>
@@ -72,3 +155,10 @@ function chaosGame() {
 
 </html></lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

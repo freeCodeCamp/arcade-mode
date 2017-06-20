@@ -1,33 +1,71 @@
-Solve a Hopido puzzle
 
-{{task}}
-Hopido puzzles are similar to <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Solve a Hidato puzzle " title="Solve a Hidato puzzle "> Hidato</a>. The most important difference is that the only moves allowed are:  hop over one tile diagonally; and over two tiles horizontally and vertically. It should be possible to start anywhere in the path, the end point isn't indicated and there are no intermediate clues. [http://gamesandinnovation.com/2010/02/10/hopido-design-post-mortem/ Hopido Design Post Mortem] contains the following:
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-"Big puzzles represented another problem. Up until quite late in the project our puzzle solver was painfully slow with most puzzles above 7×7 tiles. Testing the solution from each starting point could take hours. If the tile layout was changed even a little, the whole puzzle had to be tested again. We were just about to give up the biggest puzzles entirely when our programmer suddenly came up with a magical algorithm that cut the testing process down to only minutes. Hooray!"
+const assert = require('chai').assert;
 
-Knowing the kindness in the heart of every contributor to Rosetta Code, I know that we shall feel that as an act of humanity we must solve these puzzles for them in let's say milliseconds.
+/// title: Solve a Hopido puzzle
+/// type: rosetta-code
 
-Example:
+/// categories:
+/// ?
 
- . 0 0 . 0 0 .
- 0 0 0 0 0 0 0
- 0 0 0 0 0 0 0
- . 0 0 0 0 0 .
- . . 0 0 0 . .
- . . . 0 . . .
+/// difficulty: ?
 
-Extra credits are available for other interesting designs.
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// Hopido puzzles are similar to <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Solve a Hidato puzzle " title="Solve a Hidato puzzle "> Hidato</a>. The most important difference is that the only moves allowed are:  hop over one tile diagonally; and over two tiles horizontally and vertically. It should be possible to start anywhere in the path, the end point isn't indicated and there are no intermediate clues. [http://gamesandinnovation.com/2010/02/10/hopido-design-post-mortem/ Hopido Design Post Mortem] contains the following:
+/// <br>
+/// "Big puzzles represented another problem. Up until quite late in the project our puzzle solver was painfully slow with most puzzles above 7×7 tiles. Testing the solution from each starting point could take hours. If the tile layout was changed even a little, the whole puzzle had to be tested again. We were just about to give up the biggest puzzles entirely when our programmer suddenly came up with a magical algorithm that cut the testing process down to only minutes. Hooray!"
+/// <br>
+/// Knowing the kindness in the heart of every contributor to Rosetta Code, I know that we shall feel that as an act of humanity we must solve these puzzles for them in let's say milliseconds.
+/// <br>
+/// Example:
+/// <br>
+///  . 0 0 . 0 0 .
+///  0 0 0 0 0 0 0
+///  0 0 0 0 0 0 0
+///  . 0 0 0 0 0 .
+///  . . 0 0 0 . .
+///  . . . 0 . . .
+/// <br>
+/// Extra credits are available for other interesting designs.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">[[A* search algorithm]]</li>
+/// <li class="rosetta__list-item">[[Solve a Holy Knight's tour]]</li>
+/// <li class="rosetta__list-item">[[Knight's tour]]</li>
+/// <li class="rosetta__list-item">[[N-queens problem]]</li>
+/// <li class="rosetta__list-item">[[Solve a Hidato puzzle]]</li>
+/// <li class="rosetta__list-item">[[Solve a Holy Knight's tour]]</li>
+/// <li class="rosetta__list-item">[[Solve a Numbrix puzzle]]</li>
+/// <li class="rosetta__list-item">[[Solve the no connection puzzle]]</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
-;Related tasks:
-* [[A* search algorithm]]
-* [[Solve a Holy Knight's tour]]
-* [[Knight's tour]]
-* [[N-queens problem]]
-* [[Solve a Hidato puzzle]]
-* [[Solve a Holy Knight's tour]]
-* [[Solve a Numbrix puzzle]]
-* [[Solve the no connection puzzle]]
-<br><br>
+/// rawSolutions:
+null
 
+/// tail:
+const replaceThis = 3;
 
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

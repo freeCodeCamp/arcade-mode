@@ -1,65 +1,101 @@
-Sorting algorithms/Heapsort
 
-{{task|Sorting Algorithms}} {{Sorting Algorithm}} {{wikipedia|Heapsort}}
-{{omit from|GUISS}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-<br>
-<a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Heapsort" title="wp: Heapsort">Heapsort</a> is an in-place sorting algorithm with worst case and average complexity of &nbsp; <span style="font-family: serif">O(<span class="rosetta__text--italic">n</span> log<span class="rosetta__text--italic">n</span>)</span>. 
+const assert = require('chai').assert;
 
-The basic idea is to turn the array into a binary heap structure, which has the property that it allows efficient retrieval and removal of the maximal element. 
+/// title: Sorting algorithms/Heapsort
+/// type: rosetta-code
 
-We repeatedly "remove" the maximal element from the heap, thus building the sorted list from back to front. 
+/// categories:
+/// ?
 
-Heapsort requires random access, so can only be used on an array-like data structure.
+/// difficulty: ?
 
-Pseudocode:
- <span class="rosetta__text--bold">function</span> heapSort(a, count) <span class="rosetta__text--bold">is</span>
-    <span class="rosetta__text--bold">input:</span> an unordered array <span class="rosetta__text--italic">a</span> of length <span class="rosetta__text--italic">count</span>
-  
-    <span style="color: grey"><span class="rosetta__text--italic">(first place a in max-heap order)</span></span>
-    heapify(a, count)
-  
-    end := count - 1
-    <span class="rosetta__text--bold">while</span> end > 0 <span class="rosetta__text--bold">do</span>
-       <span style="color: grey"><span class="rosetta__text--italic">(swap the root(maximum value) of the heap with the</span>
-        <span class="rosetta__text--italic">last element of the heap)</span></span>
-       swap(a[end], a[0])
-       <span style="color: grey"><span class="rosetta__text--italic">(decrement the size of the heap so that the previous</span>
-        <span class="rosetta__text--italic">max value will stay in its proper place)</span></span>
-       end := end - 1
-       <span style="color: grey"><span class="rosetta__text--italic">(put the heap back in max-heap order)</span></span>
-       siftDown(a, 0, end)
+/// benchmark:
+replaceWithActualFunctionHere;
 
-  
- <span class="rosetta__text--bold">function</span> heapify(a,count) <span class="rosetta__text--bold">is</span>
-    <span style="color: grey"><span class="rosetta__text--italic">(start is assigned the index in </span>a<span class="rosetta__text--italic"> of the last parent node)</span></span>
-    start := (count - 2) / 2
-    
-    <span class="rosetta__text--bold">while</span> start ≥ 0 <span class="rosetta__text--bold">do</span>
-       <span style="color: grey"><span class="rosetta__text--italic">(sift down the node at index start to the proper place</span>
-        <span class="rosetta__text--italic">such that all nodes below the start index are in heap</span>
-        <span class="rosetta__text--italic">order)</span></span>
-       siftDown(a, start, count-1)
-       start := start - 1
-    <span style="color: grey"><span class="rosetta__text--italic">(after sifting down the root all nodes/elements are in heap order)</span></span>
-  
- <span class="rosetta__text--bold">function</span> siftDown(a, start, end) <span class="rosetta__text--bold">is</span>
-    <span style="color: grey"><span class="rosetta__text--italic">(</span>end<span class="rosetta__text--italic"> represents the limit of how far down the heap to sift)</span></span>
-    root := start
- 
-    <span class="rosetta__text--bold">while</span> root * 2 + 1 ≤ end <span class="rosetta__text--bold">do</span>       <span style="color: grey"><span class="rosetta__text--italic">(While the root has at least one child)</span></span>
-       child := root * 2 + 1           <span style="color: grey"><span class="rosetta__text--italic">(root*2+1 points to the left child)</span></span>
-       <span style="color: grey"><span class="rosetta__text--italic">(If the child has a sibling and the child's value is less than its sibling's...)</span></span>
-       <span class="rosetta__text--bold">if</span> child + 1 ≤ end <span class="rosetta__text--bold">and</span> a[child] < a[child + 1] <span class="rosetta__text--bold">then</span>
-          child := child + 1           <span style="color: grey"><span class="rosetta__text--italic">(... then point to the right child instead)</span></span>
-       <span class="rosetta__text--bold">if</span> a[root] < a[child] <span class="rosetta__text--bold">then</span>     <span style="color: grey"><span class="rosetta__text--italic">(out of max-heap order)</span></span>
-          swap(a[root], a[child])
-          root := child                <span style="color: grey"><span class="rosetta__text--italic">(repeat to continue sifting down the child now)</span></span>
-       <span class="rosetta__text--bold">else</span>
-          <span class="rosetta__text--bold">return</span>
+/// description:
+///   
+/// <br>
+/// <br>
+/// <br>
+/// <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Heapsort" title="wp: Heapsort">Heapsort</a> is an in-place sorting algorithm with worst case and average complexity of &nbsp; <span style="font-family: serif">O(<span class="rosetta__text--italic">n</span> log<span class="rosetta__text--italic">n</span>)</span>. 
+/// <br>
+/// The basic idea is to turn the array into a binary heap structure, which has the property that it allows efficient retrieval and removal of the maximal element. 
+/// <br>
+/// We repeatedly "remove" the maximal element from the heap, thus building the sorted list from back to front. 
+/// <br>
+/// Heapsort requires random access, so can only be used on an array-like data structure.
+/// <br>
+/// Pseudocode:
+///  <span class="rosetta__text--bold">function</span> heapSort(a, count) <span class="rosetta__text--bold">is</span>
+///     <span class="rosetta__text--bold">input:</span> an unordered array <span class="rosetta__text--italic">a</span> of length <span class="rosetta__text--italic">count</span>
+///   
+///     <span style="color: grey"><span class="rosetta__text--italic">(first place a in max-heap order)</span></span>
+///     heapify(a, count)
+///   
+///     end := count - 1
+///     <span class="rosetta__text--bold">while</span> end > 0 <span class="rosetta__text--bold">do</span>
+///        <span style="color: grey"><span class="rosetta__text--italic">(swap the root(maximum value) of the heap with the</span>
+///         <span class="rosetta__text--italic">last element of the heap)</span></span>
+///        swap(a[end], a[0])
+///        <span style="color: grey"><span class="rosetta__text--italic">(decrement the size of the heap so that the previous</span>
+///         <span class="rosetta__text--italic">max value will stay in its proper place)</span></span>
+///        end := end - 1
+///        <span style="color: grey"><span class="rosetta__text--italic">(put the heap back in max-heap order)</span></span>
+///        siftDown(a, 0, end)
+/// <br>
+///   
+///  <span class="rosetta__text--bold">function</span> heapify(a,count) <span class="rosetta__text--bold">is</span>
+///     <span style="color: grey"><span class="rosetta__text--italic">(start is assigned the index in </span>a<span class="rosetta__text--italic"> of the last parent node)</span></span>
+///     start := (count - 2) / 2
+///     
+///     <span class="rosetta__text--bold">while</span> start ≥ 0 <span class="rosetta__text--bold">do</span>
+///        <span style="color: grey"><span class="rosetta__text--italic">(sift down the node at index start to the proper place</span>
+///         <span class="rosetta__text--italic">such that all nodes below the start index are in heap</span>
+///         <span class="rosetta__text--italic">order)</span></span>
+///        siftDown(a, start, count-1)
+///        start := start - 1
+///     <span style="color: grey"><span class="rosetta__text--italic">(after sifting down the root all nodes/elements are in heap order)</span></span>
+///   
+///  <span class="rosetta__text--bold">function</span> siftDown(a, start, end) <span class="rosetta__text--bold">is</span>
+///     <span style="color: grey"><span class="rosetta__text--italic">(</span>end<span class="rosetta__text--italic"> represents the limit of how far down the heap to sift)</span></span>
+///     root := start
+///  
+///     <span class="rosetta__text--bold">while</span> root * 2 + 1 ≤ end <span class="rosetta__text--bold">do</span>       <span style="color: grey"><span class="rosetta__text--italic">(While the root has at least one child)</span></span>
+///        child := root * 2 + 1           <span style="color: grey"><span class="rosetta__text--italic">(root*2+1 points to the left child)</span></span>
+///        <span style="color: grey"><span class="rosetta__text--italic">(If the child has a sibling and the child's value is less than its sibling's...)</span></span>
+///        <span class="rosetta__text--bold">if</span> child + 1 ≤ end <span class="rosetta__text--bold">and</span> a[child] < a[child + 1] <span class="rosetta__text--bold">then</span>
+///           child := child + 1           <span style="color: grey"><span class="rosetta__text--italic">(... then point to the right child instead)</span></span>
+///        <span class="rosetta__text--bold">if</span> a[root] < a[child] <span class="rosetta__text--bold">then</span>     <span style="color: grey"><span class="rosetta__text--italic">(out of max-heap order)</span></span>
+///           swap(a[root], a[child])
+///           root := child                <span style="color: grey"><span class="rosetta__text--italic">(repeat to continue sifting down the child now)</span></span>
+///        <span class="rosetta__text--bold">else</span>
+///           <span class="rosetta__text--bold">return</span>
+/// <br>
+/// <br>
+/// Write a function to sort a collection of integers using heapsort.
+/// <br><br>
+/// <br>
+/// <br>
 
-<br>
-Write a function to sort a collection of integers using heapsort.
-<br><br>
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

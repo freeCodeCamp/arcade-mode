@@ -1,18 +1,87 @@
-Longest increasing subsequence
 
-{{task}}
-Calculate and show here a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Longest increasing subsequence" title="wp: Longest increasing subsequence">longest increasing subsequence</a> of the list:
-:$\{3, 2, 6, 4, 5, 1\}$
-And of the list:
-:$\{0, 8, 4, 12, 2, 10, 6, 14, 1, 9, 5, 13, 3, 11, 7, 15\}$
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-Note that a list may have more than one subsequence that is of the maximum length.
+const assert = require('chai').assert;
 
-;Ref:
-# [http://www.youtube.com/watch?v=4fQJGoeW5VE Dynamic Programming #1: Longest Increasing Subsequence] on Youtube
-# An efficient solution can be based on <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Patience sorting" title="wp: Patience sorting">Patience sorting</a>.
+/// title: Longest increasing subsequence
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// Calculate and show here a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Longest increasing subsequence" title="wp: Longest increasing subsequence">longest increasing subsequence</a> of the list:
+/// <span class="rosetta__text--indented">$\{3, 2, 6, 4, 5, 1\}$</span>
+/// And of the list:
+/// <span class="rosetta__text--indented">$\{0, 8, 4, 12, 2, 10, 6, 14, 1, 9, 5, 13, 3, 11, 7, 15\}$</span>
+/// <br>
+/// Note that a list may have more than one subsequence that is of the maximum length.
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Ref:</dt></dl>
+/// # [http://www.youtube.com/watch?v=4fQJGoeW5VE Dynamic Programming #1: Longest Increasing Subsequence] on Youtube
+/// # An efficient solution can be based on <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Patience sorting" title="wp: Patience sorting">Patience sorting</a>.
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
+var _ = require('underscore');
+function findIndex(input){
+	var len = input.length;
+	var maxSeqEndingHere = _.range(len).map(function(){return 1;});
+	for(var i=0; i<len; i++)
+		for(var j=i-1;j>=0;j--)
+			if(input[i] > input[j] && maxSeqEndingHere[j] >= maxSeqEndingHere[i])
+				maxSeqEndingHere[i] = maxSeqEndingHere[j]+1;
+	return maxSeqEndingHere;
+}
+
+function findSequence(input, result){
+	var maxValue = Math.max.apply(null, result);
+	var maxIndex = result.indexOf(Math.max.apply(Math, result));
+	var output = [];
+	output.push(input[maxIndex]);
+	for(var i = maxIndex ; i >= 0; i--){
+		if(maxValue==0)break;
+		if(input[maxIndex] > input[i]  && result[i] == maxValue-1){
+			output.push(input[i]);
+			maxValue--;
+		}
+	}
+	output.reverse();
+	return output;
+}
+
+
+var x = [0, 7, 8, 4, 12, 2, 10, 6, 14, 1, 9, 5, 13, 3, 11, 7, 15];
+var y = [3, 2, 6, 4, 5, 1];
+
+var result = findIndex(x);
+var final = findSequence(x, result);
+console.log(final);
+
+var result1 = findIndex(y);
+var final1 = findSequence(y, result1);
+console.log(final1);
+
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 {{libheader|Lo-Dash underscore library}}
 
@@ -64,3 +133,10 @@ console.log(final1);
 [ 2, 4, 5 ]
 </pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

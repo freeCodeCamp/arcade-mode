@@ -1,17 +1,48 @@
-Formatted numeric output
 
-{{task|Basic language learning}}
-[[Category:Text processing]] 
-[[Category:Simple]]
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Express a number in decimal as a fixed-length string with leading zeros.
+const assert = require('chai').assert;
 
+/// title: Formatted numeric output
+/// type: rosetta-code
 
-For example, the number &nbsp; <span class="rosetta__text--bold">7.125</span> &nbsp; could be expressed as &nbsp; <span class="rosetta__text--bold">00007.125</span>.
-<br><br>
+/// categories:
+/// ?
 
+/// difficulty: ?
 
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// [[Category:Text processing]] 
+/// [[Category:Simple]]
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Express a number in decimal as a fixed-length string with leading zeros.
+/// <br>
+/// <br>
+/// For example, the number &nbsp; <span class="rosetta__text--bold">7.125</span> &nbsp; could be expressed as &nbsp; <span class="rosetta__text--bold">00007.125</span>.
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+var n = 123;
+var str = ("00000" + n).slice(-5);
+alert(str);
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 <lang javascript>var n = 123;
 var str = ("00000" + n).slice(-5);
@@ -21,3 +52,10 @@ or, put in browser URL: javascript:n=123;alert(("00000"+n).slice(-5));
 
 Also, a 60-line implementation of <code>sprintf</code> can be found [http://code.google.com/p/sprintf/ here].
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,34 +1,63 @@
-Hello world/Standard error
 
-{{task|Basic language learning}} 
-{{selection|Short Circuit|Console Program Basics}}
-[[Category:Streams]]
-{{omit from|Applesoft BASIC}}
-{{omit from|bc|Always prints to standard output.}}
-{{omit from|Brainf***}}
-{{omit from|dc|Always prints to standard output.}}
-{{omit from|GUISS|Cannot customize error messages}}
-{{omit from|Integer BASIC}}
-{{omit from|Jack|No other output stream available.}}
-{{omit from|TI-83 BASIC|Same reason as TI-89.}}
-{{omit from|TI-89 BASIC|no analogue to stderr, unless you count graph display vs. program IO}}
-{{omit from|Unlambda|No concept of standard error (or alternate output streams in general).}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-A common practice in computing is to send error messages 
-to a different output stream than <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/User Output - text" title="User Output - text">normal text console messages</a>. 
+const assert = require('chai').assert;
 
-The normal messages print to what is called "standard output" or "standard out". 
+/// title: Hello world/Standard error
+/// type: rosetta-code
 
-The error messages print to "standard error". 
+/// categories:
+/// ?
 
-This separation can be used to redirect error messages to a different place than normal messages.
+/// difficulty: ?
 
+/// benchmark:
+replaceWithActualFunctionHere;
 
-;Task:
-Show how to print a message to standard error by printing &nbsp; &nbsp; <span class="rosetta__text--bold">Goodbye, World!</span> &nbsp; &nbsp; on that stream.
-<br><br>
+/// description:
+///  
+/// <br>
+/// [[Category:Streams]]
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// A common practice in computing is to send error messages 
+/// to a different output stream than <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/User Output - text" title="User Output - text">normal text console messages</a>. 
+/// <br>
+/// The normal messages print to what is called "standard output" or "standard out". 
+/// <br>
+/// The error messages print to "standard error". 
+/// <br>
+/// This separation can be used to redirect error messages to a different place than normal messages.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Show how to print a message to standard error by printing &nbsp; &nbsp; <span class="rosetta__text--bold">Goodbye, World!</span> &nbsp; &nbsp; on that stream.
+/// <br><br>
+/// <br>
+/// <br>
 
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
+/// solutions:
+WScript.StdErr.WriteLine("Goodbye, World!");
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 {{works with|JScript}} and only with <code>cscript.exe</code>
 <lang javascript>WScript.StdErr.WriteLine("Goodbye, World!");</lang>
@@ -41,3 +70,10 @@ Show how to print a message to standard error by printing &nbsp; &nbsp; <span cl
 OR
 <lang javascript>throw new Error("Goodbye, World!")//Should work in any browser</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

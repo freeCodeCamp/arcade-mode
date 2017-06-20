@@ -1,16 +1,52 @@
-Write language name in 3D ASCII
 
-{{task}}
-{{omit from|GUISS}}
-{{omit from|TUSCRIPT}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Write/display a language's name in <span class="rosetta__text--bold">3D</span> ASCII. 
+const assert = require('chai').assert;
+
+/// title: Write language name in 3D ASCII
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Write/display a language's name in <span class="rosetta__text--bold">3D</span> ASCII. 
+/// <br>
+/// <br>
+/// (We can leave the definition of "3D ASCII" fuzzy, 
+/// so long as the result is interesting or amusing, 
+/// not a cheap hack to satisfy the task.)
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
-(We can leave the definition of "3D ASCII" fuzzy, 
-so long as the result is interesting or amusing, 
-not a cheap hack to satisfy the task.)
-<br><br>
+/// rawSolutions:
+null
 
+/// tail:
+const replaceThis = 3;
 
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

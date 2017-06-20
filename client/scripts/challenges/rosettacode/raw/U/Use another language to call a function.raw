@@ -1,29 +1,65 @@
-Use another language to call a function
 
-{{task|Programming environment operations}}
-{{clarified-review}}
-This task is inverse to the task [[Call foreign language function]]. Consider the following [[C]] program:
-<lang c>#include <stdio.h>
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-extern int Query (char * Data, size_t * Length);
+const assert = require('chai').assert;
 
-int main (int argc, char * argv [])
-{
-   char     Buffer [1024];
-   size_t   Size = sizeof (Buffer);
-   
-   if (0 == Query (Buffer, &Size))
-   {
-      printf ("failed to call Query\n");
-   }
-   else
-   {
-      char * Ptr = Buffer;
-      while (Size-- > 0) putchar (*Ptr++);
-      putchar ('\n');
-   }
-}</lang>
+/// title: Use another language to call a function
+/// type: rosetta-code
 
-Implement the missing <code>Query</code> function in your language, and let this C program call it. The function should place the string <span class="rosetta__text--italic"><tt style="margin:0 0.5em">Here am I</tt></span> into the buffer which is passed to it as the parameter <code>Data</code>. The buffer size in bytes is passed as the parameter <code>Length</code>. When there is no room in the buffer, <code>Query</code> shall return 0. Otherwise it overwrites the beginning of <code>Buffer</code>, sets the number of overwritten bytes into <code>Length</code> and returns 1.
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// This task is inverse to the task [[Call foreign language function]]. Consider the following [[C]] program:
+/// <lang c>#include <stdio.h>
+/// <br>
+/// extern int Query (char * Data, size_t * Length);
+/// <br>
+/// int main (int argc, char * argv [])
+/// {
+///    char     Buffer [1024];
+///    size_t   Size = sizeof (Buffer);
+///    
+///    if (0 == Query (Buffer, &Size))
+///    {
+///       printf ("failed to call Query\n");
+///    }
+///    else
+///    {
+///       char * Ptr = Buffer;
+///       while (Size-- > 0) putchar (*Ptr++);
+///       putchar ('\n');
+///    }
+/// }</lang>
+/// <br>
+/// Implement the missing <code>Query</code> function in your language, and let this C program call it. The function should place the string <span class="rosetta__text--italic"><tt style="margin:0 0.5em">Here am I</tt></span> into the buffer which is passed to it as the parameter <code>Data</code>. The buffer size in bytes is passed as the parameter <code>Length</code>. When there is no room in the buffer, <code>Query</code> shall return 0. Otherwise it overwrites the beginning of <code>Buffer</code>, sets the number of overwritten bytes into <code>Length</code> and returns 1.
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

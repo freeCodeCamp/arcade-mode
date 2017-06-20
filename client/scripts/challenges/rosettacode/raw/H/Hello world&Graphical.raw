@@ -1,21 +1,59 @@
-Hello world/Graphical
 
-{{omit from|LFE}}
-{{omit from|Commodore BASIC}}
-{{task|GUI}} 
-[[Category:Basic language learning]] 
-[[Category:Simple]] 
-{{requires|Graphics}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Display the string &nbsp; &nbsp; &nbsp; <span class="rosetta__text--bold">Goodbye, World!</span> &nbsp; &nbsp; &nbsp; on a [[GUI]] object &nbsp; (alert box, plain window, text area, etc.).
+const assert = require('chai').assert;
 
+/// title: Hello world/Graphical
+/// type: rosetta-code
 
-;Related task:
-* &nbsp; [[Hello world/Text]]
-<br><br>
+/// categories:
+/// ?
 
+/// difficulty: ?
 
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+///  
+/// [[Category:Basic language learning]] 
+/// [[Category:Simple]] 
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Display the string &nbsp; &nbsp; &nbsp; <span class="rosetta__text--bold">Goodbye, World!</span> &nbsp; &nbsp; &nbsp; on a [[GUI]] object &nbsp; (alert box, plain window, text area, etc.).
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related task:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">&nbsp; [[Hello world/Text]]</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+ alert("Goodbye, World!");
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 <lang javascript> alert("Goodbye, World!");</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

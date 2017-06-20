@@ -1,33 +1,83 @@
-Factors of an integer
 
-{{Task|Basic language learning}} 
-{{basic data operation}}
-[[Category:Arithmetic operations]]
-[[Category:Mathematical_operations]]
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Compute the &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Divisor" title="wp: Divisor">factors</a> &nbsp; of a positive integer. 
+const assert = require('chai').assert;
 
-These factors are the positive integers by which the number being factored can be divided to yield a positive integer result. 
+/// title: Factors of an integer
+/// type: rosetta-code
 
-(Though the concepts function correctly for zero and negative integers, the set of factors of zero has countably infinite members, and the factors of negative integers can be obtained from the factors of related positive numbers without difficulty; &nbsp; this task does not require handling of either of these cases). 
+/// categories:
+/// ?
 
-Note that every prime number has two factors: &nbsp; <span class="rosetta__text--bold">1</span> &nbsp; and itself.
+/// difficulty: ?
 
+/// benchmark:
+replaceWithActualFunctionHere;
 
-;Related tasks:
-* &nbsp; [[count in factors]]
-* &nbsp; [[prime decomposition]]
-* &nbsp; [[Sieve of Eratosthenes]]
-* &nbsp; [[primality by trial division]]
-* &nbsp; [[factors of a Mersenne number]]
-* &nbsp; [[trial factoring of a Mersenne number]]
-* &nbsp; [[partition an integer X into N primes]]
-* &nbsp; [[sequence of primes by Trial Division]]
+/// description:
+///  
+/// <br>
+/// [[Category:Arithmetic operations]]
+/// [[Category:Mathematical_operations]]
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Compute the &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Divisor" title="wp: Divisor">factors</a> &nbsp; of a positive integer. 
+/// <br>
+/// These factors are the positive integers by which the number being factored can be divided to yield a positive integer result. 
+/// <br>
+/// (Though the concepts function correctly for zero and negative integers, the set of factors of zero has countably infinite members, and the factors of negative integers can be obtained from the factors of related positive numbers without difficulty; &nbsp; this task does not require handling of either of these cases). 
+/// <br>
+/// Note that every prime number has two factors: &nbsp; <span class="rosetta__text--bold">1</span> &nbsp; and itself.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">&nbsp; [[count in factors]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[prime decomposition]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[Sieve of Eratosthenes]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[primality by trial division]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[factors of a Mersenne number]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[trial factoring of a Mersenne number]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[partition an integer X into N primes]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[sequence of primes by Trial Division]]</li>
+/// <br>
+/// </ul>
+/// <br><br>
+/// <br>
+/// <br>
 
-<br><br>
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
+/// solutions:
+function factors(num)
+{
+ var
+  n_factors = [],
+  i;
 
+ for (i = 1; i <= Math.floor(Math.sqrt(num)); i += 1)
+  if (num % i === 0)
+  {
+   n_factors.push(i);
+   if (num / i !== i)
+    n_factors.push(num / i);
+  }
+ n_factors.sort(function(a, b){return a - b;});  // numeric sort
+ return n_factors;
+}
+
+factors(45);  // [1,3,5,9,15,45] 
+factors(53);  // [1,53] 
+factors(64);  // [1,2,4,8,16,32,64]
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 
 ===Imperative===
@@ -253,3 +303,10 @@ integerFactors(n)
   32767  -->  1   7  31  151  217  1057  4681  32767
 </pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

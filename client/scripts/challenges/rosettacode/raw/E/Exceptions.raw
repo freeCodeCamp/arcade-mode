@@ -1,18 +1,49 @@
-Exceptions
 
-{{Task|Control Structures}}
-{{Control Structures}}
-{{omit from|Euphoria}}
-{{omit from|M4}}
-{{omit from|Retro}}
-{{omit from|Swift|[Swift does not support exception handling]}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-This task is to give an example of an exception handling routine 
-and to "throw" a new exception.
+const assert = require('chai').assert;
 
-Cf. [[Exceptions Through Nested Calls]]
+/// title: Exceptions
+/// type: rosetta-code
 
+/// categories:
+/// ?
 
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// This task is to give an example of an exception handling routine 
+/// and to "throw" a new exception.
+/// <br>
+/// Cf. [[Exceptions Through Nested Calls]]
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+function doStuff() {
+  throw new Error('Not implemented!');
+}
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 
 '''Throwing exceptions'''
@@ -32,3 +63,10 @@ catch(e if e instanceof TypeError) {
 finally {
   eventSetup = true;
 }</lang>
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

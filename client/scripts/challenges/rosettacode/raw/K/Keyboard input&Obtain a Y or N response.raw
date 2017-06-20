@@ -1,19 +1,59 @@
-Keyboard input/Obtain a Y or N response
 
-{{task}} 
-<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category:Simple]]
-[[user input::task" title="Category:Simple]]
-[[user input::task"> </a>
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Obtain a valid &nbsp; <span class="rosetta__text--bold">Y</span> &nbsp; or &nbsp; <span class="rosetta__text--bold">N</span> &nbsp; response from the [[input device::keyboard]]. 
+const assert = require('chai').assert;
 
-The keyboard should be flushed, so that any outstanding key-presses are removed, preventing any existing &nbsp; <span class="rosetta__text--bold">Y</span> &nbsp; or &nbsp; <span class="rosetta__text--bold">N</span> &nbsp; key-press from being evaluated. 
+/// title: Keyboard input/Obtain a Y or N response
+/// type: rosetta-code
 
-The response should be obtained as soon as &nbsp; <span class="rosetta__text--bold">Y</span> &nbsp; or &nbsp; <span class="rosetta__text--bold">N</span> &nbsp; are pressed, and there should be no need to press an &nbsp; enter &nbsp; key.
-<br><br>
+/// categories:
+/// ?
 
+/// difficulty: ?
 
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+///  
+/// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category:Simple]]
+/// [[user input::task" title="Category:Simple]]
+/// [[user input::task"> </a>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Obtain a valid &nbsp; <span class="rosetta__text--bold">Y</span> &nbsp; or &nbsp; <span class="rosetta__text--bold">N</span> &nbsp; response from the [[input device::keyboard]]. 
+/// <br>
+/// The keyboard should be flushed, so that any outstanding key-presses are removed, preventing any existing &nbsp; <span class="rosetta__text--bold">Y</span> &nbsp; or &nbsp; <span class="rosetta__text--bold">N</span> &nbsp; key-press from being evaluated. 
+/// <br>
+/// The response should be obtained as soon as &nbsp; <span class="rosetta__text--bold">Y</span> &nbsp; or &nbsp; <span class="rosetta__text--bold">N</span> &nbsp; are pressed, and there should be no need to press an &nbsp; enter &nbsp; key.
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+var keypress = require('keypress');
+
+keypress(process.stdin);
+
+process.stdin.on('keypress', function (ch, key) {
+    if (key && (key.name === 'y' || key.name === 'n')) {
+       console.log('Reply:' + key.name);
+    }
+});
+
+process.stdin.setRawMode(true);
+process.stdin.resume();
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 
 Here's how you can asynchronously read a single character in Node.js, using the <code>keypress</code> package.
@@ -41,3 +81,10 @@ Using DOM events.
   }
 }, false);</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

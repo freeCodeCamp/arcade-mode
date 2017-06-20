@@ -1,17 +1,55 @@
-Unbias a random generator
 
-{{task}}Given a weighted one bit generator of random numbers where the probability of a one occuring, $P_1$, is not the same as $P_0$, the probability of a zero occuring, the probability of the occurrence of a one followed by a zero is $P_1$ × $P_0$. This is the same as the probability of a zero followed by a one: $P_0$ × $P_1$.
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Unbias a random generator
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// Given a weighted one bit generator of random numbers where the probability of a one occuring, $P_1$, is not the same as $P_0$, the probability of a zero occuring, the probability of the occurrence of a one followed by a zero is $P_1$ × $P_0$. This is the same as the probability of a zero followed by a one: $P_0$ × $P_1$.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task details:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">Use your language's random number generator to create a function/method/subroutine/... <span class="rosetta__text--bold">randN</span> that returns a one or a zero, but with one occurring, on average, 1 out of N times, where N is an integer from the range 3 to 6 inclusive.</li>
+/// <li class="rosetta__list-item">Create a function <span class="rosetta__text--bold">unbiased</span> that uses only randN as its source of randomness to become an unbiased generator of random ones and zeroes.</li>
+/// <li class="rosetta__list-item">For N over its range, generate and show counts of the outputs of randN and unbiased(randN).</li>
+/// <br>
+/// </ul>
+/// <br>
+/// The actual unbiasing should be done by generating two numbers at a time from randN and only returning a 1 or 0 if they are different. As long as you always return the first number or always return the second number, the probabilities discussed above should take over the biased probability of randN.
+/// <br>
+/// This task is an implementation of [http://en.wikipedia.org/wiki/Randomness_extractor#Von_Neumann_extractor Von Neumann debiasing], first described in a 1951 paper.
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
-;Task details:
-* Use your language's random number generator to create a function/method/subroutine/... <span class="rosetta__text--bold">randN</span> that returns a one or a zero, but with one occurring, on average, 1 out of N times, where N is an integer from the range 3 to 6 inclusive.
-* Create a function <span class="rosetta__text--bold">unbiased</span> that uses only randN as its source of randomness to become an unbiased generator of random ones and zeroes.
-* For N over its range, generate and show counts of the outputs of randN and unbiased(randN).
+/// rawSolutions:
+null
 
-<br>
-The actual unbiasing should be done by generating two numbers at a time from randN and only returning a 1 or 0 if they are different. As long as you always return the first number or always return the second number, the probabilities discussed above should take over the biased probability of randN.
+/// tail:
+const replaceThis = 3;
 
-This task is an implementation of [http://en.wikipedia.org/wiki/Randomness_extractor#Von_Neumann_extractor Von Neumann debiasing], first described in a 1951 paper.
-<br><br>
-
-
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

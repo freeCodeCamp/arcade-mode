@@ -1,12 +1,48 @@
-Problem of Apollonius
 
-{{task|arithmetic operations}}
-<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:Apollonius.png" title="File:Apollonius.png">400px|Two solutions to the problem of Apollonius|right</a>
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Implement a solution to the Problem of Apollonius &nbsp; (<a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Problem_of_Apollonius" title="wp: Problem_of_Apollonius">description on Wikipedia]]) &nbsp; which is the problem of finding the circle that is tangent to three specified circles. &nbsp; There is an [[wp:Problem_of_Apollonius#Algebraic_solutions|algebraic solution</a> which is pretty straightforward. 
+const assert = require('chai').assert;
 
-The solutions to the example in the code are shown in the image (below and right). &nbsp; The red circle is "internally tangent" to all three black circles, and the green circle is "externally tangent" to all three black circles.
-<br><br>
+/// title: Problem of Apollonius
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:Apollonius.png" title="File:Apollonius.png">400px|Two solutions to the problem of Apollonius|right</a>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Implement a solution to the Problem of Apollonius &nbsp; (<a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Problem_of_Apollonius" title="wp: Problem_of_Apollonius">description on Wikipedia]]) &nbsp; which is the problem of finding the circle that is tangent to three specified circles. &nbsp; There is an [[wp:Problem_of_Apollonius#Algebraic_solutions|algebraic solution</a> which is pretty straightforward. 
+/// <br>
+/// The solutions to the example in the code are shown in the image (below and right). &nbsp; The red circle is "internally tangent" to all three black circles, and the green circle is "externally tangent" to all three black circles.
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

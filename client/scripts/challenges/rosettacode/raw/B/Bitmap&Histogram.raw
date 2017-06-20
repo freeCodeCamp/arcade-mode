@@ -1,16 +1,54 @@
-Bitmap/Histogram
 
-{{task|Image processing}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-Extend the basic bitmap storage defined <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Basic_bitmap_storage" title="Basic_bitmap_storage">on this page</a> to support dealing with image histograms. The image histogram contains for each luminance the count of image pixels having this luminance. Choosing a histogram representation take care about the data type used for the counts. It must have range of at least 0..NxM, where N is the image width and M is the image height.
+const assert = require('chai').assert;
 
-<span class="rosetta__text--bold">Test task</span>
+/// title: Bitmap/Histogram
+/// type: rosetta-code
 
-Histogram is useful for many image processing operations. As an example, use it to convert an image into black and white art. The method works as follows:
-* Convert image to grayscale;
-* Compute the histogram
-* Find the median: defined as the luminance such that the image has an approximately equal number of pixels with lesser and greater luminance.
-* Replace each pixel of luminance lesser than the median to black, and others to white.
-Use <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/read ppm file " title="read ppm file "> read</a>/[[write ppm file]], and [[grayscale image]] solutions. 
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// Extend the basic bitmap storage defined <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Basic_bitmap_storage" title="Basic_bitmap_storage">on this page</a> to support dealing with image histograms. The image histogram contains for each luminance the count of image pixels having this luminance. Choosing a histogram representation take care about the data type used for the counts. It must have range of at least 0..NxM, where N is the image width and M is the image height.
+/// <br>
+/// <span class="rosetta__text--bold">Test task</span>
+/// <br>
+/// Histogram is useful for many image processing operations. As an example, use it to convert an image into black and white art. The method works as follows:
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">Convert image to grayscale;</li>
+/// <li class="rosetta__list-item">Compute the histogram</li>
+/// <li class="rosetta__list-item">Find the median: defined as the luminance such that the image has an approximately equal number of pixels with lesser and greater luminance.</li>
+/// <li class="rosetta__list-item">Replace each pixel of luminance lesser than the median to black, and others to white.</li>
+/// <br>
+/// </ul>Use <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/read ppm file " title="read ppm file "> read</a>/[[write ppm file]], and [[grayscale image]] solutions. 
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

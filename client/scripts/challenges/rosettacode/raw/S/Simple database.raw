@@ -1,42 +1,84 @@
-Simple database
 
-{{task|Data Structures}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Write a simple tool to track a small set of data.
+const assert = require('chai').assert;
 
-The tool should have a command-line interface to enter at least two different values.
+/// title: Simple database
+/// type: rosetta-code
 
-The entered data should be stored in a structured format and saved to disk.
+/// categories:
+/// ?
 
-It does not matter what kind of data is being tracked. &nbsp; It could be a collection (CDs, coins, baseball cards, books), a diary, an electronic organizer (birthdays/anniversaries/phone numbers/addresses), etc. 
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Write a simple tool to track a small set of data.
+/// <br>
+/// The tool should have a command-line interface to enter at least two different values.
+/// <br>
+/// The entered data should be stored in a structured format and saved to disk.
+/// <br>
+/// It does not matter what kind of data is being tracked. &nbsp; It could be a collection (CDs, coins, baseball cards, books), a diary, an electronic organizer (birthdays/anniversaries/phone numbers/addresses), etc. 
+/// <br>
+/// <br>
+/// You should track the following details:
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">A description of the item. (e.g., title, name)</li>
+/// <li class="rosetta__list-item">A category or tag (genre, topic, relationship such as “friend” or “family”)</li>
+/// <li class="rosetta__list-item">A date (either the date when the entry was made or some other date that is meaningful, like the birthday); the date may be generated or entered manually</li>
+/// <li class="rosetta__list-item">Other optional fields</li>
+/// <br>
+/// </ul>
+/// <br>
+/// The command should support the following [[Command-line arguments]] to run:
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">Add a new entry</li>
+/// <li class="rosetta__list-item">Print the latest entry</li>
+/// <li class="rosetta__list-item">Print the latest entry for each category</li>
+/// <li class="rosetta__list-item">Print all entries sorted by a date</li>
+/// <br>
+/// </ul>
+/// <br>
+/// The category may be realized as a tag or as structure (by making all entries in that category subitems)
+/// <br>
+/// The file format on disk should be human readable, but it need not be standardized. &nbsp; A natively available format that doesn't need an external library is preferred. &nbsp; Avoid developing your own format if you can use an already existing one. &nbsp; If there is no existing format available, pick one of:
+/// <span class="rosetta__text--indented">::* &nbsp; [[JSON]]</span>
+/// <span class="rosetta__text--indented">::* &nbsp; [[S-Expressions]]</span>
+/// <span class="rosetta__text--indented">::* &nbsp; [[YAML]]</span>
+/// <span class="rosetta__text--indented">::* &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Comparison_of_data_serialization_formats" title="wp: Comparison_of_data_serialization_formats">others</a></span>
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related task:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">&nbsp; [[Take notes on the command line]] </li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
-You should track the following details:
-* A description of the item. (e.g., title, name)
-* A category or tag (genre, topic, relationship such as “friend” or “family”)
-* A date (either the date when the entry was made or some other date that is meaningful, like the birthday); the date may be generated or entered manually
-* Other optional fields
+/// rawSolutions:
+null
 
-<br>
-The command should support the following [[Command-line arguments]] to run:
-* Add a new entry
-* Print the latest entry
-* Print the latest entry for each category
-* Print all entries sorted by a date
+/// tail:
+const replaceThis = 3;
 
-<br>
-The category may be realized as a tag or as structure (by making all entries in that category subitems)
-
-The file format on disk should be human readable, but it need not be standardized. &nbsp; A natively available format that doesn't need an external library is preferred. &nbsp; Avoid developing your own format if you can use an already existing one. &nbsp; If there is no existing format available, pick one of:
-:::* &nbsp; [[JSON]]
-:::* &nbsp; [[S-Expressions]]
-:::* &nbsp; [[YAML]]
-:::* &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Comparison_of_data_serialization_formats" title="wp: Comparison_of_data_serialization_formats">others</a>
-
-
-;Related task:
-* &nbsp; [[Take notes on the command line]] 
-<br><br>
-
-
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

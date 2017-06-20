@@ -1,28 +1,66 @@
-Multifactorial
 
-{{task}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-The factorial of a number, written as $n!$, is defined as $n! = n(n-1)(n-2)...(2)(1)$.
+const assert = require('chai').assert;
 
-[http://mathworld.wolfram.com/Multifactorial.html Multifactorials] generalize factorials as follows:
-: $n! = n(n-1)(n-2)...(2)(1)$
-: $n!! = n(n-2)(n-4)...$
-: $n!! ! = n(n-3)(n-6)...$
-: $n!! !! = n(n-4)(n-8)...$
-: $n!! !! ! = n(n-5)(n-10)...$
+/// title: Multifactorial
+/// type: rosetta-code
 
-In all cases, the terms in the products are positive integers.
+/// categories:
+/// ?
 
-If we define the degree of the multifactorial as the difference in successive terms that are multiplied together for a multifactorial (the number of exclamation marks), then the task is twofold: 
-# Write a function that given n and the degree, calculates the multifactorial.
-# Use the function to generate and display here a table of the first ten members (1 to 10) of the first five degrees of multifactorial.
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// The factorial of a number, written as $n!$, is defined as $n! = n(n-1)(n-2)...(2)(1)$.
+/// <br>
+/// [http://mathworld.wolfram.com/Multifactorial.html Multifactorials] generalize factorials as follows:
+/// <span class="rosetta__text--indented"> $n! = n(n-1)(n-2)...(2)(1)$</span>
+/// <span class="rosetta__text--indented"> $n!! = n(n-2)(n-4)...$</span>
+/// <span class="rosetta__text--indented"> $n!! ! = n(n-3)(n-6)...$</span>
+/// <span class="rosetta__text--indented"> $n!! !! = n(n-4)(n-8)...$</span>
+/// <span class="rosetta__text--indented"> $n!! !! ! = n(n-5)(n-10)...$</span>
+/// <br>
+/// In all cases, the terms in the products are positive integers.
+/// <br>
+/// If we define the degree of the multifactorial as the difference in successive terms that are multiplied together for a multifactorial (the number of exclamation marks), then the task is twofold: 
+/// # Write a function that given n and the degree, calculates the multifactorial.
+/// # Use the function to generate and display here a table of the first ten members (1 to 10) of the first five degrees of multifactorial.
+/// <br>
+/// <br>
+/// <span class="rosetta__text--bold">Note:</span> The <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Factorial#Multifactorials" title="wp: Factorial#Multifactorials">wikipedia entry on multifactorials</a> gives a different formula. This task uses the [http://mathworld.wolfram.com/Multifactorial.html Wolfram mathworld definition].
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+function multifact(n, deg){
+	var result = n;
+	while (n >= deg + 1){
+		result *= (n - deg);
+		n -= deg;
+	}
+	return result;
+}
 
 
-<span class="rosetta__text--bold">Note:</span> The <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Factorial#Multifactorials" title="wp: Factorial#Multifactorials">wikipedia entry on multifactorials</a> gives a different formula. This task uses the [http://mathworld.wolfram.com/Multifactorial.html Wolfram mathworld definition].
-
-
-
-
+/// rawSolutions:
 =={{header|JavaScript}}==
 
 ===Iterative===
@@ -86,3 +124,10 @@ Degree 3: 1 2 3 4 10 18 28 80 162 280
 Degree 4: 1 2 3 4 5 12 21 32 45 120 
 Degree 5: 1 2 3 4 5 6 14 24 36 50 </lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

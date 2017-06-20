@@ -1,20 +1,56 @@
-Input loop
 
-{{task|Text processing}} 
-{{selection|Short Circuit|Console Program Basics}}
-[[Category:Basic language learning]] 
-[[Category:Streams]] 
-[[Category:Simple]]
-{{omit from|PARI/GP|No access to streams other than input}}
-{{omit from|TI-89 BASIC}} <!-- No streams other than user input, not really applicable. -->
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Read from a text stream either word-by-word or line-by-line until the stream runs out of data. 
+const assert = require('chai').assert;
 
-The stream will have an unknown amount of data on it.
-<br><br>
+/// title: Input loop
+/// type: rosetta-code
 
+/// categories:
+/// ?
 
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+///  
+/// <br>
+/// [[Category:Basic language learning]] 
+/// [[Category:Streams]] 
+/// [[Category:Simple]]
+/// <br>
+///  <!-- No streams other than user input, not really applicable. -->
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Read from a text stream either word-by-word or line-by-line until the stream runs out of data. 
+/// <br>
+/// The stream will have an unknown amount of data on it.
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+var text_stream = WScript.StdIn;
+var i = 0;
+
+while ( ! text_stream.AtEndOfStream ) {
+    var line = text_stream.ReadLine();
+    // do something with line
+    WScript.echo(++i + ": " + line);
+}
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 {{works with|SpiderMonkey}}
 {{works with|OSSP js}}
@@ -34,3 +70,10 @@ while ( ! text_stream.AtEndOfStream ) {
     WScript.echo(++i + ": " + line);
 }</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

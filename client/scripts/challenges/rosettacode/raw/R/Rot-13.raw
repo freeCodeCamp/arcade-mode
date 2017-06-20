@@ -1,44 +1,81 @@
-Rot-13
 
-{{task|Encryption}} 
-<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category:String_manipulation]]
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Rot-13
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+///  
+/// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category:String_manipulation]]
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Implement a &nbsp; <span class="rosetta__text--bold">rot-13</span> &nbsp; function &nbsp; (or procedure, class, subroutine, or other "callable" object as appropriate to your programming environment). 
+/// <br>
+/// Optionally wrap this function in a utility program &nbsp; (like [[:Category:Tr" title="Category:String_manipulation]]
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Implement a &nbsp; <span class="rosetta__text--bold">rot-13</span> &nbsp; function &nbsp; (or procedure, class, subroutine, or other "callable" object as appropriate to your programming environment). 
+/// <br>
+/// Optionally wrap this function in a utility program &nbsp; (like [[:Category:Tr">tr</a>, &nbsp; which acts like a common [[UNIX]] utility, performing a line-by-line rot-13 encoding of every line of input contained in each file listed on its command line, &nbsp; or (if no filenames are passed thereon) acting as a filter on its &nbsp; "standard input." 
+/// <br>
+/// <br>
+/// (A number of UNIX scripting languages and utilities, such as &nbsp; <span class="rosetta__text--italic">awk</span> &nbsp; and &nbsp; <span class="rosetta__text--italic">sed</span> &nbsp; either default to processing files in this way or have command line switches or modules to easily implement these wrapper semantics, e.g., &nbsp; [[Perl]] &nbsp; and &nbsp; [[Python]]).
+/// <br>
+/// The &nbsp; <span class="rosetta__text--bold">rot-13</span> &nbsp; encoding is commonly known from the early days of Usenet "Netnews" as a way of obfuscating text to prevent casual reading of &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Spoiler (media)" title="wp: Spoiler (media)">spoiler</a> &nbsp; or potentially offensive material. 
+/// <br>
+/// Many news reader and mail user agent programs have built-in <span class="rosetta__text--bold">rot-13</span> encoder/decoders or have the ability to feed a message through any external utility script for performing this (or other) actions.
+/// <br>
+/// The definition of the rot-13 function is to simply replace every letter of the ASCII alphabet with the letter which is "rotated" 13 characters "around" the 26 letter alphabet from its normal cardinal position &nbsp; (wrapping around from &nbsp; <span class="rosetta__text--bold">z</span>' &nbsp; to &nbsp; <span class="rosetta__text--bold">a</span> &nbsp; as necessary). 
+/// <br>
+/// Thus the letters &nbsp; <span class="rosetta__text--bold">abc</span> &nbsp; become &nbsp; <span class="rosetta__text--bold">nop</span> &nbsp; and so on. 
+/// <br>
+/// Technically <span class="rosetta__text--bold">rot-13</span> is a &nbsp; "mono-alphabetic substitution cipher" &nbsp; with a trivial &nbsp; "key". 
+/// <br>
+/// A proper implementation should work on upper and lower case letters, preserve case, and pass all non-alphabetic characters 
+/// in the input stream through without alteration.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">&nbsp; [[Caesar cipher]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[Substitution Cipher]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[Vigenère Cipher/Cryptanalysis]]</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+function rot13(c) {
+    return c.replace(/([a-m])|([n-z])/ig, function($0,$1,$2) {
+        return String.fromCharCode($1 ? $1.charCodeAt(0) + 13 : $2 ? $2.charCodeAt(0) - 13 : 0) || $0;
+    });
+}
+rot13("ABJURER nowhere") // NOWHERE abjurer
 
 
-;Task:
-Implement a &nbsp; <span class="rosetta__text--bold">rot-13</span> &nbsp; function &nbsp; (or procedure, class, subroutine, or other "callable" object as appropriate to your programming environment). 
-
-Optionally wrap this function in a utility program &nbsp; (like [[:Category:Tr" title="Category:String_manipulation]]
-
-
-;Task:
-Implement a &nbsp; <span class="rosetta__text--bold">rot-13</span> &nbsp; function &nbsp; (or procedure, class, subroutine, or other "callable" object as appropriate to your programming environment). 
-
-Optionally wrap this function in a utility program &nbsp; (like [[:Category:Tr">tr</a>, &nbsp; which acts like a common [[UNIX]] utility, performing a line-by-line rot-13 encoding of every line of input contained in each file listed on its command line, &nbsp; or (if no filenames are passed thereon) acting as a filter on its &nbsp; "standard input." 
-
-
-(A number of UNIX scripting languages and utilities, such as &nbsp; <span class="rosetta__text--italic">awk</span> &nbsp; and &nbsp; <span class="rosetta__text--italic">sed</span> &nbsp; either default to processing files in this way or have command line switches or modules to easily implement these wrapper semantics, e.g., &nbsp; [[Perl]] &nbsp; and &nbsp; [[Python]]).
-
-The &nbsp; <span class="rosetta__text--bold">rot-13</span> &nbsp; encoding is commonly known from the early days of Usenet "Netnews" as a way of obfuscating text to prevent casual reading of &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Spoiler (media)" title="wp: Spoiler (media)">spoiler</a> &nbsp; or potentially offensive material. 
-
-Many news reader and mail user agent programs have built-in <span class="rosetta__text--bold">rot-13</span> encoder/decoders or have the ability to feed a message through any external utility script for performing this (or other) actions.
-
-The definition of the rot-13 function is to simply replace every letter of the ASCII alphabet with the letter which is "rotated" 13 characters "around" the 26 letter alphabet from its normal cardinal position &nbsp; (wrapping around from &nbsp; <span class="rosetta__text--bold">z</span>' &nbsp; to &nbsp; <span class="rosetta__text--bold">a</span> &nbsp; as necessary). 
-
-Thus the letters &nbsp; <span class="rosetta__text--bold">abc</span> &nbsp; become &nbsp; <span class="rosetta__text--bold">nop</span> &nbsp; and so on. 
-
-Technically <span class="rosetta__text--bold">rot-13</span> is a &nbsp; "mono-alphabetic substitution cipher" &nbsp; with a trivial &nbsp; "key". 
-
-A proper implementation should work on upper and lower case letters, preserve case, and pass all non-alphabetic characters 
-in the input stream through without alteration.
-
-
-;Related tasks:
-* &nbsp; [[Caesar cipher]]
-* &nbsp; [[Substitution Cipher]]
-* &nbsp; [[Vigenère Cipher/Cryptanalysis]]
-<br><br>
-
-
+/// rawSolutions:
 =={{header|JavaScript}}==
 <lang javascript>function rot13(c) {
     return c.replace(/([a-m])|([n-z])/ig, function($0,$1,$2) {
@@ -112,3 +149,10 @@ describe("Rot-13", function() {
 });
 </lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

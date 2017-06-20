@@ -1,12 +1,46 @@
-Include a file
 
-{{task}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Demonstrate the language's ability to include source code from other files.
-<br><br>
+const assert = require('chai').assert;
 
+/// title: Include a file
+/// type: rosetta-code
 
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Demonstrate the language's ability to include source code from other files.
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+var s = document.createElement('script');
+s.type = 'application/javascript';
+
+// path to the desired file
+s.src = 'http://code.jquery.com/jquery-1.6.2.js';
+document.body.appendChild(s);
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 
 ===Pure JavaScript in browsers with the DOM===
@@ -33,3 +67,10 @@ Most be noted that it can also request [[HTTP]] source and eval() the source
 ===ES6 Modules===
 <lang javascript>import $ from "jquery";</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

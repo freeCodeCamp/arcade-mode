@@ -1,36 +1,77 @@
-Zero to the zero power
 
-{{task}} [[Category:Simple]]
-Some programming languages are not exactly consistent &nbsp; (with other programming languages) &nbsp; when &nbsp; <span class="rosetta__text--italic">raising zero to the zeroth power</span>: &nbsp; &nbsp; <b><big>0<sup>0</sup></big></b><br><br>
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
+const assert = require('chai').assert;
 
-;Task:
-Show the results of raising &nbsp; zero &nbsp; to the &nbsp; zeroth &nbsp; power.
+/// title: Zero to the zero power
+/// type: rosetta-code
 
+/// categories:
+/// ?
 
-If your computer language objects to &nbsp; &nbsp; <big> <span class="rosetta__text--bold">0**0</span> </big> &nbsp; &nbsp; or &nbsp; &nbsp; <big> <span class="rosetta__text--bold">0^0</span> </big> &nbsp; &nbsp; at compile time, &nbsp; you may also try something like:
-  x = 0
-  y = 0
-  z = x**y
-  say  'z='  z
+/// difficulty: ?
 
+/// benchmark:
+replaceWithActualFunctionHere;
 
-<span class="rosetta__text--bold">Show the result here.</span><br>
-And of course use any symbols or notation that is supported in your computer language for exponentiation. 
+/// description:
+///  [[Category:Simple]]
+/// Some programming languages are not exactly consistent &nbsp; (with other programming languages) &nbsp; when &nbsp; <span class="rosetta__text--italic">raising zero to the zeroth power</span>: &nbsp; &nbsp; <b><big>0<sup>0</sup></big></b><br><br>
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Show the results of raising &nbsp; zero &nbsp; to the &nbsp; zeroth &nbsp; power.
+/// <br>
+/// <br>
+/// If your computer language objects to &nbsp; &nbsp; <big> <span class="rosetta__text--bold">0**0</span> </big> &nbsp; &nbsp; or &nbsp; &nbsp; <big> <span class="rosetta__text--bold">0^0</span> </big> &nbsp; &nbsp; at compile time, &nbsp; you may also try something like:
+///   x = 0
+///   y = 0
+///   z = x**y
+///   say  'z='  z
+/// <br>
+/// <br>
+/// <span class="rosetta__text--bold">Show the result here.</span><br>
+/// And of course use any symbols or notation that is supported in your computer language for exponentiation. 
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">See also:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">The Wiki entry: <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Exponentiation#Zero_to_the_power_of_zero" title="wp: Exponentiation#Zero_to_the_power_of_zero">Zero to the power of zero</a>. </li>
+/// <li class="rosetta__list-item">The Wiki entry: <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Exponentiation#History_of_differing_points_of_view" title="wp: Exponentiation#History_of_differing_points_of_view">History of differing points of view</a>.</li>
+/// <li class="rosetta__list-item">The MathWorld™ entry: [http://mathworld.wolfram.com/ExponentLaws.html exponent laws].</li>
+/// <br>
+/// </ul>** Also, in the above MathWorld™ entry, see formula (<span class="rosetta__text--bold">9</span>): $x^0=1$.
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">The OEIS entry: [https://oeis.org/wiki/The_special_case_of_zero_to_the_zeroth_power The special case of zero to the zeroth power]</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
 
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
-;See also:
-* The Wiki entry: <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Exponentiation#Zero_to_the_power_of_zero" title="wp: Exponentiation#Zero_to_the_power_of_zero">Zero to the power of zero</a>. 
-* The Wiki entry: <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Exponentiation#History_of_differing_points_of_view" title="wp: Exponentiation#History_of_differing_points_of_view">History of differing points of view</a>.
-* The MathWorld™ entry: [http://mathworld.wolfram.com/ExponentLaws.html exponent laws].
-** Also, in the above MathWorld™ entry, see formula (<span class="rosetta__text--bold">9</span>): $x^0=1$.
-* The OEIS entry: [https://oeis.org/wiki/The_special_case_of_zero_to_the_zeroth_power The special case of zero to the zeroth power]
-<br><br>
+/// solutions:
+> Math.pow(0, 0);
+1
 
-
+/// rawSolutions:
 =={{header|JavaScript}}==
 {{Works with|Node.js}}
 In interactive mode:
 <lang javascript>> Math.pow(0, 0);
 1</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

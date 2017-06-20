@@ -1,19 +1,57 @@
-Arena storage pool
 
-{{task}}[[Category:Encyclopedia]]
-Dynamically allocated objects take their memory from a [[heap]]. The memory for an object is provided by an <span class="rosetta__text--bold">allocator</span> which maintains the storage pool used for the [[heap]]. Often a call to allocator is denoted as
-<lang ada>P := new T</lang>
-where T is the type of an allocated object and P is a [[reference]] to the object.
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-The storage pool chosen by the allocator can be determined by either:
-* the object type T;
-* the type of pointer P.
-In the former case objects can be allocated only in one storage pool. In the latter case objects of the type can be allocated in any storage pool or on the [[stack]].
+const assert = require('chai').assert;
 
-<span class="rosetta__text--bold">Task description</span><br>
-The task is to show how allocators and user-defined storage pools are supported by the language. In particular:
-# define an arena storage pool. An arena is a pool in which objects are allocated individually, but freed by groups.
-# allocate some objects (e.g., integers) in the pool.
-Explain what controls the storage pool choice in the language.
+/// title: Arena storage pool
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// [[Category:Encyclopedia]]
+/// Dynamically allocated objects take their memory from a [[heap]]. The memory for an object is provided by an <span class="rosetta__text--bold">allocator</span> which maintains the storage pool used for the [[heap]]. Often a call to allocator is denoted as
+/// <lang ada>P := new T</lang>
+/// where T is the type of an allocated object and P is a [[reference]] to the object.
+/// <br>
+/// The storage pool chosen by the allocator can be determined by either:
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">the object type T;</li>
+/// <li class="rosetta__list-item">the type of pointer P.</li>
+/// <br>
+/// </ul>In the former case objects can be allocated only in one storage pool. In the latter case objects of the type can be allocated in any storage pool or on the [[stack]].
+/// <br>
+/// <span class="rosetta__text--bold">Task description</span><br>
+/// The task is to show how allocators and user-defined storage pools are supported by the language. In particular:
+/// # define an arena storage pool. An arena is a pool in which objects are allocated individually, but freed by groups.
+/// # allocate some objects (e.g., integers) in the pool.
+/// Explain what controls the storage pool choice in the language.
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

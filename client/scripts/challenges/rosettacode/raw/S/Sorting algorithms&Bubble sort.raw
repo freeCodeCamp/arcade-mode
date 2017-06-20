@@ -1,38 +1,81 @@
-Sorting algorithms/Bubble sort
 
-{{task|Sorting Algorithms}}
-{{Sorting Algorithm}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Sort an array of elements using the bubble sort algorithm. &nbsp; The elements must have a total order and the index of the array can be of any discrete type. &nbsp; For languages where this is not possible, sort an array of integers.
+const assert = require('chai').assert;
 
-The bubble sort is generally considered to be the simplest sorting algorithm.
- 
-Because of its simplicity and ease of visualization, it is often taught in introductory computer science courses. 
+/// title: Sorting algorithms/Bubble sort
+/// type: rosetta-code
 
-Because of its abysmal O(n<sup>2</sup>) performance, it is not used often for large (or even medium-sized) datasets.
+/// categories:
+/// ?
 
-The bubble sort works by passing sequentially over a list, comparing each value to the one immediately after it. &nbsp; If the first value is greater than the second, their positions are switched. &nbsp; Over a number of passes, at most equal to the number of elements in the list, all of the values drift into their correct positions (large values "bubble" rapidly toward the end, pushing others down around them). &nbsp;  
-Because each pass finds the maximum item and puts it at the end, the portion of the list to be sorted can be reduced at each pass. &nbsp; 
-A boolean variable is used to track whether any changes have been made in the current pass; when a pass completes without changing anything, the algorithm exits.
+/// difficulty: ?
 
-This can be expressed in pseudo-code as follows (assuming 1-based indexing):
- <span class="rosetta__text--bold">repeat</span>
-     hasChanged := false
-     <span class="rosetta__text--bold">decrement</span> itemCount
-     <span class="rosetta__text--bold">repeat with</span> index <span class="rosetta__text--bold">from</span> 1 <span class="rosetta__text--bold">to</span> itemCount
-         <span class="rosetta__text--bold">if</span> (item <span class="rosetta__text--bold">at</span> index) > (item <span class="rosetta__text--bold">at</span> (index + 1))
-             swap (item <span class="rosetta__text--bold">at</span> index) with (item <span class="rosetta__text--bold">at</span> (index + 1))
-             hasChanged := true
- <span class="rosetta__text--bold">until</span> hasChanged = <span class="rosetta__text--bold">false</span>
+/// benchmark:
+replaceWithActualFunctionHere;
 
+/// description:
+/// <br>
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Sort an array of elements using the bubble sort algorithm. &nbsp; The elements must have a total order and the index of the array can be of any discrete type. &nbsp; For languages where this is not possible, sort an array of integers.
+/// <br>
+/// The bubble sort is generally considered to be the simplest sorting algorithm.
+///  
+/// Because of its simplicity and ease of visualization, it is often taught in introductory computer science courses. 
+/// <br>
+/// Because of its abysmal O(n<sup>2</sup>) performance, it is not used often for large (or even medium-sized) datasets.
+/// <br>
+/// The bubble sort works by passing sequentially over a list, comparing each value to the one immediately after it. &nbsp; If the first value is greater than the second, their positions are switched. &nbsp; Over a number of passes, at most equal to the number of elements in the list, all of the values drift into their correct positions (large values "bubble" rapidly toward the end, pushing others down around them). &nbsp;  
+/// Because each pass finds the maximum item and puts it at the end, the portion of the list to be sorted can be reduced at each pass. &nbsp; 
+/// A boolean variable is used to track whether any changes have been made in the current pass; when a pass completes without changing anything, the algorithm exits.
+/// <br>
+/// This can be expressed in pseudo-code as follows (assuming 1-based indexing):
+///  <span class="rosetta__text--bold">repeat</span>
+///      hasChanged := false
+///      <span class="rosetta__text--bold">decrement</span> itemCount
+///      <span class="rosetta__text--bold">repeat with</span> index <span class="rosetta__text--bold">from</span> 1 <span class="rosetta__text--bold">to</span> itemCount
+///          <span class="rosetta__text--bold">if</span> (item <span class="rosetta__text--bold">at</span> index) > (item <span class="rosetta__text--bold">at</span> (index + 1))
+///              swap (item <span class="rosetta__text--bold">at</span> index) with (item <span class="rosetta__text--bold">at</span> (index + 1))
+///              hasChanged := true
+///  <span class="rosetta__text--bold">until</span> hasChanged = <span class="rosetta__text--bold">false</span>
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">References:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">The article on <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Bubble_sort" title="wp: Bubble_sort">Wikipedia</a>.</li>
+/// <li class="rosetta__list-item">Dance [http://www.youtube.com/watch?v=lyZQPjUT5B4&feature=youtu.be interpretation].</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
 
-;References:
-* The article on <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Bubble_sort" title="wp: Bubble_sort">Wikipedia</a>.
-* Dance [http://www.youtube.com/watch?v=lyZQPjUT5B4&feature=youtu.be interpretation].
-<br><br>
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
+/// solutions:
+Array.prototype.bubblesort = function() {
+    var done = false;
+    while (!done) {
+        done = true;
+        for (var i = 1; i<this.length; i++) {
+            if (this[i-1] > this[i]) {
+                done = false;
+                [this[i-1], this[i]] = [this[i], this[i-1]]
+            }
+        }
+    }
+    return this;
+}
 
+/// rawSolutions:
 =={{header|JavaScript}}==
 <lang javascript>Array.prototype.bubblesort = function() {
     var done = false;
@@ -76,3 +119,10 @@ print(my_arr);</lang>
  A,B,C,D,E,F,G
 </pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

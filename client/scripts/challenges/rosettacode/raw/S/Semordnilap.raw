@@ -1,20 +1,90 @@
-Semordnilap
 
-{{task}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-A <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/semordnilap" title="wp: semordnilap">semordnilap</a> is a word (or phrase) that spells a different word (or phrase) backward. 
-"Semordnilap" is a word that itself is a semordnilap.
+const assert = require('chai').assert;
 
-Example: <span class="rosetta__text--italic">lager</span> and <span class="rosetta__text--italic">regal</span>
-<br><br> 
-;Task
-Using only words from the [http://www.puzzlers.org/pub/wordlists/unixdict.txt unixdict], report the total number of unique semordnilap pairs, and print 5 examples. (Note that lager/regal and regal/lager should be counted as one unique pair.)
-<br><br> 
-;Related tasks
-* <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Palindrome_detection" title="Palindrome_detection">Palindrome detection</a>
-<br><br>
+/// title: Semordnilap
+/// type: rosetta-code
 
+/// categories:
+/// ?
 
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// A <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/semordnilap" title="wp: semordnilap">semordnilap</a> is a word (or phrase) that spells a different word (or phrase) backward. 
+/// "Semordnilap" is a word that itself is a semordnilap.
+/// <br>
+/// Example: <span class="rosetta__text--italic">lager</span> and <span class="rosetta__text--italic">regal</span>
+/// <br><br> 
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task</dt></dl>
+/// Using only words from the [http://www.puzzlers.org/pub/wordlists/unixdict.txt unixdict], report the total number of unique semordnilap pairs, and print 5 examples. (Note that lager/regal and regal/lager should be counted as one unique pair.)
+/// <br><br> 
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Palindrome_detection" title="Palindrome_detection">Palindrome detection</a></li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+#!/usr/bin/env node
+var  fs = require('fs');
+var sys = require('sys');
+
+var dictFile = process.argv[2] || "unixdict.txt";
+
+var dict = {};
+fs.readFileSync(dictFile)
+  .toString()
+  .split('\n')
+  .forEach(function(word) {
+    dict[word] = word.split("").reverse().join("");
+  });
+
+function isSemordnilap(word) { return dict[dict[word]]; };
+
+var semordnilaps = []
+for (var key in dict) {
+  if (isSemordnilap(key)) {
+    var rev = dict[key];
+    if (key < rev) {
+      semordnilaps.push([key,rev]) ;
+    }
+  }
+}
+
+var count = semordnilaps.length;
+sys.puts("There are " + count + " semordnilaps in " +
+         dictFile + ".  Here are 5:" );
+
+var indices=[]
+for (var i=0; i<count; ++i) {
+  if (Math.random() < 1/Math.ceil(i/5.0)) {
+    indices[i%5] = i 
+  }
+}
+indices.sort()
+for (var i=0; i<5; ++i) {
+  sys.puts(semordnilaps[indices[i]]);
+}
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 {{trans|Clojure}}
 {{works with|Node.js}}
@@ -108,3 +178,10 @@ dial,laid
 dine,enid
 haw,wah</pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

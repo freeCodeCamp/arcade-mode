@@ -5,7 +5,6 @@
 /* eslint no-return-assign: 0 */
 /* eslint no-param-reassign: 0 */
 
-
 const assert = require('chai').assert;
 
 /// title: Align columns

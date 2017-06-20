@@ -1,35 +1,71 @@
-Carmichael 3 strong pseudoprimes
 
-{{task}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-A lot of composite numbers can be separated from primes by Fermat's Little Theorem, but there are some that completely confound it.
+const assert = require('chai').assert;
 
-The &nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Miller-Rabin primality test" title="Miller-Rabin primality test">Miller Rabin Test</a> &nbsp; uses a combination of Fermat's Little Theorem and Chinese Division Theorem to overcome this.
+/// title: Carmichael 3 strong pseudoprimes
+/// type: rosetta-code
 
-The purpose of this task is to investigate such numbers using a method based on &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Carmichael number" title="wp: Carmichael number">Carmichael numbers</a>, &nbsp; as suggested in &nbsp; [http://www.maths.lancs.ac.uk/~jameson/carfind.pdf Notes by G.J.O Jameson March 2010].
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// A lot of composite numbers can be separated from primes by Fermat's Little Theorem, but there are some that completely confound it.
+/// <br>
+/// The &nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Miller-Rabin primality test" title="Miller-Rabin primality test">Miller Rabin Test</a> &nbsp; uses a combination of Fermat's Little Theorem and Chinese Division Theorem to overcome this.
+/// <br>
+/// The purpose of this task is to investigate such numbers using a method based on &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Carmichael number" title="wp: Carmichael number">Carmichael numbers</a>, &nbsp; as suggested in &nbsp; [http://www.maths.lancs.ac.uk/~jameson/carfind.pdf Notes by G.J.O Jameson March 2010].
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Find Carmichael numbers of the form:
+/// <span class="rosetta__text--indented">::: <big> <i>Prime</i><sub>1</sub> &times; <i>Prime</i><sub>2</sub> &times; <i>Prime</i><sub>3</sub> </big></span>
+/// <br>
+/// where &nbsp; <big> (<i>Prime</i><sub>1</sub>   <   <i>Prime</i><sub>2</sub>   <   <i>Prime</i><sub>3</sub>) </big> &nbsp; for all &nbsp;   <big> <i>Prime</i><sub>1</sub> </big>   &nbsp;  up to &nbsp; <span class="rosetta__text--bold">61</span>.
+/// <br>(See page 7 of &nbsp; [http://www.maths.lancs.ac.uk/~jameson/carfind.pdf Notes by G.J.O Jameson March 2010] &nbsp; for solutions.)
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Pseudocode:</dt></dl>
+/// For a given &nbsp; $Prime_1$
+/// <br>
+///  <tt>for 1 < h3 < Prime<sub>1</sub></tt>
+///      <tt>for 0 < d < h3+Prime<sub>1</sub></tt>
+///           <tt>if (h3+Prime<sub>1</sub>)*(Prime<sub>1</sub>-1) mod d == 0 and -Prime<sub>1</sub> squared mod h3 == d mod h3</tt>
+///           <tt>then</tt>
+///                 <tt>Prime<sub>2</sub> = 1 + ((Prime<sub>1</sub>-1) * (h3+Prime<sub>1</sub>)/d)</tt>
+///                 <tt>next d if Prime<sub>2</sub> is not prime</tt>
+///                 <tt>Prime<sub>3</sub> = 1 + (Prime<sub>1</sub>*Prime<sub>2</sub>/h3)</tt>
+///                 <tt>next d if Prime<sub>3</sub> is not prime</tt>
+///                 <tt>next d if (Prime<sub>2</sub>*Prime<sub>3</sub>) mod (Prime<sub>1</sub>-1) not equal 1</tt>
+///                 <tt>Prime<sub>1</sub> * Prime<sub>2</sub> * Prime<sub>3</sub> is a Carmichael Number</tt>
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
-;Task:
-Find Carmichael numbers of the form:
-:::: <big> <i>Prime</i><sub>1</sub> &times; <i>Prime</i><sub>2</sub> &times; <i>Prime</i><sub>3</sub> </big>
+/// rawSolutions:
+null
 
-where &nbsp; <big> (<i>Prime</i><sub>1</sub>   <   <i>Prime</i><sub>2</sub>   <   <i>Prime</i><sub>3</sub>) </big> &nbsp; for all &nbsp;   <big> <i>Prime</i><sub>1</sub> </big>   &nbsp;  up to &nbsp; <span class="rosetta__text--bold">61</span>.
-<br>(See page 7 of &nbsp; [http://www.maths.lancs.ac.uk/~jameson/carfind.pdf Notes by G.J.O Jameson March 2010] &nbsp; for solutions.)
+/// tail:
+const replaceThis = 3;
 
-
-;Pseudocode:
-For a given &nbsp; $Prime_1$
-
- <tt>for 1 < h3 < Prime<sub>1</sub></tt>
-     <tt>for 0 < d < h3+Prime<sub>1</sub></tt>
-          <tt>if (h3+Prime<sub>1</sub>)*(Prime<sub>1</sub>-1) mod d == 0 and -Prime<sub>1</sub> squared mod h3 == d mod h3</tt>
-          <tt>then</tt>
-                <tt>Prime<sub>2</sub> = 1 + ((Prime<sub>1</sub>-1) * (h3+Prime<sub>1</sub>)/d)</tt>
-                <tt>next d if Prime<sub>2</sub> is not prime</tt>
-                <tt>Prime<sub>3</sub> = 1 + (Prime<sub>1</sub>*Prime<sub>2</sub>/h3)</tt>
-                <tt>next d if Prime<sub>3</sub> is not prime</tt>
-                <tt>next d if (Prime<sub>2</sub>*Prime<sub>3</sub>) mod (Prime<sub>1</sub>-1) not equal 1</tt>
-                <tt>Prime<sub>1</sub> * Prime<sub>2</sub> * Prime<sub>3</sub> is a Carmichael Number</tt>
-<br><br>
-
-
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

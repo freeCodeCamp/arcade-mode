@@ -1,31 +1,126 @@
-Averages/Pythagorean means
 
-{{task}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-{{task heading}}
+const assert = require('chai').assert;
 
-Compute all three of the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Pythagorean means" title="wp: Pythagorean means">Pythagorean means</a> of the set of integers <big>1</big> through <big>10</big> (inclusive).
+/// title: Averages/Pythagorean means
+/// type: rosetta-code
 
-Show that <big>$A(x_1,\ldots,x_n) \geq G(x_1,\ldots,x_n) \geq H(x_1,\ldots,x_n)$</big> for this set of positive integers.
+/// categories:
+/// ?
 
-*  The most common of the three means, the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Averages/Arithmetic mean" title="Averages/Arithmetic mean">arithmetic mean</a>, is the sum of the list divided by its length:
-: <big>$ A(x_1, \ldots, x_n) = \frac{x_1 + \cdots + x_n}{n}$</big>
+/// difficulty: ?
 
-* The <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Geometric mean" title="wp: Geometric mean">geometric mean</a> is the $n$th root of the product of the list:
-: <big>$ G(x_1, \ldots, x_n) = \sqrt[n]{x_1 \cdots x_n} $</big>
+/// benchmark:
+replaceWithActualFunctionHere;
 
-* The <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Harmonic mean" title="wp: Harmonic mean">harmonic mean</a> is $n$ divided by the sum of the reciprocal of each item in the list:
-: <big>$ H(x_1, \ldots, x_n) = \frac{n}{\frac{1}{x_1} + \cdots + \frac{1}{x_n}} $</big>
+/// description:
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// Compute all three of the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Pythagorean means" title="wp: Pythagorean means">Pythagorean means</a> of the set of integers <big>1</big> through <big>10</big> (inclusive).
+/// <br>
+/// Show that <big>$A(x_1,\ldots,x_n) \geq G(x_1,\ldots,x_n) \geq H(x_1,\ldots,x_n)$</big> for this set of positive integers.
+/// <br>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item"> The most common of the three means, the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Averages/Arithmetic mean" title="Averages/Arithmetic mean">arithmetic mean</a>, is the sum of the list divided by its length:</li>
+/// <br>
+/// </ul><span class="rosetta__text--indented"> <big>$ A(x_1, \ldots, x_n) = \frac{x_1 + \cdots + x_n}{n}$</big></span>
+/// <br>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">The <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Geometric mean" title="wp: Geometric mean">geometric mean</a> is the $n$th root of the product of the list:</li>
+/// <br>
+/// </ul><span class="rosetta__text--indented"> <big>$ G(x_1, \ldots, x_n) = \sqrt[n]{x_1 \cdots x_n} $</big></span>
+/// <br>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">The <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Harmonic mean" title="wp: Harmonic mean">harmonic mean</a> is $n$ divided by the sum of the reciprocal of each item in the list:</li>
+/// <br>
+/// </ul><span class="rosetta__text--indented"> <big>$ H(x_1, \ldots, x_n) = \frac{n}{\frac{1}{x_1} + \cdots + \frac{1}{x_n}} $</big></span>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br><hr>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+(function () {
+    'use strict';
+
+    // arithmetic_mean :: [Number] -> Number
+    function arithmetic_mean(ns) {
+        return (
+            ns.reduce( // sum
+                function (sum, n) {
+                    return (sum + n);
+                },
+                0
+            ) / ns.length
+        );
+    }
+
+    // geometric_mean :: [Number] -> Number
+    function geometric_mean(ns) {
+        return Math.pow(
+            ns.reduce( // product
+                function (product, n) {
+                    return (product * n);
+                },
+                1
+            ),
+            1 / ns.length
+        );
+    }
+
+    // harmonic_mean :: [Number] -> Number
+    function harmonic_mean(ns) {
+        return (
+            ns.length / ns.reduce( // sum of inverses
+                function (invSum, n) {
+                    return (invSum + (1 / n));
+                },
+                0
+            )
+        );
+    }
+
+    var values = [arithmetic_mean, geometric_mean, harmonic_mean]
+        .map(function (f) {
+            return f([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+        }),
+        mean = {
+            Arithmetic: values[0], // arithmetic
+            Geometric: values[1], // geometric
+            Harmonic: values[2] // harmonic
+        }
+
+    return JSON.stringify({
+        values: mean,
+        test: "is A >= G >= H ? " +
+            (
+                mean.Arithmetic >= mean.Geometric &&
+                mean.Geometric >= mean.Harmonic ? "yes" : "no"
+            )
+    }, null, 2);
+
+})();
 
 
-
-{{task heading|See also}}
-
-{{Related tasks/Statistical measures}}
-
-<br><hr>
-
-
+/// rawSolutions:
 =={{header|JavaScript}}==
 
 ===ES5===
@@ -175,3 +270,10 @@ Show that <big>$A(x_1,\ldots,x_n) \geq G(x_1,\ldots,x_n) \geq H(x_1,\ldots,x_n)$
   "test": "is A >= G >= H ? yes"
 }</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

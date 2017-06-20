@@ -1,12 +1,41 @@
-Voronoi diagram
 
-{{task}}
-A <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Voronoi diagram" title="wp: Voronoi diagram">Voronoi diagram</a> is a diagram consisting of a number of sites. Each Voronoi site <span class="rosetta__text--italic">s</span>  also has a Voronoi cell consisting of all points closest to <span class="rosetta__text--italic">s</span>.
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-The task is to demonstrate how to generate and display a Voroni diagram.  
-See algo [[K-means++ clustering]].
+const assert = require('chai').assert;
 
+/// title: Voronoi diagram
+/// type: rosetta-code
 
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// A <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Voronoi diagram" title="wp: Voronoi diagram">Voronoi diagram</a> is a diagram consisting of a number of sites. Each Voronoi site <span class="rosetta__text--italic">s</span>  also has a Voronoi cell consisting of all points closest to <span class="rosetta__text--italic">s</span>.
+/// <br>
+/// The task is to demonstrate how to generate and display a Voroni diagram.  
+/// See algo [[K-means++ clustering]].
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+null
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 ===Version #1.===
 The obvious route to this in JavaScript would be to use Mike Bostock's D3.js library.
@@ -101,3 +130,10 @@ Page demonstrating Voronoi diagram for any reasonable number of sites and select
 Right clicking on canvas with image allows you to save it as png-file, for example.
 </pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

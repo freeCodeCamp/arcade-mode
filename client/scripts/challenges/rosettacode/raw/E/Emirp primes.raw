@@ -1,33 +1,71 @@
-Emirp primes
 
-{{task}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-An &nbsp; <span class="rosetta__text--italic">emirp</span> &nbsp; (<span class="rosetta__text--bold">prime</span> spelled backwards) &nbsp; are primes that when reversed &nbsp; (in their decimal representation) &nbsp; are a different prime.
+const assert = require('chai').assert;
 
-(This rules out palindromic primes.)
+/// title: Emirp primes
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// An &nbsp; <span class="rosetta__text--italic">emirp</span> &nbsp; (<span class="rosetta__text--bold">prime</span> spelled backwards) &nbsp; are primes that when reversed &nbsp; (in their decimal representation) &nbsp; are a different prime.
+/// <br>
+/// (This rules out palindromic primes.)
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <span class="rosetta__text--indented">:* &nbsp; show the first &nbsp; twenty &nbsp; emirps</span>
+/// <span class="rosetta__text--indented">:* &nbsp; show all emirps between &nbsp; 7,700 &nbsp; and &nbsp; 8,000</span>
+/// <span class="rosetta__text--indented">:* &nbsp; show the &nbsp; 10,000<sup>th</sup> &nbsp; emirp</span>
+/// <br>
+/// <br>
+/// In each list, the numbers should be in order.
+/// <br>
+/// Invoke the (same) program once per task requirement, this will show what limit is used as the upper bound for calculating surplus (regular) primes. 
+/// <br>
+/// The specific method of how to determine if a range or if specific values are to be shown will be left to the programmer.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">See also:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">&nbsp; [https://en.wikipedia.org/wiki/Emirp Wikipedia, Emirp].</li>
+/// <li class="rosetta__list-item">&nbsp; [http://primes.utm.edu/glossary/xpage/emirp.html The Prime Pages, emirp].</li>
+/// <li class="rosetta__list-item">&nbsp; [http://mathworld.wolfram.com/Emirp.html Wolfram MathWorld&trade;, Emirp].</li>
+/// <li class="rosetta__list-item">&nbsp; [https://oeis.org/A006567 The On‑Line Encyclopedia of Integer Sequences, emirps (A6567)].</li>
+/// <br>
+/// </ul>
+/// <br>
+/// [[:Category: Prime_Numbers]]
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
-;Task:
-::* &nbsp; show the first &nbsp; twenty &nbsp; emirps
-::* &nbsp; show all emirps between &nbsp; 7,700 &nbsp; and &nbsp; 8,000
-::* &nbsp; show the &nbsp; 10,000<sup>th</sup> &nbsp; emirp
+/// rawSolutions:
+null
 
+/// tail:
+const replaceThis = 3;
 
-In each list, the numbers should be in order.
-
-Invoke the (same) program once per task requirement, this will show what limit is used as the upper bound for calculating surplus (regular) primes. 
-
-The specific method of how to determine if a range or if specific values are to be shown will be left to the programmer.
-
-
-;See also:
-* &nbsp; [https://en.wikipedia.org/wiki/Emirp Wikipedia, Emirp].
-* &nbsp; [http://primes.utm.edu/glossary/xpage/emirp.html The Prime Pages, emirp].
-* &nbsp; [http://mathworld.wolfram.com/Emirp.html Wolfram MathWorld&trade;, Emirp].
-* &nbsp; [https://oeis.org/A006567 The On‑Line Encyclopedia of Integer Sequences, emirps (A6567)].
-
-
-[[:Category: Prime_Numbers]]
-<br><br>
-
-
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

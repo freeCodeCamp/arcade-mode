@@ -1,24 +1,59 @@
-Sort stability
 
-{{task|Sorting}}
-When sorting records in a table by a particular column or field, a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Stable_sort#Stability" title="wp: Stable_sort#Stability">stable sort</a> will always retain the  relative order of records that have the same key.
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-For example, in this table of countries and cities, a stable sort on the <span class="rosetta__text--bold">second</span> column, the cities, would  keep the US Birmingham above the UK Birmingham. (Although an unstable sort <span class="rosetta__text--italic">might</span>, in this case, place the US Birmingham above the UK Birmingham, a stable sort routine would <span class="rosetta__text--italic">guarantee</span> it).
-<pre>UK  London
-US  New York
-US  Birmingham
-UK  Birmingham</pre>
-Similarly, stable sorting on just the first column would generate “UK London” as the first item and “US Birmingham” as the last item (since the order of the elements having the same first word – “UK” or “US” – would be maintained).
+const assert = require('chai').assert;
 
-#Examine the documentation on any in-built sort routines supplied by a language.
-#Indicate if an in-built routine is supplied
-#If supplied, indicate whether or not the in-built routine is stable.
+/// title: Sort stability
+/// type: rosetta-code
 
-<br>
-(This <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Stable_sort#Comparison_of_algorithms" title="wp: Stable_sort#Comparison_of_algorithms">Wikipedia table</a> shows the stability of some common sort routines).
-<br><br>
+/// categories:
+/// ?
 
+/// difficulty: ?
 
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// When sorting records in a table by a particular column or field, a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Stable_sort#Stability" title="wp: Stable_sort#Stability">stable sort</a> will always retain the  relative order of records that have the same key.
+/// <br>
+/// For example, in this table of countries and cities, a stable sort on the <span class="rosetta__text--bold">second</span> column, the cities, would  keep the US Birmingham above the UK Birmingham. (Although an unstable sort <span class="rosetta__text--italic">might</span>, in this case, place the US Birmingham above the UK Birmingham, a stable sort routine would <span class="rosetta__text--italic">guarantee</span> it).
+/// <pre>UK  London
+/// US  New York
+/// US  Birmingham
+/// UK  Birmingham</pre>
+/// Similarly, stable sorting on just the first column would generate “UK London” as the first item and “US Birmingham” as the last item (since the order of the elements having the same first word – “UK” or “US” – would be maintained).
+/// <br>
+/// #Examine the documentation on any in-built sort routines supplied by a language.
+/// #Indicate if an in-built routine is supplied
+/// #If supplied, indicate whether or not the in-built routine is stable.
+/// <br>
+/// <br>
+/// (This <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Stable_sort#Comparison_of_algorithms" title="wp: Stable_sort#Comparison_of_algorithms">Wikipedia table</a> shows the stability of some common sort routines).
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+ary = [["UK", "London"], ["US", "New York"], ["US", "Birmingham"], ["UK", "Birmingham"]]
+print(ary);
+
+ary.sort(function(a,b){return (a[1]<b[1] ? -1 : (a[1]>b[1] ? 1 : 0))});
+print(ary);
+
+/* a stable sort will output ["US", "Birmingham"] before ["UK", "Birmingham"] */
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 The ECMA standard does not specify what sorting algorithm to use, so it depends upon the implementation.
 
@@ -45,3 +80,10 @@ Not stable:
 <pre>UK,London,US,New York,US,Birmingham,UK,Birmingham
 UK,Birmingham,US,Birmingham,UK,London,US,New York</pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

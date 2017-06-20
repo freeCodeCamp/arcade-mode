@@ -1,134 +1,215 @@
-Amb
 
-{{task}}
-Define and give an example of the Amb operator.
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-The Amb operator expresses nondeterminism. This doesn't refer to randomness (as in "nondeterministic universe") but is closely related to the term as it is used in automata theory ("non-deterministic finite automaton").
+const assert = require('chai').assert;
 
-The Amb operator takes a variable number of expressions (or values if that's simpler in the language) and yields a correct one which will satisfy a constraint in some future computation, thereby avoiding failure.
+/// title: Amb
+/// type: rosetta-code
 
-Problems whose solution the Amb operator naturally expresses can be approached with other tools, such as explicit nested iterations over data sets, or with pattern matching. By contrast, the Amb operator appears integrated into the language. Invocations of Amb are not wrapped in any visible loops or other search patterns; they appear to be independent. 
+/// categories:
+/// ?
 
-Essentially Amb(x, y, z) splits the computation into three possible futures: a future in which the value x is yielded, a future in which the value y is yielded and a future in which the value z is yielded. The future which leads to a successful subsequent computation is chosen. The other "parallel universes" somehow go away.   Amb called with no arguments fails.
+/// difficulty: ?
 
-For simplicity, one of the domain values usable with Amb may denote failure, if that is convenient. For instance, it is convenient if a Boolean false denotes failure, so that Amb(false) fails, and thus constraints can be expressed using Boolean expressions like Amb(x * y == 8) which unless x and y add to four.
+/// benchmark:
+replaceWithActualFunctionHere;
 
-A pseudo-code program which satisfies this constraint might look like:
+/// description:
+/// <br>
+/// Define and give an example of the Amb operator.
+/// <br>
+/// The Amb operator expresses nondeterminism. This doesn't refer to randomness (as in "nondeterministic universe") but is closely related to the term as it is used in automata theory ("non-deterministic finite automaton").
+/// <br>
+/// The Amb operator takes a variable number of expressions (or values if that's simpler in the language) and yields a correct one which will satisfy a constraint in some future computation, thereby avoiding failure.
+/// <br>
+/// Problems whose solution the Amb operator naturally expresses can be approached with other tools, such as explicit nested iterations over data sets, or with pattern matching. By contrast, the Amb operator appears integrated into the language. Invocations of Amb are not wrapped in any visible loops or other search patterns; they appear to be independent. 
+/// <br>
+/// Essentially Amb(x, y, z) splits the computation into three possible futures: a future in which the value x is yielded, a future in which the value y is yielded and a future in which the value z is yielded. The future which leads to a successful subsequent computation is chosen. The other "parallel universes" somehow go away.   Amb called with no arguments fails.
+/// <br>
+/// For simplicity, one of the domain values usable with Amb may denote failure, if that is convenient. For instance, it is convenient if a Boolean false denotes failure, so that Amb(false) fails, and thus constraints can be expressed using Boolean expressions like Amb(x * y == 8) which unless x and y add to four.
+/// <br>
+/// A pseudo-code program which satisfies this constraint might look like:
+/// <br>
+/// <pre>let x = Amb(1, 2, 3)
+/// let y = Amb(7, 6, 4, 5)
+/// Amb(x * y = 8)
+/// print x, y</pre>
+/// <br>
+/// The output is <code>2 4</code> because <code>Amb(1, 2, 3)</code> correctly chooses the future in which <code>x</code> has value <code>2</code>, <code>Amb(7, 6, 4, 5)</code> chooses <code>4</code> and consequently <code>Amb(x * y = 8)</code> produces a success.
+/// <br>
+/// Alternatively, failure could be represented using strictly <code>Amb()</code>:
+/// <br>
+/// <pre>unless x * y = 8 do Amb()</pre>
+/// <br>
+/// Or else Amb could take the form of two operators or functions: one for producing values and one for enforcing constraints:
+/// <br>
+/// <pre>let x = Ambsel(1, 2, 3)
+/// let y = Ambsel(4, 5, 6)
+/// Ambassert(x * y = 8)
+/// print x, y</pre>
+/// <br>
+/// where <code>Ambassert</code> behaves like <code>Amb()</code> if the Boolean expression is false, otherwise it allows the future computation to take place, without yielding any value.
+/// <br>
+/// The task is to somehow implement Amb, and demonstrate it with a program which chooses one word from each of the following four sets of character strings to generate a four-word sentence:
+/// <br>
+/// #<code>"the" "that" "a"</code>
+/// #<code>"frog" "elephant" "thing"</code>
+/// #<code>"walked" "treaded" "grows"</code>
+/// #<code>"slowly" "quickly"</code>
+/// <br>
+/// The constraint to be satisfied is that the last character of each word (other than the last) is the same as the first character of its successor.
+/// <br>
+/// The only successful sentence is <code>"that thing grows slowly"</code>; other combinations do not satisfy the constraint and thus fail.
+/// <br>
+/// The goal of this task isn't to simply process the four lists of words with explicit, deterministic program flow such as nested iteration, to trivially demonstrate the correct output. The goal is to implement the Amb operator, or a facsimile thereof that is possible within the language limitations.
+/// <br>
+/// ====
+/// <lang ada>with Ada.Strings.Unbounded;  use Ada.Strings.Unbounded;
+/// with Ada.Text_IO;            use Ada.Text_IO;
+/// <br>
+/// procedure Test_Amb is
+///    type Alternatives is array (Positive range <>) of Unbounded_String;
+/// <br>
+///    type Amb (Count : Positive) is record
+///       This : Positive := 1;
+///       Left : access Amb; 
+///       List : Alternatives (1..Count);
+///    end record;
+///    
+///    function Image (L : Amb) return String is
+///    begin
+///       return To_String (L.List (L.This));
+///    end Image;
+/// <br>
+///    function "/" (L, R : String) return Amb is
+///       Result : Amb (2);
+///    begin
+///       Append (Result.List (1), L);
+///       Append (Result.List (2), R);
+///       return Result;
+///    end "/";
+///    
+///    function "/" (L : Amb; R : String) return Amb is
+///       Result : Amb (L.Count + 1);
+///    begin
+///       Result.List (1..L.Count) := L.List ;
+///       Append (Result.List (Result.Count), R);
+///       return Result;
+///    end "/";
+/// <br>
+///    function "=" (L, R : Amb) return Boolean is
+///       Left : Unbounded_String renames L.List (L.This);
+///    begin
+///       return Element (Left, Length (Left)) = Element (R.List (R.This), 1);
+///    end "=";
+///    
+///    procedure Failure (L : in out Amb) is
+///    begin
+///       loop
+///          if L.This < L.Count then
+///             L.This := L.This + 1;
+///          else
+///             L.This := 1;
+///             Failure (L.Left.all);
+///          end if;
+///          exit when L.Left = null or else L.Left.all = L;
+///       end loop;
+///    end Failure;
+/// <br>
+///    procedure Join (L : access Amb; R : in out Amb) is
+///    begin
+///       R.Left := L;
+///       while L.all /= R loop
+///          Failure (R);
+///       end loop;
+///    end Join;
+/// <br>
+///    W_1 : aliased Amb := "the" / "that" / "a";
+///    W_2 : aliased Amb := "frog" / "elephant" / "thing";
+///    W_3 : aliased Amb := "walked" / "treaded" / "grows";
+///    W_4 : aliased Amb := "slowly" / "quickly";
+/// begin
+///    Join (W_1'Access, W_2);
+///    Join (W_2'Access, W_3);
+///    Join (W_3'Access, W_4);
+///    Put_Line (Image (W_1) & ' ' & Image (W_2) & ' ' & Image (W_3) & ' ' & Image (W_4));
+/// end Test_Amb;</lang>
+/// The type Amb is implemented with the operations "/" to construct it from strings. 
+/// Each instance keeps its state. 
+/// The operation Failure performs back tracing. Join connects two elements into a chain. 
+/// The implementation propagates Constraint_Error when matching fails. 
+/// <br>
+/// <pre>
+/// that thing grows slowly
+/// </pre>
+/// <br>
+/// <br>
 
-<pre>let x = Amb(1, 2, 3)
-let y = Amb(7, 6, 4, 5)
-Amb(x * y = 8)
-print x, y</pre>
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
-The output is <code>2 4</code> because <code>Amb(1, 2, 3)</code> correctly chooses the future in which <code>x</code> has value <code>2</code>, <code>Amb(7, 6, 4, 5)</code> chooses <code>4</code> and consequently <code>Amb(x * y = 8)</code> produces a success.
+/// solutions:
+function ambRun(func) {
+    var choices = [];
+    var index;
 
-Alternatively, failure could be represented using strictly <code>Amb()</code>:
+    function amb(values) {
+        if (values.length == 0) {
+            fail();
+        }
+        if (index == choices.length) {
+            choices.push({i: 0,
+                          count: values.length});
+        }
+        var choice = choices[index++];
+        return values[choice.i];
+    }
 
-<pre>unless x * y = 8 do Amb()</pre>
+    function fail() { throw fail; }
 
-Or else Amb could take the form of two operators or functions: one for producing values and one for enforcing constraints:
+    while (true) {
+        try {
+            index = 0;
+            return func(amb, fail);
+        } catch (e) {
+            if (e != fail) {
+                throw e;
+            }
+            var choice;
+            while ((choice = choices.pop()) && ++choice.i == choice.count) {}
+            if (choice == undefined) {
+                return undefined;
+            }
+            choices.push(choice);
+        }
+    }
+}
 
-<pre>let x = Ambsel(1, 2, 3)
-let y = Ambsel(4, 5, 6)
-Ambassert(x * y = 8)
-print x, y</pre>
+ambRun(function(amb, fail) {
+    function linked(s1, s2) {
+        return s1.slice(-1) == s2.slice(0, 1);
+    }
 
-where <code>Ambassert</code> behaves like <code>Amb()</code> if the Boolean expression is false, otherwise it allows the future computation to take place, without yielding any value.
+    var w1 = amb(["the", "that", "a"]);
+    var w2 = amb(["frog", "elephant", "thing"]);
+    if (!linked(w1, w2)) fail();
 
-The task is to somehow implement Amb, and demonstrate it with a program which chooses one word from each of the following four sets of character strings to generate a four-word sentence:
+    var w3 = amb(["walked", "treaded", "grows"]);
+    if (!linked(w2, w3)) fail();
 
-#<code>"the" "that" "a"</code>
-#<code>"frog" "elephant" "thing"</code>
-#<code>"walked" "treaded" "grows"</code>
-#<code>"slowly" "quickly"</code>
+    var w4 = amb(["slowly", "quickly"]);
+    if (!linked(w3, w4)) fail();
 
-The constraint to be satisfied is that the last character of each word (other than the last) is the same as the first character of its successor.
+    return [w1, w2, w3, w4].join(' ');
+});  // "that thing grows slowly"
 
-The only successful sentence is <code>"that thing grows slowly"</code>; other combinations do not satisfy the constraint and thus fail.
-
-The goal of this task isn't to simply process the four lists of words with explicit, deterministic program flow such as nested iteration, to trivially demonstrate the correct output. The goal is to implement the Amb operator, or a facsimile thereof that is possible within the language limitations.
-
-=={{Header|Ada}}==
-<lang ada>with Ada.Strings.Unbounded;  use Ada.Strings.Unbounded;
-with Ada.Text_IO;            use Ada.Text_IO;
-
-procedure Test_Amb is
-   type Alternatives is array (Positive range <>) of Unbounded_String;
-
-   type Amb (Count : Positive) is record
-      This : Positive := 1;
-      Left : access Amb; 
-      List : Alternatives (1..Count);
-   end record;
-   
-   function Image (L : Amb) return String is
-   begin
-      return To_String (L.List (L.This));
-   end Image;
-
-   function "/" (L, R : String) return Amb is
-      Result : Amb (2);
-   begin
-      Append (Result.List (1), L);
-      Append (Result.List (2), R);
-      return Result;
-   end "/";
-   
-   function "/" (L : Amb; R : String) return Amb is
-      Result : Amb (L.Count + 1);
-   begin
-      Result.List (1..L.Count) := L.List ;
-      Append (Result.List (Result.Count), R);
-      return Result;
-   end "/";
-
-   function "=" (L, R : Amb) return Boolean is
-      Left : Unbounded_String renames L.List (L.This);
-   begin
-      return Element (Left, Length (Left)) = Element (R.List (R.This), 1);
-   end "=";
-   
-   procedure Failure (L : in out Amb) is
-   begin
-      loop
-         if L.This < L.Count then
-            L.This := L.This + 1;
-         else
-            L.This := 1;
-            Failure (L.Left.all);
-         end if;
-         exit when L.Left = null or else L.Left.all = L;
-      end loop;
-   end Failure;
-
-   procedure Join (L : access Amb; R : in out Amb) is
-   begin
-      R.Left := L;
-      while L.all /= R loop
-         Failure (R);
-      end loop;
-   end Join;
-
-   W_1 : aliased Amb := "the" / "that" / "a";
-   W_2 : aliased Amb := "frog" / "elephant" / "thing";
-   W_3 : aliased Amb := "walked" / "treaded" / "grows";
-   W_4 : aliased Amb := "slowly" / "quickly";
-begin
-   Join (W_1'Access, W_2);
-   Join (W_2'Access, W_3);
-   Join (W_3'Access, W_4);
-   Put_Line (Image (W_1) & ' ' & Image (W_2) & ' ' & Image (W_3) & ' ' & Image (W_4));
-end Test_Amb;</lang>
-The type Amb is implemented with the operations "/" to construct it from strings. 
-Each instance keeps its state. 
-The operation Failure performs back tracing. Join connects two elements into a chain. 
-The implementation propagates Constraint_Error when matching fails. 
-{{out}}
-<pre>
-that thing grows slowly
-</pre>
-
-
+/// rawSolutions:
 =={{header|JavaScript}}==
 <lang javascript>function ambRun(func) {
     var choices = [];
@@ -184,3 +265,10 @@ ambRun(function(amb, fail) {
     return [w1, w2, w3, w4].join(' ');
 });  // "that thing grows slowly"</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

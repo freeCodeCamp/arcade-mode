@@ -1,13 +1,57 @@
-Doubly-linked list/Element insertion
 
-{{task|Data Structures}}Use the link structure defined in <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Doubly-Linked List (element)]] to define a procedure for inserting a link into a doubly-linked list. Call this procedure to insert element C into a list {A,B}, between elements A and B.
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-This is much like inserting into a [[Singly-Linked List (element insertion)" title="Doubly-Linked List (element)]] to define a procedure for inserting a link into a doubly-linked list. Call this procedure to insert element C into a list {A,B}, between elements A and B.
+const assert = require('chai').assert;
 
-This is much like inserting into a [[Singly-Linked List (element insertion)">Singly-Linked List</a>, but with added assignments so that the backwards-pointing links remain correct.
+/// title: Doubly-linked list/Element insertion
+/// type: rosetta-code
 
-{{Template:See also lists}}
+/// categories:
+/// ?
 
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// Use the link structure defined in <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Doubly-Linked List (element)]] to define a procedure for inserting a link into a doubly-linked list. Call this procedure to insert element C into a list {A,B}, between elements A and B.
+/// <br>
+/// This is much like inserting into a [[Singly-Linked List (element insertion)" title="Doubly-Linked List (element)]] to define a procedure for inserting a link into a doubly-linked list. Call this procedure to insert element C into a list {A,B}, between elements A and B.
+/// <br>
+/// This is much like inserting into a [[Singly-Linked List (element insertion)">Singly-Linked List</a>, but with added assignments so that the backwards-pointing links remain correct.
+/// <br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+DoublyLinkedList.prototype.insertAfter = function(searchValue, nodeToInsert) {
+    if (this._value == searchValue) {
+        var after = this.next();
+        this.next(nodeToInsert);
+        nodeToInsert.prev(this);
+        nodeToInsert.next(after);
+        after.prev(nodeToInsert);
+    }
+    else if (this.next() == null) 
+        throw new Error(0, "value '" + searchValue + "' not found in linked list.")
+    else
+        this.next().insertAfter(searchValue, nodeToInsert);
+}
+
+var list = createDoublyLinkedListFromArray(['A','B']);
+list.insertAfter('A', new DoublyLinkedList('C', null, null));
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 See [[Doubly-Linked_List_(element)#JavaScript]]
 <lang javascript>DoublyLinkedList.prototype.insertAfter = function(searchValue, nodeToInsert) {
@@ -27,3 +71,10 @@ See [[Doubly-Linked_List_(element)#JavaScript]]
 var list = createDoublyLinkedListFromArray(['A','B']);
 list.insertAfter('A', new DoublyLinkedList('C', null, null));</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,51 +1,105 @@
-Averages/Simple moving average
 
-{{task|Probability and statistics}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-Computing the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Moving_average#Simple_moving_average" title="wp: Moving_average#Simple_moving_average">simple moving average</a> of a series of numbers.
+const assert = require('chai').assert;
 
-{{task heading}}
+/// title: Averages/Simple moving average
+/// type: rosetta-code
 
-Create a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Stateful" title="wp: Stateful">stateful</a> function/class/instance that takes a period and returns a routine that takes a number as argument and returns a simple moving average of its arguments so far.
+/// categories:
+/// ?
 
-{{task heading|Description}}
+/// difficulty: ?
 
-A simple moving average is a method for computing an average of a stream of numbers by only averaging the last &nbsp; P &nbsp; numbers from the stream, &nbsp; where &nbsp; P &nbsp; is known as the period. 
+/// benchmark:
+replaceWithActualFunctionHere;
 
-It can be implemented by calling an initialing routine with &nbsp; P &nbsp; as its argument, &nbsp; I(P), &nbsp; which should then return a routine that when called with individual, successive members of a stream of numbers, computes the mean of (up to), the last &nbsp; P &nbsp; of them, lets call this &nbsp; SMA().
+/// description:
+/// <br>
+/// <br>
+/// Computing the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Moving_average#Simple_moving_average" title="wp: Moving_average#Simple_moving_average">simple moving average</a> of a series of numbers.
+/// <br>
+/// <br>
+/// <br>
+/// Create a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Stateful" title="wp: Stateful">stateful</a> function/class/instance that takes a period and returns a routine that takes a number as argument and returns a simple moving average of its arguments so far.
+/// <br>
+/// <br>
+/// <br>
+/// A simple moving average is a method for computing an average of a stream of numbers by only averaging the last &nbsp; P &nbsp; numbers from the stream, &nbsp; where &nbsp; P &nbsp; is known as the period. 
+/// <br>
+/// It can be implemented by calling an initialing routine with &nbsp; P &nbsp; as its argument, &nbsp; I(P), &nbsp; which should then return a routine that when called with individual, successive members of a stream of numbers, computes the mean of (up to), the last &nbsp; P &nbsp; of them, lets call this &nbsp; SMA().
+/// <br>
+/// The word &nbsp; <span class="rosetta__text--italic">stateful</span> &nbsp; in the task description refers to the need for &nbsp; SMA() &nbsp; to remember certain information between calls to it:
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">&nbsp; The period, &nbsp; P</li>
+/// <li class="rosetta__list-item">&nbsp; An ordered container of at least the last &nbsp; P &nbsp; numbers from each of its individual calls.</li>
+/// <br>
+/// </ul>
+/// <br>
+/// <span class="rosetta__text--italic">Stateful</span> &nbsp;  also means that successive calls to &nbsp; I(), &nbsp; the initializer, &nbsp; should return separate routines that do &nbsp; <span class="rosetta__text--italic">not</span> &nbsp; share saved state so they could be used on two independent streams of data.
+/// <br>
+/// Pseudo-code for an implementation of &nbsp; SMA &nbsp; is:
+/// <pre>
+/// function SMA(number: N):
+///     stateful integer: P
+///     stateful list:    stream
+///     number:           average
+/// <br>
+///     stream.append_last(N)
+///     if stream.length() > P:
+///         # Only average the last P elements of the stream
+///         stream.delete_first()
+///     if stream.length() == 0:
+///         average = 0
+///     else:    
+///         average = sum( stream.values() ) / stream.length()
+///     return average
+/// </pre>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <hr>
+/// <br>
+/// <br>
 
-The word &nbsp; <span class="rosetta__text--italic">stateful</span> &nbsp; in the task description refers to the need for &nbsp; SMA() &nbsp; to remember certain information between calls to it:
-* &nbsp; The period, &nbsp; P
-* &nbsp; An ordered container of at least the last &nbsp; P &nbsp; numbers from each of its individual calls.
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
-<br>
-<span class="rosetta__text--italic">Stateful</span> &nbsp;  also means that successive calls to &nbsp; I(), &nbsp; the initializer, &nbsp; should return separate routines that do &nbsp; <span class="rosetta__text--italic">not</span> &nbsp; share saved state so they could be used on two independent streams of data.
+/// solutions:
+function simple_moving_averager(period) {
+    var nums = [];
+    return function(num) {
+        nums.push(num);
+        if (nums.length > period)
+            nums.splice(0,1);  // remove the first element of the array
+        var sum = 0;
+        for (var i in nums)
+            sum += nums[i];
+        var n = period;
+        if (nums.length < period)
+            n = nums.length;
+        return(sum/n);
+    }
+}
 
-Pseudo-code for an implementation of &nbsp; SMA &nbsp; is:
-<pre>
-function SMA(number: N):
-    stateful integer: P
-    stateful list:    stream
-    number:           average
+var sma3 = simple_moving_averager(3);
+var sma5 = simple_moving_averager(5);
+var data = [1,2,3,4,5,5,4,3,2,1];
+for (var i in data) {
+    var n = data[i];
+    // using WSH
+    WScript.Echo("Next number = " + n + ", SMA_3 = " + sma3(n) + ", SMA_5 = " + sma5(n));
+}
 
-    stream.append_last(N)
-    if stream.length() > P:
-        # Only average the last P elements of the stream
-        stream.delete_first()
-    if stream.length() == 0:
-        average = 0
-    else:    
-        average = sum( stream.values() ) / stream.length()
-    return average
-</pre>
-
-{{task heading|See also}}
-
-{{Related tasks/Statistical measures}}
-
-<hr>
-
-
+/// rawSolutions:
 =={{header|JavaScript}}==
 ===Using for loop===
 <lang javascript>function simple_moving_averager(period) {
@@ -113,3 +167,10 @@ console.log(g.simpleSMA(g.length));</lang>
 [1, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5]
 </pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

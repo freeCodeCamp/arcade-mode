@@ -1,25 +1,87 @@
-Probabilistic choice
 
-{{task|Probability and statistics}}
-Given a mapping between items and their required probability of occurrence, generate a million items <span class="rosetta__text--italic">randomly</span> subject to the given probabilities and compare the target probability of occurrence versus the generated values.
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-The total of all the probabilities should equal one. (Because floating point arithmetic is involved, this is subject to rounding errors). 
+const assert = require('chai').assert;
 
-Use the following mapping to test your programs:<pre>
-aleph   1/5.0
-beth    1/6.0
-gimel   1/7.0
-daleth  1/8.0
-he      1/9.0
-waw     1/10.0
-zayin   1/11.0
-heth    1759/27720 # adjusted so that probabilities add to 1</pre>
+/// title: Probabilistic choice
+/// type: rosetta-code
 
-;Related task:
-* [[Random number generator (device)]]
-<br><br>
+/// categories:
+/// ?
 
+/// difficulty: ?
 
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// Given a mapping between items and their required probability of occurrence, generate a million items <span class="rosetta__text--italic">randomly</span> subject to the given probabilities and compare the target probability of occurrence versus the generated values.
+/// <br>
+/// The total of all the probabilities should equal one. (Because floating point arithmetic is involved, this is subject to rounding errors). 
+/// <br>
+/// Use the following mapping to test your programs:<pre>
+/// aleph   1/5.0
+/// beth    1/6.0
+/// gimel   1/7.0
+/// daleth  1/8.0
+/// he      1/9.0
+/// waw     1/10.0
+/// zayin   1/11.0
+/// heth    1759/27720 # adjusted so that probabilities add to 1</pre>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related task:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">[[Random number generator (device)]]</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+var probabilities = {
+    aleph:  1/5.0,
+    beth:   1/6.0,
+    gimel:  1/7.0,
+    daleth: 1/8.0,
+    he:     1/9.0,
+    waw:    1/10.0,
+    zayin:  1/11.0,
+    heth:   1759/27720
+};
+
+var sum = 0;
+var iterations = 1000000;
+var cumulative = {};
+var randomly = {};
+for (var name in probabilities) {
+    sum += probabilities[name];
+    cumulative[name] = sum;
+    randomly[name] = 0;
+}
+for (var i = 0; i < iterations; i++) {
+    var r = Math.random();
+    for (var name in cumulative) {
+        if (r <= cumulative[name]) {
+            randomly[name]++;
+            break;
+        }
+    }
+}
+for (var name in probabilities) 
+    // using WSH
+    WScript.Echo(name + "\t" + probabilities[name] + "\t" + randomly[name]/iterations);
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 ===ES5===
 Fortunately, iterating over properties added to an object maintains the insertion order.
@@ -186,3 +248,10 @@ Vav     0.1000000    0.0998390
 Zayin   0.0909091    0.0909630   
 Chet    0.0634560    0.0632870   </pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

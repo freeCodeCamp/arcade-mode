@@ -1,18 +1,60 @@
-Longest common subsequence
 
-{{task}}[[Category:Recursion]][[Category:Memoization]]
-The <span class="rosetta__text--bold">longest common subsequence</span> (or [http://en.wikipedia.org/wiki/Longest_common_subsequence_problem <span class="rosetta__text--bold">LCS</span>]) of groups A and B is the longest group of elements from A and B that are common between the two groups and in the same order in each group. For example, the sequences "1234" and "1224533324" have an LCS of "1234":
- <span class="rosetta__text--bold"><u>1234</u></span>
- <span class="rosetta__text--bold"><u>12</u></span>245<span class="rosetta__text--bold"><u>3</u></span>332<span class="rosetta__text--bold"><u>4</u></span>
-For a string example, consider the sequences "thisisatest" and "testing123testing". An LCS would be "tsitest":
- <span class="rosetta__text--bold"><u>t</u></span>hi<span class="rosetta__text--bold"><u>si</u></span>sa<span class="rosetta__text--bold"><u>test</u></span>
- <span class="rosetta__text--bold"><u>t</u></span>e<span class="rosetta__text--bold"><u>s</u></span>t<span class="rosetta__text--bold"><u>i</u></span>ng123<span class="rosetta__text--bold"><u>test</u></span>ing
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-In this puzzle, your code only needs to deal with strings. Write a function which returns an LCS of two strings (case-sensitive). You don't need to show multiple LCS's.
+const assert = require('chai').assert;
 
-For more information on this problem please see <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Longest_common_subsequence_problem" title="wp: Longest_common_subsequence_problem">Wikipedia</a>.
+/// title: Longest common subsequence
+/// type: rosetta-code
 
+/// categories:
+/// ?
 
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// [[Category:Recursion]][[Category:Memoization]]
+/// The <span class="rosetta__text--bold">longest common subsequence</span> (or [http://en.wikipedia.org/wiki/Longest_common_subsequence_problem <span class="rosetta__text--bold">LCS</span>]) of groups A and B is the longest group of elements from A and B that are common between the two groups and in the same order in each group. For example, the sequences "1234" and "1224533324" have an LCS of "1234":
+///  <span class="rosetta__text--bold"><u>1234</u></span>
+///  <span class="rosetta__text--bold"><u>12</u></span>245<span class="rosetta__text--bold"><u>3</u></span>332<span class="rosetta__text--bold"><u>4</u></span>
+/// For a string example, consider the sequences "thisisatest" and "testing123testing". An LCS would be "tsitest":
+///  <span class="rosetta__text--bold"><u>t</u></span>hi<span class="rosetta__text--bold"><u>si</u></span>sa<span class="rosetta__text--bold"><u>test</u></span>
+///  <span class="rosetta__text--bold"><u>t</u></span>e<span class="rosetta__text--bold"><u>s</u></span>t<span class="rosetta__text--bold"><u>i</u></span>ng123<span class="rosetta__text--bold"><u>test</u></span>ing
+/// <br>
+/// In this puzzle, your code only needs to deal with strings. Write a function which returns an LCS of two strings (case-sensitive). You don't need to show multiple LCS's.
+/// <br>
+/// For more information on this problem please see <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Longest_common_subsequence_problem" title="wp: Longest_common_subsequence_problem">Wikipedia</a>.
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+function lcs(a, b) {
+  var aSub = a.substr(0, a.length - 1);
+  var bSub = b.substr(0, b.length - 1);
+  
+  if (a.length === 0 || b.length === 0) {
+    return '';
+  } else if (a.charAt(a.length - 1) === b.charAt(b.length - 1)) {
+    return lcs(aSub, bSub) + a.charAt(a.length - 1);
+  } else {
+    var x = lcs(a, bSub);
+    var y = lcs(aSub, b);
+    return (x.length > y.length) ? x : y;
+  }
+}
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 ===Recursion===
 {{trans|Java}}
@@ -155,3 +197,10 @@ This is an heuristic algorithm that won't always return the correct answer, but 
 
 Note that it won't return the correct answer for all inputs. For example: <lang javascript>lcs_greedy('bcaaaade', 'deaaaabc'); // 'bc' instead of 'aaaa'</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

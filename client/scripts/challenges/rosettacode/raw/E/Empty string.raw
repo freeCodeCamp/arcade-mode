@@ -1,20 +1,50 @@
-Empty string
 
-{{task}} 
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-Languages may have features for dealing specifically with empty strings 
-(those containing no characters).
+const assert = require('chai').assert;
 
+/// title: Empty string
+/// type: rosetta-code
 
-;Task:
-::* &nbsp; Demonstrate how to assign an empty string to a variable.
-::* &nbsp; Demonstrate how to check that a string is empty.
-::* &nbsp; Demonstrate how to check that a string is not empty.
-<br><br>
+/// categories:
+/// ?
 
-[[Category:String manipulation]] [[Category:Simple]]
+/// difficulty: ?
 
+/// benchmark:
+replaceWithActualFunctionHere;
 
+/// description:
+///  
+/// <br>
+/// Languages may have features for dealing specifically with empty strings 
+/// (those containing no characters).
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <span class="rosetta__text--indented">:* &nbsp; Demonstrate how to assign an empty string to a variable.</span>
+/// <span class="rosetta__text--indented">:* &nbsp; Demonstrate how to check that a string is empty.</span>
+/// <span class="rosetta__text--indented">:* &nbsp; Demonstrate how to check that a string is not empty.</span>
+/// <br><br>
+/// <br>
+/// [[Category:String manipulation]] [[Category:Simple]]
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+var s = "";
+var s = new String();
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 Create an empty String
 <lang javascript>var s = "";
@@ -33,3 +63,10 @@ s.length != 0
 s.length > 0
 Boolean(s)</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

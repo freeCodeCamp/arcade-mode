@@ -1,20 +1,60 @@
-Averages/Arithmetic mean
 
-{{task|Probability and statistics}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-{{task heading}}
+const assert = require('chai').assert;
 
-Write a program to find the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/arithmetic mean" title="wp: arithmetic mean">mean</a> (arithmetic average) of a numeric vector. 
+/// title: Averages/Arithmetic mean
+/// type: rosetta-code
 
-In case of a zero-length input, since the mean of an empty set of numbers is ill-defined, the program may choose to behave in any way it deems appropriate, though if the programming language has an established convention for conveying math errors or undefined values, it's preferable to follow it.
+/// categories:
+/// ?
 
-{{task heading|See also}}
+/// difficulty: ?
 
-{{Related tasks/Statistical measures}}
+/// benchmark:
+replaceWithActualFunctionHere;
 
-<br><hr>
+/// description:
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// Write a program to find the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/arithmetic mean" title="wp: arithmetic mean">mean</a> (arithmetic average) of a numeric vector. 
+/// <br>
+/// In case of a zero-length input, since the mean of an empty set of numbers is ill-defined, the program may choose to behave in any way it deems appropriate, though if the programming language has an established convention for conveying math errors or undefined values, it's preferable to follow it.
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br><hr>
+/// <br>
+/// <br>
 
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
+/// solutions:
+function mean(array)
+{
+ var sum = 0, i;
+ for (i = 0; i < array.length; i++)
+ {
+  sum += array[i];
+ }
+  return array.length ? sum / array.length : 0;
+}
+
+alert( mean( [1,2,3,4,5] ) );   // 3
+alert( mean( [] ) );            // 0
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 
 ===ES5===
@@ -95,3 +135,10 @@ alert( [].mean() );            // 0
 {{Out}}
 <lang JavaScript>5</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

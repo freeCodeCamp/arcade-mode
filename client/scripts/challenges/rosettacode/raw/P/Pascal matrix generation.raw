@@ -1,52 +1,210 @@
-Pascal matrix generation
 
-{{task}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-A pascal matrix is a two-dimensional square matrix holding numbers from &nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Pascal's triangle]], &nbsp; also known as &nbsp; [[Evaluate binomial coefficients" title="Pascal's triangle]], &nbsp; also known as &nbsp; [[Evaluate binomial coefficients">binomial coefficients</a> &nbsp; and which can be shown as &nbsp;  <big><sup>n</sup>C<sub>r</sub>.</big>
+const assert = require('chai').assert;
 
-Shown below are truncated &nbsp; 5-by-5 &nbsp; matrices &nbsp; M[i, j] &nbsp; for &nbsp; i,j &nbsp; in range &nbsp; 0..4. <br>
+/// title: Pascal matrix generation
+/// type: rosetta-code
 
-A Pascal upper-triangular matrix that is populated with &nbsp; <big><sup>j</sup>C<sub>i</sub>:</big>
-<pre>
-[[1, 1, 1, 1, 1],
- [0, 1, 2, 3, 4],
- [0, 0, 1, 3, 6],
- [0, 0, 0, 1, 4],
- [0, 0, 0, 0, 1]]
-</pre>
+/// categories:
+/// ?
 
-A Pascal lower-triangular matrix that is populated with &nbsp; <big><sup>i</sup>C<sub>j</sub></big> &nbsp; (the transpose of the upper-triangular matrix):
-<pre>
-[[1, 0, 0, 0, 0],
- [1, 1, 0, 0, 0],
- [1, 2, 1, 0, 0],
- [1, 3, 3, 1, 0],
- [1, 4, 6, 4, 1]]
-</pre>
+/// difficulty: ?
 
-A Pascal symmetric matrix that is populated with &nbsp; <big><sup>i+j</sup>C<sub>i</sub>:</big> 
-<pre>
-[[1, 1, 1, 1, 1],
- [1, 2, 3, 4, 5],
- [1, 3, 6, 10, 15],
- [1, 4, 10, 20, 35],
- [1, 5, 15, 35, 70]]
-</pre>
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// A pascal matrix is a two-dimensional square matrix holding numbers from &nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Pascal's triangle]], &nbsp; also known as &nbsp; [[Evaluate binomial coefficients" title="Pascal's triangle]], &nbsp; also known as &nbsp; [[Evaluate binomial coefficients">binomial coefficients</a> &nbsp; and which can be shown as &nbsp;  <big><sup>n</sup>C<sub>r</sub>.</big>
+/// <br>
+/// Shown below are truncated &nbsp; 5-by-5 &nbsp; matrices &nbsp; M[i, j] &nbsp; for &nbsp; i,j &nbsp; in range &nbsp; 0..4. <br>
+/// <br>
+/// A Pascal upper-triangular matrix that is populated with &nbsp; <big><sup>j</sup>C<sub>i</sub>:</big>
+/// <pre>
+/// [[1, 1, 1, 1, 1],
+///  [0, 1, 2, 3, 4],
+///  [0, 0, 1, 3, 6],
+///  [0, 0, 0, 1, 4],
+///  [0, 0, 0, 0, 1]]
+/// </pre>
+/// <br>
+/// A Pascal lower-triangular matrix that is populated with &nbsp; <big><sup>i</sup>C<sub>j</sub></big> &nbsp; (the transpose of the upper-triangular matrix):
+/// <pre>
+/// [[1, 0, 0, 0, 0],
+///  [1, 1, 0, 0, 0],
+///  [1, 2, 1, 0, 0],
+///  [1, 3, 3, 1, 0],
+///  [1, 4, 6, 4, 1]]
+/// </pre>
+/// <br>
+/// A Pascal symmetric matrix that is populated with &nbsp; <big><sup>i+j</sup>C<sub>i</sub>:</big> 
+/// <pre>
+/// [[1, 1, 1, 1, 1],
+///  [1, 2, 3, 4, 5],
+///  [1, 3, 6, 10, 15],
+///  [1, 4, 10, 20, 35],
+///  [1, 5, 15, 35, 70]]
+/// </pre>
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Write functions capable of generating each of the three forms of &nbsp; n-by-n &nbsp; matrices.
+/// <br>
+/// Use those functions to display upper, lower, and symmetric Pascal &nbsp; 5-by-5 &nbsp; matrices on this page. 
+/// <br>
+/// The output should distinguish between different matrices and the rows of each matrix &nbsp; (no showing a list of 25 numbers assuming the reader should split it into rows).
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Note:  </dt></dl>
+/// The &nbsp; [[Cholesky decomposition]] &nbsp; of a Pascal symmetric matrix is the Pascal lower-triangle matrix of the same size. 
+/// <br><br> 
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+(() => {
+    'use strict';
+
+    // PASCAL MATRIX ---------------------------------------------------------
+
+    // (Function on a coordinate pair) -> Matrix size -> Matrix rows
+    // pascalMatrix :: ((Int, Int) -> (Int, Int)) -> Int -> [[Int]]
+    const pascalMatrix = (f, n) =>
+        chunksOf(n, map(compose(bc, f), range([
+            [0, 0],
+            [n - 1, n - 1]
+        ])));
+
+    // Binomial coefficient
+    // bc :: (Int, Int) -> Int
+    const bc = ([n, k]) => enumFromTo(1, k)
+        .reduce((a, x) => Math.floor((a * (n - x + 1)) / x), 1);
 
 
-;Task:
-Write functions capable of generating each of the three forms of &nbsp; n-by-n &nbsp; matrices.
+    // GENERIC FUNCTIONS -----------------------------------------------------
 
-Use those functions to display upper, lower, and symmetric Pascal &nbsp; 5-by-5 &nbsp; matrices on this page. 
+    // chunksOf :: Int -> [a] -> [[a]]
+    const chunksOf = (n, xs) =>
+        xs.reduce((a, _, i, xs) =>
+            i % n ? a : a.concat([xs.slice(i, i + n)]), []);
 
-The output should distinguish between different matrices and the rows of each matrix &nbsp; (no showing a list of 25 numbers assuming the reader should split it into rows).
+    // show ::
+    // (a -> String) f,  Num n =>
+    // a -> maybe f -> maybe n -> String
+    const show = JSON.stringify;
+
+    // swap :: (a, b) -> (b, a)
+    const swap = ([a, b]) => [b, a];
+
+    // compose :: (b -> c) -> (a -> b) -> (a -> c)
+    const compose = (f, g) => x => f(g(x));
+
+    // curry :: ((a, b) -> c) -> a -> b -> c
+    const curry = f => a => b => f(a, b);
+
+    // cons :: a -> [a] -> [a]
+    const cons = (x, xs) => [x].concat(xs);
+
+    // map :: (a -> b) -> [a] -> [b]
+    const map = (f, xs) => xs.map(f);
+
+    // id :: a -> a
+    const id = x => x;
+
+    // A list of functions applied to a list of arguments
+    // <*> :: [(a -> b)] -> [a] -> [b]
+    const ap = (fs, xs) => //
+        [].concat.apply([], fs.map(f => //
+            [].concat.apply([], xs.map(x => [f(x)]))));
+
+    // Map each element of a structure to an action,
+    // evaluate these actions from left to right,
+    // and collect the results.
+    // traverse :: (a -> [b]) -> [a] -> [[b]]
+    const traverse = (f, xs) => {
+        const cons_f = (a, x) => ap(f(x)
+            .map(curry(cons)), a);
+        return xs.reduceRight(cons_f, [
+            []
+        ]);
+    };
+
+    // Evaluate left to right, and collect the results
+    // sequence :: Monad m => [m a] -> m [a]
+    const sequence = xs => traverse(id, xs);
+
+    // enumFromTo :: Int -> Int -> [Int]
+    const enumFromTo = (m, n) =>
+        Array.from({
+            length: Math.floor(n - m) + 1
+        }, (_, i) => m + i);
+
+    // range :: Ix a => (a, a) -> [a]
+    const range = ([a, b]) => {
+        const [as, bs] = a instanceof Array ? [a, b] : [
+                [a],
+                [b]
+            ],
+            an = as.length;
+        return (an === bs.length) ? (
+            an > 1 ? (
+                sequence(as.map((_, i) => enumFromTo(as[i], bs[i])))
+            ) : enumFromTo(a, b)
+        ) : undefined;
+    };
+
+    // zipWith :: (a -> b -> c) -> [a] -> [b] -> [c]
+    const zipWith = (f, xs, ys) => {
+        const ny = ys.length;
+        return (xs.length <= ny ? xs : xs.slice(0, ny))
+            .map((x, i) => f(x, ys[i]));
+    };
+
+    // concat :: [[a]] -> [a] | [String] -> String
+    const concat = xs => {
+        if (xs.length > 0) {
+            const unit = typeof xs[0] === 'string' ? '' : [];
+            return unit.concat.apply(unit, xs);
+        } else return [];
+    };
+
+    // unlines :: [String] -> String
+    const unlines = xs => xs.join('\n');
 
 
-;Note:  
-The &nbsp; [[Cholesky decomposition]] &nbsp; of a Pascal symmetric matrix is the Pascal lower-triangle matrix of the same size. 
-<br><br> 
+    // TEST ------------------------------------------------------------------
+    const matrixSize = 5;
 
+    return unlines(
+        zipWith(
+            (s, xs) => unlines(concat([
+                [s], xs.map(show), ['']
+            ])), ["Lower", "Upper", "Symmetric"],
+            ap(
+                map(
+                    f => curry(pascalMatrix)(f), [
+                        id,                    // Lower
+                        swap,                  // Upper
+                        ([a, b]) => [a + b, a] // Symmetric
+                    ]
+                ), [matrixSize]
+            )
+        )
+    );
+})();
 
+/// rawSolutions:
 =={{header|JavaScript}}==
 In terms of a binomial coefficient, and a function on a coordinate pair.
 {{Trans|Haskell}}
@@ -203,3 +361,10 @@ Symmetric
 [1,4,10,20,35]
 [1,5,15,35,70]</pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

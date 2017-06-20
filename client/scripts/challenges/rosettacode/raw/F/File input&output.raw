@@ -1,19 +1,62 @@
-File input/output
 
-{{task|File handling}} {{selection|Short Circuit|Console Program Basics}} [[Category:Simple]]
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Create a file called &nbsp; "output.txt", &nbsp; and place in it the contents of the file &nbsp; "input.txt", &nbsp; <span class="rosetta__text--italic">via an intermediate variable</span>. 
+const assert = require('chai').assert;
 
-In other words, your program will demonstrate: 
-::# &nbsp; how to read from a file into a variable
-::# &nbsp; how to write a variable's contents into a file
+/// title: File input/output
+/// type: rosetta-code
 
-<br>
-Oneliners that skip the intermediate variable are of secondary interest — operating systems have copy commands for that.
-<br><br>
+/// categories:
+/// ?
 
+/// difficulty: ?
 
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+///   [[Category:Simple]]
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Create a file called &nbsp; "output.txt", &nbsp; and place in it the contents of the file &nbsp; "input.txt", &nbsp; <span class="rosetta__text--italic">via an intermediate variable</span>. 
+/// <br>
+/// In other words, your program will demonstrate: 
+/// <span class="rosetta__text--indented">:# &nbsp; how to read from a file into a variable</span>
+/// <span class="rosetta__text--indented">:# &nbsp; how to write a variable's contents into a file</span>
+/// <br>
+/// <br>
+/// Oneliners that skip the intermediate variable are of secondary interest — operating systems have copy commands for that.
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+var fso = new ActiveXObject("Scripting.FileSystemObject");
+var ForReading = 1, ForWriting = 2;
+var f_in = fso.OpenTextFile('input.txt', ForReading);
+var f_out = fso.OpenTextFile('output.txt', ForWriting, true);
+
+// for small files: 
+// f_out.Write( f_in.ReadAll() );
+
+while ( ! f_in.AtEndOfStream) {
+    // ReadLine() does not include the newline char
+    f_out.WriteLine( f_in.ReadLine() );
+}
+
+f_in.Close();
+f_out.Close();
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 {{works with|JScript}}
 <lang javascript>var fso = new ActiveXObject("Scripting.FileSystemObject");
@@ -39,3 +82,10 @@ var fs = require('fs');
 require('util').pump(fs.createReadStream('input.txt', {flags:'r'}), fs.createWriteStream('output.txt', {flags:'w+'}));
 </lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

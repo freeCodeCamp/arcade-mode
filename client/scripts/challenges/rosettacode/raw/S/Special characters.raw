@@ -1,19 +1,55 @@
-Special characters
 
-{{task|Basic language learning}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-Special characters are symbols (single characters or sequences of characters) that have a "special" built-in meaning in the language and typically cannot be used in identifiers. 
+const assert = require('chai').assert;
 
-Escape sequences are methods that the language uses to remove the special meaning from the symbol, enabling it to be used as a normal character, or sequence of characters when this can be done.
+/// title: Special characters
+/// type: rosetta-code
 
+/// categories:
+/// ?
 
-;Task:
-List the special characters and show escape sequences in the language.
+/// difficulty: ?
 
-See also: [[Quotes]]
-<br><br>
+/// benchmark:
+replaceWithActualFunctionHere;
 
+/// description:
+/// <br>
+/// <br>
+/// Special characters are symbols (single characters or sequences of characters) that have a "special" built-in meaning in the language and typically cannot be used in identifiers. 
+/// <br>
+/// Escape sequences are methods that the language uses to remove the special meaning from the symbol, enabling it to be used as a normal character, or sequence of characters when this can be done.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// List the special characters and show escape sequences in the language.
+/// <br>
+/// See also: [[Quotes]]
+/// <br><br>
+/// <br>
+/// <br>
 
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+null
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 See [[#Java|Java]]
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,17 +1,53 @@
-K-means++ clustering
 
-{{task}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/WP:K-means%2B%2B" title="WP:K-means%2B%2B">K-means++ clustering</a> a classification of data, so that points assigned to the same cluster are similar (in some sense).  It is identical to the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/WP:K-means_clustering" title="WP:K-means_clustering">K-means</a> algorithm, except for the selection of initial conditions.  <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Image:CircleClusters.png" title="Image:CircleClusters.png">thumb|right|alt=A circular distribution of data partitioned into 7 colored clusters; similar to the top of a beach ball|This data was partitioned into 7 clusters using the [[WP:K-means_clustering|K-means algorithm</a>.]]
+const assert = require('chai').assert;
 
-The task is to <span class="rosetta__text--bold"><span class="rosetta__text--italic">implement the K-means++ algorithm</span></span>.  Produce a function which takes two arguments: the number of clusters K, and the dataset to classify.  K is a positive integer and the dataset is a list of points in the Cartesian plane.  The output is a list of clusters (related sets of points, according to the algorithm). 
+/// title: K-means++ clustering
+/// type: rosetta-code
 
-For <span class="rosetta__text--bold"><span class="rosetta__text--italic">extra credit</span></span> (in order):
-# Provide a function to exercise your code, which generates a list of random points.
-# Provide a visualization of your results, including centroids (see example image). 
-# Generalize the function to polar coordinates (in radians).
-# Generalize the function to points in an arbitrary N space (i.e. instead of x,y pairs, points are an N-tuples representing coordinates in ℝ<sup>N</sup>). <BR><span class="rosetta__text--italic">If this is different or more difficult than the [naive] solution for ℝ<sup>2</sup>, discuss what had to change to support N dimensions.</span>
+/// categories:
+/// ?
 
-Extra credit is only awarded if the examples given demonstrate the feature in question. To earn credit for 1. and 2., visualize 6 clusters of 30,000 points in ℝ<sup>2</sup>.  It is not necessary to provide visualization for spaces higher than ℝ<sup>2</sup> but the examples should demonstrate features 3. and 4. if the solution has them.
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/WP:K-means%2B%2B" title="WP:K-means%2B%2B">K-means++ clustering</a> a classification of data, so that points assigned to the same cluster are similar (in some sense).  It is identical to the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/WP:K-means_clustering" title="WP:K-means_clustering">K-means</a> algorithm, except for the selection of initial conditions.  <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Image:CircleClusters.png" title="Image:CircleClusters.png">thumb|right|alt=A circular distribution of data partitioned into 7 colored clusters; similar to the top of a beach ball|This data was partitioned into 7 clusters using the [[WP:K-means_clustering|K-means algorithm</a>.]]
+/// <br>
+/// The task is to <span class="rosetta__text--bold"><span class="rosetta__text--italic">implement the K-means++ algorithm</span></span>.  Produce a function which takes two arguments: the number of clusters K, and the dataset to classify.  K is a positive integer and the dataset is a list of points in the Cartesian plane.  The output is a list of clusters (related sets of points, according to the algorithm). 
+/// <br>
+/// For <span class="rosetta__text--bold"><span class="rosetta__text--italic">extra credit</span></span> (in order):
+/// # Provide a function to exercise your code, which generates a list of random points.
+/// # Provide a visualization of your results, including centroids (see example image). 
+/// # Generalize the function to polar coordinates (in radians).
+/// # Generalize the function to points in an arbitrary N space (i.e. instead of x,y pairs, points are an N-tuples representing coordinates in ℝ<sup>N</sup>). <BR><span class="rosetta__text--italic">If this is different or more difficult than the [naive] solution for ℝ<sup>2</sup>, discuss what had to change to support N dimensions.</span>
+/// <br>
+/// Extra credit is only awarded if the examples given demonstrate the feature in question. To earn credit for 1. and 2., visualize 6 clusters of 30,000 points in ℝ<sup>2</sup>.  It is not necessary to provide visualization for spaces higher than ℝ<sup>2</sup> but the examples should demonstrate features 3. and 4. if the solution has them.
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,19 +1,49 @@
-Filter
 
-{{task|Basic language learning}}
-[[Category:Iteration]]
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Select certain elements from an Array into a new Array in a generic way. 
+const assert = require('chai').assert;
 
+/// title: Filter
+/// type: rosetta-code
 
-To demonstrate, select all even numbers from an Array.
+/// categories:
+/// ?
 
-As an option, give a second solution which filters destructively, 
-by modifying the original Array rather than creating a new Array.
-<br><br>
+/// difficulty: ?
 
+/// benchmark:
+replaceWithActualFunctionHere;
 
+/// description:
+/// <br>
+/// [[Category:Iteration]]
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Select certain elements from an Array into a new Array in a generic way. 
+/// <br>
+/// <br>
+/// To demonstrate, select all even numbers from an Array.
+/// <br>
+/// As an option, give a second solution which filters destructively, 
+/// by modifying the original Array rather than creating a new Array.
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+var arr = [1,2,3,4,5];
+var evens = arr.filter(function(a) {return a % 2 == 0});
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 ===ES5===
 The standard way is to use the [https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Global_Objects/Array/filter Array.prototype.filter] function ({{works with|JavaScript|1.6}}):
@@ -63,3 +93,10 @@ var evens2 = [i for (i in range(100)) if (i % 2 == 0)];</lang>
 {{Out}}
 <lang JavaScript>[2, 4, 6, 8]</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,68 +1,108 @@
-Validate International Securities Identification Number
 
-{{task}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-An <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/International_Securities_Identification_Number" title="wp: International_Securities_Identification_Number">International Securities Identification Number</a> (ISIN) is a unique international identifier for a financial security such as a stock or bond. 
+const assert = require('chai').assert;
 
-{{task heading}}
+/// title: Validate International Securities Identification Number
+/// type: rosetta-code
 
-Write a function or program that takes a string as input, and checks whether it is a valid ISIN.<br>
-It is only valid if it has the correct format, <span class="rosetta__text--italic">and</span> the embedded checksum is correct.
+/// categories:
+/// ?
 
-Demonstrate that your code passes the test-cases listed below.
+/// difficulty: ?
 
-{{task heading|Details}}
+/// benchmark:
+replaceWithActualFunctionHere;
 
-The format of an ISIN is as follows:
+/// description:
+/// <br>
+/// <br>
+/// An <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/International_Securities_Identification_Number" title="wp: International_Securities_Identification_Number">International Securities Identification Number</a> (ISIN) is a unique international identifier for a financial security such as a stock or bond. 
+/// <br>
+/// <br>
+/// <br>
+/// Write a function or program that takes a string as input, and checks whether it is a valid ISIN.<br>
+/// It is only valid if it has the correct format, <span class="rosetta__text--italic">and</span> the embedded checksum is correct.
+/// <br>
+/// Demonstrate that your code passes the test-cases listed below.
+/// <br>
+/// <br>
+/// <br>
+/// The format of an ISIN is as follows:
+/// <br>
+/// <!-- BEGIN DIAGRAM -->
+/// <div style="margin:0.5em; white-space:nowrap; line-height:20px">
+/// <div><span style="font-size:20px; font-family:'Lucida Console',Monaco,monospace"><span style="color:green; margin:0 0 0 10px">┌───────────── </span></span><span style="color:green">a 2-character ISO country code (A-Z)</span></div>
+/// <div><span style="font-size:20px; font-family:'Lucida Console',Monaco,monospace"><span style="color:green; margin:0 -10px 0 10px">│</span>&nbsp;<span style="color:blue; margin:0 0 0 10px">┌─────────── </span></span><span style="color:blue">a 9-character security code (A-Z, 0-9)</span></div>
+/// <div><span style="font-size:20px; font-family:'Lucida Console',Monaco,monospace"><span style="color:green; margin:0 -10px 0 10px">│</span>&nbsp;<span style="color:blue; margin:0 -5px 0 10px">│</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:red; margin:0 0 0 5px">┌── </span></span><span style="color:red">a checksum digit (0-9)</span></div>
+/// <div style="font-size:20px; font-family:'Lucida Console',Monaco,monospace"><span style="background: #d9ebd9; color:green; border:solid 1px green; margin:0 1px">AU</span><span style="background:#e0e0ff; color:blue; border:solid 1px blue; margin:0 1px">0000XVGZA</span><span style="background:#feefef; color:red; border:solid 1px red; margin:0 1px">3</span></div>
+/// </div>
+/// <!-- END DIAGRAM -->
+/// For this task, you may assume that any 2-character alphabetic sequence is a valid country code.
+/// <br>
+/// The checksum can be validated as follows:
+/// # <span class="rosetta__text--bold">Replace letters with digits</span>, by converting each character from base 36 to base 10, e.g. <code>AU0000XVGZA3</code> &rarr;<code>1030000033311635103</code>.
+/// # <span class="rosetta__text--bold">Perform the Luhn test on this base-10 number.</span><br>There is a separate task for this test: <span class="rosetta__text--italic">[[Luhn test of credit card numbers]]</span>.<br>You don't have to replicate the implementation of this test here &ndash; you can just call the existing function from that task. (Add a comment stating if you did this.)
+/// <br>
+/// <br>
+/// <br>
+/// {| class="wikitable"
+/// ! ISIN
+/// ! Validity
+/// ! Comment
+/// |-
+/// | <tt>US0378331005</tt>  || valid || 
+/// |-
+/// | <tt>US0373831005</tt>  || not valid || The transposition typo is caught by the checksum constraint.
+/// |-
+/// | <tt>U50378331005</tt>  || not valid || The substitution typo is caught by the format constraint.
+/// |-
+/// | <tt>US03378331005</tt> || not valid || The duplication typo is caught by the format constraint.
+/// |-
+/// | <tt>AU0000XVGZA3</tt>  || valid || 
+/// |-
+/// | <tt>AU0000VXGZA3</tt>  || valid || Unfortunately, not <span class="rosetta__text--italic">all</span> transposition typos are caught by the checksum constraint.
+/// |-
+/// | <tt>FR0000988040</tt>  || valid || 
+/// |}
+/// <br>
+/// (The comments are just informational. Your function should simply return a Boolean result. See [[#Perl_6]] for a reference solution.)
+/// <br>
+/// <br>
+/// <br>
+/// Useful resources:
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">[http://www.isincodes.net/validate-isin.php Interactive online ISIN validator]</li>
+/// <li class="rosetta__list-item">Wikipedia article: <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/International_Securities_Identification_Number" title="wp: International_Securities_Identification_Number">International Securities Identification Number</a></li>
+/// <br>
+/// </ul><br>
+/// <br>
+/// Related tasks:
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">[[Luhn test of credit card numbers]]</li>
+/// <br>
+/// </ul><br>
+/// <hr>
+/// <br>
+/// <br>
 
-<!-- BEGIN DIAGRAM -->
-<div style="margin:0.5em; white-space:nowrap; line-height:20px">
-<div><span style="font-size:20px; font-family:'Lucida Console',Monaco,monospace"><span style="color:green; margin:0 0 0 10px">┌───────────── </span></span><span style="color:green">a 2-character ISO country code (A-Z)</span></div>
-<div><span style="font-size:20px; font-family:'Lucida Console',Monaco,monospace"><span style="color:green; margin:0 -10px 0 10px">│</span>&nbsp;<span style="color:blue; margin:0 0 0 10px">┌─────────── </span></span><span style="color:blue">a 9-character security code (A-Z, 0-9)</span></div>
-<div><span style="font-size:20px; font-family:'Lucida Console',Monaco,monospace"><span style="color:green; margin:0 -10px 0 10px">│</span>&nbsp;<span style="color:blue; margin:0 -5px 0 10px">│</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:red; margin:0 0 0 5px">┌── </span></span><span style="color:red">a checksum digit (0-9)</span></div>
-<div style="font-size:20px; font-family:'Lucida Console',Monaco,monospace"><span style="background: #d9ebd9; color:green; border:solid 1px green; margin:0 1px">AU</span><span style="background:#e0e0ff; color:blue; border:solid 1px blue; margin:0 1px">0000XVGZA</span><span style="background:#feefef; color:red; border:solid 1px red; margin:0 1px">3</span></div>
-</div>
-<!-- END DIAGRAM -->
-For this task, you may assume that any 2-character alphabetic sequence is a valid country code.
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
-The checksum can be validated as follows:
-# <span class="rosetta__text--bold">Replace letters with digits</span>, by converting each character from base 36 to base 10, e.g. <code>AU0000XVGZA3</code> &rarr;<code>1030000033311635103</code>.
-# <span class="rosetta__text--bold">Perform the Luhn test on this base-10 number.</span><br>There is a separate task for this test: <span class="rosetta__text--italic">[[Luhn test of credit card numbers]]</span>.<br>You don't have to replicate the implementation of this test here &ndash; you can just call the existing function from that task. (Add a comment stating if you did this.)
-
-{{task heading|Test-cases}}
-
-{| class="wikitable"
-! ISIN
-! Validity
-! Comment
-|-
-| <tt>US0378331005</tt>  || valid || 
-|-
-| <tt>US0373831005</tt>  || not valid || The transposition typo is caught by the checksum constraint.
-|-
-| <tt>U50378331005</tt>  || not valid || The substitution typo is caught by the format constraint.
-|-
-| <tt>US03378331005</tt> || not valid || The duplication typo is caught by the format constraint.
-|-
-| <tt>AU0000XVGZA3</tt>  || valid || 
-|-
-| <tt>AU0000VXGZA3</tt>  || valid || Unfortunately, not <span class="rosetta__text--italic">all</span> transposition typos are caught by the checksum constraint.
-|-
-| <tt>FR0000988040</tt>  || valid || 
-|}
-
-(The comments are just informational. Your function should simply return a Boolean result. See [[#Perl_6]] for a reference solution.)
-
-{{task heading|See also}}
-
-Useful resources:
-* [http://www.isincodes.net/validate-isin.php Interactive online ISIN validator]
-* Wikipedia article: <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/International_Securities_Identification_Number" title="wp: International_Securities_Identification_Number">International Securities Identification Number</a>
-<br>
-
-Related tasks:
-* [[Luhn test of credit card numbers]]
-<br>
-<hr>
+/// solutions:
 
 
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,21 +1,57 @@
-Bitmap/Flood fill
 
-{{task|Raster graphics operations}}<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category:Graphics algorithms]]
-Implement a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/flood fill" title="wp: flood fill">flood fill</a>. 
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-A flood fill is a way of filling an area using <span class="rosetta__text--italic">color banks</span> to define the contained area or a <span class="rosetta__text--italic">target color</span> which "determines" the area (the <span class="rosetta__text--italic">valley</span> that can be flooded; Wikipedia uses the term <span class="rosetta__text--italic">target color</span>). It works almost like a water flooding from a point towards the banks (or: inside the valley): if there's a hole in the banks, the flood is not contained and all the image (or all the "connected valleys") get filled.
+const assert = require('chai').assert;
 
-To accomplish the task, you need to implement just one of the possible algorithms (examples are on <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/flood fill" title="wp: flood fill">Wikipedia</a>). Variations on the <span class="rosetta__text--italic">theme</span> are allowed (e.g. adding a tolerance parameter or argument for color-matching of the <span class="rosetta__text--italic">banks</span> or <span class="rosetta__text--italic">target</span> color).
+/// title: Bitmap/Flood fill
+/// type: rosetta-code
 
-[[Image:Unfilledcirc.png" title="Category:Graphics algorithms]]
-Implement a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/flood fill" title="wp: flood fill">flood fill</a>. 
+/// categories:
+/// ?
 
-A flood fill is a way of filling an area using <span class="rosetta__text--italic">color banks</span> to define the contained area or a <span class="rosetta__text--italic">target color</span> which "determines" the area (the <span class="rosetta__text--italic">valley</span> that can be flooded; Wikipedia uses the term <span class="rosetta__text--italic">target color</span>). It works almost like a water flooding from a point towards the banks (or: inside the valley): if there's a hole in the banks, the flood is not contained and all the image (or all the "connected valleys") get filled.
+/// difficulty: ?
 
-To accomplish the task, you need to implement just one of the possible algorithms (examples are on <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/flood fill" title="wp: flood fill">Wikipedia</a>). Variations on the <span class="rosetta__text--italic">theme</span> are allowed (e.g. adding a tolerance parameter or argument for color-matching of the <span class="rosetta__text--italic">banks</span> or <span class="rosetta__text--italic">target</span> color).
+/// benchmark:
+replaceWithActualFunctionHere;
 
-[[Image:Unfilledcirc.png">128px|thumb|right</a>
-<span class="rosetta__text--bold">Testing</span>: the basic algorithm is not suitable for <span class="rosetta__text--italic">truecolor</span> images; a possible test image is the one shown on the right box; you can try to fill the white area, or the black inner circle.
+/// description:
+/// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category:Graphics algorithms]]
+/// Implement a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/flood fill" title="wp: flood fill">flood fill</a>. 
+/// <br>
+/// A flood fill is a way of filling an area using <span class="rosetta__text--italic">color banks</span> to define the contained area or a <span class="rosetta__text--italic">target color</span> which "determines" the area (the <span class="rosetta__text--italic">valley</span> that can be flooded; Wikipedia uses the term <span class="rosetta__text--italic">target color</span>). It works almost like a water flooding from a point towards the banks (or: inside the valley): if there's a hole in the banks, the flood is not contained and all the image (or all the "connected valleys") get filled.
+/// <br>
+/// To accomplish the task, you need to implement just one of the possible algorithms (examples are on <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/flood fill" title="wp: flood fill">Wikipedia</a>). Variations on the <span class="rosetta__text--italic">theme</span> are allowed (e.g. adding a tolerance parameter or argument for color-matching of the <span class="rosetta__text--italic">banks</span> or <span class="rosetta__text--italic">target</span> color).
+/// <br>
+/// [[Image:Unfilledcirc.png" title="Category:Graphics algorithms]]
+/// Implement a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/flood fill" title="wp: flood fill">flood fill</a>. 
+/// <br>
+/// A flood fill is a way of filling an area using <span class="rosetta__text--italic">color banks</span> to define the contained area or a <span class="rosetta__text--italic">target color</span> which "determines" the area (the <span class="rosetta__text--italic">valley</span> that can be flooded; Wikipedia uses the term <span class="rosetta__text--italic">target color</span>). It works almost like a water flooding from a point towards the banks (or: inside the valley): if there's a hole in the banks, the flood is not contained and all the image (or all the "connected valleys") get filled.
+/// <br>
+/// To accomplish the task, you need to implement just one of the possible algorithms (examples are on <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/flood fill" title="wp: flood fill">Wikipedia</a>). Variations on the <span class="rosetta__text--italic">theme</span> are allowed (e.g. adding a tolerance parameter or argument for color-matching of the <span class="rosetta__text--italic">banks</span> or <span class="rosetta__text--italic">target</span> color).
+/// <br>
+/// [[Image:Unfilledcirc.png">128px|thumb|right</a>
+/// <span class="rosetta__text--bold">Testing</span>: the basic algorithm is not suitable for <span class="rosetta__text--italic">truecolor</span> images; a possible test image is the one shown on the right box; you can try to fill the white area, or the black inner circle.
+/// <br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
+/// rawSolutions:
+null
 
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,26 +1,72 @@
-Search a list
 
-{{task|Text processing}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-{{task heading}}
+const assert = require('chai').assert;
 
-Find the index of a string (needle) in an indexable, ordered collection of strings (haystack). 
+/// title: Search a list
+/// type: rosetta-code
 
-Raise an exception if the needle is missing.
+/// categories:
+/// ?
 
-If there is more than one occurrence then return the smallest index to the needle.
+/// difficulty: ?
 
-{{task heading|Extra credit}}
+/// benchmark:
+replaceWithActualFunctionHere;
 
-Return the largest index to a needle that has multiple occurrences in the haystack.
+/// description:
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// Find the index of a string (needle) in an indexable, ordered collection of strings (haystack). 
+/// <br>
+/// Raise an exception if the needle is missing.
+/// <br>
+/// If there is more than one occurrence then return the smallest index to the needle.
+/// <br>
+/// <br>
+/// <br>
+/// Return the largest index to a needle that has multiple occurrences in the haystack.
+/// <br>
+/// <br>
+/// <br>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">[[Search a list of records]]</li>
+/// <br>
+/// </ul>
+/// <hr>
+/// <br>
+/// <br>
 
-{{task heading|See also}}
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
-* [[Search a list of records]]
+/// solutions:
+var haystack = ['Zig', 'Zag', 'Wally', 'Ronald', 'Bush', 'Krusty', 'Charlie', 'Bush', 'Bozo']
+var needles = ['Bush', 'Washington']
 
-<hr>
+for (var i in needles) {
+    var found = false;
+    for (var j in haystack) {
+        if (haystack[j] == needles[i]) {
+            found = true;
+            break;
+        }
+    }
+    if (found)
+        print(needles[i] + " appears at index " + j + " in the haystack");
+    else
+        throw needles[i] + " does not appear in the haystack"
+}
 
-
+/// rawSolutions:
 =={{header|JavaScript}}==
 <lang javascript>var haystack = ['Zig', 'Zag', 'Wally', 'Ronald', 'Bush', 'Krusty', 'Charlie', 'Bush', 'Bozo']
 var needles = ['Bush', 'Washington']
@@ -135,3 +181,10 @@ Output:
   ]
 }</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

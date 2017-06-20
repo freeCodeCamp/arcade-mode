@@ -1,43 +1,161 @@
-Magic squares of odd order
 
-{{task}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-A magic square is an &nbsp; <big><span class="rosetta__text--bold">NxN</span></big> &nbsp; square matrix whose numbers (usually integers) consist of consecutive numbers arranged so that the sum of each row and column, &nbsp; <span class="rosetta__text--italic">and</span> &nbsp; both long (main) diagonals are equal to the same sum (which is called the &nbsp; <span class="rosetta__text--italic">magic number</span> &nbsp; or &nbsp; <span class="rosetta__text--italic">magic constant</span>). 
+const assert = require('chai').assert;
 
-The numbers are usually (but not always) the first &nbsp; <span class="rosetta__text--bold">N</span><sup>2</sup> &nbsp; positive integers.
+/// title: Magic squares of odd order
+/// type: rosetta-code
 
-A magic square whose rows and columns add up to a magic number but whose main diagonals do not, is known as a <span class="rosetta__text--italic">semimagic square</span>.
+/// categories:
+/// ?
 
-{| class="wikitable" style="float:right;border: 4px solid blue; background:lightgreen; color:black; margin-left:auto;margin-right:auto;text-align:center;width:15em;height:15em;table-layout:fixed;font-size:150%"
-|-
-| <big><big><span class="rosetta__text--bold">8</span></big></big> || <big><big><span class="rosetta__text--bold">1</span></big></big> || <big><big><span class="rosetta__text--bold">6</span></big></big>
-|-
-| <big><big><span class="rosetta__text--bold">3</span></big></big> || <big><big><span class="rosetta__text--bold">5</span></big></big> || <big><big><span class="rosetta__text--bold">7</span></big></big>
-|-
-| <big><big><span class="rosetta__text--bold">4</span></big></big> || <big><big><span class="rosetta__text--bold">9</span></big></big> || <big><big><span class="rosetta__text--bold">2</span></big></big>
-|}
+/// difficulty: ?
 
+/// benchmark:
+replaceWithActualFunctionHere;
 
-;Task
+/// description:
+/// <br>
+/// <br>
+/// A magic square is an &nbsp; <big><span class="rosetta__text--bold">NxN</span></big> &nbsp; square matrix whose numbers (usually integers) consist of consecutive numbers arranged so that the sum of each row and column, &nbsp; <span class="rosetta__text--italic">and</span> &nbsp; both long (main) diagonals are equal to the same sum (which is called the &nbsp; <span class="rosetta__text--italic">magic number</span> &nbsp; or &nbsp; <span class="rosetta__text--italic">magic constant</span>). 
+/// <br>
+/// The numbers are usually (but not always) the first &nbsp; <span class="rosetta__text--bold">N</span><sup>2</sup> &nbsp; positive integers.
+/// <br>
+/// A magic square whose rows and columns add up to a magic number but whose main diagonals do not, is known as a <span class="rosetta__text--italic">semimagic square</span>.
+/// <br>
+/// {| class="wikitable" style="float:right;border: 4px solid blue; background:lightgreen; color:black; margin-left:auto;margin-right:auto;text-align:center;width:15em;height:15em;table-layout:fixed;font-size:150%"
+/// |-
+/// | <big><big><span class="rosetta__text--bold">8</span></big></big> || <big><big><span class="rosetta__text--bold">1</span></big></big> || <big><big><span class="rosetta__text--bold">6</span></big></big>
+/// |-
+/// | <big><big><span class="rosetta__text--bold">3</span></big></big> || <big><big><span class="rosetta__text--bold">5</span></big></big> || <big><big><span class="rosetta__text--bold">7</span></big></big>
+/// |-
+/// | <big><big><span class="rosetta__text--bold">4</span></big></big> || <big><big><span class="rosetta__text--bold">9</span></big></big> || <big><big><span class="rosetta__text--bold">2</span></big></big>
+/// |}
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task</dt></dl>
+/// <br>
+/// For any odd &nbsp; <span class="rosetta__text--bold">N</span>, &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Magic square#Method_for_constructing_a_magic_square_of_odd_order" title="wp: Magic square#Method_for_constructing_a_magic_square_of_odd_order">generate a magic square</a> with the integers &nbsp; <span class="rosetta__text--bold"> 1</span> ──► <span class="rosetta__text--bold">N</span>, &nbsp; and show the results here. 
+/// <br>
+/// Optionally, show the <span class="rosetta__text--italic">magic number</span>.  
+/// <br>
+/// You should demonstrate the generator by showing at least a magic square for &nbsp; <span class="rosetta__text--bold">N</span> = <span class="rosetta__text--bold">5</span>.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title"> Related tasks</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">[[Magic squares of singly even order]]</li>
+/// <li class="rosetta__list-item">[[Magic squares of doubly even order]]<br><br></li>
+/// <br>
+/// </ul>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title"> See also:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">MathWorld&trade; entry: [http://mathworld.wolfram.com/MagicSquare.html Magic_square] </li>
+/// <li class="rosetta__list-item">[http://www.1728.org/magicsq1.htm Odd Magic Squares (1728.org)]<br><br></li>
+/// <br>
+/// </ul>
+/// <br>
+/// <br>
 
-For any odd &nbsp; <span class="rosetta__text--bold">N</span>, &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Magic square#Method_for_constructing_a_magic_square_of_odd_order" title="wp: Magic square#Method_for_constructing_a_magic_square_of_odd_order">generate a magic square</a> with the integers &nbsp; <span class="rosetta__text--bold"> 1</span> ──► <span class="rosetta__text--bold">N</span>, &nbsp; and show the results here. 
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
-Optionally, show the <span class="rosetta__text--italic">magic number</span>.  
+/// solutions:
+(function () {
 
-You should demonstrate the generator by showing at least a magic square for &nbsp; <span class="rosetta__text--bold">N</span> = <span class="rosetta__text--bold">5</span>.
+  // n -> [[n]]
+  function magic(n) {
+    return n % 2 ? rotation(
+      transposed(
+        rotation(
+          table(n)
+        )
+      )
+    ) : null;
+  }
 
+  // [[a]] -> [[a]]
+  function rotation(lst) {
+    return lst.map(function (row, i) {
+      return rotated(
+        row, ((row.length + 1) / 2) - (i + 1)
+      );
+    })
+  }
 
-; Related tasks
-* [[Magic squares of singly even order]]
-* [[Magic squares of doubly even order]]<br><br>
+  // [[a]] -> [[a]]
+  function transposed(lst) {
+    return lst[0].map(function (col, i) {
+      return lst.map(function (row) {
+        return row[i];
+      })
+    });
+  }
 
+  // [a] -> n -> [a]
+  function rotated(lst, n) {
+    var lng = lst.length,
+      m = (typeof n === 'undefined') ? 1 : (
+        n < 0 ? lng + n : (n > lng ? n % lng : n)
+      );
 
-; See also:
-* MathWorld&trade; entry: [http://mathworld.wolfram.com/MagicSquare.html Magic_square] 
-* [http://www.1728.org/magicsq1.htm Odd Magic Squares (1728.org)]<br><br>
+    return m ? (
+      lst.slice(-m).concat(lst.slice(0, lng - m))
+    ) : lst;
+  }
 
+  // n -> [[n]]
+  function table(n) {
+    var rngTop = rng(1, n);
 
+    return rng(0, n - 1).map(function (row) {
+      return rngTop.map(function (x) {
+        return row * n + x;
+      });
+    });
+  }
 
+  // [m..n]
+  function rng(m, n) {
+    return Array.apply(null, Array(n - m + 1)).map(
+      function (x, i) {
+        return m + i;
+      });
+  }
+
+  /******************** TEST WITH 3, 5, 11 ***************************/
+
+  // Results as right-aligned wiki tables
+  function wikiTable(lstRows, blnHeaderRow, strStyle) {
+    var css = strStyle ? 'style="' + strStyle + '"' : '';
+
+    return '{| class="wikitable" ' + css + lstRows.map(
+      function (lstRow, iRow) {
+        var strDelim = ((blnHeaderRow && !iRow) ? '!' : '|'),
+          strDbl = strDelim + strDelim;
+
+        return '\n|-\n' + strDelim + ' ' + lstRow.join(' ' + strDbl + ' ');
+      }).join('') + '\n|}';
+  }
+
+  return [3, 5, 11].map(
+    function (n) {
+      var w = 2.5 * n;
+      return 'magic(' + n + ')\n\n' + wikiTable(
+        magic(n), false, 'text-align:center;width:' + w + 'em;height:' + w + 'em;table-layout:fixed;'
+      )
+    }
+  ).join('\n\n')
+})();
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 
 ===ES5===
@@ -472,3 +590,10 @@ Encoding the traditional [[wp:Siamese_method|'Siamese' method]]
 21  23  32  41  43   3  12
 22  31  40  49   2  11  20</pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

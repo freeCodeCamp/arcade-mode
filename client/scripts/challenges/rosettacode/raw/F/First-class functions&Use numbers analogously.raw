@@ -1,26 +1,62 @@
-First-class functions/Use numbers analogously
 
-{{task}}
-In [[First-class functions]], a language is showing how its manipulation of functions is similar to its manipulation of other types.
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-This tasks aim is to compare and contrast a language's implementation of first class functions, with its normal handling of numbers.
+const assert = require('chai').assert;
+
+/// title: First-class functions/Use numbers analogously
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// In [[First-class functions]], a language is showing how its manipulation of functions is similar to its manipulation of other types.
+/// <br>
+/// This tasks aim is to compare and contrast a language's implementation of first class functions, with its normal handling of numbers.
+/// <br>
+/// <br>
+/// Write a program to create an ordered collection of a mixture of literally typed and expressions producing a real number, together with another ordered collection of their multiplicative inverses. Try and use the following pseudo-code to generate the numbers for the ordered collections:
+///    x  = 2.0
+///    xi = 0.5
+///    y  = 4.0
+///    yi = 0.25
+///    z  = x + y
+///    zi = 1.0 / ( x + y )
+/// <br>
+/// Create a function <span class="rosetta__text--italic">multiplier</span>, that given two numbers as arguments returns a function that when called with one argument, returns the result of multiplying the two arguments to the call to multiplier that created it and the argument in the call:
+///   new_function = multiplier(n1,n2)
+///   # where new_function(m) returns the result of n1 * n2 * m
+/// <br>
+/// Applying the multiplier of a number and its inverse from the two ordered collections of numbers in pairs, show that the result in each case is one.<br>
+/// <span class="rosetta__text--bold">Compare and contrast the resultant program with the corresponding entry in [[First-class functions]].</span> They should be close.
+/// <br>
+/// <small>To paraphrase the task description: Do what was done before, but with numbers rather than functions</small>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
-Write a program to create an ordered collection of a mixture of literally typed and expressions producing a real number, together with another ordered collection of their multiplicative inverses. Try and use the following pseudo-code to generate the numbers for the ordered collections:
-   x  = 2.0
-   xi = 0.5
-   y  = 4.0
-   yi = 0.25
-   z  = x + y
-   zi = 1.0 / ( x + y )
+/// rawSolutions:
+null
 
-Create a function <span class="rosetta__text--italic">multiplier</span>, that given two numbers as arguments returns a function that when called with one argument, returns the result of multiplying the two arguments to the call to multiplier that created it and the argument in the call:
-  new_function = multiplier(n1,n2)
-  # where new_function(m) returns the result of n1 * n2 * m
+/// tail:
+const replaceThis = 3;
 
-Applying the multiplier of a number and its inverse from the two ordered collections of numbers in pairs, show that the result in each case is one.<br>
-<span class="rosetta__text--bold">Compare and contrast the resultant program with the corresponding entry in [[First-class functions]].</span> They should be close.
-
-<small>To paraphrase the task description: Do what was done before, but with numbers rather than functions</small>
-
-
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,6 +1,42 @@
-Xiaolin Wu's line algorithm
 
-{{task|Raster graphics operations}}[[Category:Graphics algorithms]]
-Implement the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Xiaolin Wu's line algorithm" title="wp: Xiaolin Wu's line algorithm">Xiaolin Wu's line algorithm]] as described in Wikipedia. This algorithm draw antialiased lines. See [[Bresenham's line algorithm</a> for <span class="rosetta__text--italic">aliased</span> lines.
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Xiaolin Wu's line algorithm
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// [[Category:Graphics algorithms]]
+/// Implement the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Xiaolin Wu's line algorithm" title="wp: Xiaolin Wu's line algorithm">Xiaolin Wu's line algorithm]] as described in Wikipedia. This algorithm draw antialiased lines. See [[Bresenham's line algorithm</a> for <span class="rosetta__text--italic">aliased</span> lines.
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

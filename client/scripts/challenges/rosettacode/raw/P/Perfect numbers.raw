@@ -1,36 +1,89 @@
-Perfect numbers
 
-{{task|Discrete math}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-Write a function which says whether a number is perfect.
+const assert = require('chai').assert;
 
-<br>
-<a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Perfect_numbers" title="wp: Perfect_numbers">A perfect number</a> is a positive integer that is the sum of its proper positive divisors excluding the number itself. 
+/// title: Perfect numbers
+/// type: rosetta-code
 
-Equivalently, a perfect number is a number that is half the sum of all of its positive divisors (including itself).
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// Write a function which says whether a number is perfect.
+/// <br>
+/// <br>
+/// <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Perfect_numbers" title="wp: Perfect_numbers">A perfect number</a> is a positive integer that is the sum of its proper positive divisors excluding the number itself. 
+/// <br>
+/// Equivalently, a perfect number is a number that is half the sum of all of its positive divisors (including itself).
+/// <br>
+/// <br>
+/// Note: &nbsp; The faster &nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Lucas-Lehmer test]] &nbsp; is used to find primes of the form &nbsp; <big> 2<sup><span class="rosetta__text--italic">n</span></sup>-1</big>, &nbsp; all <span class="rosetta__text--italic">known</span> perfect numbers can be derived from these primes 
+/// using the formula &nbsp; <big> (2<sup><span class="rosetta__text--italic">n</span></sup> - 1) × 2<sup><span class="rosetta__text--italic">n</span> - 1</sup></big>. 
+///  
+/// It is not known if there are any odd perfect numbers (any that exist are larger than <big>10<sup>2000</sup></big>).
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">See also:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">[[Rational Arithmetic]]</li>
+/// <li class="rosetta__list-item">[[oeis:A000396" title="Lucas-Lehmer test]] &nbsp; is used to find primes of the form &nbsp; <big> 2<sup><span class="rosetta__text--italic">n</span></sup>-1</big>, &nbsp; all <span class="rosetta__text--italic">known</span> perfect numbers can be derived from these primes </li>
+/// <br>
+/// </ul>using the formula &nbsp; <big> (2<sup><span class="rosetta__text--italic">n</span></sup> - 1) × 2<sup><span class="rosetta__text--italic">n</span> - 1</sup></big>. 
+///  
+/// It is not known if there are any odd perfect numbers (any that exist are larger than <big>10<sup>2000</sup></big>).
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">See also:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">[[Rational Arithmetic]]</li>
+/// <li class="rosetta__list-item">[[oeis:A000396">Perfect numbers on OEIS</a></li>
+/// <li class="rosetta__list-item">[http://www.oddperfect.org/ Odd Perfect] showing the current status of bounds on odd perfect numbers.</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+function is_perfect(n)
+{
+ var sum = 1, i, sqrt=Math.floor(Math.sqrt(n));
+ for (i = sqrt-1; i>1; i--)
+ {
+  if (n % i == 0) {
+   sum += i + n/i;
+  }
+ }
+ if(n % sqrt == 0)
+  sum += sqrt + (sqrt*sqrt == n ? 0 : n/sqrt);
+ return sum === n;
+}
 
 
-Note: &nbsp; The faster &nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Lucas-Lehmer test]] &nbsp; is used to find primes of the form &nbsp; <big> 2<sup><span class="rosetta__text--italic">n</span></sup>-1</big>, &nbsp; all <span class="rosetta__text--italic">known</span> perfect numbers can be derived from these primes 
-using the formula &nbsp; <big> (2<sup><span class="rosetta__text--italic">n</span></sup> - 1) × 2<sup><span class="rosetta__text--italic">n</span> - 1</sup></big>. 
- 
-It is not known if there are any odd perfect numbers (any that exist are larger than <big>10<sup>2000</sup></big>).
+var i;
+for (i = 1; i < 10000; i++)
+{
+ if (is_perfect(i))
+  print(i);
+}
 
-
-;See also:
-* [[Rational Arithmetic]]
-* [[oeis:A000396" title="Lucas-Lehmer test]] &nbsp; is used to find primes of the form &nbsp; <big> 2<sup><span class="rosetta__text--italic">n</span></sup>-1</big>, &nbsp; all <span class="rosetta__text--italic">known</span> perfect numbers can be derived from these primes 
-using the formula &nbsp; <big> (2<sup><span class="rosetta__text--italic">n</span></sup> - 1) × 2<sup><span class="rosetta__text--italic">n</span> - 1</sup></big>. 
- 
-It is not known if there are any odd perfect numbers (any that exist are larger than <big>10<sup>2000</sup></big>).
-
-
-;See also:
-* [[Rational Arithmetic]]
-* [[oeis:A000396">Perfect numbers on OEIS</a>
-* [http://www.oddperfect.org/ Odd Perfect] showing the current status of bounds on odd perfect numbers.
-<br><br>
-
-
+/// rawSolutions:
 =={{header|JavaScript}}==
 
 ===Imperative===
@@ -198,3 +251,10 @@ Output:
 {{Out}}
 <lang JavaScript>[6, 28, 496, 8128]</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

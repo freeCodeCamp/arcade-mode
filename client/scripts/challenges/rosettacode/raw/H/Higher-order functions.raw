@@ -1,16 +1,56 @@
-Higher-order functions
 
-{{task|Programming language concepts}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Pass a function <span class="rosetta__text--italic">as an argument</span> to another function.
+const assert = require('chai').assert;
 
+/// title: Higher-order functions
+/// type: rosetta-code
 
-;Related task:
-* &nbsp; [[First-class functions]]
-<br><br>
+/// categories:
+/// ?
 
+/// difficulty: ?
 
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Pass a function <span class="rosetta__text--italic">as an argument</span> to another function.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related task:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">&nbsp; [[First-class functions]]</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+function first (func) {
+  return func();
+}
+
+function second () {
+  return "second";
+}
+
+var result = first(second);
+result = first(function () { return "third"; });
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 
 <lang javascript>function first (func) {
@@ -56,3 +96,10 @@ An example with anonymous functions and uses in the core library
 >>> array.sort(function (a, b) { return a < b });
 [97, 34, 24, 18, 13, 5, 4, 2]</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

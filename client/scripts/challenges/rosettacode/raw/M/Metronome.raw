@@ -1,19 +1,55 @@
-Metronome
 
-{{task}}<!--{{task|Temporal media}}-->
-<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:Metronome.jpg" title="File:Metronome.jpg">420px||right</a>
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-The task is to implement a &nbsp; [https://en.wikipedia.org/wiki/Metronomemetronome metronome]. 
+const assert = require('chai').assert;
 
-The metronome should be capable of producing high and low audio beats, accompanied by a visual beat indicator, and the beat pattern and tempo should be configurable.
+/// title: Metronome
+/// type: rosetta-code
 
-For the purpose of this task, it is acceptable to play sound files for production of the beat notes, and an external player may be used. 
+/// categories:
+/// ?
 
-However, the playing of the sounds should not interfere with the timing of the metronome.
+/// difficulty: ?
 
-The visual indicator can simply be a blinking red or green area of the screen (depending on whether a high or low beat is being produced), and the metronome can be implemented using a terminal display, or optionally, a graphical display, depending on the language capabilities. 
+/// benchmark:
+replaceWithActualFunctionHere;
 
-If the language has no facility to output sound, then it is permissible for this to implemented using just the visual indicator.
-<br><br>
+/// description:
+/// <!---->
+/// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:Metronome.jpg" title="File:Metronome.jpg">420px||right</a>
+/// <br>
+/// The task is to implement a &nbsp; [https://en.wikipedia.org/wiki/Metronomemetronome metronome]. 
+/// <br>
+/// The metronome should be capable of producing high and low audio beats, accompanied by a visual beat indicator, and the beat pattern and tempo should be configurable.
+/// <br>
+/// For the purpose of this task, it is acceptable to play sound files for production of the beat notes, and an external player may be used. 
+/// <br>
+/// However, the playing of the sounds should not interfere with the timing of the metronome.
+/// <br>
+/// The visual indicator can simply be a blinking red or green area of the screen (depending on whether a high or low beat is being produced), and the metronome can be implemented using a terminal display, or optionally, a graphical display, depending on the language capabilities. 
+/// <br>
+/// If the language has no facility to output sound, then it is permissible for this to implemented using just the visual indicator.
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

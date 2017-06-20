@@ -1,15 +1,50 @@
-HTTP
 
-{{task|Programming environment operations}}
-[[Category:Networking and Web Interaction]]
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Access and print a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Uniform Resource Locator" title="wp: Uniform Resource Locator">URL's</a> content (the located resource) to the console.
+const assert = require('chai').assert;
 
-There is a separate task for [[HTTPS Request]]s.
-<br><br>
+/// title: HTTP
+/// type: rosetta-code
 
+/// categories:
+/// ?
 
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// [[Category:Networking and Web Interaction]]
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Access and print a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Uniform Resource Locator" title="wp: Uniform Resource Locator">URL's</a> content (the located resource) to the console.
+/// <br>
+/// There is a separate task for [[HTTPS Request]]s.
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+var req = new XMLHttpRequest();
+req.onload = function() {
+  console.log(this.responseText);
+};
+
+req.open('get', 'http://rosettacode.org', true);
+req.send()
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 <lang JavaScript>var req = new XMLHttpRequest();
 req.onload = function() {
@@ -25,3 +60,10 @@ Using jQuery:
   console.log(data);
 };</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

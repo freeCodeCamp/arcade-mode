@@ -1,37 +1,94 @@
-Sailors, coconuts and a monkey problem
 
-{{task}} [[Category:Puzzles]]
-Five sailors are shipwrecked on an island and collect a large pile of coconuts during the day. 
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-That night the first sailor wakes up and decides to take his first share early  so tries to divide the pile of coconuts equally into five piles but finds that there is one coconut left over, so he tosses it to a monkey and then hides "his" one of the five equally sized piles of coconuts and pushes the other four piles together to form a single visible pile of coconuts again and goes to bed.
+const assert = require('chai').assert;
 
-To cut a long story short, each of the sailors in turn gets up once during the night and performs the same actions of dividing the coconut pile into five, finding that one coconut is left over and giving that single remainder coconut to the monkey.
+/// title: Sailors, coconuts and a monkey problem
+/// type: rosetta-code
 
-In the morning (after the surreptitious and separate action of each of the five sailors during the night), the remaining coconuts are divided into five equal piles for each of the sailors, whereupon it is found that the pile of coconuts divides equally amongst the sailors with no remainder. (Nothing for the monkey in the morning.)
+/// categories:
+/// ?
 
+/// difficulty: ?
 
-;The task:
-# Calculate the minimum possible size of the initial pile of coconuts collected during the first day.
-# Use a method that assumes an answer is possible, and then applies the constraints of the tale to see if it is correct. (I.e. no applying some formula that generates the correct answer without integer divisions and remainders and tests on remainders; but constraint solvers <span class="rosetta__text--italic">are</span> allowed.)
-# Calculate the size of the initial pile of coconuts if six sailors were marooned and went through a similar process (but split into six piles instead of five of course).
-# Show your answers here.
+/// benchmark:
+replaceWithActualFunctionHere;
 
+/// description:
+///  [[Category:Puzzles]]
+/// Five sailors are shipwrecked on an island and collect a large pile of coconuts during the day. 
+/// <br>
+/// That night the first sailor wakes up and decides to take his first share early  so tries to divide the pile of coconuts equally into five piles but finds that there is one coconut left over, so he tosses it to a monkey and then hides "his" one of the five equally sized piles of coconuts and pushes the other four piles together to form a single visible pile of coconuts again and goes to bed.
+/// <br>
+/// To cut a long story short, each of the sailors in turn gets up once during the night and performs the same actions of dividing the coconut pile into five, finding that one coconut is left over and giving that single remainder coconut to the monkey.
+/// <br>
+/// In the morning (after the surreptitious and separate action of each of the five sailors during the night), the remaining coconuts are divided into five equal piles for each of the sailors, whereupon it is found that the pile of coconuts divides equally amongst the sailors with no remainder. (Nothing for the monkey in the morning.)
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">The task:</dt></dl>
+/// # Calculate the minimum possible size of the initial pile of coconuts collected during the first day.
+/// # Use a method that assumes an answer is possible, and then applies the constraints of the tale to see if it is correct. (I.e. no applying some formula that generates the correct answer without integer divisions and remainders and tests on remainders; but constraint solvers <span class="rosetta__text--italic">are</span> allowed.)
+/// # Calculate the size of the initial pile of coconuts if six sailors were marooned and went through a similar process (but split into six piles instead of five of course).
+/// # Show your answers here.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Extra credit (optional):</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">Give some indication of the number of coconuts each sailor hides during the night.</li>
+/// <br>
+/// </ul>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Note:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">Of course the tale is told in a world where the collection of any amount of coconuts in a day and multiple divisions of the pile, etc can occur in time fitting the story line, so as not to affect the mathematics.</li>
+/// <li class="rosetta__list-item">The tale is also told in a version where the monkey also gets a coconut in the morning. This is <span class="rosetta__text--italic">not</span> that tale!</li>
+/// <br>
+/// </ul>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">C.f:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">[https://www.youtube.com/watch?v=U9qU20VmvaU Monkeys and Coconuts - Numberphile] (Video) Analytical solution.</li>
+/// <li class="rosetta__list-item">[http://oeis.org/A002021 A002021 Pile of coconuts problem] The On-Line Encyclopedia of Integer Sequences. (Although some of its references may use the alternate form of the tale).</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
 
-;Extra credit (optional):
-* Give some indication of the number of coconuts each sailor hides during the night.
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
+/// solutions:
+(function () {
 
-;Note:
-* Of course the tale is told in a world where the collection of any amount of coconuts in a day and multiple divisions of the pile, etc can occur in time fitting the story line, so as not to affect the mathematics.
-* The tale is also told in a version where the monkey also gets a coconut in the morning. This is <span class="rosetta__text--italic">not</span> that tale!
+    // wakeSplit :: Int -> Int -> Int -> Int
+    function wakeSplit(intNuts, intSailors, intDepth) {
+        var nDepth = intDepth !== undefined ? intDepth : intSailors,
+            portion = Math.floor(intNuts / intSailors),
+            remain = intNuts % intSailors;
 
+        return 0 >= portion || remain !== (nDepth ? 1 : 0) ?
+            null : nDepth ? wakeSplit(
+                intNuts - portion - remain, intSailors, nDepth - 1
+            ) : intNuts;
+    }
 
-;C.f:
-* [https://www.youtube.com/watch?v=U9qU20VmvaU Monkeys and Coconuts - Numberphile] (Video) Analytical solution.
-* [http://oeis.org/A002021 A002021 Pile of coconuts problem] The On-Line Encyclopedia of Integer Sequences. (Although some of its references may use the alternate form of the tale).
-<br><br>
+    // TEST for 5, 6, and 7 intSailors
+    return [5, 6, 7].map(function (intSailors) {
+        var intNuts = intSailors;
 
+        while (!wakeSplit(intNuts, intSailors)) intNuts += 1;
 
+        return intNuts;
+    });
+})();
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 
 ===ES5===
@@ -116,3 +173,10 @@ Adding just a touch of curry to the coconuts.
 {{Out}}
 <lang JavaScript>[3121, 233275, 823537]</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,24 +1,60 @@
-Keyboard input/Flush the keyboard buffer
 
-{{task|Keyboard input}} 
-<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category:Hardware]] 
-[[Category:Terminal control]] 
-[[Category:Simple]] 
-[[user input::task" title="Category:Hardware]] 
-[[Category:Terminal control]] 
-[[Category:Simple]] 
-[[user input::task"> </a> 
-{{omit from|ACL2}}
-{{omit from|GUISS}}
-{{omit from|PARI/GP}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-Flush the &nbsp; [[input device::keyboard]] &nbsp; buffer.
- 
-This reads characters from the keyboard input and 
-discards them until there are no more currently buffered, &nbsp;  
-and then allows the program to continue. 
+const assert = require('chai').assert;
 
-<span class="rosetta__text--italic">The program must not wait for users to type anything.</span>
-<br><br>
+/// title: Keyboard input/Flush the keyboard buffer
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+///  
+/// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category:Hardware]] 
+/// [[Category:Terminal control]] 
+/// [[Category:Simple]] 
+/// [[user input::task" title="Category:Hardware]] 
+/// [[Category:Terminal control]] 
+/// [[Category:Simple]] 
+/// [[user input::task"> </a> 
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// Flush the &nbsp; [[input device::keyboard]] &nbsp; buffer.
+///  
+/// This reads characters from the keyboard input and 
+/// discards them until there are no more currently buffered, &nbsp;  
+/// and then allows the program to continue. 
+/// <br>
+/// <span class="rosetta__text--italic">The program must not wait for users to type anything.</span>
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

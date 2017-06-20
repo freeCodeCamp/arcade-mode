@@ -1,21 +1,59 @@
-SQL-based authentication
 
-{{task|Database operations}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-This task has three parts:
-* Connect to a [[MySQL]] database (<tt>connect_db</tt>)
-* Create user/password records in the following table (<tt>create_user</tt>)
-* Authenticate login requests against the table (<tt>authenticate_user</tt>)
+const assert = require('chai').assert;
 
-This is the table definition:
-<lang sql>create table users (
-    userid int primary key auto_increment,
-    username varchar(32) unique key not null,
-    pass_salt tinyblob not null,
-            -- a string of 16 random bytes
-    pass_md5 tinyblob not null
-            -- binary MD5 hash of pass_salt concatenated with the password
-);</lang>
-(<tt>pass_salt</tt> and <tt>pass_md5</tt> would be <tt>binary(16)</tt> values, but MySQL versions before 5.0.15 strip trailing spaces when selecting them.)
+/// title: SQL-based authentication
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// This task has three parts:
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">Connect to a [[MySQL]] database (<tt>connect_db</tt>)</li>
+/// <li class="rosetta__list-item">Create user/password records in the following table (<tt>create_user</tt>)</li>
+/// <li class="rosetta__list-item">Authenticate login requests against the table (<tt>authenticate_user</tt>)</li>
+/// <br>
+/// </ul>
+/// This is the table definition:
+/// <lang sql>create table users (
+///     userid int primary key auto_increment,
+///     username varchar(32) unique key not null,
+///     pass_salt tinyblob not null,
+///             -- a string of 16 random bytes
+///     pass_md5 tinyblob not null
+///             -- binary MD5 hash of pass_salt concatenated with the password
+/// );</lang>
+/// (<tt>pass_salt</tt> and <tt>pass_md5</tt> would be <tt>binary(16)</tt> values, but MySQL versions before 5.0.15 strip trailing spaces when selecting them.)
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

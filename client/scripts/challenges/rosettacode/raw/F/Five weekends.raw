@@ -1,33 +1,110 @@
-Five weekends
 
-{{task|Date and time}}
-[[Category:Puzzles]]
-The month of October in 2010 has five Fridays, five Saturdays, and five Sundays. 
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
+const assert = require('chai').assert;
 
-;Task:
-# Write a program to show all months that have this same characteristic of five full weekends from the year 1900 through 2100 (Gregorian calendar). 
-# Show the <span class="rosetta__text--italic">number</span> of months with this property (there should be 201).
-# Show at least the first and last five dates, in order.
+/// title: Five weekends
+/// type: rosetta-code
 
+/// categories:
+/// ?
 
-<span class="rosetta__text--bold">Algorithm suggestions</span>
-* Count the number of Fridays, Saturdays, and Sundays in every month.
-* Find all of the 31-day months that begin on Friday.
+/// difficulty: ?
 
+/// benchmark:
+replaceWithActualFunctionHere;
 
-<span class="rosetta__text--bold">Extra credit</span>
+/// description:
+/// <br>
+/// [[Category:Puzzles]]
+/// The month of October in 2010 has five Fridays, five Saturdays, and five Sundays. 
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// # Write a program to show all months that have this same characteristic of five full weekends from the year 1900 through 2100 (Gregorian calendar). 
+/// # Show the <span class="rosetta__text--italic">number</span> of months with this property (there should be 201).
+/// # Show at least the first and last five dates, in order.
+/// <br>
+/// <br>
+/// <span class="rosetta__text--bold">Algorithm suggestions</span>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">Count the number of Fridays, Saturdays, and Sundays in every month.</li>
+/// <li class="rosetta__list-item">Find all of the 31-day months that begin on Friday.</li>
+/// <br>
+/// </ul>
+/// <br>
+/// <span class="rosetta__text--bold">Extra credit</span>
+/// <br>
+/// Count and/or show all of the years which do not have at least one five-weekend month (there should be 29).
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">[[Day of the week]]</li>
+/// <li class="rosetta__list-item">[[Last Friday of each month]]</li>
+/// <li class="rosetta__list-item">[[Find last sunday of each month]]</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
 
-Count and/or show all of the years which do not have at least one five-weekend month (there should be 29).
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
+/// solutions:
+function startsOnFriday(month, year)
+{
+ // 0 is Sunday, 1 is Monday, ... 5 is Friday, 6 is Saturday
+ return new Date(year, month, 1).getDay() === 5;
+}
+function has31Days(month, year)
+{
+ return new Date(year, month, 31).getDate() === 31;
+}
+function checkMonths(year)
+{
+ var month, count = 0;
+ for (month = 0; month < 12; month += 1)
+ {
+  if (startsOnFriday(month, year) && has31Days(month, year))
+  {
+   count += 1;
+   document.write(year + ' ' + month + '<br>');
+  }
+ }
+ return count;
+}
+function fiveWeekends()
+{
+ var
+  startYear = 1900,
+  endYear = 2100,
+  year,
+  monthTotal = 0,
+  yearsWithoutFiveWeekends = [],
+  total = 0;
+ for (year = startYear; year <= endYear; year += 1)
+ {
+  monthTotal = checkMonths(year);
+  total += monthTotal;
+  // extra credit
+  if (monthTotal === 0)
+   yearsWithoutFiveWeekends.push(year);
+ }
+ document.write('Total number of months: ' + total + '<br>');
+ document.write('<br>');
+ document.write(yearsWithoutFiveWeekends + '<br>');
+ document.write('Years with no five-weekend months: ' + yearsWithoutFiveWeekends.length + '<br>');
+}
+fiveWeekends();
 
-;Related tasks
-* [[Day of the week]]
-* [[Last Friday of each month]]
-* [[Find last sunday of each month]]
-<br><br>
-
-
+/// rawSolutions:
 =={{header|JavaScript}}==
 ===ES5===
 ====Imperative====
@@ -328,3 +405,10 @@ Number of years without any five full weekend months: 29</pre>
   "leanYearCount": 29
 }</pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

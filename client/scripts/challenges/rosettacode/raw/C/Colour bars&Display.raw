@@ -1,20 +1,56 @@
-Colour bars/Display
 
-{{task}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Display a series of vertical color bars across the width of the display. 
+const assert = require('chai').assert;
 
-The color bars should either use:
-:::* &nbsp; the system palette, &nbsp; or 
-:::* &nbsp; the sequence of colors: 
-::::::* &nbsp; black
-::::::* &nbsp; red
-::::::* &nbsp; green
-::::::* &nbsp; magenta
-::::::* &nbsp; cyan
-::::::* &nbsp; yellow
-::::::* &nbsp; white
-<br>
+/// title: Colour bars/Display
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Display a series of vertical color bars across the width of the display. 
+/// <br>
+/// The color bars should either use:
+/// <span class="rosetta__text--indented">::* &nbsp; the system palette, &nbsp; or </span>
+/// <span class="rosetta__text--indented">::* &nbsp; the sequence of colors: </span>
+/// <span class="rosetta__text--indented">:::::* &nbsp; black</span>
+/// <span class="rosetta__text--indented">:::::* &nbsp; red</span>
+/// <span class="rosetta__text--indented">:::::* &nbsp; green</span>
+/// <span class="rosetta__text--indented">:::::* &nbsp; magenta</span>
+/// <span class="rosetta__text--indented">:::::* &nbsp; cyan</span>
+/// <span class="rosetta__text--indented">:::::* &nbsp; yellow</span>
+/// <span class="rosetta__text--indented">:::::* &nbsp; white</span>
+/// <br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

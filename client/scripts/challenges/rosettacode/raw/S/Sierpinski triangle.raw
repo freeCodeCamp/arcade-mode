@@ -1,39 +1,128 @@
-Sierpinski triangle
 
-{{task|Fractals}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task
-Produce an ASCII representation of a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Sierpinski triangle" title="wp: Sierpinski triangle">Sierpinski triangle</a> of order <span class="rosetta__text--bold">N</span>.  
+const assert = require('chai').assert;
+
+/// title: Sierpinski triangle
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task</dt></dl>
+/// Produce an ASCII representation of a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Sierpinski triangle" title="wp: Sierpinski triangle">Sierpinski triangle</a> of order <span class="rosetta__text--bold">N</span>.  
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Example</dt></dl>
+/// The Sierpinski triangle of order <span class="rosetta__text--bold">4</span> should look like this: 
+/// <pre>
+///                        *
+///                       * *
+///                      *   *
+///                     * * * *
+///                    *       *
+///                   * *     * *
+///                  *   *   *   *
+///                 * * * * * * * *
+///                *               *
+///               * *             * *
+///              *   *           *   *
+///             * * * *         * * * *
+///            *       *       *       *
+///           * *     * *     * *     * *
+///          *   *   *   *   *   *   *   *
+///         * * * * * * * * * * * * * * * *
+/// </pre>
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">[[Sierpinski triangle/Graphical]] for graphics images of this pattern.  </li>
+/// <li class="rosetta__list-item">[[Sierpinski carpet]]</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+(function (order) {
+
+    // Sierpinski triangle of order N constructed as
+    // Pascal triangle of 2^N rows mod 2
+    // with 1 encoded as "▲"
+    // and 0 encoded as " "
+    function sierpinski(intOrder) {
+        return function asciiPascalMod2(intRows) {
+            return range(1, intRows - 1)
+                .reduce(function (lstRows) {
+                    var lstPrevRow = lstRows.slice(-1)[0];
+
+                    // Each new row is a function of the previous row
+                    return lstRows.concat([zipWith(function (left, right) {
+                        // The composition ( asciiBinary . mod 2 . add )
+                        // reduces to a rule from 2 parent characters
+                        // to a single child character
+                       
+                        // Rule 90 also reduces to the same XOR 
+                        // relationship between left and right neighbours  
+
+                        return left === right ? " " : "▲";
+                    }, [' '].concat(lstPrevRow), lstPrevRow.concat(' '))]);
+                }, [
+                    ["▲"] // Tip of triangle
+                ]);
+        }(Math.pow(2, intOrder))
+
+        // As centred lines, from bottom (0 indent) up (indent below + 1)
+        .reduceRight(function (sofar, lstLine) {
+            return {
+                triangle: sofar.indent + lstLine.join(" ") + "\n" +
+                    sofar.triangle,
+                indent: sofar.indent + " "
+            };
+        }, {
+            triangle: "",
+            indent: ""
+        }).triangle;
+    };
+
+    var zipWith = function (f, xs, ys) {
+            return xs.length === ys.length ? xs
+                .map(function (x, i) {
+                    return f(x, ys[i]);
+                }) : undefined;
+        },
+        range = function (m, n) {
+            return Array.apply(null, Array(n - m + 1))
+                .map(function (x, i) {
+                    return m + i;
+                });
+        };
+
+    // TEST
+    return sierpinski(order);
+
+})(4);
 
 
-;Example
-The Sierpinski triangle of order <span class="rosetta__text--bold">4</span> should look like this: 
-<pre>
-                       *
-                      * *
-                     *   *
-                    * * * *
-                   *       *
-                  * *     * *
-                 *   *   *   *
-                * * * * * * * *
-               *               *
-              * *             * *
-             *   *           *   *
-            * * * *         * * * *
-           *       *       *       *
-          * *     * *     * *     * *
-         *   *   *   *   *   *   *   *
-        * * * * * * * * * * * * * * * *
-</pre>
-
-
-;Related tasks
-* [[Sierpinski triangle/Graphical]] for graphics images of this pattern.  
-* [[Sierpinski carpet]]
-<br><br>
-
-
+/// rawSolutions:
 =={{header|JavaScript}}==
 
 ===ES5===
@@ -312,3 +401,10 @@ and mapped to centred {1:asterisk, 0:space} strings.
  *   *   *   *   *   *   *   *
 * * * * * * * * * * * * * * * *</pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

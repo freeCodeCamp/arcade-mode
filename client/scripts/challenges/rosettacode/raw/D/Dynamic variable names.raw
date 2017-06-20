@@ -1,19 +1,52 @@
-Dynamic variable names
 
-{{task|Programming environment operations}}
-{{omit from|Lily}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Create a variable with a user-defined name. 
+const assert = require('chai').assert;
 
-The variable name should <span class="rosetta__text--italic">not</span> be written in the program text, but should be taken from the user dynamically.
+/// title: Dynamic variable names
+/// type: rosetta-code
 
+/// categories:
+/// ?
 
-;See also
-* &nbsp; [[Eval in environment]] is a similar task.
-<br><br>
+/// difficulty: ?
 
+/// benchmark:
+replaceWithActualFunctionHere;
 
+/// description:
+/// <br>
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Create a variable with a user-defined name. 
+/// <br>
+/// The variable name should <span class="rosetta__text--italic">not</span> be written in the program text, but should be taken from the user dynamically.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">See also</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">&nbsp; [[Eval in environment]] is a similar task.</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+var varname = 'foo';  // pretend a user input that
+var value = 42;
+eval('var ' + varname + '=' + value);
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 <lang javascript>var varname = 'foo';  // pretend a user input that
 var value = 42;
@@ -23,3 +56,10 @@ Alternatively, without using eval:
 var value = 42;
 this[varname] = value;</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

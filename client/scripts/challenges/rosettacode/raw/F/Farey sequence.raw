@@ -1,40 +1,80 @@
-Farey sequence
 
-{{task}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-The &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Farey sequence" title="wp: Farey sequence">Farey sequence</a> &nbsp; <span class="rosetta__text--bold"> <span class="rosetta__text--italic">F</span><sub>n</sub></span> &nbsp; of order &nbsp; <span class="rosetta__text--bold">n</span> &nbsp; is the sequence of completely reduced fractions between &nbsp; <span class="rosetta__text--bold">0</span> &nbsp; and &nbsp; <span class="rosetta__text--bold">1</span> &nbsp; which, when in lowest terms, have denominators less than or equal to &nbsp; <span class="rosetta__text--bold">n</span>, &nbsp; arranged in order of increasing size.
+const assert = require('chai').assert;
 
-The &nbsp; <span class="rosetta__text--italic">Farey sequence</span> &nbsp; is sometimes incorrectly called a &nbsp; <span class="rosetta__text--italic">Farey series</span>. 
+/// title: Farey sequence
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// The &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Farey sequence" title="wp: Farey sequence">Farey sequence</a> &nbsp; <span class="rosetta__text--bold"> <span class="rosetta__text--italic">F</span><sub>n</sub></span> &nbsp; of order &nbsp; <span class="rosetta__text--bold">n</span> &nbsp; is the sequence of completely reduced fractions between &nbsp; <span class="rosetta__text--bold">0</span> &nbsp; and &nbsp; <span class="rosetta__text--bold">1</span> &nbsp; which, when in lowest terms, have denominators less than or equal to &nbsp; <span class="rosetta__text--bold">n</span>, &nbsp; arranged in order of increasing size.
+/// <br>
+/// The &nbsp; <span class="rosetta__text--italic">Farey sequence</span> &nbsp; is sometimes incorrectly called a &nbsp; <span class="rosetta__text--italic">Farey series</span>. 
+/// <br>
+/// <br>
+/// Each Farey sequence:
+/// <span class="rosetta__text--indented">::* &nbsp; starts with the value &nbsp; <span class="rosetta__text--bold">0</span>, &nbsp; denoted by the fraction &nbsp; $ \frac{0}{1} $</span>
+/// <span class="rosetta__text--indented">::* &nbsp; ends with the value &nbsp; <span class="rosetta__text--bold">1</span>, &nbsp; denoted by the fraction &nbsp; $ \frac{1}{1}$.</span>
+/// <br>
+/// <br>
+/// The Farey sequences of orders &nbsp; <span class="rosetta__text--bold">1</span> &nbsp; to &nbsp; <span class="rosetta__text--bold">5</span> &nbsp; are:
+/// <br>
+/// <span class="rosetta__text--indented">${\bf\it{F}}_1 = \frac{0}{1}, \frac{1}{1}$</span>
+/// <span class="rosetta__text--indented"><br></span>
+/// <span class="rosetta__text--indented">${\bf\it{F}}_2 = \frac{0}{1}, \frac{1}{2}, \frac{1}{1}$</span>
+/// <span class="rosetta__text--indented"><br></span>
+/// <span class="rosetta__text--indented">${\bf\it{F}}_3 = \frac{0}{1}, \frac{1}{3}, \frac{1}{2}, \frac{2}{3}, \frac{1}{1}$</span>
+/// <span class="rosetta__text--indented"><br></span>
+/// <span class="rosetta__text--indented">${\bf\it{F}}_4 = \frac{0}{1}, \frac{1}{4}, \frac{1}{3}, \frac{1}{2}, \frac{2}{3}, \frac{3}{4}, \frac{1}{1}$</span>
+/// <span class="rosetta__text--indented"><br></span>
+/// <span class="rosetta__text--indented">${\bf\it{F}}_5 = \frac{0}{1}, \frac{1}{5}, \frac{1}{4}, \frac{1}{3}, \frac{2}{5}, \frac{1}{2}, \frac{3}{5}, \frac{2}{3}, \frac{3}{4}, \frac{4}{5}, \frac{1}{1}$</span>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">&nbsp; Compute and show the Farey sequence for orders &nbsp; <span class="rosetta__text--bold">1</span> &nbsp; through &nbsp; <span class="rosetta__text--bold">11</span> &nbsp; (inclusive).</li>
+/// <li class="rosetta__list-item">&nbsp; Compute and display the &nbsp; <span class="rosetta__text--italic">number</span> &nbsp; of fractions in the Farey sequence for order &nbsp; <span class="rosetta__text--bold">100</span> &nbsp; through &nbsp; <span class="rosetta__text--bold">1,000</span> &nbsp; (inclusive) &nbsp; by hundreds.</li>
+/// <li class="rosetta__list-item">&nbsp; Show the fractions as &nbsp; <big> <span class="rosetta__text--bold">n/d</span> </big> &nbsp; (using the solidus [or slash] to separate the numerator from the denominator).   </li>
+/// <br>
+/// </ul>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">See also</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">&nbsp;  OEIS sequence  &nbsp; [http://oeis.org/A006842 A006842 numerators   of Farey series of order 1, 2, ···] </li>
+/// <li class="rosetta__list-item">&nbsp;  OEIS sequence  &nbsp; [http://oeis.org/A006843 A006843 denominators of Farey series of order 1, 2, ···] </li>
+/// <li class="rosetta__list-item">&nbsp;  OEIS sequence  &nbsp; [http://oeis.org/A005728 A005728 number of fractions in Farey series of order n.] </li>
+/// <li class="rosetta__list-item">&nbsp; MathWorld entry &nbsp; [http://mathworld.wolfram.com/FareySequence.html Farey sequence]</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
-Each Farey sequence:
-:::* &nbsp; starts with the value &nbsp; <span class="rosetta__text--bold">0</span>, &nbsp; denoted by the fraction &nbsp; $ \frac{0}{1} $
-:::* &nbsp; ends with the value &nbsp; <span class="rosetta__text--bold">1</span>, &nbsp; denoted by the fraction &nbsp; $ \frac{1}{1}$.
+/// rawSolutions:
+null
 
+/// tail:
+const replaceThis = 3;
 
-The Farey sequences of orders &nbsp; <span class="rosetta__text--bold">1</span> &nbsp; to &nbsp; <span class="rosetta__text--bold">5</span> &nbsp; are:
-
-:${\bf\it{F}}_1 = \frac{0}{1}, \frac{1}{1}$
-:<br>
-:${\bf\it{F}}_2 = \frac{0}{1}, \frac{1}{2}, \frac{1}{1}$
-:<br>
-:${\bf\it{F}}_3 = \frac{0}{1}, \frac{1}{3}, \frac{1}{2}, \frac{2}{3}, \frac{1}{1}$
-:<br>
-:${\bf\it{F}}_4 = \frac{0}{1}, \frac{1}{4}, \frac{1}{3}, \frac{1}{2}, \frac{2}{3}, \frac{3}{4}, \frac{1}{1}$
-:<br>
-:${\bf\it{F}}_5 = \frac{0}{1}, \frac{1}{5}, \frac{1}{4}, \frac{1}{3}, \frac{2}{5}, \frac{1}{2}, \frac{3}{5}, \frac{2}{3}, \frac{3}{4}, \frac{4}{5}, \frac{1}{1}$
-
-;Task
-* &nbsp; Compute and show the Farey sequence for orders &nbsp; <span class="rosetta__text--bold">1</span> &nbsp; through &nbsp; <span class="rosetta__text--bold">11</span> &nbsp; (inclusive).
-* &nbsp; Compute and display the &nbsp; <span class="rosetta__text--italic">number</span> &nbsp; of fractions in the Farey sequence for order &nbsp; <span class="rosetta__text--bold">100</span> &nbsp; through &nbsp; <span class="rosetta__text--bold">1,000</span> &nbsp; (inclusive) &nbsp; by hundreds.
-* &nbsp; Show the fractions as &nbsp; <big> <span class="rosetta__text--bold">n/d</span> </big> &nbsp; (using the solidus [or slash] to separate the numerator from the denominator).   
-
-
-;See also
-* &nbsp;  OEIS sequence  &nbsp; [http://oeis.org/A006842 A006842 numerators   of Farey series of order 1, 2, ···] 
-* &nbsp;  OEIS sequence  &nbsp; [http://oeis.org/A006843 A006843 denominators of Farey series of order 1, 2, ···] 
-* &nbsp;  OEIS sequence  &nbsp; [http://oeis.org/A005728 A005728 number of fractions in Farey series of order n.] 
-* &nbsp; MathWorld entry &nbsp; [http://mathworld.wolfram.com/FareySequence.html Farey sequence]
-<br><br>
-
-
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

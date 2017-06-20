@@ -1,16 +1,47 @@
-Command-line arguments
 
-{{task}}{{selection|Short Circuit|Console Program Basics}} [[Category:Basic language learning]][[Category:Programming environment operations]][[Category:Initialization]]Retrieve the list of command-line arguments given to the program. For programs that only print the arguments when run directly, see [[Scripted main]].
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-See also [[Program name]].
+const assert = require('chai').assert;
 
-For parsing command line arguments intelligently, see [[Parsing command-line arguments]].
+/// title: Command-line arguments
+/// type: rosetta-code
 
-Example command line:
+/// categories:
+/// ?
 
- myprogram -c "alpha beta" -h "gamma"
+/// difficulty: ?
 
+/// benchmark:
+replaceWithActualFunctionHere;
 
+/// description:
+///  [[Category:Basic language learning]][[Category:Programming environment operations]][[Category:Initialization]]Retrieve the list of command-line arguments given to the program. For programs that only print the arguments when run directly, see [[Scripted main]].
+/// <br>
+/// See also [[Program name]].
+/// <br>
+/// For parsing command line arguments intelligently, see [[Parsing command-line arguments]].
+/// <br>
+/// Example command line:
+/// <br>
+///  myprogram -c "alpha beta" -h "gamma"
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+var objArgs = WScript.Arguments;
+for (var i = 0; i < objArgs.length; i++)
+   WScript.Echo(objArgs.Item(i));
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 {{works with|JScript}}
 <lang javascript>var objArgs = WScript.Arguments;
@@ -26,3 +57,10 @@ for (var i in argv)
 <lang javascript>for (var i = 0; i < arguments.length; i++)
     print(arguments[i]);</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

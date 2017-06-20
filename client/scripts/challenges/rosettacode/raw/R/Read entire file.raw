@@ -1,24 +1,57 @@
-Read entire file
 
-{{task|File handling}}
-{{omit from|Batch File|No way of reading entire files or putting line breaks into variables.}}
-{{omit from|Brainf***}}
-{{omit from|TI-83 BASIC|No filesystem.}}
-{{omit from|TI-89 BASIC|No filesystem.}}
-{{omit from|Unlambda|Does not know files.}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Load the entire contents of some text file as a single string variable.
+const assert = require('chai').assert;
 
-If applicable, discuss: encoding selection, the possibility of memory-mapping.
+/// title: Read entire file
+/// type: rosetta-code
 
-Of course, in practice one should avoid reading an entire file at once 
-if the file is large and the task can be accomplished incrementally instead 
-(in which case check [[File IO]]); 
-this is for those cases where having the entire file is actually what is wanted.
-<br><br>
+/// categories:
+/// ?
 
+/// difficulty: ?
 
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Load the entire contents of some text file as a single string variable.
+/// <br>
+/// If applicable, discuss: encoding selection, the possibility of memory-mapping.
+/// <br>
+/// Of course, in practice one should avoid reading an entire file at once 
+/// if the file is large and the task can be accomplished incrementally instead 
+/// (in which case check [[File IO]]); 
+/// this is for those cases where having the entire file is actually what is wanted.
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+var fso=new ActiveXObject("Scripting.FileSystemObject");
+var f=fso.OpenTextFile("c:\\myfile.txt",1);
+var s=f.ReadAll();
+f.Close();
+try{alert(s)}catch(e){WScript.Echo(s)}
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 This works in IExplorer or a standalone js file. Note the similarity to the VBScript code.
 <lang javascript>var fso=new ActiveXObject("Scripting.FileSystemObject");
@@ -44,3 +77,10 @@ function errorHandler(event) {
 }
 </lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

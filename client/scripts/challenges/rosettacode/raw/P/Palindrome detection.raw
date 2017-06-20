@@ -1,33 +1,70 @@
-Palindrome detection
 
-{{task|Text processing}} 
-[[Category:Recursion]] 
-[[Category:String manipulation]]
-[[Category:Classic CS problems and programs]]
-[[Category:Palindromes]]
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-A <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Palindrome" title="wp: Palindrome">palindrome</a> is a phrase which reads the same backward and forward.
+const assert = require('chai').assert;
 
-{{task heading}}
+/// title: Palindrome detection
+/// type: rosetta-code
 
-Write a function or program that checks whether a given sequence of characters (or, if you prefer, bytes) 
-is a palindrome.
+/// categories:
+/// ?
 
-<span class="rosetta__text--bold"><span class="rosetta__text--italic">For extra credit:</span></span>
-* Support Unicode characters.
-* Write a second function (possibly as a wrapper to the first) which detects <span class="rosetta__text--italic">inexact</span> palindromes, i.e. phrases that are palindromes if white-space and punctuation is ignored and case-insensitive comparison is used.
+/// difficulty: ?
 
-{{task heading|Hints}}
-* It might be useful for this task to know how to <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Reversing a string" title="Reversing a string">reverse a string</a>.
-* This task's entries might also form the subjects of the task [[Test a function]].
+/// benchmark:
+replaceWithActualFunctionHere;
 
-{{task heading|Related tasks}}
+/// description:
+///  
+/// [[Category:Recursion]] 
+/// [[Category:String manipulation]]
+/// [[Category:Classic CS problems and programs]]
+/// [[Category:Palindromes]]
+/// <br>
+/// A <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Palindrome" title="wp: Palindrome">palindrome</a> is a phrase which reads the same backward and forward.
+/// <br>
+/// <br>
+/// <br>
+/// Write a function or program that checks whether a given sequence of characters (or, if you prefer, bytes) 
+/// is a palindrome.
+/// <br>
+/// <span class="rosetta__text--bold"><span class="rosetta__text--italic">For extra credit:</span></span>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">Support Unicode characters.</li>
+/// <li class="rosetta__list-item">Write a second function (possibly as a wrapper to the first) which detects <span class="rosetta__text--italic">inexact</span> palindromes, i.e. phrases that are palindromes if white-space and punctuation is ignored and case-insensitive comparison is used.</li>
+/// <br>
+/// </ul>
+/// <br>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">It might be useful for this task to know how to <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Reversing a string" title="Reversing a string">reverse a string</a>.</li>
+/// <li class="rosetta__list-item">This task's entries might also form the subjects of the task [[Test a function]].</li>
+/// <br>
+/// </ul>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <hr>
+/// <br>
+/// <br>
 
-{{Related tasks/Word plays}}
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
-<hr>
+/// solutions:
+function isPalindrome(str) {
+  return str === str.split("").reverse().join("");
+}
 
+console.log(isPalindrome("ingirumimusnocteetconsumimurigni"));
 
+/// rawSolutions:
 =={{header|JavaScript}}==
 <lang javascript>function isPalindrome(str) {
   return str === str.split("").reverse().join("");
@@ -74,3 +111,10 @@ Or, adding a wrapper function to prepare the test data:
 {{Out}}
 <pre>true</pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

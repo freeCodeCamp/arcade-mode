@@ -1,22 +1,76 @@
-Roman numerals/Decode
 
-{{task}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Create a function that takes a Roman numeral as its argument and returns its value as a numeric decimal integer. 
+const assert = require('chai').assert;
 
-You don't need to validate the form of the Roman numeral.
+/// title: Roman numerals/Decode
+/// type: rosetta-code
 
-Modern Roman numerals are written by expressing each decimal digit of the number to be encoded separately, 
-<br>starting with the leftmost decimal digit and skipping any <span class="rosetta__text--bold">0</span>s &nbsp; (zeroes). 
+/// categories:
+/// ?
 
-<span class="rosetta__text--bold">1990</span> is rendered as &nbsp; <span class="rosetta__text--bold">MCMXC</span> &nbsp; &nbsp; (1000 = M, &nbsp; 900 = CM, &nbsp; 90 = XC) &nbsp; &nbsp; and 
-<br><span class="rosetta__text--bold">2008</span> is rendered as &nbsp; <span class="rosetta__text--bold">MMVIII</span> &nbsp; &nbsp; &nbsp; (2000 = MM, &nbsp; 8 = VIII).
- 
-The Roman numeral for <span class="rosetta__text--bold">1666</span>, &nbsp; <span class="rosetta__text--bold">MDCLXVI</span>, &nbsp; uses each letter in descending order.
-<br><br>
+/// difficulty: ?
 
+/// benchmark:
+replaceWithActualFunctionHere;
 
+/// description:
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Create a function that takes a Roman numeral as its argument and returns its value as a numeric decimal integer. 
+/// <br>
+/// You don't need to validate the form of the Roman numeral.
+/// <br>
+/// Modern Roman numerals are written by expressing each decimal digit of the number to be encoded separately, 
+/// <br>starting with the leftmost decimal digit and skipping any <span class="rosetta__text--bold">0</span>s &nbsp; (zeroes). 
+/// <br>
+/// <span class="rosetta__text--bold">1990</span> is rendered as &nbsp; <span class="rosetta__text--bold">MCMXC</span> &nbsp; &nbsp; (1000 = M, &nbsp; 900 = CM, &nbsp; 90 = XC) &nbsp; &nbsp; and 
+/// <br><span class="rosetta__text--bold">2008</span> is rendered as &nbsp; <span class="rosetta__text--bold">MMVIII</span> &nbsp; &nbsp; &nbsp; (2000 = MM, &nbsp; 8 = VIII).
+///  
+/// The Roman numeral for <span class="rosetta__text--bold">1666</span>, &nbsp; <span class="rosetta__text--bold">MDCLXVI</span>, &nbsp; uses each letter in descending order.
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+var Roman = {
+  Values: [['CM', 900],  ['CD', 400], ['XC',  90], ['XL',  40], ['IV', 4],   
+           ['IX',   9], ['V',   5], ['X',   10], ['L',  50], 
+           ['C',  100], ['M', 1000], ['I',    1], ['D',  500]],
+  UnmappedStr : 'Q',
+  parse: function(str) {
+    var result = 0
+    for (var i=0; i<Roman.Values.length; ++i) {
+      var pair = Roman.Values[i]
+      var key = pair[0]
+      var value = pair[1]
+      var regex = RegExp(key)
+      while (str.match(regex)) {
+        result += value
+        str = str.replace(regex, Roman.UnmappedStr)
+      }
+    }
+    return result
+  }
+}
+
+var test_data = ['MCMXC', 'MDCLXVI', 'MMVIII']
+for (var i=0; i<test_data.length; ++i) {
+  var test_datum = test_data[i]
+  print(test_datum + ": " + Roman.parse(test_datum)) 
+}
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 ===ES5===
 ====Imperative====
@@ -241,3 +295,10 @@ or, more natively:
 {{Out}}
 <pre>[1666,1990,2008,2016,2017]</pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

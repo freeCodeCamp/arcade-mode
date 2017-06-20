@@ -1,25 +1,75 @@
-Substring
 
-{{Task|Basic language learning}}{{basic data operation}} 
-[[Category:String manipulation]] [[Category:Simple]]
-In this task display a substring:
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-* starting from <tt>n</tt> characters in and of <tt>m</tt> length;
-* starting from <tt>n</tt> characters in, up to the end of the string;
-* whole string minus last character;
-* starting from a known character within the string and of <tt>m</tt> length;
-* starting from a known substring within the string and of <tt>m</tt> length.
+const assert = require('chai').assert;
 
-<br>
-If the program uses UTF-8 or UTF-16, it must work on any valid Unicode code point, 
-whether in the Basic Multilingual Plane or above it. 
+/// title: Substring
+/// type: rosetta-code
 
-The program must reference logical characters (code points), not 8-bit code units for UTF-8 or 16-bit code units for UTF-16. 
+/// categories:
+/// ?
 
-Programs for other encodings (such as 8-bit ASCII, or EUC-JP) are not required to handle all Unicode characters.
-<br><br>
+/// difficulty: ?
 
+/// benchmark:
+replaceWithActualFunctionHere;
 
+/// description:
+///  
+/// [[Category:String manipulation]] [[Category:Simple]]
+/// In this task display a substring:
+/// <br>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">starting from <tt>n</tt> characters in and of <tt>m</tt> length;</li>
+/// <li class="rosetta__list-item">starting from <tt>n</tt> characters in, up to the end of the string;</li>
+/// <li class="rosetta__list-item">whole string minus last character;</li>
+/// <li class="rosetta__list-item">starting from a known character within the string and of <tt>m</tt> length;</li>
+/// <li class="rosetta__list-item">starting from a known substring within the string and of <tt>m</tt> length.</li>
+/// <br>
+/// </ul>
+/// <br>
+/// If the program uses UTF-8 or UTF-16, it must work on any valid Unicode code point, 
+/// whether in the Basic Multilingual Plane or above it. 
+/// <br>
+/// The program must reference logical characters (code points), not 8-bit code units for UTF-8 or 16-bit code units for UTF-16. 
+/// <br>
+/// Programs for other encodings (such as 8-bit ASCII, or EUC-JP) are not required to handle all Unicode characters.
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+var str = "abcdefgh";
+
+var n = 2;
+var m = 3;
+
+//  *  starting from n characters in and of m length;
+str.substr(n, m);  // => "cde"
+
+//  * starting from n characters in, up to the end of the string;
+str.substr(n);  // => "cdefgh"
+str.substring(n);  // => "cdefgh"
+
+//  * whole string minus last character;
+str.substring(0, str.length - 1);  // => "abcdefg"
+
+//  * starting from a known character within the string and of m length;
+str.substr(str.indexOf('b'), m);  // => "bcd"
+
+//  * starting from a known substring within the string and of m length. 
+str.substr(str.indexOf('bc'), m);  // => "bcd"
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 The <code>String</code> object has two similar methods: <code>substr</code> and <code>substring</code>.
 *<code>substr(start, [len])</code> returns a substring beginning at a specified location and having a specified length.
@@ -117,3 +167,10 @@ Or, in terms of some familiar functional primitives, translating broadly from Ha
   "from matching string, of m length": "六七八九"
 }</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

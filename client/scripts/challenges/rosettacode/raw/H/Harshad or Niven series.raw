@@ -1,26 +1,79 @@
-Harshad or Niven series
 
-{{task}}
-{{omit from|Brlcad}}
-{{omit from|Lilypond}}
-{{omit from|Openscad}}
-{{omit from|TPP}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-The [http://mathworld.wolfram.com/HarshadNumber.html Harshad] or Niven numbers are positive integers ≥ 1 that are divisible by the sum of their digits. 
+const assert = require('chai').assert;
 
-For example, &nbsp; <span class="rosetta__text--bold">42</span> &nbsp; is a <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/oeis:A005349" title="oeis:A005349">Harshad number</a> as &nbsp; <span class="rosetta__text--bold">42</span> &nbsp; is divisible by &nbsp; (<span class="rosetta__text--bold">4</span> + <span class="rosetta__text--bold">2</span>) &nbsp; without remainder.
-<br>Assume that the series is defined as the numbers in increasing order.
+/// title: Harshad or Niven series
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// The [http://mathworld.wolfram.com/HarshadNumber.html Harshad] or Niven numbers are positive integers ≥ 1 that are divisible by the sum of their digits. 
+/// <br>
+/// For example, &nbsp; <span class="rosetta__text--bold">42</span> &nbsp; is a <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/oeis:A005349" title="oeis:A005349">Harshad number</a> as &nbsp; <span class="rosetta__text--bold">42</span> &nbsp; is divisible by &nbsp; (<span class="rosetta__text--bold">4</span> + <span class="rosetta__text--bold">2</span>) &nbsp; without remainder.
+/// <br>Assume that the series is defined as the numbers in increasing order.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// The task is to create a function/method/procedure to generate successive members of the Harshad sequence. 
+/// <br>
+/// Use it to list the first twenty members of the sequence and list the first Harshad number greater than 1000.
+/// <br>
+/// Show your output here.
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+function isHarshad(n) {
+    var s = 0;
+    var n_str = new String(n);
+    for (var i = 0; i < n_str.length; ++i) {
+        s += parseInt(n_str.charAt(i));
+    }
+    return n % s === 0;
+}
+
+var count = 0;
+var harshads = [];
+
+for (var n = 1; count < 20; ++n) {
+    if (isHarshad(n)) {
+        count++;
+        harshads.push(n);
+    }
+}
+
+console.log(harshads.join(" "));
+
+var h = 1000;
+while (!isHarshad(++h));
+console.log(h);
 
 
-;Task:
-The task is to create a function/method/procedure to generate successive members of the Harshad sequence. 
-
-Use it to list the first twenty members of the sequence and list the first Harshad number greater than 1000.
-
-Show your output here.
-<br><br>
-
-
+/// rawSolutions:
 =={{header|JavaScript}}==
 ===ES5===
 <lang javascript>function isHarshad(n) {
@@ -150,3 +203,10 @@ One possible approach to functional composition:
   "firstOver1000": 1002
 }</pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

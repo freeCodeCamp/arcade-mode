@@ -1,32 +1,93 @@
-Levenshtein distance
 
-{{task}}{{Wikipedia}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-<br>
-In information theory and computer science, the <span class="rosetta__text--bold">Levenshtein distance</span> is a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/string metric" title="wp: string metric">metric]] for measuring the amount of difference between two sequences (i.e. an [[wp:edit distance|edit distance</a>). The Levenshtein distance between two strings is defined as the minimum number of edits needed to transform one string into the other, with the allowable edit operations being insertion, deletion, or substitution of a single character. 
+const assert = require('chai').assert;
 
+/// title: Levenshtein distance
+/// type: rosetta-code
 
-;Example:
-The Levenshtein distance between "<span class="rosetta__text--bold">kitten</span>" and "<span class="rosetta__text--bold">sitting</span>" is 3, since the following three edits change one into the other, and there isn't a way to do it with fewer than three edits:
-::# &nbsp; <span class="rosetta__text--bold">k</span>itten  &nbsp; <span class="rosetta__text--bold">s</span>itten    &nbsp;  (substitution of 'k' with 's')
-::# &nbsp; sitt<span class="rosetta__text--bold">e</span>n  &nbsp; sitt<span class="rosetta__text--bold">i</span>n    &nbsp;  (substitution of 'e' with 'i')
-::# &nbsp; sittin        &nbsp; sittin<span class="rosetta__text--bold">g</span>   &nbsp;  (insert 'g' at the end).
+/// categories:
+/// ?
 
-<br>
-''The Levenshtein distance between &nbsp; "<span class="rosetta__text--bold">rosettacode</span>", &nbsp; "<span class="rosetta__text--bold">raisethysword</span>" &nbsp; is &nbsp; <span class="rosetta__text--bold">8</span>.
+/// difficulty: ?
 
-<span class="rosetta__text--italic">The distance between two strings is same as that when both strings are reversed.</span>
+/// benchmark:
+replaceWithActualFunctionHere;
 
+/// description:
+/// <br>
+/// <br>
+/// <br>
+/// In information theory and computer science, the <span class="rosetta__text--bold">Levenshtein distance</span> is a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/string metric" title="wp: string metric">metric]] for measuring the amount of difference between two sequences (i.e. an [[wp:edit distance|edit distance</a>). The Levenshtein distance between two strings is defined as the minimum number of edits needed to transform one string into the other, with the allowable edit operations being insertion, deletion, or substitution of a single character. 
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Example:</dt></dl>
+/// The Levenshtein distance between "<span class="rosetta__text--bold">kitten</span>" and "<span class="rosetta__text--bold">sitting</span>" is 3, since the following three edits change one into the other, and there isn't a way to do it with fewer than three edits:
+/// <span class="rosetta__text--indented">:# &nbsp; <span class="rosetta__text--bold">k</span>itten  &nbsp; <span class="rosetta__text--bold">s</span>itten    &nbsp;  (substitution of 'k' with 's')</span>
+/// <span class="rosetta__text--indented">:# &nbsp; sitt<span class="rosetta__text--bold">e</span>n  &nbsp; sitt<span class="rosetta__text--bold">i</span>n    &nbsp;  (substitution of 'e' with 'i')</span>
+/// <span class="rosetta__text--indented">:# &nbsp; sittin        &nbsp; sittin<span class="rosetta__text--bold">g</span>   &nbsp;  (insert 'g' at the end).</span>
+/// <br>
+/// <br>
+/// ''The Levenshtein distance between &nbsp; "<span class="rosetta__text--bold">rosettacode</span>", &nbsp; "<span class="rosetta__text--bold">raisethysword</span>" &nbsp; is &nbsp; <span class="rosetta__text--bold">8</span>.
+/// <br>
+/// <span class="rosetta__text--italic">The distance between two strings is same as that when both strings are reversed.</span>
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task;</dt></dl>
+/// Implements a Levenshtein distance function, or uses a library function, to show the Levenshtein distance between &nbsp; "kitten" &nbsp; and &nbsp; "sitting". 
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related task:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">&nbsp; [[Longest common subsequence]]</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
 
-;Task;
-Implements a Levenshtein distance function, or uses a library function, to show the Levenshtein distance between &nbsp; "kitten" &nbsp; and &nbsp; "sitting". 
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
+/// solutions:
+function levenshtein(a, b) {
+  var t = [], u, i, j, m = a.length, n = b.length;
+  if (!m) { return n; }
+  if (!n) { return m; }
+  for (j = 0; j <= n; j++) { t[j] = j; }
+  for (i = 1; i <= m; i++) {
+    for (u = [i], j = 1; j <= n; j++) {
+      u[j] = a[i - 1] === b[j - 1] ? t[j - 1] : Math.min(t[j - 1], t[j], u[j - 1]) + 1;
+    } t = u;
+  } return u[n];
+}
 
-;Related task:
-* &nbsp; [[Longest common subsequence]]
-<br><br>
+// tests
+[ ['', '', 0],
+  ['yo', '', 2],
+  ['', 'yo', 2],
+  ['yo', 'yo', 0],
+  ['tier', 'tor', 2],
+  ['saturday', 'sunday', 3],
+  ['mist', 'dist', 1],
+  ['tier', 'tor', 2],
+  ['kitten', 'sitting', 3],
+  ['stop', 'tops', 2],
+  ['rosettacode', 'raisethysword', 8],
+  ['mississippi', 'swiss miss', 8]
+].forEach(function(v) {
+  var a = v[0], b = v[1], t = v[2], d = levenshtein(a, b);
+  if (d !== t) {
+    console.log('levenstein("' + a + '","' + b + '") was ' + d + ' should be ' + t);
+  }
+});
 
-
+/// rawSolutions:
 =={{header|JavaScript}}==
 ===ES5===
 Iterative:
@@ -143,3 +204,10 @@ By composition of generic functions:
 {{Out}}
 <lang JavaScript>[3, 3, 8, 8]</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

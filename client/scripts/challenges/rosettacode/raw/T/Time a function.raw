@@ -1,21 +1,57 @@
-Time a function
 
-{{task|Programming environment operations}} 
-[[Category:Date and time]]
-{{omit from|Batch File|No way to programmatically retrieving the current or elapsed time. Only human-readable formats available, which can't be parsed accurately.}}
-{{omit from|GUISS}}
-{{omit from|ML/I}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Write a program which uses a timer (with the least granularity available 
-on your system) to time how long a function takes to execute.
+const assert = require('chai').assert;
 
-Whenever possible, use methods which measure only the processing time used 
-by the current process; instead of the difference in [[system time]] 
-between start and finish, which could include time used by 
-other processes on the computer.
+/// title: Time a function
+/// type: rosetta-code
 
-This task is intended as a subtask for [[Measure relative performance of sorting algorithms implementations]].
-<br><br>
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+///  
+/// [[Category:Date and time]]
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Write a program which uses a timer (with the least granularity available 
+/// on your system) to time how long a function takes to execute.
+/// <br>
+/// Whenever possible, use methods which measure only the processing time used 
+/// by the current process; instead of the difference in [[system time]] 
+/// between start and finish, which could include time used by 
+/// other processes on the computer.
+/// <br>
+/// This task is intended as a subtask for [[Measure relative performance of sorting algorithms implementations]].
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

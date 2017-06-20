@@ -1,26 +1,80 @@
-Active object
 
-{{task|Concurrency}}
-[[Category:Object oriented]]{{requires|Concurrency}}{{requires|Objects}}{{requires|Mutable State}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-In [[object-oriented programming]] an object is active when its state depends on clock. Usually an active object encapsulates a [[task]] that updates the object's state. To the outer world the object looks like a normal object with methods that can be called from outside. Implementation of such methods must have a certain synchronization mechanism with the encapsulated task in order to prevent object's state corruption.
+const assert = require('chai').assert;
 
-A typical instance of an active object is an animation widget. The widget state changes with the time, while as an object it has all properties of a normal widget.
+/// title: Active object
+/// type: rosetta-code
 
-<span class="rosetta__text--bold">The task</span>
+/// categories:
+/// ?
 
-Implement an active integrator object. The object has an input and output. The input can be set using the method <span class="rosetta__text--italic">Input</span>. The input is a function of time. The output can be queried using the method <span class="rosetta__text--italic">Output</span>. The object integrates its input over the time and the result becomes the object's output. So if the input is <span class="rosetta__text--italic">K</span>(<span class="rosetta__text--italic">t</span>) and the output is <span class="rosetta__text--italic">S</span>, the object state <span class="rosetta__text--italic">S</span> is changed to <span class="rosetta__text--italic">S</span> + (<span class="rosetta__text--italic">K</span>(<span class="rosetta__text--italic">t</span><sub>1</sub>) + <span class="rosetta__text--italic">K</span>(<span class="rosetta__text--italic">t</span><sub>0</sub>)) * (<span class="rosetta__text--italic">t</span><sub>1</sub> - <span class="rosetta__text--italic">t</span><sub>0</sub>) / 2, i.e. it integrates <span class="rosetta__text--italic">K</span> using the trapeze method. Initially <span class="rosetta__text--italic">K</span> is constant 0 and <span class="rosetta__text--italic">S</span> is 0.
+/// difficulty: ?
 
-In order to test the object:
-# set its input to sin (2π <span class="rosetta__text--italic">f t</span>), where the frequency <span class="rosetta__text--italic">f</span>=0.5Hz. The phase is irrelevant.
-# wait 2s
-# set the input to constant 0
-# wait 0.5s
+/// benchmark:
+replaceWithActualFunctionHere;
 
-Verify that now the object's output is approximately 0 (the sine has the period of 2s). The accuracy of the result will depend on the [[OS]] scheduler time slicing and the accuracy of the clock.
+/// description:
+/// <br>
+/// [[Category:Object oriented]]
+/// <br>
+/// In [[object-oriented programming]] an object is active when its state depends on clock. Usually an active object encapsulates a [[task]] that updates the object's state. To the outer world the object looks like a normal object with methods that can be called from outside. Implementation of such methods must have a certain synchronization mechanism with the encapsulated task in order to prevent object's state corruption.
+/// <br>
+/// A typical instance of an active object is an animation widget. The widget state changes with the time, while as an object it has all properties of a normal widget.
+/// <br>
+/// <span class="rosetta__text--bold">The task</span>
+/// <br>
+/// Implement an active integrator object. The object has an input and output. The input can be set using the method <span class="rosetta__text--italic">Input</span>. The input is a function of time. The output can be queried using the method <span class="rosetta__text--italic">Output</span>. The object integrates its input over the time and the result becomes the object's output. So if the input is <span class="rosetta__text--italic">K</span>(<span class="rosetta__text--italic">t</span>) and the output is <span class="rosetta__text--italic">S</span>, the object state <span class="rosetta__text--italic">S</span> is changed to <span class="rosetta__text--italic">S</span> + (<span class="rosetta__text--italic">K</span>(<span class="rosetta__text--italic">t</span><sub>1</sub>) + <span class="rosetta__text--italic">K</span>(<span class="rosetta__text--italic">t</span><sub>0</sub>)) * (<span class="rosetta__text--italic">t</span><sub>1</sub> - <span class="rosetta__text--italic">t</span><sub>0</sub>) / 2, i.e. it integrates <span class="rosetta__text--italic">K</span> using the trapeze method. Initially <span class="rosetta__text--italic">K</span> is constant 0 and <span class="rosetta__text--italic">S</span> is 0.
+/// <br>
+/// In order to test the object:
+/// # set its input to sin (2π <span class="rosetta__text--italic">f t</span>), where the frequency <span class="rosetta__text--italic">f</span>=0.5Hz. The phase is irrelevant.
+/// # wait 2s
+/// # set the input to constant 0
+/// # wait 0.5s
+/// <br>
+/// Verify that now the object's output is approximately 0 (the sine has the period of 2s). The accuracy of the result will depend on the [[OS]] scheduler time slicing and the accuracy of the clock.
+/// <br>
+/// <br>
+/// <br>
 
-{{omit from|VBScript}}
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
+/// solutions:
+function Integrator(sampleIntervalMS) {
+    var inputF = function () { return 0.0 };
+    var sum = 0.0;
+  
+    var t1 = new Date().getTime();
+    var input1 = inputF(t1 / 1000);
+  
+    function update() {
+        var t2 = new Date().getTime();
+        var input2 = inputF(t2 / 1000);
+        var dt = (t2 - t1) / 1000;
+        
+        sum += (input1 + input2) * dt / 2;
+        
+        t1 = t2;
+        input1 = input2;
+    }
+    
+    var updater = setInterval(update, sampleIntervalMS);
+  
+    return ({
+        input: function (newF) { inputF = newF },
+        output: function () { return sum },
+        shutdown: function () { clearInterval(updater) },
+    });
+}
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 
 {{trans|E}}
@@ -75,3 +129,10 @@ Test program as a HTML fragment:
     }, 1)
 </script></lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

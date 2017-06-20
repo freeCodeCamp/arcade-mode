@@ -1,33 +1,71 @@
-Semiprime
 
-{{task|Prime Numbers}} 
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-Semiprime numbers are natural numbers that are products of exactly two (possibly equal) <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/prime_number" title="prime_number">prime numbers</a>. 
+const assert = require('chai').assert;
+
+/// title: Semiprime
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+///  
+/// <br>
+/// Semiprime numbers are natural numbers that are products of exactly two (possibly equal) <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/prime_number" title="prime_number">prime numbers</a>. 
+/// <br>
+/// <br>
+/// <span class="rosetta__text--bold">Semiprimes</span> &nbsp; are also known as:
+/// <span class="rosetta__text--indented">::* &nbsp; <span class="rosetta__text--bold">semi-primes</span></span>
+/// <span class="rosetta__text--indented">::* &nbsp; <span class="rosetta__text--bold">biprimes</span></span>
+/// <span class="rosetta__text--indented">::* &nbsp; <span class="rosetta__text--bold">bi-primes</span></span>
+/// <span class="rosetta__text--indented">::* &nbsp; <span class="rosetta__text--bold"> <span class="rosetta__text--italic">2-almost</span> </span> &nbsp; primes</span>
+/// <span class="rosetta__text--indented">::* &nbsp; or simply: &nbsp; <span class="rosetta__text--bold"> <span class="rosetta__text--italic">P<sub>2</sub> </span> </span></span>
+/// <br>
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Example: </dt></dl>
+///    <big> 1679  =  23 &times; 73 </big> 
+/// <br>
+/// (This particular number was chosen as the length of the [http://en.wikipedia.org/wiki/Arecibo_message Arecibo message]). 
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task;</dt></dl>
+/// Write a function determining whether a given number is semiprime.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">See also:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">The Wikipedia article: &nbsp; [http://mathworld.wolfram.com/Semiprime.html semiprime].</li>
+/// <li class="rosetta__list-item">The Wikipedia article: &nbsp; [http://mathworld.wolfram.com/AlmostPrime.html almost prime].</li>
+/// <li class="rosetta__list-item">The OEIS article: &nbsp; [http://oeis.org/A001358 semiprimes] &nbsp; which has a shorter definition: <span class="rosetta__text--italic">the product of two primes</span>.</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
-<span class="rosetta__text--bold">Semiprimes</span> &nbsp; are also known as:
-:::* &nbsp; <span class="rosetta__text--bold">semi-primes</span>
-:::* &nbsp; <span class="rosetta__text--bold">biprimes</span>
-:::* &nbsp; <span class="rosetta__text--bold">bi-primes</span>
-:::* &nbsp; <span class="rosetta__text--bold"> <span class="rosetta__text--italic">2-almost</span> </span> &nbsp; primes
-:::* &nbsp; or simply: &nbsp; <span class="rosetta__text--bold"> <span class="rosetta__text--italic">P<sub>2</sub> </span> </span>
+/// rawSolutions:
+null
 
+/// tail:
+const replaceThis = 3;
 
-
-;Example: 
-   <big> 1679  =  23 &times; 73 </big> 
-
-(This particular number was chosen as the length of the [http://en.wikipedia.org/wiki/Arecibo_message Arecibo message]). 
-
-
-;Task;
-Write a function determining whether a given number is semiprime.
-
-
-;See also:
-* The Wikipedia article: &nbsp; [http://mathworld.wolfram.com/Semiprime.html semiprime].
-* The Wikipedia article: &nbsp; [http://mathworld.wolfram.com/AlmostPrime.html almost prime].
-* The OEIS article: &nbsp; [http://oeis.org/A001358 semiprimes] &nbsp; which has a shorter definition: <span class="rosetta__text--italic">the product of two primes</span>.
-<br><br>
-
-
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

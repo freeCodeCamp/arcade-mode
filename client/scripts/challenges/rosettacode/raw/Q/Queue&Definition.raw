@@ -1,33 +1,72 @@
-Queue/Definition
 
-{{task|Data Structures}}
-{{Data structure}}
-<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:Fifo.gif" title="File:Fifo.gif">frame|right|Illustration of FIFO behavior</a>
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Implement a FIFO queue. 
+const assert = require('chai').assert;
 
-Elements are added at one side and popped from the other in the order of insertion.
+/// title: Queue/Definition
+/// type: rosetta-code
 
+/// categories:
+/// ?
 
-Operations:
-* &nbsp; push   &nbsp; (aka <span class="rosetta__text--italic">enqueue</span>) &nbsp; - add element
-* &nbsp; pop    &nbsp; &nbsp; (aka <span class="rosetta__text--italic">dequeue</span>) &nbsp; - pop first element
-* &nbsp; empty  &nbsp; - return truth value when empty
+/// difficulty: ?
 
+/// benchmark:
+replaceWithActualFunctionHere;
 
-Errors:
-* &nbsp; handle the error of trying to pop from an empty queue (behavior depends on the language and platform)
+/// description:
+/// <br>
+/// <br>
+/// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:Fifo.gif" title="File:Fifo.gif">frame|right|Illustration of FIFO behavior</a>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Implement a FIFO queue. 
+/// <br>
+/// Elements are added at one side and popped from the other in the order of insertion.
+/// <br>
+/// <br>
+/// Operations:
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">&nbsp; push   &nbsp; (aka <span class="rosetta__text--italic">enqueue</span>) &nbsp; - add element</li>
+/// <li class="rosetta__list-item">&nbsp; pop    &nbsp; &nbsp; (aka <span class="rosetta__text--italic">dequeue</span>) &nbsp; - pop first element</li>
+/// <li class="rosetta__list-item">&nbsp; empty  &nbsp; - return truth value when empty</li>
+/// <br>
+/// </ul>
+/// <br>
+/// Errors:
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">&nbsp; handle the error of trying to pop from an empty queue (behavior depends on the language and platform)</li>
+/// <br>
+/// </ul>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">See:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">&nbsp; [[Queue/Usage]] &nbsp; for the built-in FIFO or queue of your language or standard library.</li>
+/// <br>
+/// </ul>
+/// <br>
+/// <br>
+/// <br><br>
+/// <br>
+/// <br>
 
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
-;See:
-* &nbsp; [[Queue/Usage]] &nbsp; for the built-in FIFO or queue of your language or standard library.
+/// solutions:
+var fifo = [];
+fifo.push(42); // Enqueue.
+fifo.push(43);
+var x = fifo.shift(); // Dequeue.
+alert(x); // 42
 
-
-{{Template:See also lists}}
-<br><br>
-
-
+/// rawSolutions:
 =={{header|JavaScript}}==
 Most of the time, the built-in Array suffices. However, if you explicitly want to limit the usage to FIFO operations, it's easy to implement such a constructor.
 
@@ -49,3 +88,10 @@ alert(x); // 42</lang>
     this.enqueue = this.push;
     this.dequeue = this.pop;
 }</lang>
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

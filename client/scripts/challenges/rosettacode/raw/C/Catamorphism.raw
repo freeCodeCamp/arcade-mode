@@ -1,20 +1,67 @@
-Catamorphism
 
-{{task}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-<span class="rosetta__text--italic">Reduce</span> is a function or method that is used to take the values in an array or a list and apply a function to successive members of the list to produce (or reduce them to), a single value. 
+const assert = require('chai').assert;
 
+/// title: Catamorphism
+/// type: rosetta-code
 
-;Task:
-Show how <span class="rosetta__text--italic">reduce</span> (or <span class="rosetta__text--italic">foldl</span> or <span class="rosetta__text--italic">foldr</span> etc), work (or would be implemented) in your language.
+/// categories:
+/// ?
 
+/// difficulty: ?
 
-;Cf.
-* <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Fold (higher-order function)" title="wp: Fold (higher-order function)">Fold</a>
-* <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Catamorphism" title="wp: Catamorphism">Catamorphism</a>
-<br><br>
+/// benchmark:
+replaceWithActualFunctionHere;
 
+/// description:
+/// <br>
+/// <br>
+/// <span class="rosetta__text--italic">Reduce</span> is a function or method that is used to take the values in an array or a list and apply a function to successive members of the list to produce (or reduce them to), a single value. 
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Show how <span class="rosetta__text--italic">reduce</span> (or <span class="rosetta__text--italic">foldl</span> or <span class="rosetta__text--italic">foldr</span> etc), work (or would be implemented) in your language.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Cf.</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Fold (higher-order function)" title="wp: Fold (higher-order function)">Fold</a></li>
+/// <li class="rosetta__list-item"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Catamorphism" title="wp: Catamorphism">Catamorphism</a></li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
 
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+var nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+function add(a, b) {
+    return a + b;
+}
+
+var summation = nums.reduce(add);
+
+function mul(a, b) {
+    return a * b;
+}
+
+var product = nums.reduce(mul, 1);
+
+var concatenation = nums.reduce(add, "");
+
+console.log(summation, product, concatenation);
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 
 ===ES5===
@@ -75,3 +122,10 @@ console.log(nums.reduce((a, b) => a + b, 0)); // sum of 1..10
 console.log(nums.reduce((a, b) => a * b, 1)); // product of 1..10
 console.log(nums.reduce((a, b) => a + b, '')); // concatenation of 1..10</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

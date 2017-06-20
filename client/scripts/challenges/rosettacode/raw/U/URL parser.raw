@@ -1,65 +1,141 @@
-URL parser
 
-{{task}}
-[[Category:String manipulation]]
-[[Category:Parser]]
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-URLs are strings with a simple syntax:
-   scheme://[username:password@]domain[:port]/path?query_string#fragment_id
+const assert = require('chai').assert;
 
+/// title: URL parser
+/// type: rosetta-code
 
-;Task:
-Parse a well-formed URL to retrieve the relevant information: &nbsp; <span class="rosetta__text--bold">scheme</span>, <span class="rosetta__text--bold">domain</span>, <span class="rosetta__text--bold">path</span>, ...
+/// categories:
+/// ?
 
+/// difficulty: ?
 
-Note: &nbsp; this task has nothing to do with [[URL encoding]] or [[URL decoding]].
+/// benchmark:
+replaceWithActualFunctionHere;
 
+/// description:
+/// <br>
+/// [[Category:String manipulation]]
+/// [[Category:Parser]]
+/// <br>
+/// URLs are strings with a simple syntax:
+///    scheme://[username:password@]domain[:port]/path?query_string#fragment_id
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Parse a well-formed URL to retrieve the relevant information: &nbsp; <span class="rosetta__text--bold">scheme</span>, <span class="rosetta__text--bold">domain</span>, <span class="rosetta__text--bold">path</span>, ...
+/// <br>
+/// <br>
+/// Note: &nbsp; this task has nothing to do with [[URL encoding]] or [[URL decoding]].
+/// <br>
+/// <br>
+/// According to the standards, the characters:
+/// <span class="rosetta__text--indented">::: &nbsp; <big><big>    ! * ' ( ) ; : @ & = + $ , / ? % # [ ]    </big></big></span>
+/// only need to be percent-encoded &nbsp; (<span class="rosetta__text--bold">%</span>) &nbsp; in case of possible confusion. 
+/// <br>
+/// Also note that the <span class="rosetta__text--bold">path</span>, <span class="rosetta__text--bold">query</span> and <span class="rosetta__text--bold">fragment</span> are case sensitive, even if the <span class="rosetta__text--bold">scheme</span> and <span class="rosetta__text--bold">domain</span> are not.
+/// <br>
+/// The way the returned information is provided (set of variables, array, structured, record, object,...) 
+/// is language-dependent and left to the programmer, but the code should be clear enough to reuse.
+/// <br>
+/// Extra credit is given for clear error diagnostics.
+/// <br>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">&nbsp; Here is the official standard: &nbsp; &nbsp; https://tools.ietf.org/html/rfc3986, </li>
+/// <li class="rosetta__list-item">&nbsp; and here is a simpler &nbsp; BNF: &nbsp; &nbsp; http://www.w3.org/Addressing/URL/5_URI_BNF.html.</li>
+/// <br>
+/// </ul>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Test cases:</dt></dl>
+/// According to T. Berners-Lee
+///  
+/// <span class="rosetta__text--bold"><nowiki>foo://example.com:8042/over/there?name=ferret#nose</nowiki></span> &nbsp; &nbsp; should parse into:
+/// <span class="rosetta__text--indented">:* &nbsp; scheme = foo</span>
+/// <span class="rosetta__text--indented">:* &nbsp; domain = example.com</span>
+/// <span class="rosetta__text--indented">:* &nbsp; port = :8042</span>
+/// <span class="rosetta__text--indented">:* &nbsp; path = over/there</span>
+/// <span class="rosetta__text--indented">:* &nbsp; query = name=ferret</span>
+/// <span class="rosetta__text--indented">:* &nbsp; fragment = nose</span>
+/// <br>
+/// <br>
+/// <span class="rosetta__text--bold"><nowiki>urn:example:animal:ferret:nose</nowiki></span> &nbsp; &nbsp; should parse into:
+/// <span class="rosetta__text--indented">:* &nbsp; scheme = urn</span>
+/// <span class="rosetta__text--indented">:* &nbsp; path = example:animal:ferret:nose</span>
+/// <br>
+/// <br>
+/// <span class="rosetta__text--bold">other URLs that must be parsed include:</span>
+/// <span class="rosetta__text--indented">* &nbsp; <nowiki> jdbc:mysql://test_user:ouupppssss@localhost:3306/sakila?profileSQL=true </nowiki> </span>
+/// <span class="rosetta__text--indented">* &nbsp; <nowiki> ftp://ftp.is.co.za/rfc/rfc1808.txt                                      </nowiki></span>
+/// <span class="rosetta__text--indented">* &nbsp; <nowiki> http://www.ietf.org/rfc/rfc2396.txt#header1                             </nowiki></span>
+/// <span class="rosetta__text--indented">* &nbsp; <nowiki> ldap://[2001:db8::7]/c=GB?objectClass=one&objectClass=two               </nowiki></span>
+/// <span class="rosetta__text--indented">* &nbsp; <nowiki> mailto:John.Doe@example.com                                             </nowiki></span>
+/// <span class="rosetta__text--indented">* &nbsp; <nowiki> news:comp.infosystems.www.servers.unix                                  </nowiki></span>
+/// <span class="rosetta__text--indented">* &nbsp; <nowiki> tel:+1-816-555-1212                                                     </nowiki></span>
+/// <span class="rosetta__text--indented">* &nbsp; <nowiki> telnet://192.0.2.16:80/                                                 </nowiki></span>
+/// <span class="rosetta__text--indented">* &nbsp; <nowiki> urn:oasis:names:specification:docbook:dtd:xml:4.1.2                     </nowiki></span>
+/// <br><br>
+/// <br>
+/// <br>
 
-According to the standards, the characters:
-:::: &nbsp; <big><big>    ! * ' ( ) ; : @ & = + $ , / ? % # [ ]    </big></big>
-only need to be percent-encoded &nbsp; (<span class="rosetta__text--bold">%</span>) &nbsp; in case of possible confusion. 
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
-Also note that the <span class="rosetta__text--bold">path</span>, <span class="rosetta__text--bold">query</span> and <span class="rosetta__text--bold">fragment</span> are case sensitive, even if the <span class="rosetta__text--bold">scheme</span> and <span class="rosetta__text--bold">domain</span> are not.
+/// solutions:
+(function (lstURL) {
 
-The way the returned information is provided (set of variables, array, structured, record, object,...) 
-is language-dependent and left to the programmer, but the code should be clear enough to reuse.
+    var e = document.createElement('a'),
+        lstKeys = [
+            'hash',
+            'host',
+            'hostname',
+            'origin',
+            'pathname',
+            'port',
+            'protocol',
+            'search'
+        ],
 
-Extra credit is given for clear error diagnostics.
+        fnURLParse = function (strURL) {
+            e.href = strURL;
 
-* &nbsp; Here is the official standard: &nbsp; &nbsp; https://tools.ietf.org/html/rfc3986, 
-* &nbsp; and here is a simpler &nbsp; BNF: &nbsp; &nbsp; http://www.w3.org/Addressing/URL/5_URI_BNF.html.
+            return lstKeys.reduce(
+                function (dct, k) {
+                    dct[k] = e[k];
+                    return dct;
+                }, {}
+            );
+        };
 
+    return JSON.stringify(
+        lstURL.map(fnURLParse),
+        null, 2
+    );
 
-;Test cases:
-According to T. Berners-Lee
- 
-<span class="rosetta__text--bold"><nowiki>foo://example.com:8042/over/there?name=ferret#nose</nowiki></span> &nbsp; &nbsp; should parse into:
-::* &nbsp; scheme = foo
-::* &nbsp; domain = example.com
-::* &nbsp; port = :8042
-::* &nbsp; path = over/there
-::* &nbsp; query = name=ferret
-::* &nbsp; fragment = nose
+})([
+  "foo://example.com:8042/over/there?name=ferret#nose",
+  "urn:example:animal:ferret:nose",
+  "jdbc:mysql://test_user:ouupppssss@localhost:3306/sakila?profileSQL=true",
+  "ftp://ftp.is.co.za/rfc/rfc1808.txt",
+  "http://www.ietf.org/rfc/rfc2396.txt#header1",
+  "ldap://[2001:db8::7]/c=GB?objectClass=one&objectClass=two",
+  "mailto:John.Doe@example.com",
+  "news:comp.infosystems.www.servers.unix",
+  "tel:+1-816-555-1212",
+  "telnet://192.0.2.16:80/",
+  "urn:oasis:names:specification:docbook:dtd:xml:4.1.2",
+  "ssh://alice@example.com",
+  "https://bob:pass@example.com/place",
+  "http://example.com/?a=1&b=2+2&c=3&c=4&d=%65%6e%63%6F%64%65%64"
+]);
 
-
-<span class="rosetta__text--bold"><nowiki>urn:example:animal:ferret:nose</nowiki></span> &nbsp; &nbsp; should parse into:
-::* &nbsp; scheme = urn
-::* &nbsp; path = example:animal:ferret:nose
-
-
-<span class="rosetta__text--bold">other URLs that must be parsed include:</span>
-:* &nbsp; <nowiki> jdbc:mysql://test_user:ouupppssss@localhost:3306/sakila?profileSQL=true </nowiki> 
-:* &nbsp; <nowiki> ftp://ftp.is.co.za/rfc/rfc1808.txt                                      </nowiki>
-:* &nbsp; <nowiki> http://www.ietf.org/rfc/rfc2396.txt#header1                             </nowiki>
-:* &nbsp; <nowiki> ldap://[2001:db8::7]/c=GB?objectClass=one&objectClass=two               </nowiki>
-:* &nbsp; <nowiki> mailto:John.Doe@example.com                                             </nowiki>
-:* &nbsp; <nowiki> news:comp.infosystems.www.servers.unix                                  </nowiki>
-:* &nbsp; <nowiki> tel:+1-816-555-1212                                                     </nowiki>
-:* &nbsp; <nowiki> telnet://192.0.2.16:80/                                                 </nowiki>
-:* &nbsp; <nowiki> urn:oasis:names:specification:docbook:dtd:xml:4.1.2                     </nowiki>
-<br><br>
-
-
+/// rawSolutions:
 =={{header|JavaScript}}==
 
 As JavaScript is (at the time of writing) still the native language of the DOM, the simplest first-pass approach will be to set the ''href'' property of  a DOM element, and read off the various components of the DOM parse from that element. 
@@ -257,3 +333,10 @@ Results of applying this approach in the JavaScript of Safari 8
   }
 ]</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

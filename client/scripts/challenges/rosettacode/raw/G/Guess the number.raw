@@ -1,37 +1,80 @@
-Guess the number
 
-{{task|Games}} 
-<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category: Conditional loops]] 
-[[Category:Randomness]]
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Write a program where the program chooses a number between &nbsp; <span class="rosetta__text--bold">1</span> &nbsp; and &nbsp; <span class="rosetta__text--bold">10</span>. 
+const assert = require('chai').assert;
 
-A player is then prompted to enter a guess. &nbsp; If the player guesses wrong, &nbsp; then the prompt appears again until the guess is correct. 
+/// title: Guess the number
+/// type: rosetta-code
 
-When the player has made a successful guess the computer will issue a &nbsp; "Well guessed!" &nbsp; message, &nbsp; and the program exits.
+/// categories:
+/// ?
 
-A &nbsp; [[:Category:Conditional loops" title="Category: Conditional loops]] 
-[[Category:Randomness]]
+/// difficulty: ?
 
-;Task:
-Write a program where the program chooses a number between &nbsp; <span class="rosetta__text--bold">1</span> &nbsp; and &nbsp; <span class="rosetta__text--bold">10</span>. 
+/// benchmark:
+replaceWithActualFunctionHere;
 
-A player is then prompted to enter a guess. &nbsp; If the player guesses wrong, &nbsp; then the prompt appears again until the guess is correct. 
+/// description:
+///  
+/// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category: Conditional loops]] 
+/// [[Category:Randomness]]
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Write a program where the program chooses a number between &nbsp; <span class="rosetta__text--bold">1</span> &nbsp; and &nbsp; <span class="rosetta__text--bold">10</span>. 
+/// <br>
+/// A player is then prompted to enter a guess. &nbsp; If the player guesses wrong, &nbsp; then the prompt appears again until the guess is correct. 
+/// <br>
+/// When the player has made a successful guess the computer will issue a &nbsp; "Well guessed!" &nbsp; message, &nbsp; and the program exits.
+/// <br>
+/// A &nbsp; [[:Category:Conditional loops" title="Category: Conditional loops]] 
+/// [[Category:Randomness]]
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Write a program where the program chooses a number between &nbsp; <span class="rosetta__text--bold">1</span> &nbsp; and &nbsp; <span class="rosetta__text--bold">10</span>. 
+/// <br>
+/// A player is then prompted to enter a guess. &nbsp; If the player guesses wrong, &nbsp; then the prompt appears again until the guess is correct. 
+/// <br>
+/// When the player has made a successful guess the computer will issue a &nbsp; "Well guessed!" &nbsp; message, &nbsp; and the program exits.
+/// <br>
+/// A &nbsp; [[:Category:Conditional loops">conditional loop</a> &nbsp; may be used to repeat the guessing until the user is correct.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">&nbsp; [[Bulls and cows]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[Bulls and cows/Player]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[Guess the number/With Feedback]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[Mastermind]]</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
 
-When the player has made a successful guess the computer will issue a &nbsp; "Well guessed!" &nbsp; message, &nbsp; and the program exits.
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
-A &nbsp; [[:Category:Conditional loops">conditional loop</a> &nbsp; may be used to repeat the guessing until the user is correct.
+/// solutions:
 
+function guessNumber() {
+  // Get a random integer from 1 to 10 inclusive
+  var num = Math.ceil(Math.random() * 10);
+  var guess;
 
-;Related tasks:
-* &nbsp; [[Bulls and cows]]
-* &nbsp; [[Bulls and cows/Player]]
-* &nbsp; [[Guess the number/With Feedback]]
-* &nbsp; [[Mastermind]]
-<br><br>
+  while (guess != num) {
+    guess = prompt('Guess the number between 1 and 10 inclusive');
+  }
+  alert('Congratulations!\nThe number was ' + num);
+}
 
+guessNumber();
 
+/// rawSolutions:
 =={{header|JavaScript}}==
 <lang javascript>
 function guessNumber() {
@@ -49,3 +92,10 @@ guessNumber();</lang>
 
 Requires a host environment that supports <code>prompt</code> and <code>alert</code> such as a browser.
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

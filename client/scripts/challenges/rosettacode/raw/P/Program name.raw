@@ -1,15 +1,46 @@
-Program name
 
-{{task|Basic language learning}} [[Category:Initialization]]
-The task is to programmatically obtain the name used to invoke the program. (For example determine whether the user ran "python hello.py", or "python hellocaller.py", a program importing the code from "hello.py".)
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-Sometimes a [[multiline shebang]] is necessary in order to provide the script name to a language's internal ARGV.
+const assert = require('chai').assert;
 
-See also [[Command-line arguments]]
+/// title: Program name
+/// type: rosetta-code
 
-Examples from [https://github.com/mcandre/scriptname GitHub].
+/// categories:
+/// ?
 
+/// difficulty: ?
 
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+///  [[Category:Initialization]]
+/// The task is to programmatically obtain the name used to invoke the program. (For example determine whether the user ran "python hello.py", or "python hellocaller.py", a program importing the code from "hello.py".)
+/// <br>
+/// Sometimes a [[multiline shebang]] is necessary in order to provide the script name to a language's internal ARGV.
+/// <br>
+/// See also [[Command-line arguments]]
+/// <br>
+/// Examples from [https://github.com/mcandre/scriptname GitHub].
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+function foo() {
+  return arguments.callee.name;
+}
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 
 There is no capability within the ECMA-262 standard (the standard for ECMAScript, the language underlying JavaScript) for a function to determine its name. Since objects in JavaScript are first class objects, variables and properties are only references to objects. The name of an object might be said to be the name used to reference it, however a single object may have many variables and properties that reference it, or none.
@@ -37,3 +68,10 @@ function main() {
 
 if (!module.parent) { main(); }</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

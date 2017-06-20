@@ -1,55 +1,109 @@
-Classes
 
-{{task|Basic language learning}}
-<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category:Object oriented]] 
-[[Category:Type System]]
-[[Category:Encyclopedia]]
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-In [[object-oriented programming]] <span class="rosetta__text--bold">class</span> is a set (a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Transitive_closure" title="wp: Transitive_closure">transitive closure]]) of types bound by the relation of [[inheritance</a>. It is said that all types derived from some base type T and the type T itself form a class T. 
+const assert = require('chai').assert;
 
-The first type T from the class T sometimes is called the <span class="rosetta__text--bold">root type</span> of the class.
+/// title: Classes
+/// type: rosetta-code
 
-A class of types itself, as a type, has the values and operations of its own. 
-The operations of are usually called <span class="rosetta__text--bold">methods</span> of the root type. 
-Both operations and values are called [[polymorphism " title="Category:Object oriented]] 
-[[Category:Type System]]
-[[Category:Encyclopedia]]
+/// categories:
+/// ?
 
-In [[object-oriented programming]] <span class="rosetta__text--bold">class</span> is a set (a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Transitive_closure" title="wp: Transitive_closure">transitive closure]]) of types bound by the relation of [[inheritance</a>. It is said that all types derived from some base type T and the type T itself form a class T. 
+/// difficulty: ?
 
-The first type T from the class T sometimes is called the <span class="rosetta__text--bold">root type</span> of the class.
+/// benchmark:
+replaceWithActualFunctionHere;
 
-A class of types itself, as a type, has the values and operations of its own. 
-The operations of are usually called <span class="rosetta__text--bold">methods</span> of the root type. 
-Both operations and values are called [[polymorphism "> polymorphic</a>.
+/// description:
+/// <br>
+/// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category:Object oriented]] 
+/// [[Category:Type System]]
+/// [[Category:Encyclopedia]]
+/// <br>
+/// In [[object-oriented programming]] <span class="rosetta__text--bold">class</span> is a set (a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Transitive_closure" title="wp: Transitive_closure">transitive closure]]) of types bound by the relation of [[inheritance</a>. It is said that all types derived from some base type T and the type T itself form a class T. 
+/// <br>
+/// The first type T from the class T sometimes is called the <span class="rosetta__text--bold">root type</span> of the class.
+/// <br>
+/// A class of types itself, as a type, has the values and operations of its own. 
+/// The operations of are usually called <span class="rosetta__text--bold">methods</span> of the root type. 
+/// Both operations and values are called [[polymorphism " title="Category:Object oriented]] 
+/// [[Category:Type System]]
+/// [[Category:Encyclopedia]]
+/// <br>
+/// In [[object-oriented programming]] <span class="rosetta__text--bold">class</span> is a set (a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Transitive_closure" title="wp: Transitive_closure">transitive closure]]) of types bound by the relation of [[inheritance</a>. It is said that all types derived from some base type T and the type T itself form a class T. 
+/// <br>
+/// The first type T from the class T sometimes is called the <span class="rosetta__text--bold">root type</span> of the class.
+/// <br>
+/// A class of types itself, as a type, has the values and operations of its own. 
+/// The operations of are usually called <span class="rosetta__text--bold">methods</span> of the root type. 
+/// Both operations and values are called [[polymorphism "> polymorphic</a>.
+/// <br>
+/// A polymorphic operation (method) selects an implementation depending on the actual specific type of the polymorphic argument. 
+/// <br>
+/// The action of choice the type-specific implementation of a polymorphic operation is called <span class="rosetta__text--bold">dispatch</span>. Correspondingly, polymorphic operations are often called <span class="rosetta__text--bold">dispatching</span> or <span class="rosetta__text--bold">virtual</span>. 
+/// Operations with multiple arguments and/or the results of the class are called <span class="rosetta__text--bold">multi-methods</span>. 
+/// A further generalization of is the operation with arguments and/or results from different classes.
+/// <br>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">single-dispatch languages are those that allow only one argument or result to control the dispatch. Usually it is the first parameter, often hidden, so that a prefix notation <span class="rosetta__text--italic">x</span>.<span class="rosetta__text--italic">f</span>() is used instead of mathematical <span class="rosetta__text--italic">f</span>(<span class="rosetta__text--italic">x</span>).</li>
+/// <li class="rosetta__list-item">multiple-dispatch languages allow many arguments and/or results to control the dispatch.</li>
+/// <br>
+/// </ul>
+/// <br>
+/// A polymorphic value has a type tag indicating its specific type from the class and the corresponding specific value of that type. 
+/// This type is sometimes called <span class="rosetta__text--bold">the most specific type</span> of a [polymorphic] value. 
+/// The type tag of the value is used in order to resolve the dispatch. 
+/// The set of polymorphic values of a class is a transitive closure of the sets of values of all types from that class.
+/// <br>
+/// In many <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/object-oriented programming " title="object-oriented programming "> OO</a> languages 
+/// the type of the class of T and T itself are considered equivalent. 
+/// In some languages they are distinct (like in [[Ada]]). 
+/// When class T and T are equivalent, there is no way to distinguish 
+/// polymorphic and specific values.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Create a basic class with a method, a constructor, an instance variable and how to instantiate it.
+/// <br><br>
+/// <br>
+/// <br>
 
-A polymorphic operation (method) selects an implementation depending on the actual specific type of the polymorphic argument. 
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
-The action of choice the type-specific implementation of a polymorphic operation is called <span class="rosetta__text--bold">dispatch</span>. Correspondingly, polymorphic operations are often called <span class="rosetta__text--bold">dispatching</span> or <span class="rosetta__text--bold">virtual</span>. 
-Operations with multiple arguments and/or the results of the class are called <span class="rosetta__text--bold">multi-methods</span>. 
-A further generalization of is the operation with arguments and/or results from different classes.
+/// solutions:
+//Constructor function.
+function Car(brand, weight) {
+  this.brand = brand;
+  this.weight = weight || 1000; // Resort to default value (with 'or' notation).
+}
+Car.prototype.getPrice = function() { // Method of Car.
+  return this.price;
+}
 
-* single-dispatch languages are those that allow only one argument or result to control the dispatch. Usually it is the first parameter, often hidden, so that a prefix notation <span class="rosetta__text--italic">x</span>.<span class="rosetta__text--italic">f</span>() is used instead of mathematical <span class="rosetta__text--italic">f</span>(<span class="rosetta__text--italic">x</span>).
-* multiple-dispatch languages allow many arguments and/or results to control the dispatch.
+function Truck(brand, size) {
+  this.car = Car;
+  this.car(brand, 2000); // Call another function, modifying the "this" object (e.g. "superconstructor".)
+  this.size = size; // Custom property for just this object.
+}
+Truck.prototype = Car.prototype; // Also "import" the prototype from Car.
 
-<br>
-A polymorphic value has a type tag indicating its specific type from the class and the corresponding specific value of that type. 
-This type is sometimes called <span class="rosetta__text--bold">the most specific type</span> of a [polymorphic] value. 
-The type tag of the value is used in order to resolve the dispatch. 
-The set of polymorphic values of a class is a transitive closure of the sets of values of all types from that class.
+var cars = [ // Some example car objects.
+  new Car("Mazda"),
+  new Truck("Volvo", 2)
+];
+for (var i=0; i<cars.length; i++) {
+  alert(cars[i].brand + " " + cars[i].weight + " " + cars[i].size + ", " +
+      (cars[i] instanceof Car) + " " + (cars[i] instanceof Truck));
+}
 
-In many <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/object-oriented programming " title="object-oriented programming "> OO</a> languages 
-the type of the class of T and T itself are considered equivalent. 
-In some languages they are distinct (like in [[Ada]]). 
-When class T and T are equivalent, there is no way to distinguish 
-polymorphic and specific values.
-
-
-;Task:
-Create a basic class with a method, a constructor, an instance variable and how to instantiate it.
-<br><br>
-
-
+/// rawSolutions:
 =={{header|JavaScript}}==
 ===ES5===
 JavaScript is [[wp:Prototype-based programming|prototype-based]], so it doesn't have classes per se. Thinking in classes when coding JavaScript will only hinder you in the long run, but here's an example of JavaScript OO:
@@ -171,3 +225,10 @@ Weight: 2000
 Size: 2
 A Volvo Truck drove 40cm</pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,46 +1,157 @@
-AKS test for primes
 
-{{task|Prime Numbers}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-The [http://www.cse.iitk.ac.in/users/manindra/algebra/primality_v6.pdf AKS algorithm] for testing whether a number is prime is a polynomial-time algorithm based on an elementary theorem about Pascal triangles. 
+const assert = require('chai').assert;
 
-The theorem on which the test is based can be stated as follows:
+/// title: AKS test for primes
+/// type: rosetta-code
 
-* &nbsp; a number &nbsp; <big><big>$p$</big></big> &nbsp; is prime &nbsp; if and only if &nbsp; all the coefficients of the polynomial expansion of
-::: <big><big>$(x-1)^p - (x^p - 1)$</big></big>
-are divisible by &nbsp; <big><big>$p$.</big></big>
+/// categories:
+/// ?
 
+/// difficulty: ?
 
-;Example:
-Using &nbsp; <big><big>$p=3$:</big></big>
+/// benchmark:
+replaceWithActualFunctionHere;
 
-          <big><big>(x-1)^3 - (x^3 - 1)
-             = (x^3 - 3x^2 + 3x - 1) - (x^3 - 1)
-             = -3x^2 + 3x</big></big>
+/// description:
+/// <br>
+/// <br>
+/// The [http://www.cse.iitk.ac.in/users/manindra/algebra/primality_v6.pdf AKS algorithm] for testing whether a number is prime is a polynomial-time algorithm based on an elementary theorem about Pascal triangles. 
+/// <br>
+/// The theorem on which the test is based can be stated as follows:
+/// <br>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">&nbsp; a number &nbsp; <big><big>$p$</big></big> &nbsp; is prime &nbsp; if and only if &nbsp; all the coefficients of the polynomial expansion of</li>
+/// <br>
+/// </ul><span class="rosetta__text--indented">:: <big><big>$(x-1)^p - (x^p - 1)$</big></big></span>
+/// are divisible by &nbsp; <big><big>$p$.</big></big>
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Example:</dt></dl>
+/// Using &nbsp; <big><big>$p=3$:</big></big>
+/// <br>
+///           <big><big>(x-1)^3 - (x^3 - 1)
+///              = (x^3 - 3x^2 + 3x - 1) - (x^3 - 1)
+///              = -3x^2 + 3x</big></big>
+/// <br>
+/// <br>
+/// And all the coefficients are divisible by <span class="rosetta__text--bold">3</span>, &nbsp; so <span class="rosetta__text--bold">3</span> is prime.
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <br>
+/// <br>
+/// # Create a function/subroutine/method that given &nbsp; <big><big>$p$</big></big> &nbsp; generates the coefficients of the expanded polynomial representation of &nbsp; <big><big>$(x-1)^p$.</big></big>
+/// # Use the function to show here the polynomial expansions of &nbsp; <big><big>$(x-1)^p$</big></big> &nbsp; for &nbsp; <big><big>$p$</big></big> &nbsp; in the range &nbsp; <span class="rosetta__text--bold">0</span> &nbsp; to at least &nbsp; <span class="rosetta__text--bold">7</span>, &nbsp; inclusive.
+/// # Use the previous function in creating another function that when given &nbsp; <big><big>$p$</big></big> &nbsp; returns whether &nbsp; <big><big>$p$</big></big> &nbsp; is prime using the theorem.
+/// # Use your test to generate a list of all primes <span class="rosetta__text--italic">under</span> &nbsp; <span class="rosetta__text--bold">35</span>.
+/// # <span class="rosetta__text--bold">As a stretch goal</span>, &nbsp; generate all primes under &nbsp; <span class="rosetta__text--bold">50</span> &nbsp; (needs integers larger than 31-bit).
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">References:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">[https://en.wikipedia.org/wiki/AKS_primality_test Agrawal-Kayal-Saxena (AKS) primality test] (Wikipedia) </li>
+/// <li class="rosetta__list-item">[http://www.youtube.com/watch?v=HvMSRWTE2mI Fool-Proof Test for Primes] - Numberphile (Video).  The accuracy of this video is disputed -- at best it is an oversimplification.</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
 
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
-And all the coefficients are divisible by <span class="rosetta__text--bold">3</span>, &nbsp; so <span class="rosetta__text--bold">3</span> is prime.
+/// solutions:
+var i, p, pascal, primerow, primes, show, _i;
 
+pascal = function() {
+  var a;
+  a = [];
+  return function() {
+    var b, i;
+    if (a.length === 0) {
+      return a = [1];
+    } else {
+      b = (function() {
+        var _i, _ref, _results;
+        _results = [];
+        for (i = _i = 0, _ref = a.length - 1; 0 <= _ref ? _i < _ref : _i > _ref; i = 0 <= _ref ? ++_i : --_i) {
+          _results.push(a[i] + a[i + 1]);
+        }
+        return _results;
+      })();
+      return a = [1].concat(b).concat([1]);
+    }
+  };
+};
 
-{{alertbox|#ffe4e4|<span class="rosetta__text--bold">Note:</span><br/>This task is <span class="rosetta__text--bold">not</span> the AKS primality test. &nbsp; It is an inefficient exponential time algorithm discovered in the late 1600s and used as an introductory lemma in the AKS derivation.}}
+show = function(a) {
+  var degree, i, sgn, show_x, str, _i, _ref;
+  show_x = function(e) {
+    switch (e) {
+      case 0:
+        return "";
+      case 1:
+        return "x";
+      default:
+        return "x^" + e;
+    }
+  };
+  degree = a.length - 1;
+  str = "(x - 1)^" + degree + " =";
+  sgn = 1;
+  for (i = _i = 0, _ref = a.length; 0 <= _ref ? _i < _ref : _i > _ref; i = 0 <= _ref ? ++_i : --_i) {
+    str += ' ' + (sgn > 0 ? "+" : "-") + ' ' + a[i] + show_x(degree - i);
+    sgn = -sgn;
+  }
+  return str;
+};
 
+primerow = function(row) {
+  var degree;
+  degree = row.length - 1;
+  return row.slice(1, degree).every(function(x) {
+    return x % degree === 0;
+  });
+};
 
-;Task:
+p = pascal();
 
+for (i = _i = 0; _i <= 7; i = ++_i) {
+  console.log(show(p()));
+}
 
-# Create a function/subroutine/method that given &nbsp; <big><big>$p$</big></big> &nbsp; generates the coefficients of the expanded polynomial representation of &nbsp; <big><big>$(x-1)^p$.</big></big>
-# Use the function to show here the polynomial expansions of &nbsp; <big><big>$(x-1)^p$</big></big> &nbsp; for &nbsp; <big><big>$p$</big></big> &nbsp; in the range &nbsp; <span class="rosetta__text--bold">0</span> &nbsp; to at least &nbsp; <span class="rosetta__text--bold">7</span>, &nbsp; inclusive.
-# Use the previous function in creating another function that when given &nbsp; <big><big>$p$</big></big> &nbsp; returns whether &nbsp; <big><big>$p$</big></big> &nbsp; is prime using the theorem.
-# Use your test to generate a list of all primes <span class="rosetta__text--italic">under</span> &nbsp; <span class="rosetta__text--bold">35</span>.
-# <span class="rosetta__text--bold">As a stretch goal</span>, &nbsp; generate all primes under &nbsp; <span class="rosetta__text--bold">50</span> &nbsp; (needs integers larger than 31-bit).
+p = pascal();
 
+p();
 
-;References:
-* [https://en.wikipedia.org/wiki/AKS_primality_test Agrawal-Kayal-Saxena (AKS) primality test] (Wikipedia) 
-* [http://www.youtube.com/watch?v=HvMSRWTE2mI Fool-Proof Test for Primes] - Numberphile (Video).  The accuracy of this video is disputed -- at best it is an oversimplification.
-<br><br>
+p();
 
+primes = (function() {
+  var _j, _results;
+  _results = [];
+  for (i = _j = 1; _j <= 49; i = ++_j) {
+    if (primerow(p())) {
+      _results.push(i + 1);
+    }
+  }
+  return _results;
+})();
 
+console.log("");
+
+console.log("The primes upto 50 are: " + primes);
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 {{trans|CoffeeScript}}
 <lang javascript>var i, p, pascal, primerow, primes, show, _i;
@@ -203,3 +314,10 @@ for (var n=2; n<=50; n++) if (isPrime(n)) document.write(' ', n)</lang>
  
  Primes: 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

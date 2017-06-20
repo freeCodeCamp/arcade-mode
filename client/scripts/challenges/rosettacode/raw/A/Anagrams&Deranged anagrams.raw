@@ -1,24 +1,131 @@
-Anagrams/Deranged anagrams
 
-{{task}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-Two or more words are said to be <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Anagrams" title="Anagrams">anagrams</a> if they have the same characters, but in a different order. 
+const assert = require('chai').assert;
 
-By analogy with <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Permutations/Derangements" title="Permutations/Derangements">derangements</a> we define a  <span class="rosetta__text--italic">deranged anagram</span> as two words with the same characters, but in which the same character does <span class="rosetta__text--italic">not</span> appear in the same position in both words.
+/// title: Anagrams/Deranged anagrams
+/// type: rosetta-code
 
-{{task heading}}
+/// categories:
+/// ?
 
-Use the word list at [http://www.puzzlers.org/pub/wordlists/unixdict.txt unixdict] to find and display the longest deranged anagram. 
+/// difficulty: ?
 
-{{task heading|Related tasks}}
+/// benchmark:
+replaceWithActualFunctionHere;
 
-* [[Permutations/Derangements]]
-* [[Best shuffle]]
-{{Related tasks/Word plays}}
+/// description:
+/// <br>
+/// <br>
+/// Two or more words are said to be <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Anagrams" title="Anagrams">anagrams</a> if they have the same characters, but in a different order. 
+/// <br>
+/// By analogy with <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Permutations/Derangements" title="Permutations/Derangements">derangements</a> we define a  <span class="rosetta__text--italic">deranged anagram</span> as two words with the same characters, but in which the same character does <span class="rosetta__text--italic">not</span> appear in the same position in both words.
+/// <br>
+/// <br>
+/// <br>
+/// Use the word list at [http://www.puzzlers.org/pub/wordlists/unixdict.txt unixdict] to find and display the longest deranged anagram. 
+/// <br>
+/// <br>
+/// <br>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">[[Permutations/Derangements]]</li>
+/// <li class="rosetta__list-item">[[Best shuffle]]</li>
+/// <br>
+/// </ul>
+/// <br>
+/// <hr>
+/// <br>
+/// <br>
 
-<hr>
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+#!/usr/bin/env js
+
+function main() {
+    var wordList = read('unixdict.txt').split(/\s+/);
+    var anagrams = findAnagrams(wordList);
+    var derangedAnagrams = findDerangedAnagrams(anagrams);
+    var longestPair = findLongestDerangedPair(derangedAnagrams);
+    print(longestPair.join(' '));
+    
+}
+
+function findLongestDerangedPair(danas) {
+    var longestLen = danas[0][0].length;
+    var longestPair = danas[0];
+    for (var i in danas) {
+        if (danas[i][0].length > longestLen) {
+            longestLen = danas[i][0].length;
+            longestPair = danas[i];
+        }
+    }
+    return longestPair;
+}
+
+function findDerangedAnagrams(anagrams) {
+    var deranged = [];
+    
+    function isDeranged(w1, w2) {
+        for (var c = 0; c < w1.length; c++) {
+            if (w1[c] == w2[c]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    function findDeranged(anas) {
+        for (var a = 0; a < anas.length; a++) {
+            for (var b = a + 1; b < anas.length; b++) {
+                if (isDeranged(anas[a], anas[b])) {
+                    deranged.push([anas[a], anas[b]]);
+                }   
+            }
+        }
+    }
+    
+    for (var a in anagrams) {
+        var anas = anagrams[a];
+        findDeranged(anas);
+    }
+    
+    return deranged;
+}
+    
+function findAnagrams(wordList) {
+    var anagrams = {};
+
+    for (var wordNum in wordList) {
+        var word = wordList[wordNum];
+        var key = word.split('').sort().join('');
+        if (!(key in anagrams)) {
+            anagrams[key] = [];
+        }
+        anagrams[key].push(word);
+    }
+
+    for (var a in anagrams) {
+        if (anagrams[a].length < 2) {
+            delete(anagrams[a]);
+        }
+    }
+
+    return anagrams;
+}
+
+main();
 
 
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 
 === Spidermonkey ===
@@ -159,3 +266,10 @@ show(best_pair);
 {{Out|Output (in a browser window)}}
 <pre>intoxicate,excitation</pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

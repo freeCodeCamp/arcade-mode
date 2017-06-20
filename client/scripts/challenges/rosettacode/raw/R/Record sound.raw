@@ -1,24 +1,60 @@
-Record sound
 
-{{task|Sound}} [[Category:Temporal media]]
-{{omit from|AWK}}
-{{omit from|Brlcad}}
-{{omit from|HTML}}
-{{omit from|LFE}}
-{{omit from|Logtalk}}
-{{omit from|Lotus 123 Macro Scripting}}
-{{omit from|Maxima}}
-{{omit from|ML/I}}
-{{omit from|Openscad}}
-{{omit from|PARI/GP}}
-{{omit from|TI-83 BASIC}}
-{{omit from|TPP}}
-{{omit from|zkl}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-Record a monophonic 16-bit PCM sound into either memory space, a file or array.
+const assert = require('chai').assert;
 
-(This task neglects to specify the sample rate, and whether to use signed samples. 
-The programs in this page might use signed 16-bit or unsigned 16-bit samples, at 8000 Hz, 44100 Hz, or any other sample rate. 
-Therefore, these programs might not record sound in the same format.)
+/// title: Record sound
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+///  [[Category:Temporal media]]
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// Record a monophonic 16-bit PCM sound into either memory space, a file or array.
+/// <br>
+/// (This task neglects to specify the sample rate, and whether to use signed samples. 
+/// The programs in this page might use signed 16-bit or unsigned 16-bit samples, at 8000 Hz, 44100 Hz, or any other sample rate. 
+/// Therefore, these programs might not record sound in the same format.)
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

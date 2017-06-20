@@ -1,22 +1,51 @@
-Pi
 
-{{task|Irrational numbers}}
-<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:pi_symbol.jpg" title="File:pi_symbol.jpg">500px||right</a>
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-Create a program to continually calculate and output the next decimal digit of &nbsp; <big><big>$\pi$</big></big> &nbsp; (pi). 
+const assert = require('chai').assert;
 
-The program should continue forever (until it is aborted by the user) calculating and outputting each decimal digit in succession. 
+/// title: Pi
+/// type: rosetta-code
 
-The output should be a decimal sequence beginning &nbsp; 3.14159265 ...
+/// categories:
+/// ?
 
+/// difficulty: ?
 
-Note: this task is about &nbsp; <span class="rosetta__text--italic">calculating</span> &nbsp; pi. &nbsp; For information on built-in pi constants see [[Real constants and functions]].
+/// benchmark:
+replaceWithActualFunctionHere;
 
+/// description:
+/// <br>
+/// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:pi_symbol.jpg" title="File:pi_symbol.jpg">500px||right</a>
+/// <br>
+/// Create a program to continually calculate and output the next decimal digit of &nbsp; <big><big>$\pi$</big></big> &nbsp; (pi). 
+/// <br>
+/// The program should continue forever (until it is aborted by the user) calculating and outputting each decimal digit in succession. 
+/// <br>
+/// The output should be a decimal sequence beginning &nbsp; 3.14159265 ...
+/// <br>
+/// <br>
+/// Note: this task is about &nbsp; <span class="rosetta__text--italic">calculating</span> &nbsp; pi. &nbsp; For information on built-in pi constants see [[Real constants and functions]].
+/// <br>
+/// <br>
+/// Related Task [[Arithmetic-geometric mean/Calculate Pi]]
+/// <br><br>
+/// <br>
+/// <br>
 
-Related Task [[Arithmetic-geometric mean/Calculate Pi]]
-<br><br>
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
+/// solutions:
+null
 
+/// rawSolutions:
 =={{header|JavaScript}}==
 Returns an approximation of Pi.
 
@@ -35,3 +64,10 @@ Returns an approximation of Pi.
   return pi;
 }</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

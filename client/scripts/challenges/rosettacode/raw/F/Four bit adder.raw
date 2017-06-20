@@ -1,40 +1,84 @@
-Four bit adder
 
-{{task}} [[Category:Electronics]]
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-"<span class="rosetta__text--italic">Simulate</span>" a four-bit adder "chip".
- 
-This "chip" can be realized using four <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Adder_(electronics)#Full_adder" title="wp: Adder_(electronics)#Full_adder">1-bit full adder</a>s. 
-Each of these 1-bit full adders can be built with two <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Adder_(electronics)#Half_adder" title="wp: Adder_(electronics)#Half_adder">half adder]]s and an <span class="rosetta__text--italic">or</span> [[wp:Logic gate|gate</a>. Finally a half adder can be made using a <span class="rosetta__text--italic">xor</span> gate and an <span class="rosetta__text--italic">and</span> gate. 
-The <span class="rosetta__text--italic">xor</span> gate can be made using two <span class="rosetta__text--italic">not</span>s, two <span class="rosetta__text--italic">and</span>s and one <span class="rosetta__text--italic">or</span>.
+const assert = require('chai').assert;
 
-<span class="rosetta__text--bold">Not</span>, <span class="rosetta__text--bold">or</span> and <span class="rosetta__text--bold">and</span>, the only allowed "gates" for the task, can be "imitated" by using the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Bitwise operations" title="Bitwise operations">bitwise operators</a> of your language. 
-If there is not a <span class="rosetta__text--italic">bit type</span> in your language, to be sure that the <span class="rosetta__text--italic">not</span> does not "invert" all the other bits of the basic type (e.g. a byte) we are not interested in, you can use an extra <span class="rosetta__text--italic">nand</span> (<span class="rosetta__text--italic">and</span> then <span class="rosetta__text--italic">not</span>) with the constant 1 on one input.
+/// title: Four bit adder
+/// type: rosetta-code
 
-Instead of optimizing and reducing the number of gates used for the final 4-bit adder, build it in the most straightforward way, <span class="rosetta__text--italic">connecting</span> the other "constructive blocks", in turn made of "simpler" and "smaller" ones.
+/// categories:
+/// ?
 
-{|
-|+Schematics of the "constructive blocks"
-!Xor gate done with ands, ors and nots
-!A half adder
-!A full adder
-!A 4-bit adder
-|-
-|<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:xor.png" title="File:xor.png">frameless|Xor gate done with ands, ors and nots</a>
-|<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:halfadder.png" title="File:halfadder.png">frameless|A half adder</a>
-|<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:fulladder.png" title="File:fulladder.png">frameless|A full adder</a>
-|<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:4bitsadder.png" title="File:4bitsadder.png">frameless|A 4-bit adder</a>
-|}
+/// difficulty: ?
 
-Solutions should try to be as descriptive as possible, making it as easy as possible to identify "connections" between higher-order "blocks". 
-It is not mandatory to replicate the syntax of higher-order blocks in the atomic "gate" blocks, i.e. basic "gate" operations can be performed as usual bitwise operations, or they can be "wrapped" in a <span class="rosetta__text--italic">block</span> in order to expose the same syntax of higher-order blocks, at implementers' choice.
+/// benchmark:
+replaceWithActualFunctionHere;
 
-To test the implementation, show the sum of two four-bit numbers (in binary).
-<div style="clear:both"></div>
-<br><br>
+/// description:
+///  [[Category:Electronics]]
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// "<span class="rosetta__text--italic">Simulate</span>" a four-bit adder "chip".
+///  
+/// This "chip" can be realized using four <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Adder_(electronics)#Full_adder" title="wp: Adder_(electronics)#Full_adder">1-bit full adder</a>s. 
+/// Each of these 1-bit full adders can be built with two <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Adder_(electronics)#Half_adder" title="wp: Adder_(electronics)#Half_adder">half adder]]s and an <span class="rosetta__text--italic">or</span> [[wp:Logic gate|gate</a>. Finally a half adder can be made using a <span class="rosetta__text--italic">xor</span> gate and an <span class="rosetta__text--italic">and</span> gate. 
+/// The <span class="rosetta__text--italic">xor</span> gate can be made using two <span class="rosetta__text--italic">not</span>s, two <span class="rosetta__text--italic">and</span>s and one <span class="rosetta__text--italic">or</span>.
+/// <br>
+/// <span class="rosetta__text--bold">Not</span>, <span class="rosetta__text--bold">or</span> and <span class="rosetta__text--bold">and</span>, the only allowed "gates" for the task, can be "imitated" by using the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Bitwise operations" title="Bitwise operations">bitwise operators</a> of your language. 
+/// If there is not a <span class="rosetta__text--italic">bit type</span> in your language, to be sure that the <span class="rosetta__text--italic">not</span> does not "invert" all the other bits of the basic type (e.g. a byte) we are not interested in, you can use an extra <span class="rosetta__text--italic">nand</span> (<span class="rosetta__text--italic">and</span> then <span class="rosetta__text--italic">not</span>) with the constant 1 on one input.
+/// <br>
+/// Instead of optimizing and reducing the number of gates used for the final 4-bit adder, build it in the most straightforward way, <span class="rosetta__text--italic">connecting</span> the other "constructive blocks", in turn made of "simpler" and "smaller" ones.
+/// <br>
+/// {|
+/// |+Schematics of the "constructive blocks"
+/// !Xor gate done with ands, ors and nots
+/// !A half adder
+/// !A full adder
+/// !A 4-bit adder
+/// |-
+/// |<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:xor.png" title="File:xor.png">frameless|Xor gate done with ands, ors and nots</a>
+/// |<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:halfadder.png" title="File:halfadder.png">frameless|A half adder</a>
+/// |<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:fulladder.png" title="File:fulladder.png">frameless|A full adder</a>
+/// |<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:4bitsadder.png" title="File:4bitsadder.png">frameless|A 4-bit adder</a>
+/// |}
+/// <br>
+/// Solutions should try to be as descriptive as possible, making it as easy as possible to identify "connections" between higher-order "blocks". 
+/// It is not mandatory to replicate the syntax of higher-order blocks in the atomic "gate" blocks, i.e. basic "gate" operations can be performed as usual bitwise operations, or they can be "wrapped" in a <span class="rosetta__text--italic">block</span> in order to expose the same syntax of higher-order blocks, at implementers' choice.
+/// <br>
+/// To test the implementation, show the sum of two four-bit numbers (in binary).
+/// <div style="clear:both"></div>
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+function acceptedBinFormat(bin) {
+    if (bin == 1 || bin === 0 || bin === '0')
+        return true;
+    else
+        return bin;
+}
+
+function arePseudoBin() {
+    var args = [].slice.call(arguments), len = args.length;
+    while(len--)
+        if (acceptedBinFormat(args[len]) !== true)
+            throw new Error('argument must be 0, \'0\', 1, or \'1\', argument ' + len + ' was ' + args[len]);
+    return true;
+}
 
 
+/// rawSolutions:
 =={{header|JavaScript}}==
 
 ===Error Handling===
@@ -157,3 +201,10 @@ while(outer--) {
 </lang>
 
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

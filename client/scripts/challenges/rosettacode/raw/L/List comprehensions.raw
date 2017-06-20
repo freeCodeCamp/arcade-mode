@@ -1,27 +1,87 @@
-List comprehensions
 
-{{task|Basic language learning}}
-{{Omit From|C}}
-{{Omit From|Java}}
-{{Omit From|Modula-3}}
-{{omit from|ACL2}}
-{{omit from|BBC BASIC}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-A <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/List_comprehension" title="wp: List_comprehension">list comprehension</a> is a special syntax in some programming languages to describe lists. It is similar to the way mathematicians describe sets, with a <span class="rosetta__text--italic">set comprehension</span>, hence the name.
+const assert = require('chai').assert;
 
-Some attributes of a list comprehension are:
-# They should be distinct from (nested) for loops and the use of map and filter functions within the syntax of the language.
-# They should return either a list or an iterator (something that returns successive members of a collection, in order).
-# The syntax has parts corresponding to that of <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Set-builder_notation" title="wp: Set-builder_notation">set-builder notation</a>.  
+/// title: List comprehensions
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// A <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/List_comprehension" title="wp: List_comprehension">list comprehension</a> is a special syntax in some programming languages to describe lists. It is similar to the way mathematicians describe sets, with a <span class="rosetta__text--italic">set comprehension</span>, hence the name.
+/// <br>
+/// Some attributes of a list comprehension are:
+/// # They should be distinct from (nested) for loops and the use of map and filter functions within the syntax of the language.
+/// # They should return either a list or an iterator (something that returns successive members of a collection, in order).
+/// # The syntax has parts corresponding to that of <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Set-builder_notation" title="wp: Set-builder_notation">set-builder notation</a>.  
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Write a list comprehension that builds the list of all [[Pythagorean triples]] with elements between &nbsp; <span class="rosetta__text--bold">1</span> &nbsp; and &nbsp; <span class="rosetta__text--bold">n</span>. 
+/// <br>
+/// If the language has multiple ways for expressing such a construct (for example, direct list comprehensions and generators), write one example for each.
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+// USING A LIST MONAD DIRECTLY, WITHOUT SPECIAL SYNTAX FOR LIST COMPREHENSIONS
+
+(function (n) {
+
+    return mb(r(1,     n), function (x) {  // x <- [1..n]
+    return mb(r(1 + x, n), function (y) {  // y <- [1+x..n]
+    return mb(r(1 + y, n), function (z) {  // z <- [1+y..n]
+       
+       return x * x + y * y === z * z ? [[x, y, z]] : [];
+       
+    })})});
 
 
-;Task:
-Write a list comprehension that builds the list of all [[Pythagorean triples]] with elements between &nbsp; <span class="rosetta__text--bold">1</span> &nbsp; and &nbsp; <span class="rosetta__text--bold">n</span>. 
+    // LIBRARY FUNCTIONS
+    
+    // Monadic bind for lists
+    function mb(xs, f) {
+        return [].concat.apply([], xs.map(f));
+    }
+    
+    // Monadic return for lists is simply lambda x -> [x]
+    // as in [[x, y, z]] : [] above
 
-If the language has multiple ways for expressing such a construct (for example, direct list comprehensions and generators), write one example for each.
-<br><br>
+    // Integer range [m..n]
+    function r(m, n) {
+        return Array.apply(null, Array(n - m + 1))
+            .map(function (n, x) {
+                return m + x;
+            });
+    }
 
+})(100);
 
+/// rawSolutions:
 =={{header|JavaScript}}==
 
 ===ES5===
@@ -140,3 +200,10 @@ by using <code>concatMap</code> (the monadic bind function for lists), and <code
 {{Out}}
 <lang JavaScript>[[3, 4, 5], [5, 12, 13], [6, 8, 10], [8, 15, 17], [9, 12, 15], [12, 16, 20]]</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

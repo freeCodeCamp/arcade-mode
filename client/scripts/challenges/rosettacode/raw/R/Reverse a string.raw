@@ -1,22 +1,67 @@
-Reverse a string
 
-{{task|String manipulation}}
-;Task:
-Take a string and reverse it.
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-For example, "asdf" becomes "fdsa".
+const assert = require('chai').assert;
 
+/// title: Reverse a string
+/// type: rosetta-code
 
-;Extra credit:
-Preserve Unicode combining characters. 
+/// categories:
+/// ?
 
-For example, "as⃝df̅" becomes "f̅ds⃝a", not "̅fd⃝sa".
+/// difficulty: ?
 
+/// benchmark:
+replaceWithActualFunctionHere;
 
-{{Template:Strings}}
-<br><br>
+/// description:
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Take a string and reverse it.
+/// <br>
+/// For example, "asdf" becomes "fdsa".
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Extra credit:</dt></dl>
+/// Preserve Unicode combining characters. 
+/// <br>
+/// For example, "as⃝df̅" becomes "f̅ds⃝a", not "̅fd⃝sa".
+/// <br>
+/// <br>
+/// <br>
+/// <br><br>
+/// <br>
+/// <br>
 
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
+/// solutions:
+//using chained methods
+function reverseStr(s) {
+  return s.split('').reverse().join('');
+}
+
+//fast method using for loop
+function reverseStr(s) {
+  for (var i = s.length - 1, o = ''; i >= 0; o += s[i--]) { }
+  return o;
+}
+
+//fast method using while loop (faster with long strings in some browsers when compared with for loop)
+function reverseStr(s) {
+  var i = s.length, o = '';
+  while (i--) o += s[i];
+  return o;
+}
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 
 ===ES5===
@@ -63,3 +108,10 @@ function reverseStr(s) {
 {{Out}}
 <lang JavaScript>["desrever <- eb <- ot <- gnirts <- emoS", "desrever eb ot gnirts emoS"]</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

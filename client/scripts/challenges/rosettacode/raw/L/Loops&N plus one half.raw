@@ -1,27 +1,71 @@
-Loops/N plus one half
 
-{{task|Iteration}} 
-[[Category:Simple]]
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-Quite often one needs loops which, in the last iteration, execute only part of the loop body.
+const assert = require('chai').assert;
 
+/// title: Loops/N plus one half
+/// type: rosetta-code
 
-;Goal:
-Demonstrate the best way to do this.
+/// categories:
+/// ?
 
+/// difficulty: ?
 
-;Task:
-Write a loop which writes the comma-separated list
- 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
-using separate output statements for the number 
-and the comma from within the body of the loop.
+/// benchmark:
+replaceWithActualFunctionHere;
 
+/// description:
+///  
+/// [[Category:Simple]]
+/// <br>
+/// Quite often one needs loops which, in the last iteration, execute only part of the loop body.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Goal:</dt></dl>
+/// Demonstrate the best way to do this.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Write a loop which writes the comma-separated list
+///  1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+/// using separate output statements for the number 
+/// and the comma from within the body of the loop.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related task:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">&nbsp; [[Loop/Break]]</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
 
-;Related task:
-* &nbsp; [[Loop/Break]]
-<br><br>
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
+/// solutions:
+function loop_plus_half(start, end) {
+    var str = '',
+        i;
+    for (i = start; i <= end; i += 1) {
+        str += i;
+        if (i === end) {
+          break;
+        }
+        str += ', ';
+    }
+    return str;
+}
+ 
+alert(loop_plus_half(1, 10));
 
+/// rawSolutions:
 =={{header|JavaScript}}==
 <lang javascript>function loop_plus_half(start, end) {
     var str = '',
@@ -100,3 +144,10 @@ for (;; s+=1) {
 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 
 </pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

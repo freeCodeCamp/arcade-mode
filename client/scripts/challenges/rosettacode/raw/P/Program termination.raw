@@ -1,24 +1,54 @@
-Program termination
 
-{{task|Basic language learning}}
-<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category:Simple]]
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
+const assert = require('chai').assert;
 
-;Task:
-Show the syntax for a complete stoppage of a program inside a &nbsp; [[Conditional Structures" title="Category:Simple]]
+/// title: Program termination
+/// type: rosetta-code
 
+/// categories:
+/// ?
 
-;Task:
-Show the syntax for a complete stoppage of a program inside a &nbsp; [[Conditional Structures">conditional</a>. 
+/// difficulty: ?
 
-This includes all [[threads]]/[[processes]] which are part of your program.
+/// benchmark:
+replaceWithActualFunctionHere;
 
-Explain the cleanup (or lack thereof) caused by the termination (allocated memory, database connections, open files, object finalizers/destructors, run-on-exit hooks, etc.).  
+/// description:
+/// <br>
+/// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category:Simple]]
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Show the syntax for a complete stoppage of a program inside a &nbsp; [[Conditional Structures" title="Category:Simple]]
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Show the syntax for a complete stoppage of a program inside a &nbsp; [[Conditional Structures">conditional</a>. 
+/// <br>
+/// This includes all [[threads]]/[[processes]] which are part of your program.
+/// <br>
+/// Explain the cleanup (or lack thereof) caused by the termination (allocated memory, database connections, open files, object finalizers/destructors, run-on-exit hooks, etc.).  
+/// <br>
+/// Unless otherwise described, no special cleanup outside that provided by the operating system is provided.
+/// <br><br>
+/// <br>
+/// <br>
 
-Unless otherwise described, no special cleanup outside that provided by the operating system is provided.
-<br><br>
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
+/// solutions:
+if (some_condition) 
+    quit();
 
+/// rawSolutions:
 =={{header|JavaScript}}==
 {{works with|SpiderMonkey}}
 The <code>quit()</code> function exits the shell.
@@ -26,3 +56,10 @@ The <code>quit()</code> function exits the shell.
     quit();</lang>
 
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

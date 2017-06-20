@@ -1,29 +1,69 @@
-Vampire number
 
-{{task|Mathematics}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-A <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Vampire_number" title="wp: Vampire_number">vampire number</a> is a natural number with an even number of digits, that can be factored into two integers. These two factors are called the <span class="rosetta__text--italic">fangs</span>, and must have the following properties:
-* they each contain half the number of the digits of the original number
-* together they consist of exactly the same digits as the original number
-* at most one of them has a trailing zero
+const assert = require('chai').assert;
 
-<br>
-An example of a Vampire number and its fangs: <code> 1260 : (21, 60) </code>
+/// title: Vampire number
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// A <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Vampire_number" title="wp: Vampire_number">vampire number</a> is a natural number with an even number of digits, that can be factored into two integers. These two factors are called the <span class="rosetta__text--italic">fangs</span>, and must have the following properties:
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">they each contain half the number of the digits of the original number</li>
+/// <li class="rosetta__list-item">together they consist of exactly the same digits as the original number</li>
+/// <li class="rosetta__list-item">at most one of them has a trailing zero</li>
+/// <br>
+/// </ul>
+/// <br>
+/// An example of a Vampire number and its fangs: <code> 1260 : (21, 60) </code>
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// # Print the first 25 Vampire numbers and their fangs. 
+/// # Check if the following numbers are Vampire numbers and, if  so, print them and their fangs: 
+/// <big><code> 16758243290880,  24959017348650,  14593825548650 </code></big>
+/// <br>
+/// <br>
+/// Note that a Vampire number can have more than one pair of fangs.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">See also:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">[http://www.numberphile.com/videos/vampire_numbers.html numberphile.com].</li>
+/// <li class="rosetta__list-item">[http://users.cybercity.dk/~dsl522332/math/vampires/ Vampire search algorithm]</li>
+/// <li class="rosetta__list-item"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/oeis:A014575" title="oeis:A014575">Vampire numbers on OEIS</a></li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
-;Task:
-# Print the first 25 Vampire numbers and their fangs. 
-# Check if the following numbers are Vampire numbers and, if  so, print them and their fangs: 
-<big><code> 16758243290880,  24959017348650,  14593825548650 </code></big>
+/// rawSolutions:
+null
 
-<br>
-Note that a Vampire number can have more than one pair of fangs.
+/// tail:
+const replaceThis = 3;
 
-
-;See also:
-* [http://www.numberphile.com/videos/vampire_numbers.html numberphile.com].
-* [http://users.cybercity.dk/~dsl522332/math/vampires/ Vampire search algorithm]
-* <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/oeis:A014575" title="oeis:A014575">Vampire numbers on OEIS</a>
-<br><br>
-
-
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

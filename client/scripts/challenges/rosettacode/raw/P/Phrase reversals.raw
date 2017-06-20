@@ -1,24 +1,67 @@
-Phrase reversals
 
-{{task}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Given a string of space separated words containing the following phrase:
-  rosetta code phrase reversal
+const assert = require('chai').assert;
 
-:# Reverse the string.
-:# Reverse each individual word in the string, maintaining original string order.
-:# Reverse the order of each word of the phrase, maintaining the order of characters in each word.
-<br>
-Show your output here.
- 
+/// title: Phrase reversals
+/// type: rosetta-code
 
-;See also: 
-* [[Reverse a string]]
-* [[Reverse words in a string]]
-<br><br>
+/// categories:
+/// ?
 
+/// difficulty: ?
 
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Given a string of space separated words containing the following phrase:
+///   rosetta code phrase reversal
+/// <br>
+/// <span class="rosetta__text--indented"># Reverse the string.</span>
+/// <span class="rosetta__text--indented"># Reverse each individual word in the string, maintaining original string order.</span>
+/// <span class="rosetta__text--indented"># Reverse the order of each word of the phrase, maintaining the order of characters in each word.</span>
+/// <br>
+/// Show your output here.
+///  
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">See also: </dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">[[Reverse a string]]</li>
+/// <li class="rosetta__list-item">[[Reverse words in a string]]</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+(function (p) {
+  return [
+    p.split('').reverse().join(''),
+
+    p.split(' ').map(function (x) {
+        return x.split('').reverse().join('');
+    }).join(' '),
+
+    p.split(' ').reverse().join(' ')
+
+  ].join('\n');
+
+})('rosetta code phrase reversal');
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 ===ES5===
 <lang JavaScript>(function (p) {
@@ -110,3 +153,10 @@ reversal phrase code rosetta</pre>
 attesor edoc esarhp lasrever
 reversal phrase code rosetta</pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

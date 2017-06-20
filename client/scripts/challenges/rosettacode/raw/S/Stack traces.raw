@@ -1,22 +1,55 @@
-Stack traces
 
-{{task|Programming environment operations}}
-Many programming languages allow for introspection of the current call stack environment. This can be for a variety of purposes such as enforcing security checks, debugging, or for getting access to the stack frame of callers.
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
+const assert = require('chai').assert;
 
-;Task:
-Print out (in a manner considered suitable for the platform) the current call stack. 
+/// title: Stack traces
+/// type: rosetta-code
 
-The amount of information printed for each frame on the call stack is not constrained, but should include at least the name of the function or method at that level of the stack frame. 
+/// categories:
+/// ?
 
-You may explicitly add a call to produce the stack trace to the (example) code being instrumented for examination.
+/// difficulty: ?
 
-The task should allow the program to continue after generating the stack trace. 
+/// benchmark:
+replaceWithActualFunctionHere;
 
-The task report here must include the trace from a sample program.
-<br><br>
+/// description:
+/// <br>
+/// Many programming languages allow for introspection of the current call stack environment. This can be for a variety of purposes such as enforcing security checks, debugging, or for getting access to the stack frame of callers.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Print out (in a manner considered suitable for the platform) the current call stack. 
+/// <br>
+/// The amount of information printed for each frame on the call stack is not constrained, but should include at least the name of the function or method at that level of the stack frame. 
+/// <br>
+/// You may explicitly add a call to produce the stack trace to the (example) code being instrumented for examination.
+/// <br>
+/// The task should allow the program to continue after generating the stack trace. 
+/// <br>
+/// The task report here must include the trace from a sample program.
+/// <br><br>
+/// <br>
+/// <br>
 
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
+/// solutions:
+try {
+  throw new Error;
+} catch(e) {
+  alert(e.stack);
+}
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 There is no standard way to do this, but some implementations provide it.<br />
 {{works with|Firefox}}
@@ -37,3 +70,10 @@ The following version works in many browsers but it infinitely loops when there 
 }
 foo();</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

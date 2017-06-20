@@ -1,57 +1,100 @@
-Haversine formula
 
-{{task}}
-{{Wikipedia}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-<br>
-The <span class="rosetta__text--bold">haversine formula</span> is an equation important in navigation, giving great-circle distances between two points on a sphere from their longitudes and latitudes. 
+const assert = require('chai').assert;
 
-It is a special case of a more general formula  in spherical trigonometry, the <span class="rosetta__text--bold">law of haversines</span>, relating the sides and angles of spherical "triangles".
+/// title: Haversine formula
+/// type: rosetta-code
 
+/// categories:
+/// ?
 
-;Task:
-Implement a great-circle distance function, or use a library function, 
-to show the great-circle distance between:
-* Nashville International Airport (BNA) &nbsp; in Nashville, TN, USA, &nbsp; which is: 
-   <big><big> <span class="rosetta__text--bold">N</span> 36°7.2',   <span class="rosetta__text--bold">W</span> 86°40.2'     (36.12,   -86.67) </big></big>          -and-
-* Los Angeles International Airport (LAX) &nbsp;in Los Angeles, CA, USA, &nbsp; which is:
-   <big><big> <span class="rosetta__text--bold">N</span> 33°56.4',  <span class="rosetta__text--bold">W</span> 118°24.0'    (33.94,  -118.40) </big></big>  
-<br>
+/// difficulty: ?
 
-<pre>
-User Kaimbridge clarified on the Talk page:
+/// benchmark:
+replaceWithActualFunctionHere;
 
- -- 6371.0 km is the authalic radius based on/extracted from surface area;
- -- 6372.8 km is an approximation of the radius of the average circumference
-    (i.e., the average great-elliptic or great-circle radius), where the
-     boundaries are the meridian (6367.45 km) and the equator (6378.14 km).
+/// description:
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// The <span class="rosetta__text--bold">haversine formula</span> is an equation important in navigation, giving great-circle distances between two points on a sphere from their longitudes and latitudes. 
+/// <br>
+/// It is a special case of a more general formula  in spherical trigonometry, the <span class="rosetta__text--bold">law of haversines</span>, relating the sides and angles of spherical "triangles".
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Implement a great-circle distance function, or use a library function, 
+/// to show the great-circle distance between:
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">Nashville International Airport (BNA) &nbsp; in Nashville, TN, USA, &nbsp; which is: </li>
+/// <br>
+/// </ul>   <big><big> <span class="rosetta__text--bold">N</span> 36°7.2',   <span class="rosetta__text--bold">W</span> 86°40.2'     (36.12,   -86.67) </big></big>          -and-
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">Los Angeles International Airport (LAX) &nbsp;in Los Angeles, CA, USA, &nbsp; which is:</li>
+/// <br>
+/// </ul>   <big><big> <span class="rosetta__text--bold">N</span> 33°56.4',  <span class="rosetta__text--bold">W</span> 118°24.0'    (33.94,  -118.40) </big></big>  
+/// <br>
+/// <br>
+/// <pre>
+/// User Kaimbridge clarified on the Talk page:
+/// <br>
+///  -- 6371.0 km is the authalic radius based on/extracted from surface area;
+///  -- 6372.8 km is an approximation of the radius of the average circumference
+///     (i.e., the average great-elliptic or great-circle radius), where the
+///      boundaries are the meridian (6367.45 km) and the equator (6378.14 km).
+/// <br>
+/// Using either of these values results, of course, in differing distances:
+/// <br>
+///  6371.0 km -> 2886.44444283798329974715782394574671655 km;
+///  6372.8 km -> 2887.25995060711033944886005029688505340 km;
+///  (results extended for accuracy check:  Given that the radii are only
+///   approximations anyways, .01' ≈ 1.0621333 km and .001" ≈ .00177 km,
+///   practical precision required is certainly no greater than about
+///   .0000001——i.e., .1 mm!)
+/// <br>
+/// As distances are segments of great circles/circumferences, it is
+/// recommended that the latter value (r = 6372.8 km) be used (which
+/// most of the given solutions have already adopted, anyways). 
+/// </pre>
+/// <br>
+/// Most of the examples below adopted Kaimbridge's recommended value of
+/// 6372.8 km for the earth radius.  However, the derivation of this
+/// [http://math.wikia.com/wiki/Ellipsoidal_quadratic_mean_radius ellipsoidal quadratic mean radius]
+/// is wrong (the averaging over azimuth is biased).  When applying these
+/// examples in real applications, it is better to use the
+/// [https://en.wikipedia.org/wiki/Earth_radius#Mean_radius mean earth radius],
+/// 6371 km.  This value is recommended by the International Union of
+/// Geodesy and Geophysics and it minimizes the RMS relative error between the
+/// great circle and geodesic distance.
+/// <br><br>
+/// <br>
+/// <br>
 
-Using either of these values results, of course, in differing distances:
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
- 6371.0 km -> 2886.44444283798329974715782394574671655 km;
- 6372.8 km -> 2887.25995060711033944886005029688505340 km;
- (results extended for accuracy check:  Given that the radii are only
-  approximations anyways, .01' ≈ 1.0621333 km and .001" ≈ .00177 km,
-  practical precision required is certainly no greater than about
-  .0000001——i.e., .1 mm!)
+/// solutions:
+function haversine() {
+       var radians = Array.prototype.map.call(arguments, function(deg) { return deg/180.0 * Math.PI; });
+       var lat1 = radians[0], lon1 = radians[1], lat2 = radians[2], lon2 = radians[3];
+       var R = 6372.8; // km
+       var dLat = lat2 - lat1;
+       var dLon = lon2 - lon1;
+       var a = Math.sin(dLat / 2) * Math.sin(dLat /2) + Math.sin(dLon / 2) * Math.sin(dLon /2) * Math.cos(lat1) * Math.cos(lat2);
+       var c = 2 * Math.asin(Math.sqrt(a));
+       return R * c;
+}
+console.log(haversine(36.12, -86.67, 33.94, -118.40));
 
-As distances are segments of great circles/circumferences, it is
-recommended that the latter value (r = 6372.8 km) be used (which
-most of the given solutions have already adopted, anyways). 
-</pre>
-
-Most of the examples below adopted Kaimbridge's recommended value of
-6372.8 km for the earth radius.  However, the derivation of this
-[http://math.wikia.com/wiki/Ellipsoidal_quadratic_mean_radius ellipsoidal quadratic mean radius]
-is wrong (the averaging over azimuth is biased).  When applying these
-examples in real applications, it is better to use the
-[https://en.wikipedia.org/wiki/Earth_radius#Mean_radius mean earth radius],
-6371 km.  This value is recommended by the International Union of
-Geodesy and Geophysics and it minimizes the RMS relative error between the
-great circle and geodesic distance.
-<br><br>
-
-
+/// rawSolutions:
 =={{header|JavaScript}}==
 ===ES5===
 {{trans|Java}}
@@ -111,3 +154,10 @@ console.log(haversine(36.12, -86.67, 33.94, -118.40));</lang>
 {{Out}}
 <pre>2887.26</pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

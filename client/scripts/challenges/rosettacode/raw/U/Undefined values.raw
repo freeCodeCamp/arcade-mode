@@ -1,9 +1,50 @@
-Undefined values
 
-{{task|Programming language concepts}}For languages which have an explicit notion of an undefined value, identify and exercise those language's mechanisms for identifying and manipulating a variable's value's status as being undefined.
-<br/><br/>
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
+const assert = require('chai').assert;
 
+/// title: Undefined values
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// For languages which have an explicit notion of an undefined value, identify and exercise those language's mechanisms for identifying and manipulating a variable's value's status as being undefined.
+/// <br/><br/>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+var a;
+
+typeof(a) === "undefined";
+typeof(b) === "undefined";
+
+var obj = {}; // Empty object.
+typeof(obj.c) === "undefined";
+
+obj.c = 42;
+
+obj.c === 42;
+delete obj.c;
+typeof(obj.c) === "undefined";
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 In Javascript undefined is a property of the global object, i.e. it is a variable in global scope. The initial value of undefined is the primitive value undefined. The problem with using undefined is that undefined is mutable. Instead we can use typeof to check if a value is undefined.
 <lang javascript>var a;
@@ -25,3 +66,10 @@ We can also use the prefix keyword void, it always returns undefined. But this w
 a === void 0; // true
 b === void 0; // throws a ReferenceError</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

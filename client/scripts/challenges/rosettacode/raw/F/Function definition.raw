@@ -1,22 +1,55 @@
-Function definition
 
-{{task|Basic language learning}}[[Category:Functions and subroutines]] [[Category:Simple]]
-A function is a body of code that returns a value. 
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-The value returned may depend on arguments provided to the function.
+const assert = require('chai').assert;
 
+/// title: Function definition
+/// type: rosetta-code
 
-;Task:
-Write a definition of a function called "multiply" that takes two arguments and returns their product.
- 
-(Argument types should be chosen so as not to distract from showing how functions are created and values returned).
+/// categories:
+/// ?
 
+/// difficulty: ?
 
-;Related task:
-* &nbsp; [[Function prototype]]
-<br><br>
+/// benchmark:
+replaceWithActualFunctionHere;
 
+/// description:
+/// [[Category:Functions and subroutines]] [[Category:Simple]]
+/// A function is a body of code that returns a value. 
+/// <br>
+/// The value returned may depend on arguments provided to the function.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Write a definition of a function called "multiply" that takes two arguments and returns their product.
+///  
+/// (Argument types should be chosen so as not to distract from showing how functions are created and values returned).
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related task:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">&nbsp; [[Function prototype]]</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
 
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+function multiply(a, b) { 
+  return a*b; 
+}
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 ===ES1-*===
 Function Declaration
@@ -72,3 +105,10 @@ Generator Functions
   yield 1;
 }</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,34 +1,193 @@
-Chinese zodiac
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Chinese zodiac
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// Determine the Chinese zodiac sign and related associations for a given year.
+/// <br>
+/// Traditionally, the Chinese have counted years using two simultaneous cycles, one of length 10 (the "celestial stems") and one of length 12 (the "terrestrial branches"); the combination results in a repeating 60-year pattern. Mapping the branches to twelve traditional animal deities results in the well-known "Chinese zodiac", assigning each year to a given animal. For example, Saturday, January 28, 2017 CE (in the common Gregorian calendar) begins the lunisolar year of the Rooster.
+/// <br>
+/// The celestial stems have no one-to-one mapping like that of the branches to animals; however, the five pairs of consecutive stems each belong to one of the five traditional Chinese elements (Wood, Fire, Earth, Metal, and Water). Further, one of the two years within each element's governance is associated with yin, the other with yang.
+/// <br>
+/// Thus, 2017 is also the yin year of Fire. Note that since 12 is an even number, the association between animals and yin/yang doesn't change. Consecutive Years of the Rooster will cycle through the five elements, but will always be yin, despite the apparent conceptual mismatch between the male animals and the female aspect.
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task: Create a subroutine or program that will return or output the animal, yin/yang association, and element for the lunisolar year that begins in a given CE year.</dt></dl>
+/// <br>
+/// You may optionally provide more information in the form of the year's numerical position within the 60-year cycle and/or its actual Chinese stem-branch name (in Han characters or Pinyin transliteration).
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Requisite information:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">The animal cycle runs in this order: Rat, Ox, Tiger, Rabbit, Dragon, Snake, Horse, Goat, Monkey, Rooster, Dog, Pig.</li>
+/// <li class="rosetta__list-item">The element cycle runs in this order: Wood, Fire, Earth, Metal, Water.</li>
+/// <li class="rosetta__list-item">The yang year precedes the yin year within each element.</li>
+/// <li class="rosetta__list-item">The current 60-year cycle began in 1984 CE; the first cycle of the Common Era began in 4 CE.</li>
+/// <br>
+/// </ul>
+/// Thus, 1984 was the year of the Wood Rat (yang), 1985 was the year of the Wood Ox (yin), and 1986 the year of the Fire Tiger (yang); 2017 - which, as already noted, is the year of the Fire Rooster (yin) - is the 34th year of the current cycle.
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Information for optional task:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">The ten celestial stems are <span class="rosetta__text--bold">甲</span> <span class="rosetta__text--italic">jiă</span>, <span class="rosetta__text--bold">乙</span> <span class="rosetta__text--italic">yĭ</span>, <span class="rosetta__text--bold">丙</span> <span class="rosetta__text--italic">bĭng</span>, <span class="rosetta__text--bold">丁</span> <span class="rosetta__text--italic">dīng</span>, <span class="rosetta__text--bold">戊</span> <span class="rosetta__text--italic">wù</span>, <span class="rosetta__text--bold">己</span> <span class="rosetta__text--italic">jĭ</span>, <span class="rosetta__text--bold">庚</span> <span class="rosetta__text--italic">gēng</span>, <span class="rosetta__text--bold">辛</span> <span class="rosetta__text--italic">xīn</span>, <span class="rosetta__text--bold">壬</span> <span class="rosetta__text--italic">rén</span>, and <span class="rosetta__text--bold">癸</span> <span class="rosetta__text--italic">gŭi</span>. With the ASCII version of Pinyin tones, the names are written "jia3", "yi3", "bing3", "ding1", "wu4", "ji3", "geng1", "xin1", "ren2", and "gui3".</li>
+/// <li class="rosetta__list-item">The twelve terrestrial branches are <span class="rosetta__text--bold">子</span> <span class="rosetta__text--italic">zĭ</span>, <span class="rosetta__text--bold">丑</span> <span class="rosetta__text--italic">chŏu</span>, <span class="rosetta__text--bold">寅</span> <span class="rosetta__text--italic">yín</span>, <span class="rosetta__text--bold">卯</span> <span class="rosetta__text--italic">măo</span>, <span class="rosetta__text--bold">辰</span> <span class="rosetta__text--italic">chén</span>, <span class="rosetta__text--bold">巳</span> <span class="rosetta__text--italic">sì</span>, <span class="rosetta__text--bold">午</span> <span class="rosetta__text--italic">wŭ</span>, <span class="rosetta__text--bold">未</span> <span class="rosetta__text--italic">wèi</span>, <span class="rosetta__text--bold">申</span> <span class="rosetta__text--italic">shēn</span>, <span class="rosetta__text--bold">酉</span> <span class="rosetta__text--italic">yŏu</span>, <span class="rosetta__text--bold">戌</span> <span class="rosetta__text--italic">xū</span>, <span class="rosetta__text--bold">亥</span> <span class="rosetta__text--italic">hài</span>. In ASCII Pinyin, those are "zi3", "chou3", "yin2", "mao3", "chen2", "si4", "wu3", "wei4", "shen1", "you3", "xu1", and "hai4".</li>
+/// <br>
+/// </ul>
+/// Therefore 1984 was <span class="rosetta__text--bold">甲子</span> (<span class="rosetta__text--italic">jiă-zĭ</span>, or jia3-zi3).  2017 is the 34th year of the current cycle, <span class="rosetta__text--bold">丁酉</span> (<span class="rosetta__text--italic">dīng-yŏu</span> or ding1-you3).
+/// <br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+(() => {
+    'use strict';
+
+    // GENERIC FUNCTIONS -----------------------------------------------------
+
+    // zip :: [a] -> [b] -> [(a,b)]
+    const zip = (xs, ys) =>
+        xs.slice(0, Math.min(xs.length, ys.length))
+        .map((x, i) => [x, ys[i]]);
+
+    // zip3 :: [a] -> [b] -> [c] -> [(a,b,c)]
+    const zip3 = (xs, ys, zs) =>
+        xs.slice(0, Math.min(xs.length, ys.length, zs.length))
+        .map((x, i) => [x, ys[i], zs[i]]);
+
+    // words, chars :: String -> [String]
+    const words = s => s.split(/\s+/);
+    const chars = s => s.split('');
+
+    // quot Num a => a -> a -> Int
+    const quot = (m, n) => Math.floor(m / n);
+
+    // show ::
+    // (a -> String) f,  Num n =>
+    // a -> maybe f -> maybe n -> String
+    const show = JSON.stringify;
+
+    // concat :: [[a]] -> [a] | [String] -> String
+    const concat = xs => {
+        if (xs.length > 0) {
+            const unit = typeof xs[0] === 'string' ? '' : [];
+            return unit.concat.apply(unit, xs);
+        } else return [];
+    };
+
+    // justifyLeft :: Int -> Char -> Text -> Text
+    const justifyLeft = (n, cFiller, strText) =>
+        n > strText.length ? (
+            (strText + cFiller.repeat(n))
+            .substr(0, n)
+        ) : strText;
+
+    // unlines :: [String] -> String
+    const unlines = xs => xs.join('\n');
+
+    // intercalate :: String -> [a] -> String
+    const intercalate = (s, xs) => xs.join(s);
+
+    // map :: (a -> b) -> [a] -> [b]
+    const map = (f, xs) => xs.map(f);
 
 
-{{task}}Determine the Chinese zodiac sign and related associations for a given year.
+    // TRADITIONAL STRINGS ---------------------------------------------------
+    // ats :: Array Int (String, String)
+    const ats = zip(
+        chars("甲乙丙丁戊己庚辛壬癸"), // 天干 tiangan – 10 heavenly stems
+        words("jiă yĭ bĭng dīng wù jĭ gēng xīn rén gŭi")
+    );
 
-Traditionally, the Chinese have counted years using two simultaneous cycles, one of length 10 (the "celestial stems") and one of length 12 (the "terrestrial branches"); the combination results in a repeating 60-year pattern. Mapping the branches to twelve traditional animal deities results in the well-known "Chinese zodiac", assigning each year to a given animal. For example, Saturday, January 28, 2017 CE (in the common Gregorian calendar) begins the lunisolar year of the Rooster.
+    // ads :: Array Int (String, String)
+    const ads = zip(
+        chars("子丑寅卯辰巳午未申酉戌亥"), // 地支 dizhi – 12 terrestrial branches
+        words("zĭ chŏu yín măo chén sì wŭ wèi shēn yŏu xū hài")
+    );
 
-The celestial stems have no one-to-one mapping like that of the branches to animals; however, the five pairs of consecutive stems each belong to one of the five traditional Chinese elements (Wood, Fire, Earth, Metal, and Water). Further, one of the two years within each element's governance is associated with yin, the other with yang.
+    // aws :: Array Int (String, String, String)
+    const aws = zip3(
+        chars("木火土金水"), // 五行 wuxing – 5 elements
+        words("mù huǒ tǔ jīn shuǐ"),
+        words("wood fire earth metal water")
+    );
 
-Thus, 2017 is also the yin year of Fire. Note that since 12 is an even number, the association between animals and yin/yang doesn't change. Consecutive Years of the Rooster will cycle through the five elements, but will always be yin, despite the apparent conceptual mismatch between the male animals and the female aspect.
+    // axs :: Array Int (String, String, String)
+    const axs = zip3(
+        chars("鼠牛虎兔龍蛇馬羊猴鸡狗豬"), // 十二生肖 shengxiao – 12 symbolic animals
+        words("shǔ niú hǔ tù lóng shé mǎ yáng hóu jī gǒu zhū"),
+        words("rat ox tiger rabbit dragon snake horse goat monkey rooster dog pig")
+    );
 
-;Task: Create a subroutine or program that will return or output the animal, yin/yang association, and element for the lunisolar year that begins in a given CE year.
+    // ays :: Array Int (String, String)
+    const ays = zip(
+        chars("阳阴"), // 阴阳 yinyang
+        words("yáng yīn")
+    );
 
-You may optionally provide more information in the form of the year's numerical position within the 60-year cycle and/or its actual Chinese stem-branch name (in Han characters or Pinyin transliteration).
+    // TRADITIONAL CYCLES ----------------------------------------------------
+    const zodiac = y => {
+        const
+            iYear = y - 4,
+            iStem = iYear % 10,
+            iBranch = iYear % 12,
+            [hStem, pStem] = ats[iStem],
+            [hBranch, pBranch] = ads[iBranch],
+            [hElem, pElem, eElem] = aws[quot(iStem, 2)],
+            [hAnimal, pAnimal, eAnimal] = axs[iBranch],
+            [hYinyang, pYinyang] = ays[iYear % 2];
+        return [
+            [show(y), hStem + hBranch, hElem, hAnimal, hYinyang],
+            ['', pStem + pBranch, pElem, pAnimal, pYinyang],
+            ['', show((iYear % 60) + 1) + '/60', eElem, eAnimal, '']
+        ];
+    };
 
-;Requisite information:
-* The animal cycle runs in this order: Rat, Ox, Tiger, Rabbit, Dragon, Snake, Horse, Goat, Monkey, Rooster, Dog, Pig.
-* The element cycle runs in this order: Wood, Fire, Earth, Metal, Water.
-* The yang year precedes the yin year within each element.
-* The current 60-year cycle began in 1984 CE; the first cycle of the Common Era began in 4 CE.
+    // FORMATTING ------------------------------------------------------------
+    // fieldWidths :: [[Int]]
+    const fieldWidths = [
+        [6, 10, 7, 8, 3],
+        [6, 11, 8, 8, 4],
+        [6, 11, 8, 8, 4]
+    ];
 
-Thus, 1984 was the year of the Wood Rat (yang), 1985 was the year of the Wood Ox (yin), and 1986 the year of the Fire Tiger (yang); 2017 - which, as already noted, is the year of the Fire Rooster (yin) - is the 34th year of the current cycle.
+    // showYear :: Int -> String
+    const showYear = y =>
+        unlines(map(
+            row => concat(map(([n, s]) => justifyLeft(n, ' ', s), row)),
+            map(
+                ([ns, xs]) => zip(ns, xs),
+                zip(fieldWidths, zodiac(y))
+            )
+        ));
 
-;Information for optional task:
-* The ten celestial stems are <span class="rosetta__text--bold">甲</span> <span class="rosetta__text--italic">jiă</span>, <span class="rosetta__text--bold">乙</span> <span class="rosetta__text--italic">yĭ</span>, <span class="rosetta__text--bold">丙</span> <span class="rosetta__text--italic">bĭng</span>, <span class="rosetta__text--bold">丁</span> <span class="rosetta__text--italic">dīng</span>, <span class="rosetta__text--bold">戊</span> <span class="rosetta__text--italic">wù</span>, <span class="rosetta__text--bold">己</span> <span class="rosetta__text--italic">jĭ</span>, <span class="rosetta__text--bold">庚</span> <span class="rosetta__text--italic">gēng</span>, <span class="rosetta__text--bold">辛</span> <span class="rosetta__text--italic">xīn</span>, <span class="rosetta__text--bold">壬</span> <span class="rosetta__text--italic">rén</span>, and <span class="rosetta__text--bold">癸</span> <span class="rosetta__text--italic">gŭi</span>. With the ASCII version of Pinyin tones, the names are written "jia3", "yi3", "bing3", "ding1", "wu4", "ji3", "geng1", "xin1", "ren2", and "gui3".
-* The twelve terrestrial branches are <span class="rosetta__text--bold">子</span> <span class="rosetta__text--italic">zĭ</span>, <span class="rosetta__text--bold">丑</span> <span class="rosetta__text--italic">chŏu</span>, <span class="rosetta__text--bold">寅</span> <span class="rosetta__text--italic">yín</span>, <span class="rosetta__text--bold">卯</span> <span class="rosetta__text--italic">măo</span>, <span class="rosetta__text--bold">辰</span> <span class="rosetta__text--italic">chén</span>, <span class="rosetta__text--bold">巳</span> <span class="rosetta__text--italic">sì</span>, <span class="rosetta__text--bold">午</span> <span class="rosetta__text--italic">wŭ</span>, <span class="rosetta__text--bold">未</span> <span class="rosetta__text--italic">wèi</span>, <span class="rosetta__text--bold">申</span> <span class="rosetta__text--italic">shēn</span>, <span class="rosetta__text--bold">酉</span> <span class="rosetta__text--italic">yŏu</span>, <span class="rosetta__text--bold">戌</span> <span class="rosetta__text--italic">xū</span>, <span class="rosetta__text--bold">亥</span> <span class="rosetta__text--italic">hài</span>. In ASCII Pinyin, those are "zi3", "chou3", "yin2", "mao3", "chen2", "si4", "wu3", "wei4", "shen1", "you3", "xu1", and "hai4".
+    // TEST OUTPUT -----------------------------------------------------------
+    return intercalate(
+        '\n\n',
+        map(showYear, [1935, 1938, 1968, 1972, 1976, 1984, 2017])
+    );
+})();
 
-Therefore 1984 was <span class="rosetta__text--bold">甲子</span> (<span class="rosetta__text--italic">jiă-zĭ</span>, or jia3-zi3).  2017 is the 34th year of the current cycle, <span class="rosetta__text--bold">丁酉</span> (<span class="rosetta__text--italic">dīng-yŏu</span> or ding1-you3).
-
-
-
+/// rawSolutions:
 =={{header|JavaScript}}==
 
 ===ES6===
@@ -189,3 +348,10 @@ Therefore 1984 was <span class="rosetta__text--bold">甲子</span> (<span class=
       dīngyŏu    huǒ     jī      yīn 
       34/60      fire    rooster   </pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

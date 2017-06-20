@@ -1,17 +1,53 @@
-Random number generator (included)
 
-{{Task}}
-The task is to:
-: State the type of random number generator algorithm used in a language's built-in random number generator. If the language or its immediate libraries don't provide a random number generator, skip this task.
-: If possible, give a link to a wider <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/List of random number generators" title="wp: List of random number generators">explanation</a> of the algorithm used.
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-<small>Note: the task is <span class="rosetta__text--italic">not</span> to create an RNG, but to report on the languages in-built RNG that would be the most likely RNG used.</small>
+const assert = require('chai').assert;
 
-The main types of pseudo-random number generator (<a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/PRNG" title="wp: PRNG">PRNG]]) that are in use are the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/linear congruential generator" title="linear congruential generator">Linear Congruential Generator</a> ([[wp:Linear congruential generator|LCG]]), and the Generalized Feedback Shift Register ([[wp:Generalised_feedback_shift_register#Non-binary_Galois_LFSR|GFSR]]), (of which the [[wp:Mersenne twister|Mersenne twister]] generator is a subclass). The last main type is where the output of one of the previous ones (typically a Mersenne twister) is fed through a [[cryptographic hash function</a> to maximize unpredictability of individual bits. 
+/// title: Random number generator (included)
+/// type: rosetta-code
 
-Note that neither LCGs nor GFSRs should be used for the most demanding applications (cryptography) without additional steps. 
+/// categories:
+/// ?
 
+/// difficulty: ?
 
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// The task is to:
+/// <span class="rosetta__text--indented"> State the type of random number generator algorithm used in a language's built-in random number generator. If the language or its immediate libraries don't provide a random number generator, skip this task.</span>
+/// <span class="rosetta__text--indented"> If possible, give a link to a wider <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/List of random number generators" title="wp: List of random number generators">explanation</a> of the algorithm used.</span>
+/// <br>
+/// <small>Note: the task is <span class="rosetta__text--italic">not</span> to create an RNG, but to report on the languages in-built RNG that would be the most likely RNG used.</small>
+/// <br>
+/// The main types of pseudo-random number generator (<a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/PRNG" title="wp: PRNG">PRNG]]) that are in use are the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/linear congruential generator" title="linear congruential generator">Linear Congruential Generator</a> ([[wp:Linear congruential generator|LCG]]), and the Generalized Feedback Shift Register ([[wp:Generalised_feedback_shift_register#Non-binary_Galois_LFSR|GFSR]]), (of which the [[wp:Mersenne twister|Mersenne twister]] generator is a subclass). The last main type is where the output of one of the previous ones (typically a Mersenne twister) is fed through a [[cryptographic hash function</a> to maximize unpredictability of individual bits. 
+/// <br>
+/// Note that neither LCGs nor GFSRs should be used for the most demanding applications (cryptography) without additional steps. 
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+null
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 The only built-in random number generation facility is <code>Math.random()</code>, which returns a floating-point number greater than or equal to 0 and less than 1, with approximately uniform distribution. The standard (ECMA-262) does not specify what algorithm is to be used.
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

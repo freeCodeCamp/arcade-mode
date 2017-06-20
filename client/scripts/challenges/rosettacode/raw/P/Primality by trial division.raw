@@ -1,33 +1,76 @@
-Primality by trial division
 
-{{task|Prime Numbers}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Write a boolean function that tells whether a given integer is prime. 
+const assert = require('chai').assert;
 
+/// title: Primality by trial division
+/// type: rosetta-code
 
-Remember that &nbsp; <span class="rosetta__text--bold">1</span> &nbsp; and all non-positive numbers are not prime.
+/// categories:
+/// ?
 
-Use trial division. 
+/// difficulty: ?
 
-Even numbers over two may be eliminated right away. 
+/// benchmark:
+replaceWithActualFunctionHere;
 
-A loop from &nbsp; <span class="rosetta__text--bold">3</span> &nbsp; to &nbsp; <span class="rosetta__text--bold">&radic;{{overline|&nbsp;n&nbsp;}} &nbsp;</span> will suffice, &nbsp; but other loops are allowed.
+/// description:
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Write a boolean function that tells whether a given integer is prime. 
+/// <br>
+/// <br>
+/// Remember that &nbsp; <span class="rosetta__text--bold">1</span> &nbsp; and all non-positive numbers are not prime.
+/// <br>
+/// Use trial division. 
+/// <br>
+/// Even numbers over two may be eliminated right away. 
+/// <br>
+/// A loop from &nbsp; <span class="rosetta__text--bold">3</span> &nbsp; to &nbsp; <span class="rosetta__text--bold">&radic; &nbsp;</span> will suffice, &nbsp; but other loops are allowed.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">&nbsp; [[count in factors]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[prime decomposition]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[AKS test for primes]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[factors of an integer]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[Sieve of Eratosthenes]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[factors of a Mersenne number]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[trial factoring of a Mersenne number]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[partition an integer X into N primes]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[sequence of primes by Trial Division]]</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
 
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
-;Related tasks:
-* &nbsp; [[count in factors]]
-* &nbsp; [[prime decomposition]]
-* &nbsp; [[AKS test for primes]]
-* &nbsp; [[factors of an integer]]
-* &nbsp; [[Sieve of Eratosthenes]]
-* &nbsp; [[factors of a Mersenne number]]
-* &nbsp; [[trial factoring of a Mersenne number]]
-* &nbsp; [[partition an integer X into N primes]]
-* &nbsp; [[sequence of primes by Trial Division]]
-<br><br>
+/// solutions:
+function isPrime(n) {
+  if (n == 2 || n == 3 || n == 5 || n == 7) {
+    return true;
+  } else if ((n < 2) || (n % 2 == 0)) {
+    return false;
+  } else {
+    for (var i = 3; i <= Math.sqrt(n); i += 2) {
+      if (n % i == 0)
+        return false;
+    }
+    return true;
+  }
+}
 
-
+/// rawSolutions:
 =={{header|JavaScript}}==
 <lang javascript>function isPrime(n) {
   if (n == 2 || n == 3 || n == 5 || n == 7) {
@@ -43,3 +86,10 @@ A loop from &nbsp; <span class="rosetta__text--bold">3</span> &nbsp; to &nbsp; <
   }
 }</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,23 +1,59 @@
-Create a file on magnetic tape
 
-{{task|File System Operations}} [[Category:Hardware]]
-{{omit from|Axe}}
-{{omit from|AWK|not OO}}
-{{omit from|BASIC|not OO}}
-{{omit from|C|not OO}}
-{{omit from|Fortran|not OO}}
-{{omit from|GUISS}}
-{{omit from|Locomotive Basic}}
-{{omit from|M4}}
-{{omit from|Mathematica|Cannot create basic classes}}
-{{omit from|Maxima}}
-{{omit from|Metafont}}
-{{omit from|Octave}}
-{{omit from|PARI/GP}}
-{{omit from|Retro}}
-{{omit from|TI-89 BASIC}}
-{{omit from|zkl}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-The task is to create a new file called "TAPE.FILE" of any size on Magnetic Tape.
+const assert = require('chai').assert;
+
+/// title: Create a file on magnetic tape
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+///  [[Category:Hardware]]
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// The task is to create a new file called "TAPE.FILE" of any size on Magnetic Tape.
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

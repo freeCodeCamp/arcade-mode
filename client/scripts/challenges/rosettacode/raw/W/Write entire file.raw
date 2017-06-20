@@ -1,17 +1,53 @@
-Write entire file
 
-{{task|File handling}}
-{{omit from|Batch File|No way of reading entire files or putting line breaks into variables.}}
-{{omit from|Brainf***}}
-{{omit from|TI-83 BASIC|No filesystem.}}
-{{omit from|TI-89 BASIC|No filesystem.}}
-{{omit from|Unlambda|Does not know files.}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-(Over)write a file so that it contains a string.
+const assert = require('chai').assert;
+
+/// title: Write entire file
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// (Over)write a file so that it contains a string.
+/// <br>
+/// <br>
+/// The reverse of [[Read entire file]]—for when you want to update or create a file which you would read in its entirety all at once.
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
-The reverse of [[Read entire file]]—for when you want to update or create a file which you would read in its entirety all at once.
-<br><br>
+/// rawSolutions:
+null
 
+/// tail:
+const replaceThis = 3;
 
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

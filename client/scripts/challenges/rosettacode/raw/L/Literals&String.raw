@@ -1,26 +1,64 @@
-Literals/String
 
-{{task|Basic language learning}} 
-[[Category: String manipulation]] 
-[[Category: Syntax elements]]
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Show literal specification of characters and strings. 
+const assert = require('chai').assert;
 
-If supported, show how the following work:
-:* &nbsp; <span class="rosetta__text--italic">verbatim strings</span> &nbsp; (quotes where escape sequences are quoted literally)
-:* &nbsp; <span class="rosetta__text--italic">here-strings</span> &nbsp;  
+/// title: Literals/String
+/// type: rosetta-code
 
-<br>
-Also, discuss which quotes expand variables.
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+///  
+/// [[Category: String manipulation]] 
+/// [[Category: Syntax elements]]
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Show literal specification of characters and strings. 
+/// <br>
+/// If supported, show how the following work:
+/// <span class="rosetta__text--indented">* &nbsp; <span class="rosetta__text--italic">verbatim strings</span> &nbsp; (quotes where escape sequences are quoted literally)</span>
+/// <span class="rosetta__text--indented">* &nbsp; <span class="rosetta__text--italic">here-strings</span> &nbsp;  </span>
+/// <br>
+/// <br>
+/// Also, discuss which quotes expand variables.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks: </dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">&nbsp; [[Special characters]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[Here document]]</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+(function () {
+    return "αβγδ 中间来点中文 🐫 אבגד"
+})();
 
 
-;Related tasks: 
-* &nbsp; [[Special characters]]
-* &nbsp; [[Here document]]
-<br><br>
+(function() {
+    return "\u03b1\u03b2\u03b3\u03b4 \u4e2d\u95f4\u6765\u70b9\u4e2d\u6587 \ud83d\udc2b \u05d0\u05d1\u05d2\u05d3";
+})();
 
-
+/// rawSolutions:
 =={{header|JavaScript}}==
 A JavaScript string is a sequence of zero or more characters enclosed in either 'single quotes' or "double quotes". Neither form prevents escape sequences: <code>"\n"</code> and <code>'\n'</code> are both strings of length 1. There is no variable interpolation.
 
@@ -39,3 +77,10 @@ Note that in the case of the Emoji character above, where more than 4 hexadecima
 
 ES6 introduces Unicode code point escapes such as <pre>'\u{2F804}'</pre>allowing direct escaping of code points up to 0x10FFFF.
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

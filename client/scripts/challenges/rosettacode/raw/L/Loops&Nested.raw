@@ -1,21 +1,62 @@
-Loops/Nested
 
-{{task|Iteration}} <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category:Loop modifiers]]
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-Show a nested loop which searches a two-dimensional array filled with random numbers uniformly distributed over $[1,\ldots,20]$. 
+const assert = require('chai').assert;
 
-The loops iterate rows and columns of the array printing the elements until the value $20$ is met. 
+/// title: Loops/Nested
+/// type: rosetta-code
 
-Specifically, this task also shows how to [[Loop/Break" title="Category:Loop modifiers]]
+/// categories:
+/// ?
 
-Show a nested loop which searches a two-dimensional array filled with random numbers uniformly distributed over $[1,\ldots,20]$. 
+/// difficulty: ?
 
-The loops iterate rows and columns of the array printing the elements until the value $20$ is met. 
+/// benchmark:
+replaceWithActualFunctionHere;
 
-Specifically, this task also shows how to [[Loop/Break">break</a> out of nested loops.
-<br><br>
+/// description:
+///  <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category:Loop modifiers]]
+/// <br>
+/// Show a nested loop which searches a two-dimensional array filled with random numbers uniformly distributed over $[1,\ldots,20]$. 
+/// <br>
+/// The loops iterate rows and columns of the array printing the elements until the value $20$ is met. 
+/// <br>
+/// Specifically, this task also shows how to [[Loop/Break" title="Category:Loop modifiers]]
+/// <br>
+/// Show a nested loop which searches a two-dimensional array filled with random numbers uniformly distributed over $[1,\ldots,20]$. 
+/// <br>
+/// The loops iterate rows and columns of the array printing the elements until the value $20$ is met. 
+/// <br>
+/// Specifically, this task also shows how to [[Loop/Break">break</a> out of nested loops.
+/// <br><br>
+/// <br>
+/// <br>
 
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
+/// solutions:
+// a "random" 2-D array 
+var a = [[2, 12, 10, 4], [18, 11, 9, 3], [14, 15, 7, 17], [6, 19, 8, 13], [1, 20, 16, 5]];
+
+outer_loop:
+for (var i in a) {
+    print("row " + i);
+    for (var j in a[i]) {
+        print(" " + a[i][j]);
+        if (a[i][j] == 20) 
+            break outer_loop;
+    }
+}
+print("done");
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 Demonstrates use of <code>break</code> with a label.
 Uses <code>print()</code> function from [[Rhino]].
@@ -106,3 +147,10 @@ Output:
 13
 1</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

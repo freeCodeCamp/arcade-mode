@@ -1,18 +1,55 @@
-Sequence of non-squares
 
-{{task|Arithmetic operations}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Show that the following remarkable formula gives the [http://www.research.att.com/~njas/sequences/A000037 sequence] of non-square <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Natural_number" title="wp: Natural_number">natural numbers</a>:
-  n + floor(1/2 + sqrt(n))
-* Print out the values for &nbsp; <big> n </big> &nbsp; in the range &nbsp; <span class="rosetta__text--bold">1</span> &nbsp; to &nbsp; <span class="rosetta__text--bold">22</span>
-* Show that no squares occur for &nbsp; <big> n </big> &nbsp; less than one million
+const assert = require('chai').assert;
 
+/// title: Sequence of non-squares
+/// type: rosetta-code
 
-This sequence is also known as &nbsp; [http://oeis.org/A000037 A000037] &nbsp; in the <span class="rosetta__text--bold">OEIS</span> database. 
-<br><br>
+/// categories:
+/// ?
 
+/// difficulty: ?
 
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Show that the following remarkable formula gives the [http://www.research.att.com/~njas/sequences/A000037 sequence] of non-square <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Natural_number" title="wp: Natural_number">natural numbers</a>:
+///   n + floor(1/2 + sqrt(n))
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">Print out the values for &nbsp; <big> n </big> &nbsp; in the range &nbsp; <span class="rosetta__text--bold">1</span> &nbsp; to &nbsp; <span class="rosetta__text--bold">22</span></li>
+/// <li class="rosetta__list-item">Show that no squares occur for &nbsp; <big> n </big> &nbsp; less than one million</li>
+/// <br>
+/// </ul>
+/// <br>
+/// This sequence is also known as &nbsp; [http://oeis.org/A000037 A000037] &nbsp; in the <span class="rosetta__text--bold">OEIS</span> database. 
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+var a = [];
+for (var i = 1; i < 23; i++) a[i] = i + Math.floor(1/2 + Math.sqrt(i));
+console.log(a);
+
+for (i = 1; i < 1000000; i++) if (Number.isInteger(i + Math.floor(1/2 + Math.sqrt(i))) === false) {
+    console.log("The ",i,"th element of the sequence is a square");
+}
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 
 ===ES5===
@@ -76,3 +113,10 @@ By functional composition
     "firstMillionNotSquare":true
 }</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

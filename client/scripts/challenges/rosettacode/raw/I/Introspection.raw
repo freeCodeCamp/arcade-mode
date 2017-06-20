@@ -1,17 +1,50 @@
-Introspection
 
-{{task|Programming environment operations}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-* verify the version/revision of your currently running (compiler/interpreter/byte-compiler/runtime environment/whatever your language uses) and exit if it is too old.
-* check whether the variable "bloop" exists and whether the math-function "abs()" is available and if yes compute <i>abs(bloop)</i>.
+const assert = require('chai').assert;
 
+/// title: Introspection
+/// type: rosetta-code
 
-;Extra credit:
-* Report the number of integer variables in global scope, and their sum.
-<br><br>
+/// categories:
+/// ?
 
+/// difficulty: ?
 
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">verify the version/revision of your currently running (compiler/interpreter/byte-compiler/runtime environment/whatever your language uses) and exit if it is too old.</li>
+/// <li class="rosetta__list-item">check whether the variable "bloop" exists and whether the math-function "abs()" is available and if yes compute <i>abs(bloop)</i>.</li>
+/// <br>
+/// </ul>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Extra credit:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">Report the number of integer variables in global scope, and their sum.</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+if (typeof bloop !== "undefined") { ... }
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 
 It is generally out of favor to explicitly test versions in JavaScript, due to the immense variety of implementations; instead, one should use “feature testing”, executing code to check for the desired behavior. Checking for “abs” as in this task is an example of feature testing.
@@ -28,3 +61,10 @@ Test whether <code>Math.abs()</code> is available:
 
 <code>abs</code> is a method of the Math object, methods are properties, and the <code>in</code> operator tests whether an object has the named property.
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,17 +1,55 @@
-Send email
 
-{{task|Networking and Web Interaction}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Write a function to send an email. 
+const assert = require('chai').assert;
 
-The function should have parameters for setting From, To and Cc addresses; the Subject, and the message text, and optionally fields for the server name and login details.
-* If appropriate, explain what notifications of problems/success are given.
-* Solutions using libraries or functions from the language are preferred, but failing that, external programs can be used with an explanation.
-* Note how portable the solution given is between operating systems when multi-OS languages are used.
+/// title: Send email
+/// type: rosetta-code
 
-<br>
-(Remember to obfuscate any sensitive data used in examples)
-<br><br>
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Write a function to send an email. 
+/// <br>
+/// The function should have parameters for setting From, To and Cc addresses; the Subject, and the message text, and optionally fields for the server name and login details.
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">If appropriate, explain what notifications of problems/success are given.</li>
+/// <li class="rosetta__list-item">Solutions using libraries or functions from the language are preferred, but failing that, external programs can be used with an explanation.</li>
+/// <li class="rosetta__list-item">Note how portable the solution given is between operating systems when multi-OS languages are used.</li>
+/// <br>
+/// </ul>
+/// <br>
+/// (Remember to obfuscate any sensitive data used in examples)
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

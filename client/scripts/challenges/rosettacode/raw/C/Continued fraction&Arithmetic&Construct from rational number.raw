@@ -1,38 +1,74 @@
-Continued fraction/Arithmetic/Construct from rational number
 
-{{task}}To understand this task in context please see [[Continued fraction arithmetic]]
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-The purpose of this task is to write a function $\mathit{r2cf}(\mathrm{int}$ $N_1, \mathrm{int}$ $N_2)$, or $\mathit{r2cf}(\mathrm{Fraction}$ $N)$, which will output a continued fraction assuming:
-:$N_1$ is the numerator
-:$N_2$ is the denominator
-  
-The function should output its results one digit at a time each time it is called, in a manner sometimes described as lazy evaluation.
+const assert = require('chai').assert;
 
-To achieve this it must determine: the integer part; and remainder part, of $N_1$ divided by $N_2$. It then sets $N_1$ to $N_2$ and $N_2$ to the determined remainder part. It then outputs the determined integer part. It does this until $\mathrm{abs}(N_2)$ is zero.
+/// title: Continued fraction/Arithmetic/Construct from rational number
+/// type: rosetta-code
 
-Demonstrate the function by outputing the continued fraction for:
-: 1/2
-: 3
-: 23/8
-: 13/11
-: 22/7
-: -151/77
-$\sqrt 2$ should approach $[1; 2, 2, 2, 2, \ldots]$ try ever closer rational approximations until boredom gets the better of you:
-: 14142,10000
-: 141421,100000
-: 1414214,1000000
-: 14142136,10000000
+/// categories:
+/// ?
 
-Try :
-: 31,10
-: 314,100
-: 3142,1000
-: 31428,10000
-: 314285,100000
-: 3142857,1000000
-: 31428571,10000000
-: 314285714,100000000
+/// difficulty: ?
 
-Observe how this rational number behaves differently to $\sqrt 2$ and convince yourself that, in the same way as $3.7$ may be represented as $3.70$ when an extra decimal place is required, $[3;7]$ may be represented as $[3;7,\infty]$ when an extra term is required.
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// To understand this task in context please see [[Continued fraction arithmetic]]
+/// <br>
+/// The purpose of this task is to write a function $\mathit{r2cf}(\mathrm{int}$ $N_1, \mathrm{int}$ $N_2)$, or $\mathit{r2cf}(\mathrm{Fraction}$ $N)$, which will output a continued fraction assuming:
+/// <span class="rosetta__text--indented">$N_1$ is the numerator</span>
+/// <span class="rosetta__text--indented">$N_2$ is the denominator</span>
+///   
+/// The function should output its results one digit at a time each time it is called, in a manner sometimes described as lazy evaluation.
+/// <br>
+/// To achieve this it must determine: the integer part; and remainder part, of $N_1$ divided by $N_2$. It then sets $N_1$ to $N_2$ and $N_2$ to the determined remainder part. It then outputs the determined integer part. It does this until $\mathrm{abs}(N_2)$ is zero.
+/// <br>
+/// Demonstrate the function by outputing the continued fraction for:
+/// <span class="rosetta__text--indented"> 1/2</span>
+/// <span class="rosetta__text--indented"> 3</span>
+/// <span class="rosetta__text--indented"> 23/8</span>
+/// <span class="rosetta__text--indented"> 13/11</span>
+/// <span class="rosetta__text--indented"> 22/7</span>
+/// <span class="rosetta__text--indented"> -151/77</span>
+/// $\sqrt 2$ should approach $[1; 2, 2, 2, 2, \ldots]$ try ever closer rational approximations until boredom gets the better of you:
+/// <span class="rosetta__text--indented"> 14142,10000</span>
+/// <span class="rosetta__text--indented"> 141421,100000</span>
+/// <span class="rosetta__text--indented"> 1414214,1000000</span>
+/// <span class="rosetta__text--indented"> 14142136,10000000</span>
+/// <br>
+/// Try :
+/// <span class="rosetta__text--indented"> 31,10</span>
+/// <span class="rosetta__text--indented"> 314,100</span>
+/// <span class="rosetta__text--indented"> 3142,1000</span>
+/// <span class="rosetta__text--indented"> 31428,10000</span>
+/// <span class="rosetta__text--indented"> 314285,100000</span>
+/// <span class="rosetta__text--indented"> 3142857,1000000</span>
+/// <span class="rosetta__text--indented"> 31428571,10000000</span>
+/// <span class="rosetta__text--indented"> 314285714,100000000</span>
+/// <br>
+/// Observe how this rational number behaves differently to $\sqrt 2$ and convince yourself that, in the same way as $3.7$ may be represented as $3.70$ when an extra decimal place is required, $[3;7]$ may be represented as $[3;7,\infty]$ when an extra term is required.
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

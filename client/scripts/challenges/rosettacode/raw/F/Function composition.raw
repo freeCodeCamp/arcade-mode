@@ -1,24 +1,57 @@
-Function composition
 
-{{task|Higher-order functions}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Create a function, <span style="font-family:serif">compose</span>, &nbsp; whose two arguments &nbsp; <span style="font-family:serif"><span class="rosetta__text--italic">f</span></span> &nbsp; and &nbsp; <span style="font-family:serif"><span class="rosetta__text--italic">g</span></span>, &nbsp; are both functions with one argument. 
+const assert = require('chai').assert;
 
+/// title: Function composition
+/// type: rosetta-code
 
-The result of <span style="font-family:serif">compose</span> is to be a function of one argument, (lets call the argument &nbsp; <span style="font-family:serif"><span class="rosetta__text--italic">x</span></span>), &nbsp; which works like applying function &nbsp; <span style="font-family:serif"> <span class="rosetta__text--italic">f</span> </span> &nbsp; to the result of applying function &nbsp; <span style="font-family:serif"> <span class="rosetta__text--italic">g</span> </span> &nbsp; to &nbsp; <span style="font-family:serif"> <span class="rosetta__text--italic">x</span></span>.
+/// categories:
+/// ?
 
+/// difficulty: ?
 
-;Example:
-  <span style="font-family:serif">compose(<span class="rosetta__text--italic">f</span>, <span class="rosetta__text--italic">g</span>) (<span class="rosetta__text--italic">x</span>) = <span class="rosetta__text--italic">f</span>(<span class="rosetta__text--italic">g</span>(<span class="rosetta__text--italic">x</span>))</span>
+/// benchmark:
+replaceWithActualFunctionHere;
 
+/// description:
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Create a function, <span style="font-family:serif">compose</span>, &nbsp; whose two arguments &nbsp; <span style="font-family:serif"><span class="rosetta__text--italic">f</span></span> &nbsp; and &nbsp; <span style="font-family:serif"><span class="rosetta__text--italic">g</span></span>, &nbsp; are both functions with one argument. 
+/// <br>
+/// <br>
+/// The result of <span style="font-family:serif">compose</span> is to be a function of one argument, (lets call the argument &nbsp; <span style="font-family:serif"><span class="rosetta__text--italic">x</span></span>), &nbsp; which works like applying function &nbsp; <span style="font-family:serif"> <span class="rosetta__text--italic">f</span> </span> &nbsp; to the result of applying function &nbsp; <span style="font-family:serif"> <span class="rosetta__text--italic">g</span> </span> &nbsp; to &nbsp; <span style="font-family:serif"> <span class="rosetta__text--italic">x</span></span>.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Example:</dt></dl>
+///   <span style="font-family:serif">compose(<span class="rosetta__text--italic">f</span>, <span class="rosetta__text--italic">g</span>) (<span class="rosetta__text--italic">x</span>) = <span class="rosetta__text--italic">f</span>(<span class="rosetta__text--italic">g</span>(<span class="rosetta__text--italic">x</span>))</span>
+/// <br>
+/// <br>
+/// Reference: <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Function composition (computer science)" title="wp: Function composition (computer science)">Function composition</a>
+/// <br>
+/// Hint: In some languages, implementing <span style="font-family:serif">compose</span> correctly requires creating a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Closure (computer science)" title="wp: Closure (computer science)">closure</a>.
+/// <br><br>
+/// <br>
+/// <br>
 
-Reference: <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Function composition (computer science)" title="wp: Function composition (computer science)">Function composition</a>
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
-Hint: In some languages, implementing <span style="font-family:serif">compose</span> correctly requires creating a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Closure (computer science)" title="wp: Closure (computer science)">closure</a>.
-<br><br>
+/// solutions:
+function compose(f, g) {
+  return function(x) {
+    return f(g(x));
+  };
+}
 
-
+/// rawSolutions:
 =={{header|JavaScript}}==
 ===ES5===
 ====Simple composition of two functions====
@@ -138,3 +171,10 @@ or, as a simple binary function (first applying f, then g):
 {{Out}}
 <pre>1.618033988749895</pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

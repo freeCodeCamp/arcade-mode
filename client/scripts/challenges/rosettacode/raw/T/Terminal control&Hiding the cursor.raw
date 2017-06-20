@@ -1,7 +1,43 @@
-Terminal control/Hiding the cursor
 
-{{task|Terminal control}}[[Category:Terminal control]]
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-The task is to hide the cursor and show it again.
+const assert = require('chai').assert;
+
+/// title: Terminal control/Hiding the cursor
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// [[Category:Terminal control]]
+/// <br>
+/// The task is to hide the cursor and show it again.
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

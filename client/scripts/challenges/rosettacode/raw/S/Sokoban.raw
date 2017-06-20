@@ -1,21 +1,59 @@
-Sokoban
 
-{{task|Games}}
-Demonstrate how to find a solution to a given <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Sokoban" title="wp: Sokoban">Sokoban</a> level. For the purpose of this task (formally, a PSPACE-complete problem) any method may be used. However a move-optimal or push-optimal (or any other -optimal) solutions is preferred.
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-Sokoban levels are usually stored as a character array where
-* <span class="rosetta__text--italic">space</span> is an empty square
-* # is a wall
-* @ is the player
-* $ is a box
-* . is a goal
-* + is the player on a goal
-* * is a box on a goal
+const assert = require('chai').assert;
 
-Sokoban solutions are usually stored in the LURD format, where lowercase l, u, r and d represent a move in that (<span class="rosetta__text--bold">l</span>eft, <span class="rosetta__text--bold">u</span>p, <span class="rosetta__text--bold">r</span>ight, <span class="rosetta__text--bold">d</span>own) direction and capital LURD represents a push.
+/// title: Sokoban
+/// type: rosetta-code
 
-Please state if you use some other format for either the input or output, and why.
+/// categories:
+/// ?
 
-For more information, see [http://www.sokobano.de/wiki/index.php?title=Main_Page the Sokoban wiki].
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// Demonstrate how to find a solution to a given <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Sokoban" title="wp: Sokoban">Sokoban</a> level. For the purpose of this task (formally, a PSPACE-complete problem) any method may be used. However a move-optimal or push-optimal (or any other -optimal) solutions is preferred.
+/// <br>
+/// Sokoban levels are usually stored as a character array where
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item"><span class="rosetta__text--italic">space</span> is an empty square</li>
+/// <li class="rosetta__list-item"># is a wall</li>
+/// <li class="rosetta__list-item">@ is the player</li>
+/// <li class="rosetta__list-item">$ is a box</li>
+/// <li class="rosetta__list-item">. is a goal</li>
+/// <li class="rosetta__list-item">+ is the player on a goal</li>
+/// <li class="rosetta__list-item">* is a box on a goal</li>
+/// <br>
+/// </ul>
+/// Sokoban solutions are usually stored in the LURD format, where lowercase l, u, r and d represent a move in that (<span class="rosetta__text--bold">l</span>eft, <span class="rosetta__text--bold">u</span>p, <span class="rosetta__text--bold">r</span>ight, <span class="rosetta__text--bold">d</span>own) direction and capital LURD represents a push.
+/// <br>
+/// Please state if you use some other format for either the input or output, and why.
+/// <br>
+/// For more information, see [http://www.sokobano.de/wiki/index.php?title=Main_Page the Sokoban wiki].
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,29 +1,69 @@
-Compare sorting algorithms' performance
 
-{{task|Sorting}}
-Measure a relative performance of sorting algorithms implementations.
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-Plot <span class="rosetta__text--bold">execution time vs. input sequence length</span> dependencies for various implementation of sorting algorithm and different input sequence types (<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/#Figures: log2( time in microseconds ) vs. log2( sequence length )" title="#Figures: log2( time in microseconds ) vs. log2( sequence length )">example figures</a>). 
+const assert = require('chai').assert;
 
-Consider three type of input sequences:
-* ones: sequence of all <span class="rosetta__text--italic">1</span>'s. Example: {1, 1, 1, 1, 1}
-* range: ascending sequence, i.e. already sorted. Example: {1, 2, 3, 10, 15}
-* shuffled range: sequence with elements randomly distributed. Example: {5, 3, 9, 6, 8}
+/// title: Compare sorting algorithms' performance
+/// type: rosetta-code
 
-Consider at least two different sorting functions (different algorithms or/and different implementation of the same algorithm).
-For example, consider [[Bubble Sort]], [[Insertion sort]], [[Quicksort]] or/and implementations of Quicksort with different pivot selection mechanisms. Where possible, use existing implementations.
+/// categories:
+/// ?
 
-Preliminary subtask:
-* [[Bubble Sort]], [[Insertion sort]], [[Quicksort]], [[Radix sort]], [[Shell sort]]
-* [[Query Performance]]
-* [[Write float arrays to a text file]]
-* [[Plot x, y arrays]]
-* [[Polynomial Fitting]]
+/// difficulty: ?
 
-General steps:
-# Define sorting routines to be considered.
-# Define appropriate sequence generators and write timings.
-# Plot timings.
-# What conclusions about relative performance of the sorting routines could be made based on the plots?
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// Measure a relative performance of sorting algorithms implementations.
+/// <br>
+/// Plot <span class="rosetta__text--bold">execution time vs. input sequence length</span> dependencies for various implementation of sorting algorithm and different input sequence types (<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/#Figures: log2( time in microseconds ) vs. log2( sequence length )" title="#Figures: log2( time in microseconds ) vs. log2( sequence length )">example figures</a>). 
+/// <br>
+/// Consider three type of input sequences:
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">ones: sequence of all <span class="rosetta__text--italic">1</span>'s. Example: {1, 1, 1, 1, 1}</li>
+/// <li class="rosetta__list-item">range: ascending sequence, i.e. already sorted. Example: {1, 2, 3, 10, 15}</li>
+/// <li class="rosetta__list-item">shuffled range: sequence with elements randomly distributed. Example: {5, 3, 9, 6, 8}</li>
+/// <br>
+/// </ul>
+/// Consider at least two different sorting functions (different algorithms or/and different implementation of the same algorithm).
+/// For example, consider [[Bubble Sort]], [[Insertion sort]], [[Quicksort]] or/and implementations of Quicksort with different pivot selection mechanisms. Where possible, use existing implementations.
+/// <br>
+/// Preliminary subtask:
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">[[Bubble Sort]], [[Insertion sort]], [[Quicksort]], [[Radix sort]], [[Shell sort]]</li>
+/// <li class="rosetta__list-item">[[Query Performance]]</li>
+/// <li class="rosetta__list-item">[[Write float arrays to a text file]]</li>
+/// <li class="rosetta__list-item">[[Plot x, y arrays]]</li>
+/// <li class="rosetta__list-item">[[Polynomial Fitting]]</li>
+/// <br>
+/// </ul>
+/// General steps:
+/// # Define sorting routines to be considered.
+/// # Define appropriate sequence generators and write timings.
+/// # Plot timings.
+/// # What conclusions about relative performance of the sorting routines could be made based on the plots?
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

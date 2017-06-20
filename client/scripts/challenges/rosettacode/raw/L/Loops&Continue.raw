@@ -1,21 +1,59 @@
-Loops/Continue
 
-{{task|Iteration}}
-[[Category:Loop modifiers]]
-{{omit from|GUISS}}
-{{omit from|M4}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Show the following output using one loop. 
- 1, 2, 3, 4, 5
- 6, 7, 8, 9, 10
+const assert = require('chai').assert;
 
+/// title: Loops/Continue
+/// type: rosetta-code
 
-Try to achieve the result by forcing the next iteration within the loop 
-upon a specific condition, if your language allows it.
-<br><br>
+/// categories:
+/// ?
 
+/// difficulty: ?
 
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// [[Category:Loop modifiers]]
+/// <br>
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Show the following output using one loop. 
+///  1, 2, 3, 4, 5
+///  6, 7, 8, 9, 10
+/// <br>
+/// <br>
+/// Try to achieve the result by forcing the next iteration within the loop 
+/// upon a specific condition, if your language allows it.
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+var output = "";
+for (var i = 1; i <= 10; i++) {
+  output += i; 
+  if (i % 5 == 0) {
+    print(output);
+    output = "";
+    continue;
+  } 
+  output += ", ";
+}
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 Using the <code>print()</code> function from [[Rhino]] or [[SpiderMonkey]].
 <lang javascript>var output = "";
@@ -51,3 +89,10 @@ Output:
 6, 7, 8, 9, 10
 </lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

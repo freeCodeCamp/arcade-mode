@@ -1,36 +1,173 @@
-Rep-string
 
-{{task}}
-Given a series of ones and zeroes in a string, define a repeated string or <span class="rosetta__text--italic">rep-string</span> as a string which is created by repeating a substring of the <span class="rosetta__text--italic">first</span> N characters of the string <span class="rosetta__text--italic">truncated on the right to the length of the input string, and in which the substring appears repeated at least twice in the original</span>.
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-For example, the string <span class="rosetta__text--bold">10011001100</span> is a rep-string as the leftmost four characters of <span class="rosetta__text--bold">1001</span> are repeated three times and truncated on the right to give the original string.
+const assert = require('chai').assert;
 
-Note that the requirement for having the repeat occur two or more times means that the repeating unit is <span class="rosetta__text--italic">never</span> longer than half the length of the input string.
+/// title: Rep-string
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// Given a series of ones and zeroes in a string, define a repeated string or <span class="rosetta__text--italic">rep-string</span> as a string which is created by repeating a substring of the <span class="rosetta__text--italic">first</span> N characters of the string <span class="rosetta__text--italic">truncated on the right to the length of the input string, and in which the substring appears repeated at least twice in the original</span>.
+/// <br>
+/// For example, the string <span class="rosetta__text--bold">10011001100</span> is a rep-string as the leftmost four characters of <span class="rosetta__text--bold">1001</span> are repeated three times and truncated on the right to give the original string.
+/// <br>
+/// Note that the requirement for having the repeat occur two or more times means that the repeating unit is <span class="rosetta__text--italic">never</span> longer than half the length of the input string.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">Write a function/subroutine/method/... that takes a string and returns an indication of if it is a rep-string and the repeated string. &nbsp; (Either the string that is repeated, or the number of repeated characters would suffice).  </li>
+/// <li class="rosetta__list-item">There may be multiple sub-strings that make a string a rep-string - in that case an indication of all, or the longest, or the shortest would suffice.</li>
+/// <li class="rosetta__list-item">Use the function to indicate the repeating substring if any, in the following:</li>
+/// <br>
+/// </ul><dl><dd>
+/// <pre>
+/// 1001110011
+/// 1110111011
+/// 0010010010
+/// 1010101010
+/// 1111111111
+/// 0100101101
+/// 0100100
+/// 101
+/// 11
+/// 00
+/// 1
+/// </pre>
+/// </dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">Show your output on this page.</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+(() => {
+    'use strict';
+
+    // REP-CYCLES -------------------------------------------------------------
+
+    // repCycles :: String -> [String]
+    const repCycles = xs => {
+        const n = xs.length;
+        return filter(
+            cs => xs === takeCycle(n, cs),
+            map(concat, tail(inits(take(quot(n, 2), xs))))
+        );
+    };
+
+    // cycleReport :: String -> [String]
+    const cycleReport = xs => {
+        const reps = repCycles(xs);
+        return [xs, isNull(reps) ? '(n/a)' : last(reps)];
+    };
 
 
-;Task:
-* Write a function/subroutine/method/... that takes a string and returns an indication of if it is a rep-string and the repeated string. &nbsp; (Either the string that is repeated, or the number of repeated characters would suffice).  
-* There may be multiple sub-strings that make a string a rep-string - in that case an indication of all, or the longest, or the shortest would suffice.
-* Use the function to indicate the repeating substring if any, in the following:
-<dl><dd>
-<pre>
-1001110011
-1110111011
-0010010010
-1010101010
-1111111111
-0100101101
-0100100
-101
-11
-00
-1
-</pre>
-</dl>
-* Show your output on this page.
-<br><br>
+    // GENERIC ----------------------------------------------------------------
+
+    // compose :: (b -> c) -> (a -> b) -> (a -> c)
+    const compose = (f, g) => x => f(g(x));
+
+    // concat :: [[a]] -> [a] | [String] -> String
+    const concat = xs => {
+        if (xs.length > 0) {
+            const unit = typeof xs[0] === 'string' ? '' : [];
+            return unit.concat.apply(unit, xs);
+        } else return [];
+    };
+
+    // cons :: a -> [a] -> [a]
+    const cons = (x, xs) => [x].concat(xs);
+
+    // curry :: ((a, b) -> c) -> a -> b -> c
+    const curry = f => a => b => f(a, b);
+
+    // filter :: (a -> Bool) -> [a] -> [a]
+    const filter = (f, xs) => xs.filter(f);
+
+    // inits :: [a] -> [[a]]
+    // inits :: String -> [String]
+    const inits = xs => [
+            []
+        ]
+        .concat((typeof xs === 'string' ? xs.split('') : xs)
+            .map((_, i, lst) => lst.slice(0, i + 1)));
+
+    // intercalate :: String -> [a] -> String
+    const intercalate = (s, xs) => xs.join(s);
+
+    // last :: [a] -> a
+    const last = xs => xs.length ? xs.slice(-1)[0] : undefined;
+
+    // map :: (a -> b) -> [a] -> [b]
+    const map = (f, xs) => xs.map(f);
+
+    // isNull :: [a] -> Bool
+    const isNull = xs => (xs instanceof Array) ? xs.length < 1 : undefined;
+
+    // Integral a => a -> a -> a
+    const quot = (n, m) => Math.floor(n / m);
+
+    // replicate :: Int -> a -> [a]
+    const replicate = (n, a) => {
+        let v = [a],
+            o = [];
+        if (n < 1) return o;
+        while (n > 1) {
+            if (n & 1) o = o.concat(v);
+            n >>= 1;
+            v = v.concat(v);
+        }
+        return o.concat(v);
+    };
+
+    // tail :: [a] -> [a]
+    const tail = xs => xs.length ? xs.slice(1) : undefined;
+
+    // take :: Int -> [a] -> [a]
+    const take = (n, xs) => xs.slice(0, n);
+
+    // First n members of an infinite cycle of xs
+    // takeCycle :: Int -> [a] -> [a]
+    const takeCycle = (n, xs) => {
+        const lng = xs.length;
+        return concat((lng >= n ? xs : replicate(Math.ceil(n / lng), xs)))
+            .slice(0, n);
+    };
+
+    // unlines :: [String] -> String
+    const unlines = xs => xs.join('\n');
 
 
+    // TEST -------------------------------------------------------------------
+    const samples = ["1001110011", "1110111011", "0010010010", "1010101010",
+        "1111111111", "0100101101", "0100100", "101", "11", "00", "1"
+    ];
+
+    return unlines(cons('Longest cycle:\n',
+        map(compose(curry(intercalate)(' -> '), cycleReport), samples)));
+})();
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 ===ES6===
 <lang javascript>(() => {
@@ -153,3 +290,10 @@ Note that the requirement for having the repeat occur two or more times means th
 00 -> 0
 1 -> (n/a)</pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,20 +1,68 @@
-Roman numerals/Encode
 
-{{task}} 
-[[Category:String_manipulation]]
-{{omit from|GUISS}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Create a function taking a positive integer as its parameter and returning a string containing the Roman numeral representation of that integer. Modern Roman numerals are written by expressing each digit separately, starting with the left most digit and skipping any digit with a value of zero. 
+const assert = require('chai').assert;
 
+/// title: Roman numerals/Encode
+/// type: rosetta-code
 
-In Roman numerals:
-* 1990  is rendered: 1000=M, 900=CM, 90=XC; resulting in MCMXC
-* 2008  is written as 2000=MM, 8=VIII; or MMVIII
-* 1666  uses each Roman symbol in descending order: MDCLXVI
-<br><br>
+/// categories:
+/// ?
 
+/// difficulty: ?
 
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+///  
+/// [[Category:String_manipulation]]
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Create a function taking a positive integer as its parameter and returning a string containing the Roman numeral representation of that integer. Modern Roman numerals are written by expressing each digit separately, starting with the left most digit and skipping any digit with a value of zero. 
+/// <br>
+/// <br>
+/// In Roman numerals:
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">1990  is rendered: 1000=M, 900=CM, 90=XC; resulting in MCMXC</li>
+/// <li class="rosetta__list-item">2008  is written as 2000=MM, 8=VIII; or MMVIII</li>
+/// <li class="rosetta__list-item">1666  uses each Roman symbol in descending order: MDCLXVI</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+var roman = {
+    map: [
+        1000, 'M', 900, 'CM', 500, 'D', 400, 'CD', 100, 'C', 90, 'XC',
+        50, 'L', 40, 'XL', 10, 'X', 9, 'IX', 5, 'V', 4, 'IV', 1, 'I',
+    ],
+    int_to_roman: function(n) {
+        var value = '';
+        for (var idx = 0; n > 0 && idx < this.map.length; idx += 2) {
+            while (n >= this.map[idx]) {
+                value += this.map[idx + 1];
+                n -= this.map[idx];
+            }
+        }
+        return value;
+    }
+}
+
+roman.int_to_roman(1999); // "MCMXCIX"
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 
 ===ES5===
@@ -173,3 +221,10 @@ roman.int_to_roman(1999); // "MCMXCIX"</lang>
 {{Out}}
 <lang JavasCript>["MMXVI","MCMXC","MMVIII","MM","MDCLXVI"]</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

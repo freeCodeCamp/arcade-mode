@@ -1,30 +1,66 @@
-Rock-paper-scissors
 
-{{task|Games}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Implement the classic children's game <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Rock-paper-scissors" title="wp: Rock-paper-scissors">Rock-paper-scissors</a>, as well as a simple predictive &nbsp; <span class="rosetta__text--bold">AI</span> &nbsp; (<u>a</u>rtificial <u>i</u>ntelligence) &nbsp; player.
+const assert = require('chai').assert;
 
-Rock Paper Scissors is a two player game. 
+/// title: Rock-paper-scissors
+/// type: rosetta-code
 
-Each player chooses one of rock, paper or scissors, without knowing the other player's choice. 
+/// categories:
+/// ?
 
-The winner is decided by a set of rules:
+/// difficulty: ?
 
-:::* &nbsp; Rock beats scissors
-:::* &nbsp; Scissors beat paper
-:::* &nbsp; Paper beats rock
+/// benchmark:
+replaceWithActualFunctionHere;
 
-<br>
-If both players choose the same thing, there is no winner for that round.
+/// description:
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Implement the classic children's game <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Rock-paper-scissors" title="wp: Rock-paper-scissors">Rock-paper-scissors</a>, as well as a simple predictive &nbsp; <span class="rosetta__text--bold">AI</span> &nbsp; (<u>a</u>rtificial <u>i</u>ntelligence) &nbsp; player.
+/// <br>
+/// Rock Paper Scissors is a two player game. 
+/// <br>
+/// Each player chooses one of rock, paper or scissors, without knowing the other player's choice. 
+/// <br>
+/// The winner is decided by a set of rules:
+/// <br>
+/// <span class="rosetta__text--indented">::* &nbsp; Rock beats scissors</span>
+/// <span class="rosetta__text--indented">::* &nbsp; Scissors beat paper</span>
+/// <span class="rosetta__text--indented">::* &nbsp; Paper beats rock</span>
+/// <br>
+/// <br>
+/// If both players choose the same thing, there is no winner for that round.
+/// <br>
+/// For this task, the computer will be one of the players. 
+/// <br>
+/// The operator will select Rock, Paper or Scissors and the computer will keep a record of the choice frequency, and use that information to make a <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Probabilistic choice" title="Probabilistic choice">weighted random choice</a> in an attempt to defeat its opponent.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Extra credit:</dt></dl>
+/// Support additional choices &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Rock-paper-scissors#Additional_weapons" title="wp: Rock-paper-scissors#Additional_weapons">additional weapons</a>.
+/// <br><br>
+/// <br>
+/// <br>
 
-For this task, the computer will be one of the players. 
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
-The operator will select Rock, Paper or Scissors and the computer will keep a record of the choice frequency, and use that information to make a <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Probabilistic choice" title="Probabilistic choice">weighted random choice</a> in an attempt to defeat its opponent.
+/// solutions:
 
 
-;Extra credit:
-Support additional choices &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Rock-paper-scissors#Additional_weapons" title="wp: Rock-paper-scissors#Additional_weapons">additional weapons</a>.
-<br><br>
+/// rawSolutions:
+null
 
+/// tail:
+const replaceThis = 3;
 
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

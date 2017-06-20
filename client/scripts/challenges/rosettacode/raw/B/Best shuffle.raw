@@ -1,38 +1,115 @@
-Best shuffle
 
-{{task}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Shuffle the characters of a string in such a way that as many of the character values are in a different position as possible. 
+const assert = require('chai').assert;
 
-A shuffle that produces a randomized result among the best choices is to be preferred. A deterministic approach that produces the same sequence every time is acceptable as an alternative.
+/// title: Best shuffle
+/// type: rosetta-code
 
-Display the result as follows: 
+/// categories:
+/// ?
 
- original string, shuffled string, (score) 
+/// difficulty: ?
 
-The score gives the number of positions whose character value did <span class="rosetta__text--italic">not</span> change. 
+/// benchmark:
+replaceWithActualFunctionHere;
 
+/// description:
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Shuffle the characters of a string in such a way that as many of the character values are in a different position as possible. 
+/// <br>
+/// A shuffle that produces a randomized result among the best choices is to be preferred. A deterministic approach that produces the same sequence every time is acceptable as an alternative.
+/// <br>
+/// Display the result as follows: 
+/// <br>
+///  original string, shuffled string, (score) 
+/// <br>
+/// The score gives the number of positions whose character value did <span class="rosetta__text--italic">not</span> change. 
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Example:</dt></dl>
+///  tree, eetr, (0)
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Test cases:</dt></dl>
+///  abracadabra
+///  seesaw
+///  elk
+///  grrrrrr
+///  up
+///  a
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">&nbsp; [[Anagrams/Deranged anagrams]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[Permutations/Derangements]]</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
 
-;Example:
- tree, eetr, (0)
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
+/// solutions:
+function raze(a) { // like .join('') except producing an array instead of a string
+    var r= [];
+    for (var j= 0; j<a.length; j++)
+        for (var k= 0; k<a[j].length; k++)  r.push(a[j][k]);
+    return r;
+}
+function shuffle(y) {
+    var len= y.length;
+    for (var j= 0; j < len; j++) {
+        var i= Math.floor(Math.random()*len);
+        var t= y[i];
+        y[i]= y[j];
+        y[j]= t;
+    }
+    return y;
+}
+function bestShuf(txt) {
+    var chs= txt.split('');
+    var gr= {};
+    var mx= 0;
+    for (var j= 0; j<chs.length; j++) {
+        var ch= chs[j];
+        if (null == gr[ch])  gr[ch]= [];
+        gr[ch].push(j);
+        if (mx < gr[ch].length)  mx++;
+    }
+    var inds= [];
+    for (var ch in gr)  inds.push(shuffle(gr[ch]));
+    var ndx= raze(inds);
+    var cycles= [];
+    for (var k= 0; k < mx; k++)  cycles[k]= [];
+    for (var j= 0; j<chs.length; j++)  cycles[j%mx].push(ndx[j]);
+    var ref= raze(cycles);
+    for (var k= 0; k < mx; k++)  cycles[k].push(cycles[k].shift());
+    var prm= raze(cycles);
+    var shf= [];
+    for (var j= 0; j<chs.length; j++)  shf[ref[j]]= chs[prm[j]];
+    return shf.join('');
+}
 
-;Test cases:
- abracadabra
- seesaw
- elk
- grrrrrr
- up
- a
+function disp(ex) {
+    var r= bestShuf(ex);
+    var n= 0;
+    for (var j= 0; j<ex.length; j++)
+        n+= ex.substr(j, 1) == r.substr(j,1) ?1 :0;
+    return ex+', '+r+', ('+n+')';
+}
 
-
-;Related tasks
-* &nbsp; [[Anagrams/Deranged anagrams]]
-* &nbsp; [[Permutations/Derangements]]
-<br><br>
-
-
+/// rawSolutions:
 =={{header|JavaScript}}==
 
 Based on the J implementation (and this would be a lot more concise if we used something like jQuery):
@@ -103,3 +180,10 @@ grrrrrr, rrrrrgr, (5)
 up, pu, (0)
 a, a, (1)</pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

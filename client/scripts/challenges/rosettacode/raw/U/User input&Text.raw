@@ -1,10 +1,46 @@
-User input/Text
 
-{{task|Text processing}}{{selection|Short Circuit|Console Program Basics}}[[Category:Basic language learning]][[Category:Keyboard Input]] [[Category:Simple]]
-In this task, the goal is to input a string and the integer 75000, from the text console.
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-See also: [[User input/Graphical]]
+const assert = require('chai').assert;
 
+/// title: User input/Text
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// [[Category:Basic language learning]][[Category:Keyboard Input]] [[Category:Simple]]
+/// In this task, the goal is to input a string and the integer 75000, from the text console.
+/// <br>
+/// See also: [[User input/Graphical]]
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+WScript.Echo("Enter a string");
+var str = WScript.StdIn.ReadLine();
+
+var val = 0;
+while (val != 75000) {
+    WScript.Echo("Enter the integer 75000");
+    val = parseInt( WScript.StdIn.ReadLine() );
+}
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 {{works with|JScript}} and only with <code>cscript.exe</code>
 <lang javascript>WScript.Echo("Enter a string");
@@ -26,3 +62,10 @@ while (val != 75000) {
     val = parseInt( readline() );
 }</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

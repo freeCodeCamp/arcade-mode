@@ -1,9 +1,45 @@
-Median filter
 
-{{task|Image processing}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-The median filter takes in the neighbourhood the median color (see <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Median filter" title="wp: Median filter">Median filter</a>)
+const assert = require('chai').assert;
 
-<span class="rosetta__text--italic">(to test the function below, you can use these <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Read_ppm_file" title="Read_ppm_file">input</a> and <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Write_ppm_file" title="Write_ppm_file">output</a> solutions)</span>
+/// title: Median filter
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// The median filter takes in the neighbourhood the median color (see <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Median filter" title="wp: Median filter">Median filter</a>)
+/// <br>
+/// <span class="rosetta__text--italic">(to test the function below, you can use these <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Read_ppm_file" title="Read_ppm_file">input</a> and <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Write_ppm_file" title="Write_ppm_file">output</a> solutions)</span>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

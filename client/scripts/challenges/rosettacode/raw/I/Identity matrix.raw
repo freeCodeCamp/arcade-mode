@@ -1,33 +1,71 @@
-Identity matrix
 
-{{task}}
-[[Category:Matrices]]
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Build an &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/identity matrix" title="wp: identity matrix">identity matrix</a> &nbsp; of a size known at run-time. 
+const assert = require('chai').assert;
 
+/// title: Identity matrix
+/// type: rosetta-code
 
-An <span class="rosetta__text--italic">identity matrix</span> is a square matrix of size <span class="rosetta__text--bold"><span class="rosetta__text--italic">n</span> &times; <span class="rosetta__text--italic">n</span></span>, 
-<br>where the diagonal elements are all <span class="rosetta__text--bold">1</span>s (ones), 
-<br>and all the other elements are all <span class="rosetta__text--bold">0</span>s (zeroes).
+/// categories:
+/// ?
 
+/// difficulty: ?
 
-$I_n = \begin{bmatrix}
-  1      & 0      & 0      & \cdots & 0      \\
-  0      & 1      & 0      & \cdots & 0      \\
-  0      & 0      & 1      & \cdots & 0      \\
-  \vdots & \vdots & \vdots & \ddots & \vdots \\
-  0      & 0      & 0      & \cdots & 1      \\
-\end{bmatrix}$
+/// benchmark:
+replaceWithActualFunctionHere;
 
+/// description:
+/// <br>
+/// [[Category:Matrices]]
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Build an &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/identity matrix" title="wp: identity matrix">identity matrix</a> &nbsp; of a size known at run-time. 
+/// <br>
+/// <br>
+/// An <span class="rosetta__text--italic">identity matrix</span> is a square matrix of size <span class="rosetta__text--bold"><span class="rosetta__text--italic">n</span> &times; <span class="rosetta__text--italic">n</span></span>, 
+/// <br>where the diagonal elements are all <span class="rosetta__text--bold">1</span>s (ones), 
+/// <br>and all the other elements are all <span class="rosetta__text--bold">0</span>s (zeroes).
+/// <br>
+/// <br>
+/// $I_n = \begin{bmatrix}
+///   1      & 0      & 0      & \cdots & 0      \\
+///   0      & 1      & 0      & \cdots & 0      \\
+///   0      & 0      & 1      & \cdots & 0      \\
+///   \vdots & \vdots & \vdots & \ddots & \vdots \\
+///   0      & 0      & 0      & \cdots & 1      \\
+/// \end{bmatrix}$
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">&nbsp; [[Spiral matrix]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[Zig-zag matrix]] </li>
+/// <li class="rosetta__list-item">&nbsp; [[Ulam_spiral_(for_primes)]]</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
 
-;Related tasks:
-* &nbsp; [[Spiral matrix]]
-* &nbsp; [[Zig-zag matrix]] 
-* &nbsp; [[Ulam_spiral_(for_primes)]]
-<br><br>
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
+/// solutions:
+function idMatrix(n) {
+    return Array.apply(null, new Array(n))
+        .map(function (x, i, xs) {
+            return xs.map(function (_, k) {
+                return i === k ? 1 : 0;
+            })
+        });
+}
 
+/// rawSolutions:
 =={{header|JavaScript}}==
 
 ===ES5===
@@ -68,3 +106,10 @@ $I_n = \begin{bmatrix}
 [0,0,0,1,0]
 [0,0,0,0,1]</pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

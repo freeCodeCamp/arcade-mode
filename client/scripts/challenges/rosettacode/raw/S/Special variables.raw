@@ -1,15 +1,48 @@
-Special variables
 
-{{task|Basic language learning}}[[Category:Special variables]]
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-Special variables have a predefined meaning within a computer programming language. 
+const assert = require('chai').assert;
 
+/// title: Special variables
+/// type: rosetta-code
 
-;Task:
-List the special variables used within the language.
-<br><br>
+/// categories:
+/// ?
 
+/// difficulty: ?
 
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// [[Category:Special variables]]
+/// <br>
+/// Special variables have a predefined meaning within a computer programming language. 
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// List the special variables used within the language.
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+var obj = {
+  foo: 1,
+  bar: function () { return this.foo; }
+};
+obj.bar(); // returns 1
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 
 <code>this</code> evaluates to the object the immediately enclosing function was called on as a method, if it was. If it was not called as a method, <code>this</code> is either the global environment object (usually <code>window</code> in browsers) in non-strict mode, or <code>undefined</code> in strict mode. <code>this</code> is an expression resembling a variable, but not actually a variable; for example, it is a syntax error to assign to it.
@@ -31,3 +64,10 @@ When a function is entered, the ''variable'' <code>arguments</code> is bound to 
 }
 concat("a", "b", "c"); // returns "abc"</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

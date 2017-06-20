@@ -1,16 +1,100 @@
-Guess the number/With feedback (player)
 
-{{task|Games}}
-The task is to write a player for the game that follows the following rules:
-:The scorer will choose a number between set limits. The computer player will print a guess of the target number. The computer asks for a score of whether its guess is higher than, lower than, or equal to the target. The computer guesses, and the scorer scores, in turn, until the computer correctly guesses the target number.
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-The computer should guess intelligently based on the accumulated scores given. One way is to use a [[Binary search]] based algorithm.
+const assert = require('chai').assert;
 
-;Cf. 
-* [[Guess the number/With Feedback]]
-* [[Bulls and cows/Player]]
+/// title: Guess the number/With feedback (player)
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// The task is to write a player for the game that follows the following rules:
+/// <span class="rosetta__text--indented">The scorer will choose a number between set limits. The computer player will print a guess of the target number. The computer asks for a score of whether its guess is higher than, lower than, or equal to the target. The computer guesses, and the scorer scores, in turn, until the computer correctly guesses the target number.</span>
+/// <br>
+/// The computer should guess intelligently based on the accumulated scores given. One way is to use a [[Binary search]] based algorithm.
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Cf. </dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">[[Guess the number/With Feedback]]</li>
+/// <li class="rosetta__list-item">[[Bulls and cows/Player]]</li>
+/// <br>
+/// </ul>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+#!/usr/bin/env js
+
+var DONE = RIGHT = 0, HIGH = 1, LOW = -1;
+
+function main() {
+    showInstructions();
+    while (guess(1, 100) !== DONE);
+}
+
+function guess(low, high) {
+    if (low > high) {
+        print("I can't guess it. Perhaps you changed your number.");
+        return DONE;
+    }
+    
+    var g = Math.floor((low + high) / 2);
+    var result = getResult(g);
+    switch (result) {
+        case RIGHT:
+            return DONE;
+        case LOW:
+            return guess(g + 1, high);
+        case HIGH:
+            return guess(low, g - 1);
+    }
+}
+
+function getResult(g) {
+    while(true) {
+        putstr('Is it ' + g + '? ');
+        var ans = readline().toUpperCase().replace(/^\s+/, '') + ' ';
+        switch (ans[0]) {
+            case 'R':
+                print('I got it! Thanks for the game.');
+                return RIGHT;
+            case 'L': 
+                return LOW;
+            case 'H':
+                return HIGH;
+            default:
+                print('Please tell me if I am "high", "low" or "right".');
+        }
+    }
+}
+
+function showInstructions() {
+    print('Think of a number between 1 and 100 and I will try to guess it.');
+    print('After I guess, type "low", "high" or "right", and then press enter.');
+    putstr("When you've thought of a number press enter.");
+    readline();
+}
+
+main();
 
 
+/// rawSolutions:
 =={{header|JavaScript}}==
 === Spidermonkey version ===
 
@@ -99,3 +183,10 @@ Another example session:
  Is it 1? h
  I can't guess it. Perhaps you changed your number.
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,14 +1,49 @@
-Delete a file
 
-{{task|File System Operations}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Delete a file called "input.txt" and delete a directory called "docs". 
+const assert = require('chai').assert;
 
-This should be done twice: once "here", i.e. in the current working directory and once in the filesystem root.
-<br><br>
+/// title: Delete a file
+/// type: rosetta-code
 
+/// categories:
+/// ?
 
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Delete a file called "input.txt" and delete a directory called "docs". 
+/// <br>
+/// This should be done twice: once "here", i.e. in the current working directory and once in the filesystem root.
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+var fso = new ActiveXObject("Scripting.FileSystemObject");
+
+fso.DeleteFile('input.txt');
+fso.DeleteFile('c:/input.txt');
+
+fso.DeleteFolder('docs');
+fso.DeleteFolder('c:/docs');
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 {{works with|JScript}}
 <lang javascript>var fso = new ActiveXObject("Scripting.FileSystemObject");
@@ -42,3 +77,10 @@ fs.unlink('myfile.txt', ()=>{
   console.log("Done!");
 })</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,16 +1,51 @@
-Conditional structures
 
-{{Task|Control Structures}}
-{{Control Structures}} 
-[[Category:Simple]]
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-List the &nbsp; <span class="rosetta__text--italic">conditional structures</span> &nbsp; offered by a programming language. 
+const assert = require('chai').assert;
 
-Common conditional structures are &nbsp; &nbsp; <span class="rosetta__text--bold">if-then-else</span> &nbsp; &nbsp; and &nbsp; &nbsp; <span class="rosetta__text--bold">switch</span>.
-<br><br>
+/// title: Conditional structures
+/// type: rosetta-code
 
+/// categories:
+/// ?
 
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+///  
+/// [[Category:Simple]]
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// List the &nbsp; <span class="rosetta__text--italic">conditional structures</span> &nbsp; offered by a programming language. 
+/// <br>
+/// Common conditional structures are &nbsp; &nbsp; <span class="rosetta__text--bold">if-then-else</span> &nbsp; &nbsp; and &nbsp; &nbsp; <span class="rosetta__text--bold">switch</span>.
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+if( s == "Hello World" ) {
+    foo();
+} else if( s == "Bye World" ) {
+    bar();
+} else {
+    deusEx();
+}
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 
 ===if-then-else===
@@ -58,3 +93,10 @@ The distinctive feature of the ternary operator (compared to JavaScript's other 
     ) : [];
 }</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

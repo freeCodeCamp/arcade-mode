@@ -1,13 +1,51 @@
-Currying
 
-{{task}}{{Wikipedia|Currying}}
-Create a simple demonstrative example of <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Currying" title="wp: Currying">Currying</a> in the specific language.  
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-Add any historic details as to how the feature made its way into the language.
-<!-- from: http://en.wikipedia.org/w/index.php?title=Currying&direction=prev&oldid=142127294 -->
-[[Category:Functions and subroutines]]
+const assert = require('chai').assert;
 
+/// title: Currying
+/// type: rosetta-code
 
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// Create a simple demonstrative example of <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Currying" title="wp: Currying">Currying</a> in the specific language.  
+/// <br>
+/// Add any historic details as to how the feature made its way into the language.
+/// <!-- from: http://en.wikipedia.org/w/index.php?title=Currying&direction=prev&oldid=142127294 -->
+/// [[Category:Functions and subroutines]]
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+ function addN(n) {
+    var curry = function(x) {
+        return x + n;
+    };
+    return curry;
+ }
+
+ add2 = addN(2);
+ alert(add2);
+ alert(add2(7));
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 
 ===ES5===
@@ -211,3 +249,10 @@ Or, recursively currying functions of arbitrary arity:
 {{Out}}
 <lang JavaScript>[14, 28, 42, 56, 70, 84, 98, 112, 126, 140]</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

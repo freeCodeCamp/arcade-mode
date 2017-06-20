@@ -1,31 +1,72 @@
-Caesar cipher
 
-{{task|Encryption}}
-[[Category:String manipulation]]
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
+const assert = require('chai').assert;
 
-;Task:
-Implement a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Caesar cipher" title="wp: Caesar cipher">Caesar cipher</a>, both encoding and decoding. <br>
-The key is an integer from 1 to 25. 
+/// title: Caesar cipher
+/// type: rosetta-code
 
-This cipher rotates (either towards left or right) the letters of the alphabet (A to Z). 
+/// categories:
+/// ?
 
-The encoding replaces each letter with the 1st to 25th next letter in the alphabet (wrapping Z to A).
-<br>So key 2 encrypts "HI" to "JK", but key 20 encrypts "HI" to "BC". 
+/// difficulty: ?
 
-This simple "mono-alphabetic substitution cipher" provides almost no security, because an attacker who has the encoded message can either use frequency analysis to guess the key, or just try all 25 keys.
+/// benchmark:
+replaceWithActualFunctionHere;
 
-Caesar cipher is identical to [[Vigenère cipher]] with a key of length 1. <br>
-Also, [[Rot-13]] is identical to Caesar cipher with key 13.
+/// description:
+/// <br>
+/// [[Category:String manipulation]]
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Implement a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Caesar cipher" title="wp: Caesar cipher">Caesar cipher</a>, both encoding and decoding. <br>
+/// The key is an integer from 1 to 25. 
+/// <br>
+/// This cipher rotates (either towards left or right) the letters of the alphabet (A to Z). 
+/// <br>
+/// The encoding replaces each letter with the 1st to 25th next letter in the alphabet (wrapping Z to A).
+/// <br>So key 2 encrypts "HI" to "JK", but key 20 encrypts "HI" to "BC". 
+/// <br>
+/// This simple "mono-alphabetic substitution cipher" provides almost no security, because an attacker who has the encoded message can either use frequency analysis to guess the key, or just try all 25 keys.
+/// <br>
+/// Caesar cipher is identical to [[Vigenère cipher]] with a key of length 1. <br>
+/// Also, [[Rot-13]] is identical to Caesar cipher with key 13.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">[[Rot-13]]</li>
+/// <li class="rosetta__list-item">[[Substitution Cipher]]</li>
+/// <li class="rosetta__list-item">[[Vigenère Cipher/Cryptanalysis]]</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
 
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
-;Related tasks:
-* [[Rot-13]]
-* [[Substitution Cipher]]
-* [[Vigenère Cipher/Cryptanalysis]]
-<br><br>
+/// solutions:
+function caesar (text, shift) {
+  return text.toUpperCase().replace(/[^A-Z]/g,'').replace(/[A-Z]/g, function(a) {
+    return String.fromCharCode(65+(a.charCodeAt(0)-65+shift)%26);
+  });
+}
 
+// Tests
+var text = 'veni, vidi, vici';
+for (var i = 0; i<26; i++) {
+  console.log(i+': '+caesar(text,i));
+}
 
+/// rawSolutions:
 =={{header|JavaScript}}==
 
 ===ES5===
@@ -109,3 +150,10 @@ Or, allowing encoding and decoding of both lower and upper case:
 {{Out}}
 <pre>Mebsy, Mockbo foxxo, o fsno o fsxco ? ,  -> , Curio, Cesare venne, e vide e vinse ?</pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

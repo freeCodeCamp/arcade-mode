@@ -1,19 +1,74 @@
-Doubly-linked list/Element definition
 
-{{task|Data Structures}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Define the data structure for a <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Linked_List#Doubly-Linked_List" title="Linked_List#Doubly-Linked_List">doubly-linked list</a> element. 
+const assert = require('chai').assert;
 
-The element should include a data member to hold its value and pointers to both the next element in the list and the previous element in the list. 
+/// title: Doubly-linked list/Element definition
+/// type: rosetta-code
 
-The pointers should be mutable.
+/// categories:
+/// ?
 
+/// difficulty: ?
 
-{{Template:See also lists}}
-<br><br>
+/// benchmark:
+replaceWithActualFunctionHere;
 
+/// description:
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Define the data structure for a <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Linked_List#Doubly-Linked_List" title="Linked_List#Doubly-Linked_List">doubly-linked list</a> element. 
+/// <br>
+/// The element should include a data member to hold its value and pointers to both the next element in the list and the previous element in the list. 
+/// <br>
+/// The pointers should be mutable.
+/// <br>
+/// <br>
+/// <br>
+/// <br><br>
+/// <br>
+/// <br>
 
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+function DoublyLinkedList(value, next, prev) {
+    this._value = value;
+    this._next = next;
+    this._prev = prev;
+}
+// from LinkedList, inherit: value(), next(), traverse(), print()
+DoublyLinkedList.prototype = new LinkedList();
+
+DoublyLinkedList.prototype.prev = function() {
+    if (arguments.length == 1) 
+        this._prev = arguments[0];
+    else
+        return this._prev;
+}
+
+function createDoublyLinkedListFromArray(ary) {
+    var node, prev, head = new DoublyLinkedList(ary[0], null, null);
+    prev = head;
+    for (var i = 1; i < ary.length; i++) {
+        node = new DoublyLinkedList(ary[i], null, prev);
+        prev.next(node);
+        prev = node;
+    }
+    return head;
+}
+
+var head = createDoublyLinkedListFromArray([10,20,30,40]);
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 Inherits from LinkedList (see [[Singly-Linked_List_(element)#JavaScript]])
 <lang javascript>function DoublyLinkedList(value, next, prev) {
@@ -44,3 +99,10 @@ function createDoublyLinkedListFromArray(ary) {
 
 var head = createDoublyLinkedListFromArray([10,20,30,40]);</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

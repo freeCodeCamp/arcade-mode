@@ -1,11 +1,51 @@
-Singly-linked list/Element insertion
 
-{{task|Data Structures}}Using the link element defined in [[Singly-Linked List (element)]], define a method to insert an element into a [[singly-linked list]] following a given element.
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-Using this method, insert an element C into a list comprised of elements A->B, following element A.
+const assert = require('chai').assert;
 
-{{Template:See also lists}}
+/// title: Singly-linked list/Element insertion
+/// type: rosetta-code
 
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// Using the link element defined in [[Singly-Linked List (element)]], define a method to insert an element into a [[singly-linked list]] following a given element.
+/// <br>
+/// Using this method, insert an element C into a list comprised of elements A->B, following element A.
+/// <br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+LinkedList.prototype.insertAfter = function(searchValue, nodeToInsert) {
+    if (this._value == searchValue) {
+        nodeToInsert.next(this.next());
+        this.next(nodeToInsert);
+    }
+    else if (this.next() == null) 
+        throw new Error(0, "value '" + searchValue + "' not found in linked list.")
+    else
+        this.next().insertAfter(searchValue, nodeToInsert);
+}
+var list = createLinkedListFromArray(['A','B']);
+list.insertAfter('A', new LinkedList('C', null));
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 Extending [[Singly-Linked_List_(element)#JavaScript]]
 <lang javascript>LinkedList.prototype.insertAfter = function(searchValue, nodeToInsert) {
@@ -21,3 +61,10 @@ Extending [[Singly-Linked_List_(element)#JavaScript]]
 var list = createLinkedListFromArray(['A','B']);
 list.insertAfter('A', new LinkedList('C', null));</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

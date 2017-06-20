@@ -1,9 +1,45 @@
-Sockets
 
-{{task|Networking and Web Interaction}}
-For this exercise a program is open a socket to localhost on port 256 and send the message "hello socket world" before closing the socket. 
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-Catching any exceptions or errors is not required.
-<br><br>
+const assert = require('chai').assert;
+
+/// title: Sockets
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// For this exercise a program is open a socket to localhost on port 256 and send the message "hello socket world" before closing the socket. 
+/// <br>
+/// Catching any exceptions or errors is not required.
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

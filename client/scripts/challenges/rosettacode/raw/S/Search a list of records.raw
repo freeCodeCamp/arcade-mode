@@ -1,77 +1,159 @@
-Search a list of records
 
-{{Task|List processing}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-Many programming languages provide convenient ways to look for a known value in a simple list of strings or numbers.<br>
-But what if the elements of the list are themselves compound records/objects/data-structures, and the search condition is more complex than a simple equality test?
+const assert = require('chai').assert;
 
-{{task heading}}
+/// title: Search a list of records
+/// type: rosetta-code
 
-Write a function/method/etc. that can find the first element in a given list matching a given condition.<br>
-It should be as generic and reusable as possible.<br>
-(Of course if your programming language already provides such a feature, you can use that instead of recreating it.)
+/// categories:
+/// ?
 
-Then to demonstrate its functionality, create the data structure specified under [[#Data set]], and perform on it the searches specified under [[#Test cases]].
+/// difficulty: ?
 
-{{task heading|Data set}}
+/// benchmark:
+replaceWithActualFunctionHere;
 
-The data structure to be used contains the names and populations (in millions) of the 10 largest metropolitan areas in Africa, and looks as follows when represented in JSON:
+/// description:
+/// <br>
+/// <br>
+/// Many programming languages provide convenient ways to look for a known value in a simple list of strings or numbers.<br>
+/// But what if the elements of the list are themselves compound records/objects/data-structures, and the search condition is more complex than a simple equality test?
+/// <br>
+/// <br>
+/// <br>
+/// Write a function/method/etc. that can find the first element in a given list matching a given condition.<br>
+/// It should be as generic and reusable as possible.<br>
+/// (Of course if your programming language already provides such a feature, you can use that instead of recreating it.)
+/// <br>
+/// Then to demonstrate its functionality, create the data structure specified under [[#Data set]], and perform on it the searches specified under [[#Test cases]].
+/// <br>
+/// <br>
+/// <br>
+/// The data structure to be used contains the names and populations (in millions) of the 10 largest metropolitan areas in Africa, and looks as follows when represented in JSON:
+/// <br>
+/// <lang JavaScript>[
+///   { "name": "Lagos",                "population": 21.0  },
+///   { "name": "Cairo",                "population": 15.2  },
+///   { "name": "Kinshasa-Brazzaville", "population": 11.3  },
+///   { "name": "Greater Johannesburg", "population":  7.55 },
+///   { "name": "Mogadishu",            "population":  5.85 },
+///   { "name": "Khartoum-Omdurman",    "population":  4.98 },
+///   { "name": "Dar Es Salaam",        "population":  4.7  },
+///   { "name": "Alexandria",           "population":  4.58 },
+///   { "name": "Abidjan",              "population":  4.4  },
+///   { "name": "Casablanca",           "population":  3.98 }
+/// ]</lang>
+/// <br>
+/// However, you shouldn't parse it from JSON, but rather represent it natively in your programming language.
+/// <br>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">The top-level data structure should be an <span class="rosetta__text--bold">ordered</span> collection <span class="rosetta__text--italic">(i.e. a list, array, vector, or similar)</span>.</li>
+/// <li class="rosetta__list-item">Each element in this list should be an <span class="rosetta__text--bold">associative</span> collection that maps from keys to values <span class="rosetta__text--italic">(i.e. a struct, object, hash map, dictionary, or similar)</span>.</li>
+/// <li class="rosetta__list-item">Each of them has two entries: One string value with key "<tt>name</tt>", and one numeric value with key "<tt>population</tt>".</li>
+/// <li class="rosetta__list-item">You may rely on the list being sorted by population count, as long as you explain this to readers.</li>
+/// <br>
+/// </ul>
+/// <br>
+/// If any of that is impossible or unreasonable in your programming language, then feel free to deviate, as long as you explain your reasons in a comment above your solution.
+/// <br>
+/// <br>
+/// <br>
+/// {| class="wikitable"
+/// |-
+/// ! Search
+/// ! Expected result
+/// |-
+/// | Find the (zero-based) <span class="rosetta__text--bold">index</span> of the first city in the list whose <span class="rosetta__text--bold">name is "<tt>Dar Es Salaam</tt>"</span>
+/// | <tt>6</tt>
+/// |-
+/// | Find the <span class="rosetta__text--bold">name</span> of the first city in this list whose <span class="rosetta__text--bold">population is less than 5 million</span>
+/// | <tt>Khartoum-Omdurman</tt>
+/// |-
+/// | Find the <span class="rosetta__text--bold">population</span> of the first city in this list whose <span class="rosetta__text--bold">name starts with the letter "<tt>A</tt>"</span>
+/// | <tt>4.58</tt>
+/// |}
+/// <br>
+/// <br>
+/// <br>
+/// If your programming language supports <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Higher-order programming" title="wp: Higher-order programming">higher-order programming</a>, then the most elegant way to implement the requested functionality in a generic and reusable way, might be to write a function (maybe called "<tt>find_index</tt>" or similar), that takes two arguments:
+/// # The list to search through.
+/// # A function/lambda/closure (the so-called "predicate"), which will be applied in turn to each element in the list, and whose boolean return value defines whether that element matches the search requirement.
+/// <br>
+/// If this is not the approach which would be most natural or idiomatic in your language, explain why, and show what is.
+/// <br>
+/// <br>
+/// <br>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">[[Search a list]]</li>
+/// <br>
+/// </ul>
+/// <hr>
+/// <br>
+/// <br>
 
-<lang JavaScript>[
-  { "name": "Lagos",                "population": 21.0  },
-  { "name": "Cairo",                "population": 15.2  },
-  { "name": "Kinshasa-Brazzaville", "population": 11.3  },
-  { "name": "Greater Johannesburg", "population":  7.55 },
-  { "name": "Mogadishu",            "population":  5.85 },
-  { "name": "Khartoum-Omdurman",    "population":  4.98 },
-  { "name": "Dar Es Salaam",        "population":  4.7  },
-  { "name": "Alexandria",           "population":  4.58 },
-  { "name": "Abidjan",              "population":  4.4  },
-  { "name": "Casablanca",           "population":  3.98 }
-]</lang>
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
-However, you shouldn't parse it from JSON, but rather represent it natively in your programming language.
+/// solutions:
+(function () {
+    'use strict';
+ 
+    // find :: (a -> Bool) -> [a] -> Maybe a
+    function find(f, xs) {
+        for (var i = 0, lng = xs.length; i < lng; i++) {
+            if (f(xs[i])) return xs[i];
+        }
+        return undefined;
+    }
+ 
+    // findIndex :: (a -> Bool) -> [a] -> Maybe Int
+    function findIndex(f, xs) {
+        for (var i = 0, lng = xs.length; i < lng; i++) {
+            if (f(xs[i])) return i;
+        }   
+        return undefined;
+    }
+ 
+ 
+    var lst = [
+      { "name": "Lagos",                "population": 21.0  },
+      { "name": "Cairo",                "population": 15.2  },
+      { "name": "Kinshasa-Brazzaville", "population": 11.3  },
+      { "name": "Greater Johannesburg", "population":  7.55 },
+      { "name": "Mogadishu",            "population":  5.85 },
+      { "name": "Khartoum-Omdurman",    "population":  4.98 },
+      { "name": "Dar Es Salaam",        "population":  4.7  },
+      { "name": "Alexandria",           "population":  4.58 },
+      { "name": "Abidjan",              "population":  4.4  },
+      { "name": "Casablanca",           "population":  3.98 }
+    ];
+ 
+    return {
+        darEsSalaamIndex: findIndex(function (x) {
+            return x.name === 'Dar Es Salaam';
+        }, lst),
+ 
+        firstBelow5M: find(function (x) {
+                return x.population < 5;
+            }, lst)
+            .name,
+ 
+        firstApop: find(function (x) {
+                return x.name.charAt(0) === 'A';
+            }, lst)
+            .population
+    };
+ 
+})();
 
-* The top-level data structure should be an <span class="rosetta__text--bold">ordered</span> collection <span class="rosetta__text--italic">(i.e. a list, array, vector, or similar)</span>.
-* Each element in this list should be an <span class="rosetta__text--bold">associative</span> collection that maps from keys to values <span class="rosetta__text--italic">(i.e. a struct, object, hash map, dictionary, or similar)</span>.
-* Each of them has two entries: One string value with key "<tt>name</tt>", and one numeric value with key "<tt>population</tt>".
-* You may rely on the list being sorted by population count, as long as you explain this to readers.
-
-<br>
-If any of that is impossible or unreasonable in your programming language, then feel free to deviate, as long as you explain your reasons in a comment above your solution.
-
-{{task heading|Test cases}}
-
-{| class="wikitable"
-|-
-! Search
-! Expected result
-|-
-| Find the (zero-based) <span class="rosetta__text--bold">index</span> of the first city in the list whose <span class="rosetta__text--bold">name is "<tt>Dar Es Salaam</tt>"</span>
-| <tt>6</tt>
-|-
-| Find the <span class="rosetta__text--bold">name</span> of the first city in this list whose <span class="rosetta__text--bold">population is less than 5 million</span>
-| <tt>Khartoum-Omdurman</tt>
-|-
-| Find the <span class="rosetta__text--bold">population</span> of the first city in this list whose <span class="rosetta__text--bold">name starts with the letter "<tt>A</tt>"</span>
-| <tt>4.58</tt>
-|}
-
-{{task heading|Guidance}}
-
-If your programming language supports <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Higher-order programming" title="wp: Higher-order programming">higher-order programming</a>, then the most elegant way to implement the requested functionality in a generic and reusable way, might be to write a function (maybe called "<tt>find_index</tt>" or similar), that takes two arguments:
-# The list to search through.
-# A function/lambda/closure (the so-called "predicate"), which will be applied in turn to each element in the list, and whose boolean return value defines whether that element matches the search requirement.
-
-If this is not the approach which would be most natural or idiomatic in your language, explain why, and show what is.
-
-{{task heading|Related tasks}}
-
-* [[Search a list]]
-
-<hr>
-
-
+/// rawSolutions:
 =={{header|JavaScript}}==
 
 ===ES5===
@@ -163,3 +245,10 @@ If this is not the approach which would be most natural or idiomatic in your lan
 {{Out}}
 <pre>{"darEsSalaamIndex":6, "firstBelow5M":"Khartoum-Omdurman", "firstApop":4.58}</pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

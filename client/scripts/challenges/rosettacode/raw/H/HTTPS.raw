@@ -1,22 +1,58 @@
-HTTPS
 
-{{task|Programming environment operations}}
-<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category:Networking and Web Interaction]]
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Print an HTTPS URL's content to the console. Checking the host certificate for validity is recommended. 
+const assert = require('chai').assert;
 
-The client should not authenticate itself to the server — the webpage https://sourceforge.net/ supports that access policy — as that is the subject of other [[HTTPS request with authentication" title="Category:Networking and Web Interaction]]
+/// title: HTTPS
+/// type: rosetta-code
 
-;Task:
-Print an HTTPS URL's content to the console. Checking the host certificate for validity is recommended. 
+/// categories:
+/// ?
 
-The client should not authenticate itself to the server — the webpage https://sourceforge.net/ supports that access policy — as that is the subject of other [[HTTPS request with authentication">tasks</a>.
+/// difficulty: ?
 
-Readers may wish to contrast with the [[HTTP Request]] task, and also the task on [[HTTPS request with authentication]].
-<br><br>
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category:Networking and Web Interaction]]
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Print an HTTPS URL's content to the console. Checking the host certificate for validity is recommended. 
+/// <br>
+/// The client should not authenticate itself to the server — the webpage https://sourceforge.net/ supports that access policy — as that is the subject of other [[HTTPS request with authentication" title="Category:Networking and Web Interaction]]
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Print an HTTPS URL's content to the console. Checking the host certificate for validity is recommended. 
+/// <br>
+/// The client should not authenticate itself to the server — the webpage https://sourceforge.net/ supports that access policy — as that is the subject of other [[HTTPS request with authentication">tasks</a>.
+/// <br>
+/// Readers may wish to contrast with the [[HTTP Request]] task, and also the task on [[HTTPS request with authentication]].
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+(function(url,callback){//on some browsers you can check certificate information.
+xhr=new XMLHttpRequest();
+xhr.open('GET',url,true);
+xhr.onreadystatechange=function(){if(xhr.readyState==xhr.DONE){callback(xhr)}};
+xhr.send();
+})('https://sourceforge.net',function(xhr){console.log(xhr.response)})
 
 
+/// rawSolutions:
 =={{header|JavaScript}}==
 <lang JavaScript>
 (function(url,callback){//on some browsers you can check certificate information.
@@ -27,3 +63,10 @@ xhr.send();
 })('https://sourceforge.net',function(xhr){console.log(xhr.response)})
 </lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

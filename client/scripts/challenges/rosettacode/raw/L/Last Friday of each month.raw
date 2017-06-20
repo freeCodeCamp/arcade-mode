@@ -1,35 +1,73 @@
-Last Friday of each month
 
-{{task}} 
-[[Category:Date and time]]
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Write a program or a script that returns the date of the last Fridays of each month of a given year. 
+const assert = require('chai').assert;
 
-The year may be given through any simple input method in your language (command line, std in, etc).
+/// title: Last Friday of each month
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+///  
+/// [[Category:Date and time]]
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Write a program or a script that returns the date of the last Fridays of each month of a given year. 
+/// <br>
+/// The year may be given through any simple input method in your language (command line, std in, etc).
+/// <br>
+/// <br>
+/// Example of an expected output:
+/// <pre>./last_fridays 2012
+/// 2012-01-27
+/// 2012-02-24
+/// 2012-03-30
+/// 2012-04-27
+/// 2012-05-25
+/// 2012-06-29
+/// 2012-07-27
+/// 2012-08-31
+/// 2012-09-28
+/// 2012-10-26
+/// 2012-11-30
+/// 2012-12-28
+/// </pre>
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">[[Five weekends]]</li>
+/// <li class="rosetta__list-item">[[Day of the week]]</li>
+/// <li class="rosetta__list-item">[[Find the last Sunday of each month]]</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
-Example of an expected output:
-<pre>./last_fridays 2012
-2012-01-27
-2012-02-24
-2012-03-30
-2012-04-27
-2012-05-25
-2012-06-29
-2012-07-27
-2012-08-31
-2012-09-28
-2012-10-26
-2012-11-30
-2012-12-28
-</pre>
+/// rawSolutions:
+null
 
-<br>
-;Related tasks
-* [[Five weekends]]
-* [[Day of the week]]
-* [[Find the last Sunday of each month]]
-<br><br>
+/// tail:
+const replaceThis = 3;
 
-
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,21 +1,55 @@
-Even or odd
 
-{{task}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Test whether an integer is even or odd.
+const assert = require('chai').assert;
 
-There is more than one way to solve this task:
+/// title: Even or odd
+/// type: rosetta-code
 
-* Use the even and odd predicates, if the language provides them.
-* Check the least significant digit. With binary integers, <span class="rosetta__text--italic">i <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/bitwise operations" title="bitwise operations">bitwise-and</a> 1</span> equals 0 <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/wikt:iff" title="wikt:iff">iff</a> <span class="rosetta__text--italic">i</span> is even, or equals 1 iff <span class="rosetta__text--italic">i</span> is odd.
-* Divide <span class="rosetta__text--italic">i</span> by 2. The remainder equals 0 iff <span class="rosetta__text--italic">i</span> is even. The remainder equals +1 or -1 iff <span class="rosetta__text--italic">i</span> is odd.
-* Use modular congruences:
-** <span class="rosetta__text--italic">i</span> &equiv; 0 (mod 2) iff <span class="rosetta__text--italic">i</span> is even.
-** <span class="rosetta__text--italic">i</span> &equiv; 1 (mod 2) iff <span class="rosetta__text--italic">i</span> is odd.
-<br><br>
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Test whether an integer is even or odd.
+/// <br>
+/// There is more than one way to solve this task:
+/// <br>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">Use the even and odd predicates, if the language provides them.</li>
+/// <li class="rosetta__list-item">Check the least significant digit. With binary integers, <span class="rosetta__text--italic">i <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/bitwise operations" title="bitwise operations">bitwise-and</a> 1</span> equals 0 <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/wikt:iff" title="wikt:iff">iff</a> <span class="rosetta__text--italic">i</span> is even, or equals 1 iff <span class="rosetta__text--italic">i</span> is odd.</li>
+/// <li class="rosetta__list-item">Divide <span class="rosetta__text--italic">i</span> by 2. The remainder equals 0 iff <span class="rosetta__text--italic">i</span> is even. The remainder equals +1 or -1 iff <span class="rosetta__text--italic">i</span> is odd.</li>
+/// <li class="rosetta__list-item">Use modular congruences:</li>
+/// <br>
+/// </ul>** <span class="rosetta__text--italic">i</span> &equiv; 0 (mod 2) iff <span class="rosetta__text--italic">i</span> is even.
+/// ** <span class="rosetta__text--italic">i</span> &equiv; 1 (mod 2) iff <span class="rosetta__text--italic">i</span> is odd.
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+function isEven( i ) {
+  return (i & 1) === 0;
+}
 
 
+/// rawSolutions:
 =={{header|JavaScript}}==
 ===ES5===
 Bitwise:
@@ -68,3 +102,10 @@ or, avoiding type coercion:
 {{Out}}
 <pre>[[-6,-4,-2,0,2,4,6],[-5,-3,-1,1,3,5]]</pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,48 +1,83 @@
-Web scraping
 
-{{task|Networking and Web Interaction}}
-[[Category:Input_Output]]
-{{omit from|ACL2|Does not have network access.}}
-{{omit from|Batch File|Does not have network access.}}
-{{omit from|Locomotive Basic|Does not have network access.}}
-{{omit from|Lotus 123 Macro Scripting}}
-{{omit from|M4}}
-{{omit from|Maxima}}
-{{omit from|Openscad}}
-{{omit from|PARI/GP}}
-{{omit from|PostScript|no network access}}
-{{omit from|Retro|Does not have network access.}}
-{{omit from|ZX Spectrum Basic|Does not have network access.}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Create a program that downloads the time from this URL: &nbsp; [http://tycho.usno.navy.mil/cgi-bin/timer.pl http://tycho.usno.navy.mil/cgi-bin/timer.pl] &nbsp; and then prints the current UTC time by extracting just the UTC time from the web page's [[HTML]].
+const assert = require('chai').assert;
 
-<!-- As of March 2014, the page is available
-{{task|Networking and Web Interaction}}
+/// title: Web scraping
+/// type: rosetta-code
 
-The page http://tycho.usno.navy.mil/cgi-bin/timer.pl is no longer available since July 2011. 
-The relevant part of that page source looked like this:
-<pre>
-...
+/// categories:
+/// ?
 
-<TITLE>What time is it?</TITLE>
-<H2> US Naval Observatory Master Clock Time</H2> <H3><PRE>
-<BR>Jul. 27, 22:57:22 UTC		Universal Time
-<BR>Jul. 27, 06:57:22 PM EDT	Eastern Time
-<BR>Jul. 27, 05:57:22 PM CDT	Central Time
-<BR>Jul. 27, 04:57:22 PM MDT	Mountain Time
-<BR>Jul. 27, 03:57:22 PM PDT	Pacific Time
-<BR>Jul. 27, 02:57:22 PM AKDT	Alaska Time
-<BR>Jul. 27, 12:57:22 PM HAST	Hawaii-Aleutian Time
+/// difficulty: ?
 
-...
-</pre>
-End of comment -->
+/// benchmark:
+replaceWithActualFunctionHere;
 
-If possible, only use libraries that come at no <span class="rosetta__text--italic">extra</span> monetary cost with the programming language and that are widely available and popular such as [http://www.cpan.org/ CPAN] for Perl or [[Boost]] for C++.
-<br><br>
+/// description:
+/// <br>
+/// [[Category:Input_Output]]
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Create a program that downloads the time from this URL: &nbsp; [http://tycho.usno.navy.mil/cgi-bin/timer.pl http://tycho.usno.navy.mil/cgi-bin/timer.pl] &nbsp; and then prints the current UTC time by extracting just the UTC time from the web page's [[HTML]].
+/// <br>
+/// <!-- As of March 2014, the page is available
+/// <br>
+/// <br>
+/// The page http://tycho.usno.navy.mil/cgi-bin/timer.pl is no longer available since July 2011. 
+/// The relevant part of that page source looked like this:
+/// <pre>
+/// ...
+/// <br>
+/// <TITLE>What time is it?</TITLE>
+/// <H2> US Naval Observatory Master Clock Time</H2> <H3><PRE>
+/// <BR>Jul. 27, 22:57:22 UTC		Universal Time
+/// <BR>Jul. 27, 06:57:22 PM EDT	Eastern Time
+/// <BR>Jul. 27, 05:57:22 PM CDT	Central Time
+/// <BR>Jul. 27, 04:57:22 PM MDT	Mountain Time
+/// <BR>Jul. 27, 03:57:22 PM PDT	Pacific Time
+/// <BR>Jul. 27, 02:57:22 PM AKDT	Alaska Time
+/// <BR>Jul. 27, 12:57:22 PM HAST	Hawaii-Aleutian Time
+/// <br>
+/// ...
+/// </pre>
+/// End of comment -->
+/// <br>
+/// If possible, only use libraries that come at no <span class="rosetta__text--italic">extra</span> monetary cost with the programming language and that are widely available and popular such as [http://www.cpan.org/ CPAN] for Perl or [[Boost]] for C++.
+/// <br><br>
+/// <br>
+/// <br>
 
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
+/// solutions:
+var req = new XMLHttpRequest();
+req.onload = function () {
+  var re = /[JFMASOND].+ UTC/; //beginning of month name to 'UTC'
+  console.log(this.responseText.match(re)[0]);
+};
+req.open('GET', 'http://tycho.usno.navy.mil/cgi-bin/timer.pl', true);
+req.send();
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 Due to browser cross-origin restrictions, this script will probably not work in other domains.
 
@@ -54,3 +89,10 @@ req.onload = function () {
 req.open('GET', 'http://tycho.usno.navy.mil/cgi-bin/timer.pl', true);
 req.send();</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,9 +1,45 @@
-Terminal control/Dimensions
 
-{{task|Terminal control}}<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category:Initialization]]
-Determine the height and width of the terminal, and store this information into variables for subsequent use.
-[[Terminal Control::task" title="Category:Initialization]]
-Determine the height and width of the terminal, and store this information into variables for subsequent use.
-[[Terminal Control::task"> </a>
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Terminal control/Dimensions
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category:Initialization]]
+/// Determine the height and width of the terminal, and store this information into variables for subsequent use.
+/// [[Terminal Control::task" title="Category:Initialization]]
+/// Determine the height and width of the terminal, and store this information into variables for subsequent use.
+/// [[Terminal Control::task"> </a>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

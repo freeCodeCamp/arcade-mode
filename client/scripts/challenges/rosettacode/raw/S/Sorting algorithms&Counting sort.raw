@@ -1,31 +1,77 @@
-Sorting algorithms/Counting sort
 
-{{task|Sorting Algorithms}}
-{{Sorting Algorithm}}
-{{Wikipedia|Counting sort}}
-Implement the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Counting sort" title="wp: Counting sort">Counting sort</a>. This is a way of sorting integers when the minimum and maximum value are known.
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-Pseudocode:
- <span class="rosetta__text--bold">function</span> <span class="rosetta__text--italic">countingSort</span>(array, min, max):
-     count: <span class="rosetta__text--bold">array of</span> (max - min + 1) <span class="rosetta__text--bold">elements</span>
-     <span class="rosetta__text--bold">initialize</span> count <span class="rosetta__text--bold">with</span> 0
-     <span class="rosetta__text--bold">for each</span> number <span class="rosetta__text--bold">in</span> array <span class="rosetta__text--bold">do</span>
-         count[number - min] := count[number - min] + 1
-     <span class="rosetta__text--bold">done</span>
-     z := 0
-     <span class="rosetta__text--bold">for</span> i <span class="rosetta__text--bold">from</span> min <span class="rosetta__text--bold">to</span> max <span class="rosetta__text--bold">do</span>
-         <span class="rosetta__text--bold">while</span> ( count[i - min] > 0 ) <span class="rosetta__text--bold">do</span>
-             array[z] := i
-             z := z+1
-             count[i - min] := count[i - min] - 1
-         <span class="rosetta__text--bold">done</span>
-     <span class="rosetta__text--bold">done</span>
+const assert = require('chai').assert;
 
-The <span class="rosetta__text--italic">min</span> and <span class="rosetta__text--italic">max</span> can be computed apart, or be known <span class="rosetta__text--italic">a priori</span>.
+/// title: Sorting algorithms/Counting sort
+/// type: rosetta-code
 
-<span class="rosetta__text--bold">Note</span>: we know that, given an array of integers, its maximum and minimum values can be always found; but if we imagine the worst case for an array of 32 bit integers, we see that in order to hold the counts, we need an array of 2<sup>32</sup> elements, i.e., we need, to hold a count value up to 2<sup>32</sup>-1, more or less 4 Gbytes. So the counting sort is more practical when the range is (very) limited and minimum and maximum values are known <span class="rosetta__text--italic">a priori</span>. (Anyway sparse arrays may limit the impact of the memory usage)
+/// categories:
+/// ?
 
+/// difficulty: ?
 
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// <br>
+/// Implement the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Counting sort" title="wp: Counting sort">Counting sort</a>. This is a way of sorting integers when the minimum and maximum value are known.
+/// <br>
+/// Pseudocode:
+///  <span class="rosetta__text--bold">function</span> <span class="rosetta__text--italic">countingSort</span>(array, min, max):
+///      count: <span class="rosetta__text--bold">array of</span> (max - min + 1) <span class="rosetta__text--bold">elements</span>
+///      <span class="rosetta__text--bold">initialize</span> count <span class="rosetta__text--bold">with</span> 0
+///      <span class="rosetta__text--bold">for each</span> number <span class="rosetta__text--bold">in</span> array <span class="rosetta__text--bold">do</span>
+///          count[number - min] := count[number - min] + 1
+///      <span class="rosetta__text--bold">done</span>
+///      z := 0
+///      <span class="rosetta__text--bold">for</span> i <span class="rosetta__text--bold">from</span> min <span class="rosetta__text--bold">to</span> max <span class="rosetta__text--bold">do</span>
+///          <span class="rosetta__text--bold">while</span> ( count[i - min] > 0 ) <span class="rosetta__text--bold">do</span>
+///              array[z] := i
+///              z := z+1
+///              count[i - min] := count[i - min] - 1
+///          <span class="rosetta__text--bold">done</span>
+///      <span class="rosetta__text--bold">done</span>
+/// <br>
+/// The <span class="rosetta__text--italic">min</span> and <span class="rosetta__text--italic">max</span> can be computed apart, or be known <span class="rosetta__text--italic">a priori</span>.
+/// <br>
+/// <span class="rosetta__text--bold">Note</span>: we know that, given an array of integers, its maximum and minimum values can be always found; but if we imagine the worst case for an array of 32 bit integers, we see that in order to hold the counts, we need an array of 2<sup>32</sup> elements, i.e., we need, to hold a count value up to 2<sup>32</sup>-1, more or less 4 Gbytes. So the counting sort is more practical when the range is (very) limited and minimum and maximum values are known <span class="rosetta__text--italic">a priori</span>. (Anyway sparse arrays may limit the impact of the memory usage)
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+var countSort = function(arr, min, max) {
+    var i, z = 0, count = [];
+    
+    for (i = min; i <= max; i++) {
+        count[i] = 0;
+    }
+    
+    for (i=0; i < arr.length; i++) {
+        count[arr[i]]++;
+    }
+    
+    for (i = min; i <= max; i++) {
+        while (count[i]-- > 0) {
+            arr[z++] = i;
+        }
+    }
+    
+}
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 
 <lang javascript>var countSort = function(arr, min, max) {
@@ -63,3 +109,10 @@ for (i = 0; i < 100; i++) {
     document.write(ages[i] + "<br />");
 }</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

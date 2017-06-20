@@ -1,28 +1,85 @@
-Hamming numbers
 
-{{task}}
-<span class="rosetta__text--bold"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Hamming numbers" title="wp: Hamming numbers">Hamming numbers</a></span> are numbers of the form &nbsp; 
-       <big><big> H  =  2<sup>i</sup> &times; 3<sup>j</sup> &times; 5<sup>k</sup> </big></big>
-where 
-       <big>      i, j, k  ≥  0 </big>
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-<span class="rosetta__text--italic">Hamming numbers</span> &nbsp; are also known as &nbsp; <span class="rosetta__text--italic">ugly numbers</span> &nbsp; and also &nbsp; <span class="rosetta__text--italic">5-smooth numbers</span> &nbsp; (numbers whose prime divisors are less or equal to 5).  
+const assert = require('chai').assert;
 
+/// title: Hamming numbers
+/// type: rosetta-code
 
-;Task:
-Generate the sequence of Hamming numbers, <span class="rosetta__text--italic">in increasing order</span>. &nbsp; In particular:
-# Show the &nbsp; first twenty &nbsp; Hamming numbers.
-# Show the &nbsp; 1691<sup>st</sup> &nbsp; Hamming number (the last one below &nbsp; 2<sup>31</sup>).
-# Show the &nbsp; one million<sup>th</sup> &nbsp; Hamming number (if the language – or a convenient library – supports arbitrary-precision integers).
+/// categories:
+/// ?
 
+/// difficulty: ?
 
-;References:
-* <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Hamming numbers" title="wp: Hamming numbers">Hamming numbers</a>
-* <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Smooth number" title="wp: Smooth number">Smooth number</a>
-* [http://dobbscodetalk.com/index.php?option=com_content&task=view&id=913&Itemid=85 Hamming problem] from Dr. Dobb's CodeTalk (dead link as of Sep 2011; parts of the thread [http://drdobbs.com/blogs/architecture-and-design/228700538 here] and [http://www.jsoftware.com/jwiki/Essays/Hamming%20Number here]).
-<br><br>
+/// benchmark:
+replaceWithActualFunctionHere;
 
+/// description:
+/// <br>
+/// <span class="rosetta__text--bold"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Hamming numbers" title="wp: Hamming numbers">Hamming numbers</a></span> are numbers of the form &nbsp; 
+///        <big><big> H  =  2<sup>i</sup> &times; 3<sup>j</sup> &times; 5<sup>k</sup> </big></big>
+/// where 
+///        <big>      i, j, k  ≥  0 </big>
+/// <br>
+/// <span class="rosetta__text--italic">Hamming numbers</span> &nbsp; are also known as &nbsp; <span class="rosetta__text--italic">ugly numbers</span> &nbsp; and also &nbsp; <span class="rosetta__text--italic">5-smooth numbers</span> &nbsp; (numbers whose prime divisors are less or equal to 5).  
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Generate the sequence of Hamming numbers, <span class="rosetta__text--italic">in increasing order</span>. &nbsp; In particular:
+/// # Show the &nbsp; first twenty &nbsp; Hamming numbers.
+/// # Show the &nbsp; 1691<sup>st</sup> &nbsp; Hamming number (the last one below &nbsp; 2<sup>31</sup>).
+/// # Show the &nbsp; one million<sup>th</sup> &nbsp; Hamming number (if the language – or a convenient library – supports arbitrary-precision integers).
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">References:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Hamming numbers" title="wp: Hamming numbers">Hamming numbers</a></li>
+/// <li class="rosetta__list-item"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Smooth number" title="wp: Smooth number">Smooth number</a></li>
+/// <li class="rosetta__list-item">[http://dobbscodetalk.com/index.php?option=com_content&task=view&id=913&Itemid=85 Hamming problem] from Dr. Dobb's CodeTalk (dead link as of Sep 2011; parts of the thread [http://drdobbs.com/blogs/architecture-and-design/228700538 here] and [http://www.jsoftware.com/jwiki/Essays/Hamming%20Number here]).</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
 
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+function hamming() {
+    var queues = {2: [], 3: [], 5: []};
+    var base;
+    var next_ham = 1;
+    while (true) {
+        yield next_ham;
+
+        for (base in queues) {queues[base].push(next_ham * base)}
+
+        next_ham = [ queue[0] for each (queue in queues) ].reduce(function(min, val) {
+            return Math.min(min,val)
+        });
+
+        for (base in queues) {if (queues[base][0] == next_ham) queues[base].shift()}
+    }
+}
+
+var ham = hamming();
+var first20=[], i=1;
+
+for (; i <= 20; i++) 
+    first20.push(ham.next());
+print(first20.join(', '));
+print('...');
+for (; i <= 1690; i++) 
+    ham.next();
+print(i + " => " + ham.next());
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 {{works with|JavaScript|1.7}} {{works with|Firefox|2}}
 {{trans|Ruby}}
@@ -221,3 +278,10 @@ Elapsed time:	1.73 seconds
 1000000:	4157409948433216829957008507500000000
 Elapsed time:	1.989 seconds</pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

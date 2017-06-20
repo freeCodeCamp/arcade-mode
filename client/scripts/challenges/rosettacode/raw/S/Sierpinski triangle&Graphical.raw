@@ -1,12 +1,41 @@
-Sierpinski triangle/Graphical
 
-{{task}}
-Produce a graphical representation of a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Sierpinski triangle" title="wp: Sierpinski triangle">Sierpinski triangle</a> of order N in any orientation.  
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-An example of Sierpinski's triangle (order = 8) looks like this: <br/><br/>
-[[File:Sierpinski_Triangle_Unicon.PNG]]
+const assert = require('chai').assert;
 
+/// title: Sierpinski triangle/Graphical
+/// type: rosetta-code
 
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// Produce a graphical representation of a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Sierpinski triangle" title="wp: Sierpinski triangle">Sierpinski triangle</a> of order N in any orientation.  
+/// <br>
+/// An example of Sierpinski's triangle (order = 8) looks like this: <br/><br/>
+/// [[File:Sierpinski_Triangle_Unicon.PNG]]
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+null
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 ;Note:
 * "Order" to calculate a size of resulting plot/matrix is not used in this algorithm, Instead, construction is done in accordance to a square &nbsp; m x m matrix. In our case it should be equal to a size of the square canvas.
@@ -81,3 +110,10 @@ Page with Sierpinski triangle fractal. Plotting color is changing randomly.
 Right clicking on canvas with image allows you to save it as png-file, for example.
 </pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

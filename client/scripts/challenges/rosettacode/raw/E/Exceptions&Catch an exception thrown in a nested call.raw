@@ -1,25 +1,88 @@
-Exceptions/Catch an exception thrown in a nested call
 
-{{Task|Control Structures}}
-{{omit from|C}}
-{{omit from|GUISS}}
-{{omit from|M4}}
-{{omit from|Retro}}
-{{omit from|Swift}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-Show how to create a user-defined exception &nbsp; and &nbsp; show how to catch an exception raised from several nested calls away.
+const assert = require('chai').assert;
 
-:# &nbsp; Create two user-defined exceptions, &nbsp; <span class="rosetta__text--bold">U0</span> &nbsp; and &nbsp; <span class="rosetta__text--bold">U1</span>. 
-:# &nbsp; Have function &nbsp; <span class="rosetta__text--bold">foo</span> &nbsp; call function &nbsp; <span class="rosetta__text--bold">bar</span> &nbsp; twice.
-:# &nbsp; Have function &nbsp; <span class="rosetta__text--bold">bar</span> &nbsp; call function &nbsp; <span class="rosetta__text--bold">baz</span>. 
-:# &nbsp; Arrange for function &nbsp; <span class="rosetta__text--bold">baz</span> &nbsp; to raise, or throw exception &nbsp; <span class="rosetta__text--bold">U0</span> &nbsp; on its first call, then exception &nbsp; <span class="rosetta__text--bold">U1</span> &nbsp; on its second.
-:# &nbsp; Function &nbsp; <span class="rosetta__text--bold">foo</span> &nbsp; should catch only exception &nbsp; <span class="rosetta__text--bold">U0</span>, &nbsp; not &nbsp; <span class="rosetta__text--bold">U1</span>.
+/// title: Exceptions/Catch an exception thrown in a nested call
+/// type: rosetta-code
 
-<br>
-Show/describe what happens when the program is run.
-<br><br>
+/// categories:
+/// ?
 
+/// difficulty: ?
 
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// Show how to create a user-defined exception &nbsp; and &nbsp; show how to catch an exception raised from several nested calls away.
+/// <br>
+/// <span class="rosetta__text--indented"># &nbsp; Create two user-defined exceptions, &nbsp; <span class="rosetta__text--bold">U0</span> &nbsp; and &nbsp; <span class="rosetta__text--bold">U1</span>. </span>
+/// <span class="rosetta__text--indented"># &nbsp; Have function &nbsp; <span class="rosetta__text--bold">foo</span> &nbsp; call function &nbsp; <span class="rosetta__text--bold">bar</span> &nbsp; twice.</span>
+/// <span class="rosetta__text--indented"># &nbsp; Have function &nbsp; <span class="rosetta__text--bold">bar</span> &nbsp; call function &nbsp; <span class="rosetta__text--bold">baz</span>. </span>
+/// <span class="rosetta__text--indented"># &nbsp; Arrange for function &nbsp; <span class="rosetta__text--bold">baz</span> &nbsp; to raise, or throw exception &nbsp; <span class="rosetta__text--bold">U0</span> &nbsp; on its first call, then exception &nbsp; <span class="rosetta__text--bold">U1</span> &nbsp; on its second.</span>
+/// <span class="rosetta__text--indented"># &nbsp; Function &nbsp; <span class="rosetta__text--bold">foo</span> &nbsp; should catch only exception &nbsp; <span class="rosetta__text--bold">U0</span>, &nbsp; not &nbsp; <span class="rosetta__text--bold">U1</span>.</span>
+/// <br>
+/// <br>
+/// Show/describe what happens when the program is run.
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+function U() {}
+U.prototype.toString = function(){return this.className;}
+
+function U0() { 
+    this.className = arguments.callee.name; 
+}
+U0.prototype = new U();
+
+function U1() {
+    this.className = arguments.callee.name; 
+}
+U1.prototype = new U();
+
+function foo() {
+    for (var i = 1; i <= 2; i++) {
+        try {
+            bar();
+        }
+        catch(e if e instanceof U0) {
+            print("caught exception " + e);
+        }
+    }
+}
+
+function bar() {
+    baz();
+}
+
+function baz() {
+    // during the first call, redefine the function for subsequent calls
+    baz = function() {throw(new U1());}
+    throw(new U0());
+}
+
+foo();
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 {{works with|Rhino}}
 
@@ -70,3 +133,10 @@ js: "nested_calls.js", line 31: exception from uncaught JavaScript throw: U1</pr
 {{out}} from [[SpiderMonkey]]:
 <pre>caught exception U0
 uncaught exception: U1</pre>
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

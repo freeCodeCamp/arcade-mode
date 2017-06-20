@@ -1,22 +1,58 @@
-String prepend
 
-{{task|Basic language learning}} 
-{{basic data operation}}
-[[Category:String manipulation]] 
-[[Category: String manipulation]] 
-[[Category:Simple]] 
-{{omit from|bc|No string operations in bc}}
-{{omit from|dc|No string operations in dc}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Create a string variable equal to any text value. 
+const assert = require('chai').assert;
 
-Prepend the string variable with another string literal.
- 
-If your language supports any idiomatic ways to do this without referring to the variable twice in one expression, include such solutions.
+/// title: String prepend
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+///  
+/// <br>
+/// [[Category:String manipulation]] 
+/// [[Category: String manipulation]] 
+/// [[Category:Simple]] 
+/// <br>
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Create a string variable equal to any text value. 
+/// <br>
+/// Prepend the string variable with another string literal.
+///  
+/// If your language supports any idiomatic ways to do this without referring to the variable twice in one expression, include such solutions.
+/// <br>
+/// <br>
+/// To illustrate the operation, show the content of the variable.
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
-To illustrate the operation, show the content of the variable.
-<br><br>
+/// rawSolutions:
+null
 
+/// tail:
+const replaceThis = 3;
 
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

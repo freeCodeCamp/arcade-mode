@@ -1,28 +1,61 @@
-Horner's rule for polynomial evaluation
 
-{{task}}
-A fast scheme for evaluating a polynomial such as:
-: $-19+7x-4x^2+6x^3\,$
-when
-: $x=3\;$.
-is to arrange the computation as follows:
-: $((((0) x + 6) x + (-4)) x + 7) x + (-19)\;$
-And compute the result from the innermost brackets outwards as in this pseudocode:
- coefficients <span class="rosetta__text--bold">:=</span> [-19, 7, -4, 6] <span class="rosetta__text--italic"># list coefficients of all x^0..x^n in order</span>
- x <span class="rosetta__text--bold">:=</span> 3
- accumulator <span class="rosetta__text--bold">:=</span> 0
- <span class="rosetta__text--bold">for</span> i <span class="rosetta__text--bold">in</span> <span class="rosetta__text--italic">length</span>(coefficients) <span class="rosetta__text--bold">downto</span> 1 <span class="rosetta__text--bold">do</span>
-     <span class="rosetta__text--italic"># Assumes 1-based indexing for arrays</span>
-     accumulator <span class="rosetta__text--bold">:=</span> ( accumulator * x ) + coefficients[i]
- <span class="rosetta__text--bold">done</span>
- <span class="rosetta__text--italic"># accumulator now has the answer</span>
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-<span class="rosetta__text--bold">Task Description</span>
-:Create a routine that takes a list of coefficients of a polynomial in order of increasing powers of x; together with a value of x to compute its value at, and return the value of the polynomial at that value using [http://www.physics.utah.edu/~detar/lessons/c++/array/node1.html Horner's rule].
+const assert = require('chai').assert;
 
-Cf. [[Formal power series]]
+/// title: Horner's rule for polynomial evaluation
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// A fast scheme for evaluating a polynomial such as:
+/// <span class="rosetta__text--indented"> $-19+7x-4x^2+6x^3\,$</span>
+/// when
+/// <span class="rosetta__text--indented"> $x=3\;$.</span>
+/// is to arrange the computation as follows:
+/// <span class="rosetta__text--indented"> $((((0) x + 6) x + (-4)) x + 7) x + (-19)\;$</span>
+/// And compute the result from the innermost brackets outwards as in this pseudocode:
+///  coefficients <span class="rosetta__text--bold">:=</span> [-19, 7, -4, 6] <span class="rosetta__text--italic"># list coefficients of all x^0..x^n in order</span>
+///  x <span class="rosetta__text--bold">:=</span> 3
+///  accumulator <span class="rosetta__text--bold">:=</span> 0
+///  <span class="rosetta__text--bold">for</span> i <span class="rosetta__text--bold">in</span> <span class="rosetta__text--italic">length</span>(coefficients) <span class="rosetta__text--bold">downto</span> 1 <span class="rosetta__text--bold">do</span>
+///      <span class="rosetta__text--italic"># Assumes 1-based indexing for arrays</span>
+///      accumulator <span class="rosetta__text--bold">:=</span> ( accumulator * x ) + coefficients[i]
+///  <span class="rosetta__text--bold">done</span>
+///  <span class="rosetta__text--italic"># accumulator now has the answer</span>
+/// <br>
+/// <span class="rosetta__text--bold">Task Description</span>
+/// <span class="rosetta__text--indented">Create a routine that takes a list of coefficients of a polynomial in order of increasing powers of x; together with a value of x to compute its value at, and return the value of the polynomial at that value using [http://www.physics.utah.edu/~detar/lessons/c++/array/node1.html Horner's rule].</span>
+/// <br>
+/// Cf. [[Formal power series]]
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+function horner(coeffs, x) {
+    return coeffs.reduceRight( function(acc, coeff) { return(acc * x + coeff) }, 0);
+}
+console.log(horner([-19,7,-4,6],3));  // ==> 128
 
 
+/// rawSolutions:
 =={{header|JavaScript}}==
 {{works with|JavaScript|1.8}} which includes {{works with|Firefox|3}}
 
@@ -33,3 +66,10 @@ Cf. [[Formal power series]]
 console.log(horner([-19,7,-4,6],3));  // ==> 128
 </lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,19 +1,48 @@
-Archimedean spiral
 
-{{task}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-The <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Archimedean_spiral" title="wp: Archimedean_spiral">Archimedean spiral</a> is a spiral named after the Greek mathematician Archimedes. It can be described by the equation:
+const assert = require('chai').assert;
 
-:<big>$\, r=a+b\theta$</big>
+/// title: Archimedean spiral
+/// type: rosetta-code
 
-with real numbers <span class="rosetta__text--italic">a</span> and <span class="rosetta__text--italic">b</span>.
+/// categories:
+/// ?
 
+/// difficulty: ?
 
-;Task
-Draw an Archimedean spiral.
-<br/><br/>
+/// benchmark:
+replaceWithActualFunctionHere;
 
+/// description:
+/// <br>
+/// <br>
+/// The <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Archimedean_spiral" title="wp: Archimedean_spiral">Archimedean spiral</a> is a spiral named after the Greek mathematician Archimedes. It can be described by the equation:
+/// <br>
+/// <span class="rosetta__text--indented"><big>$\, r=a+b\theta$</big></span>
+/// <br>
+/// with real numbers <span class="rosetta__text--italic">a</span> and <span class="rosetta__text--italic">b</span>.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task</dt></dl>
+/// Draw an Archimedean spiral.
+/// <br/><br/>
+/// <br>
+/// <br>
 
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+null
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 {{Works with|Chrome}}
 [[File:ASjs.png|200px|right|thumb|Output ASjs.png]]
@@ -49,3 +78,10 @@ Page with Archimedean spiral like ASjs.png. Right-clicking on the canvas you can
 spiral as a png-file, for example. 
 </pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

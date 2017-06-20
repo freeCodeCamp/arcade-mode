@@ -1,30 +1,114 @@
-Dinesman's multiple-dwelling problem
 
-{{task|Dinesman's multiple-dwelling problem}}
-{{omit from|GUISS}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task
-Solve Dinesman's multiple dwelling [http://mitpress.mit.edu/sicp/full-text/book/book-Z-H-28.html#%_sec_4.3.2 problem] but in a way that most naturally follows the problem statement given below. 
+const assert = require('chai').assert;
 
-Solutions are allowed (but not required) to parse and interpret the problem text, but should remain flexible and should state what changes to the problem text are allowed. Flexibility and ease of expression are valued.
+/// title: Dinesman's multiple-dwelling problem
+/// type: rosetta-code
 
-Examples may be be split into "setup", "problem statement", and "output" sections where the ease and naturalness of stating the problem and getting an answer, as well as the ease and flexibility of modifying the problem are the primary concerns.
+/// categories:
+/// ?
 
-Example output should be shown here, as well as any comments on the examples flexibility.
+/// difficulty: ?
 
+/// benchmark:
+replaceWithActualFunctionHere;
 
-;The problem
-Baker, Cooper, Fletcher, Miller, and Smith live on different floors of an apartment house that contains only five floors.<br>
-* Baker does not live on the top floor.
-* Cooper does not live on the bottom floor. 
-* Fletcher does not live on either the top or the bottom floor.
-* Miller lives on a higher floor than does Cooper.
-* Smith does not live on a floor adjacent to Fletcher's. 
-* Fletcher does not live on a floor adjacent to Cooper's.<br><br>
-<span class="rosetta__text--italic">Where does everyone live?</span><br>
-<br><br>
+/// description:
+/// <br>
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task</dt></dl>
+/// Solve Dinesman's multiple dwelling [http://mitpress.mit.edu/sicp/full-text/book/book-Z-H-28.html#%_sec_4.3.2 problem] but in a way that most naturally follows the problem statement given below. 
+/// <br>
+/// Solutions are allowed (but not required) to parse and interpret the problem text, but should remain flexible and should state what changes to the problem text are allowed. Flexibility and ease of expression are valued.
+/// <br>
+/// Examples may be be split into "setup", "problem statement", and "output" sections where the ease and naturalness of stating the problem and getting an answer, as well as the ease and flexibility of modifying the problem are the primary concerns.
+/// <br>
+/// Example output should be shown here, as well as any comments on the examples flexibility.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">The problem</dt></dl>
+/// Baker, Cooper, Fletcher, Miller, and Smith live on different floors of an apartment house that contains only five floors.<br>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">Baker does not live on the top floor.</li>
+/// <li class="rosetta__list-item">Cooper does not live on the bottom floor. </li>
+/// <li class="rosetta__list-item">Fletcher does not live on either the top or the bottom floor.</li>
+/// <li class="rosetta__list-item">Miller lives on a higher floor than does Cooper.</li>
+/// <li class="rosetta__list-item">Smith does not live on a floor adjacent to Fletcher's. </li>
+/// <li class="rosetta__list-item">Fletcher does not live on a floor adjacent to Cooper's.<br><br></li>
+/// <br>
+/// </ul><span class="rosetta__text--italic">Where does everyone live?</span><br>
+/// <br><br>
+/// <br>
+/// <br>
 
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
+/// solutions:
+(() => {
+    'use strict';
+
+    // concatMap :: (a -> [b]) -> [a] -> [b]
+    const concatMap = (f, xs) => [].concat.apply([], xs.map(f));
+
+    // range :: Int -> Int -> [Int]
+    const range = (m, n) =>
+        Array.from({
+            length: Math.floor(n - m) + 1
+        }, (_, i) => m + i);
+
+    // and :: [Bool] -> Bool
+    const and = xs => {
+        let i = xs.length;
+        while (i--)
+            if (!xs[i]) return false;
+        return true;
+    }
+
+    // nubBy :: (a -> a -> Bool) -> [a] -> [a]
+    const nubBy = (p, xs) => {
+        const x = xs.length ? xs[0] : undefined;
+        return x !== undefined ? [x].concat(
+            nubBy(p, xs.slice(1)
+                .filter(y => !p(x, y)))
+        ) : [];
+    }
+
+    // PROBLEM DECLARATION
+
+    const floors = range(1, 5);
+
+    return  concatMap(b =>
+            concatMap(c =>
+            concatMap(f =>
+            concatMap(m =>
+            concatMap(s =>
+                and([ // CONDITIONS
+                    nubBy((a, b) => a === b, [b, c, f, m, s]) // all floors singly occupied
+                    .length === 5,
+                    b !== 5, c !== 1, f !== 1, f !== 5,
+                    m > c, Math.abs(s - f) > 1, Math.abs(c - f) > 1
+                ]) ? [{
+                    Baker: b,
+                    Cooper: c,
+                    Fletcher: f,
+                    Miller: m,
+                    Smith: s
+                }] : [],
+                floors), floors), floors), floors), floors);
+
+    // --> [{"Baker":3, "Cooper":2, "Fletcher":4, "Miller":5, "Smith":1}]
+})();
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 
 ===ES6===
@@ -163,3 +247,10 @@ ES6 splat assignment allows us to bind all five names in a single application of
 
 <lang JavaScript>[{"Baker":3, "Cooper":2, "Fletcher":4, "Miller":5, "Smith":1}]</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

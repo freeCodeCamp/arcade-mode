@@ -1,40 +1,98 @@
-Partial function application
 
-{{task|Programming language concepts}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-<a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Partial application" title="wp: Partial application">Partial function application</a> &nbsp; is the ability to take a function of many
-parameters and apply arguments to some of the parameters to create a new
-function that needs only the application of the remaining arguments to
-produce the equivalent of applying all arguments to the original function.
+const assert = require('chai').assert;
 
-E.g:
-: Given values <code>v1, v2</code>
-: Given <code>f(param1, param2)</code>
-: Then  <code>partial(f, param1=v1)</code> returns <code>f'(param2)</code>
-: And   <code>f(param1=v1, param2=v2) == f'(param2=v2)</code> (for any value v2)
+/// title: Partial function application
+/// type: rosetta-code
 
+/// categories:
+/// ?
 
-Note that in the partial application of a parameter, (in the above case param1), other parameters are not explicitly mentioned. This is a recurring feature of partial function application.
+/// difficulty: ?
 
+/// benchmark:
+replaceWithActualFunctionHere;
 
-;Task 
-* Create a function fs( f, s ) that takes a function, f( n ), of one value and a sequence of values s.<br> Function fs should return an ordered sequence of the result of applying function f to every value of s in turn.
+/// description:
+/// <br>
+/// <br>
+/// <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Partial application" title="wp: Partial application">Partial function application</a> &nbsp; is the ability to take a function of many
+/// parameters and apply arguments to some of the parameters to create a new
+/// function that needs only the application of the remaining arguments to
+/// produce the equivalent of applying all arguments to the original function.
+/// <br>
+/// E.g:
+/// <span class="rosetta__text--indented"> Given values <code>v1, v2</code></span>
+/// <span class="rosetta__text--indented"> Given <code>f(param1, param2)</code></span>
+/// <span class="rosetta__text--indented"> Then  <code>partial(f, param1=v1)</code> returns <code>f'(param2)</code></span>
+/// <span class="rosetta__text--indented"> And   <code>f(param1=v1, param2=v2) == f'(param2=v2)</code> (for any value v2)</span>
+/// <br>
+/// <br>
+/// Note that in the partial application of a parameter, (in the above case param1), other parameters are not explicitly mentioned. This is a recurring feature of partial function application.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task </dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">Create a function fs( f, s ) that takes a function, f( n ), of one value and a sequence of values s.<br> Function fs should return an ordered sequence of the result of applying function f to every value of s in turn.</li>
+/// <br>
+/// </ul>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">Create function f1 that takes a value and returns it multiplied by 2.</li>
+/// <li class="rosetta__list-item">Create function f2 that takes a value and returns it squared.</li>
+/// <br>
+/// </ul>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">Partially apply f1 to fs to form function fsf1( s )</li>
+/// <li class="rosetta__list-item">Partially apply f2 to fs to form function fsf2( s )</li>
+/// <br>
+/// </ul>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">Test fsf1 and fsf2 by evaluating them with s being the sequence of integers from 0 to 3 inclusive and then the sequence of even integers from 2 to 8 inclusive.</li>
+/// <br>
+/// </ul>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Notes</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">In partially applying the functions f1 or f2 to fs, there should be no <span class="rosetta__text--italic">explicit</span> mention of any other parameters to fs, although introspection of fs within the partial applicator to find its parameters <span class="rosetta__text--italic">is</span> allowed.</li>
+/// <li class="rosetta__list-item">This task is more about <span class="rosetta__text--italic">how</span> results are generated rather than just getting results.</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
 
-* Create function f1 that takes a value and returns it multiplied by 2.
-* Create function f2 that takes a value and returns it squared.
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
-* Partially apply f1 to fs to form function fsf1( s )
-* Partially apply f2 to fs to form function fsf2( s )
+/// solutions:
+var f1 = function (x) { return x * 2; },
+    f2 = function (x) { return x * x; },
 
-* Test fsf1 and fsf2 by evaluating them with s being the sequence of integers from 0 to 3 inclusive and then the sequence of even integers from 2 to 8 inclusive.
+    fs = function (f, s) {
+        return function (s) {
+            return s.map(f);
+        }
+    },
 
+    fsf1 = fs(f1),
+    fsf2 = fs(f2);
 
-;Notes
-* In partially applying the functions f1 or f2 to fs, there should be no <span class="rosetta__text--italic">explicit</span> mention of any other parameters to fs, although introspection of fs within the partial applicator to find its parameters <span class="rosetta__text--italic">is</span> allowed.
-* This task is more about <span class="rosetta__text--italic">how</span> results are generated rather than just getting results.
-<br><br>
+// Test
+    [
+        fsf1([0, 1, 2, 3]),
+        fsf2([0, 1, 2, 3]),
+		
+        fsf1([2, 4, 6, 8]),
+        fsf2([2, 4, 6, 8])
+    ]
 
-
+/// rawSolutions:
 =={{header|JavaScript}}==
 ===ES5===
 Higher order functions are part of the core architecture of JavaScript.
@@ -173,3 +231,10 @@ The simple version of the higher-order '''curry''' function above works only on 
 {{Out}}
 <pre>[[0, 2, 4, 6], [0, 1, 4, 9], [4, 8, 12, 16], [4, 16, 36, 64]]</pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

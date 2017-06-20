@@ -1,17 +1,51 @@
-Non-decimal radices/Input
 
-{{task|Arithmetic operations}}
-It is common to have a string containing a number written in some format, with the most common ones being decimal, hexadecimal, octal and binary. Such strings are found in many places (user interfaces, configuration files, XML data, network protocols, etc.)
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-This task requires parsing of such a string (which may be assumed to contain nothing else) using the language's built-in facilities if possible. Parsing of decimal strings is required, parsing of other formats is optional but should be shown (i.e., if the language can parse in base-19 then that should be illustrated).
+const assert = require('chai').assert;
 
-The solutions may assume that the base of the number in the string is known. In particular, if your language has a facility to guess the base of a number by looking at a prefix (e.g. "0x" for hexadecimal) or other distinguishing syntax as it parses it, please show that.
+/// title: Non-decimal radices/Input
+/// type: rosetta-code
 
-The reverse operation is in task [[Non-decimal radices/Output]]
+/// categories:
+/// ?
 
-For general number base conversion, see [[Non-decimal radices/Convert]].
+/// difficulty: ?
 
+/// benchmark:
+replaceWithActualFunctionHere;
 
+/// description:
+/// <br>
+/// It is common to have a string containing a number written in some format, with the most common ones being decimal, hexadecimal, octal and binary. Such strings are found in many places (user interfaces, configuration files, XML data, network protocols, etc.)
+/// <br>
+/// This task requires parsing of such a string (which may be assumed to contain nothing else) using the language's built-in facilities if possible. Parsing of decimal strings is required, parsing of other formats is optional but should be shown (i.e., if the language can parse in base-19 then that should be illustrated).
+/// <br>
+/// The solutions may assume that the base of the number in the string is known. In particular, if your language has a facility to guess the base of a number by looking at a prefix (e.g. "0x" for hexadecimal) or other distinguishing syntax as it parses it, please show that.
+/// <br>
+/// The reverse operation is in task [[Non-decimal radices/Output]]
+/// <br>
+/// For general number base conversion, see [[Non-decimal radices/Convert]].
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
++"0123459"; // 123459
++"0xabcf123"; // 180154659
+
+// also supports negative numbers, but not for hex:
++"-0123459"; // -123459
++"-0xabcf123"; // NaN
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 For base 10 and 16 ("0x"-prefixed), (but not 8), it is fastest to parse strings using the unary plus (+) operator:
 <lang javascript>+"0123459"; // 123459
@@ -66,3 +100,10 @@ Although it is optional, most implementations interpret a numeric string beginni
 <lang javascript>parseInt("0e0"); // 0
 parseInt("08"); // 0, '8' is not an octal digit.</lang></div>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,56 +1,94 @@
-Permutation test
 
-{{Clarified-review}}{{task|Probability and statistics}}
-A new medical treatment was tested on a population of $n + m$
-volunteers, with each volunteer randomly assigned either to a group of
-$n$ treatment subjects, or to a group of $m$ control subjects.  
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-Members of the treatment group were given the treatment, 
-and members of the control group were given a placebo. 
-The effect of the treatment or placebo on each volunteer 
-was measured and reported in this table.
+const assert = require('chai').assert;
 
-{| style="text-align: left; width: 50%;" border="4" cellpadding="2" cellspacing="2"
-|+ Table of experimental results
-|- style="background-color: rgb(255, 204, 255);"
-! Treatment group !! Control group
-|-
-| 85 || 68
-|-
-| 88 || 41
-|-
-| 75 || 10
-|-
-| 66 || 49
-|-
-| 25 || 16
-|-
-| 29 || 65
-|-
-| 83 || 32
-|-
-| 39 || 92
-|-
-| 97 || 28
-|-
-|      || 98
-|}
-Write a program that performs a
-<a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Permutation_test#Permutation_tests" title="wp: Permutation_test#Permutation_tests">permutation test</a> to judge
-whether the treatment had a significantly stronger effect than the
-placebo. 
+/// title: Permutation test
+/// type: rosetta-code
 
-* Do this by considering every possible alternative assignment from the same pool of volunteers to a treatment group of size $n$ and a control group of size $m$ (i.e., the same group sizes used in the actual experiment but with the group members chosen differently), while assuming that each volunteer's effect remains constant regardless.
-* Note that the number of alternatives will be the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Binomial_coefficient" title="wp: Binomial_coefficient">binomial coefficient</a> $\tbinom{n+m}{n}$.
-* Compute the mean effect for each group and the difference in means between the groups in every case by subtracting the mean of the control group from the mean of the treatment group.
-* Report the percentage of alternative groupings for which the difference in means is less or equal to the actual experimentally observed difference in means, and the percentage for which it is greater.
-* Note that they should sum to 100%.
+/// categories:
+/// ?
 
-Extremely dissimilar values are evidence of an effect not entirely due
-to chance, but your program need not draw any conclusions.
+/// difficulty: ?
 
-You may assume the experimental data are known at compile time if
-that's easier than loading them at run time. Test your solution on the
-data given above.
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// A new medical treatment was tested on a population of $n + m$
+/// volunteers, with each volunteer randomly assigned either to a group of
+/// $n$ treatment subjects, or to a group of $m$ control subjects.  
+/// <br>
+/// Members of the treatment group were given the treatment, 
+/// and members of the control group were given a placebo. 
+/// The effect of the treatment or placebo on each volunteer 
+/// was measured and reported in this table.
+/// <br>
+/// {| style="text-align: left; width: 50%;" border="4" cellpadding="2" cellspacing="2"
+/// |+ Table of experimental results
+/// |- style="background-color: rgb(255, 204, 255);"
+/// ! Treatment group !! Control group
+/// |-
+/// | 85 || 68
+/// |-
+/// | 88 || 41
+/// |-
+/// | 75 || 10
+/// |-
+/// | 66 || 49
+/// |-
+/// | 25 || 16
+/// |-
+/// | 29 || 65
+/// |-
+/// | 83 || 32
+/// |-
+/// | 39 || 92
+/// |-
+/// | 97 || 28
+/// |-
+/// |      || 98
+/// |}
+/// Write a program that performs a
+/// <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Permutation_test#Permutation_tests" title="wp: Permutation_test#Permutation_tests">permutation test</a> to judge
+/// whether the treatment had a significantly stronger effect than the
+/// placebo. 
+/// <br>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">Do this by considering every possible alternative assignment from the same pool of volunteers to a treatment group of size $n$ and a control group of size $m$ (i.e., the same group sizes used in the actual experiment but with the group members chosen differently), while assuming that each volunteer's effect remains constant regardless.</li>
+/// <li class="rosetta__list-item">Note that the number of alternatives will be the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Binomial_coefficient" title="wp: Binomial_coefficient">binomial coefficient</a> $\tbinom{n+m}{n}$.</li>
+/// <li class="rosetta__list-item">Compute the mean effect for each group and the difference in means between the groups in every case by subtracting the mean of the control group from the mean of the treatment group.</li>
+/// <li class="rosetta__list-item">Report the percentage of alternative groupings for which the difference in means is less or equal to the actual experimentally observed difference in means, and the percentage for which it is greater.</li>
+/// <li class="rosetta__list-item">Note that they should sum to 100%.</li>
+/// <br>
+/// </ul>
+/// Extremely dissimilar values are evidence of an effect not entirely due
+/// to chance, but your program need not draw any conclusions.
+/// <br>
+/// You may assume the experimental data are known at compile time if
+/// that's easier than loading them at run time. Test your solution on the
+/// data given above.
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

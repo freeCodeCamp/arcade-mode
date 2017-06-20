@@ -1,9 +1,45 @@
-Verify distribution uniformity/Chi-squared test
 
-{{task|Probability and statistics}}
-In this task, write a function to verify that a given distribution of values is uniform by using the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Pearson's chi-square test" title="wp: Pearson's chi-square test">$\chi^2$ test</a> to see if the distribution has a likelihood of happening of at least the significance level (conventionally 5%). The function should return a boolean that is true if the distribution is one that a uniform distribution (with appropriate number of degrees of freedom) may be expected to produce.
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-More information about the $\chi^2$ distribution may be found at
-[http://mathworld.wolfram.com/Chi-SquaredDistribution.html mathworld].
+const assert = require('chai').assert;
+
+/// title: Verify distribution uniformity/Chi-squared test
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// In this task, write a function to verify that a given distribution of values is uniform by using the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Pearson's chi-square test" title="wp: Pearson's chi-square test">$\chi^2$ test</a> to see if the distribution has a likelihood of happening of at least the significance level (conventionally 5%). The function should return a boolean that is true if the distribution is one that a uniform distribution (with appropriate number of degrees of freedom) may be expected to produce.
+/// <br>
+/// More information about the $\chi^2$ distribution may be found at
+/// [http://mathworld.wolfram.com/Chi-SquaredDistribution.html mathworld].
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

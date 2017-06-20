@@ -1,12 +1,57 @@
-Greatest common divisor
 
-{{task|Arithmetic operations}}[[Category:Recursion]]
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Find the greatest common divisor of two integers.
-<br><br>
+const assert = require('chai').assert;
 
+/// title: Greatest common divisor
+/// type: rosetta-code
 
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// [[Category:Recursion]]
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Find the greatest common divisor of two integers.
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+function gcd(a,b) {
+  a = Math.abs(a);
+  b = Math.abs(b);
+
+  if (b > a) {
+    var temp = a;
+    a = b;
+    b = temp; 
+  }
+
+  while (true) {
+    a %= b;
+    if (a === 0) { return b; }
+    b %= a;
+    if (b === 0) { return a; }
+  }
+}
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 Iterative implementation
 <lang javascript>function gcd(a,b) {
@@ -53,3 +98,10 @@ Implementation that works on an array of integers.
 GCD([57,0,-45,-18,90,447]); //=> 3
 </lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

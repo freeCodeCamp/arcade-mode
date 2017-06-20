@@ -1,14 +1,65 @@
-Matrix multiplication
 
-{{task|Matrices}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Multiply two matrices together. 
+const assert = require('chai').assert;
 
-They can be of any dimensions, so long as the number of columns of the first matrix is equal to the number of rows of the second matrix.
-<br><br>
+/// title: Matrix multiplication
+/// type: rosetta-code
 
+/// categories:
+/// ?
 
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Multiply two matrices together. 
+/// <br>
+/// They can be of any dimensions, so long as the number of columns of the first matrix is equal to the number of rows of the second matrix.
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+// returns a new matrix
+Matrix.prototype.mult = function(other) {
+    if (this.width != other.height) {
+        throw "error: incompatible sizes";
+    }
+
+    var result = [];
+    for (var i = 0; i < this.height; i++) {
+        result[i] = [];
+        for (var j = 0; j < other.width; j++) {
+            var sum = 0;
+            for (var k = 0; k < this.width; k++) {
+                sum += this.mtx[i][k] * other.mtx[k][j];
+            }
+            result[i][j] = sum;
+        }
+    }
+    return new Matrix(result); 
+}
+
+var a = new Matrix([[1,2],[3,4]])
+var b = new Matrix([[-3,-8,3],[-2,1,4]]);
+print(a.mult(b));
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 ===ES5===
 ====Iterative====
@@ -171,3 +222,10 @@ print(a.mult(b));</lang>
 <lang JavaScript>[[51, -8, 26, -18], [-8, -38, -6, 34], 
 [33, 42, 38, -14], [17, 74, 72, 44]]</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

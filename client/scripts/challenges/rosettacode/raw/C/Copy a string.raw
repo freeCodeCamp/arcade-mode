@@ -1,19 +1,51 @@
-Copy a string
 
-{{task|Basic language learning}}
-[[Category: String manipulation]] 
-[[Category:Simple]]
-{{omit from|bc}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-This task is about copying a string. 
+const assert = require('chai').assert;
 
+/// title: Copy a string
+/// type: rosetta-code
 
-;Task:
-Where it is relevant, distinguish between copying the contents of a string 
-versus making an additional reference to an existing string.
-<br><br>
+/// categories:
+/// ?
 
+/// difficulty: ?
 
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// [[Category: String manipulation]] 
+/// [[Category:Simple]]
+/// <br>
+/// <br>
+/// This task is about copying a string. 
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Where it is relevant, distinguish between copying the contents of a string 
+/// versus making an additional reference to an existing string.
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+var container = {myString: "Hello"};
+var containerCopy = container; // Now both identifiers refer to the same object
+
+containerCopy.myString = "Goodbye"; // container.myString will also return "Goodbye"
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 Objects can be copied in JavaScript via simple reassignment. 
 Changes to the properties of one will be reflected in the other:
@@ -28,3 +60,10 @@ var b = a; // Same as saying window.b = window.a
 
 b = "Goodbye" // b contains a copy of a's value and a will still return "Hello"</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

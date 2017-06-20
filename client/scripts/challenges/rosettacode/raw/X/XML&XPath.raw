@@ -1,40 +1,93 @@
-XML/XPath
 
-{{task|XML}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-Perform the following three XPath queries on the XML Document below:
-* Retrieve the first "item" element
-* Perform an action on each "price" element (print it out)
-* Get an array of all the "name" elements
+const assert = require('chai').assert;
 
-XML Document:
- <inventory title="OmniCorp Store #45x10^3">
-   <section name="health">
-     <item upc="123456789" stock="12">
-       <name>Invisibility Cream</name>
-       <price>14.50</price>
-       <description>Makes you invisible</description>
-     </item>
-     <item upc="445322344" stock="18">
-       <name>Levitation Salve</name>
-       <price>23.99</price>
-       <description>Levitate yourself for up to 3 hours per application</description>
-     </item>
-   </section>
-   <section name="food">
-     <item upc="485672034" stock="653">
-       <name>Blork and Freen Instameal</name>
-       <price>4.95</price>
-       <description>A tasty meal in a tablet; just add water</description>
-     </item>
-     <item upc="132957764" stock="44">
-       <name>Grob winglets</name>
-       <price>3.56</price>
-       <description>Tender winglets of Grob. Just add water</description>
-     </item>
-   </section>
- </inventory>
+/// title: XML/XPath
+/// type: rosetta-code
 
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// Perform the following three XPath queries on the XML Document below:
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">Retrieve the first "item" element</li>
+/// <li class="rosetta__list-item">Perform an action on each "price" element (print it out)</li>
+/// <li class="rosetta__list-item">Get an array of all the "name" elements</li>
+/// <br>
+/// </ul>
+/// XML Document:
+///  <inventory title="OmniCorp Store #45x10^3">
+///    <section name="health">
+///      <item upc="123456789" stock="12">
+///        <name>Invisibility Cream</name>
+///        <price>14.50</price>
+///        <description>Makes you invisible</description>
+///      </item>
+///      <item upc="445322344" stock="18">
+///        <name>Levitation Salve</name>
+///        <price>23.99</price>
+///        <description>Levitate yourself for up to 3 hours per application</description>
+///      </item>
+///    </section>
+///    <section name="food">
+///      <item upc="485672034" stock="653">
+///        <name>Blork and Freen Instameal</name>
+///        <price>4.95</price>
+///        <description>A tasty meal in a tablet; just add water</description>
+///      </item>
+///      <item upc="132957764" stock="44">
+///        <name>Grob winglets</name>
+///        <price>3.56</price>
+///        <description>Tender winglets of Grob. Just add water</description>
+///      </item>
+///    </section>
+///  </inventory>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+//create XMLDocument object from file
+var xhr = new XMLHttpRequest();
+xhr.open('GET', 'file.xml', false);
+xhr.send(null);
+var doc = xhr.responseXML;
+
+//get first <item> element
+var firstItem = doc.evaluate( '//item[1]', doc, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null ).singleNodeValue;
+alert( firstItem.textContent );
+
+//output contents of <price> elements
+var prices = doc.evaluate( '//price', doc, null, XPathResult.ANY_TYPE, null );
+for( var price = prices.iterateNext(); price != null; price = prices.iterateNext() ) {
+  alert( price.textContent );
+}
+
+//add <name> elements to array
+var names = doc.evaluate( '//name', doc, null, XPathResult.ANY_TYPE, null);
+var namesArray = [];
+for( var name = names.iterateNext(); name != null; name = names.iterateNext() ) {
+  namesArray.push( name );
+}
+alert( namesArray );
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 {{works with|Firefox|2.0}}
 <lang javascript>//create XMLDocument object from file
@@ -86,3 +139,10 @@ for each( var name in doc..name ) {
 alert( names );</lang>
 
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

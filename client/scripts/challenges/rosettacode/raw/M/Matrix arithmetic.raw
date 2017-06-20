@@ -1,18 +1,56 @@
-Matrix arithmetic
 
-{{task}} [[Category:Matrices]]
-For a given matrix, return the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Determinant" title="wp: Determinant">determinant]] and the [[wp:Permanent|permanent</a> of the matrix.
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-The determinant is given by
-:: <big>$\det(A) = \sum_\sigma\sgn(\sigma)\prod_{i=1}^n M_{i,\sigma_i}$</big>
-while the permanent is given by
-:: <big>$ \operatorname{perm}(A)=\sum_\sigma\prod_{i=1}^n M_{i,\sigma_i}$</big>
-In both cases the sum is over the permutations $\sigma$ of the permutations of 1, 2, ..., <span class="rosetta__text--italic">n</span>. (A permutation's sign is 1 if there are an even number of inversions and -1 otherwise; see <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Parity of a permutation" title="wp: Parity of a permutation">parity of a permutation</a>.)
+const assert = require('chai').assert;
 
-More efficient algorithms for the determinant are known: [[LU decomposition]], see for example [[wp:LU decomposition#Computing the determinant]]. Efficient methods for calculating the permanent are not known.
+/// title: Matrix arithmetic
+/// type: rosetta-code
 
-;Cf.:
-* [[Permutations by swapping]]
-<br><br>
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+///  [[Category:Matrices]]
+/// For a given matrix, return the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Determinant" title="wp: Determinant">determinant]] and the [[wp:Permanent|permanent</a> of the matrix.
+/// <br>
+/// The determinant is given by
+/// <span class="rosetta__text--indented">: <big>$\det(A) = \sum_\sigma\sgn(\sigma)\prod_{i=1}^n M_{i,\sigma_i}$</big></span>
+/// while the permanent is given by
+/// <span class="rosetta__text--indented">: <big>$ \operatorname{perm}(A)=\sum_\sigma\prod_{i=1}^n M_{i,\sigma_i}$</big></span>
+/// In both cases the sum is over the permutations $\sigma$ of the permutations of 1, 2, ..., <span class="rosetta__text--italic">n</span>. (A permutation's sign is 1 if there are an even number of inversions and -1 otherwise; see <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Parity of a permutation" title="wp: Parity of a permutation">parity of a permutation</a>.)
+/// <br>
+/// More efficient algorithms for the determinant are known: [[LU decomposition]], see for example [[wp:LU decomposition#Computing the determinant]]. Efficient methods for calculating the permanent are not known.
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Cf.:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">[[Permutations by swapping]]</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

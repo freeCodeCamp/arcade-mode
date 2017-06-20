@@ -1,33 +1,118 @@
-Arithmetic/Complex
 
-{{task|Arithmetic operations}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-A &nbsp; <span class="rosetta__text--bold"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Complex number" title="wp: Complex number">complex number</a></span> &nbsp; is a number which can be written as:
-<big>$a + b \times i$</big> 
-(sometimes shown as:
-<big>$b + a \times i$</big>
-where &nbsp; <big>$a$</big> &nbsp; and &nbsp; <big>$b$</big>&nbsp; are real numbers, &nbsp; and &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Imaginary_unit" title="wp: Imaginary_unit"><big>$i$</big></a> &nbsp; is &nbsp; <big>&radic;{{overline|&nbsp;-1&nbsp;}}</big> 
+const assert = require('chai').assert;
+
+/// title: Arithmetic/Complex
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// A &nbsp; <span class="rosetta__text--bold"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Complex number" title="wp: Complex number">complex number</a></span> &nbsp; is a number which can be written as:
+/// <big>$a + b \times i$</big> 
+/// (sometimes shown as:
+/// <big>$b + a \times i$</big>
+/// where &nbsp; <big>$a$</big> &nbsp; and &nbsp; <big>$b$</big>&nbsp; are real numbers, &nbsp; and &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Imaginary_unit" title="wp: Imaginary_unit"><big>$i$</big></a> &nbsp; is &nbsp; <big>&radic;</big> 
+/// <br>
+/// <br>
+/// Typically, complex numbers are represented as a pair of real numbers called the "imaginary part" and "real part", &nbsp; where the imaginary part is the number to be multiplied by <big>$i$</big>.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">Show addition, multiplication, negation, and inversion of complex numbers in separate functions. (Subtraction and division operations can be made with pairs of these operations.) </li>
+/// <li class="rosetta__list-item">Print the results for each operation tested.</li>
+/// <li class="rosetta__list-item"><span class="rosetta__text--italic">Optional:</span> Show complex conjugation.</li>
+/// <br>
+/// </ul>
+/// <br>
+/// By definition, the &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/complex conjugate" title="wp: complex conjugate">complex conjugate</a> &nbsp; of 
+/// <big>$a + bi$</big> 
+/// is
+/// <big>$a - bi$</big>
+/// <br>
+/// <br>
+/// Some languages have complex number libraries available. &nbsp; If your language does, show the operations. &nbsp; If your language does not, also show the definition of this type.
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+function Complex(r, i) {
+	this.r = r;
+	this.i = i;
+}
+
+Complex.add = function() {
+	var num = arguments[0];
+	
+	for(var i = 1, ilim = arguments.length; i < ilim; i += 1){
+		num.r += arguments[i].r;
+		num.i += arguments[i].i;
+	}
+	
+	return num;
+}
+
+Complex.multiply = function() {
+	var num = arguments[0];
+	
+	for(var i = 1, ilim = arguments.length; i < ilim; i += 1){
+		num.r = (num.r * arguments[i].r) - (num.i * arguments[i].i);
+		num.i = (num.i * arguments[i].r) - (num.r * arguments[i].i);
+	}
+	
+	return num;
+}
+
+Complex.negate = function (z) {
+	return new Complex(-1*z.r, -1*z.i);
+}
+
+Complex.invert = function(z) {
+	var denom = Math.pow(z.r,2) + Math.pow(z.i,2);
+	return new Complex(z.r/denom, -1*z.i/denom);
+}
+
+Complex.conjugate = function(z) {
+	return new Complex(z.r, -1*z.i);
+}
+
+// BONUSES!
 
 
-Typically, complex numbers are represented as a pair of real numbers called the "imaginary part" and "real part", &nbsp; where the imaginary part is the number to be multiplied by <big>$i$</big>.
+Complex.prototype.toString = function() {
+	return this.r === 0 && this.i === 0
+          ? "0"
+          : (this.r !== 0 ? this.r : "") 
+          + ((this.r !== 0 || this.i < 0) && this.i !== 0 
+              ? (this.i > 0 ? "+" : "-") 
+              : "" ) + ( this.i !== 0 ? Math.abs(this.i) + "i" : "" ); 
+}
 
+Complex.prototype.getMod = function() {
+	return Math.sqrt( Math.pow(this.r,2) , Math.pow(this.i,2) )
+}
 
-;Task:
-* Show addition, multiplication, negation, and inversion of complex numbers in separate functions. (Subtraction and division operations can be made with pairs of these operations.) 
-* Print the results for each operation tested.
-* <span class="rosetta__text--italic">Optional:</span> Show complex conjugation.
-
-<br>
-By definition, the &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/complex conjugate" title="wp: complex conjugate">complex conjugate</a> &nbsp; of 
-<big>$a + bi$</big> 
-is
-<big>$a - bi$</big>
-
-<br>
-Some languages have complex number libraries available. &nbsp; If your language does, show the operations. &nbsp; If your language does not, also show the definition of this type.
-<br><br>
-
-
+/// rawSolutions:
 =={{header|JavaScript}}==
 <lang javascript>function Complex(r, i) {
 	this.r = r;
@@ -85,3 +170,10 @@ Complex.prototype.getMod = function() {
 	return Math.sqrt( Math.pow(this.r,2) , Math.pow(this.i,2) )
 }</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

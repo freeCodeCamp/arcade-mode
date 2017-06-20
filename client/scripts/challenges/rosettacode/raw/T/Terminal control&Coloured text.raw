@@ -1,12 +1,50 @@
-Terminal control/Coloured text
 
-{{task}}[[Category:Terminal control]]
-The task is to display a word in various colours on the terminal. The system palette, or colours such as Red, Green, Blue, Magenta, Cyan, and Yellow can be used.
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-Optionally demonstrate:
+const assert = require('chai').assert;
 
-* How the system should determine if the terminal supports colour
-* Setting of the background colour
-* How to cause blinking or flashing (if supported by the terminal)
+/// title: Terminal control/Coloured text
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// [[Category:Terminal control]]
+/// The task is to display a word in various colours on the terminal. The system palette, or colours such as Red, Green, Blue, Magenta, Cyan, and Yellow can be used.
+/// <br>
+/// Optionally demonstrate:
+/// <br>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">How the system should determine if the terminal supports colour</li>
+/// <li class="rosetta__list-item">Setting of the background colour</li>
+/// <li class="rosetta__list-item">How to cause blinking or flashing (if supported by the terminal)</li>
+/// <br>
+/// </ul>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

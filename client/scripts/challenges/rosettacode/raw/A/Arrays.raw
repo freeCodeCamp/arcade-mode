@@ -1,35 +1,88 @@
-Arrays
 
-{{task|Basic language learning}} [[Category:Simple]]
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-This task is about arrays.
- 
-For hashes or associative arrays, please see [[Creating an Associative Array]]. 
+const assert = require('chai').assert;
 
-For a definition and in-depth discussion of what an array is, see [[Array]].
+/// title: Arrays
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+///  [[Category:Simple]]
+/// <br>
+/// This task is about arrays.
+///  
+/// For hashes or associative arrays, please see [[Creating an Associative Array]]. 
+/// <br>
+/// For a definition and in-depth discussion of what an array is, see [[Array]].
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Show basic array syntax in your language. 
+/// <br>
+/// Basically, create an array, assign a value to it, and retrieve an element &nbsp; (if available, show both fixed-length arrays and
+/// dynamic arrays, pushing a value into it).
+/// <br>
+/// Please discuss at Village Pump: &nbsp; .  
+/// <br>
+/// Please merge code in from these obsolete tasks:
+/// <span class="rosetta__text--indented">::* &nbsp; [[Creating an Array]]</span>
+/// <span class="rosetta__text--indented">::* &nbsp; [[Assigning Values to an Array]]</span>
+/// <span class="rosetta__text--indented">::* &nbsp; [[Retrieving an Element of an Array]]</span>
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">&nbsp; [[Collections]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[Creating an Associative Array]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[Two-dimensional array (runtime)]]</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+// Create a new array with length 0
+var myArray = new Array();
+
+// Create a new array with length 5
+var myArray1 = new Array(5);
+
+// Create an array with 2 members (length is 2) 
+var myArray2 = new Array("Item1","Item2");
+
+// Create an array with 2 members using an array literal
+var myArray3 = ["Item1", "Item2"];
+
+// Assign a value to member [2] (length is now 3)
+myArray3[2] = 5;
+
+var x = myArray[2] + myArray.length;   // 8
+
+// You can also add a member to an array with the push function (length is now 4)
+myArray3.push('Test');
+
+// Elisions are supported, but are buggy in some implementations
+var y = [0,1,,];  // length 3, or 4 in buggy implementations 
 
 
-;Task:
-Show basic array syntax in your language. 
-
-Basically, create an array, assign a value to it, and retrieve an element &nbsp; (if available, show both fixed-length arrays and
-dynamic arrays, pushing a value into it).
-
-Please discuss at Village Pump: &nbsp; {{vp|Arrays}}.  
-
-Please merge code in from these obsolete tasks:
-:::* &nbsp; [[Creating an Array]]
-:::* &nbsp; [[Assigning Values to an Array]]
-:::* &nbsp; [[Retrieving an Element of an Array]]
-
-
-;Related tasks:
-* &nbsp; [[Collections]]
-* &nbsp; [[Creating an Associative Array]]
-* &nbsp; [[Two-dimensional array (runtime)]]
-<br><br>
-
-
+/// rawSolutions:
 =={{header|JavaScript}}==
 JavaScript arrays are Objects that inherit from Array prototype and have a special length property that is always one higher than the highest non–negative integer index. Methods inherited from Array.prototype are mostly generic and can be applied to other objects with a suitable length property and numeric property names.
 Note that if the Array constructor is provided with one argument, it is treated as specifying the length of the new array, if more than one argument is supplied, they are treated as members of the new array.
@@ -57,3 +110,10 @@ myArray3.push('Test');
 var y = [0,1,,];  // length 3, or 4 in buggy implementations 
 </lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

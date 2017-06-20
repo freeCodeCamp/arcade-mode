@@ -1,21 +1,52 @@
-Hello world/Text
 
-{{task|Basic language learning}}
-{{selection|Short Circuit|Console Program Basics}}
-[[Category:Simple]]
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Display the string <span class="rosetta__text--bold">Hello world!</span> on a text console.
+const assert = require('chai').assert;
 
-;Related tasks:
-* &nbsp; [[Hello world/Graphical]]
-* &nbsp; [[Hello world/Line Printer]]
-* &nbsp; [[Hello world/Newline omission]]
-* &nbsp; [[Hello world/Standard error]]
-* &nbsp; [[Hello world/Web server]]
-<br><br>
+/// title: Hello world/Text
+/// type: rosetta-code
 
+/// categories:
+/// ?
 
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// [[Category:Simple]]
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Display the string <span class="rosetta__text--bold">Hello world!</span> on a text console.
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">&nbsp; [[Hello world/Graphical]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[Hello world/Line Printer]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[Hello world/Newline omission]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[Hello world/Standard error]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[Hello world/Web server]]</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+document.write("Hello world!");
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 <lang javascript>document.write("Hello world!");</lang>
 
@@ -30,3 +61,10 @@ Display the string <span class="rosetta__text--bold">Hello world!</span> on a te
 {{works with|Node.js}}
 <lang javascript>console.log("Hello world!")</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

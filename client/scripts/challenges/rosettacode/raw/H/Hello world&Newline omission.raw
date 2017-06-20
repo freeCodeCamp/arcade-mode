@@ -1,23 +1,61 @@
-Hello world/Newline omission
 
-{{task|Basic language learning}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-Some languages automatically insert a newline after outputting a string, unless measures are taken to prevent its output. 
+const assert = require('chai').assert;
 
+/// title: Hello world/Newline omission
+/// type: rosetta-code
 
-;Task:
-Display the string &nbsp; <big><big><code>Goodbye, World!</code></big></big> &nbsp; without a trailing newline.
+/// categories:
+/// ?
 
+/// difficulty: ?
 
-;Related tasks:
-* &nbsp; [[Hello world/Graphical]]
-* &nbsp; [[Hello world/Line Printer]]
-* &nbsp; [[Hello world/Standard error]]
-* &nbsp; [[Hello world/Text]]
-<br><br>
+/// benchmark:
+replaceWithActualFunctionHere;
 
+/// description:
+/// <br>
+/// <br>
+/// Some languages automatically insert a newline after outputting a string, unless measures are taken to prevent its output. 
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Display the string &nbsp; <big><big><code>Goodbye, World!</code></big></big> &nbsp; without a trailing newline.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">&nbsp; [[Hello world/Graphical]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[Hello world/Line Printer]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[Hello world/Standard error]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[Hello world/Text]]</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
 
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+process.stdout.write("Goodbye, World!");
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 Node JS:
 <lang javascript>process.stdout.write("Goodbye, World!");</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

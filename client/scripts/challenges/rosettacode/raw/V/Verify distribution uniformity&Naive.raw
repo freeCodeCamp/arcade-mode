@@ -1,30 +1,102 @@
-Verify distribution uniformity/Naive
 
-{{task|Probability and statistics}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-<small>This task is an adjunct to [[Seven-sided dice from five-sided dice]].</small>
+const assert = require('chai').assert;
 
+/// title: Verify distribution uniformity/Naive
+/// type: rosetta-code
 
-;Ttask:
-Create a function to check that the random integers returned from a small-integer generator function have uniform distribution.
+/// categories:
+/// ?
 
+/// difficulty: ?
 
-The function should take as arguments:
-* The function (or object) producing random integers.
-* The number of times to call the integer generator.
-* A 'delta' value of some sort that indicates how close to a flat distribution is close enough.
+/// benchmark:
+replaceWithActualFunctionHere;
 
-The function should produce:
-* Some indication of the distribution achieved.
-* An 'error' if the distribution is not flat enough.
+/// description:
+/// <br>
+/// <br>
+/// <small>This task is an adjunct to [[Seven-sided dice from five-sided dice]].</small>
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Ttask:</dt></dl>
+/// Create a function to check that the random integers returned from a small-integer generator function have uniform distribution.
+/// <br>
+/// <br>
+/// The function should take as arguments:
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">The function (or object) producing random integers.</li>
+/// <li class="rosetta__list-item">The number of times to call the integer generator.</li>
+/// <li class="rosetta__list-item">A 'delta' value of some sort that indicates how close to a flat distribution is close enough.</li>
+/// <br>
+/// </ul>
+/// The function should produce:
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">Some indication of the distribution achieved.</li>
+/// <li class="rosetta__list-item">An 'error' if the distribution is not flat enough.</li>
+/// <br>
+/// </ul>
+/// Show the distribution checker working when the produced distribution is flat enough and when it is not. (Use a generator from [[Seven-sided dice from five-sided dice]]).
+/// <br>
+/// See also:
+/// *[[Verify distribution uniformity/Chi-squared test]]
+/// <br><br>
+/// <br>
+/// <br>
 
-Show the distribution checker working when the produced distribution is flat enough and when it is not. (Use a generator from [[Seven-sided dice from five-sided dice]]).
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
-See also:
-*[[Verify distribution uniformity/Chi-squared test]]
-<br><br>
+/// solutions:
+function distcheck(random_func, times, opts) {
+    if (opts === undefined) opts = {}
+    opts['delta'] = opts['delta'] || 2;
 
+    var count = {}, vals = [];
+    for (var i = 0; i < times; i++) {
+        var val = random_func();
+        if (! has_property(count, val)) {
+            count[val] = 1;
+            vals.push(val);
+        }
+        else
+            count[val] ++;
+    }
+    vals.sort(function(a,b) {return a-b});
 
+    var target = times / vals.length;
+    var tolerance = target * opts['delta'] / 100; 
+
+    for (var i = 0; i < vals.length; i++) {
+        var val = vals[i];
+        if (Math.abs(count[val] - target) > tolerance) 
+            throw "distribution potentially skewed for " + val +
+                  ": expected result around " + target + ", got " +count[val];
+        else
+            print(val + "\t" + count[val]);
+    }
+}
+
+function has_property(obj, propname) {
+    return typeof(obj[propname]) == "undefined" ? false : true;
+}
+
+try {
+    distcheck(function() {return Math.floor(10 * Math.random())}, 100000);
+    print();
+    distcheck(function() {return (Math.random() > 0.95 ? 1 : 0)}, 100000);
+} catch (e) {
+    print(e);
+}
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 {{trans|Tcl}}
 <lang javascript>function distcheck(random_func, times, opts) {
@@ -81,3 +153,10 @@ Output:
 
 distribution potentially skewed for 0: expected result around 50000, got 95040</pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,24 +1,67 @@
-Averages/Median
 
-{{task|Probability and statistics}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-{{task heading}}
+const assert = require('chai').assert;
 
-Write a program to find the &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Median" title="wp: Median">median</a> &nbsp; value of a vector of floating-point numbers. 
+/// title: Averages/Median
+/// type: rosetta-code
 
-The program need not handle the case where the vector is empty, but <span class="rosetta__text--italic">must</span> handle the case where there are an even number of elements. &nbsp; In that case, return the average of the two middle values.
+/// categories:
+/// ?
 
-There are several approaches to this. &nbsp; One is to sort the elements, and then pick the element(s) in the middle. 
+/// difficulty: ?
 
-Sorting would take at least &nbsp; <big><span style="font-family: serif">O(<span class="rosetta__text--italic">n</span> log<span class="rosetta__text--italic">n</span>)</span></big>. &nbsp; Another approach would be to build a priority queue from the elements, and then extract half of the elements to get to the middle element(s). &nbsp; This would also take &nbsp; <big><span style="font-family: serif">O(<span class="rosetta__text--italic">n</span> log<span class="rosetta__text--italic">n</span>)</span></big>. &nbsp; The best solution is to use the &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Selection algorithm" title="wp: Selection algorithm">selection algorithm</a> &nbsp; to find the median in &nbsp; <big><span style="font-family: serif">O(<span class="rosetta__text--italic">n</span>)</span></big> &nbsp; time.
+/// benchmark:
+replaceWithActualFunctionHere;
 
-{{task heading|See also}}
-[[Quickselect_algorithm]]
-{{Related tasks/Statistical measures}}
+/// description:
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// Write a program to find the &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Median" title="wp: Median">median</a> &nbsp; value of a vector of floating-point numbers. 
+/// <br>
+/// The program need not handle the case where the vector is empty, but <span class="rosetta__text--italic">must</span> handle the case where there are an even number of elements. &nbsp; In that case, return the average of the two middle values.
+/// <br>
+/// There are several approaches to this. &nbsp; One is to sort the elements, and then pick the element(s) in the middle. 
+/// <br>
+/// Sorting would take at least &nbsp; <big><span style="font-family: serif">O(<span class="rosetta__text--italic">n</span> log<span class="rosetta__text--italic">n</span>)</span></big>. &nbsp; Another approach would be to build a priority queue from the elements, and then extract half of the elements to get to the middle element(s). &nbsp; This would also take &nbsp; <big><span style="font-family: serif">O(<span class="rosetta__text--italic">n</span> log<span class="rosetta__text--italic">n</span>)</span></big>. &nbsp; The best solution is to use the &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Selection algorithm" title="wp: Selection algorithm">selection algorithm</a> &nbsp; to find the median in &nbsp; <big><span style="font-family: serif">O(<span class="rosetta__text--italic">n</span>)</span></big> &nbsp; time.
+/// <br>
+/// <br>
+/// [[Quickselect_algorithm]]
+/// <br>
+/// <br>
+/// <hr>
+/// <br>
+/// <br>
 
-<hr>
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
+/// solutions:
+function median(ary) {
+    if (ary.length == 0)
+        return null;
+    ary.sort(function (a,b){return a - b})
+    var mid = Math.floor(ary.length / 2);
+    if ((ary.length % 2) == 1)  // length is odd
+        return ary[mid];
+    else 
+        return (ary[mid - 1] + ary[mid]) / 2;
+}
 
+median([]);   // null
+median([5,3,4]);  // 4
+median([5,4,2,3]);  // 3.5
+median([3,4,1,-8.4,7.2,4,1,1.2]);  // 2.1
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 
 ===ES5===
@@ -104,3 +147,10 @@ Using a quick select algorithm
   2.1
 ]</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

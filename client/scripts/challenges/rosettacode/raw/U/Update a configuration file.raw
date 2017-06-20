@@ -1,61 +1,101 @@
-Update a configuration file
 
-{{task|File handling}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-We have a configuration file as follows:
+const assert = require('chai').assert;
 
- # This is a configuration file in standard configuration file format
- #
- # Lines begininning with a hash or a semicolon are ignored by the application
- # program. Blank lines are also ignored by the application program.
- 
- # The first word on each non comment line is the configuration option.
- # Remaining words or numbers on the line are configuration parameter
- # data fields.
- 
- # Note that configuration option names are not case sensitive. However,
- # configuration parameter data is case sensitive and the lettercase must
- # be preserved.
- 
- # This is a favourite fruit
- FAVOURITEFRUIT banana
- 
- # This is a boolean that should be set
- NEEDSPEELING
- 
- # This boolean is commented out
- ; SEEDSREMOVED
- 
- # How many bananas we have
- NUMBEROFBANANAS 48
+/// title: Update a configuration file
+/// type: rosetta-code
 
-The task is to manipulate the configuration file as follows:
+/// categories:
+/// ?
 
-* Disable the needspeeling option (using a semicolon prefix)
-* Enable the seedsremoved option by removing the semicolon and any leading whitespace
-* Change the numberofbananas parameter to 1024
-* Enable (or create if it does not exist in the file) a parameter for numberofstrawberries with a value of 62000
+/// difficulty: ?
 
-<br>
-Note that configuration option names are not case sensitive. This means that changes should be effected, regardless of the case.
+/// benchmark:
+replaceWithActualFunctionHere;
 
-Options should always be disabled by prefixing them with a semicolon.
+/// description:
+/// <br>
+/// <br>
+/// We have a configuration file as follows:
+/// <br>
+///  # This is a configuration file in standard configuration file format
+///  #
+///  # Lines begininning with a hash or a semicolon are ignored by the application
+///  # program. Blank lines are also ignored by the application program.
+///  
+///  # The first word on each non comment line is the configuration option.
+///  # Remaining words or numbers on the line are configuration parameter
+///  # data fields.
+///  
+///  # Note that configuration option names are not case sensitive. However,
+///  # configuration parameter data is case sensitive and the lettercase must
+///  # be preserved.
+///  
+///  # This is a favourite fruit
+///  FAVOURITEFRUIT banana
+///  
+///  # This is a boolean that should be set
+///  NEEDSPEELING
+///  
+///  # This boolean is commented out
+///  ; SEEDSREMOVED
+///  
+///  # How many bananas we have
+///  NUMBEROFBANANAS 48
+/// <br>
+/// The task is to manipulate the configuration file as follows:
+/// <br>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">Disable the needspeeling option (using a semicolon prefix)</li>
+/// <li class="rosetta__list-item">Enable the seedsremoved option by removing the semicolon and any leading whitespace</li>
+/// <li class="rosetta__list-item">Change the numberofbananas parameter to 1024</li>
+/// <li class="rosetta__list-item">Enable (or create if it does not exist in the file) a parameter for numberofstrawberries with a value of 62000</li>
+/// <br>
+/// </ul>
+/// <br>
+/// Note that configuration option names are not case sensitive. This means that changes should be effected, regardless of the case.
+/// <br>
+/// Options should always be disabled by prefixing them with a semicolon.
+/// <br>
+/// Lines beginning with hash symbols should not be manipulated and left unchanged in the revised file.
+/// <br>
+/// If a configuration option does not exist within the file (in either enabled or disabled form), it should be added during this update. Duplicate configuration option names in the file should be removed, leaving just the first entry.
+/// <br>
+/// For the purpose of this task, the revised file should contain appropriate entries, whether enabled or not for needspeeling,seedsremoved,numberofbananas and numberofstrawberries.)
+/// <br>
+/// The update should rewrite configuration option names in capital letters. However lines beginning with hashes and any parameter data must not be altered (eg the banana for favourite fruit must not become capitalized). The update process should also replace double semicolon prefixes with just a single semicolon (unless it is uncommenting the option, in which case it should remove all leading semicolons). 
+/// <br>
+/// Any lines beginning with a semicolon or groups of semicolons, but no following option should be removed, as should any leading or trailing whitespace on the lines. Whitespace between the option and parameters should consist only of a single
+/// space, and any non-ASCII extended characters, tabs characters, or control codes
+/// (other than end of line markers), should also be removed.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">[[Read a configuration file]]</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
 
-Lines beginning with hash symbols should not be manipulated and left unchanged in the revised file.
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
-If a configuration option does not exist within the file (in either enabled or disabled form), it should be added during this update. Duplicate configuration option names in the file should be removed, leaving just the first entry.
-
-For the purpose of this task, the revised file should contain appropriate entries, whether enabled or not for needspeeling,seedsremoved,numberofbananas and numberofstrawberries.)
-
-The update should rewrite configuration option names in capital letters. However lines beginning with hashes and any parameter data must not be altered (eg the banana for favourite fruit must not become capitalized). The update process should also replace double semicolon prefixes with just a single semicolon (unless it is uncommenting the option, in which case it should remove all leading semicolons). 
-
-Any lines beginning with a semicolon or groups of semicolons, but no following option should be removed, as should any leading or trailing whitespace on the lines. Whitespace between the option and parameters should consist only of a single
-space, and any non-ASCII extended characters, tabs characters, or control codes
-(other than end of line markers), should also be removed.
+/// solutions:
 
 
-;Related tasks
-* [[Read a configuration file]]
-<br><br>
+/// rawSolutions:
+null
 
+/// tail:
+const replaceThis = 3;
 
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

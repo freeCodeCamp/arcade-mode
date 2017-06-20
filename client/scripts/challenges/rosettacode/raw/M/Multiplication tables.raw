@@ -1,15 +1,92 @@
-Multiplication tables
 
-{{task|Arithmetic operations}} 
-[[Category:Simple]]
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Produce a formatted &nbsp; 12&times;12 &nbsp; multiplication table of the kind memorized by rote when in primary (or elementary) school.
+const assert = require('chai').assert;
 
+/// title: Multiplication tables
+/// type: rosetta-code
 
-Only print the top half triangle of products.
-<br><br>
+/// categories:
+/// ?
 
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+///  
+/// [[Category:Simple]]
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Produce a formatted &nbsp; 12&times;12 &nbsp; multiplication table of the kind memorized by rote when in primary (or elementary) school.
+/// <br>
+/// <br>
+/// Only print the top half triangle of products.
+/// <br><br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+(function (m, n) {
+ 
+    // [m..n]
+    function range(m, n) {
+        return Array.apply(null, Array(n - m + 1)).map(function (x, i) {
+            return m + i;
+        });
+    }
+ 
+    // Monadic bind (chain) for lists
+    function mb(xs, f) {
+        return [].concat.apply([], xs.map(f));
+    }
+ 
+    var rng = range(m, n),
+ 
+        lstTable = [['x'].concat(   rng )]
+                         .concat(mb(rng,   function (x) {
+        return       [[x].concat(mb(rng,   function (y) {
+    
+            return y < x ? [''] : [x * y];               // triangle only
+        
+    }))]}));
+  
+    /*                        FORMATTING OUTPUT                             */
+ 
+    // [[a]] -> bool -> s -> s
+    function wikiTable(lstRows, blnHeaderRow, strStyle) {
+        return '{| class="wikitable" ' + (
+            strStyle ? 'style="' + strStyle + '"' : ''
+        ) + lstRows.map(function (lstRow, iRow) {
+            var strDelim = ((blnHeaderRow && !iRow) ? '!' : '|');
+ 
+            return '\n|-\n' + strDelim + ' ' + lstRow.map(function (v) {
+                return typeof v === 'undefined' ? ' ' : v;
+            }).join(' ' + strDelim + strDelim + ' ');
+        }).join('') + '\n|}';
+    }
+ 
+    // Formatted as WikiTable
+    return wikiTable(
+        lstTable, true,
+        'text-align:center;width:33em;height:33em;table-layout:fixed;'
+    ) + '\n\n' +
+ 
+    // or simply stringified as JSON
+    JSON.stringify(lstTable);
+ 
+})(1, 12);
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 
 ===Imperative===
@@ -168,3 +245,10 @@ Only print the top half triangle of products.
  [11,"","","","","","","","","","",121,132],
  [12,"","","","","","","","","","","",144]]</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

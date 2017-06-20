@@ -1,20 +1,56 @@
-Hickerson series of almost integers
 
-{{task}}
-The following function, due to D Hickerson, is said to generate "Almost integers" by the [http://mathworld.wolfram.com/AlmostInteger.html "Almost Integer" page of Wolfram Mathworld]. (December 31 2013).
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-The function is:
+const assert = require('chai').assert;
 
-:$h(n) = {\operatorname{n}!\over2(\ln{2})^{n+1}}$
+/// title: Hickerson series of almost integers
+/// type: rosetta-code
 
-It is said to produce "almost integers" for n between 1 and 17.  
-The purpose of the task is to verify this assertion.
+/// categories:
+/// ?
 
-Assume that an "almost integer" has <span class="rosetta__text--bold">either a nine or a zero as its first digit after the decimal point</span> of its decimal string representation
+/// difficulty: ?
 
-The task is to calculate all values of the function checking and stating which are "almost integers".
+/// benchmark:
+replaceWithActualFunctionHere;
 
-Note: Use extended/arbitrary precision numbers in your calculation if necessary to ensure you have adequate precision of results as for example:
-    h(18) = 3385534663256845326.39...
+/// description:
+/// <br>
+/// The following function, due to D Hickerson, is said to generate "Almost integers" by the [http://mathworld.wolfram.com/AlmostInteger.html "Almost Integer" page of Wolfram Mathworld]. (December 31 2013).
+/// <br>
+/// The function is:
+/// <br>
+/// <span class="rosetta__text--indented">$h(n) = {\operatorname{n}!\over2(\ln{2})^{n+1}}$</span>
+/// <br>
+/// It is said to produce "almost integers" for n between 1 and 17.  
+/// The purpose of the task is to verify this assertion.
+/// <br>
+/// Assume that an "almost integer" has <span class="rosetta__text--bold">either a nine or a zero as its first digit after the decimal point</span> of its decimal string representation
+/// <br>
+/// The task is to calculate all values of the function checking and stating which are "almost integers".
+/// <br>
+/// Note: Use extended/arbitrary precision numbers in your calculation if necessary to ensure you have adequate precision of results as for example:
+///     h(18) = 3385534663256845326.39...
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

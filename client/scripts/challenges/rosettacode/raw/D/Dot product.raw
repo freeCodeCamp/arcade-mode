@@ -1,29 +1,70 @@
-Dot product
 
-{{task}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Create a function/use an in-built function, to compute the &nbsp; <span class="rosetta__text--bold"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Dot product" title="wp: Dot product">dot product</a></span>, &nbsp; also known as the &nbsp; <span class="rosetta__text--bold">scalar product</span> &nbsp; of two vectors. 
+const assert = require('chai').assert;
 
-If possible, make the vectors of arbitrary length.
+/// title: Dot product
+/// type: rosetta-code
 
+/// categories:
+/// ?
 
-As an example, compute the dot product of the vectors:
-:::: &nbsp; <big> <code> [1, &nbsp;3, -5] </code> </big> &nbsp; &nbsp; and 
-:::: &nbsp; <big> <code> [4,      -2, -1] </code> </big> 
+/// difficulty: ?
 
-<br>
-If implementing the dot product of two vectors directly:
-:::* &nbsp; each vector must be the same length
-:::* &nbsp; multiply corresponding terms from each vector
-:::* &nbsp; sum the products &nbsp; (to produce the answer)
+/// benchmark:
+replaceWithActualFunctionHere;
 
+/// description:
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Create a function/use an in-built function, to compute the &nbsp; <span class="rosetta__text--bold"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Dot product" title="wp: Dot product">dot product</a></span>, &nbsp; also known as the &nbsp; <span class="rosetta__text--bold">scalar product</span> &nbsp; of two vectors. 
+/// <br>
+/// If possible, make the vectors of arbitrary length.
+/// <br>
+/// <br>
+/// As an example, compute the dot product of the vectors:
+/// <span class="rosetta__text--indented">::: &nbsp; <big> <code> [1, &nbsp;3, -5] </code> </big> &nbsp; &nbsp; and </span>
+/// <span class="rosetta__text--indented">::: &nbsp; <big> <code> [4,      -2, -1] </code> </big> </span>
+/// <br>
+/// <br>
+/// If implementing the dot product of two vectors directly:
+/// <span class="rosetta__text--indented">::* &nbsp; each vector must be the same length</span>
+/// <span class="rosetta__text--indented">::* &nbsp; multiply corresponding terms from each vector</span>
+/// <span class="rosetta__text--indented">::* &nbsp; sum the products &nbsp; (to produce the answer)</span>
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related task:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">&nbsp; [[Vector products]]</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
 
-;Related task:
-* &nbsp; [[Vector products]]
-<br><br>
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
+/// solutions:
+function dot_product(ary1, ary2) {
+    if (ary1.length != ary2.length)
+        throw "can't find dot product: arrays have different lengths";
+    var dotprod = 0;
+    for (var i = 0; i < ary1.length; i++)
+        dotprod += ary1[i] * ary2[i];
+    return dotprod;
+}
 
+print(dot_product([1,3,-5],[4,-2,-1])); // ==> 3
+print(dot_product([1,3,-5],[4,-2,-1,0])); // ==> exception
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 ===ES5===
 <lang javascript>function dot_product(ary1, ary2) {
@@ -79,3 +120,10 @@ Composing functional primitives into a '''dotProduct()''' which returns '''undef
 {{Out}}
 <lang JavaScript>3</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,22 +1,55 @@
-Collections
 
-{{task|Basic language learning}}
-[[Category:Data Structures]]
-{{clarified-review}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-Collections are abstractions to represent sets of values.  
+const assert = require('chai').assert;
 
-In statically-typed languages, the values are typically of a common data type.
+/// title: Collections
+/// type: rosetta-code
 
+/// categories:
+/// ?
 
-;Task:
-Create a collection, and add a few values to it.
+/// difficulty: ?
 
+/// benchmark:
+replaceWithActualFunctionHere;
 
-{{Template:See also lists}}
-<br><br>
+/// description:
+/// <br>
+/// [[Category:Data Structures]]
+/// <br>
+/// <br>
+/// Collections are abstractions to represent sets of values.  
+/// <br>
+/// In statically-typed languages, the values are typically of a common data type.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Create a collection, and add a few values to it.
+/// <br>
+/// <br>
+/// <br>
+/// <br><br>
+/// <br>
+/// <br>
 
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
+/// solutions:
+var array = [];
+array.push('abc');
+array.push(123);
+array.push(new MyClass);
+console.log( array[2] );
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 <lang javascript>var array = [];
 array.push('abc');
@@ -30,3 +63,10 @@ obj['bar'] = new MyClass; //equivalent to: obj.bar = new MyClass;
 obj['1x; ~~:-b'] = 'text'; //no equivalent
 console.log(obj['1x; ~~:-b']);</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

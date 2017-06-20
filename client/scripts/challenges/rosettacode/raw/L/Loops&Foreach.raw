@@ -1,12 +1,45 @@
-Loops/Foreach
 
-{{task|Iteration}}
-Loop through and print each element in a collection in order. 
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-Use your language's "for each" loop if it has one, otherwise iterate through the collection in order with some other loop.
-<br><br>
+const assert = require('chai').assert;
 
+/// title: Loops/Foreach
+/// type: rosetta-code
 
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// Loop through and print each element in a collection in order. 
+/// <br>
+/// Use your language's "for each" loop if it has one, otherwise iterate through the collection in order with some other loop.
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+"alpha beta gamma delta".split(' ').forEach(
+  function (x) {
+    console.log(x);
+  }
+);
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 
 For arrays in ES5, we can use '''Array.forEach()''':
@@ -101,3 +134,10 @@ for (y of h) print(y);
 3
 */</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

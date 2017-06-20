@@ -1,24 +1,80 @@
-Y combinator
 
-{{task|Classic CS problems and programs}}
-{{requires|First class functions}}
-[[Category:Recursion]]
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-In strict <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Functional programming" title="wp: Functional programming">functional programming]] and the [[wp:lambda calculus|lambda calculus</a>, functions (lambda expressions) don't have state and are only allowed to refer to arguments of enclosing functions. 
-This rules out the usual definition of a recursive function wherein a function is associated with the state of a variable and this variable's state is used in the body of the function.
+const assert = require('chai').assert;
 
-The [http://mvanier.livejournal.com/2897.html Y combinator] is itself a stateless function that, when applied to another stateless function, returns a recursive version of the function. The Y combinator is the simplest of the class of such functions, called <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Fixed-point combinator" title="wp: Fixed-point combinator">fixed-point combinators</a>.
+/// title: Y combinator
+/// type: rosetta-code
 
+/// categories:
+/// ?
 
-;Task:
-Define the stateless Y combinator and use it to compute <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Factorial" title="wp: Factorial">factorials]] and [[wp:Fibonacci number|Fibonacci numbers</a> from other stateless functions or lambda expressions.
+/// difficulty: ?
 
+/// benchmark:
+replaceWithActualFunctionHere;
 
-;Cf:
-* [http://vimeo.com/45140590 Jim Weirich: Adventures in Functional Programming]
-<br><br>
+/// description:
+/// <br>
+/// <br>
+/// [[Category:Recursion]]
+/// <br>
+/// In strict <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Functional programming" title="wp: Functional programming">functional programming]] and the [[wp:lambda calculus|lambda calculus</a>, functions (lambda expressions) don't have state and are only allowed to refer to arguments of enclosing functions. 
+/// This rules out the usual definition of a recursive function wherein a function is associated with the state of a variable and this variable's state is used in the body of the function.
+/// <br>
+/// The [http://mvanier.livejournal.com/2897.html Y combinator] is itself a stateless function that, when applied to another stateless function, returns a recursive version of the function. The Y combinator is the simplest of the class of such functions, called <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Fixed-point combinator" title="wp: Fixed-point combinator">fixed-point combinators</a>.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Define the stateless Y combinator and use it to compute <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Factorial" title="wp: Factorial">factorials]] and [[wp:Fibonacci number|Fibonacci numbers</a> from other stateless functions or lambda expressions.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Cf:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">[http://vimeo.com/45140590 Jim Weirich: Adventures in Functional Programming]</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
 
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
+/// solutions:
+function Y(f) {
+    var g = f((function(h) {
+        return function() {
+            var g = f(h(h));
+            return g.apply(this, arguments);
+        }
+    })(function(h) {
+        return function() {
+            var g = f(h(h));
+            return g.apply(this, arguments);
+        }
+    }));
+    return g;
+}
+
+var fac = Y(function(f) {
+    return function (n) {
+        return n > 1 ? n * f(n - 1) : 1;
+    };
+});
+
+var fib = Y(function(f) {
+    return function(n) {
+        return n > 1 ? f(n - 1) + f(n - 2) : n;
+    };
+});
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 The standard version of the Y combinator does not use lexically bound local variables (or any local variables at all), which necessitates adding a wrapper function and some code duplication - the remaining locale variables are only there to make the relationship to the previous implementation more explicit:
 <lang javascript>function Y(f) {
@@ -129,3 +185,10 @@ A minimalist version:
 <lang javascript>var Y = f => (x => x(x))(y => f(x => y(y)(x)));
 var fac = Y(f => n => n > 1 ? n * f(n-1) : 1);</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

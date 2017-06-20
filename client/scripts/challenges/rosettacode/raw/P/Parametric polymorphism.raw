@@ -1,11 +1,47 @@
-Parametric polymorphism
 
-{{task|Basic language learning}}
-[[Category:Type System]]
-<a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Parametric Polymorphism" title="wp: Parametric Polymorphism">Parametric Polymorphism</a> is a way to define types or functions that are generic over other types. The genericity can be expressed by using <span class="rosetta__text--italic">type variables</span> for the parameter type, and by a mechanism to explicitly or implicitly replace the type variables with concrete types when necessary.
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-Write a small example for a type declaration that is parametric over another type, together with a short bit of code (and its type signature) that uses it. A good example is a container type, let's say a binary tree, together with some function that traverses the tree, say, a <span class="rosetta__text--italic">map</span>-function that operates on every element of the tree.
+const assert = require('chai').assert;
 
-This language feature only applies to statically-typed languages.
+/// title: Parametric polymorphism
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// [[Category:Type System]]
+/// <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Parametric Polymorphism" title="wp: Parametric Polymorphism">Parametric Polymorphism</a> is a way to define types or functions that are generic over other types. The genericity can be expressed by using <span class="rosetta__text--italic">type variables</span> for the parameter type, and by a mechanism to explicitly or implicitly replace the type variables with concrete types when necessary.
+/// <br>
+/// Write a small example for a type declaration that is parametric over another type, together with a short bit of code (and its type signature) that uses it. A good example is a container type, let's say a binary tree, together with some function that traverses the tree, say, a <span class="rosetta__text--italic">map</span>-function that operates on every element of the tree.
+/// <br>
+/// This language feature only applies to statically-typed languages.
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

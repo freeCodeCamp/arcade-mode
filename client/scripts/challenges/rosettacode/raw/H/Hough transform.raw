@@ -1,28 +1,64 @@
-Hough transform
 
-{{task|Image processing}}
-<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category:Graphics algorithms]]
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Implement the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Hough transform" title="wp: Hough transform">Hough transform</a>, which is used as part of feature extraction with digital images.
+const assert = require('chai').assert;
 
-It is a tool that makes it far easier to identify straight lines in the source image, whatever their orientation.
+/// title: Hough transform
+/// type: rosetta-code
 
-The transform maps each point in the target image, $(\rho,\theta)$, to the average color of the pixels on the corresponding line of the source image (in $(x,y)$-space, where the line corresponds to points of the form $x\cos\theta + y\sin\theta = \rho$). The idea is that where there is a straight line in the original image, it corresponds to a bright (or dark, depending on the color of the background field) spot; by applying a suitable filter to the results of the transform, it is possible to extract the locations of the lines in the original image.
+/// categories:
+/// ?
 
-[[Image:Pentagon.png" title="Category:Graphics algorithms]]
+/// difficulty: ?
 
-;Task:
-Implement the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Hough transform" title="wp: Hough transform">Hough transform</a>, which is used as part of feature extraction with digital images.
+/// benchmark:
+replaceWithActualFunctionHere;
 
-It is a tool that makes it far easier to identify straight lines in the source image, whatever their orientation.
+/// description:
+/// <br>
+/// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category:Graphics algorithms]]
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Implement the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Hough transform" title="wp: Hough transform">Hough transform</a>, which is used as part of feature extraction with digital images.
+/// <br>
+/// It is a tool that makes it far easier to identify straight lines in the source image, whatever their orientation.
+/// <br>
+/// The transform maps each point in the target image, $(\rho,\theta)$, to the average color of the pixels on the corresponding line of the source image (in $(x,y)$-space, where the line corresponds to points of the form $x\cos\theta + y\sin\theta = \rho$). The idea is that where there is a straight line in the original image, it corresponds to a bright (or dark, depending on the color of the background field) spot; by applying a suitable filter to the results of the transform, it is possible to extract the locations of the lines in the original image.
+/// <br>
+/// [[Image:Pentagon.png" title="Category:Graphics algorithms]]
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Implement the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Hough transform" title="wp: Hough transform">Hough transform</a>, which is used as part of feature extraction with digital images.
+/// <br>
+/// It is a tool that makes it far easier to identify straight lines in the source image, whatever their orientation.
+/// <br>
+/// The transform maps each point in the target image, $(\rho,\theta)$, to the average color of the pixels on the corresponding line of the source image (in $(x,y)$-space, where the line corresponds to points of the form $x\cos\theta + y\sin\theta = \rho$). The idea is that where there is a straight line in the original image, it corresponds to a bright (or dark, depending on the color of the background field) spot; by applying a suitable filter to the results of the transform, it is possible to extract the locations of the lines in the original image.
+/// <br>
+/// [[Image:Pentagon.png">thumb|Sample PNG image to use for the Hough transform.</a>
+/// The target space actually uses polar coordinates, but is conventionally plotted on rectangular coordinates for display. There's no specification of exactly how to map polar coordinates to a flat surface for display, but a convenient method is to use one axis for $\theta$ and the other for $\rho$, with the center of the source image being the origin.
+/// <br>
+/// There is also a spherical Hough transform, which is more suited to identifying planes in 3D data.
+/// <br><br>
+/// <br>
+/// <br>
 
-The transform maps each point in the target image, $(\rho,\theta)$, to the average color of the pixels on the corresponding line of the source image (in $(x,y)$-space, where the line corresponds to points of the form $x\cos\theta + y\sin\theta = \rho$). The idea is that where there is a straight line in the original image, it corresponds to a bright (or dark, depending on the color of the background field) spot; by applying a suitable filter to the results of the transform, it is possible to extract the locations of the lines in the original image.
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
-[[Image:Pentagon.png">thumb|Sample PNG image to use for the Hough transform.</a>
-The target space actually uses polar coordinates, but is conventionally plotted on rectangular coordinates for display. There's no specification of exactly how to map polar coordinates to a flat surface for display, but a convenient method is to use one axis for $\theta$ and the other for $\rho$, with the center of the source image being the origin.
-
-There is also a spherical Hough transform, which is more suited to identifying planes in 3D data.
-<br><br>
+/// solutions:
 
 
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

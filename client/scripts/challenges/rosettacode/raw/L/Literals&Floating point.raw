@@ -1,19 +1,57 @@
-Literals/Floating point
 
-{{task|Basic language learning}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-Programming languages have different ways of expressing floating-point literals. 
+const assert = require('chai').assert;
+
+/// title: Literals/Floating point
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// Programming languages have different ways of expressing floating-point literals. 
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Show how floating-point literals can be expressed in your language: decimal or other bases, exponential notation, and any other special features.
+/// <br>
+/// You may want to include a regular expression or BNF/ABNF/EBNF defining allowable formats for your language.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">&nbsp; [[Literals/Integer]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[Extreme floating point values]]</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
-;Task:
-Show how floating-point literals can be expressed in your language: decimal or other bases, exponential notation, and any other special features.
+/// rawSolutions:
+null
 
-You may want to include a regular expression or BNF/ABNF/EBNF defining allowable formats for your language.
+/// tail:
+const replaceThis = 3;
 
-
-;Related tasks:
-* &nbsp; [[Literals/Integer]]
-* &nbsp; [[Extreme floating point values]]
-<br><br>
-
-
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

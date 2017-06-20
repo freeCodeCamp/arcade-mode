@@ -1,12 +1,48 @@
-Execute SNUSP
 
-{{task}}<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category:Compilers and Interpreters]]
-{{implementation" title="Category:Compilers and Interpreters]]
-{{implementation">SNUSP}}<span class="rosetta__text--bold">RCSNUSP</span> is a set of [[SNUSP</a> compilers and interpreters written for Rosetta Code in a variety of languages. Below are links to each of the versions of RCSNUSP.
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-An implementation need only properly implement the Core SNUSP instructions <nowiki>('$', '\', '/', '+', '-', '<', '>', ',', '.', '!', and '?')</nowiki>. Modular SNUSP ('#', '@') and Bloated SNUSP (':', ';', '%', and '&') are also allowed, but not required. Any extra characters that you implement should be noted in the description of your implementation. Any cell size is allowed, EOF support is optional, as is whether you have bounded or unbounded memory.
+const assert = require('chai').assert;
 
+/// title: Execute SNUSP
+/// type: rosetta-code
 
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category:Compilers and Interpreters]]
+/// {{implementation" title="Category:Compilers and Interpreters]]
+/// <span class="rosetta__text--bold">RCSNUSP</span> is a set of [[SNUSP</a> compilers and interpreters written for Rosetta Code in a variety of languages. Below are links to each of the versions of RCSNUSP.
+/// <br>
+/// An implementation need only properly implement the Core SNUSP instructions <nowiki>('$', '\', '/', '+', '-', '<', '>', ',', '.', '!', and '?')</nowiki>. Modular SNUSP ('#', '@') and Bloated SNUSP (':', ';', '%', and '&') are also allowed, but not required. Any extra characters that you implement should be noted in the description of your implementation. Any cell size is allowed, EOF support is optional, as is whether you have bounded or unbounded memory.
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+null
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 See [[RCSNUSP/JavaScript]].
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

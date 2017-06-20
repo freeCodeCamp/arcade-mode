@@ -1,27 +1,61 @@
-Averages/Root mean square
 
-{{task}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-{{task heading}}
+const assert = require('chai').assert;
 
-Compute the &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Root mean square" title="wp: Root mean square">Root mean square</a> &nbsp; of the numbers 1..10.
+/// title: Averages/Root mean square
+/// type: rosetta-code
 
+/// categories:
+/// ?
 
-The &nbsp; <span class="rosetta__text--italic">root mean square</span> &nbsp; is also known by its initials RMS (or rms), and as the <span class="rosetta__text--bold">quadratic mean</span>.
+/// difficulty: ?
 
-The RMS is calculated as the mean of the squares of the numbers, square-rooted:
+/// benchmark:
+replaceWithActualFunctionHere;
 
+/// description:
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// Compute the &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Root mean square" title="wp: Root mean square">Root mean square</a> &nbsp; of the numbers 1..10.
+/// <br>
+/// <br>
+/// The &nbsp; <span class="rosetta__text--italic">root mean square</span> &nbsp; is also known by its initials RMS (or rms), and as the <span class="rosetta__text--bold">quadratic mean</span>.
+/// <br>
+/// The RMS is calculated as the mean of the squares of the numbers, square-rooted:
+/// <br>
+/// <br>
+/// <span class="rosetta__text--indented">:: <big>$x_{\mathrm{rms}} = \sqrt {{{x_1}^2 + {x_2}^2 + \cdots + {x_n}^2} \over n}. $</big></span>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br><hr>
+/// <br>
+/// <br>
 
-::: <big>$x_{\mathrm{rms}} = \sqrt {{{x_1}^2 + {x_2}^2 + \cdots + {x_n}^2} \over n}. $</big>
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
+/// solutions:
+function root_mean_square(ary) {
+    var sum_of_squares = ary.reduce(function(s,x) {return (s + x*x)}, 0);
+    return Math.sqrt(sum_of_squares / ary.length);
+}
 
-{{task heading|See also}}
+print( root_mean_square([1,2,3,4,5,6,7,8,9,10]) ); // ==> 6.2048368229954285
 
-{{Related tasks/Statistical measures}}
-
-<br><hr>
-
-
+/// rawSolutions:
 =={{header|JavaScript}}==
 ===ES5===
 {{works with|JavaScript|1.8}}
@@ -58,3 +92,10 @@ print( root_mean_square([1,2,3,4,5,6,7,8,9,10]) ); // ==> 6.2048368229954285</la
 {{Out}}
 <pre>6.2048368229954285</pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

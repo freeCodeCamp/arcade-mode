@@ -1,14 +1,43 @@
-Greatest element of a list
 
-{{task|Arithmetic operations}} 
-[[Category:Simple]]
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Create a function that returns the maximum value in a provided set of values, 
-<br>where the number of values may not be known until run-time.
-<br><br>
+const assert = require('chai').assert;
 
+/// title: Greatest element of a list
+/// type: rosetta-code
 
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+///  
+/// [[Category:Simple]]
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Create a function that returns the maximum value in a provided set of values, 
+/// <br>where the number of values may not be known until run-time.
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+Math.max.apply(null, [ 0, 1, 2, 5, 4 ]); // 5
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 ===ES3-5===
 <lang javascript>Math.max.apply(null, [ 0, 1, 2, 5, 4 ]); // 5</lang>
@@ -205,3 +234,10 @@ and more generally:
   }
 }</pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

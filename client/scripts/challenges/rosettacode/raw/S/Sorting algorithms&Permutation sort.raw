@@ -1,17 +1,53 @@
-Sorting algorithms/Permutation sort
 
-{{task|Sorting Algorithms}}
-{{Sorting Algorithm}}
-{{omit from|GUISS}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Implement a permutation sort, which proceeds by generating the possible permutations 
-of the input array/list until discovering the sorted one.
+const assert = require('chai').assert;
 
-Pseudocode:
- <span class="rosetta__text--bold">while not</span> InOrder(list) <span class="rosetta__text--bold">do</span>
-     nextPermutation(list)
- <span class="rosetta__text--bold">done</span>
-<br><br>
+/// title: Sorting algorithms/Permutation sort
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Implement a permutation sort, which proceeds by generating the possible permutations 
+/// of the input array/list until discovering the sorted one.
+/// <br>
+/// Pseudocode:
+///  <span class="rosetta__text--bold">while not</span> InOrder(list) <span class="rosetta__text--bold">do</span>
+///      nextPermutation(list)
+///  <span class="rosetta__text--bold">done</span>
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

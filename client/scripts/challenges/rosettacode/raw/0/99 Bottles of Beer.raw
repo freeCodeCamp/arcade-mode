@@ -1,41 +1,85 @@
-99 Bottles of Beer
 
-{{task}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Display the complete lyrics for the song: &nbsp; &nbsp; <span class="rosetta__text--bold">99 bottles of beer on the wall</span>. 
+const assert = require('chai').assert;
+
+/// title: 99 Bottles of Beer
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Display the complete lyrics for the song: &nbsp; &nbsp; <span class="rosetta__text--bold">99 bottles of beer on the wall</span>. 
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">The beersong:</dt></dl>
+/// The lyrics follow this form:
+/// <br>
+/// <blockquote>
+///    99 bottles of beer on the wall<br/>
+///    99 bottles of beer<br/>
+///    Take one down, pass it around<br/>
+///    98 bottles of beer on the wall<br/><br/>
+///    
+///    98 bottles of beer on the wall<br/>
+///    98 bottles of beer<br/>
+///    Take one down, pass it around<br/>
+///    97 bottles of beer on the wall
+/// </blockquote>
+/// <br>
+/// ... and so on, until reaching 0.
+/// <br>
+/// Grammatical support for "1 bottle of beer" is optional. 
+/// <br>
+/// As with any puzzle, try to do it in as creative/concise/comical a way 
+/// as possible (simple, obvious solutions allowed, too).
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">See also: </dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">http://99-bottles-of-beer.net/</li>
+/// <li class="rosetta__list-item">[[:Category:99_Bottles_of_Beer]]</li>
+/// <li class="rosetta__list-item">[[:Category:Programming language families]]</li>
+/// <li class="rosetta__list-item">[https://en.wikipedia.org/wiki/99_Bottles_of_Beer Wikipedia 99 bottles of beer]</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+var beer = 99;
+while (beer > 0) {
+  var verse = [
+    beer + " bottles of beer on the wall,",
+    beer + " bottles of beer!",
+    "Take one down, pass it around",  
+    (beer - 1) + " bottles of beer on the wall!"
+  ].join("\n");
+
+  console.log(verse);
+
+  beer--;
+}
 
 
-;The beersong:
-The lyrics follow this form:
-
-<blockquote>
-   99 bottles of beer on the wall<br/>
-   99 bottles of beer<br/>
-   Take one down, pass it around<br/>
-   98 bottles of beer on the wall<br/><br/>
-   
-   98 bottles of beer on the wall<br/>
-   98 bottles of beer<br/>
-   Take one down, pass it around<br/>
-   97 bottles of beer on the wall
-</blockquote>
-
-... and so on, until reaching 0.
-
-Grammatical support for "1 bottle of beer" is optional. 
-
-As with any puzzle, try to do it in as creative/concise/comical a way 
-as possible (simple, obvious solutions allowed, too).
-
-;See also: 
-* http://99-bottles-of-beer.net/
-* [[:Category:99_Bottles_of_Beer]]
-* [[:Category:Programming language families]]
-* [https://en.wikipedia.org/wiki/99_Bottles_of_Beer Wikipedia 99 bottles of beer]
-<br><br>
-
-
+/// rawSolutions:
 =={{header|JavaScript}}==
 ===ES3-5===
 <lang javascript>var beer = 99;
@@ -138,3 +182,10 @@ An alternative version:
 
 window.onload = bottleSong;</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

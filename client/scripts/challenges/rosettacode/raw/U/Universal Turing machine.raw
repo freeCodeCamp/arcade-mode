@@ -1,88 +1,166 @@
-Universal Turing machine
 
-{{task}}
-One of the foundational mathematical constructs behind computer science 
-is the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Universal Turing machine" title="wp: Universal Turing machine">universal Turing Machine</a>.  
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-Indeed one way to definitively prove that a language 
-is <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Turing_completeness" title="wp: Turing_completeness">turing-complete</a> 
-is to implement a universal Turing machine in it.
+const assert = require('chai').assert;
 
+/// title: Universal Turing machine
+/// type: rosetta-code
 
-;Task:
+/// categories:
+/// ?
 
-Simulate such a machine capable 
-of taking the definition of any other Turing machine and executing it. 
- 
-Of course, you will not have an infinite tape, 
-but you should emulate this as much as is possible.  
+/// difficulty: ?
 
-The three permissible actions on the tape are "left", "right" and "stay".
+/// benchmark:
+replaceWithActualFunctionHere;
 
-To test your universal Turing machine (and prove your programming language 
-is Turing complete!), you should execute the following two Turing machines 
-based on the following definitions.
+/// description:
+/// <br>
+/// One of the foundational mathematical constructs behind computer science 
+/// is the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Universal Turing machine" title="wp: Universal Turing machine">universal Turing Machine</a>.  
+/// <br>
+/// Indeed one way to definitively prove that a language 
+/// is <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Turing_completeness" title="wp: Turing_completeness">turing-complete</a> 
+/// is to implement a universal Turing machine in it.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <br>
+/// Simulate such a machine capable 
+/// of taking the definition of any other Turing machine and executing it. 
+///  
+/// Of course, you will not have an infinite tape, 
+/// but you should emulate this as much as is possible.  
+/// <br>
+/// The three permissible actions on the tape are "left", "right" and "stay".
+/// <br>
+/// To test your universal Turing machine (and prove your programming language 
+/// is Turing complete!), you should execute the following two Turing machines 
+/// based on the following definitions.
+/// <br>
+/// <br>
+/// <span class="rosetta__text--bold">Simple incrementer</span>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item"><span class="rosetta__text--bold">States:</span> q0, qf</li>
+/// <li class="rosetta__list-item"><span class="rosetta__text--bold">Initial state:</span> q0</li>
+/// <li class="rosetta__list-item"><span class="rosetta__text--bold">Terminating states:</span> qf</li>
+/// <li class="rosetta__list-item"><span class="rosetta__text--bold">Permissible symbols:</span> B, 1</li>
+/// <li class="rosetta__list-item"><span class="rosetta__text--bold">Blank symbol:</span> B</li>
+/// <li class="rosetta__list-item"><span class="rosetta__text--bold">Rules:</span></li>
+/// <br>
+/// </ul>** (q0, 1, 1, right, q0)
+/// ** (q0, B, 1, stay,  qf)
+/// <br>
+/// <br>
+/// The input for this machine should be a tape of <code>1 1 1</code>
+/// <br>
+/// <br>
+/// <span class="rosetta__text--bold">Three-state busy beaver</span>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item"><span class="rosetta__text--bold">States:</span> a, b, c, halt</li>
+/// <li class="rosetta__list-item"><span class="rosetta__text--bold">Initial state:</span> a</li>
+/// <li class="rosetta__list-item"><span class="rosetta__text--bold">Terminating states:</span> halt</li>
+/// <li class="rosetta__list-item"><span class="rosetta__text--bold">Permissible symbols:</span> 0, 1</li>
+/// <li class="rosetta__list-item"><span class="rosetta__text--bold">Blank symbol:</span> 0</li>
+/// <li class="rosetta__list-item"><span class="rosetta__text--bold">Rules:</span></li>
+/// <br>
+/// </ul>** (a, 0, 1, right, b)
+/// ** (a, 1, 1, left,  c)
+/// ** (b, 0, 1, left,  a)
+/// ** (b, 1, 1, right, b)
+/// ** (c, 0, 1, left,  b)
+/// ** (c, 1, 1, stay,  halt)
+/// <br>
+/// <br>
+/// The input for this machine should be an empty tape.
+/// <br>
+/// <br>
+/// <span class="rosetta__text--bold">Bonus:</span>
+/// <br>
+/// <span class="rosetta__text--bold">5-state, 2-symbol probable Busy Beaver machine from Wikipedia</span>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item"><span class="rosetta__text--bold">States:</span> A, B, C, D, E, H</li>
+/// <li class="rosetta__list-item"><span class="rosetta__text--bold">Initial state:</span> A</li>
+/// <li class="rosetta__list-item"><span class="rosetta__text--bold">Terminating states:</span> H</li>
+/// <li class="rosetta__list-item"><span class="rosetta__text--bold">Permissible symbols:</span> 0, 1</li>
+/// <li class="rosetta__list-item"><span class="rosetta__text--bold">Blank symbol:</span> 0</li>
+/// <li class="rosetta__list-item"><span class="rosetta__text--bold">Rules:</span></li>
+/// <br>
+/// </ul>** (A, 0, 1, right, B)
+/// ** (A, 1, 1, left,  C)
+/// ** (B, 0, 1, right, C)
+/// ** (B, 1, 1, right, B)
+/// ** (C, 0, 1, right, D)
+/// ** (C, 1, 0, left,  E)
+/// ** (D, 0, 1, left,  A)
+/// ** (D, 1, 1, left,  D)
+/// ** (E, 0, 1, stay,  H)
+/// ** (E, 1, 0, left,  A)
+/// <br>
+/// <br>
+/// The input for this machine should be an empty tape.
+/// <br>
+/// This machine runs for more than 47 millions steps.
+/// <br><br>
+/// <br>
+/// <br>
 
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
-<span class="rosetta__text--bold">Simple incrementer</span>
-* <span class="rosetta__text--bold">States:</span> q0, qf
-* <span class="rosetta__text--bold">Initial state:</span> q0
-* <span class="rosetta__text--bold">Terminating states:</span> qf
-* <span class="rosetta__text--bold">Permissible symbols:</span> B, 1
-* <span class="rosetta__text--bold">Blank symbol:</span> B
-* <span class="rosetta__text--bold">Rules:</span>
-** (q0, 1, 1, right, q0)
-** (q0, B, 1, stay,  qf)
+/// solutions:
+function tm(d,s,e,i,b,t,... r) {
+	document.write(d, '<br>')
+	if (i<0||i>=t.length) return
+	var re=new RegExp(b,'g')
+	write('*',s,i,t=t.split(''))
+	var p={}; r.forEach(e=>((s,r,w,m,n)=>{p[s+'.'+r]={w,n,m:[0,1,-1][1+'RL'.indexOf(m)]}})(... e.split(/[ .:,]+/)))
+	for (var n=1; s!=e; n+=1) {
+		with (p[s+'.'+t[i]]) t[i]=w,s=n,i+=m
+		if (i==-1) i=0,t.unshift(b)
+		else if (i==t.length) t[i]=b
+		write(n,s,i,t)
+	}
+	document.write('<br>')
+	function write(n, s, i, t) {
+		t = t.join('')
+		t = t.substring(0,i) + '<u>' + t.charAt(i) + '</u>' + t.substr(i+1)
+		document.write(('  '+n).slice(-3).replace(/ /g,'&nbsp;'), ': ', s, ' [', t.replace(re,'&nbsp;'), ']', '<br>')
+	}
+}
 
-<br>
-The input for this machine should be a tape of <code>1 1 1</code>
+tm( 'Unary incrementer',
+//	 s    e   i   b    t
+	'a', 'h', 0, 'B', '111',
+//	 s.r: w, m, n
+	'a.1: 1, L, a',
+	'a.B: 1, S, h'
+)
 
+tm( 'Unary adder',
+	1, 0, 0, '0', '1110111',
+	'1.1: 0, R, 2', // write 0 rigth goto 2
+	'2.1: 1, R, 2', // while (1) rigth
+	'2.0: 1, S, 0'  // write 1 stay halt
+)
 
-<span class="rosetta__text--bold">Three-state busy beaver</span>
-* <span class="rosetta__text--bold">States:</span> a, b, c, halt
-* <span class="rosetta__text--bold">Initial state:</span> a
-* <span class="rosetta__text--bold">Terminating states:</span> halt
-* <span class="rosetta__text--bold">Permissible symbols:</span> 0, 1
-* <span class="rosetta__text--bold">Blank symbol:</span> 0
-* <span class="rosetta__text--bold">Rules:</span>
-** (a, 0, 1, right, b)
-** (a, 1, 1, left,  c)
-** (b, 0, 1, left,  a)
-** (b, 1, 1, right, b)
-** (c, 0, 1, left,  b)
-** (c, 1, 1, stay,  halt)
+tm( 'Three-state busy beaver',
+	1, 0, 0, '0', '0',
+	'1.0: 1, R, 2',
+	'1.1: 1, R, 0',
+	'2.0: 0, R, 3',
+	'2.1: 1, R, 2',
+	'3.0: 1, L, 3',
+	'3.1: 1, L, 1'
+)
 
-<br>
-The input for this machine should be an empty tape.
-
-
-<span class="rosetta__text--bold">Bonus:</span>
-
-<span class="rosetta__text--bold">5-state, 2-symbol probable Busy Beaver machine from Wikipedia</span>
-* <span class="rosetta__text--bold">States:</span> A, B, C, D, E, H
-* <span class="rosetta__text--bold">Initial state:</span> A
-* <span class="rosetta__text--bold">Terminating states:</span> H
-* <span class="rosetta__text--bold">Permissible symbols:</span> 0, 1
-* <span class="rosetta__text--bold">Blank symbol:</span> 0
-* <span class="rosetta__text--bold">Rules:</span>
-** (A, 0, 1, right, B)
-** (A, 1, 1, left,  C)
-** (B, 0, 1, right, C)
-** (B, 1, 1, right, B)
-** (C, 0, 1, right, D)
-** (C, 1, 0, left,  E)
-** (D, 0, 1, left,  A)
-** (D, 1, 1, left,  D)
-** (E, 0, 1, stay,  H)
-** (E, 1, 0, left,  A)
-
-<br>
-The input for this machine should be an empty tape.
-
-This machine runs for more than 47 millions steps.
-<br><br>
-
-
+/// rawSolutions:
 =={{header|JavaScript}}==
 {{works with|FireFox}}
 <lang JavaScript>function tm(d,s,e,i,b,t,... r) {
@@ -132,3 +210,10 @@ tm( 'Three-state busy beaver',
 {{out}}
  Unary incrementer<br>&nbsp;&nbsp;*: a [<u>1</u>11]<br>&nbsp;&nbsp;1: a [<u>&nbsp;</u>111]<br>&nbsp;&nbsp;2: h [<u>1</u>111]<br> <br>Unary adder<br>&nbsp;&nbsp; *: 1 [<u>1</u>11&nbsp;111]<br> &nbsp;&nbsp;1: 2 [&nbsp;<u>1</u>1&nbsp;111]<br> &nbsp;&nbsp;2: 3 [&nbsp;1<u>1</u>&nbsp;111]<br> &nbsp;&nbsp;3: 3 [&nbsp;11<u>&nbsp;</u>111]<br> &nbsp;&nbsp;4: 0 [&nbsp;11<u>1</u>111]<br>  <br>Three-state busy beaver<br>&nbsp;&nbsp; *: 1 [<u>&nbsp;</u>]<br> &nbsp;&nbsp;1: 2 [1<u>&nbsp;</u>]<br> &nbsp;&nbsp;2: 3 [1&nbsp;<u>&nbsp;</u>]<br> &nbsp;&nbsp;3: 3 [1<u>&nbsp;</u>1]<br> &nbsp;&nbsp;4: 3 [<u>1</u>11]<br> &nbsp;&nbsp;5: 1 [<u>&nbsp;</u>111]<br> &nbsp;&nbsp;6: 2 [1<u>1</u>11]<br> &nbsp;&nbsp;7: 2 [11<u>1</u>1]<br> &nbsp;&nbsp;8: 2 [111<u>1</u>]<br> &nbsp;&nbsp;9: 2 [1111<u>&nbsp;</u>]<br> &nbsp;10: 3 [1111&nbsp;<u>&nbsp;</u>]<br> &nbsp;11: 3 [1111<u>&nbsp;</u>1]<br> &nbsp;12: 3 [111<u>1</u>11]<br> &nbsp;13: 1 [11<u>1</u>111]<br> &nbsp;14: 0 [111<u>1</u>11]
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

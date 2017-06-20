@@ -1,38 +1,102 @@
-Zig-zag matrix
 
-{{task|Matrices}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Produce a zig-zag array.  
+const assert = require('chai').assert;
 
+/// title: Zig-zag matrix
+/// type: rosetta-code
 
-A &nbsp; <span class="rosetta__text--italic">zig-zag</span> &nbsp; array is a square arrangement of the first &nbsp; <big>N<sup>2</sup></big> &nbsp; integers, &nbsp; where the  
-<br>numbers increase sequentially as you zig-zag along the array's &nbsp; [https://en.wiktionary.org/wiki/antidiagonal anti-diagonals]. 
+/// categories:
+/// ?
 
-For a graphical representation, see &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Image:JPEG_ZigZag.svg" title="wp: Image:JPEG_ZigZag.svg">JPG zigzag</a> &nbsp; (JPG uses such arrays to encode images).
+/// difficulty: ?
 
+/// benchmark:
+replaceWithActualFunctionHere;
 
-For example, given &nbsp; <span class="rosetta__text--bold">5</span>, &nbsp; produce this array:
-<pre>
- 0  1  5  6 14
- 2  4  7 13 15
- 3  8 12 16 21
- 9 11 17 20 22
-10 18 19 23 24
-</pre>
+/// description:
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Produce a zig-zag array.  
+/// <br>
+/// <br>
+/// A &nbsp; <span class="rosetta__text--italic">zig-zag</span> &nbsp; array is a square arrangement of the first &nbsp; <big>N<sup>2</sup></big> &nbsp; integers, &nbsp; where the  
+/// <br>numbers increase sequentially as you zig-zag along the array's &nbsp; [https://en.wiktionary.org/wiki/antidiagonal anti-diagonals]. 
+/// <br>
+/// For a graphical representation, see &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Image:JPEG_ZigZag.svg" title="wp: Image:JPEG_ZigZag.svg">JPG zigzag</a> &nbsp; (JPG uses such arrays to encode images).
+/// <br>
+/// <br>
+/// For example, given &nbsp; <span class="rosetta__text--bold">5</span>, &nbsp; produce this array:
+/// <pre>
+///  0  1  5  6 14
+///  2  4  7 13 15
+///  3  8 12 16 21
+///  9 11 17 20 22
+/// 10 18 19 23 24
+/// </pre>
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">&nbsp; [[Spiral matrix]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[Identity_matrix]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[Ulam_spiral_(for_primes)]]</li>
+/// <br>
+/// </ul>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">See also:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">&nbsp; Wiktionary entry: &nbsp; [https://en.wiktionary.org/wiki/antidiagonal anti-diagonals]</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
 
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
-;Related tasks:
-* &nbsp; [[Spiral matrix]]
-* &nbsp; [[Identity_matrix]]
-* &nbsp; [[Ulam_spiral_(for_primes)]]
+/// solutions:
+function ZigZagMatrix(n) {
+    this.height = n;
+    this.width = n;
 
+    this.mtx = [];
+    for (var i = 0; i < n; i++) 
+        this.mtx[i] = [];
 
-;See also:
-* &nbsp; Wiktionary entry: &nbsp; [https://en.wiktionary.org/wiki/antidiagonal anti-diagonals]
-<br><br>
+    var i=1, j=1;
+    for (var e = 0; e < n*n; e++) {
+        this.mtx[i-1][j-1] = e;
+        if ((i + j) % 2 == 0) {
+            // Even stripes
+            if (j < n) j ++;
+            else       i += 2;
+            if (i > 1) i --;
+        } else {
+            // Odd stripes
+            if (i < n) i ++;
+            else       j += 2;
+            if (j > 1) j --;
+        }
+    }
+}
+ZigZagMatrix.prototype = Matrix.prototype;
 
+var z = new ZigZagMatrix(5);
+print(z);
+print();
 
+z = new ZigZagMatrix(4);
+print(z);
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 
 ===Imperative===
@@ -266,3 +330,10 @@ print(z);</lang>
  [9, 11, 17, 20, 22],
  [10, 18, 19, 23, 24]]</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

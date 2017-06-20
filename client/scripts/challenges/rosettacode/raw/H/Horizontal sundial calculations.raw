@@ -1,23 +1,59 @@
-Horizontal sundial calculations
 
-{{task|sciences}}
-<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category:Mathematics]]
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Create a program that calculates the hour, sun hour angle, dial hour line angle from 6am to 6pm for an <span class="rosetta__text--italic">operator</span> entered location. 
+const assert = require('chai').assert;
+
+/// title: Horizontal sundial calculations
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category:Mathematics]]
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Create a program that calculates the hour, sun hour angle, dial hour line angle from 6am to 6pm for an <span class="rosetta__text--italic">operator</span> entered location. 
+/// <br>
+/// <br>
+/// For example, the user is prompted for a location and inputs the latitude and longitude 4°57′S 150°30′W (4.95°S 150.5°W of <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Jules Verne" title="wp: Jules Verne">Jules Verne]]'s ''[[wp:The Mysterious Island" title="Category:Mathematics]]
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Create a program that calculates the hour, sun hour angle, dial hour line angle from 6am to 6pm for an <span class="rosetta__text--italic">operator</span> entered location. 
+/// <br>
+/// <br>
+/// For example, the user is prompted for a location and inputs the latitude and longitude 4°57′S 150°30′W (4.95°S 150.5°W of <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Jules Verne" title="wp: Jules Verne">Jules Verne]]'s <span class="rosetta__text--italic">[[wp:The Mysterious Island">Lincoln Island</a></span>, aka <span class="rosetta__text--italic">[[wp:Ernest Legouve Reef|Ernest Legouve Reef</a>)</span>, with a legal meridian of 150°W.
+/// <br>
+/// (Note: the "meridian" is approximately the same concept as the "longitude" - the distinction is that the meridian is used to determine when it is "noon" for official purposes. This will typically be slightly different from when the sun appears at its highest location, because of the structure of time zones. For most, but not all, time zones (hour wide zones with hour zero centred on Greenwich), the legal meridian will be an even multiple of 15 degrees.)
+/// <br>
+/// Wikipedia: A <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/sundial" title="wp: sundial">sundial]] is a device that measures time by the position of the [[wp:Sun|Sun]].   In common designs such as the horizontal sundial, the sun casts a [[wp:shadow|shadow]] from its <span class="rosetta__text--italic">style</span> (also called its [[wp:Gnomon|Gnomon]], a thin rod or a sharp, straight edge)<!--  The style is the time telling edge of the gnomon, Waugh,1973 p29--> onto a flat surface marked with lines indicating the hours of the day (also called the [[wp:Sundial#Terminology|dial face]] or dial plate). As the sun moves across the sky, the shadow-edge progressively aligns with different hour-lines on the plate.  Such designs rely on the style being aligned with the axis of the Earth's rotation.  Hence, if such a sundial is to tell the correct time, the style must point towards [[wp:true north|true north]] (not the [[wp:North Magnetic Pole|north]] or [[wp:Magnetic South Pole|south magnetic pole]]) and the style's angle with horizontal must equal the sundial's geographical [[wp:latitude|latitude</a>.
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
-For example, the user is prompted for a location and inputs the latitude and longitude 4°57′S 150°30′W (4.95°S 150.5°W of <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Jules Verne" title="wp: Jules Verne">Jules Verne]]'s ''[[wp:The Mysterious Island" title="Category:Mathematics]]
+/// rawSolutions:
+null
 
-;Task:
-Create a program that calculates the hour, sun hour angle, dial hour line angle from 6am to 6pm for an <span class="rosetta__text--italic">operator</span> entered location. 
+/// tail:
+const replaceThis = 3;
 
-
-For example, the user is prompted for a location and inputs the latitude and longitude 4°57′S 150°30′W (4.95°S 150.5°W of <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Jules Verne" title="wp: Jules Verne">Jules Verne]]'s <span class="rosetta__text--italic">[[wp:The Mysterious Island">Lincoln Island</a></span>, aka <span class="rosetta__text--italic">[[wp:Ernest Legouve Reef|Ernest Legouve Reef</a>)</span>, with a legal meridian of 150°W.
-
-(Note: the "meridian" is approximately the same concept as the "longitude" - the distinction is that the meridian is used to determine when it is "noon" for official purposes. This will typically be slightly different from when the sun appears at its highest location, because of the structure of time zones. For most, but not all, time zones (hour wide zones with hour zero centred on Greenwich), the legal meridian will be an even multiple of 15 degrees.)
-
-Wikipedia: A <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/sundial" title="wp: sundial">sundial]] is a device that measures time by the position of the [[wp:Sun|Sun]].   In common designs such as the horizontal sundial, the sun casts a [[wp:shadow|shadow]] from its <span class="rosetta__text--italic">style</span> (also called its [[wp:Gnomon|Gnomon]], a thin rod or a sharp, straight edge)<!--  The style is the time telling edge of the gnomon, Waugh,1973 p29--> onto a flat surface marked with lines indicating the hours of the day (also called the [[wp:Sundial#Terminology|dial face]] or dial plate). As the sun moves across the sky, the shadow-edge progressively aligns with different hour-lines on the plate.  Such designs rely on the style being aligned with the axis of the Earth's rotation.  Hence, if such a sundial is to tell the correct time, the style must point towards [[wp:true north|true north]] (not the [[wp:North Magnetic Pole|north]] or [[wp:Magnetic South Pole|south magnetic pole]]) and the style's angle with horizontal must equal the sundial's geographical [[wp:latitude|latitude</a>.
-<br><br>
-
-
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

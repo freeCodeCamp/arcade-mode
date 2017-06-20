@@ -1,13 +1,49 @@
-HTTPS/Client-authenticated
 
-{{task|Programming environment operations}}<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category:Networking and Web Interaction]]
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-Demonstrate how to connect to a web server over HTTPS where that server requires that the client present a certificate to prove who (s)he is. Unlike with the [[HTTPS request with authentication]] task, it is <span class="rosetta__text--italic">not</span> acceptable to perform the authentication by a username/password or a set cookie.
+const assert = require('chai').assert;
 
-This task is in general useful for use with [[Creating a SOAP Client" title="Category:Networking and Web Interaction]]
+/// title: HTTPS/Client-authenticated
+/// type: rosetta-code
 
-Demonstrate how to connect to a web server over HTTPS where that server requires that the client present a certificate to prove who (s)he is. Unlike with the [[HTTPS request with authentication]] task, it is <span class="rosetta__text--italic">not</span> acceptable to perform the authentication by a username/password or a set cookie.
+/// categories:
+/// ?
 
-This task is in general useful for use with [[Creating a SOAP Client">webservice client</a>s as it offers a high level of assurance that the client is an acceptable counterparty for the server. For example, [http://aws.amazon.com/ Amazon Web Services] uses this style of authentication.
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category:Networking and Web Interaction]]
+/// <br>
+/// Demonstrate how to connect to a web server over HTTPS where that server requires that the client present a certificate to prove who (s)he is. Unlike with the [[HTTPS request with authentication]] task, it is <span class="rosetta__text--italic">not</span> acceptable to perform the authentication by a username/password or a set cookie.
+/// <br>
+/// This task is in general useful for use with [[Creating a SOAP Client" title="Category:Networking and Web Interaction]]
+/// <br>
+/// Demonstrate how to connect to a web server over HTTPS where that server requires that the client present a certificate to prove who (s)he is. Unlike with the [[HTTPS request with authentication]] task, it is <span class="rosetta__text--italic">not</span> acceptable to perform the authentication by a username/password or a set cookie.
+/// <br>
+/// This task is in general useful for use with [[Creating a SOAP Client">webservice client</a>s as it offers a high level of assurance that the client is an acceptable counterparty for the server. For example, [http://aws.amazon.com/ Amazon Web Services] uses this style of authentication.
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

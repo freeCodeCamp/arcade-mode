@@ -1,25 +1,75 @@
-Gamma function
 
-{{task|Mathematical operations}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Implement one algorithm (or more) to compute the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Gamma function" title="wp: Gamma function">Gamma</a> ($\Gamma$) function (in the real field only). 
+const assert = require('chai').assert;
 
-If your language has the function as built-in or you know a library which has it, compare your implementation's results with the results of the built-in/library function.
+/// title: Gamma function
+/// type: rosetta-code
 
-The Gamma function can be defined as:
+/// categories:
+/// ?
 
-:::::: <big><big> $\Gamma(x) = \displaystyle\int_0^\infty t^{x-1}e^{-t} dt$</big></big>
+/// difficulty: ?
 
-This suggests a straightforward (but inefficient) way of computing the $\Gamma$ through numerical integration.
+/// benchmark:
+replaceWithActualFunctionHere;
 
+/// description:
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Implement one algorithm (or more) to compute the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Gamma function" title="wp: Gamma function">Gamma</a> ($\Gamma$) function (in the real field only). 
+/// <br>
+/// If your language has the function as built-in or you know a library which has it, compare your implementation's results with the results of the built-in/library function.
+/// <br>
+/// The Gamma function can be defined as:
+/// <br>
+/// <span class="rosetta__text--indented">::::: <big><big> $\Gamma(x) = \displaystyle\int_0^\infty t^{x-1}e^{-t} dt$</big></big></span>
+/// <br>
+/// This suggests a straightforward (but inefficient) way of computing the $\Gamma$ through numerical integration.
+/// <br>
+/// <br>
+/// Better suggested methods:
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Lanczos approximation" title="wp: Lanczos approximation">Lanczos approximation</a></li>
+/// <li class="rosetta__list-item"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Stirling's approximation" title="wp: Stirling's approximation">Stirling's approximation</a></li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
 
-Better suggested methods:
-* <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Lanczos approximation" title="wp: Lanczos approximation">Lanczos approximation</a>
-* <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Stirling's approximation" title="wp: Stirling's approximation">Stirling's approximation</a>
-<br><br>
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
+/// solutions:
+function gamma(x) {
+    var p = [0.99999999999980993, 676.5203681218851, -1259.1392167224028,
+        771.32342877765313, -176.61502916214059, 12.507343278686905,
+        -0.13857109526572012, 9.9843695780195716e-6, 1.5056327351493116e-7
+    ];
 
+    var g = 7;
+    if (x < 0.5) {
+        return Math.PI / (Math.sin(Math.PI * x) * gamma(1 - x));
+    }
+
+    x -= 1;
+    var a = p[0];
+    var t = x + g + 0.5;
+    for (var i = 1; i < p.length; i++) {
+        a += p[i] / (x + i);
+    }
+
+    return Math.sqrt(2 * Math.PI) * Math.pow(t, x + 0.5) * Math.exp(-t) * a;
+}
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 Implementation of Lanczos approximation.
 <lang javascript>function gamma(x) {
@@ -43,3 +93,10 @@ Implementation of Lanczos approximation.
     return Math.sqrt(2 * Math.PI) * Math.pow(t, x + 0.5) * Math.exp(-t) * a;
 }</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

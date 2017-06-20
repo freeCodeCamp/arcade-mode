@@ -1,38 +1,93 @@
-Set
 
-{{task|Discrete math}}
-{{data structure}}
-A &nbsp; <span class="rosetta__text--bold">set</span> &nbsp;is a collection of elements, without duplicates and without order.
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
+const assert = require('chai').assert;
 
-;Task:
-Show each of these set operations:
+/// title: Set
+/// type: rosetta-code
 
-* Set creation
-* Test m &isin; S -- "m is an element in set S"
-* A &cup; B -- <span class="rosetta__text--italic">union</span>; a set of all elements either in set A or in set B.
-* A &cap; B -- <span class="rosetta__text--italic">intersection</span>; a set of all elements in <span class="rosetta__text--italic">both</span> set A and set B.
-* A &#x2216; B -- <span class="rosetta__text--italic">difference</span>; a set of all elements in set A, except those in set B.
-* A &sube; B -- <span class="rosetta__text--italic">subset</span>; true if every element in set A is also in set B.
-* A = B -- <span class="rosetta__text--italic">equality</span>; true if every element of set A is in set B and vice versa.
+/// categories:
+/// ?
 
-<br>
-As an option, show some other set operations.
-<br>(If A &sube; B, but A &ne; B, then A is called a true or proper subset of B, written A &sub; B or A &#x228a; B.) 
+/// difficulty: ?
 
-As another option, show how to modify a mutable set.
+/// benchmark:
+replaceWithActualFunctionHere;
 
+/// description:
+/// <br>
+/// <br>
+/// A &nbsp; <span class="rosetta__text--bold">set</span> &nbsp;is a collection of elements, without duplicates and without order.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Show each of these set operations:
+/// <br>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">Set creation</li>
+/// <li class="rosetta__list-item">Test m &isin; S -- "m is an element in set S"</li>
+/// <li class="rosetta__list-item">A &cup; B -- <span class="rosetta__text--italic">union</span>; a set of all elements either in set A or in set B.</li>
+/// <li class="rosetta__list-item">A &cap; B -- <span class="rosetta__text--italic">intersection</span>; a set of all elements in <span class="rosetta__text--italic">both</span> set A and set B.</li>
+/// <li class="rosetta__list-item">A &#x2216; B -- <span class="rosetta__text--italic">difference</span>; a set of all elements in set A, except those in set B.</li>
+/// <li class="rosetta__list-item">A &sube; B -- <span class="rosetta__text--italic">subset</span>; true if every element in set A is also in set B.</li>
+/// <li class="rosetta__list-item">A = B -- <span class="rosetta__text--italic">equality</span>; true if every element of set A is in set B and vice versa.</li>
+/// <br>
+/// </ul>
+/// <br>
+/// As an option, show some other set operations.
+/// <br>(If A &sube; B, but A &ne; B, then A is called a true or proper subset of B, written A &sub; B or A &#x228a; B.) 
+/// <br>
+/// As another option, show how to modify a mutable set.
+/// <br>
+/// <br>
+/// One might implement a set using an [[associative array]] (with set elements as array keys and some dummy value as the values). 
+/// <br>
+/// One might also implement a set with a binary search tree, or with a hash table, or with an ordered array of binary bits (operated on with bit-wise binary operators). 
+/// <br>
+/// The basic test, m &isin; S, is [[O]](n) with a sequential list of elements, O(<span class="rosetta__text--italic">log</span> n) with a balanced binary search tree, or (O(1) average-case, O(n) worst case) with a hash table.
+/// <br>
+/// <br>
+/// <br>
+/// <br><br>
+/// <br>
 
-One might implement a set using an [[associative array]] (with set elements as array keys and some dummy value as the values). 
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
-One might also implement a set with a binary search tree, or with a hash table, or with an ordered array of binary bits (operated on with bit-wise binary operators). 
+/// solutions:
 
-The basic test, m &isin; S, is [[O]](n) with a sequential list of elements, O(<span class="rosetta__text--italic">log</span> n) with a balanced binary search tree, or (O(1) average-case, O(n) worst case) with a hash table.
+var set = new Set();
 
+set.add(0);
+set.add(1);
+set.add('two');
+set.add('three');
 
-{{Template:See also lists}}
-<br><br>
+set.has(0); //=> true
+set.has(3); //=> false
+set.has('two'); // true
+set.has(Math.sqrt(4)); //=> false
+set.has('TWO'.toLowerCase()); //=> true
 
+set.size; //=> 4
+
+set.delete('two');
+set.has('two'); //==> false
+set.size; //=> 3
+
+//iterating set using ES6 for..of
+//Set order is preserved in order items are added.
+for (var item of set) {
+  console.log('item is ' + item);
+}
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 JavaScript does not support native sets before ECMAScript 6. 
 
@@ -62,3 +117,10 @@ for (var item of set) {
   console.log('item is ' + item);
 }</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

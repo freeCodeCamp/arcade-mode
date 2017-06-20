@@ -1,22 +1,60 @@
-Almost prime
 
-{{task|Prime Numbers}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-A &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Almost prime" title="wp: Almost prime">k-Almost-prime</a> &nbsp; is a natural number &nbsp; $n$ &nbsp; that is the product of &nbsp; $k$ &nbsp; (possibly identical) primes.
+const assert = require('chai').assert;
+
+/// title: Almost prime
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// A &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Almost prime" title="wp: Almost prime">k-Almost-prime</a> &nbsp; is a natural number &nbsp; $n$ &nbsp; that is the product of &nbsp; $k$ &nbsp; (possibly identical) primes.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Example:</dt></dl>
+/// 1-almost-primes,     &nbsp; where &nbsp; $k=1$, &nbsp; are the prime numbers themselves.
+/// <br>2-almost-primes, &nbsp; where &nbsp; $k=2$, &nbsp; are the &nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Semiprime" title="Semiprime">semiprimes</a>.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Write a function/method/subroutine/... that generates k-almost primes and use it to create a table here of the first ten members of k-Almost primes for &nbsp; $1 <= K <= 5$.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">&nbsp; [[Semiprime]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[:Category:Prime Numbers]]</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
-;Example:
-1-almost-primes,     &nbsp; where &nbsp; $k=1$, &nbsp; are the prime numbers themselves.
-<br>2-almost-primes, &nbsp; where &nbsp; $k=2$, &nbsp; are the &nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Semiprime" title="Semiprime">semiprimes</a>.
+/// rawSolutions:
+null
 
+/// tail:
+const replaceThis = 3;
 
-;Task:
-Write a function/method/subroutine/... that generates k-almost primes and use it to create a table here of the first ten members of k-Almost primes for &nbsp; $1 <= K <= 5$.
-
-
-;Related tasks:
-* &nbsp; [[Semiprime]]
-* &nbsp; [[:Category:Prime Numbers]]
-<br><br>
-
-
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

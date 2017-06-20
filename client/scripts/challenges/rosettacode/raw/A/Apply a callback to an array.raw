@@ -1,13 +1,50 @@
-Apply a callback to an array
 
-{{task|Basic language learning}}
-[[Category:Iteration]]
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Take a combined set of elements and apply a function to each element.
-<br><br>
+const assert = require('chai').assert;
 
+/// title: Apply a callback to an array
+/// type: rosetta-code
 
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// [[Category:Iteration]]
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Take a combined set of elements and apply a function to each element.
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+function map(a, func) {
+  var ret = [];
+  for (var i = 0; i < a.length; i++) {
+    ret[i] = func(a[i]);
+  }
+  return ret;
+}
+
+map([1, 2, 3, 4, 5], function(v) { return v * v; });
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 
 ===ES3===
@@ -31,3 +68,10 @@ The result is always:
 
 <pre>[1, 4, 9, 16, 25]</pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

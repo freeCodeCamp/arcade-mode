@@ -1,15 +1,104 @@
-Yin and yang
 
-{{task|Graphics}}
-{{omit from|GUISS}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Create a function that given a variable representing size, generates a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/File:Yin_and_Yang.svg" title="wp: File:Yin_and_Yang.svg">Yin and yang]] also known as a [[wp:Taijitu|Taijitu</a> symbol scaled to that size.
+const assert = require('chai').assert;
 
-Generate and display the symbol generated for two different (small) sizes.
-<br><br>
+/// title: Yin and yang
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Create a function that given a variable representing size, generates a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/File:Yin_and_Yang.svg" title="wp: File:Yin_and_Yang.svg">Yin and yang]] also known as a [[wp:Taijitu|Taijitu</a> symbol scaled to that size.
+/// <br>
+/// Generate and display the symbol generated for two different (small) sizes.
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+function Arc(posX,posY,radius,startAngle,endAngle,color){//Angle in radians.
+this.posX=posX;
+this.posY=posY;
+this.radius=radius;
+this.startAngle=startAngle;
+this.endAngle=endAngle;
+this.color=color;
+}
+//0,0 is the top left of the screen
+var YingYang=[
+new Arc(0.5,0.5,1,0.5*Math.PI,1.5*Math.PI,"white"),//Half white semi-circle
+new Arc(0.5,0.5,1,1.5*Math.PI,0.5*Math.PI,"black"),//Half black semi-circle
+new Arc(0.5,0.25,.5,0,2*Math.PI,"black"),//black circle
+new Arc(0.5,0.75,.5,0,2*Math.PI,"white"),//white circle
+new Arc(0.5,0.25,1/6,0,2*Math.PI,"white"),//small white circle
+new Arc(0.5,0.75,1/6,0,2*Math.PI,"black")//small black circle
+]
+//Ying Yang is DONE!
+//Now we'll have to draw it.
+//We'll draw it in a matrix that way we can get results graphically or by text!
+function Array2D(width,height){
+this.height=height;
+this.width=width;
+this.array2d=[];
+for(var i=0;i<this.height;i++){
+this.array2d.push(new Array(this.width));
+}
+}
+Array2D.prototype.resize=function(width,height){//This is expensive
+//nheight and nwidth is the difference of the new and old height
+var nheight=height-this.height,nwidth=width-this.width;
+if(nwidth>0){
+for(var i=0;i<this.height;i++){
+if(i<height)
+Array.prototype.push.apply(this.array2d[i],new Array(nwidth));
+}
+}
+else if(nwidth<0){
+for(var i=0;i<this.height;i++){
+if(i<height)
+ this.array2d[i].splice(width,nwidth);
+}
+}
+if(nheight>0){
+ Array.prototype.push.apply(this.array2d,new Array(width));
+}
+else if(nheight<0){
+ this.array2d.splice(height,nheight)
+}
+}
+Array2D.prototype.loop=function(callback){
+for(var i=0;i<this.height;i++)
+ for(var i2=0;i2<this.width;i++)
+   callback.call(this,this.array2d[i][i2],i,i2);
+
+}
+var mat=new Array2D(100,100);//this sounds fine;
+YingYang[0];
+//In construction.
 
 
+/// rawSolutions:
 =={{header|JavaScript}}==
 Another way, a more JavaScript-style way.
 <lang JavaScript>
@@ -253,3 +342,10 @@ drawYingYang(1000, 200, 200);
 
 </html></lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

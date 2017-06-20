@@ -1,39 +1,109 @@
-Tree traversal
 
-{{task|Data Structures}}
-[[Category:Recursion]]
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Implement a binary tree where each node carries an integer, &nbsp; and implement:
-:::* &nbsp; pre-order,
-:::* &nbsp; in-order, 
-:::* &nbsp; post-order, &nbsp; &nbsp; and 
-:::* &nbsp; level-order &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Tree traversal" title="wp: Tree traversal">traversal</a>. 
+const assert = require('chai').assert;
 
+/// title: Tree traversal
+/// type: rosetta-code
 
-Use those traversals to output the following tree:
-          1
-         / \
-        /   \
-       /     \
-      2       3
-     / \     /
-    4   5   6
-   /       / \
-  7       8   9
+/// categories:
+/// ?
 
-The correct output should look like this:
- preorder:    1 2 4 7 5 3 6 8 9
- inorder:     7 4 2 5 1 8 6 9 3
- postorder:   7 4 5 2 8 9 6 3 1
- level-order: 1 2 3 4 5 6 7 8 9
+/// difficulty: ?
 
+/// benchmark:
+replaceWithActualFunctionHere;
 
-;See also:
-* &nbsp; Wikipedia article: &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Tree traversal" title="wp: Tree traversal">Tree traversal</a>.
-<br><br>
+/// description:
+/// <br>
+/// [[Category:Recursion]]
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Implement a binary tree where each node carries an integer, &nbsp; and implement:
+/// <span class="rosetta__text--indented">::* &nbsp; pre-order,</span>
+/// <span class="rosetta__text--indented">::* &nbsp; in-order, </span>
+/// <span class="rosetta__text--indented">::* &nbsp; post-order, &nbsp; &nbsp; and </span>
+/// <span class="rosetta__text--indented">::* &nbsp; level-order &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Tree traversal" title="wp: Tree traversal">traversal</a>. </span>
+/// <br>
+/// <br>
+/// Use those traversals to output the following tree:
+///           1
+///          / \
+///         /   \
+///        /     \
+///       2       3
+///      / \     /
+///     4   5   6
+///    /       / \
+///   7       8   9
+/// <br>
+/// The correct output should look like this:
+///  preorder:    1 2 4 7 5 3 6 8 9
+///  inorder:     7 4 2 5 1 8 6 9 3
+///  postorder:   7 4 5 2 8 9 6 3 1
+///  level-order: 1 2 3 4 5 6 7 8 9
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">See also:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">&nbsp; Wikipedia article: &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Tree traversal" title="wp: Tree traversal">Tree traversal</a>.</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
 
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
+/// solutions:
+function BinaryTree(value, left, right) {
+    this.value = value;
+    this.left = left;
+    this.right = right;
+}
+BinaryTree.prototype.preorder  = function(f) {this.walk(f,['this','left','right'])}
+BinaryTree.prototype.inorder   = function(f) {this.walk(f,['left','this','right'])}
+BinaryTree.prototype.postorder = function(f) {this.walk(f,['left','right','this'])}
+BinaryTree.prototype.walk = function(func, order) {
+    for (var i in order) 
+        switch (order[i]) {
+            case "this": func(this.value); break;
+            case "left": if (this.left) this.left.walk(func, order); break;
+            case "right": if (this.right) this.right.walk(func, order); break;
+        }
+}
+BinaryTree.prototype.levelorder = function(func) {
+    var queue = [this];
+    while (queue.length != 0) {
+        var node = queue.shift();
+        func(node.value);
+        if (node.left) queue.push(node.left);
+        if (node.right) queue.push(node.right);
+    }
+}
+
+// convenience function for creating a binary tree
+function createBinaryTreeFromArray(ary) {
+    var left = null, right = null;
+    if (ary[1]) left = createBinaryTreeFromArray(ary[1]);
+    if (ary[2]) right = createBinaryTreeFromArray(ary[2]);
+    return new BinaryTree(ary[0], left, right);
+}
+
+var tree = createBinaryTreeFromArray([1, [2, [4, [7]], [5]], [3, [6, [8],[9]]]]);
+
+print("*** preorder ***");   tree.preorder(print); 
+print("*** inorder ***");    tree.inorder(print); 
+print("*** postorder ***");  tree.postorder(print);
+print("*** levelorder ***"); tree.levelorder(print);
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 ===ES5===
 ====Iteration====
@@ -447,3 +517,10 @@ inorder:    7 4 2 5 1 8 6 9 3
 postorder:  7 4 5 2 8 9 6 3 1
 levelorder: 1 2 3 4 5 6 7 8 9</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

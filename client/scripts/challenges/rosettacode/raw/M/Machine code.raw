@@ -1,22 +1,58 @@
-Machine code
 
-{{task}}
-The task requires poking machine code directly into memory and executing it. This is strictly for x86 (32 bit) architectures. The machine code is the opcodes of the following simple program:
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-<lang asm>mov EAX, [ESP+4]
-add EAX, [ESP+8]
-ret</lang>
+const assert = require('chai').assert;
 
-which translates into the following opcodes:	
-(139 68 36 4 3 68 36 8 195)
-and in Hex this would correspond to the following:
-("8B" "44" "24" "4" "3" "44" "24" "8" "C3")
+/// title: Machine code
+/// type: rosetta-code
 
-Implement the following in your favorite programming language (take the common lisp code as an example if you wish):
-<ol>
-<li> Poke the above opcodes into a memory pointer</li>
-<li>Excute it with the following arguments: [ESP+4] => unsigned-byte argument of value 7; [ESP+8] => unsigned-byte argument of value 12; The result would be 19.</li>
-<li>Free the Pointer</li>
-</ol>
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// The task requires poking machine code directly into memory and executing it. This is strictly for x86 (32 bit) architectures. The machine code is the opcodes of the following simple program:
+/// <br>
+/// <lang asm>mov EAX, [ESP+4]
+/// add EAX, [ESP+8]
+/// ret</lang>
+/// <br>
+/// which translates into the following opcodes:	
+/// (139 68 36 4 3 68 36 8 195)
+/// and in Hex this would correspond to the following:
+/// ("8B" "44" "24" "4" "3" "44" "24" "8" "C3")
+/// <br>
+/// Implement the following in your favorite programming language (take the common lisp code as an example if you wish):
+/// <ol>
+/// <li> Poke the above opcodes into a memory pointer</li>
+/// <li>Excute it with the following arguments: [ESP+4] => unsigned-byte argument of value 7; [ESP+8] => unsigned-byte argument of value 12; The result would be 19.</li>
+/// <li>Free the Pointer</li>
+/// </ol>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

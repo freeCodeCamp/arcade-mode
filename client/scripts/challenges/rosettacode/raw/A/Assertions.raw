@@ -1,14 +1,50 @@
-Assertions
 
-{{task|Basic language learning}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-Assertions are a way of breaking out of code when there is an error or an unexpected input. 
+const assert = require('chai').assert;
 
-Some languages throw [[exceptions]] and some treat it as a break point.
+/// title: Assertions
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// Assertions are a way of breaking out of code when there is an error or an unexpected input. 
+/// <br>
+/// Some languages throw [[exceptions]] and some treat it as a break point.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Show an assertion in your language by asserting that an integer variable is equal to <span class="rosetta__text--bold">42</span>.
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
-;Task:
-Show an assertion in your language by asserting that an integer variable is equal to <span class="rosetta__text--bold">42</span>.
-<br><br>
+/// rawSolutions:
+null
 
+/// tail:
+const replaceThis = 3;
 
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

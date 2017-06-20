@@ -1,23 +1,59 @@
-Percolation/Site percolation
 
-{{task|Percolation Simulations}}{{Percolation Simulation}}
-Given an $M \times N$ rectangular array of cells numbered $\mathrm{cell}[0..M-1, 0..N-1]$assume $M$ is horizontal and $N$ is downwards. 
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-Assume that the probability of any cell being filled is a constant $p$ where
-: $0.0 \le p \le 1.0$
+const assert = require('chai').assert;
 
-;The task:
-Simulate creating the array of cells with probability $p$ and then 
-testing if there is a route through adjacent filled cells from any on row $0$ to any on row $N$, i.e. testing for site percolation.
+/// title: Percolation/Site percolation
+/// type: rosetta-code
 
-Given $p$ repeat the percolation $t$ times to estimate the proportion of times that the fluid can percolate to the bottom for any given $p$.
+/// categories:
+/// ?
 
-Show how the probability of percolating through the random grid changes with $p$ going from $0.0$ to $1.0$ in $0.1$ increments and with the number of repetitions to estimate the fraction at any given $p$ as $t >= 100$.
+/// difficulty: ?
 
-Use an $M=15, N=15$ grid of cells for all cases.
+/// benchmark:
+replaceWithActualFunctionHere;
 
-Optionally depict a percolation through a cell grid graphically.
+/// description:
+/// <br>
+/// Given an $M \times N$ rectangular array of cells numbered $\mathrm{cell}[0..M-1, 0..N-1]$assume $M$ is horizontal and $N$ is downwards. 
+/// <br>
+/// Assume that the probability of any cell being filled is a constant $p$ where
+/// <span class="rosetta__text--indented"> $0.0 \le p \le 1.0$</span>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">The task:</dt></dl>
+/// Simulate creating the array of cells with probability $p$ and then 
+/// testing if there is a route through adjacent filled cells from any on row $0$ to any on row $N$, i.e. testing for site percolation.
+/// <br>
+/// Given $p$ repeat the percolation $t$ times to estimate the proportion of times that the fluid can percolate to the bottom for any given $p$.
+/// <br>
+/// Show how the probability of percolating through the random grid changes with $p$ going from $0.0$ to $1.0$ in $0.1$ increments and with the number of repetitions to estimate the fraction at any given $p$ as $t >= 100$.
+/// <br>
+/// Use an $M=15, N=15$ grid of cells for all cases.
+/// <br>
+/// Optionally depict a percolation through a cell grid graphically.
+/// <br>
+/// Show all output on this page.
+/// <br>
+/// <br>
 
-Show all output on this page.
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

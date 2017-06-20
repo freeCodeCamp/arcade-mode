@@ -1,29 +1,69 @@
-Permutations by swapping
 
-{{task}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Generate permutations of n items in which successive permutations differ from each other by the swapping of any two items. 
+const assert = require('chai').assert;
 
-Also generate the sign of the permutation which is +1 when the permutation is generated from an even number of swaps from the initial state, and -1 for odd. 
+/// title: Permutations by swapping
+/// type: rosetta-code
 
-Show the permutations and signs of three items, in order of generation <span class="rosetta__text--italic">here</span>.
+/// categories:
+/// ?
 
-Such data are of use in generating the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Matrix arithmetic" title="Matrix arithmetic">determinant</a> of a square matrix and any functions created should bear this in mind.
+/// difficulty: ?
 
-Note: The Steinhaus–Johnson–Trotter algorithm generates successive permutations where <span class="rosetta__text--italic">adjacent</span> items are swapped, but from <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Parity_of_a_permutation#Example" title="wp: Parity_of_a_permutation#Example">this</a> discussion adjacency is not a requirement.
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Generate permutations of n items in which successive permutations differ from each other by the swapping of any two items. 
+/// <br>
+/// Also generate the sign of the permutation which is +1 when the permutation is generated from an even number of swaps from the initial state, and -1 for odd. 
+/// <br>
+/// Show the permutations and signs of three items, in order of generation <span class="rosetta__text--italic">here</span>.
+/// <br>
+/// Such data are of use in generating the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Matrix arithmetic" title="Matrix arithmetic">determinant</a> of a square matrix and any functions created should bear this in mind.
+/// <br>
+/// Note: The Steinhaus–Johnson–Trotter algorithm generates successive permutations where <span class="rosetta__text--italic">adjacent</span> items are swapped, but from <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Parity_of_a_permutation#Example" title="wp: Parity_of_a_permutation#Example">this</a> discussion adjacency is not a requirement.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">References:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Steinhaus–Johnson–Trotter algorithm" title="wp: Steinhaus–Johnson–Trotter algorithm">Steinhaus–Johnson–Trotter algorithm</a></li>
+/// <li class="rosetta__list-item">[http://www.cut-the-knot.org/Curriculum/Combinatorics/JohnsonTrotter.shtml Johnson-Trotter Algorithm Listing All Permutations]</li>
+/// <li class="rosetta__list-item">[http://stackoverflow.com/a/29044942/10562 Correction to] Heap's algorithm as presented in Wikipedia and widely distributed.</li>
+/// <li class="rosetta__list-item">[http://www.gutenberg.org/files/18567/18567-h/18567-h.htm#ch7] Tintinnalogia</li>
+/// <br>
+/// </ul>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related task:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">&nbsp; [[Matrix arithmetic]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[Gray code]]</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
-;References:
-* <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Steinhaus–Johnson–Trotter algorithm" title="wp: Steinhaus–Johnson–Trotter algorithm">Steinhaus–Johnson–Trotter algorithm</a>
-* [http://www.cut-the-knot.org/Curriculum/Combinatorics/JohnsonTrotter.shtml Johnson-Trotter Algorithm Listing All Permutations]
-* [http://stackoverflow.com/a/29044942/10562 Correction to] Heap's algorithm as presented in Wikipedia and widely distributed.
-* [http://www.gutenberg.org/files/18567/18567-h/18567-h.htm#ch7] Tintinnalogia
+/// rawSolutions:
+null
 
+/// tail:
+const replaceThis = 3;
 
-;Related task:
-* &nbsp; [[Matrix arithmetic]]
-* &nbsp; [[Gray code]]
-<br><br>
-
-
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,101 +1,165 @@
-Ternary logic
 
-{{task|Logic}}
-{{wikipedia|Ternary logic}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-<br>
-In <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/logic" title="wp: logic">logic]], a <span class="rosetta__text--bold">three-valued logic</span> (also <span class="rosetta__text--bold">trivalent</span>, <span class="rosetta__text--bold">ternary</span>, or  <span class="rosetta__text--bold">trinary logic</span>, sometimes abbreviated <span class="rosetta__text--bold">3VL</span>) is any of several [[wp:many-valued logic|many-valued logic]] systems in which there are three [[wp:truth value|truth value</a>s indicating <span class="rosetta__text--italic">true</span>, <span class="rosetta__text--italic">false</span> and some indeterminate third value.  
+const assert = require('chai').assert;
 
-This is contrasted with the more commonly known <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Principle of bivalence" title="wp: Principle of bivalence">bivalent]] logics (such as classical sentential or [[wp:boolean logic|boolean logic</a>) which provide only for <span class="rosetta__text--italic">true</span> and <span class="rosetta__text--italic">false</span>. 
+/// title: Ternary logic
+/// type: rosetta-code
 
-Conceptual form and basic ideas were initially created by <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Jan Łukasiewicz" title="wp: Jan Łukasiewicz">Łukasiewicz]], [[wp:C. I. Lewis|Lewis]]  and [[wp:Sulski|Sulski</a>. 
+/// categories:
+/// ?
 
-These were then re-formulated by <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Grigore Moisil" title="wp: Grigore Moisil">Grigore Moisil</a> in an axiomatic algebraic form, and also extended to <span class="rosetta__text--italic">n</span>-valued logics in 1945.
-{|
-|+<span class="rosetta__text--bold">Example <span class="rosetta__text--italic">Ternary Logic Operators</span> in <span class="rosetta__text--italic">Truth Tables</span>:</span>
-|-
-|
-{| class=wikitable
-|+<span class="rosetta__text--italic">not</span> a
-|-
-! colspan=2 | &not;
-|-
-| True || False
-|-
-| Maybe || Maybe
-|-
-| False || True
-|}
-||
-{| class=wikitable
-|+a <span class="rosetta__text--italic">and</span> b
-|-
-! &and;
-| True || Maybe || False
-|-
-| True || True || Maybe || False
-|-
-| Maybe || Maybe || Maybe || False
-|-
-| False || False || False || False
-|}
-||
-{| class=wikitable
-|-
-|+a <span class="rosetta__text--italic">or</span> b
-|-
-! &or;
-| True || Maybe || False
-|-
-| True || True || True || True
-|-
-| Maybe || True || Maybe || Maybe
-|-
-| False || True || Maybe || False
-|}
-|-
-||
-{| class=wikitable
-|-
-|+<span class="rosetta__text--italic">if</span> a <span class="rosetta__text--italic">then</span> b
-|-
-! ⊃
-| True || Maybe || False
-|-
-| True || True || Maybe || False
-|-
-| Maybe || True || Maybe || Maybe
-|-
-| False || True || True || True
-|}
-||
-{| class=wikitable
-|-
-|+a <span class="rosetta__text--italic">is equivalent to</span> b
-|-
-! ≡
-| True || Maybe || False
-|-
-| True || True || Maybe || False
-|-
-| Maybe || Maybe || Maybe || Maybe
-|-
-| False || False || Maybe || True
-|}
-|}
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// In <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/logic" title="wp: logic">logic]], a <span class="rosetta__text--bold">three-valued logic</span> (also <span class="rosetta__text--bold">trivalent</span>, <span class="rosetta__text--bold">ternary</span>, or  <span class="rosetta__text--bold">trinary logic</span>, sometimes abbreviated <span class="rosetta__text--bold">3VL</span>) is any of several [[wp:many-valued logic|many-valued logic]] systems in which there are three [[wp:truth value|truth value</a>s indicating <span class="rosetta__text--italic">true</span>, <span class="rosetta__text--italic">false</span> and some indeterminate third value.  
+/// <br>
+/// This is contrasted with the more commonly known <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Principle of bivalence" title="wp: Principle of bivalence">bivalent]] logics (such as classical sentential or [[wp:boolean logic|boolean logic</a>) which provide only for <span class="rosetta__text--italic">true</span> and <span class="rosetta__text--italic">false</span>. 
+/// <br>
+/// Conceptual form and basic ideas were initially created by <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Jan Łukasiewicz" title="wp: Jan Łukasiewicz">Łukasiewicz]], [[wp:C. I. Lewis|Lewis]]  and [[wp:Sulski|Sulski</a>. 
+/// <br>
+/// These were then re-formulated by <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Grigore Moisil" title="wp: Grigore Moisil">Grigore Moisil</a> in an axiomatic algebraic form, and also extended to <span class="rosetta__text--italic">n</span>-valued logics in 1945.
+/// {|
+/// |+<span class="rosetta__text--bold">Example <span class="rosetta__text--italic">Ternary Logic Operators</span> in <span class="rosetta__text--italic">Truth Tables</span>:</span>
+/// |-
+/// |
+/// {| class=wikitable
+/// |+<span class="rosetta__text--italic">not</span> a
+/// |-
+/// ! colspan=2 | &not;
+/// |-
+/// | True || False
+/// |-
+/// | Maybe || Maybe
+/// |-
+/// | False || True
+/// |}
+/// ||
+/// {| class=wikitable
+/// |+a <span class="rosetta__text--italic">and</span> b
+/// |-
+/// ! &and;
+/// | True || Maybe || False
+/// |-
+/// | True || True || Maybe || False
+/// |-
+/// | Maybe || Maybe || Maybe || False
+/// |-
+/// | False || False || False || False
+/// |}
+/// ||
+/// {| class=wikitable
+/// |-
+/// |+a <span class="rosetta__text--italic">or</span> b
+/// |-
+/// ! &or;
+/// | True || Maybe || False
+/// |-
+/// | True || True || True || True
+/// |-
+/// | Maybe || True || Maybe || Maybe
+/// |-
+/// | False || True || Maybe || False
+/// |}
+/// |-
+/// ||
+/// {| class=wikitable
+/// |-
+/// |+<span class="rosetta__text--italic">if</span> a <span class="rosetta__text--italic">then</span> b
+/// |-
+/// ! ⊃
+/// | True || Maybe || False
+/// |-
+/// | True || True || Maybe || False
+/// |-
+/// | Maybe || True || Maybe || Maybe
+/// |-
+/// | False || True || True || True
+/// |}
+/// ||
+/// {| class=wikitable
+/// |-
+/// |+a <span class="rosetta__text--italic">is equivalent to</span> b
+/// |-
+/// ! ≡
+/// | True || Maybe || False
+/// |-
+/// | True || True || Maybe || False
+/// |-
+/// | Maybe || Maybe || Maybe || Maybe
+/// |-
+/// | False || False || Maybe || True
+/// |}
+/// |}
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">Define a new type that emulates <span class="rosetta__text--italic">ternary logic</span> by storing data <span class="rosetta__text--bold">trits</span>.</li>
+/// <li class="rosetta__list-item">Given all the binary logic operators of the original programming language, reimplement these operators for the new <span class="rosetta__text--italic">Ternary logic</span> type <span class="rosetta__text--bold">trit</span>.</li>
+/// <li class="rosetta__list-item">Generate a sampling of results using <span class="rosetta__text--bold">trit</span> variables.</li>
+/// <li class="rosetta__list-item"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Kudos" title="wp: Kudos">Kudos</a> for actually thinking up a test case algorithm where <span class="rosetta__text--italic">ternary logic</span> is intrinsically useful, optimises the test case algorithm and is preferable to binary logic.</li>
+/// <br>
+/// </ul>
+/// <br>
+/// Note: &nbsp; <span class="rosetta__text--bold"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Setun" title="wp: Setun">Setun]]</span> &nbsp; (Сетунь) was a &nbsp; [[wp:balanced ternary|balanced ternary]] &nbsp; computer developed in 1958 at &nbsp; [[wp:Moscow State University|Moscow State University]]. &nbsp; The device was built under the lead of &nbsp; [[wp:Sergei Sobolev|Sergei Sobolev]] &nbsp; and &nbsp; [[wp:Nikolay Brusentsov|Nikolay Brusentsov]]. &nbsp; It was the only modern &nbsp; [[wp:ternary computer|ternary computer]], &nbsp; using three-valued [[wp:ternary logic|ternary logic</a>
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+var L3 = new Object();
+
+L3.not = function(a) {
+  if (typeof a == "boolean") return !a;
+  if (a == undefined) return undefined;
+  throw("Invalid Ternary Expression.");
+}
+
+L3.and = function(a, b) {
+  if (typeof a == "boolean" && typeof b == "boolean") return a && b;
+  if ((a == true && b == undefined) || (a == undefined && b == true)) return undefined;
+  if ((a == false && b == undefined) || (a == undefined && b == false)) return false;
+  if (a == undefined && b == undefined) return undefined;
+  throw("Invalid Ternary Expression.");
+}
+
+L3.or = function(a, b) {
+  if (typeof a == "boolean" && typeof b == "boolean") return a || b;
+  if ((a == true && b == undefined) || (a == undefined && b == true)) return true;
+  if ((a == false && b == undefined) || (a == undefined && b == false)) return undefined;
+  if (a == undefined && b == undefined) return undefined;
+  throw("Invalid Ternary Expression.");
+}
+
+// A -> B is equivalent to -A or B
+L3.ifThen = function(a, b) {
+  return L3.or(L3.not(a), b);
+}
+
+// A <=> B is equivalent to (A -> B) and (B -> A)
+L3.iff = function(a, b) {
+  return L3.and(L3.ifThen(a, b), L3.ifThen(b, a));
+}
 
 
-;Task:
-* Define a new type that emulates <span class="rosetta__text--italic">ternary logic</span> by storing data <span class="rosetta__text--bold">trits</span>.
-* Given all the binary logic operators of the original programming language, reimplement these operators for the new <span class="rosetta__text--italic">Ternary logic</span> type <span class="rosetta__text--bold">trit</span>.
-* Generate a sampling of results using <span class="rosetta__text--bold">trit</span> variables.
-* <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Kudos" title="wp: Kudos">Kudos</a> for actually thinking up a test case algorithm where <span class="rosetta__text--italic">ternary logic</span> is intrinsically useful, optimises the test case algorithm and is preferable to binary logic.
-
-<br>
-Note: &nbsp; <span class="rosetta__text--bold"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Setun" title="wp: Setun">Setun]]</span> &nbsp; (Сетунь) was a &nbsp; [[wp:balanced ternary|balanced ternary]] &nbsp; computer developed in 1958 at &nbsp; [[wp:Moscow State University|Moscow State University]]. &nbsp; The device was built under the lead of &nbsp; [[wp:Sergei Sobolev|Sergei Sobolev]] &nbsp; and &nbsp; [[wp:Nikolay Brusentsov|Nikolay Brusentsov]]. &nbsp; It was the only modern &nbsp; [[wp:ternary computer|ternary computer]], &nbsp; using three-valued [[wp:ternary logic|ternary logic</a>
-<br><br>
-
-
+/// rawSolutions:
 =={{header|JavaScript}}==
 Let's use the trit already available in JavaScript:
 true, false (both boolean) and undefined…
@@ -147,3 +211,10 @@ L3.ifThen(true, a)   // undefined
 L3.iff(a, 2 == 2)    // undefined     
 </lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

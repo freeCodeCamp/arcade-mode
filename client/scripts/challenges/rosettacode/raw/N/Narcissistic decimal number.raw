@@ -1,28 +1,80 @@
-Narcissistic decimal number
 
-{{task}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-A &nbsp; [http://mathworld.wolfram.com/NarcissisticNumber.html Narcissistic decimal number] &nbsp; is a non-negative integer, &nbsp; $n$, &nbsp; that is equal to the sum of the &nbsp; $m$-th &nbsp; powers of each of the digits in the decimal representation of &nbsp; $n$, &nbsp; where &nbsp; $m$ &nbsp; is the number of digits in the decimal representation of &nbsp; $n$.
+const assert = require('chai').assert;
 
-Narcissistic (decimal) numbers are sometimes called &nbsp; <span class="rosetta__text--bold">Armstrong</span> &nbsp; numbers, named after Michael F. Armstrong.
+/// title: Narcissistic decimal number
+/// type: rosetta-code
 
+/// categories:
+/// ?
 
-;An example:
-::::* &nbsp; if &nbsp; $n$ &nbsp; is &nbsp; <span class="rosetta__text--bold">153</span> 
-::::* &nbsp; then &nbsp; $m$, &nbsp; (the number of decimal digits) &nbsp; is &nbsp; <span class="rosetta__text--bold">3</span> 
-::::* &nbsp; we have &nbsp; <big> 1<sup>3</sup> + 5<sup>3</sup> + 3<sup>3</sup> &nbsp; = &nbsp; 1 + 125 + 27 &nbsp; = &nbsp; <span class="rosetta__text--bold">153</span> </big> 
-::::* &nbsp; and so &nbsp; <span class="rosetta__text--bold">153</span> &nbsp; is a narcissistic decimal number
+/// difficulty: ?
 
+/// benchmark:
+replaceWithActualFunctionHere;
 
-;Task:
-Generate and show here the first &nbsp; <span class="rosetta__text--bold">25</span> &nbsp; narcissistic decimal numbers.
+/// description:
+/// <br>
+/// <br>
+/// A &nbsp; [http://mathworld.wolfram.com/NarcissisticNumber.html Narcissistic decimal number] &nbsp; is a non-negative integer, &nbsp; $n$, &nbsp; that is equal to the sum of the &nbsp; $m$-th &nbsp; powers of each of the digits in the decimal representation of &nbsp; $n$, &nbsp; where &nbsp; $m$ &nbsp; is the number of digits in the decimal representation of &nbsp; $n$.
+/// <br>
+/// Narcissistic (decimal) numbers are sometimes called &nbsp; <span class="rosetta__text--bold">Armstrong</span> &nbsp; numbers, named after Michael F. Armstrong.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">An example:</dt></dl>
+/// <span class="rosetta__text--indented">:::* &nbsp; if &nbsp; $n$ &nbsp; is &nbsp; <span class="rosetta__text--bold">153</span> </span>
+/// <span class="rosetta__text--indented">:::* &nbsp; then &nbsp; $m$, &nbsp; (the number of decimal digits) &nbsp; is &nbsp; <span class="rosetta__text--bold">3</span> </span>
+/// <span class="rosetta__text--indented">:::* &nbsp; we have &nbsp; <big> 1<sup>3</sup> + 5<sup>3</sup> + 3<sup>3</sup> &nbsp; = &nbsp; 1 + 125 + 27 &nbsp; = &nbsp; <span class="rosetta__text--bold">153</span> </big> </span>
+/// <span class="rosetta__text--indented">:::* &nbsp; and so &nbsp; <span class="rosetta__text--bold">153</span> &nbsp; is a narcissistic decimal number</span>
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Generate and show here the first &nbsp; <span class="rosetta__text--bold">25</span> &nbsp; narcissistic decimal numbers.
+/// <br>
+/// <br>
+/// <br>
+/// Note: &nbsp; $0^1 = 0$, &nbsp; the first in the series. 
+/// <br><br>
+/// <br>
+/// <br>
 
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
+/// solutions:
+function isNarc(x) {
+    var str = x.toString(),
+        i,
+        sum = 0,
+        l = str.length;
+    if (x < 0) {
+        return false;
+    } else {
+        for (i = 0; i < l; i++) {
+            sum += Math.pow(str.charAt(i), l);
+        }
+    }
+    return sum == x;
+}
+function main(){
+    var n = []; 
+    for (var x = 0, count = 0; count < 25; x++){
+        if (isNarc(x)){
+            n.push(x);
+            count++;
+        }
+    }
+    return n.join(' '); 
+}
 
-Note: &nbsp; $0^1 = 0$, &nbsp; the first in the series. 
-<br><br>
-
-
+/// rawSolutions:
 =={{header|JavaScript}}==
 ===ES5===
 {{trans|Java}}
@@ -218,3 +270,10 @@ const isDaffodil = (e, n) => {
 <pre>[0,1,2,3,4,5,6,7,8,9,153,370,371,407,1634,8208,9474,54748,92727,93084,548834,1741725,4210818,9800817,9926315]
 [Finished in 0.118s]</pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

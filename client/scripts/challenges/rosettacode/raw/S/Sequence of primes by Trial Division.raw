@@ -1,31 +1,69 @@
-Sequence of primes by Trial Division
 
-{{task|Prime Numbers}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Generate a sequence of primes by means of trial division.
+const assert = require('chai').assert;
+
+/// title: Sequence of primes by Trial Division
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Generate a sequence of primes by means of trial division.
+/// <br>
+/// <br>
+/// Trial division is an algorithm where a candidate number is tested for being a prime by trying to divide it by other numbers. 
+/// <br>
+/// You may use primes, or any numbers of your choosing, as long as the result is indeed a sequence of primes.
+/// <br>
+/// The sequence may be bounded (i.e. up to some limit), unbounded, starting from the start (i.e. 2) or above some given value. 
+/// <br>
+/// Organize your function as you wish, in particular, it might resemble a filtering operation, or a sieving operation.
+/// <br>
+/// If you want to use a ready-made <code>is_prime</code> function, use one from the [[Primality by trial division]] page (i.e., add yours there if it isn't there already).
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">&nbsp; [[count in factors]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[prime decomposition]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[factors of an integer]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[Sieve of Eratosthenes]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[primality by trial division]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[factors of a Mersenne number]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[trial factoring of a Mersenne number]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[partition an integer X into N primes]]</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
-Trial division is an algorithm where a candidate number is tested for being a prime by trying to divide it by other numbers. 
+/// rawSolutions:
+null
 
-You may use primes, or any numbers of your choosing, as long as the result is indeed a sequence of primes.
+/// tail:
+const replaceThis = 3;
 
-The sequence may be bounded (i.e. up to some limit), unbounded, starting from the start (i.e. 2) or above some given value. 
-
-Organize your function as you wish, in particular, it might resemble a filtering operation, or a sieving operation.
-
-If you want to use a ready-made <code>is_prime</code> function, use one from the [[Primality by trial division]] page (i.e., add yours there if it isn't there already).
-
-
-;Related tasks:
-* &nbsp; [[count in factors]]
-* &nbsp; [[prime decomposition]]
-* &nbsp; [[factors of an integer]]
-* &nbsp; [[Sieve of Eratosthenes]]
-* &nbsp; [[primality by trial division]]
-* &nbsp; [[factors of a Mersenne number]]
-* &nbsp; [[trial factoring of a Mersenne number]]
-* &nbsp; [[partition an integer X into N primes]]
-<br><br>
-
-
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,76 +1,133 @@
-Closest-pair problem
 
-{{task|Classic CS problems and programs}}
-{{Wikipedia|Closest pair of points problem}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
+const assert = require('chai').assert;
 
-;Task:
-Provide a function to find the closest two points among a set of given points in two dimensions, &nbsp; i.e. to solve the &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Closest pair of points problem" title="wp: Closest pair of points problem">Closest pair of points problem</a> &nbsp; in the &nbsp; <span class="rosetta__text--italic">planar</span> &nbsp; case.
+/// title: Closest-pair problem
+/// type: rosetta-code
 
-The straightforward solution is a &nbsp; O(n<sup>2</sup>) &nbsp; algorithm &nbsp; (which we can call <span class="rosetta__text--italic">brute-force algorithm</span>); &nbsp; the pseudo-code (using indexes) could be simply:
+/// categories:
+/// ?
 
- <span class="rosetta__text--bold">bruteForceClosestPair</span> of P(1), P(2), ... P(N)
- <span class="rosetta__text--bold">if</span> N &lt; 2 <span class="rosetta__text--bold">then</span>
-   <span class="rosetta__text--bold">return</span> ∞
- <span class="rosetta__text--bold">else</span>
-   minDistance ← |P(1) - P(2)|
-   minPoints ← { P(1), P(2) }
-   <span class="rosetta__text--bold">foreach</span> i ∈ [1, N-1]
-     <span class="rosetta__text--bold">foreach</span> j ∈ [i+1, N]
-       <span class="rosetta__text--bold">if</span> |P(i) - P(j)| < minDistance <span class="rosetta__text--bold">then</span>
-         minDistance ← |P(i) - P(j)|
-         minPoints ← { P(i), P(j) } 
-       <span class="rosetta__text--bold">endif</span>
-     <span class="rosetta__text--bold">endfor</span>
-   <span class="rosetta__text--bold">endfor</span>
-   <span class="rosetta__text--bold">return</span> minDistance, minPoints
-  <span class="rosetta__text--bold">endif</span>
+/// difficulty: ?
 
-A better algorithm is based on the recursive divide&amp;conquer approach, &nbsp; as explained also at &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Closest pair of points problem#Planar_case" title="wp: Closest pair of points problem#Planar_case">Wikipedia's Closest pair of points problem</a>, &nbsp; which is &nbsp; O(<span class="rosetta__text--italic">n</span> log <span class="rosetta__text--italic">n</span>); &nbsp; a pseudo-code could be:
+/// benchmark:
+replaceWithActualFunctionHere;
 
- <span class="rosetta__text--bold">closestPair</span> of (xP, yP)
-                where xP is P(1) .. P(N) sorted by x coordinate, and
-                      yP is P(1) .. P(N) sorted by y coordinate (ascending order)
- <span class="rosetta__text--bold">if</span> N ≤ 3 <span class="rosetta__text--bold">then</span>
-   <span class="rosetta__text--bold">return</span> closest points of xP using brute-force algorithm
- <span class="rosetta__text--bold">else</span>
-   xL ← points of xP from 1 to ⌈N/2⌉
-   xR ← points of xP from ⌈N/2⌉+1 to N
-   xm ← xP(⌈N/2⌉)<sub>x</sub>
-   yL ← { p ∈ yP : p<sub>x</sub> ≤ xm }
-   yR ← { p ∈ yP : p<sub>x</sub> &gt; xm }
-   (dL, pairL) ← <span class="rosetta__text--italic">closestPair</span> of (xL, yL)
-   (dR, pairR) ← <span class="rosetta__text--italic">closestPair</span> of (xR, yR)
-   (dmin, pairMin) ← (dR, pairR)
-   <span class="rosetta__text--bold">if</span> dL &lt; dR <span class="rosetta__text--bold">then</span>
-     (dmin, pairMin) ← (dL, pairL)
-   <span class="rosetta__text--bold">endif</span>
-   yS ← { p ∈ yP : |xm - p<sub>x</sub>| &lt; dmin }
-   nS ← number of points in yS
-   (closest, closestPair) ← (dmin, pairMin)
-   <span class="rosetta__text--bold">for</span> i <span class="rosetta__text--bold">from</span> 1 <span class="rosetta__text--bold">to</span> nS - 1
-     k ← i + 1
-     <span class="rosetta__text--bold">while</span> k ≤ nS <span class="rosetta__text--bold">and</span> yS(k)<sub>y</sub> - yS(i)<sub>y</sub> &lt; dmin
-       <span class="rosetta__text--bold">if</span> |yS(k) - yS(i)| &lt; closest <span class="rosetta__text--bold">then</span>
-         (closest, closestPair) ← (|yS(k) - yS(i)|, {yS(k), yS(i)})
-       <span class="rosetta__text--bold">endif</span>
-       k ← k + 1
-     <span class="rosetta__text--bold">endwhile</span>
-   <span class="rosetta__text--bold">endfor</span>
-   <span class="rosetta__text--bold">return</span> closest, closestPair
- <span class="rosetta__text--bold">endif</span>
+/// description:
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Provide a function to find the closest two points among a set of given points in two dimensions, &nbsp; i.e. to solve the &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Closest pair of points problem" title="wp: Closest pair of points problem">Closest pair of points problem</a> &nbsp; in the &nbsp; <span class="rosetta__text--italic">planar</span> &nbsp; case.
+/// <br>
+/// The straightforward solution is a &nbsp; O(n<sup>2</sup>) &nbsp; algorithm &nbsp; (which we can call <span class="rosetta__text--italic">brute-force algorithm</span>); &nbsp; the pseudo-code (using indexes) could be simply:
+/// <br>
+///  <span class="rosetta__text--bold">bruteForceClosestPair</span> of P(1), P(2), ... P(N)
+///  <span class="rosetta__text--bold">if</span> N &lt; 2 <span class="rosetta__text--bold">then</span>
+///    <span class="rosetta__text--bold">return</span> ∞
+///  <span class="rosetta__text--bold">else</span>
+///    minDistance ← |P(1) - P(2)|
+///    minPoints ← { P(1), P(2) }
+///    <span class="rosetta__text--bold">foreach</span> i ∈ [1, N-1]
+///      <span class="rosetta__text--bold">foreach</span> j ∈ [i+1, N]
+///        <span class="rosetta__text--bold">if</span> |P(i) - P(j)| < minDistance <span class="rosetta__text--bold">then</span>
+///          minDistance ← |P(i) - P(j)|
+///          minPoints ← { P(i), P(j) } 
+///        <span class="rosetta__text--bold">endif</span>
+///      <span class="rosetta__text--bold">endfor</span>
+///    <span class="rosetta__text--bold">endfor</span>
+///    <span class="rosetta__text--bold">return</span> minDistance, minPoints
+///   <span class="rosetta__text--bold">endif</span>
+/// <br>
+/// A better algorithm is based on the recursive divide&amp;conquer approach, &nbsp; as explained also at &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Closest pair of points problem#Planar_case" title="wp: Closest pair of points problem#Planar_case">Wikipedia's Closest pair of points problem</a>, &nbsp; which is &nbsp; O(<span class="rosetta__text--italic">n</span> log <span class="rosetta__text--italic">n</span>); &nbsp; a pseudo-code could be:
+/// <br>
+///  <span class="rosetta__text--bold">closestPair</span> of (xP, yP)
+///                 where xP is P(1) .. P(N) sorted by x coordinate, and
+///                       yP is P(1) .. P(N) sorted by y coordinate (ascending order)
+///  <span class="rosetta__text--bold">if</span> N ≤ 3 <span class="rosetta__text--bold">then</span>
+///    <span class="rosetta__text--bold">return</span> closest points of xP using brute-force algorithm
+///  <span class="rosetta__text--bold">else</span>
+///    xL ← points of xP from 1 to ⌈N/2⌉
+///    xR ← points of xP from ⌈N/2⌉+1 to N
+///    xm ← xP(⌈N/2⌉)<sub>x</sub>
+///    yL ← { p ∈ yP : p<sub>x</sub> ≤ xm }
+///    yR ← { p ∈ yP : p<sub>x</sub> &gt; xm }
+///    (dL, pairL) ← <span class="rosetta__text--italic">closestPair</span> of (xL, yL)
+///    (dR, pairR) ← <span class="rosetta__text--italic">closestPair</span> of (xR, yR)
+///    (dmin, pairMin) ← (dR, pairR)
+///    <span class="rosetta__text--bold">if</span> dL &lt; dR <span class="rosetta__text--bold">then</span>
+///      (dmin, pairMin) ← (dL, pairL)
+///    <span class="rosetta__text--bold">endif</span>
+///    yS ← { p ∈ yP : |xm - p<sub>x</sub>| &lt; dmin }
+///    nS ← number of points in yS
+///    (closest, closestPair) ← (dmin, pairMin)
+///    <span class="rosetta__text--bold">for</span> i <span class="rosetta__text--bold">from</span> 1 <span class="rosetta__text--bold">to</span> nS - 1
+///      k ← i + 1
+///      <span class="rosetta__text--bold">while</span> k ≤ nS <span class="rosetta__text--bold">and</span> yS(k)<sub>y</sub> - yS(i)<sub>y</sub> &lt; dmin
+///        <span class="rosetta__text--bold">if</span> |yS(k) - yS(i)| &lt; closest <span class="rosetta__text--bold">then</span>
+///          (closest, closestPair) ← (|yS(k) - yS(i)|, {yS(k), yS(i)})
+///        <span class="rosetta__text--bold">endif</span>
+///        k ← k + 1
+///      <span class="rosetta__text--bold">endwhile</span>
+///    <span class="rosetta__text--bold">endfor</span>
+///    <span class="rosetta__text--bold">return</span> closest, closestPair
+///  <span class="rosetta__text--bold">endif</span>
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">References and further readings:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">&nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Closest pair of points problem" title="wp: Closest pair of points problem">Closest pair of points problem</a></li>
+/// <li class="rosetta__list-item">&nbsp; [http://www.cs.mcgill.ca/~cs251/ClosestPair/ClosestPairDQ.html Closest Pair (McGill)]</li>
+/// <li class="rosetta__list-item">&nbsp; [http://www.cs.ucsb.edu/~suri/cs235/ClosestPair.pdf Closest Pair (UCSB)]</li>
+/// <li class="rosetta__list-item">&nbsp; [http://classes.cec.wustl.edu/~cse241/handouts/closestpair.pdf Closest pair (WUStL)]</li>
+/// <li class="rosetta__list-item">&nbsp; [http://www.cs.iupui.edu/~xkzou/teaching/CS580/Divide-and-conquer-closestPair.ppt Closest pair (IUPUI)] </li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
+/// <br>
 
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
-;References and further readings:
-* &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Closest pair of points problem" title="wp: Closest pair of points problem">Closest pair of points problem</a>
-* &nbsp; [http://www.cs.mcgill.ca/~cs251/ClosestPair/ClosestPairDQ.html Closest Pair (McGill)]
-* &nbsp; [http://www.cs.ucsb.edu/~suri/cs235/ClosestPair.pdf Closest Pair (UCSB)]
-* &nbsp; [http://classes.cec.wustl.edu/~cse241/handouts/closestpair.pdf Closest pair (WUStL)]
-* &nbsp; [http://www.cs.iupui.edu/~xkzou/teaching/CS580/Divide-and-conquer-closestPair.ppt Closest pair (IUPUI)] 
-<br><br>
+/// solutions:
+function distance(p1, p2) {
+  var dx = Math.abs(p1.x - p2.x);
+  var dy = Math.abs(p1.y - p2.y);
+  return Math.sqrt(dx*dx + dy*dy);
+}
 
+function bruteforceClosestPair(arr) {
+  if (arr.length < 2) {
+    return Infinity;
+  } else {
+    var minDist = distance(arr[0], arr[1]);
+    var minPoints = arr.slice(0, 2);
+    
+    for (var i=0; i<arr.length-1; i++) {
+      for (var j=i+1; j<arr.length; j++) {
+        if (distance(arr[i], arr[j]) < minDist) {
+          minDist = distance(arr[i], arr[j]);
+          minPoints = [ arr[i], arr[j] ];
+        }
+      }
+    }
+    return {
+      distance: minDist,
+      points: minPoints
+    };
+  }
+}
 
-
+/// rawSolutions:
 =={{header|JavaScript}}==
 Using bruteforce algorithm, the ''bruteforceClosestPair'' method below expects an array of objects with x- and y-members set to numbers, and returns an object containing the members ''distance'' and ''points''.
 
@@ -245,3 +302,10 @@ console.log(JSON.stringify(closestPair(Px, Py))); // {"distance":65.069193939989
 
 </lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

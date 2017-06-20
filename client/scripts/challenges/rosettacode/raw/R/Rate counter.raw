@@ -1,20 +1,64 @@
-Rate counter
 
-{{task}}Counting the frequency at which something occurs is a common activity in measuring performance and managing resources. In this task, we assume that there is some job which we want to perform repeatedly, and we want to know how quickly these jobs are being performed.
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-Of interest is the code that performs the actual measurements. Any other code (such as job implementation or dispatching) that is required to demonstrate the rate tracking is helpful, but not the focus.
+const assert = require('chai').assert;
 
-Multiple approaches are allowed (even preferable), so long as they can accomplish these goals:
+/// title: Rate counter
+/// type: rosetta-code
 
-* Run N seconds worth of jobs and/or Y jobs.
-* Report at least three distinct times.
+/// categories:
+/// ?
 
-<br>Be aware of the precision and accuracy limitations of your timing mechanisms, and document them if you can.
+/// difficulty: ?
 
-<span class="rosetta__text--bold">See also:</span> [[System time]], [[Time a function]]
+/// benchmark:
+replaceWithActualFunctionHere;
 
+/// description:
+/// Counting the frequency at which something occurs is a common activity in measuring performance and managing resources. In this task, we assume that there is some job which we want to perform repeatedly, and we want to know how quickly these jobs are being performed.
+/// <br>
+/// Of interest is the code that performs the actual measurements. Any other code (such as job implementation or dispatching) that is required to demonstrate the rate tracking is helpful, but not the focus.
+/// <br>
+/// Multiple approaches are allowed (even preferable), so long as they can accomplish these goals:
+/// <br>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">Run N seconds worth of jobs and/or Y jobs.</li>
+/// <li class="rosetta__list-item">Report at least three distinct times.</li>
+/// <br>
+/// </ul>
+/// <br>Be aware of the precision and accuracy limitations of your timing mechanisms, and document them if you can.
+/// <br>
+/// <span class="rosetta__text--bold">See also:</span> [[System time]], [[Time a function]]
+/// <br>
+/// <br>
+/// <br>
 
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
+/// solutions:
+function millis() { // Gets current time in milliseconds.
+  return (new Date()).getTime();
+}
+
+/* Executes function 'func' n times, returns array of execution times. */
+function benchmark(n, func, args) {
+  var times = [];
+  for (var i=0; i<n; i++) {
+    var m = millis();
+    func.apply(func, args);
+    times.push(millis() - m);
+  }
+  return times;
+}
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 The ''benchmark'' function below executes a given function n times, calling it with the specified arguments. After execution of all functions, it returns an array with the execution time of each execution, in milliseconds.
 
@@ -33,3 +77,10 @@ function benchmark(n, func, args) {
   return times;
 }</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,12 +1,60 @@
-Singleton
 
-{{task|Object oriented}}
-A Global Singleton is a class of which only one instance exists within a program. 
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-Any attempt to use non-static members of the class involves performing operations on this one instance.
-<br><br>
+const assert = require('chai').assert;
+
+/// title: Singleton
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// A Global Singleton is a class of which only one instance exists within a program. 
+/// <br>
+/// Any attempt to use non-static members of the class involves performing operations on this one instance.
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+function Singleton() {
+	if(Singleton._instance) return Singleton._instance;
+	this.set("");
+	Singleton._instance = this;
+}
+
+Singleton.prototype.set = function(msg) { this.msg = msg; }
+Singleton.prototype.append = function(msg) { this.msg += msg; }
+Singleton.prototype.get = function() { return this.msg; }
 
 
+var a = new Singleton();
+var b = new Singleton();
+var c = new Singleton();
+
+a.set("Hello");
+b.append(" World");
+c.append("!!!");
+
+document.write( (new Singleton()).get() );
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 <lang JavaScript>function Singleton() {
 	if(Singleton._instance) return Singleton._instance;
@@ -29,3 +77,10 @@ c.append("!!!");
 
 document.write( (new Singleton()).get() );</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

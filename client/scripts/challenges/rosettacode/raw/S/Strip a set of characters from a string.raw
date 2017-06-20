@@ -1,22 +1,53 @@
-Strip a set of characters from a string
 
-{{task|String manipulation}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Create a function that strips a set of characters from a string. 
+const assert = require('chai').assert;
 
+/// title: Strip a set of characters from a string
+/// type: rosetta-code
 
-The function should take two arguments: 
-:::# &nbsp; a string to be stripped 
-:::# &nbsp; a string containing the set of characters to be stripped
+/// categories:
+/// ?
 
-<br>
-The returned string should contain the first string, stripped of any characters in the second argument:
-<lang pseudocode> print stripchars("She was a soul stripper. She took my heart!","aei")
-Sh ws  soul strppr. Sh took my hrt!</lang>
-<br><br>
+/// difficulty: ?
 
+/// benchmark:
+replaceWithActualFunctionHere;
 
+/// description:
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Create a function that strips a set of characters from a string. 
+/// <br>
+/// <br>
+/// The function should take two arguments: 
+/// <span class="rosetta__text--indented">::# &nbsp; a string to be stripped </span>
+/// <span class="rosetta__text--indented">::# &nbsp; a string containing the set of characters to be stripped</span>
+/// <br>
+/// <br>
+/// The returned string should contain the first string, stripped of any characters in the second argument:
+/// <lang pseudocode> print stripchars("She was a soul stripper. She took my heart!","aei")
+/// Sh ws  soul strppr. Sh took my hrt!</lang>
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+function stripchars(string, chars) {
+  return string.replace(RegExp('['+chars+']','g'), '');
+}
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 
 ===ES5===
@@ -87,3 +118,10 @@ Alternatively, we could also do this without a regex:
 {{Out}}
 <pre>'Sh ws  soul strppr. Sh took my hrt!'</pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

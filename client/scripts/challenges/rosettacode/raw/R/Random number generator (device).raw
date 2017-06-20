@@ -1,12 +1,48 @@
-Random number generator (device)
 
-{{task}}
-[[Category:Input Output]]
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-If your system has a means to generate random numbers involving not only a software algorithm &nbsp; (like the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki//dev/random" title="wp: /dev/random">/dev/urandom</a> devices in Unix), &nbsp; then:
+const assert = require('chai').assert;
 
-show how to obtain a random 32-bit number from that mechanism.
-<br><br>
+/// title: Random number generator (device)
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// [[Category:Input Output]]
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// If your system has a means to generate random numbers involving not only a software algorithm &nbsp; (like the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki//dev/random" title="wp: /dev/random">/dev/urandom</a> devices in Unix), &nbsp; then:
+/// <br>
+/// show how to obtain a random 32-bit number from that mechanism.
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

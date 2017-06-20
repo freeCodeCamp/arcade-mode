@@ -1,22 +1,52 @@
-Character codes
 
-{{task|Text processing}}
-[[Category:Basic language learning]]
-[[Category:String manipulation]]
-[[Category:Simple]]
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
+const assert = require('chai').assert;
 
-;Task:
-Given a character value in your language, print its code &nbsp; (could be ASCII code, Unicode code, or whatever your language uses). 
+/// title: Character codes
+/// type: rosetta-code
 
+/// categories:
+/// ?
 
-;Example:
-The character &nbsp; 'a' &nbsp; (lowercase letter A) &nbsp; has a code of 97 in ASCII &nbsp; (as well as Unicode, as ASCII forms the beginning of Unicode). 
+/// difficulty: ?
 
-Conversely, given a code, print out the corresponding character.
-<br><br>
+/// benchmark:
+replaceWithActualFunctionHere;
 
+/// description:
+/// <br>
+/// [[Category:Basic language learning]]
+/// [[Category:String manipulation]]
+/// [[Category:Simple]]
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Given a character value in your language, print its code &nbsp; (could be ASCII code, Unicode code, or whatever your language uses). 
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Example:</dt></dl>
+/// The character &nbsp; 'a' &nbsp; (lowercase letter A) &nbsp; has a code of 97 in ASCII &nbsp; (as well as Unicode, as ASCII forms the beginning of Unicode). 
+/// <br>
+/// Conversely, given a code, print out the corresponding character.
+/// <br><br>
+/// <br>
+/// <br>
 
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+console.log('a'.charCodeAt(0)); // prints "97"
+console.log(String.fromCharCode(97)); // prints "a"
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 Here character is just a string of length 1
 <lang javascript>console.log('a'.charCodeAt(0)); // prints "97"
@@ -41,3 +71,10 @@ and
 
 <lang JavaScript>["字", "🐘"]</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

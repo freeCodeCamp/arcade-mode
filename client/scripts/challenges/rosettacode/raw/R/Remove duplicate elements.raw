@@ -1,13 +1,59 @@
-Remove duplicate elements
 
-{{task}}Given an Array, derive a sequence of elements in which all duplicates are removed.
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-There are basically three approaches seen here:
-* Put the elements into a hash table which does not allow duplicates. The complexity is O(<span class="rosetta__text--italic">n</span>) on average, and O(<span class="rosetta__text--italic">n</span><sup>2</sup>) worst case. This approach requires a hash function for your type (which is compatible with equality), either built-in to your language, or provided by the user.
-* Sort the elements and remove consecutive duplicate elements. The complexity of the best sorting algorithms is O(<span class="rosetta__text--italic">n</span> log <span class="rosetta__text--italic">n</span>). This approach requires that your type be "comparable", i.e., have an ordering. Putting the elements into a self-balancing binary search tree is a special case of sorting.
-* Go through the list, and for each element, check the rest of the list to see if it appears again, and discard it if it does. The complexity is O(<span class="rosetta__text--italic">n</span><sup>2</sup>). The up-shot is that this always works on any type (provided that you can test for equality).
-<br><br>
+const assert = require('chai').assert;
 
+/// title: Remove duplicate elements
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// Given an Array, derive a sequence of elements in which all duplicates are removed.
+/// <br>
+/// There are basically three approaches seen here:
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">Put the elements into a hash table which does not allow duplicates. The complexity is O(<span class="rosetta__text--italic">n</span>) on average, and O(<span class="rosetta__text--italic">n</span><sup>2</sup>) worst case. This approach requires a hash function for your type (which is compatible with equality), either built-in to your language, or provided by the user.</li>
+/// <li class="rosetta__list-item">Sort the elements and remove consecutive duplicate elements. The complexity of the best sorting algorithms is O(<span class="rosetta__text--italic">n</span> log <span class="rosetta__text--italic">n</span>). This approach requires that your type be "comparable", i.e., have an ordering. Putting the elements into a self-balancing binary search tree is a special case of sorting.</li>
+/// <li class="rosetta__list-item">Go through the list, and for each element, check the rest of the list to see if it appears again, and discard it if it does. The complexity is O(<span class="rosetta__text--italic">n</span><sup>2</sup>). The up-shot is that this always works on any type (provided that you can test for equality).</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+function unique(ary) {
+    // concat() with no args is a way to clone an array
+    var u = ary.concat().sort();
+    for (var i = 1; i < u.length; ) {
+        if (u[i-1] === u[i])
+            u.splice(i,1);
+        else
+            i++;
+    }
+    return u;
+}
+
+var ary = [1, 2, 3, "a", "b", "c", 2, 3, 4, "b", "c", "d", "4"];
+var uniq = unique(ary);
+for (var i = 0; i < uniq.length; i++) 
+    print(uniq[i] + "\t" + typeof(uniq[i]));
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 This uses the <code>===</code> "strict equality" operator, which does no type conversions (<code>4 == "4"</code> is true but <code>4 === "4"</code> is false)
 <lang javascript>function unique(ary) {
@@ -127,3 +173,10 @@ Or, to allow for customised definitions of equality and duplication, we can foll
 
 <pre>[[4, 3, 2, 8, 0, 1, 9, 5, 7, 6], "chtoni elmsyarp"]</pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

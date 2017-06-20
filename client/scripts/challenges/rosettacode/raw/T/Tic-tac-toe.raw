@@ -1,16 +1,54 @@
-Tic-tac-toe
 
-{{task|Games}}
-<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category:Games]]
-[[File:Tic_tac_toe.jpg" title="Category:Games]]
-[[File:Tic_tac_toe.jpg">500px||right</a>
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Play a game of <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Tic-tac-toe" title="wp: Tic-tac-toe">tic-tac-toe</a>. Ensure that legal moves are played and that a winning position is notified.
+const assert = require('chai').assert;
+
+/// title: Tic-tac-toe
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category:Games]]
+/// [[File:Tic_tac_toe.jpg" title="Category:Games]]
+/// [[File:Tic_tac_toe.jpg">500px||right</a>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Play a game of <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Tic-tac-toe" title="wp: Tic-tac-toe">tic-tac-toe</a>. Ensure that legal moves are played and that a winning position is notified.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">See also</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">[http://mathworld.wolfram.com/Tic-Tac-Toe.html Mathworld&trade;, Tic-Tac-Toe game].</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
-;See also
-* [http://mathworld.wolfram.com/Tic-Tac-Toe.html Mathworld&trade;, Tic-Tac-Toe game].
-<br><br>
+/// rawSolutions:
+null
 
+/// tail:
+const replaceThis = 3;
 
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

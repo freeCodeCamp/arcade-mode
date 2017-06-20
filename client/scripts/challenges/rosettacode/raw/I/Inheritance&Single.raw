@@ -1,48 +1,85 @@
-Inheritance/Single
 
-{{task|Basic language learning}}
-<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category:Object oriented]]
-[[Category:Type System]]
-[[Category:Encyclopedia]]
-:''This task is about derived types; for implementation inheritance, see [[Polymorphism]].
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-Inheritance is an operation of [[type algebra]] that creates a new type from one or several parent types. The obtained type is called <span class="rosetta__text--bold">derived type</span>. It inherits some of the properties of its parent types. Usually inherited properties are:
-* methods
-* components
-* parts of the representation
-The [[classes " title="Category:Object oriented]]
-[[Category:Type System]]
-[[Category:Encyclopedia]]
-:''This task is about derived types; for implementation inheritance, see [[Polymorphism]].
+const assert = require('chai').assert;
 
-Inheritance is an operation of [[type algebra]] that creates a new type from one or several parent types. The obtained type is called <span class="rosetta__text--bold">derived type</span>. It inherits some of the properties of its parent types. Usually inherited properties are:
-* methods
-* components
-* parts of the representation
-The [[classes "> class</a> of the new type is a <span class="rosetta__text--bold">subclass</span> of the classes rooted in the parent types. When all (in certain sense) properties of the parents are preserved by the derived type, it is said to be a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Liskov_substitution_principle" title="wp: Liskov_substitution_principle">Liskov subtype</a>. When properties are preserved then the derived type is <span class="rosetta__text--italic">substitutable</span> for its parents in all contexts. Usually full substitutability is achievable only in some contexts.
+/// title: Inheritance/Single
+/// type: rosetta-code
 
-Inheritance is
-* <span class="rosetta__text--bold">single</span>, when only one parent is allowed
-* <span class="rosetta__text--bold"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/multiple inheritance " title="multiple inheritance "> multiple</a></span>, otherwise
+/// categories:
+/// ?
 
-Some single inheritance languages usually allow multiple inheritance for certain <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/abstract type]]s, interfaces in particular.
+/// difficulty: ?
 
-Inheritance can be considered as a relation parent-child. Parent types are sometimes called <span class="rosetta__text--bold">supertype</span>, the derived ones are <span class="rosetta__text--bold">subtype</span>. This relation is <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Transitive_relation" title="wp: Transitive_relation">transitive]] and [[wp:Reflexive_relation" title="abstract type]]s, interfaces in particular.
+/// benchmark:
+replaceWithActualFunctionHere;
 
-Inheritance can be considered as a relation parent-child. Parent types are sometimes called <span class="rosetta__text--bold">supertype</span>, the derived ones are <span class="rosetta__text--bold">subtype</span>. This relation is <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Transitive_relation" title="wp: Transitive_relation">transitive]] and [[wp:Reflexive_relation">reflexive</a>. Types bound by the relation form a [[wp:Directed_acyclic_graph directed acyclic graph]] (ignoring reflexivity). With single inheritance it becomes a [[wp:Tree_(graph_theory)|tree</a>.
+/// description:
+/// <br>
+/// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category:Object oriented]]
+/// [[Category:Type System]]
+/// [[Category:Encyclopedia]]
+/// <span class="rosetta__text--indented">''This task is about derived types; for implementation inheritance, see [[Polymorphism]].</span>
+/// <br>
+/// Inheritance is an operation of [[type algebra]] that creates a new type from one or several parent types. The obtained type is called <span class="rosetta__text--bold">derived type</span>. It inherits some of the properties of its parent types. Usually inherited properties are:
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">methods</li>
+/// <li class="rosetta__list-item">components</li>
+/// <li class="rosetta__list-item">parts of the representation</li>
+/// <br>
+/// </ul>The [[classes " title="Category:Object oriented]]
+/// [[Category:Type System]]
+/// [[Category:Encyclopedia]]
+/// <span class="rosetta__text--indented">''This task is about derived types; for implementation inheritance, see [[Polymorphism]].</span>
+/// <br>
+/// Inheritance is an operation of [[type algebra]] that creates a new type from one or several parent types. The obtained type is called <span class="rosetta__text--bold">derived type</span>. It inherits some of the properties of its parent types. Usually inherited properties are:
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">methods</li>
+/// <li class="rosetta__list-item">components</li>
+/// <li class="rosetta__list-item">parts of the representation</li>
+/// <br>
+/// </ul>The [[classes "> class</a> of the new type is a <span class="rosetta__text--bold">subclass</span> of the classes rooted in the parent types. When all (in certain sense) properties of the parents are preserved by the derived type, it is said to be a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Liskov_substitution_principle" title="wp: Liskov_substitution_principle">Liskov subtype</a>. When properties are preserved then the derived type is <span class="rosetta__text--italic">substitutable</span> for its parents in all contexts. Usually full substitutability is achievable only in some contexts.
+/// <br>
+/// Inheritance is
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item"><span class="rosetta__text--bold">single</span>, when only one parent is allowed</li>
+/// <li class="rosetta__list-item"><span class="rosetta__text--bold"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/multiple inheritance " title="multiple inheritance "> multiple</a></span>, otherwise</li>
+/// <br>
+/// </ul>
+/// Some single inheritance languages usually allow multiple inheritance for certain <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/abstract type]]s, interfaces in particular.
+/// <br>
+/// Inheritance can be considered as a relation parent-child. Parent types are sometimes called <span class="rosetta__text--bold">supertype</span>, the derived ones are <span class="rosetta__text--bold">subtype</span>. This relation is <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Transitive_relation" title="wp: Transitive_relation">transitive]] and [[wp:Reflexive_relation" title="abstract type]]s, interfaces in particular.
+/// <br>
+/// Inheritance can be considered as a relation parent-child. Parent types are sometimes called <span class="rosetta__text--bold">supertype</span>, the derived ones are <span class="rosetta__text--bold">subtype</span>. This relation is <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Transitive_relation" title="wp: Transitive_relation">transitive]] and [[wp:Reflexive_relation">reflexive</a>. Types bound by the relation form a [[wp:Directed_acyclic_graph directed acyclic graph]] (ignoring reflexivity). With single inheritance it becomes a [[wp:Tree_(graph_theory)|tree</a>.
+/// <br>
+/// <span class="rosetta__text--bold">Task</span>: Show a tree of types which inherit from each other. The top of the tree should be a class called Animal. The second level should have Dog and Cat. Under Dog should be Lab and Collie. None of the classes need to have any functions, the only thing they need to do is inherit from the specified superclasses (overriding functions should be shown in [[Polymorphism]]). The tree should look like this:
+/// <pre>    Animal
+///       /\
+///      /  \
+///     /    \
+///    Dog   Cat
+///    /\
+///   /  \
+///  /    \
+/// Lab   Collie</pre>
+/// <br>
+/// <br>
 
-<span class="rosetta__text--bold">Task</span>: Show a tree of types which inherit from each other. The top of the tree should be a class called Animal. The second level should have Dog and Cat. Under Dog should be Lab and Collie. None of the classes need to have any functions, the only thing they need to do is inherit from the specified superclasses (overriding functions should be shown in [[Polymorphism]]). The tree should look like this:
-<pre>    Animal
-      /\
-     /  \
-    /    \
-   Dog   Cat
-   /\
-  /  \
- /    \
-Lab   Collie</pre>
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
+/// solutions:
+function Animal() {
+    // ...
+}
 
+/// rawSolutions:
 =={{header|JavaScript}}==
 JavaScript is a class-free, object-oriented language, and as such, it uses prototypal inheritance instead of classical inheritance.
 <lang javascript>function Animal() {
@@ -74,3 +111,10 @@ Lab.prototype = new Dog();</lang>
 var lab = new Lab();
 lab.speak();  // shows "an animal makes a sound"</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

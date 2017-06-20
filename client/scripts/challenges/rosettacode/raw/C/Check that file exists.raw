@@ -1,22 +1,56 @@
-Check that file exists
 
-{{task|File System Operations}} [[Category:Simple]]
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Verify that a file called &nbsp; &nbsp; <span class="rosetta__text--bold">input.txt</span> &nbsp; &nbsp; and &nbsp; a directory called &nbsp; &nbsp; <span class="rosetta__text--bold">docs</span> &nbsp; &nbsp; exist.
- 
+const assert = require('chai').assert;
 
-This should be done twice: &nbsp; 
-:::* &nbsp; once for the current working directory, &nbsp; and
-:::* &nbsp; once for a file and a directory in the filesystem root.
+/// title: Check that file exists
+/// type: rosetta-code
 
-<br>
-Optional criteria (May 2015): &nbsp; verify it works with:
-:::* &nbsp; zero-length files
-:::* &nbsp; an unusual filename: &nbsp; <big> <span class="rosetta__text--bold"> `Abdu'l-Bahá.txt </span> </big>
-<br><br>
+/// categories:
+/// ?
 
+/// difficulty: ?
 
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+///  [[Category:Simple]]
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Verify that a file called &nbsp; &nbsp; <span class="rosetta__text--bold">input.txt</span> &nbsp; &nbsp; and &nbsp; a directory called &nbsp; &nbsp; <span class="rosetta__text--bold">docs</span> &nbsp; &nbsp; exist.
+///  
+/// <br>
+/// This should be done twice: &nbsp; 
+/// <span class="rosetta__text--indented">::* &nbsp; once for the current working directory, &nbsp; and</span>
+/// <span class="rosetta__text--indented">::* &nbsp; once for a file and a directory in the filesystem root.</span>
+/// <br>
+/// <br>
+/// Optional criteria (May 2015): &nbsp; verify it works with:
+/// <span class="rosetta__text--indented">::* &nbsp; zero-length files</span>
+/// <span class="rosetta__text--indented">::* &nbsp; an unusual filename: &nbsp; <big> <span class="rosetta__text--bold"> `Abdu'l-Bahá.txt </span> </big></span>
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+var fso = new ActiveXObject("Scripting.FileSystemObject");
+
+fso.FileExists('input.txt');
+fso.FileExists('c:/input.txt');
+fso.FolderExists('docs');
+fso.FolderExists('c:/docs');
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 Javascript interpreters are now widely embedded in contexts which do have access to file systems, but the early context of browser scripting has precluded the inclusion of file system libraries in the definition of the language itself.
 Each non-browser JS context is likely to have its own home-grown and unstandardised file system library.
@@ -121,3 +155,10 @@ exist but are not directories.
   true
 ]</pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

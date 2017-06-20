@@ -1,13 +1,49 @@
-MAC Vendor Lookup
 
-{{task}}
-[[Category:Network Tools]]
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-Every connected device around the world comes with a unique Media Access Control address, or a  [https://en.wikipedia.org/wiki/MAC_address MAC address]. A common task a network administrator may come across is being able to identify a network device's manufacturer when given only a MAC address.
+const assert = require('chai').assert;
 
-;Basic Task:
-The task is to interface with one (or numerous) APIs that exist on the internet and retrieve the device manufacturer based on a supplied MAC address.
+/// title: MAC Vendor Lookup
+/// type: rosetta-code
 
-A MAC address that does not return a valid result should return the String "N/A". A error related to the network connectivity or the API should return a null result.
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// [[Category:Network Tools]]
+/// <br>
+/// Every connected device around the world comes with a unique Media Access Control address, or a  [https://en.wikipedia.org/wiki/MAC_address MAC address]. A common task a network administrator may come across is being able to identify a network device's manufacturer when given only a MAC address.
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Basic Task:</dt></dl>
+/// The task is to interface with one (or numerous) APIs that exist on the internet and retrieve the device manufacturer based on a supplied MAC address.
+/// <br>
+/// A MAC address that does not return a valid result should return the String "N/A". A error related to the network connectivity or the API should return a null result.
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,46 +1,147 @@
-Pascal's triangle
 
-{{task|Arithmetic operations}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-<a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Pascal's triangle" title="wp: Pascal's triangle">Pascal's triangle]] &nbsp; is an arithmetic and geometric figure first imagined by &nbsp; [[wp:Blaise Pascal|Blaise Pascal</a>. 
+const assert = require('chai').assert;
 
-Its first few rows look like this:
-     1
-    1 1
-   1 2 1
-  1 3 3 1
-where each element of each row is either 1 or the sum of the two elements right above it. 
+/// title: Pascal's triangle
+/// type: rosetta-code
 
-For example, the next row of the triangle would be:
-::: &nbsp; <span class="rosetta__text--bold">1</span> &nbsp; (since the first element of each row doesn't have two elements above it)
-::: &nbsp; <span class="rosetta__text--bold">4</span> &nbsp; (1 + 3)
-::: &nbsp; <span class="rosetta__text--bold">6</span> &nbsp; (3 + 3)
-::: &nbsp; <span class="rosetta__text--bold">4</span> &nbsp; (3 + 1)
-::: &nbsp; <span class="rosetta__text--bold">1</span> &nbsp; (since the last element of each row doesn't have two elements above it) 
+/// categories:
+/// ?
 
-So the triangle now looks like this:
-     1
-    1 1
-   1 2 1
-  1 3 3 1
- 1 4 6 4 1
+/// difficulty: ?
 
-Each row &nbsp; <tt> n </tt> &nbsp; (starting with row &nbsp; 0 &nbsp; at the top) shows the coefficients of the binomial expansion of &nbsp; <big><big> (x + y)<sup>n</sup>. </big></big>
+/// benchmark:
+replaceWithActualFunctionHere;
 
+/// description:
+/// <br>
+/// <br>
+/// <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Pascal's triangle" title="wp: Pascal's triangle">Pascal's triangle]] &nbsp; is an arithmetic and geometric figure first imagined by &nbsp; [[wp:Blaise Pascal|Blaise Pascal</a>. 
+/// <br>
+/// Its first few rows look like this:
+///      1
+///     1 1
+///    1 2 1
+///   1 3 3 1
+/// where each element of each row is either 1 or the sum of the two elements right above it. 
+/// <br>
+/// For example, the next row of the triangle would be:
+/// <span class="rosetta__text--indented">:: &nbsp; <span class="rosetta__text--bold">1</span> &nbsp; (since the first element of each row doesn't have two elements above it)</span>
+/// <span class="rosetta__text--indented">:: &nbsp; <span class="rosetta__text--bold">4</span> &nbsp; (1 + 3)</span>
+/// <span class="rosetta__text--indented">:: &nbsp; <span class="rosetta__text--bold">6</span> &nbsp; (3 + 3)</span>
+/// <span class="rosetta__text--indented">:: &nbsp; <span class="rosetta__text--bold">4</span> &nbsp; (3 + 1)</span>
+/// <span class="rosetta__text--indented">:: &nbsp; <span class="rosetta__text--bold">1</span> &nbsp; (since the last element of each row doesn't have two elements above it) </span>
+/// <br>
+/// So the triangle now looks like this:
+///      1
+///     1 1
+///    1 2 1
+///   1 3 3 1
+///  1 4 6 4 1
+/// <br>
+/// Each row &nbsp; <tt> n </tt> &nbsp; (starting with row &nbsp; 0 &nbsp; at the top) shows the coefficients of the binomial expansion of &nbsp; <big><big> (x + y)<sup>n</sup>. </big></big>
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Write a function that prints out the first &nbsp; <tt> n </tt> &nbsp; rows of the triangle &nbsp; (with &nbsp; <tt> f(1) </tt> &nbsp; yielding the row consisting of only the element <span class="rosetta__text--bold">1</span>). 
+/// <br>
+/// This can be done either by summing elements from the previous rows or using a binary coefficient or combination function. 
+/// <br>
+/// Behavior for &nbsp; <big><tt> n ≤ 0 </tt></big> &nbsp; does not need to be uniform, but should be noted.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">See also:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">[[Evaluate binomial coefficients]]</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
 
-;Task:
-Write a function that prints out the first &nbsp; <tt> n </tt> &nbsp; rows of the triangle &nbsp; (with &nbsp; <tt> f(1) </tt> &nbsp; yielding the row consisting of only the element <span class="rosetta__text--bold">1</span>). 
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
-This can be done either by summing elements from the previous rows or using a binary coefficient or combination function. 
+/// solutions:
+// Pascal's triangle object
+function pascalTriangle (rows) {
 
-Behavior for &nbsp; <big><tt> n ≤ 0 </tt></big> &nbsp; does not need to be uniform, but should be noted.
+	// Number of rows the triangle contains
+	this.rows = rows;
 
+	// The 2D array holding the rows of the triangle
+	this.triangle = new Array();
+	for (var r = 0; r < rows; r++) {
+		this.triangle[r] = new Array();
+		for (var i = 0; i <= r; i++) {
+			if (i == 0 || i == r)
+				this.triangle[r][i] = 1;
+			else
+				this.triangle[r][i] = this.triangle[r-1][i-1]+this.triangle[r-1][i];
+		}
+	}
 
-;See also:
-* [[Evaluate binomial coefficients]]
-<br><br>
+	// Method to print the triangle
+	this.print = function(base) {
+		if (!base)
+			base = 10;
 
+		// Private method to calculate digits in number
+		var digits = function(n,b) {
+			var d = 0;
+			while (n >= 1) {
+				d++;
+				n /= b;
+			}
+			return d;
+		}
 
+		// Calculate max spaces needed
+		var spacing = digits(this.triangle[this.rows-1][Math.round(this.rows/2)],base);
+
+		// Private method to add spacing between numbers
+		var insertSpaces = function(s) {
+			var buf = "";
+			while (s > 0) {
+				s--;
+				buf += " ";
+			}
+			return buf;
+		}
+
+		// Print the triangle line by line
+		for (var r = 0; r < this.triangle.length; r++) {
+			var l = "";
+			for (var s = 0; s < Math.round(this.rows-1-r); s++) {
+				l += insertSpaces(spacing);
+			}
+			for (var i = 0; i < this.triangle[r].length; i++) {
+				if (i != 0)
+					l += insertSpaces(spacing-Math.ceil(digits(this.triangle[r][i],base)/2));
+				l += this.triangle[r][i].toString(base);
+				if (i < this.triangle[r].length-1)
+					l += insertSpaces(spacing-Math.floor(digits(this.triangle[r][i],base)/2));
+			}
+			print(l);
+		}
+	}
+
+}
+
+// Display 4 row triangle in base 10
+var tri = new pascalTriangle(4);
+tri.print();
+// Display 8 row triangle in base 16
+tri = new pascalTriangle(8);
+tri.print(16);
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 ===ES5===
 ====Imperative====
@@ -332,3 +433,10 @@ Output:
    1   6  15  20  15   6   1
 </pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

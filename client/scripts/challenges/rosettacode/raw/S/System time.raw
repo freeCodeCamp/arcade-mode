@@ -1,26 +1,65 @@
-System time
 
-{{task|Programming environment operations}} 
-[[Category:Date and time]] 
-[[Category:Simple]]
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-{{omit from|ML/I}}
-{{omit from|ZX Spectrum Basic|Does not have a real time clock.}}
+const assert = require('chai').assert;
 
-;Task:
-Output the system <span class="rosetta__text--bold">time</span> &nbsp; (any units will do as long as they are noted) either by a <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Execute a System Command" title="Execute a System Command">system command</a> or one built into the language. 
+/// title: System time
+/// type: rosetta-code
 
-The system time can be used for debugging, network information, random number seeds, or something as simple as program performance.
+/// categories:
+/// ?
 
+/// difficulty: ?
 
-;See also:
-* &nbsp; [[Date format]]
-* &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/System time#Retrieving system time" title="wp: System time#Retrieving system time">Retrieving system time (wiki)</a>
-<br><br>
+/// benchmark:
+replaceWithActualFunctionHere;
 
+/// description:
+///  
+/// [[Category:Date and time]] 
+/// [[Category:Simple]]
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Output the system <span class="rosetta__text--bold">time</span> &nbsp; (any units will do as long as they are noted) either by a <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Execute a System Command" title="Execute a System Command">system command</a> or one built into the language. 
+/// <br>
+/// The system time can be used for debugging, network information, random number seeds, or something as simple as program performance.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">See also:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">&nbsp; [[Date format]]</li>
+/// <li class="rosetta__list-item">&nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/System time#Retrieving system time" title="wp: System time#Retrieving system time">Retrieving system time (wiki)</a></li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
 
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+console.log(new Date()) // => Sat, 28 May 2011 08:22:53 GMT
+console.log(Date.now()) // => 1306571005417 // Unix epoch
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 
 <lang javascript>console.log(new Date()) // => Sat, 28 May 2011 08:22:53 GMT
 console.log(Date.now()) // => 1306571005417 // Unix epoch</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,35 +1,78 @@
-Look-and-say sequence
 
-{{task|Text processing}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-The &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Look and say sequence" title="wp: Look and say sequence">Look and say sequence]] &nbsp; is a recursively defined sequence of numbers studied most notably by &nbsp; [[wp:John Horton Conway|John Conway</a>.
+const assert = require('chai').assert;
 
+/// title: Look-and-say sequence
+/// type: rosetta-code
 
-<span class="rosetta__text--bold">Sequence Definition</span>
-* Take a decimal number
-* <span class="rosetta__text--italic">Look</span> at the number, visually grouping consecutive runs of the same digit.
-* <span class="rosetta__text--italic">Say</span> the number, from left to right, group by group; as how many of that digit there are - followed by the digit grouped.
-: This becomes the next number of the sequence.
+/// categories:
+/// ?
 
+/// difficulty: ?
 
-<span class="rosetta__text--bold">An example:</span> 
-* Starting with the number 1, &nbsp; you have <span class="rosetta__text--italic">one</span> 1 which produces 11
-* Starting with 11, &nbsp; you have <span class="rosetta__text--italic">two</span> 1's. &nbsp; I.E.: &nbsp; 21
-* Starting with 21, &nbsp; you have <span class="rosetta__text--italic">one</span> 2, then <span class="rosetta__text--italic">one</span> 1. &nbsp; I.E.: &nbsp; (12)(11) which becomes 1211
-* Starting with 1211, &nbsp; you have <span class="rosetta__text--italic">one</span> 1, <span class="rosetta__text--italic">one</span> 2, then <span class="rosetta__text--italic">two</span> 1's. &nbsp; I.E.: &nbsp; (11)(12)(21) which becomes 111221
+/// benchmark:
+replaceWithActualFunctionHere;
 
+/// description:
+/// <br>
+/// <br>
+/// The &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Look and say sequence" title="wp: Look and say sequence">Look and say sequence]] &nbsp; is a recursively defined sequence of numbers studied most notably by &nbsp; [[wp:John Horton Conway|John Conway</a>.
+/// <br>
+/// <br>
+/// <span class="rosetta__text--bold">Sequence Definition</span>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">Take a decimal number</li>
+/// <li class="rosetta__list-item"><span class="rosetta__text--italic">Look</span> at the number, visually grouping consecutive runs of the same digit.</li>
+/// <li class="rosetta__list-item"><span class="rosetta__text--italic">Say</span> the number, from left to right, group by group; as how many of that digit there are - followed by the digit grouped.</li>
+/// <br>
+/// </ul><span class="rosetta__text--indented"> This becomes the next number of the sequence.</span>
+/// <br>
+/// <br>
+/// <span class="rosetta__text--bold">An example:</span> 
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">Starting with the number 1, &nbsp; you have <span class="rosetta__text--italic">one</span> 1 which produces 11</li>
+/// <li class="rosetta__list-item">Starting with 11, &nbsp; you have <span class="rosetta__text--italic">two</span> 1's. &nbsp; I.E.: &nbsp; 21</li>
+/// <li class="rosetta__list-item">Starting with 21, &nbsp; you have <span class="rosetta__text--italic">one</span> 2, then <span class="rosetta__text--italic">one</span> 1. &nbsp; I.E.: &nbsp; (12)(11) which becomes 1211</li>
+/// <li class="rosetta__list-item">Starting with 1211, &nbsp; you have <span class="rosetta__text--italic">one</span> 1, <span class="rosetta__text--italic">one</span> 2, then <span class="rosetta__text--italic">two</span> 1's. &nbsp; I.E.: &nbsp; (11)(12)(21) which becomes 111221</li>
+/// <br>
+/// </ul>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Write a program to generate successive members of the look-and-say sequence.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">See also:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">&nbsp; [https://www.youtube.com/watch?v=ea7lJkEhytA Look-and-Say Numbers (feat John Conway)], A Numberphile Video.</li>
+/// <li class="rosetta__list-item">&nbsp; This task is related to, and an application of, the [[Run-length encoding]] task.</li>
+/// <li class="rosetta__list-item">&nbsp; Sequence [https://oeis.org/A005150 A005150] on  The On-Line Encyclopedia of Integer Sequences.</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
 
-;Task:
-Write a program to generate successive members of the look-and-say sequence.
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
+/// solutions:
+function lookandsay(str) {
+    return str.replace(/(.)\1*/g, function(seq, p1){return seq.length.toString() + p1})
+}
 
-;See also:
-* &nbsp; [https://www.youtube.com/watch?v=ea7lJkEhytA Look-and-Say Numbers (feat John Conway)], A Numberphile Video.
-* &nbsp; This task is related to, and an application of, the [[Run-length encoding]] task.
-* &nbsp; Sequence [https://oeis.org/A005150 A005150] on  The On-Line Encyclopedia of Integer Sequences.
-<br><br>
+var num = "1";
+for (var i = 10; i > 0; i--) {
+    alert(num);
+    num = lookandsay(num);
+}
 
-
+/// rawSolutions:
 =={{header|JavaScript}}==
 {{trans|Perl}}
 <lang javascript>function lookandsay(str) {
@@ -71,3 +114,10 @@ Without RegExp
     }
 })("1", 10);</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,17 +1,53 @@
-Sorting algorithms/Bead sort
 
-{{task|Sorting Algorithms}}
-{{Sorting Algorithm}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Sort an array of positive integers using the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Bead_sort" title="wp: Bead_sort">Bead Sort Algorithm</a>. 
+const assert = require('chai').assert;
 
-A &nbsp; <span class="rosetta__text--italic">bead sort</span> &nbsp; is also known as a &nbsp; <span class="rosetta__text--italic">gravity sort</span>.
+/// title: Sorting algorithms/Bead sort
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Sort an array of positive integers using the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Bead_sort" title="wp: Bead_sort">Bead Sort Algorithm</a>. 
+/// <br>
+/// A &nbsp; <span class="rosetta__text--italic">bead sort</span> &nbsp; is also known as a &nbsp; <span class="rosetta__text--italic">gravity sort</span>.
+/// <br>
+/// <br>
+/// Algorithm has &nbsp; O(S), &nbsp; where &nbsp; S &nbsp; is the sum of the integers in the input set: &nbsp; Each bead is moved individually. 
+/// <br>
+/// This is the case when bead sort is implemented without a mechanism to assist in finding empty spaces below the beads, such as in software implementations.
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
-Algorithm has &nbsp; O(S), &nbsp; where &nbsp; S &nbsp; is the sum of the integers in the input set: &nbsp; Each bead is moved individually. 
+/// rawSolutions:
+null
 
-This is the case when bead sort is implemented without a mechanism to assist in finding empty spaces below the beads, such as in software implementations.
-<br><br>
+/// tail:
+const replaceThis = 3;
 
-
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,16 +1,47 @@
-Array concatenation
 
-{{task|Data Structures}} 
-[[Category:Simple]]
- 
-;Task:
-Show how to concatenate two arrays in your language. 
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
+const assert = require('chai').assert;
 
-If this is as simple as <code><var>array1</var> + <var>array2</var></code>, so be it.
-<br><br>
+/// title: Array concatenation
+/// type: rosetta-code
 
+/// categories:
+/// ?
 
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+///  
+/// [[Category:Simple]]
+///  
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Show how to concatenate two arrays in your language. 
+/// <br>
+/// <br>
+/// If this is as simple as <code><var>array1</var> + <var>array2</var></code>, so be it.
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+var a = [1,2,3],
+    b = [4,5,6],
+    c = a.concat(b); //=> [1,2,3,4,5,6]
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 The <code>Array.concat()</code> method returns a new array comprised of this array joined with other array(s) and/or value(s). 
 <lang javascript>var a = [1,2,3],
@@ -44,3 +75,10 @@ See, for a function with an analogous type signature, '''concat''' in the Haskel
 
 <pre>["alpha", "beta", "gamma", "delta", "epsilon", "zeta", "eta", "theta", "iota"]</pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

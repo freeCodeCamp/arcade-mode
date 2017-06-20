@@ -1,40 +1,87 @@
-Equilibrium index
 
-{{task}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-An equilibrium index of a sequence is an index into the sequence such that the sum of elements at lower indices is equal to the sum of elements at higher indices. 
+const assert = require('chai').assert;
 
+/// title: Equilibrium index
+/// type: rosetta-code
 
-For example, in a sequence &nbsp; <big>$A$</big>:
+/// categories:
+/// ?
 
-::::: &nbsp; <big>$A_0 = -7$</big>
-::::: &nbsp; <big>$A_1 =  1$</big>
-::::: &nbsp; <big>$A_2 =  5$</big>
-::::: &nbsp; <big>$A_3 =  2$</big>
-::::: &nbsp; <big>$A_4 = -4$</big>
-::::: &nbsp; <big>$A_5 =  3$</big>
-::::: &nbsp; <big>$A_6 =  0$</big>
+/// difficulty: ?
 
-3 &nbsp; is an equilibrium index, because:
+/// benchmark:
+replaceWithActualFunctionHere;
 
-::::: &nbsp; <big>$A_0 + A_1 + A_2 = A_4 + A_5 + A_6$</big>
+/// description:
+/// <br>
+/// <br>
+/// An equilibrium index of a sequence is an index into the sequence such that the sum of elements at lower indices is equal to the sum of elements at higher indices. 
+/// <br>
+/// <br>
+/// For example, in a sequence &nbsp; <big>$A$</big>:
+/// <br>
+/// <span class="rosetta__text--indented">:::: &nbsp; <big>$A_0 = -7$</big></span>
+/// <span class="rosetta__text--indented">:::: &nbsp; <big>$A_1 =  1$</big></span>
+/// <span class="rosetta__text--indented">:::: &nbsp; <big>$A_2 =  5$</big></span>
+/// <span class="rosetta__text--indented">:::: &nbsp; <big>$A_3 =  2$</big></span>
+/// <span class="rosetta__text--indented">:::: &nbsp; <big>$A_4 = -4$</big></span>
+/// <span class="rosetta__text--indented">:::: &nbsp; <big>$A_5 =  3$</big></span>
+/// <span class="rosetta__text--indented">:::: &nbsp; <big>$A_6 =  0$</big></span>
+/// <br>
+/// 3 &nbsp; is an equilibrium index, because:
+/// <br>
+/// <span class="rosetta__text--indented">:::: &nbsp; <big>$A_0 + A_1 + A_2 = A_4 + A_5 + A_6$</big></span>
+/// <br>
+/// 6 &nbsp; is also an equilibrium index, because:
+/// <br>
+/// <span class="rosetta__text--indented">:::: &nbsp; <big>$A_0 + A_1 + A_2 + A_3 + A_4 + A_5 = 0$</big></span>
+/// <br>
+/// (sum of zero elements is zero) 
+/// <br>
+/// 7 &nbsp; is not an equilibrium index, because it is not a valid index of sequence <big>$A$</big>.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task;</dt></dl>
+/// Write a function that, given a sequence, returns its equilibrium indices (if any).
+/// <br>
+/// Assume that the sequence may be very long.
+/// <br><br>
+/// <br>
+/// <br>
 
-6 &nbsp; is also an equilibrium index, because:
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
-::::: &nbsp; <big>$A_0 + A_1 + A_2 + A_3 + A_4 + A_5 = 0$</big>
+/// solutions:
+function equilibrium(a) {
+  var N = a.length, i, l = [], r = [], e = []
+  for (l[0] = a[0], r[N - 1] = a[N - 1], i = 1; i<N; i++)
+    l[i] = l[i - 1] + a[i], r[N - i - 1] = r[N - i] + a[N - i - 1]
+  for (i = 0; i < N; i++)
+    if (l[i] === r[i]) e.push(i)
+  return e
+}
 
-(sum of zero elements is zero) 
+// test & output
+[ [-7, 1, 5, 2, -4, 3, 0], // 3, 6
+  [2, 4, 6], // empty
+  [2, 9, 2], // 1
+  [1, -1, 1, -1, 1, -1, 1], // 0,1,2,3,4,5,6
+  [1], // 0
+  [] // empty
+].forEach(function(x) {
+  console.log(equilibrium(x))
+});
 
-7 &nbsp; is not an equilibrium index, because it is not a valid index of sequence <big>$A$</big>.
-
-
-;Task;
-Write a function that, given a sequence, returns its equilibrium indices (if any).
-
-Assume that the sequence may be very long.
-<br><br>
-
-
+/// rawSolutions:
 =={{header|JavaScript}}==
 
 ===ES5===
@@ -156,3 +203,10 @@ Assume that the sequence may be very long.
 {{Out}}
 <lang JavaScript>[[3,6],[],[1],[0,1,2,3,4,5,6],[0],[]]</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

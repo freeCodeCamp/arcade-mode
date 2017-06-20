@@ -1,48 +1,85 @@
-Stack
 
-{{task|Data Structures}}
-[[Category:Encyclopedia]]
-{{data structure}}[[Category:Classic CS problems and programs]]
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-A <span class="rosetta__text--bold">stack</span> is a container of elements with &nbsp; <big><u>l</u>ast <u>i</u>n, <u>f</u>irst <u>o</u>ut</big>  &nbsp; access policy. &nbsp; Sometimes it also called <span class="rosetta__text--bold">LIFO</span>. 
+const assert = require('chai').assert;
 
-The stack is accessed through its <span class="rosetta__text--bold">top</span>. 
+/// title: Stack
+/// type: rosetta-code
 
-The basic stack operations are:
+/// categories:
+/// ?
 
-* &nbsp; <span class="rosetta__text--italic">push</span> &nbsp; stores a new element onto the stack top;
-* &nbsp; <span class="rosetta__text--italic">pop</span> &nbsp; returns the last pushed stack element, while removing it from the stack;
-* &nbsp; <span class="rosetta__text--italic">empty</span> &nbsp; tests if the stack contains no elements.
+/// difficulty: ?
 
-<br>
-Sometimes the last pushed stack element is made accessible for immutable access (for read) or mutable access (for write):
+/// benchmark:
+replaceWithActualFunctionHere;
 
-* &nbsp; <span class="rosetta__text--italic">top</span> &nbsp; (sometimes called <span class="rosetta__text--italic">peek</span> to keep with the <span class="rosetta__text--italic">p</span> theme) returns the topmost element without modifying the stack.
+/// description:
+/// <br>
+/// [[Category:Encyclopedia]]
+/// [[Category:Classic CS problems and programs]]
+/// <br>
+/// A <span class="rosetta__text--bold">stack</span> is a container of elements with &nbsp; <big><u>l</u>ast <u>i</u>n, <u>f</u>irst <u>o</u>ut</big>  &nbsp; access policy. &nbsp; Sometimes it also called <span class="rosetta__text--bold">LIFO</span>. 
+/// <br>
+/// The stack is accessed through its <span class="rosetta__text--bold">top</span>. 
+/// <br>
+/// The basic stack operations are:
+/// <br>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">&nbsp; <span class="rosetta__text--italic">push</span> &nbsp; stores a new element onto the stack top;</li>
+/// <li class="rosetta__list-item">&nbsp; <span class="rosetta__text--italic">pop</span> &nbsp; returns the last pushed stack element, while removing it from the stack;</li>
+/// <li class="rosetta__list-item">&nbsp; <span class="rosetta__text--italic">empty</span> &nbsp; tests if the stack contains no elements.</li>
+/// <br>
+/// </ul>
+/// <br>
+/// Sometimes the last pushed stack element is made accessible for immutable access (for read) or mutable access (for write):
+/// <br>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">&nbsp; <span class="rosetta__text--italic">top</span> &nbsp; (sometimes called <span class="rosetta__text--italic">peek</span> to keep with the <span class="rosetta__text--italic">p</span> theme) returns the topmost element without modifying the stack.</li>
+/// <br>
+/// </ul>
+/// <br>
+/// Stacks allow a very simple hardware implementation.
+///  
+/// They are common in almost all processors.
+///  
+/// In programming, stacks are also very popular for their way (<span class="rosetta__text--bold">LIFO</span>) of resource management, usually memory. 
+/// <br>
+/// Nested scopes of language objects are naturally implemented by a stack (sometimes by multiple stacks). 
+/// <br>
+/// This is a classical way to implement local variables of a re-entrant or recursive subprogram. Stacks are also used to describe a formal computational framework. 
+/// <br>
+/// See <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Stack_automaton" title="wp: Stack_automaton">stack machine</a>. 
+/// <br>
+/// Many algorithms in pattern matching, compiler construction (e.g. <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Recursive_descent" title="wp: Recursive_descent">recursive descent parsers]]), and machine learning (e.g. based on [[wp:Tree_traversal|tree traversal</a>) have a natural representation in terms of stacks.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Create a stack supporting the basic operations: push, pop, empty.
+/// <br>
+/// <br>
+/// <br>
+/// <br><br>
+/// <br>
+/// <br>
 
-<br>
-Stacks allow a very simple hardware implementation.
- 
-They are common in almost all processors.
- 
-In programming, stacks are also very popular for their way (<span class="rosetta__text--bold">LIFO</span>) of resource management, usually memory. 
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
-Nested scopes of language objects are naturally implemented by a stack (sometimes by multiple stacks). 
+/// solutions:
+var stack = [];
+stack.push(1)
+stack.push(2,3);
+print(stack.pop());   // 3
+print(stack.length);   // 2, stack empty if 0
 
-This is a classical way to implement local variables of a re-entrant or recursive subprogram. Stacks are also used to describe a formal computational framework. 
-
-See <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Stack_automaton" title="wp: Stack_automaton">stack machine</a>. 
-
-Many algorithms in pattern matching, compiler construction (e.g. <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Recursive_descent" title="wp: Recursive_descent">recursive descent parsers]]), and machine learning (e.g. based on [[wp:Tree_traversal|tree traversal</a>) have a natural representation in terms of stacks.
-
-
-;Task:
-Create a stack supporting the basic operations: push, pop, empty.
-
-
-{{Template:See also lists}}
-<br><br>
-
-
+/// rawSolutions:
 =={{header|JavaScript}}==
 The built-in Array class already has stack primitives.
 <lang javascript>var stack = [];
@@ -87,3 +124,10 @@ function makeStack() {
 }
 </lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

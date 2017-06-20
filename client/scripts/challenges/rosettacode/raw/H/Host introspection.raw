@@ -1,17 +1,53 @@
-Host introspection
 
-{{task|Programming environment operations}}
-{{omit from|Brlcad}}
-{{omit from|E}}
-{{omit from|JavaScript}}
-{{omit from|Maxima}}
-{{omit from|ML/I}}
-{{omit from|Openscad}}
-{{omit from|TPP}}
-{{omit from|Unlambda}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-Print the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Word_size#Word_size_choice" title="wp: Word_size#Word_size_choice">word size]] and [[wp:Endianness|endianness</a> of the host machine.
+const assert = require('chai').assert;
 
-See also: [[Variable size/Get]]
+/// title: Host introspection
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// Print the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Word_size#Word_size_choice" title="wp: Word_size#Word_size_choice">word size]] and [[wp:Endianness|endianness</a> of the host machine.
+/// <br>
+/// See also: [[Variable size/Get]]
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

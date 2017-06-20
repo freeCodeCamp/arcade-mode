@@ -1,49 +1,313 @@
-Evolutionary algorithm
 
-{{task}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-Starting with:
-* The <code>target</code> string: <code>"METHINKS IT IS LIKE A WEASEL"</code>.
-* An array of random characters chosen from the set of upper-case letters together with the space, and of the same length as the target string. (Call it the <code>parent</code>).
-* A <code>fitness</code> function that computes the ‘closeness’ of its argument to the target string.
-* A <code>mutate</code> function that given a string and a mutation rate returns a copy of the string, with some characters probably mutated.
-* While the <code>parent</code> is not yet the <code>target</code>:
-:* copy the <code>parent</code> C times, each time allowing some random probability that another character might be substituted using <code>mutate</code>.
-:* Assess the <code>fitness</code> of the parent and all the copies to the <code>target</code> and make the most fit string the new <code>parent</code>, discarding the others.
-:* repeat until the parent converges, (hopefully), to the target.
+const assert = require('chai').assert;
+
+/// title: Evolutionary algorithm
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// Starting with:
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">The <code>target</code> string: <code>"METHINKS IT IS LIKE A WEASEL"</code>.</li>
+/// <li class="rosetta__list-item">An array of random characters chosen from the set of upper-case letters together with the space, and of the same length as the target string. (Call it the <code>parent</code>).</li>
+/// <li class="rosetta__list-item">A <code>fitness</code> function that computes the ‘closeness’ of its argument to the target string.</li>
+/// <li class="rosetta__list-item">A <code>mutate</code> function that given a string and a mutation rate returns a copy of the string, with some characters probably mutated.</li>
+/// <li class="rosetta__list-item">While the <code>parent</code> is not yet the <code>target</code>:</li>
+/// <br>
+/// </ul><span class="rosetta__text--indented">* copy the <code>parent</code> C times, each time allowing some random probability that another character might be substituted using <code>mutate</code>.</span>
+/// <span class="rosetta__text--indented">* Assess the <code>fitness</code> of the parent and all the copies to the <code>target</code> and make the most fit string the new <code>parent</code>, discarding the others.</span>
+/// <span class="rosetta__text--indented">* repeat until the parent converges, (hopefully), to the target.</span>
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">See also:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">&nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Weasel_program#Weasel_algorithm" title="wp: Weasel_program#Weasel_algorithm">Weasel algorithm</a>.</li>
+/// <li class="rosetta__list-item">&nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Evolutionary algorithm" title="wp: Evolutionary algorithm">Evolutionary algorithm</a>.</li>
+/// <br>
+/// </ul>
+/// <br>
+/// <small>Note: to aid comparison, try and ensure the variables and functions mentioned in the task description appear in solutions</small>
+/// <br>
+/// <br>
+/// A cursory examination of a few of the solutions reveals that the instructions have not been followed rigorously in some solutions. Specifically,
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">While the <code>parent</code> is not yet the <code>target</code>:</li>
+/// <br>
+/// </ul><span class="rosetta__text--indented">* copy the <code>parent</code> C times, each time allowing some random probability that another character might be substituted using <code>mutate</code>.</span>
+/// <br>
+/// Note that some of the the solutions given retain characters in the mutated string that are <span class="rosetta__text--italic">correct</span> in the target string. However, the instruction above does not state to retain any of the characters while performing the mutation. Although some may believe to do so is implied from the use of "converges"
+/// <br>
+///  (:* repeat until the parent converges, (hopefully), to the target.
+/// <br>
+/// Strictly speaking, the new parent should be selected from the new pool of mutations, and then the new parent used to generate the next set of mutations with parent characters getting retained only by <span class="rosetta__text--italic">not</span> being mutated. It then becomes possible that the new set of mutations has no member that is fitter than the parent!
+/// <br>
+/// As illustration of this error, the code for 8th has the following remark.
+/// <br>
+///  Create a new string based on the TOS, '''changing randomly any characters which
+///  don't already match the target''':
+/// <br>
+/// <span class="rosetta__text--italic">NOTE:</span> this has been changed, the 8th version is completely random now
+/// <br>
+/// Clearly, this algo will be applying the mutation function only to the parent characters that don't match to the target characters!
+/// <br>
+/// To ensure that the new parent is never less fit than the prior parent, both the parent and all of the latest mutations are subjected to the fitness test to select the next parent.
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+// ------------------------------------- Cross-browser Compatibility -------------------------------------
+
+/* Compatibility code to reduce an array
+ * Source: https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/Reduce
+ */
+if (!Array.prototype.reduce) {
+    Array.prototype.reduce = function (fun /*, initialValue */ ) {
+        "use strict";
+
+        if (this === void 0 || this === null) throw new TypeError();
+
+        var t = Object(this);
+        var len = t.length >>> 0;
+        if (typeof fun !== "function") throw new TypeError();
+
+        // no value to return if no initial value and an empty array
+        if (len == 0 && arguments.length == 1) throw new TypeError();
+
+        var k = 0;
+        var accumulator;
+        if (arguments.length >= 2) {
+            accumulator = arguments[1];
+        } else {
+            do {
+                if (k in t) {
+                    accumulator = t[k++];
+                    break;
+                }
+
+                // if array contains no values, no initial value to return
+                if (++k >= len) throw new TypeError();
+            }
+            while (true);
+        }
+
+        while (k < len) {
+            if (k in t) accumulator = fun.call(undefined, accumulator, t[k], k, t);
+            k++;
+        }
+
+        return accumulator;
+    };
+}
+
+/* Compatibility code to map an array
+ * Source: https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/Map
+ */
+if (!Array.prototype.map) {
+    Array.prototype.map = function (fun /*, thisp */ ) {
+        "use strict";
+
+        if (this === void 0 || this === null) throw new TypeError();
+
+        var t = Object(this);
+        var len = t.length >>> 0;
+        if (typeof fun !== "function") throw new TypeError();
+
+        var res = new Array(len);
+        var thisp = arguments[1];
+        for (var i = 0; i < len; i++) {
+            if (i in t) res[i] = fun.call(thisp, t[i], i, t);
+        }
+
+        return res;
+    };
+}
+
+/* ------------------------------------- Generator -------------------------------------
+ * Generates a fixed length gene sequence via a gene strategy object.
+ * The gene strategy object must have two functions:
+ *	- "create": returns create a new gene 
+ *	- "mutate(existingGene)": returns mutation of an existing gene  
+ */
+function Generator(length, mutationRate, geneStrategy) {
+    this.size = length;
+    this.mutationRate = mutationRate;
+    this.geneStrategy = geneStrategy;
+}
+
+Generator.prototype.spawn = function () {
+    var genes = [],
+        x;
+    for (x = 0; x < this.size; x += 1) {
+        genes.push(this.geneStrategy.create());
+    }
+    return genes;
+};
+
+Generator.prototype.mutate = function (parent) {
+    return parent.map(function (char) {
+        if (Math.random() > this.mutationRate) {
+            return char;
+        }
+        return this.geneStrategy.mutate(char);
+    }, this);
+};
+
+/* ------------------------------------- Population -------------------------------------
+ * Helper class that holds and spawns a new population.
+ */
+function Population(size, generator) {
+    this.size = size;
+    this.generator = generator;
+
+    this.population = [];
+    // Build initial popuation;
+    for (var x = 0; x < this.size; x += 1) {
+        this.population.push(this.generator.spawn());
+    }
+}
+
+Population.prototype.spawn = function (parent) {
+    this.population = [];
+    for (var x = 0; x < this.size; x += 1) {
+        this.population.push(this.generator.mutate(parent));
+    }
+};
+
+/* ------------------------------------- Evolver -------------------------------------
+ * Attempts to converge a population based a fitness strategy object.
+ * The fitness strategy object must have three function  
+ *	- "score(individual)": returns a score for an individual.
+ *	- "compare(scoreA, scoreB)": return true if scoreA is better (ie more fit) then scoreB
+ *	- "done( score )": return true if score is acceptable (ie we have successfully converged). 
+ */
+function Evolver(size, generator, fitness) {
+    this.done = false;
+    this.fitness = fitness;
+    this.population = new Population(size, generator);
+}
+
+Evolver.prototype.getFittest = function () {
+    return this.population.population.reduce(function (best, individual) {
+        var currentScore = this.fitness.score(individual);
+        if (best === null || this.fitness.compare(currentScore, best.score)) {
+            return {
+                score: currentScore,
+                individual: individual
+            };
+        } else {
+            return best;
+        }
+    }, null);
+};
+
+Evolver.prototype.doGeneration = function () {
+    this.fittest = this.getFittest();
+    this.done = this.fitness.done(this.fittest.score);
+    if (!this.done) {
+        this.population.spawn(this.fittest.individual);
+    }
+};
+
+Evolver.prototype.run = function (onCheckpoint, checkPointFrequency) {
+    checkPointFrequency = checkPointFrequency || 10; // Default to Checkpoints every 10 generations
+    var generation = 0;
+    while (!this.done) {
+        this.doGeneration();
+        if (generation % checkPointFrequency === 0) {
+            onCheckpoint(generation, this.fittest);
+        }
+        generation += 1;
+    }
+    onCheckpoint(generation, this.fittest);
+    return this.fittest;
+};
+
+// ------------------------------------- Exports -------------------------------------
+window.Generator = Generator;
+window.Evolver = Evolver;
 
 
-;See also:
-* &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Weasel_program#Weasel_algorithm" title="wp: Weasel_program#Weasel_algorithm">Weasel algorithm</a>.
-* &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Evolutionary algorithm" title="wp: Evolutionary algorithm">Evolutionary algorithm</a>.
+// helper utitlity to combine elements of two arrays.
+Array.prototype.zip = function (b, func) {
+    var result = [],
+        max = Math.max(this.length, b.length),
+        x;
+    for (x = 0; x < max; x += 1) {
+        result.push(func(this[x], b[x]));
+    }
+    return result;
+};
 
-<br>
-<small>Note: to aid comparison, try and ensure the variables and functions mentioned in the task description appear in solutions</small>
+var target = "METHINKS IT IS LIKE A WEASEL", geneStrategy, fitness, target, generator, evolver, result;
+    
+geneStrategy = {
+    // The allowed character set (as an array) 
+    characterSet: "ABCDEFGHIJKLMNOPQRSTUVWXYZ ".split(""),
 
-<br>
-A cursory examination of a few of the solutions reveals that the instructions have not been followed rigorously in some solutions. Specifically,
-* While the <code>parent</code> is not yet the <code>target</code>:
-:* copy the <code>parent</code> C times, each time allowing some random probability that another character might be substituted using <code>mutate</code>.
+    /*
+        Pick a random character from the characterSet
+    */
+    create: function getRandomGene() {
+        var randomNumber = Math.floor(Math.random() * this.characterSet.length);
+        return this.characterSet[randomNumber];
+    }
+};
+geneStrategy.mutate = geneStrategy.create; // Our mutation stragtegy is to simply get a random gene
+fitness = {
+    // The target (as an array of characters)
+    target: target.split(""),
+    equal: function (geneA, geneB) {
+        return (geneA === geneB ? 0 : 1);
+    },
+    sum: function (runningTotal, value) {
+        return runningTotal + value;
+    },
 
-Note that some of the the solutions given retain characters in the mutated string that are <span class="rosetta__text--italic">correct</span> in the target string. However, the instruction above does not state to retain any of the characters while performing the mutation. Although some may believe to do so is implied from the use of "converges"
+    /*
+        We give one point to for each corect letter
+    */
+    score: function (genes) {
+        var diff = genes.zip(this.target, this.equal); // create an array of ones and zeros 
+        return diff.reduce(this.sum, 0); // Sum the array values together.
+    },
+    compare: function (scoreA, scoreB) {
+        return scoreA <= scoreB; // Lower scores are better
+    },
+    done: function (score) {
+        return score === 0; // We have matched the target string.
+    }
+};
 
- (:* repeat until the parent converges, (hopefully), to the target.
+generator = new Generator(target.length, 0.05, geneStrategy);
+evolver = new Evolver(100, generator, fitness);
 
-Strictly speaking, the new parent should be selected from the new pool of mutations, and then the new parent used to generate the next set of mutations with parent characters getting retained only by <span class="rosetta__text--italic">not</span> being mutated. It then becomes possible that the new set of mutations has no member that is fitter than the parent!
+function showProgress(generation, fittest) {
+    document.write("Generation: " + generation + ", Best: " + fittest.individual.join("") + ", fitness:" + fittest.score + "<br>");
+}
+result = evolver.run(showProgress);
 
-As illustration of this error, the code for 8th has the following remark.
-
- Create a new string based on the TOS, '''changing randomly any characters which
- don't already match the target''':
-
-<span class="rosetta__text--italic">NOTE:</span> this has been changed, the 8th version is completely random now
-
-Clearly, this algo will be applying the mutation function only to the parent characters that don't match to the target characters!
-
-To ensure that the new parent is never less fit than the prior parent, both the parent and all of the latest mutations are subjected to the fitness test to select the next parent.
-<br><br>
-
-
+/// rawSolutions:
 =={{header|JavaScript}}==
 Using cross-browser techniques to support Array.reduce and Array.map
 
@@ -288,3 +552,10 @@ Generation: 50, Best: METHINKS IT IS LIKEZA WEASEL, fitness:1
 Generation: 52, Best: METHINKS IT IS LIKE A WEASEL, fitness:0
 </pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,27 +1,67 @@
-String comparison
 
-{{task|Basic Data Operations}}{{basic data operation}} [[Category:Basic language learning]] [[Category:Simple]]
-The task is to demonstrate how to compare two strings from within the language and how to achieve a lexical comparison. 
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-The task should demonstrate:
-* Comparing two strings for exact equality
-* Comparing two strings for inequality (i.e., the inverse of exact equality)
-* Comparing two strings to see if one is lexically ordered before than the other
-* Comparing two strings to see if one is lexically ordered after than the other
-* How to achieve both case sensitive comparisons and case insensitive comparisons within the language
-* How the language handles comparison of numeric strings if these are not treated lexically
-* Demonstrate any other kinds of string comparisons that the language provides, particularly as it relates to your type system. &nbsp; For example, you might demonstrate the difference between generic/polymorphic comparison and coercive/allomorphic comparison if your language supports such a distinction. 
+const assert = require('chai').assert;
 
-<br>
-Here "generic/polymorphic" comparison means that the function or operator you're using doesn't always do string comparison, but bends the actual semantics of the comparison depending on the types one or both arguments; with such an operator, you achieve string comparison only if the arguments are sufficiently string-like in type or appearance.  
+/// title: String comparison
+/// type: rosetta-code
 
-In contrast, a "coercive/allomorphic" comparison function or operator has fixed string-comparison semantics regardless of the argument type; &nbsp; instead of the operator bending, it's the arguments that are forced to bend instead and behave like strings if they can, &nbsp; and the operator simply fails if the arguments cannot be viewed somehow as strings. &nbsp; A language may have one or both of these kinds of operators; &nbsp; see the Perl 6 entry for an example of a language with both kinds of operators. 
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+///  [[Category:Basic language learning]] [[Category:Simple]]
+/// The task is to demonstrate how to compare two strings from within the language and how to achieve a lexical comparison. 
+/// <br>
+/// The task should demonstrate:
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">Comparing two strings for exact equality</li>
+/// <li class="rosetta__list-item">Comparing two strings for inequality (i.e., the inverse of exact equality)</li>
+/// <li class="rosetta__list-item">Comparing two strings to see if one is lexically ordered before than the other</li>
+/// <li class="rosetta__list-item">Comparing two strings to see if one is lexically ordered after than the other</li>
+/// <li class="rosetta__list-item">How to achieve both case sensitive comparisons and case insensitive comparisons within the language</li>
+/// <li class="rosetta__list-item">How the language handles comparison of numeric strings if these are not treated lexically</li>
+/// <li class="rosetta__list-item">Demonstrate any other kinds of string comparisons that the language provides, particularly as it relates to your type system. &nbsp; For example, you might demonstrate the difference between generic/polymorphic comparison and coercive/allomorphic comparison if your language supports such a distinction. </li>
+/// <br>
+/// </ul>
+/// <br>
+/// Here "generic/polymorphic" comparison means that the function or operator you're using doesn't always do string comparison, but bends the actual semantics of the comparison depending on the types one or both arguments; with such an operator, you achieve string comparison only if the arguments are sufficiently string-like in type or appearance.  
+/// <br>
+/// In contrast, a "coercive/allomorphic" comparison function or operator has fixed string-comparison semantics regardless of the argument type; &nbsp; instead of the operator bending, it's the arguments that are forced to bend instead and behave like strings if they can, &nbsp; and the operator simply fails if the arguments cannot be viewed somehow as strings. &nbsp; A language may have one or both of these kinds of operators; &nbsp; see the Perl 6 entry for an example of a language with both kinds of operators. 
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">&nbsp; [[Integer comparison]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[String matching]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[Compare a list of strings]]</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
-;Related tasks:
-* &nbsp; [[Integer comparison]]
-* &nbsp; [[String matching]]
-* &nbsp; [[Compare a list of strings]]
-<br><br>
+/// rawSolutions:
+null
 
+/// tail:
+const replaceThis = 3;
 
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

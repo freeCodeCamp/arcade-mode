@@ -1,14 +1,53 @@
-Nth root
 
-{{task|Classic CS problems and programs}} 
-[[Category:Simple]]
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
+const assert = require('chai').assert;
 
-Implement the algorithm to compute the principal <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Nth root" title="wp: Nth root"><span class="rosetta__text--italic">n</span>th root]] <big>$\sqrt[n]A$</big> of a positive real number <big><span class="rosetta__text--italic">A</span></big>, as explained at the [[wp:Nth root algorithm|Wikipedia page</a>.
+/// title: Nth root
+/// type: rosetta-code
 
+/// categories:
+/// ?
 
+/// difficulty: ?
 
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+///  
+/// [[Category:Simple]]
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <br>
+/// Implement the algorithm to compute the principal <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Nth root" title="wp: Nth root"><span class="rosetta__text--italic">n</span>th root]] <big>$\sqrt[n]A$</big> of a positive real number <big><span class="rosetta__text--italic">A</span></big>, as explained at the [[wp:Nth root algorithm|Wikipedia page</a>.
+/// <br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+function nthRoot(num, nArg, precArg) {
+  var n = nArg || 2;
+  var prec = precArg || 12;
+  
+  var x = 1; // Initial guess.
+  for (var i=0; i<prec; i++) {
+    x = 1/n * ((n-1)*x + (num / Math.pow(x, n-1)));
+  }
+  
+  return x;
+}
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 Gives the ''n'':nth root of ''num'', with precision ''prec''. (''n'' defaults to 2 [e.g. sqrt], ''prec'' defaults to 12.)
 
@@ -24,3 +63,10 @@ Gives the ''n'':nth root of ''num'', with precision ''prec''. (''n'' defaults to
   return x;
 }</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

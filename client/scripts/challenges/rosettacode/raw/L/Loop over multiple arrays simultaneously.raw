@@ -1,29 +1,65 @@
-Loop over multiple arrays simultaneously
 
-{{task|Iteration}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Loop over multiple arrays &nbsp; (or lists or tuples or whatever they're called in 
-your language) &nbsp; and display the &nbsp; <big><big> <span class="rosetta__text--italic">i</span> <sup>th</sup> </big></big> &nbsp; element of each. 
+const assert = require('chai').assert;
 
-Use your language's &nbsp; "for each" &nbsp; loop if it has one, otherwise iterate 
-through the collection in order with some other loop.
+/// title: Loop over multiple arrays simultaneously
+/// type: rosetta-code
 
+/// categories:
+/// ?
 
-For this example, loop over the arrays: 
-     (a,b,c)
-     (A,B,C) 
-     (1,2,3) 
-to produce the output:
-     aA1
-     bB2
-     cC3
+/// difficulty: ?
 
-<br>
-If possible, also describe what happens when the arrays are of different lengths.
-<br><br>
+/// benchmark:
+replaceWithActualFunctionHere;
 
+/// description:
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Loop over multiple arrays &nbsp; (or lists or tuples or whatever they're called in 
+/// your language) &nbsp; and display the &nbsp; <big><big> <span class="rosetta__text--italic">i</span> <sup>th</sup> </big></big> &nbsp; element of each. 
+/// <br>
+/// Use your language's &nbsp; "for each" &nbsp; loop if it has one, otherwise iterate 
+/// through the collection in order with some other loop.
+/// <br>
+/// <br>
+/// For this example, loop over the arrays: 
+///      (a,b,c)
+///      (A,B,C) 
+///      (1,2,3) 
+/// to produce the output:
+///      aA1
+///      bB2
+///      cC3
+/// <br>
+/// <br>
+/// If possible, also describe what happens when the arrays are of different lengths.
+/// <br><br>
+/// <br>
+/// <br>
 
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+var a = ["a","b","c"],
+    b = ["A","B","C"],
+    c = [1,2,3],
+    output = "",
+    i;
+for (i = 0; i < a.length; i += 1) {
+    output += a[i] + b[i] + c[i] + "\n";
+}
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 
 ===Imperative===
@@ -146,3 +182,10 @@ Or we can write a generic '''zipListsWith''' which applies some supplied functio
 bB2
 cC3</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,9 +1,46 @@
-Sum and product of an array
 
-{{task|Arithmetic operations}}[[Category:Iteration]]
-Compute the sum and product of an array of integers.
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
+const assert = require('chai').assert;
 
+/// title: Sum and product of an array
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// [[Category:Iteration]]
+/// Compute the sum and product of an array of integers.
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+var array = [1, 2, 3, 4, 5],
+    sum = 0,
+    prod = 1,
+    i;
+for (i = 0; i < array.length; i += 1) {
+    sum += array[i];
+    prod *= array[i];
+}
+alert(sum + ' ' + prod);
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 ===ES5===
 <lang javascript>var array = [1, 2, 3, 4, 5],
@@ -55,3 +92,10 @@ alert(sum + ' ' + prod);</lang>
   3628800
 ]</pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

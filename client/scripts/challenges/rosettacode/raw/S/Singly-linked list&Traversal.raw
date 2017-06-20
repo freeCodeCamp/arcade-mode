@@ -1,11 +1,51 @@
-Singly-linked list/Traversal
 
-{{task|Data Structures}}[[Category:Iteration]]
-Traverse from the beginning of a singly-linked list to the end.
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-{{Template:See also lists}}
+const assert = require('chai').assert;
 
+/// title: Singly-linked list/Traversal
+/// type: rosetta-code
 
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// [[Category:Iteration]]
+/// Traverse from the beginning of a singly-linked list to the end.
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+LinkedList.prototype.traverse = function(func) {
+    func(this);
+    if (this.next() != null)
+        this.next().traverse(func);
+}
+
+LinkedList.prototype.print = function() {
+    this.traverse( function(node) {print(node.value())} );
+}
+
+var head = createLinkedListFromArray([10,20,30,40]);
+head.print();
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 Extending [[Singly-Linked_List_(element)#JavaScript]]
 <lang javascript>LinkedList.prototype.traverse = function(func) {
@@ -72,3 +112,10 @@ traverse(["Apple", "Orange", "Mango", "Pear"], function (x) {
 /* Mango */
 /* Pear */</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

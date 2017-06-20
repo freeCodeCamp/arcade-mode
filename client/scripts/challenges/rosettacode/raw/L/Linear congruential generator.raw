@@ -1,48 +1,96 @@
-Linear congruential generator
 
-{{task|Randomness}}
-The <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/linear congruential generator" title="wp: linear congruential generator">linear congruential generator]] is a very simple example of a <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/random number generator</a>. All linear congruential generators use this formula:
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-* $r_{n + 1} = a \times r_n + c \pmod m$
+const assert = require('chai').assert;
 
-Where:
+/// title: Linear congruential generator
+/// type: rosetta-code
 
-* $r_0$ is a seed.
-* $r_1$, $r_2$, $r_3$, ..., are the random numbers.
-* $a$, $c$, $m$ are constants.
+/// categories:
+/// ?
 
-If one chooses the values of $a$, $c$ and $m$ with care, then the generator produces a uniform distribution of integers from $0$ to $m - 1$.
+/// difficulty: ?
 
-LCG numbers have poor quality. $r_n$ and $r_{n + 1}$ are not independent, as true random numbers would be. Anyone who knows $r_n$ can predict $r_{n + 1}$, therefore LCG is not cryptographically secure. The LCG is still good enough for simple tasks like [[Miller-Rabin primality test]], or [[deal cards for FreeCell" title="random number generator</a>. All linear congruential generators use this formula:
+/// benchmark:
+replaceWithActualFunctionHere;
 
-* $r_{n + 1} = a \times r_n + c \pmod m$
+/// description:
+/// <br>
+/// The <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/linear congruential generator" title="wp: linear congruential generator">linear congruential generator]] is a very simple example of a <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/random number generator</a>. All linear congruential generators use this formula:
+/// <br>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">$r_{n + 1} = a \times r_n + c \pmod m$</li>
+/// <br>
+/// </ul>
+/// Where:
+/// <br>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">$r_0$ is a seed.</li>
+/// <li class="rosetta__list-item">$r_1$, $r_2$, $r_3$, ..., are the random numbers.</li>
+/// <li class="rosetta__list-item">$a$, $c$, $m$ are constants.</li>
+/// <br>
+/// </ul>
+/// If one chooses the values of $a$, $c$ and $m$ with care, then the generator produces a uniform distribution of integers from $0$ to $m - 1$.
+/// <br>
+/// LCG numbers have poor quality. $r_n$ and $r_{n + 1}$ are not independent, as true random numbers would be. Anyone who knows $r_n$ can predict $r_{n + 1}$, therefore LCG is not cryptographically secure. The LCG is still good enough for simple tasks like [[Miller-Rabin primality test]], or [[deal cards for FreeCell" title="random number generator</a>. All linear congruential generators use this formula:
+/// <br>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">$r_{n + 1} = a \times r_n + c \pmod m$</li>
+/// <br>
+/// </ul>
+/// Where:
+/// <br>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">$r_0$ is a seed.</li>
+/// <li class="rosetta__list-item">$r_1$, $r_2$, $r_3$, ..., are the random numbers.</li>
+/// <li class="rosetta__list-item">$a$, $c$, $m$ are constants.</li>
+/// <br>
+/// </ul>
+/// If one chooses the values of $a$, $c$ and $m$ with care, then the generator produces a uniform distribution of integers from $0$ to $m - 1$.
+/// <br>
+/// LCG numbers have poor quality. $r_n$ and $r_{n + 1}$ are not independent, as true random numbers would be. Anyone who knows $r_n$ can predict $r_{n + 1}$, therefore LCG is not cryptographically secure. The LCG is still good enough for simple tasks like [[Miller-Rabin primality test]], or [[deal cards for FreeCell">FreeCell deals</a>. Among the benefits of the LCG, one can easily reproduce a sequence of numbers, from the same $r_0$. One can also reproduce such sequence with a different programming language, because the formula is so simple.
+/// <br>
+/// The task is to replicate two historic random number generators. One is the <code>rand()</code> function from <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/:Category:BSD libc" title=":Category:BSD libc">BSD libc</a>, and the other is the <code>rand()</code> function from the Microsoft C Runtime (MSCVRT.DLL). Each replica must yield the same sequence of integers as the original generator, when starting from the same seed.
+/// <br>
+/// In these formulas, the seed becomes $state_0$. The random sequence is $rand_1$, $rand_2$ and so on.
+/// <br>
+/// BSD formula:
+/// <br>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">$state_{n + 1} = 1103515245 \times state_n + 12345 \pmod{2^{31}}$</li>
+/// <li class="rosetta__list-item">$rand_n = state_n$</li>
+/// <li class="rosetta__list-item">$rand_n$ is in range 0 to 2147483647.</li>
+/// <br>
+/// </ul>
+/// Microsoft formula:
+/// <br>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">$state_{n + 1} = 214013 \times state_n + 2531011 \pmod{2^{31}}$</li>
+/// <li class="rosetta__list-item">$rand_n = state_n \div 2^{16}$</li>
+/// <li class="rosetta__list-item">$rand_n$ is in range 0 to 32767.</li>
+/// <br>
+/// </ul>
+/// The BSD formula was so awful that FreeBSD switched to a different formula. More info is at [[Random number generator (included)#C]].
+/// <br>
+/// <br>
 
-Where:
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
-* $r_0$ is a seed.
-* $r_1$, $r_2$, $r_3$, ..., are the random numbers.
-* $a$, $c$, $m$ are constants.
-
-If one chooses the values of $a$, $c$ and $m$ with care, then the generator produces a uniform distribution of integers from $0$ to $m - 1$.
-
-LCG numbers have poor quality. $r_n$ and $r_{n + 1}$ are not independent, as true random numbers would be. Anyone who knows $r_n$ can predict $r_{n + 1}$, therefore LCG is not cryptographically secure. The LCG is still good enough for simple tasks like [[Miller-Rabin primality test]], or [[deal cards for FreeCell">FreeCell deals</a>. Among the benefits of the LCG, one can easily reproduce a sequence of numbers, from the same $r_0$. One can also reproduce such sequence with a different programming language, because the formula is so simple.
-
-The task is to replicate two historic random number generators. One is the <code>rand()</code> function from <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/:Category:BSD libc" title=":Category:BSD libc">BSD libc</a>, and the other is the <code>rand()</code> function from the Microsoft C Runtime (MSCVRT.DLL). Each replica must yield the same sequence of integers as the original generator, when starting from the same seed.
-
-In these formulas, the seed becomes $state_0$. The random sequence is $rand_1$, $rand_2$ and so on.
-
-BSD formula:
-
-* $state_{n + 1} = 1103515245 \times state_n + 12345 \pmod{2^{31}}$
-* $rand_n = state_n$
-* $rand_n$ is in range 0 to 2147483647.
-
-Microsoft formula:
-
-* $state_{n + 1} = 214013 \times state_n + 2531011 \pmod{2^{31}}$
-* $rand_n = state_n \div 2^{16}$
-* $rand_n$ is in range 0 to 32767.
-
-The BSD formula was so awful that FreeBSD switched to a different formula. More info is at [[Random number generator (included)#C]].
+/// solutions:
 
 
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

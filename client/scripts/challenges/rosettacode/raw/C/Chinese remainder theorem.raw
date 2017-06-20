@@ -1,55 +1,91 @@
-Chinese remainder theorem
 
-{{task}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-Suppose &nbsp; $n_1$, &nbsp; $n_2$, &nbsp; $\ldots$, &nbsp; $n_k$ &nbsp; are positive [[integer]]s that are pairwise co-prime. &nbsp; 
+const assert = require('chai').assert;
 
-Then, for any given sequence of integers &nbsp; $a_1$, &nbsp; $a_2$, &nbsp; $\dots$, &nbsp; $a_k$, &nbsp; there exists an integer &nbsp; $x$ &nbsp; solving the following system of simultaneous congruences:
+/// title: Chinese remainder theorem
+/// type: rosetta-code
 
-::: $\begin{align}
-  x &\equiv a_1 \pmod{n_1} \\
-  x &\equiv a_2 \pmod{n_2} \\
-    &{}\  \  \vdots \\
-  x &\equiv a_k \pmod{n_k}
-\end{align}$
+/// categories:
+/// ?
 
-Furthermore, all solutions &nbsp; $x$ &nbsp; of this system are congruent modulo the product, &nbsp;  $N=n_1n_2\ldots n_k$.
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// Suppose &nbsp; $n_1$, &nbsp; $n_2$, &nbsp; $\ldots$, &nbsp; $n_k$ &nbsp; are positive [[integer]]s that are pairwise co-prime. &nbsp; 
+/// <br>
+/// Then, for any given sequence of integers &nbsp; $a_1$, &nbsp; $a_2$, &nbsp; $\dots$, &nbsp; $a_k$, &nbsp; there exists an integer &nbsp; $x$ &nbsp; solving the following system of simultaneous congruences:
+/// <br>
+/// <span class="rosetta__text--indented">:: $\begin{align}</span>
+///   x &\equiv a_1 \pmod{n_1} \\
+///   x &\equiv a_2 \pmod{n_2} \\
+///     &{}\  \  \vdots \\
+///   x &\equiv a_k \pmod{n_k}
+/// \end{align}$
+/// <br>
+/// Furthermore, all solutions &nbsp; $x$ &nbsp; of this system are congruent modulo the product, &nbsp;  $N=n_1n_2\ldots n_k$.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Write a program to solve a system of linear congruences by applying the &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Chinese Remainder Theorem" title="wp: Chinese Remainder Theorem">Chinese Remainder Theorem</a>. 
+/// <br>
+/// If the system of equations cannot be solved, your program must somehow indicate this. 
+/// <br>
+/// (It may throw an exception or return a special false value.) 
+/// <br>
+/// Since there are infinitely many solutions, the program should return the unique solution &nbsp; $s$ &nbsp; where &nbsp; $0 \leq s \leq n_1n_2\ldots n_k$.
+/// <br>
+/// <br>
+/// <span class="rosetta__text--italic">Show the functionality of this program</span> by printing the result such that the &nbsp; $n$'s &nbsp; are &nbsp; $[3,5,7]$ &nbsp; and the &nbsp; $a$'s &nbsp; are &nbsp; $[2,3,2]$.
+/// <br>
+/// <br>
+/// <span class="rosetta__text--bold">Algorithm</span>: &nbsp; The following algorithm only applies if the &nbsp; $n_i$'s &nbsp; are pairwise co-prime. 
+/// <br>
+/// Suppose, as above, that a solution is required for the system of congruences:
+/// <br>
+/// <span class="rosetta__text--indented">:: $x \equiv a_i \pmod{n_i} \quad\mathrm{for}\; i = 1, \ldots, k$</span>
+/// <br>
+/// Again, to begin, the product &nbsp; $N = n_1n_2 \ldots n_k$ &nbsp; is defined. 
+/// <br>
+/// Then a solution &nbsp; $x$ &nbsp; can be found as follows:
+/// <br>
+/// For each &nbsp; $i$, &nbsp; the integers &nbsp; $n_i$ &nbsp; and &nbsp; $N/n_i$ &nbsp; are co-prime. 
+/// <br>
+/// Using the &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Extended Euclidean algorithm" title="wp: Extended Euclidean algorithm">Extended Euclidean algorithm</a>, &nbsp; we can find integers &nbsp; $r_i$ &nbsp; and &nbsp; $s_i$ &nbsp; such that &nbsp; $r_i n_i + s_i N/n_i = 1$. 
+/// <br>
+/// Then, one solution to the system of simultaneous congruences is:
+/// <br>
+/// <span class="rosetta__text--indented">:: $x = \sum_{i=1}^k a_i s_i N/n_i$</span>
+/// <br>
+/// and the minimal solution,
+/// <br>
+/// <span class="rosetta__text--indented">:: $x \pmod{N}$.</span>
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
-;Task:
-Write a program to solve a system of linear congruences by applying the &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Chinese Remainder Theorem" title="wp: Chinese Remainder Theorem">Chinese Remainder Theorem</a>. 
+/// rawSolutions:
+null
 
-If the system of equations cannot be solved, your program must somehow indicate this. 
+/// tail:
+const replaceThis = 3;
 
-(It may throw an exception or return a special false value.) 
-
-Since there are infinitely many solutions, the program should return the unique solution &nbsp; $s$ &nbsp; where &nbsp; $0 \leq s \leq n_1n_2\ldots n_k$.
-
-
-<span class="rosetta__text--italic">Show the functionality of this program</span> by printing the result such that the &nbsp; $n$'s &nbsp; are &nbsp; $[3,5,7]$ &nbsp; and the &nbsp; $a$'s &nbsp; are &nbsp; $[2,3,2]$.
-
-
-<span class="rosetta__text--bold">Algorithm</span>: &nbsp; The following algorithm only applies if the &nbsp; $n_i$'s &nbsp; are pairwise co-prime. 
-
-Suppose, as above, that a solution is required for the system of congruences:
-
-::: $x \equiv a_i \pmod{n_i} \quad\mathrm{for}\; i = 1, \ldots, k$
-
-Again, to begin, the product &nbsp; $N = n_1n_2 \ldots n_k$ &nbsp; is defined. 
-
-Then a solution &nbsp; $x$ &nbsp; can be found as follows:
-
-For each &nbsp; $i$, &nbsp; the integers &nbsp; $n_i$ &nbsp; and &nbsp; $N/n_i$ &nbsp; are co-prime. 
-
-Using the &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Extended Euclidean algorithm" title="wp: Extended Euclidean algorithm">Extended Euclidean algorithm</a>, &nbsp; we can find integers &nbsp; $r_i$ &nbsp; and &nbsp; $s_i$ &nbsp; such that &nbsp; $r_i n_i + s_i N/n_i = 1$. 
-
-Then, one solution to the system of simultaneous congruences is:
-
-::: $x = \sum_{i=1}^k a_i s_i N/n_i$
-
-and the minimal solution,
-
-::: $x \pmod{N}$.
-<br><br>
-
-
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

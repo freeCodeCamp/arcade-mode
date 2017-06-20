@@ -1,35 +1,75 @@
-Exponentiation order
 
-{{task}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-This task will demonstrate the order of <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Exponentiation" title="wp: Exponentiation">exponentiation</a> &nbsp; <big>(<span class="rosetta__text--bold">x<sup>y</sup></span>) </big> &nbsp; when there are multiple exponents.
+const assert = require('chai').assert;
 
-(Many programming languages, especially those with extended-precision integer arithmetic, usually support one of <code>**</code>, <code>^</code>, <code>↑</code> or some such for exponentiation.)
+/// title: Exponentiation order
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// This task will demonstrate the order of <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Exponentiation" title="wp: Exponentiation">exponentiation</a> &nbsp; <big>(<span class="rosetta__text--bold">x<sup>y</sup></span>) </big> &nbsp; when there are multiple exponents.
+/// <br>
+/// (Many programming languages, especially those with extended-precision integer arithmetic, usually support one of <code>**</code>, <code>^</code>, <code>↑</code> or some such for exponentiation.)
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task requirements</dt></dl>
+/// Show the result of a language's evaluation of multiple exponentiation (either as an integer or floating point).
+/// <br>
+/// If your language's exponentiation operator is not one of the usual ones, please comment on how to recognize it.
+/// <br>
+/// <br>
+/// Using whatever operator or syntax your language supports (if any), show the results in three lines (with identification):
+/// <big>  
+/// <span class="rosetta__text--indented">:::* &nbsp; 5**3**2 </span>
+/// <span class="rosetta__text--indented">:::* &nbsp; (5**3)**2</span>
+/// <span class="rosetta__text--indented">:::* &nbsp; 5**(3**2)</span>
+/// </big>
+/// <br>
+/// <br>
+/// If there are other methods (or formats) of multiple exponentiations, show them as well. 
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">See also:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">MathWorld entry: &nbsp; [http://mathworld.wolfram.com/Exponentiation.html exponentiation]</li>
+/// <br>
+/// </ul>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related task:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">Rosetta Code task: &nbsp; [[Arbitrary-precision integers (included)]]</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
-;Task requirements
-Show the result of a language's evaluation of multiple exponentiation (either as an integer or floating point).
+/// rawSolutions:
+null
 
-If your language's exponentiation operator is not one of the usual ones, please comment on how to recognize it.
+/// tail:
+const replaceThis = 3;
 
-
-Using whatever operator or syntax your language supports (if any), show the results in three lines (with identification):
-<big>  
-::::* &nbsp; 5**3**2 
-::::* &nbsp; (5**3)**2
-::::* &nbsp; 5**(3**2)
-</big>
-
-<br>
-If there are other methods (or formats) of multiple exponentiations, show them as well. 
-
-
-;See also:
-* MathWorld entry: &nbsp; [http://mathworld.wolfram.com/Exponentiation.html exponentiation]
-
-
-;Related task:
-* Rosetta Code task: &nbsp; [[Arbitrary-precision integers (included)]]
-<br><br>
-
-
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

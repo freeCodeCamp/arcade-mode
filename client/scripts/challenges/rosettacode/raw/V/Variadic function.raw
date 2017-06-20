@@ -1,21 +1,58 @@
-Variadic function
 
-{{task|Basic language learning}}[[Category:Functions and subroutines]]
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Create a function which takes in a variable number of arguments and prints each one on its own line. 
+const assert = require('chai').assert;
 
-Also show, if possible in your language, how to call the function on a list of arguments constructed at runtime.
+/// title: Variadic function
+/// type: rosetta-code
 
+/// categories:
+/// ?
 
-Functions of this type are also known as &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Variadic_function" title="wp: Variadic_function">Variadic Functions</a>.
+/// difficulty: ?
 
+/// benchmark:
+replaceWithActualFunctionHere;
 
-;Related task:
-* &nbsp; [[Call a function]]
-<br><br>
+/// description:
+/// [[Category:Functions and subroutines]]
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Create a function which takes in a variable number of arguments and prints each one on its own line. 
+/// <br>
+/// Also show, if possible in your language, how to call the function on a list of arguments constructed at runtime.
+/// <br>
+/// <br>
+/// Functions of this type are also known as &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Variadic_function" title="wp: Variadic_function">Variadic Functions</a>.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related task:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">&nbsp; [[Call a function]]</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
 
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
+/// solutions:
+function printAll() {
+  for (var i=0; i<arguments.length; i++)
+    print(arguments[i])
+}
+printAll(4, 3, 5, 6, 4, 3);
+printAll(4, 3, 5);
+printAll("Rosetta", "Code", "Is", "Awesome!");
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 ===ES5===
 The [https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Functions/arguments <code>arguments</code>] special variable, when used inside a function, contains an array of all the arguments passed to that function.
@@ -88,3 +125,10 @@ Or, less ambitiously:
 "five"
 6</pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,8 +1,44 @@
-SHA-256
 
-{{task|Checksums}}
-<span class="rosetta__text--bold"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/SHA-256" title="wp: SHA-256">SHA-256]]</span> is the recommended stronger alternative to [[SHA-1</a>. See [http://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf FIPS PUB 180-4] for implementation details.
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-Either by using a dedicated library or implementing the algorithm in your language, show that the SHA-256 digest of the string "Rosetta code" is: 764faf5c61ac315f1497f9dfa542713965b785e5cc2f707d6468d7d1124cdfcf
+const assert = require('chai').assert;
+
+/// title: SHA-256
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <span class="rosetta__text--bold"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/SHA-256" title="wp: SHA-256">SHA-256]]</span> is the recommended stronger alternative to [[SHA-1</a>. See [http://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf FIPS PUB 180-4] for implementation details.
+/// <br>
+/// Either by using a dedicated library or implementing the algorithm in your language, show that the SHA-256 digest of the string "Rosetta code" is: 764faf5c61ac315f1497f9dfa542713965b785e5cc2f707d6468d7d1124cdfcf
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

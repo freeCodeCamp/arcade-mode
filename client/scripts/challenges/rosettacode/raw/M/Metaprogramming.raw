@@ -1,10 +1,46 @@
-Metaprogramming
 
-{{task}}{{omit from|BBC BASIC}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-Name and briefly demonstrate any support your language has for metaprogramming. Your demonstration may take the form of cross-references to other tasks on Rosetta Code. When possible, provide links to relevant documentation. 
+const assert = require('chai').assert;
 
-For the purposes of this task, "support for metaprogramming" means any way the user can effectively modify the language's syntax that's built into the language (like Lisp macros) or that's conventionally used with the language (like the C preprocessor). Such facilities need not be very powerful: even user-defined infix operators count. On the other hand, in general, neither operator overloading nor <code>eval</code> count. The task author acknowledges that what qualifies as metaprogramming is largely a judgment call.
+/// title: Metaprogramming
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// Name and briefly demonstrate any support your language has for metaprogramming. Your demonstration may take the form of cross-references to other tasks on Rosetta Code. When possible, provide links to relevant documentation. 
+/// <br>
+/// For the purposes of this task, "support for metaprogramming" means any way the user can effectively modify the language's syntax that's built into the language (like Lisp macros) or that's conventionally used with the language (like the C preprocessor). Such facilities need not be very powerful: even user-defined infix operators count. On the other hand, in general, neither operator overloading nor <code>eval</code> count. The task author acknowledges that what qualifies as metaprogramming is largely a judgment call.
+/// <br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
+/// rawSolutions:
+null
 
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

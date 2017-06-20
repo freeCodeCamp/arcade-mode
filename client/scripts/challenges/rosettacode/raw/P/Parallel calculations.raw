@@ -1,31 +1,77 @@
-Parallel calculations
 
-{{task|Control Structures}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-Many programming languages allow you to specify computations to be run in parallel. 
-While [[Concurrent computing]] is focused on concurrency, 
-the purpose of this task is to distribute time-consuming calculations 
-on as many CPUs as possible.
+const assert = require('chai').assert;
 
-Assume we have a collection of numbers, and want to find the one 
-with the largest minimal prime factor 
-(that is, the one that contains relatively large factors). 
-To speed up the search, the factorization should be done 
-in parallel using separate threads or processes, 
-to take advantage of multi-core CPUs.
+/// title: Parallel calculations
+/// type: rosetta-code
 
-Show how this can be formulated in your language. 
-Parallelize the factorization of those numbers, 
-then search the returned list of numbers and factors 
-for the largest minimal factor, 
-and return that number and its prime factors.
+/// categories:
+/// ?
 
-For the prime number decomposition 
-you may use the solution of the [[Prime decomposition]] task.
+/// difficulty: ?
 
-{{omit from|J}}
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// Many programming languages allow you to specify computations to be run in parallel. 
+/// While [[Concurrent computing]] is focused on concurrency, 
+/// the purpose of this task is to distribute time-consuming calculations 
+/// on as many CPUs as possible.
+/// <br>
+/// Assume we have a collection of numbers, and want to find the one 
+/// with the largest minimal prime factor 
+/// (that is, the one that contains relatively large factors). 
+/// To speed up the search, the factorization should be done 
+/// in parallel using separate threads or processes, 
+/// to take advantage of multi-core CPUs.
+/// <br>
+/// Show how this can be formulated in your language. 
+/// Parallelize the factorization of those numbers, 
+/// then search the returned list of numbers and factors 
+/// for the largest minimal factor, 
+/// and return that number and its prime factors.
+/// <br>
+/// For the prime number decomposition 
+/// you may use the solution of the [[Prime decomposition]] task.
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+var onmessage = function(event) {   
+    postMessage({"n" : event.data.n,
+                 "factors" : factor(event.data.n),
+                 "id" : event.data.id});
+};
+
+function factor(n) {
+    var factors = [];
+    for(p = 2; p <= n; p++) {
+        if((n % p) == 0) {
+            factors[factors.length] = p;
+            n /= p;
+        }
+    }
+    return factors;
+}
 
 
+/// rawSolutions:
 =={{header|JavaScript}}==
 This code demonstrates Web Workers. This should work on current versions of Firefox, Safari, Chrome and Opera.
 
@@ -91,3 +137,10 @@ function reduce() {
 }
 </lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

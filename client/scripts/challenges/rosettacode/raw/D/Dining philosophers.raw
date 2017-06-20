@@ -1,12 +1,48 @@
-Dining philosophers
 
-{{task|Concurrency}}[[Category:Classic CS problems and programs]]{{requires|Concurrency}}
-The dining philosophers problem illustrates non-composability of low-level synchronization primitives like [[semaphore]]s. It is a modification of a problem posed by [https://en.wikipedia.org/wiki/Edsger_W._Dijkstra Edsger Dijkstra.]
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-Five philosophers, Aristotle, Kant, Spinoza, Marx, and Russell (the [[task]]s) spend their time thinking and eating spaghetti. They eat at a round table with five individual seats. For eating each philosopher needs two forks (the resources). There are five forks on the table, one left and one right of each seat. When a philosopher cannot grab both forks it sits and waits. Eating takes random time, then the philosopher puts the forks down and leaves the dining room. After spending some random time thinking about the nature of the universe, he again becomes hungry, and the circle repeats itself.
+const assert = require('chai').assert;
 
-It can be observed that a straightforward solution, when forks are implemented by [[semaphore]]s, is exposed to deadlock. There exist two deadlock states when all five philosophers are sitting at the table holding one fork each. One deadlock state is when each philosopher has grabbed the fork left of him, and another is when each has the fork on his right.
+/// title: Dining philosophers
+/// type: rosetta-code
 
-There are many solutions of the problem, program at least one, and explain how the deadlock is prevented.
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// [[Category:Classic CS problems and programs]]
+/// The dining philosophers problem illustrates non-composability of low-level synchronization primitives like [[semaphore]]s. It is a modification of a problem posed by [https://en.wikipedia.org/wiki/Edsger_W._Dijkstra Edsger Dijkstra.]
+/// <br>
+/// Five philosophers, Aristotle, Kant, Spinoza, Marx, and Russell (the [[task]]s) spend their time thinking and eating spaghetti. They eat at a round table with five individual seats. For eating each philosopher needs two forks (the resources). There are five forks on the table, one left and one right of each seat. When a philosopher cannot grab both forks it sits and waits. Eating takes random time, then the philosopher puts the forks down and leaves the dining room. After spending some random time thinking about the nature of the universe, he again becomes hungry, and the circle repeats itself.
+/// <br>
+/// It can be observed that a straightforward solution, when forks are implemented by [[semaphore]]s, is exposed to deadlock. There exist two deadlock states when all five philosophers are sitting at the table holding one fork each. One deadlock state is when each philosopher has grabbed the fork left of him, and another is when each has the fork on his right.
+/// <br>
+/// There are many solutions of the problem, program at least one, and explain how the deadlock is prevented.
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

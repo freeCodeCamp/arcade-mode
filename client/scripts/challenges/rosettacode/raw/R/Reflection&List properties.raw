@@ -1,13 +1,73 @@
-Reflection/List properties
 
-{{task|Reflection}} [[Category:Programming Tasks]] [[Category:Object oriented]]
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-The goal is to get the properties of an object, as names, values or both.
+const assert = require('chai').assert;
 
-Some languages support dynamic properties, which in general can only be inspected if a class' public API includes a way of listing them.
+/// title: Reflection/List properties
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+///  [[Category:Programming Tasks]] [[Category:Object oriented]]
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// The goal is to get the properties of an object, as names, values or both.
+/// <br>
+/// Some languages support dynamic properties, which in general can only be inspected if a class' public API includes a way of listing them.
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+var obj = Object.create({
+    name: 'proto',
+    proto: true,
+    doNothing: function() {}
+  }, {
+    name: {value: 'obj', writable: true, configurable: true, enumerable: true},
+    obj: {value: true, writable: true, configurable: true, enumerable: true},
+    'non-enum': {value: 'non-enumerable', writable: true, enumerable: false},
+    doStuff: {value: function() {}, enumerable: true}
+});
+
+// get enumerable properties on an object and its ancestors
+function get_property_names(obj) {
+    var properties = [];
+    for (var p in obj) {
+        properties.push(p);
+    }
+    return properties;
+}
+
+get_property_names(obj);
+//["name", "obj", "doStuff", "proto", "doNothing"]
+
+Object.getOwnPropertyNames(obj);
+//["name", "obj", "non-enum", "doStuff"]
+
+Object.keys(obj);
+//["name", "obj", "doStuff"]
+
+Object.entries(obj);
+//[["name", "obj"], ["obj", true], ["doStuff", function()]]
 
 
+/// rawSolutions:
 =={{header|JavaScript}}==
 There are multiple ways of getting property names, each of which include different subsets of an object's properties, such as enumerable or inherited properties. Properties in JavaScript can be enumerable or non-enumerable; enumerable properties are accessable when looping over the object with <code>for</code>. <code>Object.getOwnPropertyNames()</code>.
 
@@ -44,3 +104,10 @@ Object.entries(obj);
 //[["name", "obj"], ["obj", true], ["doStuff", function()]]
 </lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,16 +1,54 @@
-Plasma effect
 
-{{task}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-The <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Plasma_effect" title="wp: Plasma_effect">plasma effect</a> is a visual effect created by applying various functions, notably sine and cosine, to the color values of screen pixels. When animated (not a task requirement) the effect may give the impression of a colorful flowing liquid.
+const assert = require('chai').assert;
+
+/// title: Plasma effect
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// The <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Plasma_effect" title="wp: Plasma_effect">plasma effect</a> is a visual effect created by applying various functions, notably sine and cosine, to the color values of screen pixels. When animated (not a task requirement) the effect may give the impression of a colorful flowing liquid.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task</dt></dl>
+/// Create a plasma effect.
+/// <br><br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">See also</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">[http://lodev.org/cgtutor/plasma.html Computer Graphics Tutorial (lodev.org)]</li>
+/// <li class="rosetta__list-item">[http://www.bidouille.org/prog/plasma Plasma (bidouille.org)]</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
-;Task
-Create a plasma effect.
-<br><br>
+/// rawSolutions:
+null
 
-;See also
-* [http://lodev.org/cgtutor/plasma.html Computer Graphics Tutorial (lodev.org)]
-* [http://www.bidouille.org/prog/plasma Plasma (bidouille.org)]
-<br><br>
+/// tail:
+const replaceThis = 3;
 
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

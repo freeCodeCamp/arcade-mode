@@ -1,28 +1,89 @@
-Cartesian product of two or more lists
 
-{{task}}
-;Task:
-Show one or more idiomatic ways of generating the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Cartesian_product" title="wp: Cartesian_product">Cartesian product</a> of two arbitrary lists in your language.
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-Demonstrate that your function/method correctly returns:
-::{1, 2} × {3, 4} = {(1, 3), (1, 4), (2, 3), (2, 4)}
+const assert = require('chai').assert;
 
-and, in contrast:
-::{3, 4} × {1, 2} = {(3, 1), (3, 2), (4, 1), (4, 2)}
+/// title: Cartesian product of two or more lists
+/// type: rosetta-code
 
-Also demonstrate, using your function/method, that the product of an empty list with any other list is empty.
-:: {1, 2} × {} = {}
-:: {} × {1, 2} = {}
+/// categories:
+/// ?
 
-For extra credit, show or write a function returning the n-ary product of an arbitrary number of lists, each of arbitrary length. Your function might, for example, accept a single argument which is itself a list of lists, and return the n-ary product of those lists.
+/// difficulty: ?
 
-Use your <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Cartesian_product#Finite_n-ary_product" title="wp: Cartesian_product#Finite_n-ary_product">n-ary Cartesian product</a> function to show the following products:
-:: {1776, 1789} × {7, 12} × {4, 14, 23} × {0, 1}
-:: {1, 2, 3} × {30} × {500, 100}
-:: {1, 2, 3} × {} × {500, 100}
+/// benchmark:
+replaceWithActualFunctionHere;
 
-<br>
+/// description:
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Show one or more idiomatic ways of generating the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Cartesian_product" title="wp: Cartesian_product">Cartesian product</a> of two arbitrary lists in your language.
+/// <br>
+/// Demonstrate that your function/method correctly returns:
+/// <span class="rosetta__text--indented">:{1, 2} × {3, 4} = {(1, 3), (1, 4), (2, 3), (2, 4)}</span>
+/// <br>
+/// and, in contrast:
+/// <span class="rosetta__text--indented">:{3, 4} × {1, 2} = {(3, 1), (3, 2), (4, 1), (4, 2)}</span>
+/// <br>
+/// Also demonstrate, using your function/method, that the product of an empty list with any other list is empty.
+/// <span class="rosetta__text--indented">: {1, 2} × {} = {}</span>
+/// <span class="rosetta__text--indented">: {} × {1, 2} = {}</span>
+/// <br>
+/// For extra credit, show or write a function returning the n-ary product of an arbitrary number of lists, each of arbitrary length. Your function might, for example, accept a single argument which is itself a list of lists, and return the n-ary product of those lists.
+/// <br>
+/// Use your <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Cartesian_product#Finite_n-ary_product" title="wp: Cartesian_product#Finite_n-ary_product">n-ary Cartesian product</a> function to show the following products:
+/// <span class="rosetta__text--indented">: {1776, 1789} × {7, 12} × {4, 14, 23} × {0, 1}</span>
+/// <span class="rosetta__text--indented">: {1, 2, 3} × {30} × {500, 100}</span>
+/// <span class="rosetta__text--indented">: {1, 2, 3} × {} × {500, 100}</span>
+/// <br>
+/// <br>
+/// <br>
 
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+(() => {
+
+    // CARTESIAN PRODUCT OF TWO LISTS -----------------------------------------
+
+    // cartProd :: [a] -> [b] -> [[a, b]]
+    const cartProd = (xs, ys) =>
+        concatMap((x => concatMap(y => [
+            [x, y]
+        ], ys)), xs);
+
+
+    // GENERIC FUNCTIONS ------------------------------------------------------
+
+    // concatMap :: (a -> [b]) -> [a] -> [b]
+    const concatMap = (f, xs) => [].concat.apply([], xs.map(f));
+
+    // map :: (a -> b) -> [a] -> [b]
+    const map = (f, xs) => xs.map(f);
+
+    // show :: a -> String
+    const show = x => JSON.stringify(x); //, null, 2);
+
+    // unlines :: [String] -> String
+    const unlines = xs => xs.join('\n');
+
+    // TEST -------------------------------------------------------------------
+    return unlines(map(show, [
+        cartProd([1, 2], [3, 4]),
+        cartProd([3, 4], [1, 2]),
+        cartProd([1, 2], []),
+        cartProd([], [1, 2]),
+    ]));
+})();
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 ===ES6===
 ====Functional====
@@ -263,3 +324,10 @@ Imperative implementations of Cartesian products are inevitably less compact and
 
 []</pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,8 +1,44 @@
-Create a file
 
-{{task|File System Operations}} [[Category:Simple]]
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-In this task, the job is to create a new empty file called "output.txt" of size 0 bytes
-and an empty directory called "docs". This should be done twice: once "here", i.e. in the current working directory and once in the filesystem root.
+const assert = require('chai').assert;
+
+/// title: Create a file
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+///  [[Category:Simple]]
+/// <br>
+/// In this task, the job is to create a new empty file called "output.txt" of size 0 bytes
+/// and an empty directory called "docs". This should be done twice: once "here", i.e. in the current working directory and once in the filesystem root.
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

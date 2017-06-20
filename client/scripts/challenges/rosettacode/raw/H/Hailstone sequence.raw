@@ -1,30 +1,85 @@
-Hailstone sequence
 
-{{task}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-The Hailstone sequence of numbers can be generated from a starting positive integer, &nbsp; n &nbsp; by:
-* &nbsp; If &nbsp; n &nbsp; is &nbsp; &nbsp; <span class="rosetta__text--bold">1</span> &nbsp; &nbsp; then the sequence ends.
-* &nbsp; If &nbsp; n &nbsp; is &nbsp; <span class="rosetta__text--bold">even</span> then the next &nbsp; n &nbsp; of the sequence &nbsp; <big><code> = n/2 </code></big>
-* &nbsp; If &nbsp; n &nbsp; is &nbsp; <span class="rosetta__text--bold">odd</span>  &nbsp; then the next &nbsp; n &nbsp; of the sequence &nbsp; <big><code> = (3 * n) + 1 </code></big>
+const assert = require('chai').assert;
 
+/// title: Hailstone sequence
+/// type: rosetta-code
 
-The (unproven) <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Collatz conjecture" title="wp: Collatz conjecture">Collatz conjecture</a> is that the hailstone sequence for any starting number always terminates.
+/// categories:
+/// ?
 
+/// difficulty: ?
 
-The hailstone sequence is also known as <span class="rosetta__text--italic">hailstone numbers</span> (because the values are usually subject to multiple descents and ascents like hailstones in a cloud), or as the <span class="rosetta__text--italic">Collatz sequence</span>.
+/// benchmark:
+replaceWithActualFunctionHere;
 
+/// description:
+/// <br>
+/// <br>
+/// The Hailstone sequence of numbers can be generated from a starting positive integer, &nbsp; n &nbsp; by:
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">&nbsp; If &nbsp; n &nbsp; is &nbsp; &nbsp; <span class="rosetta__text--bold">1</span> &nbsp; &nbsp; then the sequence ends.</li>
+/// <li class="rosetta__list-item">&nbsp; If &nbsp; n &nbsp; is &nbsp; <span class="rosetta__text--bold">even</span> then the next &nbsp; n &nbsp; of the sequence &nbsp; <big><code> = n/2 </code></big></li>
+/// <li class="rosetta__list-item">&nbsp; If &nbsp; n &nbsp; is &nbsp; <span class="rosetta__text--bold">odd</span>  &nbsp; then the next &nbsp; n &nbsp; of the sequence &nbsp; <big><code> = (3 * n) + 1 </code></big></li>
+/// <br>
+/// </ul>
+/// <br>
+/// The (unproven) <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Collatz conjecture" title="wp: Collatz conjecture">Collatz conjecture</a> is that the hailstone sequence for any starting number always terminates.
+/// <br>
+/// <br>
+/// The hailstone sequence is also known as <span class="rosetta__text--italic">hailstone numbers</span> (because the values are usually subject to multiple descents and ascents like hailstones in a cloud), or as the <span class="rosetta__text--italic">Collatz sequence</span>.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// # Create a routine to generate the hailstone sequence for a number.
+/// # Use the routine to show that the hailstone sequence for the number 27 has 112 elements starting with <code>27, 82, 41, 124</code> and ending with <code>8, 4, 2, 1</code>
+/// # Show the number less than 100,000 which has the longest hailstone sequence together with that sequence's length.<br> &nbsp;  (But don't show the actual sequence!)
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">See also:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">&nbsp; [http://xkcd.com/710 xkcd] (humourous).</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
 
-;Task:
-# Create a routine to generate the hailstone sequence for a number.
-# Use the routine to show that the hailstone sequence for the number 27 has 112 elements starting with <code>27, 82, 41, 124</code> and ending with <code>8, 4, 2, 1</code>
-# Show the number less than 100,000 which has the longest hailstone sequence together with that sequence's length.<br> &nbsp;  (But don't show the actual sequence!)
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
+/// solutions:
+function hailstone (n) {
+    var seq = [n];
+    while (n > 1) {
+        n = n % 2 ? 3 * n + 1 : n / 2;
+        seq.push(n);
+    }
+    return seq;
+}
 
-;See also:
-* &nbsp; [http://xkcd.com/710 xkcd] (humourous).
-<br><br>
+// task 2: verify the sequence for n = 27
+var h = hailstone(27), hLen = h.length;
+print("sequence 27 is (" + h.slice(0, 4).join(", ") + " ... "
+    + h.slice(hLen - 4, hLen).join(", ") + "). length: " + hLen);
 
+// task 3: find the longest sequence for n < 100000
+for (var n, max = 0, i = 100000; --i;) {
+    var seq = hailstone(i), sLen = seq.length;
+    if (sLen > max) {
+        n = i;
+        max = sLen;
+    }
+}
+print("longest sequence: " + max + " numbers for starting point " + n);
 
+/// rawSolutions:
 =={{header|JavaScript}}==
 ===ES5===
 ====Imperative====
@@ -314,3 +369,10 @@ Longest sequence for an integer under N:
 ]
 [Finished in 2.897s]</pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

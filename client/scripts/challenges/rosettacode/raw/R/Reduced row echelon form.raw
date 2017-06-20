@@ -1,55 +1,137 @@
-Reduced row echelon form
 
-{{wikipedia|Rref#Pseudocode}}
-{{task|Matrices}}
-{{omit from|GUISS}}
-Show how to compute the <span class="rosetta__text--bold">reduced row echelon form</span> 
-(a.k.a. <span class="rosetta__text--bold">row canonical form</span>) of a matrix. 
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-The matrix can be stored in any datatype that is convenient 
-(for most languages, this will probably be a two-dimensional array). 
+const assert = require('chai').assert;
 
-Built-in functions or this pseudocode (from Wikipedia) may be used:
- <span class="rosetta__text--bold">function</span> ToReducedRowEchelonForm(Matrix M) <span class="rosetta__text--bold">is</span>
-     <span class="rosetta__text--italic">lead</span> := 0
-     <span class="rosetta__text--italic">rowCount</span> := the number of rows in M
-     <span class="rosetta__text--italic">columnCount</span> := the number of columns in M
-     <span class="rosetta__text--bold">for</span> 0 &le; <span class="rosetta__text--italic">r</span> < <span class="rosetta__text--italic">rowCount</span> <span class="rosetta__text--bold">do</span>
-         <span class="rosetta__text--bold">if</span> <span class="rosetta__text--italic">columnCount</span> &le; <span class="rosetta__text--italic">lead</span> <span class="rosetta__text--bold">then</span>
-             <span class="rosetta__text--bold">stop</span>
-         <span class="rosetta__text--bold">end if</span>
-         <span class="rosetta__text--italic">i</span> = <span class="rosetta__text--italic">r</span>
-         <span class="rosetta__text--bold">while</span> M[<span class="rosetta__text--italic">i</span>, <span class="rosetta__text--italic">lead</span>] = 0 <span class="rosetta__text--bold">do</span>
-             <span class="rosetta__text--italic">i</span> = <span class="rosetta__text--italic">i</span> + 1
-             <span class="rosetta__text--bold">if</span> <span class="rosetta__text--italic">rowCount</span> = <span class="rosetta__text--italic">i</span> <span class="rosetta__text--bold">then</span>
-                 <span class="rosetta__text--italic">i</span> = <span class="rosetta__text--italic">r</span>
-                 <span class="rosetta__text--italic">lead</span> = <span class="rosetta__text--italic">lead</span> + 1
-                 <span class="rosetta__text--bold">if</span> <span class="rosetta__text--italic">columnCount</span> = <span class="rosetta__text--italic">lead</span> <span class="rosetta__text--bold">then</span>
-                     <span class="rosetta__text--bold">stop</span>
-                 <span class="rosetta__text--bold">end if</span>
-             <span class="rosetta__text--bold">end if</span>
-         <span class="rosetta__text--bold">end while</span>
-         Swap rows <span class="rosetta__text--italic">i</span> and <span class="rosetta__text--italic">r</span>
-         If M[<span class="rosetta__text--italic">r</span>, <span class="rosetta__text--italic">lead</span>] is not 0 divide row <span class="rosetta__text--italic">r</span> by M[<span class="rosetta__text--italic">r</span>, <span class="rosetta__text--italic">lead</span>]
-         <span class="rosetta__text--bold">for</span> 0 &le; <span class="rosetta__text--italic">i</span> < <span class="rosetta__text--italic">rowCount</span> <span class="rosetta__text--bold">do</span>
-             <span class="rosetta__text--bold">if</span> <span class="rosetta__text--italic">i</span> ≠ <span class="rosetta__text--italic">r</span> <span class="rosetta__text--bold">do</span>
-                 Subtract M[i, lead] multiplied by row <span class="rosetta__text--italic">r</span> from row <span class="rosetta__text--italic">i</span>
-             <span class="rosetta__text--bold">end if</span>
-         <span class="rosetta__text--bold">end for</span>
-         <span class="rosetta__text--italic">lead</span> = <span class="rosetta__text--italic">lead</span> + 1
-     <span class="rosetta__text--bold">end for</span>
- <span class="rosetta__text--bold">end function</span>
+/// title: Reduced row echelon form
+/// type: rosetta-code
 
-For testing purposes, the RREF of this matrix:
-<pre>1   2   -1   -4
-2   3   -1   -11
--2   0   -3   22</pre>
-is:
-<pre>1   0   0   -8
-0   1   0   1
-0   0   1   -2</pre>
+/// categories:
+/// ?
 
+/// difficulty: ?
 
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// <br>
+/// Show how to compute the <span class="rosetta__text--bold">reduced row echelon form</span> 
+/// (a.k.a. <span class="rosetta__text--bold">row canonical form</span>) of a matrix. 
+/// <br>
+/// The matrix can be stored in any datatype that is convenient 
+/// (for most languages, this will probably be a two-dimensional array). 
+/// <br>
+/// Built-in functions or this pseudocode (from Wikipedia) may be used:
+///  <span class="rosetta__text--bold">function</span> ToReducedRowEchelonForm(Matrix M) <span class="rosetta__text--bold">is</span>
+///      <span class="rosetta__text--italic">lead</span> := 0
+///      <span class="rosetta__text--italic">rowCount</span> := the number of rows in M
+///      <span class="rosetta__text--italic">columnCount</span> := the number of columns in M
+///      <span class="rosetta__text--bold">for</span> 0 &le; <span class="rosetta__text--italic">r</span> < <span class="rosetta__text--italic">rowCount</span> <span class="rosetta__text--bold">do</span>
+///          <span class="rosetta__text--bold">if</span> <span class="rosetta__text--italic">columnCount</span> &le; <span class="rosetta__text--italic">lead</span> <span class="rosetta__text--bold">then</span>
+///              <span class="rosetta__text--bold">stop</span>
+///          <span class="rosetta__text--bold">end if</span>
+///          <span class="rosetta__text--italic">i</span> = <span class="rosetta__text--italic">r</span>
+///          <span class="rosetta__text--bold">while</span> M[<span class="rosetta__text--italic">i</span>, <span class="rosetta__text--italic">lead</span>] = 0 <span class="rosetta__text--bold">do</span>
+///              <span class="rosetta__text--italic">i</span> = <span class="rosetta__text--italic">i</span> + 1
+///              <span class="rosetta__text--bold">if</span> <span class="rosetta__text--italic">rowCount</span> = <span class="rosetta__text--italic">i</span> <span class="rosetta__text--bold">then</span>
+///                  <span class="rosetta__text--italic">i</span> = <span class="rosetta__text--italic">r</span>
+///                  <span class="rosetta__text--italic">lead</span> = <span class="rosetta__text--italic">lead</span> + 1
+///                  <span class="rosetta__text--bold">if</span> <span class="rosetta__text--italic">columnCount</span> = <span class="rosetta__text--italic">lead</span> <span class="rosetta__text--bold">then</span>
+///                      <span class="rosetta__text--bold">stop</span>
+///                  <span class="rosetta__text--bold">end if</span>
+///              <span class="rosetta__text--bold">end if</span>
+///          <span class="rosetta__text--bold">end while</span>
+///          Swap rows <span class="rosetta__text--italic">i</span> and <span class="rosetta__text--italic">r</span>
+///          If M[<span class="rosetta__text--italic">r</span>, <span class="rosetta__text--italic">lead</span>] is not 0 divide row <span class="rosetta__text--italic">r</span> by M[<span class="rosetta__text--italic">r</span>, <span class="rosetta__text--italic">lead</span>]
+///          <span class="rosetta__text--bold">for</span> 0 &le; <span class="rosetta__text--italic">i</span> < <span class="rosetta__text--italic">rowCount</span> <span class="rosetta__text--bold">do</span>
+///              <span class="rosetta__text--bold">if</span> <span class="rosetta__text--italic">i</span> ≠ <span class="rosetta__text--italic">r</span> <span class="rosetta__text--bold">do</span>
+///                  Subtract M[i, lead] multiplied by row <span class="rosetta__text--italic">r</span> from row <span class="rosetta__text--italic">i</span>
+///              <span class="rosetta__text--bold">end if</span>
+///          <span class="rosetta__text--bold">end for</span>
+///          <span class="rosetta__text--italic">lead</span> = <span class="rosetta__text--italic">lead</span> + 1
+///      <span class="rosetta__text--bold">end for</span>
+///  <span class="rosetta__text--bold">end function</span>
+/// <br>
+/// For testing purposes, the RREF of this matrix:
+/// <pre>1   2   -1   -4
+/// 2   3   -1   -11
+/// -2   0   -3   22</pre>
+/// is:
+/// <pre>1   0   0   -8
+/// 0   1   0   1
+/// 0   0   1   -2</pre>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+// modifies the matrix in-place
+Matrix.prototype.toReducedRowEchelonForm = function() {
+    var lead = 0;
+    for (var r = 0; r < this.rows(); r++) {
+        if (this.columns() <= lead) {
+            return;
+        }
+        var i = r;
+        while (this.mtx[i][lead] == 0) {
+            i++;
+            if (this.rows() == i) {
+                i = r;
+                lead++;
+                if (this.columns() == lead) {
+                    return;
+                }
+            }
+        }
+
+        var tmp = this.mtx[i];
+        this.mtx[i] = this.mtx[r];
+        this.mtx[r] = tmp;
+
+        var val = this.mtx[r][lead];
+        for (var j = 0; j < this.columns(); j++) {
+            this.mtx[r][j] /= val;
+        }
+
+        for (var i = 0; i < this.rows(); i++) {
+            if (i == r) continue;
+            val = this.mtx[i][lead];
+            for (var j = 0; j < this.columns(); j++) {
+                this.mtx[i][j] -= val * this.mtx[r][j];
+            }
+        }
+        lead++;
+    }
+    return this;
+}
+
+var m = new Matrix([
+  [ 1, 2, -1, -4],
+  [ 2, 3, -1,-11],
+  [-2, 0, -3, 22]
+]);
+print(m.toReducedRowEchelonForm());
+print();
+
+m = new Matrix([
+  [ 1, 2, 3, 7],
+  [-4, 7,-2, 7],
+  [ 3, 3, 0, 7]
+]);
+print(m.toReducedRowEchelonForm());
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 {{works with|SpiderMonkey}} for the <code>print()</code> function.
 Extends the Matrix class defined at [[Matrix Transpose#JavaScript]]
@@ -117,3 +199,10 @@ print(m.toReducedRowEchelonForm());</lang>
 0,0,1,1</pre>
 
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,13 +1,42 @@
-Loops/Downward for
 
-{{task|Iteration}} 
-[[Category:Simple]]
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Write a &nbsp; <big><big> <span class="rosetta__text--italic">for</span> </big></big> &nbsp; loop which writes a countdown from &nbsp; <span class="rosetta__text--bold">10</span> &nbsp; to &nbsp; <span class="rosetta__text--bold">0</span>.
-<br><br>
+const assert = require('chai').assert;
 
+/// title: Loops/Downward for
+/// type: rosetta-code
 
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+///  
+/// [[Category:Simple]]
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Write a &nbsp; <big><big> <span class="rosetta__text--italic">for</span> </big></big> &nbsp; loop which writes a countdown from &nbsp; <span class="rosetta__text--bold">10</span> &nbsp; to &nbsp; <span class="rosetta__text--bold">0</span>.
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+for (var i=10; i>=0; --i) print(i);
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 <lang javascript>for (var i=10; i>=0; --i) print(i);</lang>
 
@@ -57,3 +86,10 @@ but in this case, we are simply mapping an identity function over the values, so
     range(0, 10).reverse().join('\n')
 );</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

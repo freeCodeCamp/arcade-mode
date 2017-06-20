@@ -1,27 +1,67 @@
-Extreme floating point values
 
-{{task}} [[Category:Irrational numbers]]
-{{omit from|BBC BASIC}}
-{{omit from|Golfscript}}
-{{omit from|Retro}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-The IEEE floating point specification defines certain 'extreme' floating point values such as minus zero, -0.0, a value distinct from plus zero; not a number, NaN; and plus and minus infinity.
+const assert = require('chai').assert;
 
-The task is to use expressions involving other 'normal' floating point values in your language to calculate these, (and maybe other), extreme floating point values in your language and assign them to variables. 
+/// title: Extreme floating point values
+/// type: rosetta-code
 
-Print the values of these variables if possible; and show some arithmetic with these values and variables. 
+/// categories:
+/// ?
 
-If your language can directly enter these extreme floating point values then show it.
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+///  [[Category:Irrational numbers]]
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// The IEEE floating point specification defines certain 'extreme' floating point values such as minus zero, -0.0, a value distinct from plus zero; not a number, NaN; and plus and minus infinity.
+/// <br>
+/// The task is to use expressions involving other 'normal' floating point values in your language to calculate these, (and maybe other), extreme floating point values in your language and assign them to variables. 
+/// <br>
+/// Print the values of these variables if possible; and show some arithmetic with these values and variables. 
+/// <br>
+/// If your language can directly enter these extreme floating point values then show it.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">See also:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">&nbsp; [http://www.cl.cam.ac.uk/teaching/1011/FPComp/floatingmath.pdf What Every Computer Scientist Should Know About Floating-Point Arithmetic]</li>
+/// <br>
+/// </ul>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">&nbsp; [[Infinity]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[Detect division by zero]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[Literals/Floating point]]</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
-;See also:
-* &nbsp; [http://www.cl.cam.ac.uk/teaching/1011/FPComp/floatingmath.pdf What Every Computer Scientist Should Know About Floating-Point Arithmetic]
+/// rawSolutions:
+null
 
+/// tail:
+const replaceThis = 3;
 
-;Related tasks:
-* &nbsp; [[Infinity]]
-* &nbsp; [[Detect division by zero]]
-* &nbsp; [[Literals/Floating point]]
-<br><br>
-
-
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

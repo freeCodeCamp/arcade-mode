@@ -1,19 +1,57 @@
-Tokenize a string
 
-{{task|String manipulation}} 
-[[Category:Simple]]
-Separate the string "Hello,How,Are,You,Today" by commas into an array (or list) so that each element of it stores a different word. 
-Display the words to the 'user', in the simplest manner possible, 
-separated by a period. 
-To simplify, you may display a trailing period.
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-<span class="rosetta__text--bold"><span class="rosetta__text--italic">Related tasks:</span></span>
+const assert = require('chai').assert;
 
-* [[Tokenize a string with escaping]]
+/// title: Tokenize a string
+/// type: rosetta-code
 
+/// categories:
+/// ?
 
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+///  
+/// [[Category:Simple]]
+/// Separate the string "Hello,How,Are,You,Today" by commas into an array (or list) so that each element of it stores a different word. 
+/// Display the words to the 'user', in the simplest manner possible, 
+/// separated by a period. 
+/// To simplify, you may display a trailing period.
+/// <br>
+/// <span class="rosetta__text--bold"><span class="rosetta__text--italic">Related tasks:</span></span>
+/// <br>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">[[Tokenize a string with escaping]]</li>
+/// <br>
+/// </ul>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+alert( "Hello,How,Are,You,Today".split(",").join(".") );
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 {{works with|Firefox|2.0}}
 
 <lang javascript>alert( "Hello,How,Are,You,Today".split(",").join(".") );</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

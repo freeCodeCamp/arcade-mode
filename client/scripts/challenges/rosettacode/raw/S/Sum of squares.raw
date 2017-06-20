@@ -1,18 +1,59 @@
-Sum of squares
 
-{{task|Arithmetic operations}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Write a program to find the sum of squares of a numeric vector. 
+const assert = require('chai').assert;
 
-The program should work on a zero-length vector (with an answer of &nbsp; <span class="rosetta__text--bold">0</span>).
+/// title: Sum of squares
+/// type: rosetta-code
 
+/// categories:
+/// ?
 
-;Related task:
-* &nbsp; [[Mean]]
-<br><br>
+/// difficulty: ?
 
+/// benchmark:
+replaceWithActualFunctionHere;
 
+/// description:
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Write a program to find the sum of squares of a numeric vector. 
+/// <br>
+/// The program should work on a zero-length vector (with an answer of &nbsp; <span class="rosetta__text--bold">0</span>).
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related task:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">&nbsp; [[Mean]]</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+function sumsq(array) {
+  var sum = 0;
+  var i, iLen;
+
+  for (i = 0, iLen = array.length; i < iLen; i++) {
+    sum += array[i] * array[i];
+  }
+  return sum;
+}
+
+alert(sumsq([1,2,3,4,5]));  // 55
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 ===ES5===
 <lang javascript>function sumsq(array) {
@@ -75,3 +116,10 @@ Two ways of composing a sumOfSquares function
 <pre>133
 133</pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,16 +1,54 @@
-Hostname
 
-{{task|Programming environment operations}}
-[[Category:Networking and Web Interaction]]
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Find the name of the host on which the routine is running.
-<br><br>
+const assert = require('chai').assert;
 
+/// title: Hostname
+/// type: rosetta-code
 
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// [[Category:Networking and Web Interaction]]
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Find the name of the host on which the routine is running.
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+var network = new ActiveXObject('WScript.Network');
+var hostname = network.computerName;
+WScript.echo(hostname);
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 {{works with|JScript}}
 <lang javascript>var network = new ActiveXObject('WScript.Network');
 var hostname = network.computerName;
 WScript.echo(hostname);</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

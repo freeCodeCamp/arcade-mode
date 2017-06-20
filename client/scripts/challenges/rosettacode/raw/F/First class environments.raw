@@ -1,21 +1,57 @@
-First class environments
 
-{{task|Classic CS problems and programs}}
-According to <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/First-class_object" title="wp: First-class_object">Wikipedia</a>, "In computing, a first-class object ... is an entity that can be constructed at run-time, passed as a parameter, returned from a subroutine, or assigned into a variable".
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-Often this term is used in the context of "first class functions". In an analogous way, a programming language may support "first class environments".
+const assert = require('chai').assert;
 
-The environment is minimally, the set of variables accessable to a statement being executed. Change the environments and the same statement could produce different results when executed.
+/// title: First class environments
+/// type: rosetta-code
 
-Often an environment is captured in a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Closure_(computer_science)" title="wp: Closure_(computer_science)">closure</a>, which encapsulates a function together with an environment. That environment, however, is <span class="rosetta__text--bold">not</span> first-class, as it cannot be created, passed etc. independently from the function's code.
+/// categories:
+/// ?
 
-Therefore, a first class environment is a set of variable bindings which can be constructed at run-time, passed as a parameter, returned from a subroutine, or assigned into a variable. It is like a closure without code. A statement must be able to be executed within a stored first class environment and act according to the environment variable values stored within. 
+/// difficulty: ?
 
-The task: Build a dozen environments, and a single piece of code to be run repeatedly in each of these envionments.
+/// benchmark:
+replaceWithActualFunctionHere;
 
-Each environment contains the bindings for two variables: A value in the [[Hailstone sequence]], and a count which is incremented until the value drops to 1. The initial hailstone values are 1 through 12, and the count in each environment is zero.
+/// description:
+/// <br>
+/// According to <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/First-class_object" title="wp: First-class_object">Wikipedia</a>, "In computing, a first-class object ... is an entity that can be constructed at run-time, passed as a parameter, returned from a subroutine, or assigned into a variable".
+/// <br>
+/// Often this term is used in the context of "first class functions". In an analogous way, a programming language may support "first class environments".
+/// <br>
+/// The environment is minimally, the set of variables accessable to a statement being executed. Change the environments and the same statement could produce different results when executed.
+/// <br>
+/// Often an environment is captured in a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Closure_(computer_science)" title="wp: Closure_(computer_science)">closure</a>, which encapsulates a function together with an environment. That environment, however, is <span class="rosetta__text--bold">not</span> first-class, as it cannot be created, passed etc. independently from the function's code.
+/// <br>
+/// Therefore, a first class environment is a set of variable bindings which can be constructed at run-time, passed as a parameter, returned from a subroutine, or assigned into a variable. It is like a closure without code. A statement must be able to be executed within a stored first class environment and act according to the environment variable values stored within. 
+/// <br>
+/// The task: Build a dozen environments, and a single piece of code to be run repeatedly in each of these envionments.
+/// <br>
+/// Each environment contains the bindings for two variables: A value in the [[Hailstone sequence]], and a count which is incremented until the value drops to 1. The initial hailstone values are 1 through 12, and the count in each environment is zero.
+/// <br>
+/// When the code runs, it calculates the next hailstone step in the current environment (unless the value is already 1) and counts the steps. Then it prints the current value in a tabular form.
+/// <br>
+/// When all hailstone values dropped to 1, processing stops, and the total number of hailstone steps for each environment is printed.
+/// <br>
 
-When the code runs, it calculates the next hailstone step in the current environment (unless the value is already 1) and counts the steps. Then it prints the current value in a tabular form.
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
-When all hailstone values dropped to 1, processing stops, and the total number of hailstone steps for each environment is printed.
+/// solutions:
 
+
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

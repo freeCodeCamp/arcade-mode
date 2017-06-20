@@ -1,12 +1,47 @@
-Loops/For with a specified step
 
-{{task|Iteration}}
-[[Category:Simple]]
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-Demonstrate a for-loop where the step-value is greater than one.
-<br><br>
+const assert = require('chai').assert;
 
+/// title: Loops/For with a specified step
+/// type: rosetta-code
 
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// [[Category:Simple]]
+/// <br>
+/// Demonstrate a for-loop where the step-value is greater than one.
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+var output = '',
+    i;
+for (i = 2; i <= 8; i += 2) {
+   output += i + ', ';
+}
+output += 'who do we appreciate?';
+document.write(output);
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 <lang javascript>var output = '',
     i;
@@ -45,3 +80,10 @@ console.log(
 Output:
 <pre>2, 4, 6, 8, who do we appreciate ?</pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

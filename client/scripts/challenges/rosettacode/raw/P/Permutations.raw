@@ -1,20 +1,73 @@
-Permutations
 
-{{task|Discrete math}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Write a program that generates all &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Permutation" title="wp: Permutation">permutations</a> &nbsp; of &nbsp; <span class="rosetta__text--bold">n</span> &nbsp; different objects. &nbsp; (Practically numerals!)
- 
+const assert = require('chai').assert;
 
-;Related tasks: 
-* &nbsp; [[Find the missing permutation]]
-* &nbsp; [[Permutations/Derangements]]
+/// title: Permutations
+/// type: rosetta-code
 
+/// categories:
+/// ?
 
-{{Template:Combinations and permutations}}
-<br><br>
+/// difficulty: ?
 
+/// benchmark:
+replaceWithActualFunctionHere;
 
+/// description:
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Write a program that generates all &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Permutation" title="wp: Permutation">permutations</a> &nbsp; of &nbsp; <span class="rosetta__text--bold">n</span> &nbsp; different objects. &nbsp; (Practically numerals!)
+///  
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks: </dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">&nbsp; [[Find the missing permutation]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[Permutations/Derangements]]</li>
+/// <br>
+/// </ul>
+/// <br>
+/// <br>
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+<html><head><title>Permutations</title></head>
+<body><pre id="result"></pre>
+<script type="text/javascript">
+var d = document.getElementById('result');
+
+function perm(list, ret)
+{
+    if (list.length == 0) {
+        var row = document.createTextNode(ret.join(' ') + '\n');
+        d.appendChild(row);
+        return;
+    }
+    for (var i = 0; i < list.length; i++) {
+        var x = list.splice(i, 1);
+        ret.push(x);
+        perm(list, ret);
+        ret.pop();
+        list.splice(i, 0, x);
+    }
+}
+
+perm([1, 2, 'A', 4], []);
+</script></body></html>
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 ===ES5===
 ====Iteration====
@@ -163,3 +216,10 @@ ants,eat,Aardvarks</lang>
  ["eat", "Aardvarks", "ants"], ["eat", "ants", "Aardvarks"], 
 ["ants", "Aardvarks", "eat"], ["ants", "eat", "Aardvarks"]]</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

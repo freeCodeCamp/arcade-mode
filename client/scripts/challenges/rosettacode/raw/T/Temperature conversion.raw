@@ -1,41 +1,83 @@
-Temperature conversion
 
-{{task}}
-{{omit from|Lilypond}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-There are quite a number of temperature scales. For this task we will concentrate on four of the perhaps best-known ones: 
-<a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Kelvin" title="wp: Kelvin">Kelvin]], [[wp:Degree Celsius|Celsius]], [[wp:Fahrenheit|Fahrenheit]], and  [[wp:Degree Rankine|Rankine</a>.
+const assert = require('chai').assert;
 
-The Celsius and Kelvin scales have the same magnitude, but different null points.
+/// title: Temperature conversion
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// <br>
+/// There are quite a number of temperature scales. For this task we will concentrate on four of the perhaps best-known ones: 
+/// <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Kelvin" title="wp: Kelvin">Kelvin]], [[wp:Degree Celsius|Celsius]], [[wp:Fahrenheit|Fahrenheit]], and  [[wp:Degree Rankine|Rankine</a>.
+/// <br>
+/// The Celsius and Kelvin scales have the same magnitude, but different null points.
+///  
+/// <span class="rosetta__text--indented"> 0 degrees Celsius corresponds to 273.15 kelvin.</span>
+/// <span class="rosetta__text--indented"> 0 kelvin is absolute zero.</span>
+/// <br>
+/// The Fahrenheit and Rankine scales also have the same magnitude, but different null points.
+/// <br>
+/// <span class="rosetta__text--indented"> 0 degrees Fahrenheit corresponds to 459.67 degrees Rankine.</span>
+/// <span class="rosetta__text--indented"> 0 degrees Rankine is absolute zero.</span>
+/// <br>
+/// The Celsius/Kelvin and Fahrenheit/Rankine scales have a ratio of 5 : 9.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task</dt></dl>
+/// Write code that accepts a value of kelvin, converts it to values of the three other scales, and prints the result. 
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Example:</dt></dl>
+/// <pre>
+/// K  21.00
+/// <br>
+/// C  -252.15
+/// <br>
+/// F  -421.87
+/// <br>
+/// R  37.80
+/// </pre>
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+var k2c = k => k - 273.15
+var k2r = k => k * 1.8
+var k2f = k => k2r(k) - 459.67
+
+Number.prototype.toMaxDecimal = function (d) {
+	return +this.toFixed(d) + ''
+}
+
+function kCnv(k) {
+	document.write( k,'K° = ', k2c(k).toMaxDecimal(2),'C° = ', k2r(k).toMaxDecimal(2),'R° = ', k2f(k).toMaxDecimal(2),'F°<br>' ) 
+}
  
-: 0 degrees Celsius corresponds to 273.15 kelvin.
-: 0 kelvin is absolute zero.
+kCnv(21)
+kCnv(295)
 
-The Fahrenheit and Rankine scales also have the same magnitude, but different null points.
-
-: 0 degrees Fahrenheit corresponds to 459.67 degrees Rankine.
-: 0 degrees Rankine is absolute zero.
-
-The Celsius/Kelvin and Fahrenheit/Rankine scales have a ratio of 5 : 9.
-
-
-;Task
-Write code that accepts a value of kelvin, converts it to values of the three other scales, and prints the result. 
-
-
-;Example:
-<pre>
-K  21.00
-
-C  -252.15
-
-F  -421.87
-
-R  37.80
-</pre>
-<br><br>
-
-
+/// rawSolutions:
 =={{header|JavaScript}}==
 
 ===ES5===
@@ -110,3 +152,10 @@ C   -252.15
 F   -421.87
 R     37.80</pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,23 +1,61 @@
-Hash from two arrays
 
-{{task|Basic language learning}} 
-[[Category:Data Structures]]
-{{omit from|BASIC}} <!-- Does not have hash tables or other map structures. -->
-{{omit from|PowerBASIC}} 
-{{omit from|TI-83 BASIC}} 
-{{omit from|TI-89 BASIC}} 
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Using two Arrays of equal length, create a Hash object 
-where the elements from one array (the keys) are linked 
-to the elements of the other (the values)
+const assert = require('chai').assert;
+
+/// title: Hash from two arrays
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+///  
+/// [[Category:Data Structures]]
+///  <!-- Does not have hash tables or other map structures. -->
+///  
+///  
+///  
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Using two Arrays of equal length, create a Hash object 
+/// where the elements from one array (the keys) are linked 
+/// to the elements of the other (the values)
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related task:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">&nbsp; [[Associative arrays/Creation]]</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+var keys = ['a', 'b', 'c'];
+var values = [1, 2, 3];
+var map = {};
+for(var i = 0; i < keys.length; i += 1) {
+  map[ keys[i] ] = values[i];
+}
 
 
-;Related task:
-* &nbsp; [[Associative arrays/Creation]]
-<br><br>
-
-
+/// rawSolutions:
 =={{header|JavaScript}}==
 
 ===Iterative===
@@ -51,3 +89,10 @@ function arrToObj(keys, vals) {
 }
 </lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

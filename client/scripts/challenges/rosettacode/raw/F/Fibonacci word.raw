@@ -1,37 +1,170 @@
-Fibonacci word
 
-{{task}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-The &nbsp; Fibonacci Word &nbsp; may be created in a manner analogous to the &nbsp; Fibonacci Sequence &nbsp;  [http://hal.archives-ouvertes.fr/docs/00/36/79/72/PDF/The_Fibonacci_word_fractal.pdf as described here]:
+const assert = require('chai').assert;
 
-     Define &nbsp; F_Word<sub>1</sub> &nbsp; as &nbsp; <span class="rosetta__text--bold">1</span>
-     Define &nbsp; F_Word<sub>2</sub> &nbsp; as &nbsp; <span class="rosetta__text--bold">0</span>
-     Form &nbsp; &nbsp; F_Word<sub>3</sub> &nbsp; as &nbsp; F_Word<sub>2</sub> &nbsp; &nbsp; concatenated with &nbsp; F_Word<sub>1</sub> &nbsp;  i.e.: &nbsp; <span class="rosetta__text--bold">01</span>
-     Form &nbsp; &nbsp; F_Word<sub>n</sub> &nbsp; as &nbsp; F_Word<sub>n-1</sub> &nbsp; concatenated with &nbsp; F_word<sub>n-2</sub>
+/// title: Fibonacci word
+/// type: rosetta-code
 
+/// categories:
+/// ?
 
-;Task:
-Perform the above steps for &nbsp; &nbsp; n = 37.
+/// difficulty: ?
 
-You may display the first few but not the larger values of &nbsp; n.
-<br><small>{Doing so will get the task's author into trouble with them what be (again!).} </small>
+/// benchmark:
+replaceWithActualFunctionHere;
 
-Instead, create a table for &nbsp; F_Words &nbsp; <span class="rosetta__text--bold">1</span> &nbsp; to &nbsp; <span class="rosetta__text--bold">37</span> &nbsp; which shows:
-::* &nbsp; The number of characters in the word
-::* &nbsp; The word's <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Entropy]]
+/// description:
+/// <br>
+/// <br>
+/// The &nbsp; Fibonacci Word &nbsp; may be created in a manner analogous to the &nbsp; Fibonacci Sequence &nbsp;  [http://hal.archives-ouvertes.fr/docs/00/36/79/72/PDF/The_Fibonacci_word_fractal.pdf as described here]:
+/// <br>
+///      Define &nbsp; F_Word<sub>1</sub> &nbsp; as &nbsp; <span class="rosetta__text--bold">1</span>
+///      Define &nbsp; F_Word<sub>2</sub> &nbsp; as &nbsp; <span class="rosetta__text--bold">0</span>
+///      Form &nbsp; &nbsp; F_Word<sub>3</sub> &nbsp; as &nbsp; F_Word<sub>2</sub> &nbsp; &nbsp; concatenated with &nbsp; F_Word<sub>1</sub> &nbsp;  i.e.: &nbsp; <span class="rosetta__text--bold">01</span>
+///      Form &nbsp; &nbsp; F_Word<sub>n</sub> &nbsp; as &nbsp; F_Word<sub>n-1</sub> &nbsp; concatenated with &nbsp; F_word<sub>n-2</sub>
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Perform the above steps for &nbsp; &nbsp; n = 37.
+/// <br>
+/// You may display the first few but not the larger values of &nbsp; n.
+/// <br><small>{Doing so will get the task's author into trouble with them what be (again!).} </small>
+/// <br>
+/// Instead, create a table for &nbsp; F_Words &nbsp; <span class="rosetta__text--bold">1</span> &nbsp; to &nbsp; <span class="rosetta__text--bold">37</span> &nbsp; which shows:
+/// <span class="rosetta__text--indented">:* &nbsp; The number of characters in the word</span>
+/// <span class="rosetta__text--indented">:* &nbsp; The word's <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Entropy]]</span>
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks:  </dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">&nbsp; [[Fibonacci_word/fractal" title="Entropy]]</li>
+/// <br>
+/// </ul>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks:  </dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">&nbsp; [[Fibonacci_word/fractal">Fibonacci word/fractal</a></li>
+/// <li class="rosetta__list-item">&nbsp; [[Entropy]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[Entropy/Narcissist]]</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
 
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
-;Related tasks:  
-* &nbsp; [[Fibonacci_word/fractal" title="Entropy]]
+/// solutions:
+//makes outputting a table possible in environments 
+//that don't support console.table() 
+function console_table(xs) {
+    function pad(n,s) {
+        var res = s;
+        for (var i = s.length; i < n; i++)
+            res += " ";
+        return res;
+    }
 
+    if (xs.length === 0)
+        console.log("No data");
+    else {
+        var widths = [];
+        var cells = [];
+        for (var i = 0; i <= xs.length; i++)
+            cells.push([]);
+        
+        for (var s in xs[0]) {
+            var len = s.length;
+            cells[0].push(s);
+            
+            for (var i = 0; i < xs.length; i++) {
+                var ss = "" + xs[i][s];
+                len = Math.max(len, ss.length);
+                cells[i+1].push(ss);
+            }
+            widths.push(len);
+        }
+        var s = "";
+        for (var x = 0; x < cells.length; x++) {
+            for (var y = 0; y < widths.length; y++)
+                s += "|" + pad(widths[y], cells[x][y]);
+            s += "|\n";
+        }
+        console.log(s);
+    }
+}
 
-;Related tasks:  
-* &nbsp; [[Fibonacci_word/fractal">Fibonacci word/fractal</a>
-* &nbsp; [[Entropy]]
-* &nbsp; [[Entropy/Narcissist]]
-<br><br>
+//returns the entropy of a string as a number 
+function entropy(s) {
+     //create an object containing each individual char
+	//and the amount of iterations per char 
+    function prob(s) {
+        var h = Object.create(null);
+        s.split('').forEach(function(c) {
+           h[c] && h[c]++ || (h[c] = 1); 
+        });
+        return h;
+    }
+    
+    s = s.toString(); //just in case 
+    var e = 0, l = s.length, h = prob(s);
+    
+    for (var i in h ) {
+        var p = h[i]/l;
+        e -= p * Math.log(p) / Math.log(2);
+    }
+    return e;
+}
 
+//creates Fibonacci Word to n as described on Rosetta Code
+//see rosettacode.org/wiki/Fibonacci_word
+function fibWord(n) {
+    var wOne = "1", wTwo = "0", wNth = [wOne, wTwo], w = "", o = [];
+    
+    for (var i = 0; i < n; i++) {
+        if (i === 0 || i === 1) {
+            w = wNth[i];
+        } else {
+            w = wNth[i - 1] + wNth[i - 2];
+            wNth.push(w);
+        }
+        var l = w.length;
+        var e = entropy(w);
+        
+        if (l <= 21) {
+        	o.push({
+            	N: i + 1,
+            	Length: l,
+            	Entropy: e,
+            	Word: w
+        	});
+        } else {
+        	o.push({
+            	N: i + 1,
+            	Length: l,
+            	Entropy: e,
+            	Word: "..."
+        	});
+        }            
+    }
+    
+    try {
+    	console.table(o);
+    } catch (err) {
+    	console_table(o);
+    }
+}
 
+fibWord(37);
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 <lang JavaScript>//makes outputting a table possible in environments 
 //that don't support console.table() 
@@ -175,3 +308,10 @@ Output:
 |37|24157817|0.9594187282227447|...                  |</pre>
 
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,26 +1,65 @@
-Ordered words
 
-{{task|text processing}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-An &nbsp; <span class="rosetta__text--italic">ordered word</span> &nbsp; is a word in which the letters appear in alphabetic order. 
+const assert = require('chai').assert;
 
-Examples include &nbsp; <span class="rosetta__text--bold">abbey</span> &nbsp; and &nbsp; <span class="rosetta__text--bold">dirt</span>. 
+/// title: Ordered words
+/// type: rosetta-code
 
-{{task heading}}
+/// categories:
+/// ?
 
-Find <span class="rosetta__text--italic">and display</span> all the ordered words in the dictionary &nbsp; [http://www.puzzlers.org/pub/wordlists/unixdict.txt unixdict.txt] &nbsp; that have the longest word length. 
+/// difficulty: ?
 
-(Examples that access the dictionary file locally assume that you have downloaded this file yourself.)  
+/// benchmark:
+replaceWithActualFunctionHere;
 
-The display needs to be shown on this page.
+/// description:
+/// <br>
+/// <br>
+/// An &nbsp; <span class="rosetta__text--italic">ordered word</span> &nbsp; is a word in which the letters appear in alphabetic order. 
+/// <br>
+/// Examples include &nbsp; <span class="rosetta__text--bold">abbey</span> &nbsp; and &nbsp; <span class="rosetta__text--bold">dirt</span>. 
+/// <br>
+/// <br>
+/// <br>
+/// Find <span class="rosetta__text--italic">and display</span> all the ordered words in the dictionary &nbsp; [http://www.puzzlers.org/pub/wordlists/unixdict.txt unixdict.txt] &nbsp; that have the longest word length. 
+/// <br>
+/// (Examples that access the dictionary file locally assume that you have downloaded this file yourself.)  
+/// <br>
+/// The display needs to be shown on this page.
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <hr>
+/// <br>
+/// <br>
 
-{{task heading|Related tasks}}
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
-{{Related tasks/Word plays}}
+/// solutions:
+var fs = require('fs'), print = require('sys').print;
+fs.readFile('./unixdict.txt', 'ascii', function (err, data) {
+    var is_ordered = function(word){return word.split('').sort().join('') === word;},
+        ordered_words = data.split('\n').filter(is_ordered).sort(function(a, b){return a.length - b.length}).reverse(),
+        longest = [], curr = len = ordered_words[0].length, lcv = 0;
+    while (curr === len){
+        longest.push(ordered_words[lcv]);
+        curr = ordered_words[++lcv].length;
+    };
+    print(longest.sort().join(', ') + '\n');
+});
 
-<hr>
-
-
+/// rawSolutions:
 =={{header|JavaScript}}==
 Using [http://nodejs.org/ node.js]:
 
@@ -67,3 +106,10 @@ http.get({
     console.log(ordered.join(', '));
   });
 });</lang>
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

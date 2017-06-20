@@ -1,23 +1,64 @@
-One-dimensional cellular automata
 
-{{task|Games}} [[Category:Cellular automata]]
-Assume an array of cells with an initial distribution of live and dead cells, 
-and imaginary cells off the end of the array having fixed values.
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-Cells in the next generation of the array are calculated based on the value of the cell and its left and right nearest neighbours in the current generation.
+const assert = require('chai').assert;
 
-If, in the following table, a live cell is represented by 1 and a dead cell by 0 then to generate the value of the cell at a particular index in the array of cellular values you use the following table:
+/// title: One-dimensional cellular automata
+/// type: rosetta-code
 
- 0<span class="rosetta__text--bold">0</span>0 -> 0  # 
- 0<span class="rosetta__text--bold">0</span>1 -> 0  #
- 0<span class="rosetta__text--bold">1</span>0 -> 0  # Dies without enough neighbours
- 0<span class="rosetta__text--bold">1</span>1 -> 1  # Needs one neighbour to survive
- 1<span class="rosetta__text--bold">0</span>0 -> 0  #
- 1<span class="rosetta__text--bold">0</span>1 -> 1  # Two neighbours giving birth
- 1<span class="rosetta__text--bold">1</span>0 -> 1  # Needs one neighbour to survive
- 1<span class="rosetta__text--bold">1</span>1 -> 0  # Starved to death.
+/// categories:
+/// ?
 
+/// difficulty: ?
 
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+///  [[Category:Cellular automata]]
+/// Assume an array of cells with an initial distribution of live and dead cells, 
+/// and imaginary cells off the end of the array having fixed values.
+/// <br>
+/// Cells in the next generation of the array are calculated based on the value of the cell and its left and right nearest neighbours in the current generation.
+/// <br>
+/// If, in the following table, a live cell is represented by 1 and a dead cell by 0 then to generate the value of the cell at a particular index in the array of cellular values you use the following table:
+/// <br>
+///  0<span class="rosetta__text--bold">0</span>0 -> 0  # 
+///  0<span class="rosetta__text--bold">0</span>1 -> 0  #
+///  0<span class="rosetta__text--bold">1</span>0 -> 0  # Dies without enough neighbours
+///  0<span class="rosetta__text--bold">1</span>1 -> 1  # Needs one neighbour to survive
+///  1<span class="rosetta__text--bold">0</span>0 -> 0  #
+///  1<span class="rosetta__text--bold">0</span>1 -> 1  # Two neighbours giving birth
+///  1<span class="rosetta__text--bold">1</span>0 -> 1  # Needs one neighbour to survive
+///  1<span class="rosetta__text--bold">1</span>1 -> 0  # Starved to death.
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+function caStep(old) {
+  var old = [0].concat(old, [0]); // Surround with dead cells.
+  var state = []; // The new state.
+  
+  for (var i=1; i<old.length-1; i++) {
+    switch (old[i-1] + old[i+1]) {
+      case 0: state[i-1] = 0; break;
+      case 1: state[i-1] = (old[i] == 1) ? 1 : 0; break;
+      case 2: state[i-1] = (old[i] == 1) ? 0 : 1; break;
+    }
+  }
+  return state;
+}
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 The example below expects an array of 1s or 0s, as in the example. 
 It also adds dead cells to both ends, 
@@ -44,3 +85,10 @@ state[i-1] refers to the new cell in question,
 shows an alert with "0,1,0,1,1,1,1,1,0,1,0,1,0,1,0,0,0,0,0,0".
 
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

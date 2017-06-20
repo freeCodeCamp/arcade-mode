@@ -1,30 +1,68 @@
-100 doors
 
-{{task}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-There are 100 doors in a row that are all initially closed. 
+const assert = require('chai').assert;
 
-You make 100 <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/task feature::Rosetta Code:multiple passes" title="task feature::Rosetta Code:multiple passes">passes</a> by the doors. 
+/// title: 100 doors
+/// type: rosetta-code
 
-The first time through, visit every door and &nbsp; <span class="rosetta__text--italic">toggle</span> &nbsp; the door &nbsp; (if the door is closed, &nbsp; open it; &nbsp; if it is open, &nbsp; close it). 
+/// categories:
+/// ?
 
-The second time, only visit every 2<sup>nd</sup> door &nbsp; (door #2, #4, #6, ...), &nbsp; and toggle it.  
+/// difficulty: ?
 
-The third time, visit every 3<sup>rd</sup> door &nbsp; (door #3, #6, #9, ...), etc, &nbsp; until you only visit the 100<sup>th</sup> door.
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// There are 100 doors in a row that are all initially closed. 
+/// <br>
+/// You make 100 <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/task feature::Rosetta Code:multiple passes" title="task feature::Rosetta Code:multiple passes">passes</a> by the doors. 
+/// <br>
+/// The first time through, visit every door and &nbsp; <span class="rosetta__text--italic">toggle</span> &nbsp; the door &nbsp; (if the door is closed, &nbsp; open it; &nbsp; if it is open, &nbsp; close it). 
+/// <br>
+/// The second time, only visit every 2<sup>nd</sup> door &nbsp; (door #2, #4, #6, ...), &nbsp; and toggle it.  
+/// <br>
+/// The third time, visit every 3<sup>rd</sup> door &nbsp; (door #3, #6, #9, ...), etc, &nbsp; until you only visit the 100<sup>th</sup> door.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Answer the question: &nbsp; what state are the doors in after the last pass? &nbsp; Which are open, which are closed?
+/// <br>
+/// <br>
+/// <span class="rosetta__text--bold"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/task feature::Rosetta Code:extra credit" title="task feature::Rosetta Code:extra credit">Alternate</a>:</span>  
+/// As noted in this page's &nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Talk:100 doors" title="Talk:100 doors">discussion page</a>, &nbsp; the only doors that remain open are those whose numbers are perfect squares.
+/// <br>
+/// Opening only those doors is an &nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/task feature::Rosetta Code:optimization" title="task feature::Rosetta Code:optimization">optimization</a> &nbsp; that may also be expressed; 
+/// however, as should be obvious, this defeats the intent of comparing implementations across programming languages.
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+var doors=[];
+for(var i=0;i<100;i++)
+ doors[i]=false;             //create doors
+for(var i=1;i<=100;i++)
+ for(var i2=i-1,g;i2<100;i2+=i)
+  doors[i2]=!doors[i2];      //toggle doors
+for(var i=1;i<=100;i++)      //read doors
+ console.log("Door %d is %s",i,doors[i-1]?"open":"closed")
 
 
-;Task:
-Answer the question: &nbsp; what state are the doors in after the last pass? &nbsp; Which are open, which are closed?
-
-
-<span class="rosetta__text--bold"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/task feature::Rosetta Code:extra credit" title="task feature::Rosetta Code:extra credit">Alternate</a>:</span>  
-As noted in this page's &nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Talk:100 doors" title="Talk:100 doors">discussion page</a>, &nbsp; the only doors that remain open are those whose numbers are perfect squares.
-
-Opening only those doors is an &nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/task feature::Rosetta Code:optimization" title="task feature::Rosetta Code:optimization">optimization</a> &nbsp; that may also be expressed; 
-however, as should be obvious, this defeats the intent of comparing implementations across programming languages.
-<br><br>
-
-
+/// rawSolutions:
 =={{header|JavaScript}}==
 === ES5 ===
 ==== Iterative ====
@@ -300,3 +338,10 @@ Or using a more general function for listing perfect squares:
 
 <lang JavaScript>[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

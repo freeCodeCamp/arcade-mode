@@ -1,22 +1,52 @@
-String case
 
-{{task|String manipulation}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Take the string &nbsp; &nbsp; <span class="rosetta__text--bold">alphaBETA</span> &nbsp; &nbsp; and demonstrate how to convert it to:
-:::* &nbsp; upper-case &nbsp; &nbsp; and 
-:::* &nbsp; lower-case
+const assert = require('chai').assert;
 
-<br>
-Use the default encoding of a string literal or plain ASCII if there is no string literal in your language.
+/// title: String case
+/// type: rosetta-code
 
-Show any additional case conversion functions &nbsp; (e.g. swapping case, capitalizing the first letter, etc.) &nbsp; that may be included in the library of your language.
+/// categories:
+/// ?
 
+/// difficulty: ?
 
-{{Template:Strings}}
-<br><br>
+/// benchmark:
+replaceWithActualFunctionHere;
 
+/// description:
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Take the string &nbsp; &nbsp; <span class="rosetta__text--bold">alphaBETA</span> &nbsp; &nbsp; and demonstrate how to convert it to:
+/// <span class="rosetta__text--indented">::* &nbsp; upper-case &nbsp; &nbsp; and </span>
+/// <span class="rosetta__text--indented">::* &nbsp; lower-case</span>
+/// <br>
+/// <br>
+/// Use the default encoding of a string literal or plain ASCII if there is no string literal in your language.
+/// <br>
+/// Show any additional case conversion functions &nbsp; (e.g. swapping case, capitalizing the first letter, etc.) &nbsp; that may be included in the library of your language.
+/// <br>
+/// <br>
+/// <br>
+/// <br><br>
+/// <br>
+/// <br>
 
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+alert( "alphaBETA".toUpperCase() );
+alert( "alphaBETA".toLowerCase() );
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 <lang javascript>alert( "alphaBETA".toUpperCase() );
 alert( "alphaBETA".toLowerCase() );</lang>
@@ -30,3 +60,10 @@ Output:
 var uppercase = string.toUpperCase();
 var lowercase = string.toLowerCase();</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

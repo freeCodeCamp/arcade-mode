@@ -1,27 +1,95 @@
-Runge-Kutta method
 
-{{task}}
-Given the example Differential equation:
-:$y'(t) = t \times \sqrt {y(t)}$
-With initial condition:
-:$t_0 = 0$ and $y_0 = y(t_0) = y(0) = 1$
-This equation has an exact solution:
-:$y(t) = \tfrac{1}{16}(t^2 +4)^2$
-;Task
-Demonstrate the commonly used explicit &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Runge–Kutta_methods#Common_fourth-order_Runge.E2.80.93Kutta_method" title="wp: Runge–Kutta_methods#Common_fourth-order_Runge.E2.80.93Kutta_method">fourth-order Runge–Kutta method</a> &nbsp; to solve the above differential equation.
-* Solve the given differential equation over the range $t = 0 \ldots 10$ with a step value of $\delta t=0.1$ (101 total points, the first being given)
-* Print the calculated values of $y$ at whole numbered $t$'s ($0.0, 1.0, \ldots 10.0$) along with error as compared to the exact solution.
-;Method summary
-Starting with a given $y_n$ and $t_n$ calculate:
-:$\delta y_1 = \delta t\times y'(t_n, y_n)\quad$
-:$\delta y_2 = \delta t\times y'(t_n + \tfrac{1}{2}\delta t , y_n + \tfrac{1}{2}\delta y_1)$
-:$\delta y_3 = \delta t\times y'(t_n + \tfrac{1}{2}\delta t , y_n + \tfrac{1}{2}\delta y_2)$
-:$\delta y_4 = \delta t\times y'(t_n + \delta t , y_n + \delta y_3)\quad$
-then:
-:$y_{n+1} = y_n + \tfrac{1}{6} (\delta y_1 + 2\delta y_2 + 2\delta y_3 + \delta y_4)$
-:$t_{n+1} = t_n + \delta t\quad$
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Runge-Kutta method
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// Given the example Differential equation:
+/// <span class="rosetta__text--indented">$y'(t) = t \times \sqrt {y(t)}$</span>
+/// With initial condition:
+/// <span class="rosetta__text--indented">$t_0 = 0$ and $y_0 = y(t_0) = y(0) = 1$</span>
+/// This equation has an exact solution:
+/// <span class="rosetta__text--indented">$y(t) = \tfrac{1}{16}(t^2 +4)^2$</span>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task</dt></dl>
+/// Demonstrate the commonly used explicit &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Runge–Kutta_methods#Common_fourth-order_Runge.E2.80.93Kutta_method" title="wp: Runge–Kutta_methods#Common_fourth-order_Runge.E2.80.93Kutta_method">fourth-order Runge–Kutta method</a> &nbsp; to solve the above differential equation.
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">Solve the given differential equation over the range $t = 0 \ldots 10$ with a step value of $\delta t=0.1$ (101 total points, the first being given)</li>
+/// <li class="rosetta__list-item">Print the calculated values of $y$ at whole numbered $t$'s ($0.0, 1.0, \ldots 10.0$) along with error as compared to the exact solution.</li>
+/// <br>
+/// </ul><dl class="rosetta__description-list"><dt class="rosetta__description-title">Method summary</dt></dl>
+/// Starting with a given $y_n$ and $t_n$ calculate:
+/// <span class="rosetta__text--indented">$\delta y_1 = \delta t\times y'(t_n, y_n)\quad$</span>
+/// <span class="rosetta__text--indented">$\delta y_2 = \delta t\times y'(t_n + \tfrac{1}{2}\delta t , y_n + \tfrac{1}{2}\delta y_1)$</span>
+/// <span class="rosetta__text--indented">$\delta y_3 = \delta t\times y'(t_n + \tfrac{1}{2}\delta t , y_n + \tfrac{1}{2}\delta y_2)$</span>
+/// <span class="rosetta__text--indented">$\delta y_4 = \delta t\times y'(t_n + \delta t , y_n + \delta y_3)\quad$</span>
+/// then:
+/// <span class="rosetta__text--indented">$y_{n+1} = y_n + \tfrac{1}{6} (\delta y_1 + 2\delta y_2 + 2\delta y_3 + \delta y_4)$</span>
+/// <span class="rosetta__text--indented">$t_{n+1} = t_n + \delta t\quad$</span>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+function rk4(y, x, dx, f) {
+    var k1 = dx * f(x, y),
+        k2 = dx * f(x + dx / 2.0,   +y + k1 / 2.0),
+        k3 = dx * f(x + dx / 2.0,   +y + k2 / 2.0),
+        k4 = dx * f(x + dx,         +y + k3);
+
+    return y + (k1 + 2.0 * k2 + 2.0 * k3 + k4) / 6.0;
+}
+
+function f(x, y) {
+    return x * Math.sqrt(y);
+}
+
+function actual(x) {
+    return (1/16) * (x*x+4)*(x*x+4);
+}
+
+var y = 1.0,
+    x = 0.0,
+    step = 0.1,
+    steps = 0,
+    maxSteps = 101,
+    sampleEveryN = 10;
+
+while (steps < maxSteps) {
+    if (steps%sampleEveryN === 0) {
+        console.log("y(" + x + ") =  \t" + y + "\t ± " + (actual(x) - y).toExponential());
+    }
+
+    y = rk4(y, x, step, f);
+
+    // using integer math for the step addition
+    // to prevent floating point errors as 0.2 + 0.1 != 0.3
+    x = ((x * 10) + (step * 10)) / 10;
+    steps += 1;
+}
 
 
+/// rawSolutions:
 =={{header|JavaScript}}==
 <lang JavaScript>
 function rk4(y, x, dx, f) {
@@ -76,3 +144,10 @@ y(9) =  	451.56245927683966	 ± 4.07231603389846e-5
 y(10) =  	675.9999490167097	 ± 5.098329029351589e-5
 </pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

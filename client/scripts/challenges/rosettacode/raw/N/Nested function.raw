@@ -1,28 +1,67 @@
-Nested function
 
-{{task}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-In many languages, functions can be nested, resulting in outer functions and inner functions. The inner function can access variables from the outer function. In most languages, the inner function can also modify variables in the outer function.
+const assert = require('chai').assert;
 
-<span class="rosetta__text--bold">The Task</span>
+/// title: Nested function
+/// type: rosetta-code
 
-Write a program consisting of two nested functions that prints the following text.
+/// categories:
+/// ?
 
- 1. first
- 2. second
- 3. third
+/// difficulty: ?
 
-The outer function (called <tt>MakeList</tt> or equivalent) is responsible for creating the list as a whole and is given the separator <tt>". "</tt> as argument. It also defines a counter variable to keep track of the item number. This demonstrates how the inner function can influence the variables in the outer function.
+/// benchmark:
+replaceWithActualFunctionHere;
 
-The inner function (called <tt>MakeItem</tt> or equivalent) is responsible for creating a list item. It accesses the separator from the outer function and modifies the counter.
+/// description:
+/// <br>
+/// <br>
+/// In many languages, functions can be nested, resulting in outer functions and inner functions. The inner function can access variables from the outer function. In most languages, the inner function can also modify variables in the outer function.
+/// <br>
+/// <span class="rosetta__text--bold">The Task</span>
+/// <br>
+/// Write a program consisting of two nested functions that prints the following text.
+/// <br>
+///  1. first
+///  2. second
+///  3. third
+/// <br>
+/// The outer function (called <tt>MakeList</tt> or equivalent) is responsible for creating the list as a whole and is given the separator <tt>". "</tt> as argument. It also defines a counter variable to keep track of the item number. This demonstrates how the inner function can influence the variables in the outer function.
+/// <br>
+/// The inner function (called <tt>MakeItem</tt> or equivalent) is responsible for creating a list item. It accesses the separator from the outer function and modifies the counter.
+/// <br>
+/// <span class="rosetta__text--bold">References:</span>
+/// <br>
+/// <span class="rosetta__text--indented">* <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Nested_function" title="wp: Nested_function">Nested function</a></span>
+/// <br>
+/// [[Category:Scope]][[Category:Functions and subroutines]]
+/// <br>
+/// <br>
 
-<span class="rosetta__text--bold">References:</span>
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
-:* <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Nested_function" title="wp: Nested_function">Nested function</a>
+/// solutions:
+function makeList(separator) {
+  var counter = 1;
 
-[[Category:Scope]][[Category:Functions and subroutines]]
+  function makeItem(item) {
+    return counter++ + separator + item + "\n";
+  }
 
+  return makeItem("first") + makeItem("second") + makeItem("third");
+}
 
+console.log(makeList(". "));
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 
 <lang javascript>function makeList(separator) {
@@ -37,3 +76,10 @@ The inner function (called <tt>MakeItem</tt> or equivalent) is responsible for c
 
 console.log(makeList(". "));</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

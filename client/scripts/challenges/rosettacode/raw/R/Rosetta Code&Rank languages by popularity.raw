@@ -1,45 +1,81 @@
-Rosetta Code/Rank languages by popularity
 
-{{task|Text processing}}<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category:Networking and Web Interaction]][[Category:Sorting]][[Category:Rosetta Code related]]
-Sort most popular programming languages based in number of members in Rosetta Code categories.
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-Sample output on 4 March 2017:
+const assert = require('chai').assert;
 
-<pre>
-rank:  1 (936 entries) Racket
-rank:  2 (929 entries) Python
-rank:  3 (904 entries) Tcl
-rank:  4 (871 entries) Perl 6
-rank:  5 (862 entries) J
-rank:  6 (831 entries) Zkl
-rank:  7 (830 entries) Ruby
-rank:  8 (804 entries) C
-rank:  9 (792 entries) Go
-rank: 10 (782 entries) Haskell
-...</pre>
+/// title: Rosetta Code/Rank languages by popularity
+/// type: rosetta-code
 
-<span class="rosetta__text--bold">Notes</span>
-*Each language typically demonstrates 1 or 2 methods of accessing the data: with web scraping (via http://www.rosettacode.org/mw/index.php?title=Special:Categories&limit=5000), and/or with the API method (examples below for [[Rosetta Code/Rank languages by popularity#AWK" title="Category:Networking and Web Interaction]][[Category:Sorting]][[Category:Rosetta Code related]]
-Sort most popular programming languages based in number of members in Rosetta Code categories.
+/// categories:
+/// ?
 
-Sample output on 4 March 2017:
+/// difficulty: ?
 
-<pre>
-rank:  1 (936 entries) Racket
-rank:  2 (929 entries) Python
-rank:  3 (904 entries) Tcl
-rank:  4 (871 entries) Perl 6
-rank:  5 (862 entries) J
-rank:  6 (831 entries) Zkl
-rank:  7 (830 entries) Ruby
-rank:  8 (804 entries) C
-rank:  9 (792 entries) Go
-rank: 10 (782 entries) Haskell
-...</pre>
+/// benchmark:
+replaceWithActualFunctionHere;
 
-<span class="rosetta__text--bold">Notes</span>
-*Each language typically demonstrates 1 or 2 methods of accessing the data: with web scraping (via http://www.rosettacode.org/mw/index.php?title=Special:Categories&limit=5000), and/or with the API method (examples below for [[Rosetta Code/Rank languages by popularity#AWK">Awk</a>, <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Rosetta Code/Rank languages by popularity#Perl" title="Rosetta Code/Rank languages by popularity#Perl">Perl</a>, <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Rosetta Code/Rank languages by popularity#Ruby" title="Rosetta Code/Rank languages by popularity#Ruby">Ruby</a>, <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Rosetta Code/Rank languages by popularity#Tcl" title="Rosetta Code/Rank languages by popularity#Tcl">Tcl</a>, etc). The scraping and API solutions can be separate subsections, see the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Rosetta Code/Rank languages by popularity#Tcl" title="Rosetta Code/Rank languages by popularity#Tcl">Tcl example</a>.
-*Filtering wrong results is optional. You can check against [[Special:MostLinkedCategories]] (if using web scraping)
-*A complete ranked listing of all &nbsp; <span class="rosetta__text--bold">635</span> &nbsp; languages (from the REXX example) is included here &nbsp; ──► &nbsp; [[RC_POP.OUT]]. <br><br>
+/// description:
+/// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category:Networking and Web Interaction]][[Category:Sorting]][[Category:Rosetta Code related]]
+/// Sort most popular programming languages based in number of members in Rosetta Code categories.
+/// <br>
+/// Sample output on 4 March 2017:
+/// <br>
+/// <pre>
+/// rank:  1 (936 entries) Racket
+/// rank:  2 (929 entries) Python
+/// rank:  3 (904 entries) Tcl
+/// rank:  4 (871 entries) Perl 6
+/// rank:  5 (862 entries) J
+/// rank:  6 (831 entries) Zkl
+/// rank:  7 (830 entries) Ruby
+/// rank:  8 (804 entries) C
+/// rank:  9 (792 entries) Go
+/// rank: 10 (782 entries) Haskell
+/// ...</pre>
+/// <br>
+/// <span class="rosetta__text--bold">Notes</span>
+/// *Each language typically demonstrates 1 or 2 methods of accessing the data: with web scraping (via http://www.rosettacode.org/mw/index.php?title=Special:Categories&limit=5000), and/or with the API method (examples below for [[Rosetta Code/Rank languages by popularity#AWK" title="Category:Networking and Web Interaction]][[Category:Sorting]][[Category:Rosetta Code related]]
+/// Sort most popular programming languages based in number of members in Rosetta Code categories.
+/// <br>
+/// Sample output on 4 March 2017:
+/// <br>
+/// <pre>
+/// rank:  1 (936 entries) Racket
+/// rank:  2 (929 entries) Python
+/// rank:  3 (904 entries) Tcl
+/// rank:  4 (871 entries) Perl 6
+/// rank:  5 (862 entries) J
+/// rank:  6 (831 entries) Zkl
+/// rank:  7 (830 entries) Ruby
+/// rank:  8 (804 entries) C
+/// rank:  9 (792 entries) Go
+/// rank: 10 (782 entries) Haskell
+/// ...</pre>
+/// <br>
+/// <span class="rosetta__text--bold">Notes</span>
+/// *Each language typically demonstrates 1 or 2 methods of accessing the data: with web scraping (via http://www.rosettacode.org/mw/index.php?title=Special:Categories&limit=5000), and/or with the API method (examples below for [[Rosetta Code/Rank languages by popularity#AWK">Awk</a>, <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Rosetta Code/Rank languages by popularity#Perl" title="Rosetta Code/Rank languages by popularity#Perl">Perl</a>, <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Rosetta Code/Rank languages by popularity#Ruby" title="Rosetta Code/Rank languages by popularity#Ruby">Ruby</a>, <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Rosetta Code/Rank languages by popularity#Tcl" title="Rosetta Code/Rank languages by popularity#Tcl">Tcl</a>, etc). The scraping and API solutions can be separate subsections, see the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Rosetta Code/Rank languages by popularity#Tcl" title="Rosetta Code/Rank languages by popularity#Tcl">Tcl example</a>.
+/// *Filtering wrong results is optional. You can check against [[Special:MostLinkedCategories]] (if using web scraping)
+/// *A complete ranked listing of all &nbsp; <span class="rosetta__text--bold">635</span> &nbsp; languages (from the REXX example) is included here &nbsp; ──► &nbsp; [[RC_POP.OUT]]. <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

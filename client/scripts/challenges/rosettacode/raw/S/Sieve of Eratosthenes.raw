@@ -1,37 +1,96 @@
-Sieve of Eratosthenes
 
-{{task|Prime Numbers}}
-{{clarified-review}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-The <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes" title="wp: Sieve_of_Eratosthenes">Sieve of Eratosthenes</a> is a simple algorithm that finds the prime numbers up to a given integer. 
+const assert = require('chai').assert;
 
+/// title: Sieve of Eratosthenes
+/// type: rosetta-code
 
-;Task:
-Implement the &nbsp; Sieve of Eratosthenes &nbsp; algorithm, with the only allowed optimization that the outer loop can stop at the square root of the limit, and the inner loop may start at the square of the prime just found. 
+/// categories:
+/// ?
 
-That means especially that you shouldn't optimize by using pre-computed <span class="rosetta__text--italic">wheels</span>, i.e. don't assume you need only to cross out odd numbers (wheel based on 2), numbers equal to 1 or 5 modulo 6 (wheel based on 2 and 3), or similar wheels based on low primes.
+/// difficulty: ?
 
-If there's an easy way to add such a wheel based optimization, implement it as an alternative version.
+/// benchmark:
+replaceWithActualFunctionHere;
 
+/// description:
+/// <br>
+/// <br>
+/// <br>
+/// The <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes" title="wp: Sieve_of_Eratosthenes">Sieve of Eratosthenes</a> is a simple algorithm that finds the prime numbers up to a given integer. 
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Implement the &nbsp; Sieve of Eratosthenes &nbsp; algorithm, with the only allowed optimization that the outer loop can stop at the square root of the limit, and the inner loop may start at the square of the prime just found. 
+/// <br>
+/// That means especially that you shouldn't optimize by using pre-computed <span class="rosetta__text--italic">wheels</span>, i.e. don't assume you need only to cross out odd numbers (wheel based on 2), numbers equal to 1 or 5 modulo 6 (wheel based on 2 and 3), or similar wheels based on low primes.
+/// <br>
+/// If there's an easy way to add such a wheel based optimization, implement it as an alternative version.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Note:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">It is important that the sieve algorithm be the actual algorithm used to find prime numbers for the task.</li>
+/// <br>
+/// </ul>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">&nbsp; [[Emirp primes]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[count in factors]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[prime decomposition]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[factors of an integer]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[extensible prime generator]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[primality by trial division]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[factors of a Mersenne number]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[trial factoring of a Mersenne number]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[partition an integer X into N primes]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[sequence of primes by Trial Division]]</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
 
-;Note:
-* It is important that the sieve algorithm be the actual algorithm used to find prime numbers for the task.
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
+/// solutions:
+function eratosthenes(limit) {
+    var primes = [];
+    if (limit >= 2) {
+        var sqrtlmt = Math.sqrt(limit) - 2;
+        var nums = new Array(); // start with an empty Array...
+        for (var i = 2; i <= limit; i++) // and
+            nums.push(i); // only initialize the Array once...
+        for (var i = 0; i <= sqrtlmt; i++) {
+            var p = nums[i]
+            if (p)
+                for (var j = p * p - 2; j < nums.length; j += p)
+                    nums[j] = 0;
+        }
+        for (var i = 0; i < nums.length; i++) {
+            var p = nums[i];
+            if (p)
+                primes.push(p);
+        }
+    }
+    return primes;
+}
 
-;Related tasks:
-* &nbsp; [[Emirp primes]]
-* &nbsp; [[count in factors]]
-* &nbsp; [[prime decomposition]]
-* &nbsp; [[factors of an integer]]
-* &nbsp; [[extensible prime generator]]
-* &nbsp; [[primality by trial division]]
-* &nbsp; [[factors of a Mersenne number]]
-* &nbsp; [[trial factoring of a Mersenne number]]
-* &nbsp; [[partition an integer X into N primes]]
-* &nbsp; [[sequence of primes by Trial Division]]
-<br><br>
+var primes = eratosthenes(100);
 
+if (typeof print == "undefined")
+    print = (typeof WScript != "undefined") ? WScript.Echo : alert;
+print(primes);
 
+/// rawSolutions:
 =={{header|JavaScript}}==
 <lang javascript>function eratosthenes(limit) {
     var primes = [];
@@ -213,3 +272,10 @@ The above code is about fifty times faster (about five seconds to calculate 50 m
 
 The speed for both of these "infinite" solutions will also respond to further wheel factorization techniques, especially for the dictionary based version where any added overhead to deal with the factorization wheel will be negligible compared to the dictionary overhead.  The dictionary version would likely speed up about a factor of three or a little more with maximum wheel factorization applied; the page segmented version probably won't gain more than a factor of two and perhaps less due to the overheads of array look-up operations.
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,18 +1,56 @@
-Bulls and cows/Player
 
-{{task|Games}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Write a <span class="rosetta__text--italic">player</span> of the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Bulls and cows" title="Bulls and cows">Bulls and Cows game</a>, rather than a scorer. The player should give intermediate answers that respect the scores to previous attempts.
+const assert = require('chai').assert;
 
-One method is to generate a list of all possible numbers that could be the answer, then to prune the list by keeping only those numbers that would give an equivalent score to how your last guess was scored. Your next guess can be any number from the pruned list.<br>
-Either you guess correctly or run out of numbers to guess, which indicates a problem with the scoring.
+/// title: Bulls and cows/Player
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Write a <span class="rosetta__text--italic">player</span> of the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Bulls and cows" title="Bulls and cows">Bulls and Cows game</a>, rather than a scorer. The player should give intermediate answers that respect the scores to previous attempts.
+/// <br>
+/// One method is to generate a list of all possible numbers that could be the answer, then to prune the list by keeping only those numbers that would give an equivalent score to how your last guess was scored. Your next guess can be any number from the pruned list.<br>
+/// Either you guess correctly or run out of numbers to guess, which indicates a problem with the scoring.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">&nbsp; [[Bulls and cows]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[Guess the number]]</li>
+/// <li class="rosetta__list-item">&nbsp; [[Guess the number/With Feedback (Player)]]</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
-;Related tasks:
-* &nbsp; [[Bulls and cows]]
-* &nbsp; [[Guess the number]]
-* &nbsp; [[Guess the number/With Feedback (Player)]]
-<br><br>
+/// rawSolutions:
+null
 
+/// tail:
+const replaceThis = 3;
 
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

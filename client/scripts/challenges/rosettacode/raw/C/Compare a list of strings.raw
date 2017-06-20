@@ -1,32 +1,88 @@
-Compare a list of strings
 
-{{task}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Given a &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/List_(abstract_data_type)" title="wp: List_(abstract_data_type)">list</a> &nbsp; of arbitrarily many strings, show how to:
+const assert = require('chai').assert;
 
-* &nbsp; test if they are all lexically <span class="rosetta__text--bold">equal</span>
-* &nbsp; test if every string is lexically <span class="rosetta__text--bold">less than</span> the one after it  <span class="rosetta__text--italic">(i.e. whether the list is in strict ascending order)</span>
+/// title: Compare a list of strings
+/// type: rosetta-code
 
-<br>
-Each of those two tests should result in a single true or false value, which could be used as the condition of an &nbsp; <code> if </code> &nbsp; statement or similar. 
+/// categories:
+/// ?
 
-If the input list has less than two elements, the tests should always return true.
+/// difficulty: ?
 
-There is <span class="rosetta__text--italic">no</span> need to provide a complete program and output.
- 
-Assume that the strings are already stored in an array/list/sequence/tuple variable (whatever is most idiomatic) with the name &nbsp; <code>strings</code>, &nbsp; and just show the expressions for performing those two tests on it (plus of course any includes and custom functions etc. that it needs), &nbsp; with as little distractions as possible.
+/// benchmark:
+replaceWithActualFunctionHere;
 
-Try to write your solution in a way that does not modify the original list, &nbsp; but if it does then please add a note to make that clear to readers.
+/// description:
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Given a &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/List_(abstract_data_type)" title="wp: List_(abstract_data_type)">list</a> &nbsp; of arbitrarily many strings, show how to:
+/// <br>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">&nbsp; test if they are all lexically <span class="rosetta__text--bold">equal</span></li>
+/// <li class="rosetta__list-item">&nbsp; test if every string is lexically <span class="rosetta__text--bold">less than</span> the one after it  <span class="rosetta__text--italic">(i.e. whether the list is in strict ascending order)</span></li>
+/// <br>
+/// </ul>
+/// <br>
+/// Each of those two tests should result in a single true or false value, which could be used as the condition of an &nbsp; <code> if </code> &nbsp; statement or similar. 
+/// <br>
+/// If the input list has less than two elements, the tests should always return true.
+/// <br>
+/// There is <span class="rosetta__text--italic">no</span> need to provide a complete program and output.
+///  
+/// Assume that the strings are already stored in an array/list/sequence/tuple variable (whatever is most idiomatic) with the name &nbsp; <code>strings</code>, &nbsp; and just show the expressions for performing those two tests on it (plus of course any includes and custom functions etc. that it needs), &nbsp; with as little distractions as possible.
+/// <br>
+/// Try to write your solution in a way that does not modify the original list, &nbsp; but if it does then please add a note to make that clear to readers.
+/// <br>
+/// <i>If you need further guidance/clarification, &nbsp; see [[#Perl]] and [[#Python]] for solutions that use implicit short-circuiting loops, &nbsp; and [[#Perl_6]] for a solution that gets away with simply using a built-in language feature. </i>
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">&nbsp; [[String comparison]]</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
 
-<i>If you need further guidance/clarification, &nbsp; see [[#Perl]] and [[#Python]] for solutions that use implicit short-circuiting loops, &nbsp; and [[#Perl_6]] for a solution that gets away with simply using a built-in language feature. </i>
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+function allEqual(a) {
+  var out = true, i = 0;
+  while (++i<a.length) {
+    out = out && (a[i-1] === a[i]);
+  } return out;
+}
+
+function azSorted(a) {
+  var out = true, i = 0;
+  while (++i<a.length) {
+    out = out && (a[i-1] < a[i]);
+  } return out;
+}
+
+var e = ['AA', 'AA', 'AA', 'AA'], s = ['AA', 'ACB', 'BB', 'CC'], empty = [], single = ['AA'];
+console.log(allEqual(e)); // true
+console.log(allEqual(s)); // false
+console.log(allEqual(empty)); // true
+console.log(allEqual(single)); // true
+console.log(azSorted(e)); // false
+console.log(azSorted(s)); // true
+console.log(azSorted(empty)); // true
+console.log(azSorted(single)); // true
 
 
-;Related tasks:
-* &nbsp; [[String comparison]]
-<br><br>
-
-
+/// rawSolutions:
 =={{header|JavaScript}}==
 ===ES5===
 ====Iterative====
@@ -125,3 +181,10 @@ Using a generic zipWith, and functionally composed predicates:
   ]
 }</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

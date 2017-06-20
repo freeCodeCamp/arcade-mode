@@ -1,12 +1,48 @@
-Loops/Break
 
-{{task|Iteration}} [[Category:Loop modifiers]] [[Category:Simple]]
-Show a loop which prints random numbers (each number newly generated each loop) from 0 to 19 (inclusive). 
-If a number is 10, stop the loop after printing it, and do not generate any further numbers.  
-Otherwise, generate and print a second random number before restarting the loop.  
-If the number 10 is never generated as the first number in a loop, loop forever.
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
+const assert = require('chai').assert;
 
+/// title: Loops/Break
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+///  [[Category:Loop modifiers]] [[Category:Simple]]
+/// Show a loop which prints random numbers (each number newly generated each loop) from 0 to 19 (inclusive). 
+/// If a number is 10, stop the loop after printing it, and do not generate any further numbers.  
+/// Otherwise, generate and print a second random number before restarting the loop.  
+/// If the number 10 is never generated as the first number in a loop, loop forever.
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+for (;;) {
+  var a = Math.floor(Math.random() * 20);
+  print(a);
+  if (a == 10) 
+    break;
+  a = Math.floor(Math.random() * 20);
+  print(a);
+}
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 <lang javascript>for (;;) {
   var a = Math.floor(Math.random() * 20);
@@ -102,3 +138,10 @@ Sample result:
 5
 10</pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

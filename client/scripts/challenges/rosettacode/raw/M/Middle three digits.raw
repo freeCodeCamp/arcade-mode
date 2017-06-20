@@ -1,21 +1,59 @@
-Middle three digits
 
-{{task}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Write a function/procedure/subroutine that is called with an integer value and returns the middle three digits of the integer if possible or a clear indication of an error if this is not possible.
+const assert = require('chai').assert;
 
-Note: The order of the middle digits should be preserved.
+/// title: Middle three digits
+/// type: rosetta-code
 
-Your function should be tested with the following values; the first line should return valid answers, those of the second line should return clear indications of an error:
-<pre>
-123, 12345, 1234567, 987654321, 10001, -10001, -123, -100, 100, -12345
-1, 2, -1, -10, 2002, -2002, 0
-</pre>
-Show your output on this page.
-<br><br>
+/// categories:
+/// ?
 
+/// difficulty: ?
 
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Write a function/procedure/subroutine that is called with an integer value and returns the middle three digits of the integer if possible or a clear indication of an error if this is not possible.
+/// <br>
+/// Note: The order of the middle digits should be preserved.
+/// <br>
+/// Your function should be tested with the following values; the first line should return valid answers, those of the second line should return clear indications of an error:
+/// <pre>
+/// 123, 12345, 1234567, 987654321, 10001, -10001, -123, -100, 100, -12345
+/// 1, 2, -1, -10, 2002, -2002, 0
+/// </pre>
+/// Show your output on this page.
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+function middleThree(x){
+  var n=''+Math.abs(x); var l=n.length-1;
+  if(l<2||l%2) throw new Error(x+': Invalid length '+(l+1));
+  return n.slice(l/2-1,l/2+2);
+}
+
+[123, 12345, 1234567, 987654321, 10001, -10001, -123, -100, 100, -12345,
+1, 2, -1, -10, 2002, -2002, 0].forEach(function(n){
+  try{console.log(n,middleThree(n))}catch(e){console.error(e.message)}
+});
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 <lang JavaScript>function middleThree(x){
   var n=''+Math.abs(x); var l=n.length-1;
@@ -46,3 +84,10 @@ Show your output on this page.
 -2002: Invalid length 4
 0: Invalid length 1</pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

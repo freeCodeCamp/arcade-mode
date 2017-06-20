@@ -1,12 +1,49 @@
-Enumerations
 
-{{task|Basic language learning}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Create an enumeration of constants with and without explicit values.
-<br><br>
+const assert = require('chai').assert;
+
+/// title: Enumerations
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Create an enumeration of constants with and without explicit values.
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+// enum fruits { apple, banana, cherry }
+
+var f = "apple";
+
+if(f == "apple"){
+    f = "banana";
+}
 
 
+/// rawSolutions:
 =={{header|JavaScript}}==
 In javascript, usually used for this a strings.
 
@@ -20,3 +57,10 @@ if(f == "apple"){
 }
 </lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

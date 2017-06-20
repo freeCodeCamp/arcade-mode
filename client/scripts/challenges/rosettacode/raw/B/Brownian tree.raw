@@ -1,22 +1,58 @@
-Brownian tree
 
-{{Wikipedia|Brownian_tree}}
-{{task|Fractals}}
-<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category:Raster graphics operations]]
-[[File:Brownian_tree.jpg" title="Category:Raster graphics operations]]
-[[File:Brownian_tree.jpg">240px||right</a>
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Brownian tree
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category:Raster graphics operations]]
+/// [[File:Brownian_tree.jpg" title="Category:Raster graphics operations]]
+/// [[File:Brownian_tree.jpg">240px||right</a>
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Generate and draw a &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Brownian tree" title="wp: Brownian tree">Brownian Tree</a>.
+/// <br>
+/// <br>
+/// A Brownian Tree is generated as a result of an initial seed, followed by the interaction of two processes.
+/// <br>
+/// # The initial "seed" is placed somewhere within the field. Where is not particularly important; it could be randomized, or it could be a fixed point.
+/// # Particles are injected into the field, and are individually given a (typically random) motion pattern.
+/// # When a particle collides with the seed or tree, its position is fixed, and it's considered to be part of the tree.
+/// <br>
+/// <br>Because of the lax rules governing the random nature of the particle's placement and motion, no two resulting trees are really expected to be the same, or even necessarily have the same general shape. <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
-;Task:
-Generate and draw a &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Brownian tree" title="wp: Brownian tree">Brownian Tree</a>.
+/// rawSolutions:
+null
 
+/// tail:
+const replaceThis = 3;
 
-A Brownian Tree is generated as a result of an initial seed, followed by the interaction of two processes.
-
-# The initial "seed" is placed somewhere within the field. Where is not particularly important; it could be randomized, or it could be a fixed point.
-# Particles are injected into the field, and are individually given a (typically random) motion pattern.
-# When a particle collides with the seed or tree, its position is fixed, and it's considered to be part of the tree.
-
-<br>Because of the lax rules governing the random nature of the particle's placement and motion, no two resulting trees are really expected to be the same, or even necessarily have the same general shape. <br><br>
-
-
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

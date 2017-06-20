@@ -1,24 +1,62 @@
-Calendar
 
-{{task|Date and time}}
-Create a routine that will generate a text calendar for any year.  
-Test the calendar by generating a calendar for the year 1969, on a device of the time. 
-Choose one of the following devices:
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-* A line printer with a width of 132 characters.
-* An <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/IBM_3270#Displays" title="wp: IBM_3270#Displays">IBM 3278 model 4 terminal</a> (80×43 display with accented characters). Target formatting the months of the year to fit nicely across the 80 character width screen. Restrict number of lines in test output to 43.
+const assert = require('chai').assert;
 
-(Ideally, the program will generate well-formatted calendars for any page width from 20 characters up.)
+/// title: Calendar
+/// type: rosetta-code
 
-Kudos (κῦδος) for routines that also transition from [https://en.wikipedia.org/wiki/Julian_calendar Julian] to [https://en.wikipedia.org/wiki/Gregorian_calendar Gregorian calendar].
+/// categories:
+/// ?
 
-This task is inspired by [http://www.ee.ryerson.ca/~elf/hack/realmen.html Real Programmers Don't Use PASCAL] by Ed Post, Datamation, volume 29 number 7, July 1983.
- THE REAL PROGRAMMER'S NATURAL HABITAT
- "Taped to the wall is a line-printer Snoopy calender for the year 1969."
-For further Kudos see task <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Calendar - for "real" programmers" title="Calendar - for "real" programmers">CALENDAR</a>, where all code is to be in UPPERCASE.
+/// difficulty: ?
 
-For economy of size, do not actually include Snoopy generation in either the code or the output, instead just output a place-holder.
+/// benchmark:
+replaceWithActualFunctionHere;
 
-For other calendar-related tasks, see [[Five weekends]].
+/// description:
+/// <br>
+/// Create a routine that will generate a text calendar for any year.  
+/// Test the calendar by generating a calendar for the year 1969, on a device of the time. 
+/// Choose one of the following devices:
+/// <br>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">A line printer with a width of 132 characters.</li>
+/// <li class="rosetta__list-item">An <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/IBM_3270#Displays" title="wp: IBM_3270#Displays">IBM 3278 model 4 terminal</a> (80×43 display with accented characters). Target formatting the months of the year to fit nicely across the 80 character width screen. Restrict number of lines in test output to 43.</li>
+/// <br>
+/// </ul>
+/// (Ideally, the program will generate well-formatted calendars for any page width from 20 characters up.)
+/// <br>
+/// Kudos (κῦδος) for routines that also transition from [https://en.wikipedia.org/wiki/Julian_calendar Julian] to [https://en.wikipedia.org/wiki/Gregorian_calendar Gregorian calendar].
+/// <br>
+/// This task is inspired by [http://www.ee.ryerson.ca/~elf/hack/realmen.html Real Programmers Don't Use PASCAL] by Ed Post, Datamation, volume 29 number 7, July 1983.
+///  THE REAL PROGRAMMER'S NATURAL HABITAT
+///  "Taped to the wall is a line-printer Snoopy calender for the year 1969."
+/// For further Kudos see task <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Calendar - for "real" programmers" title="Calendar - for "real" programmers">CALENDAR</a>, where all code is to be in UPPERCASE.
+/// <br>
+/// For economy of size, do not actually include Snoopy generation in either the code or the output, instead just output a place-holder.
+/// <br>
+/// For other calendar-related tasks, see [[Five weekends]].
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

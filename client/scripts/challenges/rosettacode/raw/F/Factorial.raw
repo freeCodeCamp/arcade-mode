@@ -1,26 +1,66 @@
-Factorial
 
-{{task|Arithmetic operations}}
-[[Category:Recursion]]
-[[Category:Memoization]][[Category:Classic CS problems and programs]]
-[[Category:Arithmetic]]
-[[Category:Simple]]
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Definitions:
-:* &nbsp; The &nbsp; <span class="rosetta__text--bold">Factorial Function</span> &nbsp; of a positive integer, &nbsp; <big> <span class="rosetta__text--italic">n</span>, </big> &nbsp; is defined as the product of the sequence:
-                 <big><big> <span class="rosetta__text--italic">n</span>, &nbsp; <span class="rosetta__text--italic">n</span>-1, &nbsp; <span class="rosetta__text--italic">n</span>-2, &nbsp; ... &nbsp; 1 </big></big>
-:* &nbsp; The factorial of &nbsp; <span class="rosetta__text--bold">0</span> &nbsp; (zero) &nbsp; is <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Factorial#Definition" title="wp: Factorial#Definition">defined</a> as being &nbsp; 1 &nbsp; (unity).
+const assert = require('chai').assert;
 
+/// title: Factorial
+/// type: rosetta-code
 
-;Task:
-Write a function to return the factorial of a number. 
+/// categories:
+/// ?
 
-Solutions can be iterative or recursive. 
+/// difficulty: ?
 
-Support for trapping negative &nbsp; <big> <span class="rosetta__text--italic">n</span> </big> &nbsp; errors is optional.
-<br><br>
+/// benchmark:
+replaceWithActualFunctionHere;
 
+/// description:
+/// <br>
+/// [[Category:Recursion]]
+/// [[Category:Memoization]][[Category:Classic CS problems and programs]]
+/// [[Category:Arithmetic]]
+/// [[Category:Simple]]
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Definitions:</dt></dl>
+/// <span class="rosetta__text--indented">* &nbsp; The &nbsp; <span class="rosetta__text--bold">Factorial Function</span> &nbsp; of a positive integer, &nbsp; <big> <span class="rosetta__text--italic">n</span>, </big> &nbsp; is defined as the product of the sequence:</span>
+///                  <big><big> <span class="rosetta__text--italic">n</span>, &nbsp; <span class="rosetta__text--italic">n</span>-1, &nbsp; <span class="rosetta__text--italic">n</span>-2, &nbsp; ... &nbsp; 1 </big></big>
+/// <span class="rosetta__text--indented">* &nbsp; The factorial of &nbsp; <span class="rosetta__text--bold">0</span> &nbsp; (zero) &nbsp; is <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Factorial#Definition" title="wp: Factorial#Definition">defined</a> as being &nbsp; 1 &nbsp; (unity).</span>
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Write a function to return the factorial of a number. 
+/// <br>
+/// Solutions can be iterative or recursive. 
+/// <br>
+/// Support for trapping negative &nbsp; <big> <span class="rosetta__text--italic">n</span> </big> &nbsp; errors is optional.
+/// <br><br>
+/// <br>
+/// <br>
 
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+function factorial(n) {
+  //check our edge case
+  if (n < 0) { throw "Number must be non-negative"; }
+
+  var sum = 1;
+  //we skip zero and one since both are 1 and are identity
+  while (n > 1) {
+    sum *= n;
+    n -= 1;
+  }
+  return sum;
+}
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 
 ===Iterative===
@@ -122,3 +162,10 @@ Or, as an alternative to recursion, we can fold/reduce a product function over t
 {{Out}}
 <pre>6402373705728000</pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

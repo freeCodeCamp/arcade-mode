@@ -1,27 +1,60 @@
-Generic swap
 
-{{task|Basic language learning}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Write a generic swap function or operator which exchanges the values of two variables (or, more generally, any two storage places that can be assigned), regardless of their types. 
+const assert = require('chai').assert;
 
-If your solution language is statically typed please describe the way your language provides genericity.
+/// title: Generic swap
+/// type: rosetta-code
 
-If variables are typed in the given language, it is permissible that the two variables be constrained to having a mutually compatible type, such that each is permitted to hold the value previously stored in the other without a type violation. 
-That is to say, solutions do not have to be capable of exchanging, say, a string and integer value, if the underlying storage locations are not attributed with types that permit such an exchange.
+/// categories:
+/// ?
 
-Generic swap is a task which brings together a few separate issues in programming language semantics.
+/// difficulty: ?
 
-Dynamically typed languages deal with values in a generic way quite readily, but do not necessarily make it easy to write a function to destructively swap two variables, because this requires indirection upon storage places or upon the syntax designating storage places.
+/// benchmark:
+replaceWithActualFunctionHere;
 
-Functional languages, whether static or dynamic, do not necessarily allow a destructive operation such as swapping two variables regardless of their generic capabilities.
+/// description:
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Write a generic swap function or operator which exchanges the values of two variables (or, more generally, any two storage places that can be assigned), regardless of their types. 
+/// <br>
+/// If your solution language is statically typed please describe the way your language provides genericity.
+/// <br>
+/// If variables are typed in the given language, it is permissible that the two variables be constrained to having a mutually compatible type, such that each is permitted to hold the value previously stored in the other without a type violation. 
+/// That is to say, solutions do not have to be capable of exchanging, say, a string and integer value, if the underlying storage locations are not attributed with types that permit such an exchange.
+/// <br>
+/// Generic swap is a task which brings together a few separate issues in programming language semantics.
+/// <br>
+/// Dynamically typed languages deal with values in a generic way quite readily, but do not necessarily make it easy to write a function to destructively swap two variables, because this requires indirection upon storage places or upon the syntax designating storage places.
+/// <br>
+/// Functional languages, whether static or dynamic, do not necessarily allow a destructive operation such as swapping two variables regardless of their generic capabilities.
+/// <br>
+/// Some static languages have difficulties with generic programming due to a lack of support for ([[Parametric Polymorphism]]). 
+/// <br>
+/// Do your best!
+/// <br><br>
+/// <br>
+/// <br>
 
-Some static languages have difficulties with generic programming due to a lack of support for ([[Parametric Polymorphism]]). 
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
-Do your best!
-<br><br>
+/// solutions:
+function swap(arr) {
+  var tmp = arr[0];
+  arr[0] = arr[1];
+  arr[1] = tmp;
+}
 
-
+/// rawSolutions:
 =={{header|JavaScript}}==
 JavaScript uses references, but if a function reassigns a parametric reference, the new object only has a local reference. However, if we wrap the variables to be switched in some other structure, like an object or an array, we can easily swap the values.
 
@@ -47,3 +80,10 @@ var y = 2
 swap('x', 'y')
 </lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

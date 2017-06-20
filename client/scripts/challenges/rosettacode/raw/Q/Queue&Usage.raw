@@ -1,24 +1,62 @@
-Queue/Usage
 
-{{task|Data Structures}}{{Data structure}}
-<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:Fifo.gif" title="File:Fifo.gif">frame|right|Illustration of FIFO behavior</a>
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Create a queue data structure and demonstrate its operations. 
+const assert = require('chai').assert;
 
-(For implementations of queues, see the [[FIFO]] task.)
+/// title: Queue/Usage
+/// type: rosetta-code
 
+/// categories:
+/// ?
 
-Operations:
-::* &nbsp; push   &nbsp; &nbsp; &nbsp;        (aka <span class="rosetta__text--italic">enqueue</span>) - add element
-::* &nbsp; pop    &nbsp; &nbsp; &nbsp; &nbsp; (aka <span class="rosetta__text--italic">dequeue</span>) - pop first element
-::* &nbsp; empty  &nbsp; &nbsp;               - return truth value when empty
+/// difficulty: ?
 
-<br>
-{{Template:See also lists}}
-<br><br>
+/// benchmark:
+replaceWithActualFunctionHere;
 
+/// description:
+/// <br>
+/// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:Fifo.gif" title="File:Fifo.gif">frame|right|Illustration of FIFO behavior</a>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Create a queue data structure and demonstrate its operations. 
+/// <br>
+/// (For implementations of queues, see the [[FIFO]] task.)
+/// <br>
+/// <br>
+/// Operations:
+/// <span class="rosetta__text--indented">:* &nbsp; push   &nbsp; &nbsp; &nbsp;        (aka <span class="rosetta__text--italic">enqueue</span>) - add element</span>
+/// <span class="rosetta__text--indented">:* &nbsp; pop    &nbsp; &nbsp; &nbsp; &nbsp; (aka <span class="rosetta__text--italic">dequeue</span>) - pop first element</span>
+/// <span class="rosetta__text--indented">:* &nbsp; empty  &nbsp; &nbsp;               - return truth value when empty</span>
+/// <br>
+/// <br>
+/// <br>
+/// <br><br>
+/// <br>
+/// <br>
 
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+var f = new Array();
+print(f.length);
+f.push(1,2);         // can take multiple arguments
+f.push(3);
+f.shift();
+f.shift();
+print(f.length);
+print(f.shift())
+print(f.length == 0);
+print(f.shift());
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 JavaScript arrays can be used as FIFOs.
 <lang javascript>var f = new Array();
@@ -39,3 +77,10 @@ outputs:
 true
 undefined</pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,25 +1,61 @@
-Holidays related to Easter
 
-{{task|sciences}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Calculate the dates of:
-:::* &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Easter" title="wp: Easter">Easter</a>
-:::* &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Ascension Thursday" title="wp: Ascension Thursday">Ascension Thursday</a>
-:::* &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Pentecost" title="wp: Pentecost">Pentecost</a>
-:::* &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Trinity Sunday" title="wp: Trinity Sunday">Trinity Sunday</a>
-:::* &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Corpus Christi (feast)" title="wp: Corpus Christi (feast)">Corpus Christi feast</a>
+const assert = require('chai').assert;
+
+/// title: Holidays related to Easter
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Calculate the dates of:
+/// <span class="rosetta__text--indented">::* &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Easter" title="wp: Easter">Easter</a></span>
+/// <span class="rosetta__text--indented">::* &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Ascension Thursday" title="wp: Ascension Thursday">Ascension Thursday</a></span>
+/// <span class="rosetta__text--indented">::* &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Pentecost" title="wp: Pentecost">Pentecost</a></span>
+/// <span class="rosetta__text--indented">::* &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Trinity Sunday" title="wp: Trinity Sunday">Trinity Sunday</a></span>
+/// <span class="rosetta__text--indented">::* &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Corpus Christi (feast)" title="wp: Corpus Christi (feast)">Corpus Christi feast</a></span>
+/// <br>
+/// <br>
+/// As an example, calculate for the first year of each century from; 
+/// <span class="rosetta__text--indented">::* &nbsp; years &nbsp; &nbsp; 400 &nbsp; to &nbsp; 2100 <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Common Era" title="wp: Common Era">CE</a> &nbsp; and for </span>
+/// <span class="rosetta__text--indented">::* &nbsp; years &nbsp;       2010 &nbsp; to &nbsp; 2020 CE.</span>
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Note:</dt></dl>
+/// From year 325 CE on, &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Easter Sunday" title="wp: Easter Sunday">Easter Sunday]] &nbsp; is the Sunday following the ﬁrst &nbsp; [[wp:Ecclesiastical full moon|Ecclesiastical full moon</a> &nbsp; not earlier than the equinox date in 325 — 21 March. &nbsp; The Ecclesiastical full moon does not always correspond to the astronomical full moon since in &nbsp; year 325 &nbsp; ﬁne details of Lunar dynamics were not yet fully understood.
+/// <br>
+/// <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Metonic cycle" title="wp: Metonic cycle">Metonic cycle]]: &nbsp; Taking a year to be 1/19th of this 6940-day cycle gives a year length of 365&nbsp;+&nbsp;1/4&nbsp;+&nbsp;1/76 days (the unrounded cycle is much more accurate), &nbsp; which is slightly more than 12 synodic months. &nbsp; To keep the 12-month lunar year in pace with the solar year, &nbsp; an &nbsp;  [[wp:intercalary|intercalary</a> &nbsp; 13th month would have to be added on seven occasions during the nineteen-year period.  &nbsp; Meton introduced a formula for intercalation in circa &nbsp; 432&nbsp;BC.
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
-As an example, calculate for the first year of each century from; 
-:::* &nbsp; years &nbsp; &nbsp; 400 &nbsp; to &nbsp; 2100 <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Common Era" title="wp: Common Era">CE</a> &nbsp; and for 
-:::* &nbsp; years &nbsp;       2010 &nbsp; to &nbsp; 2020 CE.
+/// rawSolutions:
+null
 
+/// tail:
+const replaceThis = 3;
 
-;Note:
-From year 325 CE on, &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Easter Sunday" title="wp: Easter Sunday">Easter Sunday]] &nbsp; is the Sunday following the ﬁrst &nbsp; [[wp:Ecclesiastical full moon|Ecclesiastical full moon</a> &nbsp; not earlier than the equinox date in 325 — 21 March. &nbsp; The Ecclesiastical full moon does not always correspond to the astronomical full moon since in &nbsp; year 325 &nbsp; ﬁne details of Lunar dynamics were not yet fully understood.
-
-<a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Metonic cycle" title="wp: Metonic cycle">Metonic cycle]]: &nbsp; Taking a year to be 1/19th of this 6940-day cycle gives a year length of 365&nbsp;+&nbsp;1/4&nbsp;+&nbsp;1/76 days (the unrounded cycle is much more accurate), &nbsp; which is slightly more than 12 synodic months. &nbsp; To keep the 12-month lunar year in pace with the solar year, &nbsp; an &nbsp;  [[wp:intercalary|intercalary</a> &nbsp; 13th month would have to be added on seven occasions during the nineteen-year period.  &nbsp; Meton introduced a formula for intercalation in circa &nbsp; 432&nbsp;BC.
-<br><br>
-
-
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

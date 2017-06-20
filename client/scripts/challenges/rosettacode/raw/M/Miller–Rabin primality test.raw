@@ -1,33 +1,96 @@
-Miller–Rabin primality test
 
-{{task|Prime Numbers}}{{Wikipedia|Miller–Rabin primality test}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
+const assert = require('chai').assert;
 
-The <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Miller–Rabin primality test" title="wp: Miller–Rabin primality test">Miller–Rabin primality test</a> or Rabin–Miller primality test is a primality test: an algorithm which determines whether a given number is prime or not.
+/// title: Miller–Rabin primality test
+/// type: rosetta-code
 
-The algorithm, as modified by <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Michael O. Rabin" title="wp: Michael O. Rabin">Michael O. Rabin]] to avoid the [[wp:generalized Riemann hypothesis|generalized Riemann hypothesis</a>, is a probabilistic algorithm.
+/// categories:
+/// ?
 
-The pseudocode, from <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Miller-Rabin primality test#Algorithm_and_running_time" title="wp: Miller-Rabin primality test#Algorithm_and_running_time">Wikipedia</a> is:
- <span class="rosetta__text--bold">Input</span>: <span class="rosetta__text--italic">n</span> > 2, an odd integer to be tested for primality;
-        <span class="rosetta__text--italic">k</span>, a parameter that determines the accuracy of the test
- <span class="rosetta__text--bold">Output</span>: <span class="rosetta__text--italic">composite</span> if <span class="rosetta__text--italic">n</span> is composite, otherwise <span class="rosetta__text--italic">probably prime</span>
- write <span class="rosetta__text--italic">n</span> − 1 as 2<sup><span class="rosetta__text--italic">s</span></sup>·<span class="rosetta__text--italic">d</span> with <span class="rosetta__text--italic">d</span> odd by factoring powers of 2 from <span class="rosetta__text--italic">n</span> − 1
- LOOP: <span class="rosetta__text--bold">repeat</span> <span class="rosetta__text--italic">k</span> times:
-    pick <span class="rosetta__text--italic">a</span> randomly in the range [2, <span class="rosetta__text--italic">n</span> − 1]
-    <span class="rosetta__text--italic">x</span> ← <span class="rosetta__text--italic">a</span><sup><span class="rosetta__text--italic">d</span></sup> mod <span class="rosetta__text--italic">n</span>
-    <span class="rosetta__text--bold">if</span> <span class="rosetta__text--italic">x</span> = 1 or <span class="rosetta__text--italic">x</span> = <span class="rosetta__text--italic">n</span> − 1 <span class="rosetta__text--bold">then</span> <span class="rosetta__text--bold">do</span> <span class="rosetta__text--bold">next</span> LOOP
-    <span class="rosetta__text--bold">for</span> <span class="rosetta__text--italic">r</span> = 1 .. <span class="rosetta__text--italic">s</span> − 1
-       <span class="rosetta__text--italic">x</span> ← <span class="rosetta__text--italic">x</span><sup>2</sup> mod <span class="rosetta__text--italic">n</span>
-       <span class="rosetta__text--bold">if</span> <span class="rosetta__text--italic">x</span> = 1 <span class="rosetta__text--bold">then</span> <span class="rosetta__text--bold">return</span> <span class="rosetta__text--italic">composite</span>
-       <span class="rosetta__text--bold">if</span> <span class="rosetta__text--italic">x</span> = <span class="rosetta__text--italic">n</span> − 1 <span class="rosetta__text--bold">then</span> <span class="rosetta__text--bold">do</span> <span class="rosetta__text--bold">next</span> LOOP
-    <span class="rosetta__text--bold">return</span> <span class="rosetta__text--italic">composite</span>
- <span class="rosetta__text--bold">return</span> <span class="rosetta__text--italic">probably prime</span>
+/// difficulty: ?
 
-* The nature of the test involves big numbers, so the use of "big numbers" libraries (or similar features of the language of your choice) are suggested, but <span class="rosetta__text--bold">not</span> mandatory.
-* Deterministic variants of the test exist and can be implemented as extra (not mandatory to complete the task)
-<br><br>
+/// benchmark:
+replaceWithActualFunctionHere;
 
+/// description:
+/// <br>
+/// <br>
+/// <br>
+/// The <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Miller–Rabin primality test" title="wp: Miller–Rabin primality test">Miller–Rabin primality test</a> or Rabin–Miller primality test is a primality test: an algorithm which determines whether a given number is prime or not.
+/// <br>
+/// The algorithm, as modified by <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Michael O. Rabin" title="wp: Michael O. Rabin">Michael O. Rabin]] to avoid the [[wp:generalized Riemann hypothesis|generalized Riemann hypothesis</a>, is a probabilistic algorithm.
+/// <br>
+/// The pseudocode, from <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Miller-Rabin primality test#Algorithm_and_running_time" title="wp: Miller-Rabin primality test#Algorithm_and_running_time">Wikipedia</a> is:
+///  <span class="rosetta__text--bold">Input</span>: <span class="rosetta__text--italic">n</span> > 2, an odd integer to be tested for primality;
+///         <span class="rosetta__text--italic">k</span>, a parameter that determines the accuracy of the test
+///  <span class="rosetta__text--bold">Output</span>: <span class="rosetta__text--italic">composite</span> if <span class="rosetta__text--italic">n</span> is composite, otherwise <span class="rosetta__text--italic">probably prime</span>
+///  write <span class="rosetta__text--italic">n</span> − 1 as 2<sup><span class="rosetta__text--italic">s</span></sup>·<span class="rosetta__text--italic">d</span> with <span class="rosetta__text--italic">d</span> odd by factoring powers of 2 from <span class="rosetta__text--italic">n</span> − 1
+///  LOOP: <span class="rosetta__text--bold">repeat</span> <span class="rosetta__text--italic">k</span> times:
+///     pick <span class="rosetta__text--italic">a</span> randomly in the range [2, <span class="rosetta__text--italic">n</span> − 1]
+///     <span class="rosetta__text--italic">x</span> ← <span class="rosetta__text--italic">a</span><sup><span class="rosetta__text--italic">d</span></sup> mod <span class="rosetta__text--italic">n</span>
+///     <span class="rosetta__text--bold">if</span> <span class="rosetta__text--italic">x</span> = 1 or <span class="rosetta__text--italic">x</span> = <span class="rosetta__text--italic">n</span> − 1 <span class="rosetta__text--bold">then</span> <span class="rosetta__text--bold">do</span> <span class="rosetta__text--bold">next</span> LOOP
+///     <span class="rosetta__text--bold">for</span> <span class="rosetta__text--italic">r</span> = 1 .. <span class="rosetta__text--italic">s</span> − 1
+///        <span class="rosetta__text--italic">x</span> ← <span class="rosetta__text--italic">x</span><sup>2</sup> mod <span class="rosetta__text--italic">n</span>
+///        <span class="rosetta__text--bold">if</span> <span class="rosetta__text--italic">x</span> = 1 <span class="rosetta__text--bold">then</span> <span class="rosetta__text--bold">return</span> <span class="rosetta__text--italic">composite</span>
+///        <span class="rosetta__text--bold">if</span> <span class="rosetta__text--italic">x</span> = <span class="rosetta__text--italic">n</span> − 1 <span class="rosetta__text--bold">then</span> <span class="rosetta__text--bold">do</span> <span class="rosetta__text--bold">next</span> LOOP
+///     <span class="rosetta__text--bold">return</span> <span class="rosetta__text--italic">composite</span>
+///  <span class="rosetta__text--bold">return</span> <span class="rosetta__text--italic">probably prime</span>
+/// <br>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">The nature of the test involves big numbers, so the use of "big numbers" libraries (or similar features of the language of your choice) are suggested, but <span class="rosetta__text--bold">not</span> mandatory.</li>
+/// <li class="rosetta__list-item">Deterministic variants of the test exist and can be implemented as extra (not mandatory to complete the task)</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
 
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+function probablyPrime(n, k) {
+	if (n === 2 || n === 3)
+		return true;
+	if (n % 2 === 0 || n < 2)
+		return false;
+
+	// Write (n - 1) as 2^s * d
+	var s = 0, d = n - 1;
+	while (d % 2 === 0) {
+		d /= 2;
+		++s;
+	}
+
+	WitnessLoop: do {
+		// A base between 2 and n - 2
+		var x = Math.pow(2 + Math.floor(Math.random() * (n - 3)), d) % n;
+
+		if (x === 1 || x === n - 1)
+			continue;
+
+		for (var i = s - 1; i--;) {
+			x = x * x % n;
+			if (x === 1)
+				return false;
+			if (x === n - 1)
+				continue WitnessLoop;
+		}
+
+		return false;
+	} while (--k);
+
+	return true;
+}
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 For the return values of this function, <code>true</code> means "probably prime" and <code>false</code> means "definitely composite."
 
@@ -65,3 +128,10 @@ For the return values of this function, <code>true</code> means "probably prime"
 	return true;
 }</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

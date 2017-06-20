@@ -1,17 +1,55 @@
-Modular exponentiation
 
-{{task}}
-Find the last 40 decimal digits of $a^b$, where
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-* $a = 2988348162058574136915891421498819466320163312926952423791023078876139$
-* $b = 2351399303373464486466122544523690094744975233415544072992656881240319$
+const assert = require('chai').assert;
 
-<br>
-A computer is too slow to find the entire value of $a^b$. 
+/// title: Modular exponentiation
+/// type: rosetta-code
 
-Instead, the program must use a fast algorithm for <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Modular exponentiation" title="wp: Modular exponentiation">modular exponentiation</a>: $a^b \mod m$.
+/// categories:
+/// ?
 
-The algorithm must work for any integers $a, b, m$ <br>where $b \ge 0$ and $m > 0$.
-<br><br>
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// Find the last 40 decimal digits of $a^b$, where
+/// <br>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">$a = 2988348162058574136915891421498819466320163312926952423791023078876139$</li>
+/// <li class="rosetta__list-item">$b = 2351399303373464486466122544523690094744975233415544072992656881240319$</li>
+/// <br>
+/// </ul>
+/// <br>
+/// A computer is too slow to find the entire value of $a^b$. 
+/// <br>
+/// Instead, the program must use a fast algorithm for <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Modular exponentiation" title="wp: Modular exponentiation">modular exponentiation</a>: $a^b \mod m$.
+/// <br>
+/// The algorithm must work for any integers $a, b, m$ <br>where $b \ge 0$ and $m > 0$.
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

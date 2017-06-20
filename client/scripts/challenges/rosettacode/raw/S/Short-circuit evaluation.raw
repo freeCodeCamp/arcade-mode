@@ -1,36 +1,86 @@
-Short-circuit evaluation
 
-{{task|Programming language concepts}}
-{{Control Structures}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-Assume functions &nbsp; <code>a</code> &nbsp; and &nbsp; <code>b</code> &nbsp; return boolean values, &nbsp; and further, the execution of function &nbsp; <code>b</code> &nbsp; takes considerable resources without side effects, <!--treating the printing as being for illustrative purposes only--> and is to be minimized.
+const assert = require('chai').assert;
 
-If we needed to compute the conjunction &nbsp; (<code>and</code>):
-:::: <code> x = a() and b() </code>
+/// title: Short-circuit evaluation
+/// type: rosetta-code
 
-Then it would be best to not compute the value of &nbsp; <code>b()</code> &nbsp; if the value of &nbsp; <code>a()</code> &nbsp;  is computed as &nbsp; <code>false</code>, &nbsp; as the value of &nbsp; <code>x</code> &nbsp; can then only ever be &nbsp; <code> false</code>.
+/// categories:
+/// ?
 
-Similarly, if we needed to compute the disjunction (<code>or</code>):
-:::: <code> y = a() or b() </code>
+/// difficulty: ?
 
-Then it would be best to not compute the value of &nbsp; <code>b()</code> &nbsp; if the value of &nbsp; <code>a()</code> &nbsp; is computed as &nbsp; <code>true</code>, &nbsp; as the value of &nbsp; <code>y</code> &nbsp; can then only ever be &nbsp; <code>true</code>.
+/// benchmark:
+replaceWithActualFunctionHere;
 
-Some languages will stop further computation of boolean equations as soon as the result is known, so-called &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Short-circuit evaluation" title="wp: Short-circuit evaluation">short-circuit evaluation</a> &nbsp; of boolean expressions
+/// description:
+/// <br>
+/// <br>
+/// <br>
+/// Assume functions &nbsp; <code>a</code> &nbsp; and &nbsp; <code>b</code> &nbsp; return boolean values, &nbsp; and further, the execution of function &nbsp; <code>b</code> &nbsp; takes considerable resources without side effects, <!--treating the printing as being for illustrative purposes only--> and is to be minimized.
+/// <br>
+/// If we needed to compute the conjunction &nbsp; (<code>and</code>):
+/// <span class="rosetta__text--indented">::: <code> x = a() and b() </code></span>
+/// <br>
+/// Then it would be best to not compute the value of &nbsp; <code>b()</code> &nbsp; if the value of &nbsp; <code>a()</code> &nbsp;  is computed as &nbsp; <code>false</code>, &nbsp; as the value of &nbsp; <code>x</code> &nbsp; can then only ever be &nbsp; <code> false</code>.
+/// <br>
+/// Similarly, if we needed to compute the disjunction (<code>or</code>):
+/// <span class="rosetta__text--indented">::: <code> y = a() or b() </code></span>
+/// <br>
+/// Then it would be best to not compute the value of &nbsp; <code>b()</code> &nbsp; if the value of &nbsp; <code>a()</code> &nbsp; is computed as &nbsp; <code>true</code>, &nbsp; as the value of &nbsp; <code>y</code> &nbsp; can then only ever be &nbsp; <code>true</code>.
+/// <br>
+/// Some languages will stop further computation of boolean equations as soon as the result is known, so-called &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Short-circuit evaluation" title="wp: Short-circuit evaluation">short-circuit evaluation</a> &nbsp; of boolean expressions
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Create two functions named &nbsp; <code>a</code> &nbsp; and &nbsp; <code>b</code>, &nbsp; that take and return the same boolean value. 
+/// <br>
+/// The functions should also print their name whenever they are called.
+/// <br>
+/// Calculate and assign the values of the following equations to a variable in such a way that function &nbsp; <code>b</code> &nbsp; is only called when necessary:
+/// <span class="rosetta__text--indented">::: <code> x = a(i) and b(j) </code></span>
+/// <span class="rosetta__text--indented">::: <code> y = a(i) or  b(j) </code></span>
+/// <br>
+/// <br>If the language does not have short-circuit evaluation, this might be achieved with nested &nbsp; &nbsp; <span class="rosetta__text--bold">if</span> &nbsp; &nbsp; statements.
+/// <br><br>
+/// <br>
+/// <br>
 
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
-;Task:
-Create two functions named &nbsp; <code>a</code> &nbsp; and &nbsp; <code>b</code>, &nbsp; that take and return the same boolean value. 
+/// solutions:
+(function () {
+    'use strict';
 
-The functions should also print their name whenever they are called.
+    function a(bool) {
+        console.log('a -->', bool);
 
-Calculate and assign the values of the following equations to a variable in such a way that function &nbsp; <code>b</code> &nbsp; is only called when necessary:
-:::: <code> x = a(i) and b(j) </code>
-:::: <code> y = a(i) or  b(j) </code>
+        return bool;
+    }
 
-<br>If the language does not have short-circuit evaluation, this might be achieved with nested &nbsp; &nbsp; <span class="rosetta__text--bold">if</span> &nbsp; &nbsp; statements.
-<br><br>
+    function b(bool) {
+        console.log('b -->', bool);
 
+        return bool;
+    }
+  
+  
+    var x = a(false) && b(true),
+        y = a(true) || b(false),
+        z = true ? a(true) : b(false);
+    
+  return [x, y, z];
+})();
 
+/// rawSolutions:
 =={{header|JavaScript}}==
 
 Short-circuiting evaluation of boolean expressions has been the default since the first versions of JavaScript.
@@ -70,3 +120,10 @@ Console:
 Return value:
 <pre>[false, true, true]</pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,61 +1,119 @@
-Read a configuration file
 
-{{task|File handling}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-The task is to read a configuration file in standard configuration file, 
-and set variables accordingly. 
+const assert = require('chai').assert;
 
-For this task, we have a configuration file as follows:
+/// title: Read a configuration file
+/// type: rosetta-code
 
- # This is a configuration file in standard configuration file format
- #
- # Lines beginning with a hash or a semicolon are ignored by the application
- # program. Blank lines are also ignored by the application program.
- 
- # This is the fullname parameter
- FULLNAME Foo Barber
- 
- # This is a favourite fruit
- FAVOURITEFRUIT banana
- 
- # This is a boolean that should be set
- NEEDSPEELING
- 
- # This boolean is commented out
- ; SEEDSREMOVED
- 
- # Configuration option names are not case sensitive, but configuration parameter
- # data is case sensitive and may be preserved by the application program.
- 
- # An optional equals sign can be used to separate configuration parameter data
- # from the option name. This is dropped by the parser. 
- 
- # A configuration option may take multiple parameters separated by commas.
- # Leading and trailing whitespace around parameter names and parameter data fields
- # are ignored by the application program.
- 
- OTHERFAMILY Rhu Barber, Harry Barber
+/// categories:
+/// ?
 
+/// difficulty: ?
 
-For the task we need to set four variables according to the configuration entries as follows:
+/// benchmark:
+replaceWithActualFunctionHere;
 
-*fullname = Foo Barber
-*favouritefruit = banana
-*needspeeling = true
-*seedsremoved = false
+/// description:
+/// <br>
+/// <br>
+/// The task is to read a configuration file in standard configuration file, 
+/// and set variables accordingly. 
+/// <br>
+/// For this task, we have a configuration file as follows:
+/// <br>
+///  # This is a configuration file in standard configuration file format
+///  #
+///  # Lines beginning with a hash or a semicolon are ignored by the application
+///  # program. Blank lines are also ignored by the application program.
+///  
+///  # This is the fullname parameter
+///  FULLNAME Foo Barber
+///  
+///  # This is a favourite fruit
+///  FAVOURITEFRUIT banana
+///  
+///  # This is a boolean that should be set
+///  NEEDSPEELING
+///  
+///  # This boolean is commented out
+///  ; SEEDSREMOVED
+///  
+///  # Configuration option names are not case sensitive, but configuration parameter
+///  # data is case sensitive and may be preserved by the application program.
+///  
+///  # An optional equals sign can be used to separate configuration parameter data
+///  # from the option name. This is dropped by the parser. 
+///  
+///  # A configuration option may take multiple parameters separated by commas.
+///  # Leading and trailing whitespace around parameter names and parameter data fields
+///  # are ignored by the application program.
+///  
+///  OTHERFAMILY Rhu Barber, Harry Barber
+/// <br>
+/// <br>
+/// For the task we need to set four variables according to the configuration entries as follows:
+/// <br>
+/// *fullname = Foo Barber
+/// *favouritefruit = banana
+/// *needspeeling = true
+/// *seedsremoved = false
+/// <br>
+/// <br>
+/// We also have an option that contains multiple parameters. These may be stored in an array.
+/// <br>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">otherfamily(1) = Rhu Barber</li>
+/// <li class="rosetta__list-item">otherfamily(2) = Harry Barber</li>
+/// <br>
+/// </ul>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">[[Update a configuration file]]</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
 
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
-We also have an option that contains multiple parameters. These may be stored in an array.
+/// solutions:
+function parseConfig(config) {
+    // this expression matches a line starting with an all capital word, 
+    // and anything after it
+    var regex = /^([A-Z]+)(.*)$/mg;
+    var configObject = {};
+    
+    // loop until regex.exec returns null
+    var match;
+    while (match = regex.exec(config)) {
+        // values will typically be an array with one element
+        // unless we want an array
+        // match[0] is the whole match, match[1] is the first group (all caps word), 
+        // and match[2] is the second (everything through the end of line)
+        var key = match[1], values = match[2].split(",");
+        if (values.length === 1) {
+            configObject[key] = values[0];
+        }
+        else {
+            configObject[key] = values.map(function(value){
+                return value.trim();
+            });
+        }
+    }
+    
+    return configObject;
+}  
 
-* otherfamily(1) = Rhu Barber
-* otherfamily(2) = Harry Barber
-
-
-;Related tasks
-* [[Update a configuration file]]
-<br><br>
-
-
+/// rawSolutions:
 =={{header|JavaScript}}==
 In JavaScript using an object makes more sense than local variables.  This function takes our config file in plain text as the parameter.
 
@@ -99,3 +157,10 @@ The result is an object, which can be represented with this JSON.
 }
 </lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

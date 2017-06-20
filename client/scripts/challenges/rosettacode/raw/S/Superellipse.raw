@@ -1,21 +1,73 @@
-Superellipse
 
-{{task}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-A <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/superellipse" title="wp: superellipse">superellipse</a> is a geometric figure defined as the set of all points (x, y) with 
+const assert = require('chai').assert;
+
+/// title: Superellipse
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// A <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/superellipse" title="wp: superellipse">superellipse</a> is a geometric figure defined as the set of all points (x, y) with 
+/// <br>
+/// <br>
+/// <span class="rosetta__text--indented">:: <big><big>$\left|\frac{x}{a}\right|^n\! + \left|\frac{y}{b}\right|^n\! = 1,$</big></big></span>
+/// <br>
+/// <br>
+/// where <big><span class="rosetta__text--italic">n</span></big>, <big><span class="rosetta__text--italic">a</span></big>, and <big><span class="rosetta__text--italic">b</span></big> are positive numbers.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task</dt></dl>
+/// Draw a superellipse with n = 2.5, and a = b = 200
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+var n = 2.5, a = 200, b = 200, ctx;
+
+function point( x, y ) {
+    ctx.fillRect( x, y, 1, 1);
+}
+
+function start() {
+    var can = document.createElement('canvas');
+    can.width  = can.height = 600;
+    ctx = can.getContext( "2d" );
+    ctx.rect( 0, 0, can.width, can.height );
+    ctx.fillStyle = "#000000"; ctx.fill();
+    document.body.appendChild( can );
+
+    ctx.fillStyle = "#ffffff";
+    for( var t = 0; t < 1000; t += .1 ) {
+       x = Math.pow( Math.abs( Math.cos( t ) ), 2 / n ) * a * Math.sign( Math.cos( t ) );
+       y = Math.pow( Math.abs( Math.sin( t ) ), 2 / n ) * b * Math.sign( Math.sin( t ) );
+
+       point( x + ( can.width >> 1 ), y + ( can.height >> 1 ) );
+    }
+}
 
 
-::: <big><big>$\left|\frac{x}{a}\right|^n\! + \left|\frac{y}{b}\right|^n\! = 1,$</big></big>
-
-<br>
-where <big><span class="rosetta__text--italic">n</span></big>, <big><span class="rosetta__text--italic">a</span></big>, and <big><span class="rosetta__text--italic">b</span></big> are positive numbers.
-
-
-;Task
-Draw a superellipse with n = 2.5, and a = b = 200
-<br><br>
-
-
+/// rawSolutions:
 =={{header|JavaScript}}==
 <lang javascript>
 var n = 2.5, a = 200, b = 200, ctx;
@@ -42,3 +94,10 @@ function start() {
 }
 </lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

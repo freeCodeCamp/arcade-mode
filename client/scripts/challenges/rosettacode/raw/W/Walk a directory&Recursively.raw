@@ -1,23 +1,83 @@
-Walk a directory/Recursively
 
-{{task|File System Operations}}
-[[Category:Recursion]]
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Walk a given directory <span class="rosetta__text--italic">tree</span> and print files matching a given pattern.
+const assert = require('chai').assert;
 
+/// title: Walk a directory/Recursively
+/// type: rosetta-code
 
-<span class="rosetta__text--bold">Note:</span> This task is for recursive methods. &nbsp; These tasks should read an entire directory tree, not a <span class="rosetta__text--italic">single directory</span>.  
+/// categories:
+/// ?
 
+/// difficulty: ?
 
-<span class="rosetta__text--bold">Note:</span> Please be careful when running any code examples found here.
+/// benchmark:
+replaceWithActualFunctionHere;
 
+/// description:
+/// <br>
+/// [[Category:Recursion]]
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Walk a given directory <span class="rosetta__text--italic">tree</span> and print files matching a given pattern.
+/// <br>
+/// <br>
+/// <span class="rosetta__text--bold">Note:</span> This task is for recursive methods. &nbsp; These tasks should read an entire directory tree, not a <span class="rosetta__text--italic">single directory</span>.  
+/// <br>
+/// <br>
+/// <span class="rosetta__text--bold">Note:</span> Please be careful when running any code examples found here.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related task:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">&nbsp; [[Walk a directory/Non-recursively]] &nbsp; (read a <span class="rosetta__text--italic">single directory</span>). </li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
 
-;Related task:
-* &nbsp; [[Walk a directory/Non-recursively]] &nbsp; (read a <span class="rosetta__text--italic">single directory</span>). 
-<br><br>
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
+/// solutions:
+var fso = new ActiveXObject("Scripting.FileSystemObject");
 
+function walkDirectoryTree(folder, folder_name, re_pattern) {
+    WScript.Echo("Files in " + folder_name + " matching '" + re_pattern + "':");
+    walkDirectoryFilter(folder.files, re_pattern);
+
+    var subfolders = folder.SubFolders;
+    WScript.Echo("Folders in " + folder_name + " matching '" + re_pattern + "':");
+    walkDirectoryFilter(subfolders, re_pattern);
+
+    WScript.Echo();
+    var en = new Enumerator(subfolders);
+    while (! en.atEnd()) {
+        var subfolder = en.item();
+        walkDirectoryTree(subfolder, folder_name + "/" + subfolder.name, re_pattern);
+        en.moveNext();
+    }
+}
+
+function walkDirectoryFilter(items, re_pattern) {
+    var e = new Enumerator(items);
+    while (! e.atEnd()) {
+        var item = e.item();
+        if (item.name.match(re_pattern))
+            WScript.Echo(item.name);
+        e.moveNext();
+    }
+}
+
+walkDirectoryTree(dir, dir.name, '\\.txt$');
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 {{works with|JScript}}
 <lang javascript>var fso = new ActiveXObject("Scripting.FileSystemObject");
@@ -51,3 +111,10 @@ function walkDirectoryFilter(items, re_pattern) {
 
 walkDirectoryTree(dir, dir.name, '\\.txt$');</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

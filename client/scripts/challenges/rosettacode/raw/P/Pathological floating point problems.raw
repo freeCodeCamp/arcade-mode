@@ -1,81 +1,119 @@
-Pathological floating point problems
 
-{{task}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-Most programmers are familiar with the inexactness of floating point calculations in a binary processor. 
+const assert = require('chai').assert;
 
-The classic example being:
-<pre>
-0.1 + 0.2 =  0.30000000000000004
-</pre>
+/// title: Pathological floating point problems
+/// type: rosetta-code
 
-In many situations the amount of error in such calculations is very small and can be overlooked or eliminated with rounding.
+/// categories:
+/// ?
 
-There are pathological problems however, where seemingly simple, straight-forward calculations are extremely sensitive to even tiny amounts of imprecision.
+/// difficulty: ?
 
-This task's purpose is to show how your language deals with such classes of problems.
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// Most programmers are familiar with the inexactness of floating point calculations in a binary processor. 
+/// <br>
+/// The classic example being:
+/// <pre>
+/// 0.1 + 0.2 =  0.30000000000000004
+/// </pre>
+/// <br>
+/// In many situations the amount of error in such calculations is very small and can be overlooked or eliminated with rounding.
+/// <br>
+/// There are pathological problems however, where seemingly simple, straight-forward calculations are extremely sensitive to even tiny amounts of imprecision.
+/// <br>
+/// This task's purpose is to show how your language deals with such classes of problems.
+/// <br>
+/// <br>
+/// <span class="rosetta__text--bold">A sequence that seems to converge to a wrong limit.</span> 
+/// <br>
+/// Consider the sequence:
+/// <span class="rosetta__text--indented">::::: <big><big>  v<sub>1</sub> =  2                                                                     </big></big></span>
+/// <span class="rosetta__text--indented">::::: <big><big>  v<sub>2</sub> = -4                                                                     </big></big></span>
+/// <span class="rosetta__text--indented">::::: <big><big>  v<sub>n</sub> = 111 &nbsp; - &nbsp; 1130 &nbsp; / &nbsp; v<sub>n-1</sub> &nbsp; + &nbsp; 3000&nbsp; / &nbsp; (v<sub>n-1</sub> * v<sub>n-2</sub>)    </big></big></span>
+/// <br>
+/// <br>
+/// As &nbsp; <span class="rosetta__text--bold">n</span> &nbsp; grows larger, the series should converge to &nbsp; <span class="rosetta__text--bold">6</span> &nbsp; but small amounts of error will cause it to approach &nbsp; <span class="rosetta__text--bold">100</span>.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task 1:</dt></dl>
+/// Display the values of the sequence where &nbsp; n = &nbsp; 3, 4, 5, 6, 7, 8, 20, 30, 50 & 100 &nbsp; to at least <span class="rosetta__text--bold">16</span> decimal places.
+/// <pre>
+///     n = 3     18.5
+///     n = 4      9.378378
+///     n = 5      7.801153
+///     n = 6      7.154414
+///     n = 7      6.806785
+///     n = 8      6.5926328
+///     n = 20     6.0435521101892689
+///     n = 30     6.006786093031205758530554
+///     n = 50     6.0001758466271871889456140207471954695237
+///     n = 100    6.000000019319477929104086803403585715024350675436952458072592750856521767230266
+/// </pre>
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task 2:</dt></dl>
+/// <span class="rosetta__text--bold">The Chaotic Bank Society</span> &nbsp; is offering a new investment account to their customers. 
+/// <br>
+/// You first deposit &nbsp; $e - 1 &nbsp; where &nbsp; e &nbsp; is &nbsp; 2.7182818... &nbsp; the base of natural logarithms.
+/// <br>
+/// After each year, your account balance will be multiplied by the number of years that have passed, and $1 in service charges will be removed. 
+/// <br>
+/// So ...
+/// <span class="rosetta__text--indented">:* after 1 year, your balance will be multiplied by 1 and $1 will be removed for service charges.</span>
+/// <span class="rosetta__text--indented">:* after 2 years your balance will be doubled and $1 removed.</span>
+/// <span class="rosetta__text--indented">:* after 3 years your balance will be tripled and $1 removed.</span>
+/// <span class="rosetta__text--indented">:* <b> ... </b></span>
+/// <span class="rosetta__text--indented">:* after 10 years, multiplied by 10 and $1 removed,  and so on. </span>
+/// <br>
+/// <br>
+/// What will your balance be after &nbsp; 25 &nbsp; years?
+///     Starting balance: $<i>e</i>-1
+///     Balance = (Balance * year) - 1 for 25 years
+///     Balance after 25 years: $0.0399387296732302
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task 3, extra credit:</dt></dl>
+/// <span class="rosetta__text--bold">Siegfried Rump's example.</span> &nbsp; Consider the following function, designed by Siegfried Rump in 1988.
+/// <span class="rosetta__text--indented">::::: <big><big>  f(a,b) = 333.75b<sup>6</sup> + a<sup>2</sup>( 11a<sup>2</sup>b<sup>2</sup> - b<sup>6</sup> - 121b<sup>4</sup> - 2 ) + 5.5b<sup>8</sup> + a/(2b)          </big></big></span>
+/// <span class="rosetta__text--indented">::::: <big> compute &nbsp; <big> f(a,b) </big> &nbsp; where &nbsp; <big> a=77617.0 </big> &nbsp; and &nbsp; <big> b=33096.0  </big></big></span>
+/// <span class="rosetta__text--indented">::::: <big><big>  f(77617.0, 33096.0) &nbsp; = &nbsp; -0.827396059946821          </big></big></span>
+/// <br>
+/// <br>
+/// Demonstrate how to solve at least one of the first two problems, or both, and the third if you're feeling particularly jaunty.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">See also;</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">&nbsp; [https://perso.ens-lyon.fr/jean-michel.muller/chapitre1.pdf Floating-Point Arithmetic] &nbsp; Section 1.3.2 Difficult problems.</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
-<span class="rosetta__text--bold">A sequence that seems to converge to a wrong limit.</span> 
+/// rawSolutions:
+null
 
-Consider the sequence:
-:::::: <big><big>  v<sub>1</sub> =  2                                                                     </big></big>
-:::::: <big><big>  v<sub>2</sub> = -4                                                                     </big></big>
-:::::: <big><big>  v<sub>n</sub> = 111 &nbsp; - &nbsp; 1130 &nbsp; / &nbsp; v<sub>n-1</sub> &nbsp; + &nbsp; 3000&nbsp; / &nbsp; (v<sub>n-1</sub> * v<sub>n-2</sub>)    </big></big>
+/// tail:
+const replaceThis = 3;
 
-
-As &nbsp; <span class="rosetta__text--bold">n</span> &nbsp; grows larger, the series should converge to &nbsp; <span class="rosetta__text--bold">6</span> &nbsp; but small amounts of error will cause it to approach &nbsp; <span class="rosetta__text--bold">100</span>.
-
-
-;Task 1:
-Display the values of the sequence where &nbsp; n = &nbsp; 3, 4, 5, 6, 7, 8, 20, 30, 50 & 100 &nbsp; to at least <span class="rosetta__text--bold">16</span> decimal places.
-<pre>
-    n = 3     18.5
-    n = 4      9.378378
-    n = 5      7.801153
-    n = 6      7.154414
-    n = 7      6.806785
-    n = 8      6.5926328
-    n = 20     6.0435521101892689
-    n = 30     6.006786093031205758530554
-    n = 50     6.0001758466271871889456140207471954695237
-    n = 100    6.000000019319477929104086803403585715024350675436952458072592750856521767230266
-</pre>
-
-
-;Task 2:
-<span class="rosetta__text--bold">The Chaotic Bank Society</span> &nbsp; is offering a new investment account to their customers. 
-
-You first deposit &nbsp; $e - 1 &nbsp; where &nbsp; e &nbsp; is &nbsp; 2.7182818... &nbsp; the base of natural logarithms.
-
-After each year, your account balance will be multiplied by the number of years that have passed, and $1 in service charges will be removed. 
-
-So ...
-::* after 1 year, your balance will be multiplied by 1 and $1 will be removed for service charges.
-::* after 2 years your balance will be doubled and $1 removed.
-::* after 3 years your balance will be tripled and $1 removed.
-::* <b> ... </b>
-::* after 10 years, multiplied by 10 and $1 removed,  and so on. 
-
-
-What will your balance be after &nbsp; 25 &nbsp; years?
-    Starting balance: $<i>e</i>-1
-    Balance = (Balance * year) - 1 for 25 years
-    Balance after 25 years: $0.0399387296732302
-
-
-;Task 3, extra credit:
-<span class="rosetta__text--bold">Siegfried Rump's example.</span> &nbsp; Consider the following function, designed by Siegfried Rump in 1988.
-:::::: <big><big>  f(a,b) = 333.75b<sup>6</sup> + a<sup>2</sup>( 11a<sup>2</sup>b<sup>2</sup> - b<sup>6</sup> - 121b<sup>4</sup> - 2 ) + 5.5b<sup>8</sup> + a/(2b)          </big></big>
-:::::: <big> compute &nbsp; <big> f(a,b) </big> &nbsp; where &nbsp; <big> a=77617.0 </big> &nbsp; and &nbsp; <big> b=33096.0  </big></big>
-:::::: <big><big>  f(77617.0, 33096.0) &nbsp; = &nbsp; -0.827396059946821          </big></big>
-
-
-Demonstrate how to solve at least one of the first two problems, or both, and the third if you're feeling particularly jaunty.
-
-
-;See also;
-* &nbsp; [https://perso.ens-lyon.fr/jean-michel.muller/chapitre1.pdf Floating-Point Arithmetic] &nbsp; Section 1.3.2 Difficult problems.
-<br><br>
-
-
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,23 +1,90 @@
-Grayscale image
 
-{{task|Image processing}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-Many image processing algorithms are defined for <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Grayscale" title="wp: Grayscale">grayscale</a> (or else monochromatic) images. 
+const assert = require('chai').assert;
+
+/// title: Grayscale image
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// Many image processing algorithms are defined for <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Grayscale" title="wp: Grayscale">grayscale</a> (or else monochromatic) images. 
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Extend the data storage type defined <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Basic_bitmap_storage" title="Basic_bitmap_storage">on this page</a> to support grayscale images. 
+/// <br>
+/// Define two operations, one to convert a color image to a grayscale image and one for the backward conversion. 
+/// <br>
+/// To get luminance of a color use the formula recommended by [http://www.cie.co.at/index_ie.html CIE]:
+/// <br>
+///  <big> L  =  0.2126 &times; R   +   0.7152 &times; G   +   0.0722 &times; B </big>
+/// <br>
+/// When using floating-point arithmetic make sure that rounding errors would not cause run-time problems or else distorted results when calculated luminance is stored as an unsigned integer. 
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+        "http://www.w3.org/TR/html4/strict.dtd">
+<html><head><script type="text/javascript">
+window.addEventListener(
+    "load", function(){   
+        var img = new Image();   
+        // ***********************************************************
+        // RUN LOCAL WEBSERVER TO LOAD LOCAL FILES: e.g. python -m http.server (python3) 
+        // ***********************************************************
+        // img.src = prompt("enter image path","http://localhost:8000/test.jpg");
+        img.src = 
+            'data:image/gif;base64,R0lGODlhEAAOALMAAOazToeHh0tLS/7LZv/0jvb29t/f3//Ub/\
+            /ge8WSLf/rhf/3kdbW1mxsbP//mf///yH5BAAAAAAALAAAAAAQAA4AAARe8L1Ekyky67QZ1hLnjM5UUde0ECwLJoExKcpp\
+            V0aCcGCmTIHEIUEqjgaORCMxIC6e0CcguWw6aFjsVMkkIr7g77ZKPJjPZqIyd7sJAgVGoEGv2xsBxqNgYPj/gAwXEQA7'; 
+        img.onload = function(){ 
+            var can1 = new CustomCanvas("color", img.width, img.height);
+            var can2 = new CustomCanvas("grayscale",  img.width, img.height);
+            can1.ctx.drawImage(img,0, 0, img.width, img.height); 
+            var imgData = can1.ctx.getImageData(0, 0, can1.w, can1.h);      
+            // desaturate
+            var avg; var max; var rwgt=0.2126; var gwgt=0.7152;  var bwgt=0.0722;
+            for(var i = 0, max = can1.w*can1.h*4; i < max; i=i+4){
+                avg = imgData.data[i]*rwgt + imgData.data[i+1]*gwgt + imgData.data[i+2]*bwgt;
+                imgData.data[i  ] = avg;  // red
+                imgData.data[i+1] = avg;  // green
+                imgData.data[i+2] = avg;} // blue, alpha=alpha
+            can2.ctx.putImageData(imgData, 0, 0);  
+            }
+        }, false); 
+
+    function CustomCanvas(id, w, h, s) { /* Custom Canvas Object */
+        var c = document.createElement("canvas");
+        c.setAttribute('id', id); c.setAttribute('width', w);
+        c.setAttribute('height', h); (s)?c.setAttribute('style', s):0;
+        document.body.appendChild(c, document.body.firstChild);
+        this.ctx = document.getElementById(id).getContext("2d");
+        this.w = w; this.h = h;}           
+</script></head><body></body></html>
 
 
-;Task:
-Extend the data storage type defined <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Basic_bitmap_storage" title="Basic_bitmap_storage">on this page</a> to support grayscale images. 
-
-Define two operations, one to convert a color image to a grayscale image and one for the backward conversion. 
-
-To get luminance of a color use the formula recommended by [http://www.cie.co.at/index_ie.html CIE]:
-
- <big> L  =  0.2126 &times; R   +   0.7152 &times; G   +   0.0722 &times; B </big>
-
-When using floating-point arithmetic make sure that rounding errors would not cause run-time problems or else distorted results when calculated luminance is stored as an unsigned integer. 
-<br><br>
-
-
+/// rawSolutions:
 =={{header|JavaScript}}==
 Live Demo: http://jsfiddle.net/J4zVy/embedded/result/.
 
@@ -63,3 +130,10 @@ window.addEventListener(
 </script></head><body></body></html>
 </lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

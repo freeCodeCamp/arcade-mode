@@ -1,13 +1,47 @@
-Sort an integer array
 
-{{task|Sorting}}
-Sort an array (or list) of integers in ascending numerical order. 
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Use a sorting facility provided by the language/library if possible.
-<br><br>
+const assert = require('chai').assert;
 
+/// title: Sort an integer array
+/// type: rosetta-code
 
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// Sort an array (or list) of integers in ascending numerical order. 
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Use a sorting facility provided by the language/library if possible.
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+function int_arr(a, b) {
+  return a - b;
+}
+var numbers = [20, 7, 65, 10, 3, 0, 8, -60];
+numbers.sort(int_arr);
+document.write(numbers);
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 {{works with|Firefox|2.0}}
 
@@ -20,3 +54,10 @@ var numbers = [20, 7, 65, 10, 3, 0, 8, -60];
 numbers.sort(int_arr);
 document.write(numbers);</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

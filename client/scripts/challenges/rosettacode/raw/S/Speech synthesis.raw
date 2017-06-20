@@ -1,16 +1,53 @@
-Speech synthesis
 
-{{task|Temporal media}}
-<!-- this task to be in "Temporal media" category once ready. -->
-[[Category:Speech synthesis]]
-[[Category:Temporal media]]
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-Render the text &nbsp; &nbsp; &nbsp; <span class="rosetta__text--bold">This is an example of speech synthesis</span>&nbsp; &nbsp; &nbsp; as speech.
-<br><br>
+const assert = require('chai').assert;
 
+/// title: Speech synthesis
+/// type: rosetta-code
 
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <!-- this task to be in "Temporal media" category once ready. -->
+/// [[Category:Speech synthesis]]
+/// [[Category:Temporal media]]
+/// <br>
+/// Render the text &nbsp; &nbsp; &nbsp; <span class="rosetta__text--bold">This is an example of speech synthesis</span>&nbsp; &nbsp; &nbsp; as speech.
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+var voice = new ActiveXObject("SAPI.SpVoice");
+voice.speak("This is an example of speech synthesis.");
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 {{works with|JScript}}
 <lang javascript>var voice = new ActiveXObject("SAPI.SpVoice");
 voice.speak("This is an example of speech synthesis.");</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

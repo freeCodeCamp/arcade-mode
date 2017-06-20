@@ -1,30 +1,67 @@
-Loops/For
 
-{{task|Iteration}} 
-[[Category:Simple]]
-{{omit from|GUISS}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-“<span class="rosetta__text--bold">For</span>” &nbsp; loops are used to make some block of code be iterated a number of times, setting a variable or parameter to a monotonically increasing integer value for each execution of the block of code. 
+const assert = require('chai').assert;
 
-Common extensions of this allow other counting patterns or iterating over abstract structures other than the integers.
+/// title: Loops/For
+/// type: rosetta-code
 
+/// categories:
+/// ?
 
-;Task:
-Show how two loops may be nested within each other, with the number of iterations performed by the inner for loop being controlled by the outer for loop. 
+/// difficulty: ?
 
-Specifically print out the following pattern by using one for loop nested in another:
-<pre>*
-**
-***
-****
-*****</pre>
+/// benchmark:
+replaceWithActualFunctionHere;
 
+/// description:
+///  
+/// [[Category:Simple]]
+/// <br>
+/// <br>
+/// “<span class="rosetta__text--bold">For</span>” &nbsp; loops are used to make some block of code be iterated a number of times, setting a variable or parameter to a monotonically increasing integer value for each execution of the block of code. 
+/// <br>
+/// Common extensions of this allow other counting patterns or iterating over abstract structures other than the integers.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Show how two loops may be nested within each other, with the number of iterations performed by the inner for loop being controlled by the outer for loop. 
+/// <br>
+/// Specifically print out the following pattern by using one for loop nested in another:
+/// <pre>*
+/// **
+/// ***
+/// ****
+/// *****</pre>
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Reference:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/For loop" title="wp: For loop">For loop</a> Wikipedia.</li>
+/// <br>
+/// </ul><br><br>
+/// <br>
+/// <br>
 
-;Reference:
-* <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/For loop" title="wp: For loop">For loop</a> Wikipedia.
-<br><br>
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
+/// solutions:
+var i, j;
+for (i = 1; i <= 5; i += 1) {
+  s = '';
+  for (j = 0; j < i; j += 1)
+    s += '*';
+  document.write(s + '<br>');
+}
 
+/// rawSolutions:
 =={{header|JavaScript}}==
 <lang javascript>var i, j;
 for (i = 1; i <= 5; i += 1) {
@@ -79,3 +116,10 @@ Finally, in contexts where an expression composes better than a statement, the e
   }).join('\n')
 );</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

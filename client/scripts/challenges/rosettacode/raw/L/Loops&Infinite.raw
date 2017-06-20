@@ -1,14 +1,50 @@
-Loops/Infinite
 
-{{task|Iteration}}
-[[Category:Simple]]
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Print out &nbsp; &nbsp; &nbsp; <big> <span class="rosetta__text--bold">SPAM</span> </big> &nbsp; &nbsp; &nbsp; followed by a &nbsp; <span class="rosetta__text--italic">newline</span> &nbsp; in an infinite loop.
-<br><br>
+const assert = require('chai').assert;
 
+/// title: Loops/Infinite
+/// type: rosetta-code
 
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// [[Category:Simple]]
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Print out &nbsp; &nbsp; &nbsp; <big> <span class="rosetta__text--bold">SPAM</span> </big> &nbsp; &nbsp; &nbsp; followed by a &nbsp; <span class="rosetta__text--italic">newline</span> &nbsp; in an infinite loop.
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+for (;;) console.log("SPAM");
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 <lang javascript>for (;;) console.log("SPAM");</lang>
 <lang javascript>while (true) console.log("SPAM");</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,34 +1,72 @@
-Bitcoin/address validation
 
-{{alertbox|#ffff70|<span class="rosetta__text--bold"><big>Warning:</big></span> Many of these snippets are <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/{{TALKPAGENAME}}#C-based_code_.28and_possibly_others.29_improperly_validates" title="{{TALKPAGENAME}}#C-based_code_.28and_possibly_others.29_improperly_validates">incomplete</a>. It is recommended that you use an established [https://en.bitcoin.it/wiki/Software#Libraries library] for any projects that are likely to see external use}}
-{{task}}
-[[Category:Checksums]]
-{{omit from|Brlcad}}
-{{omit from|GUISS}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-Write a program that takes a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/bitcoin" title="wp: bitcoin">bitcoin address</a> as argument, 
-and checks whether or not this address is valid.
+const assert = require('chai').assert;
 
-A bitcoin address uses a base58 encoding, which uses an alphabet of the characters 0 .. 9, A ..Z, a .. z, but without the four characters 0, O, I and l.
+/// title: Bitcoin/address validation
+/// type: rosetta-code
 
-With this encoding, a bitcoin address encodes 25 bytes:
-* the first byte is the version number, which will be zero for this task ;
-* the next twenty bytes are a [[RIPEMD-160]] digest, but you don't have to know that for this task:  you can consider them a pure arbitrary data ;
-* the last four bytes are a checksum check.  They are the first four bytes of a double [[SHA-256]] digest of the previous 21 bytes.
+/// categories:
+/// ?
 
-To check the bitcoin address, you must read the first twenty-one bytes, compute the checksum, and check that it corresponds to the last four bytes.
+/// difficulty: ?
 
-The program can either return a boolean value or throw an exception when not valid.
+/// benchmark:
+replaceWithActualFunctionHere;
 
-You can use a digest library for [[SHA-256]].
+/// description:
+/// #C-based_code_.28and_possibly_others.29_improperly_validates" title="#C-based_code_.28and_possibly_others.29_improperly_validates">incomplete</a>. It is recommended that you use an established [https://en.bitcoin.it/wiki/Software#Libraries library] for any projects that are likely to see external use}}
+/// <br>
+/// [[Category:Checksums]]
+/// <br>
+/// <br>
+/// <br>
+/// Write a program that takes a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/bitcoin" title="wp: bitcoin">bitcoin address</a> as argument, 
+/// and checks whether or not this address is valid.
+/// <br>
+/// A bitcoin address uses a base58 encoding, which uses an alphabet of the characters 0 .. 9, A ..Z, a .. z, but without the four characters 0, O, I and l.
+/// <br>
+/// With this encoding, a bitcoin address encodes 25 bytes:
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item">the first byte is the version number, which will be zero for this task ;</li>
+/// <li class="rosetta__list-item">the next twenty bytes are a [[RIPEMD-160]] digest, but you don't have to know that for this task:  you can consider them a pure arbitrary data ;</li>
+/// <li class="rosetta__list-item">the last four bytes are a checksum check.  They are the first four bytes of a double [[SHA-256]] digest of the previous 21 bytes.</li>
+/// <br>
+/// </ul>
+/// To check the bitcoin address, you must read the first twenty-one bytes, compute the checksum, and check that it corresponds to the last four bytes.
+/// <br>
+/// The program can either return a boolean value or throw an exception when not valid.
+/// <br>
+/// You can use a digest library for [[SHA-256]].
+/// <br>
+/// Here is an example of a bitcoin address:
+/// <br>
+/// 1AGNa15ZQXAZUgFiqJ2i7Z2DPU2J6hW62i
+/// <br>
+/// It does not belong to anyone.  
+/// It is part of the test suite of the bitcoin software.   
+/// You can change a few characters in this string and check that it will fail the test.
+/// <br>
+/// <br>
+/// <br>
 
-Here is an example of a bitcoin address:
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
-1AGNa15ZQXAZUgFiqJ2i7Z2DPU2J6hW62i
-
-It does not belong to anyone.  
-It is part of the test suite of the bitcoin software.   
-You can change a few characters in this string and check that it will fail the test.
+/// solutions:
 
 
+/// rawSolutions:
+null
 
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

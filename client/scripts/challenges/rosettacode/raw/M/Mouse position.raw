@@ -1,29 +1,60 @@
-Mouse position
 
-{{task|GUI}} [[Category:Testing]] [[Category:Hardware]] [[Category:Pointing devices]]
-{{omit from|ACL2}}
-{{omit from|AWK|Does not have an active window concept}}
-{{omit from|Befunge|No mouse support}}
-{{omit from|Brainf***}}
-{{omit from|GolfScript}}
-{{omit from|GUISS}}
-{{omit from|Logtalk}}
-{{omit from|Lotus 123 Macro Scripting}}
-{{omit from|Maxima}}
-{{omit from|ML/I}}
-{{omit from|PARI/GP}}
-{{omit from|PHP}}
-{{omit from|PostScript}}
-{{omit from|R}}
-{{omit from|TI-83 BASIC|Does not have a pointing device.}}
-{{omit from|TI-89 BASIC|Does not have a pointing device.}}
-{{omit from|UNIX Shell}}
-{{omit from|ZX Spectrum Basic|Does not have a pointing device interface or windowing engine}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-Get the current location of the mouse cursor relative to the active window. 
-Please specify if the window may be externally created.
+const assert = require('chai').assert;
 
+/// title: Mouse position
+/// type: rosetta-code
 
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+///  [[Category:Testing]] [[Category:Hardware]] [[Category:Pointing devices]]
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// <br>
+/// Get the current location of the mouse cursor relative to the active window. 
+/// Please specify if the window may be externally created.
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+document.addEventListener('mousemove', function(e){
+  var position = { x: e.clientX, y: e.clientY }
+}
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 
 In a browser environment, it's impossible to actually get the cursor position 
@@ -38,3 +69,10 @@ One of many ways to add an event listener:
 In the above example, the window may not be external. 
 It must in fact be a web browser window, which runs the script.
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

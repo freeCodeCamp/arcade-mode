@@ -1,61 +1,98 @@
-General FizzBuzz
 
-{{task|Classic CS problems and programs}} 
-[[Category:Iteration]] 
-[[Category:Recursion]] 
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Write a generalized version of [[FizzBuzz]] that works for any list of factors, along with their words. 
+const assert = require('chai').assert;
 
-This is basically a "fizzbuzz" implementation where the user supplies the parameters. 
+/// title: General FizzBuzz
+/// type: rosetta-code
 
-The user will enter the max number, then they will enter the factors to be calculated along with the corresponding word to be printed.
+/// categories:
+/// ?
 
-For simplicity's sake, assume the user will input an integer as the max number and 3 factors, each with a word associated with them.
+/// difficulty: ?
 
+/// benchmark:
+replaceWithActualFunctionHere;
 
-For example, given:
-<pre>
->20      #This is the maximum number, supplied by the user
->3 Fizz  #The user now enters the starting factor (3) and the word they want associated with it (Fizz)
->5 Buzz  #The user now enters the next factor (5) and the word they want associated with it (Buzz)
->7 Baxx  #The user now enters the next factor (7) and the word they want associated with it (Baxx)
-</pre>
+/// description:
+///  
+/// [[Category:Iteration]] 
+/// [[Category:Recursion]] 
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Write a generalized version of [[FizzBuzz]] that works for any list of factors, along with their words. 
+/// <br>
+/// This is basically a "fizzbuzz" implementation where the user supplies the parameters. 
+/// <br>
+/// The user will enter the max number, then they will enter the factors to be calculated along with the corresponding word to be printed.
+/// <br>
+/// For simplicity's sake, assume the user will input an integer as the max number and 3 factors, each with a word associated with them.
+/// <br>
+/// <br>
+/// For example, given:
+/// <pre>
+/// >20      #This is the maximum number, supplied by the user
+/// >3 Fizz  #The user now enters the starting factor (3) and the word they want associated with it (Fizz)
+/// >5 Buzz  #The user now enters the next factor (5) and the word they want associated with it (Buzz)
+/// >7 Baxx  #The user now enters the next factor (7) and the word they want associated with it (Baxx)
+/// </pre>
+/// <br>
+/// In other words: For this example, print the numbers <span class="rosetta__text--bold">1</span> through <span class="rosetta__text--bold">20</span>, replacing every multiple of <span class="rosetta__text--bold">3</span> with "Fizz", every multiple of <span class="rosetta__text--bold">5</span> with "Buzz", and every multiple of <span class="rosetta__text--bold">7</span> with "Baxx". 
+/// <br>
+/// In the case where a number is a multiple of at least two factors, print each of the words associated with those factors in the order of least to greatest factor. 
+/// <br>
+/// For instance, the number <span class="rosetta__text--bold">15</span> is a multiple of both <span class="rosetta__text--bold">3</span> and <span class="rosetta__text--bold">5</span>; print "FizzBuzz".
+///  
+/// If the max number was <span class="rosetta__text--bold">105</span> instead of <span class="rosetta__text--bold">20</span>, you would print "FizzBuzzBaxx" because it's a multiple of <span class="rosetta__text--bold">3</span>, <span class="rosetta__text--bold">5</span>, and <span class="rosetta__text--bold">7</span>.
+/// <br>
+/// <br>
+/// <pre>
+/// 1
+/// 2
+/// Fizz
+/// 4
+/// Buzz
+/// Fizz
+/// Baxx
+/// 8
+/// Fizz
+/// Buzz
+/// 11
+/// Fizz
+/// 13
+/// Baxx
+/// FizzBuzz
+/// 16
+/// 17
+/// Fizz
+/// 19
+/// Buzz
+/// </pre>
+/// <br><br>
+/// <br>
+/// <br>
 
-In other words: For this example, print the numbers <span class="rosetta__text--bold">1</span> through <span class="rosetta__text--bold">20</span>, replacing every multiple of <span class="rosetta__text--bold">3</span> with "Fizz", every multiple of <span class="rosetta__text--bold">5</span> with "Buzz", and every multiple of <span class="rosetta__text--bold">7</span> with "Baxx". 
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
 
-In the case where a number is a multiple of at least two factors, print each of the words associated with those factors in the order of least to greatest factor. 
+/// solutions:
+function fizz(d, e) {
+  return function b(a) {
+    return a ? b(a - 1).concat(a) : [];
+  }(e).reduce(function (b, a) {
+    return b + (d.reduce(function (b, c) {
+      return b + (a % c[0] ? "" : c[1]);
+    }, "") || a.toString()) + "\n";
+  }, "");
+}
 
-For instance, the number <span class="rosetta__text--bold">15</span> is a multiple of both <span class="rosetta__text--bold">3</span> and <span class="rosetta__text--bold">5</span>; print "FizzBuzz".
- 
-If the max number was <span class="rosetta__text--bold">105</span> instead of <span class="rosetta__text--bold">20</span>, you would print "FizzBuzzBaxx" because it's a multiple of <span class="rosetta__text--bold">3</span>, <span class="rosetta__text--bold">5</span>, and <span class="rosetta__text--bold">7</span>.
-
-{{out}}
-<pre>
-1
-2
-Fizz
-4
-Buzz
-Fizz
-Baxx
-8
-Fizz
-Buzz
-11
-Fizz
-13
-Baxx
-FizzBuzz
-16
-17
-Fizz
-19
-Buzz
-</pre>
-<br><br>
-
-
+/// rawSolutions:
 =={{header|JavaScript}}==
 
 ===ES5===
@@ -186,3 +223,10 @@ Fizz
 Buzz
 </pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

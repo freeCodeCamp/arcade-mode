@@ -1,10 +1,46 @@
-Yahoo! search interface
 
-{{task|Programming environment operations}}[[Category:Networking and Web Interaction]]
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-Create a class for searching Yahoo! results.
+const assert = require('chai').assert;
 
-It must implement a <span class="rosetta__text--bold">Next Page</span> method, and read URL, Title and Content from results.
-<br><br>
+/// title: Yahoo! search interface
+/// type: rosetta-code
+
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// [[Category:Networking and Web Interaction]]
+/// <br>
+/// Create a class for searching Yahoo! results.
+/// <br>
+/// It must implement a <span class="rosetta__text--bold">Next Page</span> method, and read URL, Title and Content from results.
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

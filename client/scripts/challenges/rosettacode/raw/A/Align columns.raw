@@ -1,30 +1,90 @@
-Align columns
 
-{{task|Text processing}}
-Given a text file of many lines, where fields within a line 
-are delineated by a single 'dollar' character, write a program
-that aligns each column of fields by ensuring that words in each 
-column are separated by at least one space.
-Further, allow for each word in a column to be either left 
-justified, right justified, or center justified within its column.
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-<br clear=all>Use the following text to test your programs:
-<pre>Given$a$text$file$of$many$lines,$where$fields$within$a$line$
-are$delineated$by$a$single$'dollar'$character,$write$a$program
-that$aligns$each$column$of$fields$by$ensuring$that$words$in$each$
-column$are$separated$by$at$least$one$space.
-Further,$allow$for$each$word$in$a$column$to$be$either$left$
-justified,$right$justified,$or$center$justified$within$its$column.</pre>
+const assert = require('chai').assert;
 
-Note that:
-# The example input texts lines may, or may not, have trailing dollar characters.
-# All columns should share the same alignment.
-# Consecutive space characters produced adjacent to the end of lines are insignificant for the purposes of the task.
-# Output text will be viewed in a mono-spaced font on a plain text editor or basic terminal.
-# The minimum space between columns should be computed from the text and not hard-coded.
-# It is <span class="rosetta__text--italic">not</span> a requirement to add separating characters between or around columns.
+/// title: Align columns
+/// type: rosetta-code
 
+/// categories:
+/// ?
 
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// Given a text file of many lines, where fields within a line 
+/// are delineated by a single 'dollar' character, write a program
+/// that aligns each column of fields by ensuring that words in each 
+/// column are separated by at least one space.
+/// Further, allow for each word in a column to be either left 
+/// justified, right justified, or center justified within its column.
+/// <br>
+/// <br clear=all>Use the following text to test your programs:
+/// <pre>Given$a$text$file$of$many$lines,$where$fields$within$a$line$
+/// are$delineated$by$a$single$'dollar'$character,$write$a$program
+/// that$aligns$each$column$of$fields$by$ensuring$that$words$in$each$
+/// column$are$separated$by$at$least$one$space.
+/// Further,$allow$for$each$word$in$a$column$to$be$either$left$
+/// justified,$right$justified,$or$center$justified$within$its$column.</pre>
+/// <br>
+/// Note that:
+/// # The example input texts lines may, or may not, have trailing dollar characters.
+/// # All columns should share the same alignment.
+/// # Consecutive space characters produced adjacent to the end of lines are insignificant for the purposes of the task.
+/// # Output text will be viewed in a mono-spaced font on a plain text editor or basic terminal.
+/// # The minimum space between columns should be computed from the text and not hard-coded.
+/// # It is <span class="rosetta__text--italic">not</span> a requirement to add separating characters between or around columns.
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+var justification="center",
+input=["Given$a$text$file$of$many$lines,$where$fields$within$a$line$",
+"are$delineated$by$a$single$'dollar'$character,$write$a$program",
+"that$aligns$each$column$of$fields$by$ensuring$that$words$in$each$",
+"column$are$separated$by$at$least$one$space.",
+"Further,$allow$for$each$word$in$a$column$to$be$either$left$",
+"justified,$right$justified,$or$center$justified$within$its$column."],
+x,y,cols,max,cols=0,diff,left,right
+
+String.prototype.repeat=function(n){return new Array(1 + parseInt(n)).join(this);}
+
+for(x=0;x<input.length;x++) {
+ input[x]=input[x].split("$");
+ if(input[x].length>cols) cols=input[x].length;
+}
+for(x=0;x<cols;x++) {
+ max=0;
+ for(y=0;y<input.length;y++) if(input[y][x]&&max<input[y][x].length) max=input[y][x].length;
+ for(y=0;y<input.length;y++) 
+  if(input[y][x]) {
+   diff=(max-input[y][x].length)/2;
+   left=" ".repeat(Math.floor(diff));
+   right=" ".repeat(Math.ceil(diff));
+   if(justification=="left") {right+=left;left=""}
+   if(justification=="right") {left+=right;right=""}
+   input[y][x]=left+input[y][x]+right;
+  }
+}
+for(x=0;x<input.length;x++) input[x]=input[x].join(" ");
+input=input.join("\n");
+document.write(input);
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 
 ===Imperative===
@@ -274,3 +334,10 @@ justified,       right  justified,      or  center  justified      within       
  Further,     allow        for       each    word      in          a        column     to       be     either  left  
 justified,    right     justified,    or    center  justified    within      its     column.                         </pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

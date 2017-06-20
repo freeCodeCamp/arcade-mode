@@ -1,20 +1,52 @@
-Concurrent computing
 
-{{task|Concurrency}}
-<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category:Basic language learning]]
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Using either native language concurrency syntax or freely available libraries, write a program to display the strings "Enjoy" "Rosetta" "Code", one string per line, in random order. 
+const assert = require('chai').assert;
 
-Concurrency syntax must use [[thread" title="Category:Basic language learning]]
+/// title: Concurrent computing
+/// type: rosetta-code
 
-;Task:
-Using either native language concurrency syntax or freely available libraries, write a program to display the strings "Enjoy" "Rosetta" "Code", one string per line, in random order. 
+/// categories:
+/// ?
 
-Concurrency syntax must use [[thread">threads</a>, tasks, co-routines, or whatever concurrency is called in your language.
-<br><br>
+/// difficulty: ?
 
+/// benchmark:
+replaceWithActualFunctionHere;
 
+/// description:
+/// <br>
+/// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category:Basic language learning]]
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Using either native language concurrency syntax or freely available libraries, write a program to display the strings "Enjoy" "Rosetta" "Code", one string per line, in random order. 
+/// <br>
+/// Concurrency syntax must use [[thread" title="Category:Basic language learning]]
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Using either native language concurrency syntax or freely available libraries, write a program to display the strings "Enjoy" "Rosetta" "Code", one string per line, in random order. 
+/// <br>
+/// Concurrency syntax must use [[thread">threads</a>, tasks, co-routines, or whatever concurrency is called in your language.
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+self.addEventListener('message', function (event) {
+  self.postMessage(event.data);
+  self.close();
+}, false);
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 
 JavaScript now enjoys access to a concurrency library thanks to [http://en.wikipedia.org/wiki/Web_worker Web Workers]. The Web Workers specification defines an API for spawning background scripts. This first code is the background script and should be in the concurrent_worker.js file.
@@ -34,3 +66,10 @@ for (var i = 0; i < words.length; i++) {
   workers[i].postMessage(words[i]);
 }</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,23 +1,56 @@
-Rename a file
 
-{{task|File System Operations}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Rename:
-:::* &nbsp; a file called &nbsp; &nbsp; <span class="rosetta__text--bold">input.txt</span> &nbsp; &nbsp; into &nbsp; &nbsp; <span class="rosetta__text--bold">output.txt</span> &nbsp; &nbsp; and 
-:::* &nbsp; a directory called &nbsp; &nbsp; <span class="rosetta__text--bold">docs</span> &nbsp; &nbsp; into &nbsp; &nbsp; <span class="rosetta__text--bold">mydocs</span>.
+const assert = require('chai').assert;
 
+/// title: Rename a file
+/// type: rosetta-code
 
-This should be done twice: &nbsp; 
-once "here", i.e. in the current working directory and once in the filesystem root.
+/// categories:
+/// ?
 
-It can be assumed that the user has the rights to do so.
+/// difficulty: ?
 
-(In unix-type systems, only the user root would have
-sufficient permissions in the filesystem root.)
-<br><br>
+/// benchmark:
+replaceWithActualFunctionHere;
 
+/// description:
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Rename:
+/// <span class="rosetta__text--indented">::* &nbsp; a file called &nbsp; &nbsp; <span class="rosetta__text--bold">input.txt</span> &nbsp; &nbsp; into &nbsp; &nbsp; <span class="rosetta__text--bold">output.txt</span> &nbsp; &nbsp; and </span>
+/// <span class="rosetta__text--indented">::* &nbsp; a directory called &nbsp; &nbsp; <span class="rosetta__text--bold">docs</span> &nbsp; &nbsp; into &nbsp; &nbsp; <span class="rosetta__text--bold">mydocs</span>.</span>
+/// <br>
+/// <br>
+/// This should be done twice: &nbsp; 
+/// once "here", i.e. in the current working directory and once in the filesystem root.
+/// <br>
+/// It can be assumed that the user has the rights to do so.
+/// <br>
+/// (In unix-type systems, only the user root would have
+/// sufficient permissions in the filesystem root.)
+/// <br><br>
+/// <br>
+/// <br>
 
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+var fso = new ActiveXObject("Scripting.FileSystemObject");
+fso.MoveFile('input.txt', 'output.txt');
+fso.MoveFile('c:/input.txt', 'c:/output.txt');
+fso.MoveFolder('docs', 'mydocs');
+fso.MoveFolder('c:/docs', 'c:/mydocs');
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 {{works with|JScript}}
 Throws an error if the destination file/folder exists.
@@ -27,3 +60,10 @@ fso.MoveFile('c:/input.txt', 'c:/output.txt');
 fso.MoveFolder('docs', 'mydocs');
 fso.MoveFolder('c:/docs', 'c:/mydocs');</lang>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

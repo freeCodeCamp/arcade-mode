@@ -1,16 +1,59 @@
-Find limit of recursion
 
-{{task}}
-{{selection|Short Circuit|Console Program Basics}}
-[[Category:Basic language learning]]
-[[Category:Programming environment operations]] 
-[[Category:Simple]]
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-;Task:
-Find the limit of recursion.
-<br><br>
+const assert = require('chai').assert;
 
+/// title: Find limit of recursion
+/// type: rosetta-code
 
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// [[Category:Basic language learning]]
+/// [[Category:Programming environment operations]] 
+/// [[Category:Simple]]
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// Find the limit of recursion.
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+function recurse(depth)
+{
+ try
+ {
+  return recurse(depth + 1);
+ }
+ catch(ex)
+ {
+  return depth;
+ }
+}
+
+var maxRecursion = recurse(1);
+document.write("Recursion depth on this system is " + maxRecursion);
+
+/// rawSolutions:
 =={{header|JavaScript}}==
 <lang javascript>
 function recurse(depth)
@@ -37,3 +80,10 @@ document.write("Recursion depth on this system is " + maxRecursion);</lang>
 {{out}} (IE6):
 <pre>Recursion depth on this system is 2552.</pre>
 
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

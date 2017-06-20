@@ -1,23 +1,59 @@
-GUI/Maximum window dimensions
 
-{{task|GUI}}{{requires|Graphics}}
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-The task is to determine the maximum height and width of a window that can fit within the physical display area of the screen without scrolling. 
+const assert = require('chai').assert;
 
-This is effectively the screen size (not the total desktop area, which could be bigger than the screen display area) in pixels minus any adjustments for window decorations and menubars. 
+/// title: GUI/Maximum window dimensions
+/// type: rosetta-code
 
-The idea is to determine the physical display parameters for the maximum height and width of the usable display area in pixels (without scrolling). 
+/// categories:
+/// ?
 
-The values calculated should represent the usable desktop area of a window maximized to fit the the screen.
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <br>
+/// <br>
+/// The task is to determine the maximum height and width of a window that can fit within the physical display area of the screen without scrolling. 
+/// <br>
+/// This is effectively the screen size (not the total desktop area, which could be bigger than the screen display area) in pixels minus any adjustments for window decorations and menubars. 
+/// <br>
+/// The idea is to determine the physical display parameters for the maximum height and width of the usable display area in pixels (without scrolling). 
+/// <br>
+/// The values calculated should represent the usable desktop area of a window maximized to fit the the screen.
+/// <br>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Considerations:</dt></dl>
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">--- Multiple Monitors:</dt></dl>
+/// For multiple monitors, the values calculated should represent the size of the usable display area on the monitor which is related to the task (i.e.: &nbsp; the monitor which would display a window if such instructions were given).
+/// <br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">--- Tiling Window Managers</dt></dl>
+/// For a tiling window manager, the values calculated should represent the maximum height and width of the display area of the maximum size a window can be created (without scrolling). This would typically be a full screen window (minus any areas occupied by desktop bars), unless the window manager has restrictions that prevents the creation of a full screen window, in which case the values represent the usable area of the desktop that occupies the maximum permissible window size (without scrolling).
+/// <br><br>
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
-;Considerations:
+/// rawSolutions:
+null
 
-;--- Multiple Monitors:
-For multiple monitors, the values calculated should represent the size of the usable display area on the monitor which is related to the task (i.e.: &nbsp; the monitor which would display a window if such instructions were given).
+/// tail:
+const replaceThis = 3;
 
-;--- Tiling Window Managers
-For a tiling window manager, the values calculated should represent the maximum height and width of the display area of the maximum size a window can be created (without scrolling). This would typically be a full screen window (minus any areas occupied by desktop bars), unless the window manager has restrictions that prevents the creation of a full screen window, in which case the values represent the usable area of the desktop that occupies the maximum permissible window size (without scrolling).
-<br><br>
-
-
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

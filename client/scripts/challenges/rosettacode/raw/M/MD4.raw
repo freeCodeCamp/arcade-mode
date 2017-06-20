@@ -1,13 +1,49 @@
-MD4
 
-{{task}} [[Category:Checksums]]
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
 
-Find the MD4 message digest of a string of [[octet]]s. 
-Use the ASCII encoded string “<tt>Rosetta Code</tt>” (without quotes). 
-You may either call an MD4 library, or implement MD4 in your language.
+const assert = require('chai').assert;
 
-<span class="rosetta__text--bold">MD4</span> is an obsolete hash function that computes a 128-bit message digest that sometimes appears in obsolete protocols.
+/// title: MD4
+/// type: rosetta-code
 
-RFC 1320 specifies the MD4 algorithm. RFC 6150 declares that MD4 is obsolete.
+/// categories:
+/// ?
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+///  [[Category:Checksums]]
+/// <br>
+/// Find the MD4 message digest of a string of [[octet]]s. 
+/// Use the ASCII encoded string “<tt>Rosetta Code</tt>” (without quotes). 
+/// You may either call an MD4 library, or implement MD4 in your language.
+/// <br>
+/// <span class="rosetta__text--bold">MD4</span> is an obsolete hash function that computes a 128-bit message digest that sometimes appears in obsolete protocols.
+/// <br>
+/// RFC 1320 specifies the MD4 algorithm. RFC 6150 declares that MD4 is obsolete.
+/// <br>
+/// <br>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
 
 
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');
