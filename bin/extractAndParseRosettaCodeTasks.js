@@ -5,9 +5,9 @@
  * All Rosetta Code content available under GNU Free Documentation License 1.2.
  * See: rosettacode.org/wiki/Rosetta_Code:Copyrights
  *
+ * Entire script takes about 2 minutes from start to finish.
  */
 
-/* Entire script takes about 2 minutes from start to finish */
 
 /* eslint no-confusing-arrow: 0 */
 /* eslint no-param-reassign: 0 */
@@ -92,12 +92,12 @@ function processRawRosettaCodeTask (taskName, content) {
   const rosettaTemplateRegex = /\[\[(?!wp:)(?!Category:)(.*?)(?:\|(.*))?\]\]/g;
   const tripleSingleQuotesRegex = /'''(.*?)'''/g; // convert to bold
   const doubleSingleQuotesRegex = /''(.*?)''/g; // convert to italics
-  const doubleBracketRegex = /{{(.*?)}}/g; // remove all double brackets (serves no purpose)
+  const doubleCurlyBraceRegex = /{{(.*?)}}/g; // remove all double curly braces
   const colonLineStartRegex = /^:(.*)$/gm; // indent all colon start lines
   const semicolonLineStartRegex = /^;(.*)$/gm; // convert all semicolon start lines to dl/dt
-  const asteriskLineStartRegex = /^\*\s(.*)$/gm; // convert all asterisk start lines to li
-  const hashLineStartRegex = /^#\s(.*)$/gm; // convert all hash start lines to numbered
-  const wrapAllListElements = /((?:<li [^>]*>.*<\/li>\n?)+)/g;
+  const asteriskLineStartRegex = /^\*\s?(.*)$/gm; // convert all asterisk start lines to li
+  const hashLineStartRegex = /^#\s?(.*)$/gm; // convert all hash start lines to numbered
+  const wrapAllListElementsRegex = /((?:<li [^>]*>.*<\/li>\n?)+)/g;
   const mathRegex = /<\/?math>/gi;
 
   // 2. Regex for adding in-house syntax:
@@ -115,13 +115,13 @@ function processRawRosettaCodeTask (taskName, content) {
       '<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/$1" title="$1">$2</a>')
     .replace(tripleSingleQuotesRegex, '<span class="rosetta__text--bold">$1</span>')
     .replace(doubleSingleQuotesRegex, '<span class="rosetta__text--italic">$1</span>')
-    .replace(doubleBracketRegex, '')
+    .replace(doubleCurlyBraceRegex, '')
     .replace(colonLineStartRegex, '<span class="rosetta__text--indented">$1</span>')
     .replace(semicolonLineStartRegex,
       '<dl class="rosetta__description-list"><dt class="rosetta__description-title">$1</dt></dl>')
     .replace(asteriskLineStartRegex, '<li class="rosetta__list-item--unordered">$1</li>')
     .replace(hashLineStartRegex, '<li class="rosetta__list-item--ordered">$1</li>')
-    .replace(wrapAllListElements, listEls => {
+    .replace(wrapAllListElementsRegex, listEls => {
       if (listEls.match(/<li .*(?=rosetta__list-item--unordered).*>/g)) {
         return `<ul class="rosetta__unordered-list">\n${listEls}\n</ul>`;
       }
