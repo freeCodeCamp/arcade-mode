@@ -95,11 +95,11 @@ printToOutput(result);
 function processFile(parser, file, props) {
   const buffer = fs.readFileSync(file);
   parser.currFile = file;
-  parser.files[file] = {};
   checkFileSyntax(buffer);
 
   const lines = buffer.toString().split('\n');
   if (!workInProgress(lines)) {
+    parser.files[file] = {};
     lines.forEach(line => {
       processLine(parser, line);
     });
