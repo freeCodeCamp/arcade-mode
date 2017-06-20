@@ -84,6 +84,7 @@ function processRawRosettaCodeTask (taskName, content) {
   // 0. Initial extraction of description segment:
   const descriptionBlobRegex = /^([\s\S]*?)==\{\{header\|/;
   const rawDescription = content.match(descriptionBlobRegex) && content.match(descriptionBlobRegex)[1];
+
   // 1. Regexes for transforming RosettaCode specific syntax to in-house/regular.
   const wikipediaTemplateRegex = /\[\[(?:wp:)([^|]*)\|(.*)\]\]/g;
   const rosettaTemplateRegex = /\[\[(?!wp:)([^|]*)\|(.*?)\]\]/g;
@@ -129,7 +130,7 @@ function processRawRosettaCodeTask (taskName, content) {
     solution = rawSolutions.match(solutionsRegex) && rawSolutions.match(solutionsRegex)[1];
   }
 
-  // FEED processed into in-house template:
+  // FEED all processed entities into in-house template:
   return toInHouseTemplate(taskName, description, solution, rawSolutions);
 }
 
