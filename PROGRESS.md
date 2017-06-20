@@ -1,5 +1,9 @@
 # PROGRESS for Arcade Mode
 ## Monday 6/19/17:
+### Tim:
+  - Progress:
+    1. Improve RosettaCode processing script. Raw files much closer to final product.
+
 ### Tuomas:
   - Progress:
     1. Added Vector cross product challenge.
@@ -10,7 +14,7 @@
   - Progress:
     1. Add Happy numbers challenge.
   - @:
-    - [ ] Prevent non-heading lines with colon endings from messing up generated JSON.
+    - [X] Prevent non-heading lines with colon endings from messing up generated JSON.
 
 ### Tuomas:
   - Progress:
