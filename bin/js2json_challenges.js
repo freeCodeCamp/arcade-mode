@@ -34,7 +34,8 @@ const re = {
   lineCommentWithProp: /^\/\/\/\s+(\w+):\s*$/,
   lineCommentWithPropAndText: /^\/\/\/\s+(\w+):\s*(\S.*)$/,
   lineCommentWithText: /^\/\/\/\s(.*)$/,
-  endComment: /^\/\/\/\s+end\s+$/
+  endComment: /^\/\/\/\s+end\s+$/,
+  workInProgress: /^\/\/\/\s+WIP/i
 };
 
 const opts = commandLineArgs(optionDefinitions);
@@ -98,15 +99,20 @@ function processFile(parser, file, props) {
   checkFileSyntax(buffer);
 
   const lines = buffer.toString().split('\n');
-  lines.forEach(line => {
-    processLine(parser, line);
-  });
+  if (!workInProgress(lines)) {
+    lines.forEach(line => {
+      processLine(parser, line);
+    });
 
-  if (parser.propValue.length > 0) {
-    finishCurrProp(parser);
+    if (parser.propValue.length > 0) {
+      finishCurrProp(parser);
+    }
+
+    verifyExpectedProps(parser, file, props);
   }
-
-  verifyExpectedProps(parser, file, props);
+  else {
+    console.log('Skipping WIP file ' + file);
+  }
 }
 
 /* Checks the code syntax in given buffer using acorn. */
@@ -278,3 +284,14 @@ function usage(exitCode = 0) {
 function isPropLegal(propName) {
   return allProps.hasOwnProperty(propName);
 }
+
+function workInProgress(lines) {
+  let wip = false;
+  lines.forEach(line => {
+    if (line.match(re.workInProgress)) {
+      wip = true;
+    }
+  });
+  return wip;
+}
+
