@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -22,7 +22,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <span class="rosetta__text--bold">See Also</span>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Leap year" title="wp: Leap year">Leap year (wiki)</a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Leap year" title="wp: Leap year">Leap year (wiki)</a></li>
 /// <br>
 /// </ul>
 /// <br>

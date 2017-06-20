@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// String manipulation
 
 /// difficulty: ?
 
@@ -19,7 +19,7 @@ replaceWithActualFunctionHere;
 
 /// description:
 /// <br>
-/// [[Category:String manipulation]]
+/// <br>
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
@@ -33,15 +33,15 @@ replaceWithActualFunctionHere;
 /// <br>
 /// This simple "mono-alphabetic substitution cipher" provides almost no security, because an attacker who has the encoded message can either use frequency analysis to guess the key, or just try all 25 keys.
 /// <br>
-/// Caesar cipher is identical to [[Vigenère cipher]] with a key of length 1. <br>
-/// Also, [[Rot-13]] is identical to Caesar cipher with key 13.
+/// Caesar cipher is identical to <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Vigenère cipher" title="Vigenère cipher"></a> with a key of length 1. <br>
+/// Also, <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Rot-13" title="Rot-13"></a> is identical to Caesar cipher with key 13.
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks:</dt></dl>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">[[Rot-13]]</li>
-/// <li class="rosetta__list-item">[[Substitution Cipher]]</li>
-/// <li class="rosetta__list-item">[[Vigenère Cipher/Cryptanalysis]]</li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Rot-13" title="Rot-13"></a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Substitution Cipher" title="Substitution Cipher"></a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Vigenère Cipher/Cryptanalysis" title="Vigenère Cipher/Cryptanalysis"></a></li>
 /// <br>
 /// </ul><br><br>
 /// <br>

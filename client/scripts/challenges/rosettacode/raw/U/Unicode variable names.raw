@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -19,15 +19,17 @@ replaceWithActualFunctionHere;
 
 /// description:
 /// <br>
-/// # Describe, and give a pointer to documentation on your languages use of characters <span class="rosetta__text--italic">beyond</span> those of the ASCII character set in the naming of variables.
-/// # Show how to:
-/// <span class="rosetta__text--indented">* Set a variable with a name including the 'Δ', (delta <span class="rosetta__text--italic">character</span>), to 1 </span>
+/// <ol class="rosetta__ordered-list">
+/// <li class="rosetta__list-item--ordered">Describe, and give a pointer to documentation on your languages use of characters <span class="rosetta__text--italic">beyond</span> those of the ASCII character set in the naming of variables.</li>
+/// <li class="rosetta__list-item--ordered">Show how to:</li>
+/// <br>
+/// </ol><span class="rosetta__text--indented">* Set a variable with a name including the 'Δ', (delta <span class="rosetta__text--italic">character</span>), to 1 </span>
 /// <span class="rosetta__text--indented">* Increment it</span>
 /// <span class="rosetta__text--indented">* Print its value.</span>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Cf.:</dt></dl>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">[[Case-sensitivity of identifiers]]</li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Case-sensitivity of identifiers" title="Case-sensitivity of identifiers"></a></li>
 /// <br>
 /// </ul><br><br>
 /// <br>

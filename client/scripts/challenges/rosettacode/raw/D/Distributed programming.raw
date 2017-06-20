@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -24,7 +24,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// The protocol used may be language-specific or not, and should be <span class="rosetta__text--bold">suitable for general distributed programming</span>; that is, the <span class="rosetta__text--italic">protocol</span> should be generic (not designed just for the particular example application), readily capable of handling the independent communications of many different components of a single application, and the transferring of arbitrary data structures natural for the language.
 /// <br>
-/// This task is intended to demonstrate high-level communication facilities beyond just creating [[sockets]].
+/// This task is intended to demonstrate high-level communication facilities beyond just creating <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/sockets" title="sockets"></a>.
 /// <br>
 /// <br>
 

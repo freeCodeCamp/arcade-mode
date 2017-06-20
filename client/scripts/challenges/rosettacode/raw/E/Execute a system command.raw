@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -25,7 +25,7 @@ replaceWithActualFunctionHere;
 /// <br><br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks</dt></dl>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Get_system_command_output " title="Get_system_command_output "> Get system command output</a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Get_system_command_output " title="Get_system_command_output "> Get system command output</a></li>
 /// <br>
 /// </ul><br><br>
 /// <br>

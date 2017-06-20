@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Puzzles
 
 /// difficulty: ?
 
@@ -18,7 +18,7 @@ const assert = require('chai').assert;
 replaceWithActualFunctionHere;
 
 /// description:
-///  [[Category:Puzzles]]
+///  
 /// <br>
 /// <br>
 /// Set Puzzles are created with a deck of cards from the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Set (game)" title="wp: Set (game)">Set Game™</a>. The object of the puzzle is to find sets of 3 cards in a rectangle of cards that have been dealt face up. <br><br>
@@ -26,19 +26,19 @@ replaceWithActualFunctionHere;
 /// Each card contains a unique variation of the following four features: <span class="rosetta__text--italic">color, symbol, number and shading</span>.
 /// <br>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">there are three colors:<br> &nbsp;&nbsp;&nbsp;<span class="rosetta__text--italic">red, green, purple</span><br><br></li>
+/// <li class="rosetta__list-item--unordered">there are three colors:<br> &nbsp;&nbsp;&nbsp;<span class="rosetta__text--italic">red, green, purple</span><br><br></li>
 /// <br>
 /// </ul>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">there are three symbols:<br> &nbsp;&nbsp;&nbsp;<span class="rosetta__text--italic">oval, squiggle, diamond</span><br><br></li>
+/// <li class="rosetta__list-item--unordered">there are three symbols:<br> &nbsp;&nbsp;&nbsp;<span class="rosetta__text--italic">oval, squiggle, diamond</span><br><br></li>
 /// <br>
 /// </ul>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">there is a number of symbols on the card:<br> &nbsp;&nbsp;&nbsp;<span class="rosetta__text--italic">one, two, three</span><br><br></li>
+/// <li class="rosetta__list-item--unordered">there is a number of symbols on the card:<br> &nbsp;&nbsp;&nbsp;<span class="rosetta__text--italic">one, two, three</span><br><br></li>
 /// <br>
 /// </ul>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">there are three shadings:<br> &nbsp;&nbsp;&nbsp;<span class="rosetta__text--italic">solid, open, striped</span><br><br></li>
+/// <li class="rosetta__list-item--unordered">there are three shadings:<br> &nbsp;&nbsp;&nbsp;<span class="rosetta__text--italic">solid, open, striped</span><br><br></li>
 /// <br>
 /// </ul>
 /// Three cards form a <span class="rosetta__text--italic">set</span> if each feature is either the same on each card, or is different on each card. For instance: all 3 cards are red, all 3 cards have a different symbol, all 3 cards have a different number of symbols, all 3 cards are striped.

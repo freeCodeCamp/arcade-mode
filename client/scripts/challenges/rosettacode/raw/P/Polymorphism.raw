@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Object oriented
 
 /// difficulty: ?
 
@@ -19,7 +19,7 @@ replaceWithActualFunctionHere;
 
 /// description:
 /// <br>
-/// [[Category:Object oriented]]
+/// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
 /// Create two classes &nbsp; Point(x,y) &nbsp; and &nbsp; Circle(x,y,r) &nbsp; with a polymorphic function print, accessors for (x,y,r), copy constructor, assignment and destructor and every possible default constructors

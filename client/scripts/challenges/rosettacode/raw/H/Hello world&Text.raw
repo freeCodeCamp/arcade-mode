@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Simple
 
 /// difficulty: ?
 
@@ -20,18 +20,18 @@ replaceWithActualFunctionHere;
 /// description:
 /// <br>
 /// <br>
-/// [[Category:Simple]]
+/// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
 /// Display the string <span class="rosetta__text--bold">Hello world!</span> on a text console.
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks:</dt></dl>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">&nbsp; [[Hello world/Graphical]]</li>
-/// <li class="rosetta__list-item">&nbsp; [[Hello world/Line Printer]]</li>
-/// <li class="rosetta__list-item">&nbsp; [[Hello world/Newline omission]]</li>
-/// <li class="rosetta__list-item">&nbsp; [[Hello world/Standard error]]</li>
-/// <li class="rosetta__list-item">&nbsp; [[Hello world/Web server]]</li>
+/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Hello world/Graphical" title="Hello world/Graphical"></a></li>
+/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Hello world/Line Printer" title="Hello world/Line Printer"></a></li>
+/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Hello world/Newline omission" title="Hello world/Newline omission"></a></li>
+/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Hello world/Standard error" title="Hello world/Standard error"></a></li>
+/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Hello world/Web server" title="Hello world/Web server"></a></li>
 /// <br>
 /// </ul><br><br>
 /// <br>

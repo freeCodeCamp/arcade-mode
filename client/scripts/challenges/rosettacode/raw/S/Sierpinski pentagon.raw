@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -25,7 +25,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">See also</dt></dl>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">[http://ecademy.agnesscott.edu/~lriddle/ifs/pentagon/pentagon.htm Sierpinski pentagon]</li>
+/// <li class="rosetta__list-item--unordered">[http://ecademy.agnesscott.edu/~lriddle/ifs/pentagon/pentagon.htm Sierpinski pentagon]</li>
 /// <br>
 /// </ul><br><br>
 /// <br>

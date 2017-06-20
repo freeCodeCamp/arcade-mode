@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// File_handling
 
 /// difficulty: ?
 
@@ -18,7 +18,7 @@ const assert = require('chai').assert;
 replaceWithActualFunctionHere;
 
 /// description:
-///  [[Category:File_handling]]
+///  
 /// <br>
 /// <br>
 /// <br>
@@ -44,7 +44,7 @@ replaceWithActualFunctionHere;
 ///     3    1.7321
 ///     1e+011   3.1623e+005
 /// <br>
-/// This task is intended as a subtask for [[Measure relative performance of sorting algorithms implementations]].
+/// This task is intended as a subtask for <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Measure relative performance of sorting algorithms implementations" title="Measure relative performance of sorting algorithms implementations"></a>.
 /// <br><br>
 /// <br>
 /// <br>

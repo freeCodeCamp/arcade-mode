@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -23,16 +23,18 @@ replaceWithActualFunctionHere;
 /// <br>
 /// Given two points on a plane and a radius, usually two circles of given radius can be drawn through the points. 
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Exceptions:</dt></dl>
-/// # r==0.0 should be treated as never describing circles (except in the case where the points are coincident).
-/// # If the points are coincident then an infinite number of circles with the point on their circumference can be drawn, unless r==0.0 as well which then collapses the circles to a point.
-/// # If the points form a diameter then return two identical circles <span class="rosetta__text--italic">or</span> return a single circle, according to which is the most natural mechanism for the implementation language.
-/// # If the points are too far apart then no circles can be drawn.
+/// <ol class="rosetta__ordered-list">
+/// <li class="rosetta__list-item--ordered">r==0.0 should be treated as never describing circles (except in the case where the points are coincident).</li>
+/// <li class="rosetta__list-item--ordered">If the points are coincident then an infinite number of circles with the point on their circumference can be drawn, unless r==0.0 as well which then collapses the circles to a point.</li>
+/// <li class="rosetta__list-item--ordered">If the points form a diameter then return two identical circles <span class="rosetta__text--italic">or</span> return a single circle, according to which is the most natural mechanism for the implementation language.</li>
+/// <li class="rosetta__list-item--ordered">If the points are too far apart then no circles can be drawn.</li>
 /// <br>
+/// </ol>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task detail:</dt></dl>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">Write a function/subroutine/method/... that takes two points and a radius and returns the two circles through those points, <span class="rosetta__text--italic">or some indication of special cases where two, possibly equal, circles cannot be returned</span>.</li>
-/// <li class="rosetta__list-item">Show here the output for the following inputs:</li>
+/// <li class="rosetta__list-item--unordered">Write a function/subroutine/method/... that takes two points and a radius and returns the two circles through those points, <span class="rosetta__text--italic">or some indication of special cases where two, possibly equal, circles cannot be returned</span>.</li>
+/// <li class="rosetta__list-item--unordered">Show here the output for the following inputs:</li>
 /// <br>
 /// </ul><pre>
 ///       p1                p2           r
@@ -45,7 +47,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Ref:</dt></dl>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">[http://mathforum.org/library/drmath/view/53027.html Finding the Center of a Circle from 2 Points and Radius] from Math forum @ Drexel</li>
+/// <li class="rosetta__list-item--unordered">[http://mathforum.org/library/drmath/view/53027.html Finding the Center of a Circle from 2 Points and Radius] from Math forum @ Drexel</li>
 /// <br>
 /// </ul><br><br>
 /// <br>

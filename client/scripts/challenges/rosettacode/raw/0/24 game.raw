@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -24,36 +24,36 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task</dt></dl>
-/// Write a program that <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/task feature::Rosetta Code:randomness" title="task feature::Rosetta Code:randomness">randomly</a> chooses and <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/task feature::Rosetta Code:user output" title="task feature::Rosetta Code:user output">displays</a> four digits, each from 1 ──► 9 (inclusive) with repetitions allowed.
+/// Write a program that <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/task feature::Rosetta Code:randomness" title="task feature::Rosetta Code:randomness">randomly]] chooses and [[task feature::Rosetta Code:user output|displays</a> four digits, each from 1 ──► 9 (inclusive) with repetitions allowed.
 /// <br>
 /// The program should prompt for the player to enter an arithmetic expression using <span class="rosetta__text--italic">just</span> those, and <span class="rosetta__text--italic">all</span> of those four digits, used exactly <span class="rosetta__text--italic">once</span> each. The program should <span class="rosetta__text--italic">check</span> then <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/task feature::Rosetta Code:parsing" title="task feature::Rosetta Code:parsing">evaluate the expression</a>. 
 /// <br>
 /// The goal is for the player to <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/task feature::Rosetta Code:user input" title="task feature::Rosetta Code:user input">enter</a> an expression that (numerically) evaluates to <span class="rosetta__text--bold">24</span>.
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item"> Only the following operators/functions are allowed: multiplication, division, addition, subtraction</li>
-/// <li class="rosetta__list-item"> Division should use floating point or rational arithmetic, etc, to preserve remainders.</li>
-/// <li class="rosetta__list-item"> Brackets are allowed, if using an infix expression evaluator.</li>
-/// <li class="rosetta__list-item"> Forming multiple digit numbers from the supplied digits is <span class="rosetta__text--italic">disallowed</span>. (So an answer of 12+12 when given 1, 2, 2, and 1 is wrong).</li>
-/// <li class="rosetta__list-item"> The order of the digits when given does not have to be preserved.</li>
+/// <li class="rosetta__list-item--unordered"> Only the following operators/functions are allowed: multiplication, division, addition, subtraction</li>
+/// <li class="rosetta__list-item--unordered"> Division should use floating point or rational arithmetic, etc, to preserve remainders.</li>
+/// <li class="rosetta__list-item--unordered"> Brackets are allowed, if using an infix expression evaluator.</li>
+/// <li class="rosetta__list-item--unordered"> Forming multiple digit numbers from the supplied digits is <span class="rosetta__text--italic">disallowed</span>. (So an answer of 12+12 when given 1, 2, 2, and 1 is wrong).</li>
+/// <li class="rosetta__list-item--unordered"> The order of the digits when given does not have to be preserved.</li>
 /// <br>
 /// </ul>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Notes</dt></dl>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">The type of expression evaluator used is not mandated. An <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Reverse Polish notation" title="wp: Reverse Polish notation">RPN</a> evaluator is equally acceptable for example.</li>
-/// <li class="rosetta__list-item">The task is not for the program to generate the expression, or test whether an expression is even possible.</li>
+/// <li class="rosetta__list-item--unordered">The type of expression evaluator used is not mandated. An <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Reverse Polish notation" title="wp: Reverse Polish notation">RPN</a> evaluator is equally acceptable for example.</li>
+/// <li class="rosetta__list-item--unordered">The task is not for the program to generate the expression, or test whether an expression is even possible.</li>
 /// <br>
 /// </ul>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks</dt></dl>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">[[24 game/Solve]]</li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/24 game/Solve" title="24 game/Solve"></a></li>
 /// <br>
 /// </ul>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Reference</dt></dl>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">[http://www.bbc.co.uk/dna/h2g2/A933121 The 24 Game] on h2g2.</li>
+/// <li class="rosetta__list-item--unordered">[http://www.bbc.co.uk/dna/h2g2/A933121 The 24 Game] on h2g2.</li>
 /// <br>
 /// </ul><br><br>
 /// <br>

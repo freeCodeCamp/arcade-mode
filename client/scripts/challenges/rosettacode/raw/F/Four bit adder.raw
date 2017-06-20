@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Electronics
 
 /// difficulty: ?
 
@@ -18,7 +18,7 @@ const assert = require('chai').assert;
 replaceWithActualFunctionHere;
 
 /// description:
-///  [[Category:Electronics]]
+///  
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
 /// "<span class="rosetta__text--italic">Simulate</span>" a four-bit adder "chip".

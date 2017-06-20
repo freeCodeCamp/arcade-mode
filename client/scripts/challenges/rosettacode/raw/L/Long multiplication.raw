@@ -10,7 +10,8 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Arbitrary precision
+/// Arithmetic operations
 
 /// difficulty: ?
 
@@ -19,8 +20,8 @@ replaceWithActualFunctionHere;
 
 /// description:
 /// <br>
-/// [[Category:Arbitrary precision]] 
-/// [[Category:Arithmetic operations]]
+///  
+/// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
 /// Explicitly implement &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/long multiplication" title="wp: long multiplication">long multiplication</a>.  

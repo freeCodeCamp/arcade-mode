@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Iteration
 
 /// difficulty: ?
 
@@ -18,9 +18,8 @@ const assert = require('chai').assert;
 replaceWithActualFunctionHere;
 
 /// description:
-/// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category:Iteration]]
-/// Traverse from the beginning of a [[Doubly-linked list/Definition" title="Category:Iteration]]
-/// Traverse from the beginning of a [[Doubly-linked list/Definition">doubly-linked list</a> to the end, and from the end to the beginning.
+/// <br>
+/// Traverse from the beginning of a <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Doubly-linked list/Definition" title="Doubly-linked list/Definition">doubly-linked list</a> to the end, and from the end to the beginning.
 /// <br>
 /// <br>
 /// <br>

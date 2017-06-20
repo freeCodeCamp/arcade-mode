@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -30,7 +30,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <br>
-/// If the solution on this page is a library solution, see &nbsp; [[MD5/Implementation]] &nbsp; for an implementation from scratch.
+/// If the solution on this page is a library solution, see &nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/MD5/Implementation" title="MD5/Implementation"></a> &nbsp; for an implementation from scratch.
 /// <br><br>
 /// <br>
 /// <br>

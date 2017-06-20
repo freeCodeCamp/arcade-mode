@@ -10,7 +10,8 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+///  String manipulation
+/// Simple
 
 /// difficulty: ?
 
@@ -20,8 +21,8 @@ replaceWithActualFunctionHere;
 /// description:
 ///  
 /// <br>
-/// [[Category: String manipulation]] 
-/// [[Category:Simple]] 
+///  
+///  
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
 /// Given two strings, demonstrate the following three types of string matching:

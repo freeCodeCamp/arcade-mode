@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -36,17 +36,19 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
-/// # Create two functions named <span class="rosetta__text--bold">ffr</span> and <span class="rosetta__text--bold">ffs</span> that when given <span class="rosetta__text--bold">n</span> return <span class="rosetta__text--bold">R(n)</span> or <span class="rosetta__text--bold">S(n)</span> respectively.<br>(Note that R(1) = 1 and S(1) = 2 to avoid off-by-one errors).
-/// # No maximum value for <span class="rosetta__text--bold">n</span> should be assumed.
-/// # Calculate and show that the first ten values of <span class="rosetta__text--bold">R</span> are:<br> 1, 3, 7, 12, 18, 26, 35, 45, 56, and 69
-/// # Calculate and show that the first 40 values of <span class="rosetta__text--bold">ffr</span> plus the first 960 values of <span class="rosetta__text--bold">ffs</span> include all the integers from 1 to 1000 exactly once.
+/// <ol class="rosetta__ordered-list">
+/// <li class="rosetta__list-item--ordered">Create two functions named <span class="rosetta__text--bold">ffr</span> and <span class="rosetta__text--bold">ffs</span> that when given <span class="rosetta__text--bold">n</span> return <span class="rosetta__text--bold">R(n)</span> or <span class="rosetta__text--bold">S(n)</span> respectively.<br>(Note that R(1) = 1 and S(1) = 2 to avoid off-by-one errors).</li>
+/// <li class="rosetta__list-item--ordered">No maximum value for <span class="rosetta__text--bold">n</span> should be assumed.</li>
+/// <li class="rosetta__list-item--ordered">Calculate and show that the first ten values of <span class="rosetta__text--bold">R</span> are:<br> 1, 3, 7, 12, 18, 26, 35, 45, 56, and 69</li>
+/// <li class="rosetta__list-item--ordered">Calculate and show that the first 40 values of <span class="rosetta__text--bold">ffr</span> plus the first 960 values of <span class="rosetta__text--bold">ffs</span> include all the integers from 1 to 1000 exactly once.</li>
 /// <br>
+/// </ol>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">References:</dt></dl>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">Sloane's [http://oeis.org/A005228 A005228] and [http://oeis.org/A030124 A030124].</li>
-/// <li class="rosetta__list-item">[http://mathworld.wolfram.com/HofstadterFigure-FigureSequence.html Wolfram MathWorld]</li>
-/// <li class="rosetta__list-item">Wikipedia: <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Hofstadter_sequence#Hofstadter_Figure-Figure_sequences" title="wp: Hofstadter_sequence#Hofstadter_Figure-Figure_sequences">Hofstadter Figure-Figure sequences</a>.</li>
+/// <li class="rosetta__list-item--unordered">Sloane's [http://oeis.org/A005228 A005228] and [http://oeis.org/A030124 A030124].</li>
+/// <li class="rosetta__list-item--unordered">[http://mathworld.wolfram.com/HofstadterFigure-FigureSequence.html Wolfram MathWorld]</li>
+/// <li class="rosetta__list-item--unordered">Wikipedia: <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Hofstadter_sequence#Hofstadter_Figure-Figure_sequences" title="wp: Hofstadter_sequence#Hofstadter_Figure-Figure_sequences">Hofstadter Figure-Figure sequences</a>.</li>
 /// <br>
 /// </ul><br><br>
 /// <br>

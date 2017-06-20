@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// String_manipulation
 
 /// difficulty: ?
 
@@ -19,7 +19,7 @@ replaceWithActualFunctionHere;
 
 /// description:
 ///  
-/// [[Category:String_manipulation]]
+/// <br>
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
@@ -28,9 +28,9 @@ replaceWithActualFunctionHere;
 /// <br>
 /// In Roman numerals:
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">1990  is rendered: 1000=M, 900=CM, 90=XC; resulting in MCMXC</li>
-/// <li class="rosetta__list-item">2008  is written as 2000=MM, 8=VIII; or MMVIII</li>
-/// <li class="rosetta__list-item">1666  uses each Roman symbol in descending order: MDCLXVI</li>
+/// <li class="rosetta__list-item--unordered">1990  is rendered: 1000=M, 900=CM, 90=XC; resulting in MCMXC</li>
+/// <li class="rosetta__list-item--unordered">2008  is written as 2000=MM, 8=VIII; or MMVIII</li>
+/// <li class="rosetta__list-item--unordered">1666  uses each Roman symbol in descending order: MDCLXVI</li>
 /// <br>
 /// </ul><br><br>
 /// <br>

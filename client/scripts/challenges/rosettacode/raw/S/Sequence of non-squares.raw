@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -24,8 +24,8 @@ replaceWithActualFunctionHere;
 /// Show that the following remarkable formula gives the [http://www.research.att.com/~njas/sequences/A000037 sequence] of non-square <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Natural_number" title="wp: Natural_number">natural numbers</a>:
 ///   n + floor(1/2 + sqrt(n))
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">Print out the values for &nbsp; <big> n </big> &nbsp; in the range &nbsp; <span class="rosetta__text--bold">1</span> &nbsp; to &nbsp; <span class="rosetta__text--bold">22</span></li>
-/// <li class="rosetta__list-item">Show that no squares occur for &nbsp; <big> n </big> &nbsp; less than one million</li>
+/// <li class="rosetta__list-item--unordered">Print out the values for &nbsp; <big> n </big> &nbsp; in the range &nbsp; <span class="rosetta__text--bold">1</span> &nbsp; to &nbsp; <span class="rosetta__text--bold">22</span></li>
+/// <li class="rosetta__list-item--unordered">Show that no squares occur for &nbsp; <big> n </big> &nbsp; less than one million</li>
 /// <br>
 /// </ul>
 /// <br>

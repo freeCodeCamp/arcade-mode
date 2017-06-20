@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Simple
 
 /// difficulty: ?
 
@@ -18,7 +18,7 @@ const assert = require('chai').assert;
 replaceWithActualFunctionHere;
 
 /// description:
-///  [[Category:Simple]]
+///  
 /// Many languages have either (or both) de-facto naming conventions or de-jure naming conventions for names used in the language and/or its libraries.  
 /// These may take the form of prefixes, suffixes or a combination of upper-case and lower-case characters.  
 /// Often the conventions are a bit haphazard, especially where the language and/or library has gone through a periods of evolution. (In this case: give a brief example and description).
@@ -26,9 +26,9 @@ replaceWithActualFunctionHere;
 /// Document as best you can (with simple examples where possible) the evolution and current status of these naming conventions. 
 /// For example, name conventions for:
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">Procedure and operator names.  (Intrinsic or external)</li>
-/// <li class="rosetta__list-item">Class, Subclass and instance names.</li>
-/// <li class="rosetta__list-item">Built-in versus libraries names.</li>
+/// <li class="rosetta__list-item--unordered">Procedure and operator names.  (Intrinsic or external)</li>
+/// <li class="rosetta__list-item--unordered">Class, Subclass and instance names.</li>
+/// <li class="rosetta__list-item--unordered">Built-in versus libraries names.</li>
 /// <br>
 /// </ul>
 /// <br>
@@ -41,7 +41,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">See also:</dt></dl>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">Wikipedia: <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Naming convention (programming)" title="wp: Naming convention (programming)">Naming convention (programming)</a></li>
+/// <li class="rosetta__list-item--unordered">Wikipedia: <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Naming convention (programming)" title="wp: Naming convention (programming)">Naming convention (programming)</a></li>
 /// <br>
 /// </ul><br><br>
 /// <br>

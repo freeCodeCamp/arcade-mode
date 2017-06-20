@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Simple
 
 /// difficulty: ?
 
@@ -19,7 +19,7 @@ replaceWithActualFunctionHere;
 
 /// description:
 ///  
-/// [[Category:Simple]]
+/// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
 /// Produce a formatted &nbsp; 12&times;12 &nbsp; multiplication table of the kind memorized by rote when in primary (or elementary) school.

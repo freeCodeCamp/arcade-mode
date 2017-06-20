@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Text processing
 
 /// difficulty: ?
 
@@ -19,11 +19,9 @@ replaceWithActualFunctionHere;
 
 /// description:
 /// <br>
-/// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category:Text processing]]
 /// <br>
-/// Even today, with proportional fonts and complex layouts, there are still [[Template:Lines_too_long" title="Category:Text processing]]
 /// <br>
-/// Even today, with proportional fonts and complex layouts, there are still [[Template:Lines_too_long">cases</a> where you need to wrap text at a specified column.  
+/// Even today, with proportional fonts and complex layouts, there are still <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Template:Lines_too_long" title="Template:Lines_too_long">cases</a> where you need to wrap text at a specified column.  
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Basic task:</dt></dl>

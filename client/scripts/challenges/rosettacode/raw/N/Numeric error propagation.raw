@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -41,10 +41,12 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task details:</dt></dl>
-/// # Add an uncertain number type to your language that can support addition, subtraction, multiplication, division, and exponentiation between numbers with an associated error term together with 'normal' floating point numbers without an associated error term. <br>Implement enough functionality to perform the following calculations.
-/// # Given coordinates and their errors:<br>x1 = 100 &plusmn; 1.1<br>y1 =  50 &plusmn; 1.2<br>x2 = 200 &plusmn; 2.2<br>y2 = 100 &plusmn; 2.3<br> if point p1 is located at (x1, y1) and p2 is at (x2, y2); calculate the distance between the two points using the classic Pythagorean formula: <br> <big><big> d = &radic;<span style="text-decoration:overline"> &nbsp; (x1 - x2)² &nbsp; + &nbsp; (y1 - y2)² &nbsp; </span> </big></big>
-/// # Print and display both &nbsp; <big> <span class="rosetta__text--bold">d</span> </big> &nbsp; and its error.
+/// <ol class="rosetta__ordered-list">
+/// <li class="rosetta__list-item--ordered">Add an uncertain number type to your language that can support addition, subtraction, multiplication, division, and exponentiation between numbers with an associated error term together with 'normal' floating point numbers without an associated error term. <br>Implement enough functionality to perform the following calculations.</li>
+/// <li class="rosetta__list-item--ordered">Given coordinates and their errors:<br>x1 = 100 &plusmn; 1.1<br>y1 =  50 &plusmn; 1.2<br>x2 = 200 &plusmn; 2.2<br>y2 = 100 &plusmn; 2.3<br> if point p1 is located at (x1, y1) and p2 is at (x2, y2); calculate the distance between the two points using the classic Pythagorean formula: <br> <big><big> d = &radic;<span style="text-decoration:overline"> &nbsp; (x1 - x2)² &nbsp; + &nbsp; (y1 - y2)² &nbsp; </span> </big></big></li>
+/// <li class="rosetta__list-item--ordered">Print and display both &nbsp; <big> <span class="rosetta__text--bold">d</span> </big> &nbsp; and its error.</li>
 /// <br>
+/// </ol>
 ///  <!-- the superscript  
 ///        2 glyph  [²]  
 /// had to be used instead of the     
@@ -53,14 +55,14 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">References:</dt></dl>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">[http://casa.colorado.edu/~benderan/teaching/astr3510/stats.pdf A Guide to Error Propagation] B. Keeney, 2005.</li>
-/// <li class="rosetta__list-item"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Propagation of uncertainty" title="wp: Propagation of uncertainty">Propagation of uncertainty</a> Wikipedia.</li>
+/// <li class="rosetta__list-item--unordered">[http://casa.colorado.edu/~benderan/teaching/astr3510/stats.pdf A Guide to Error Propagation] B. Keeney, 2005.</li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Propagation of uncertainty" title="wp: Propagation of uncertainty">Propagation of uncertainty</a> Wikipedia.</li>
 /// <br>
 /// </ul>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related task:</dt></dl>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">&nbsp; [[Quaternion type]]</li>
+/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Quaternion type" title="Quaternion type"></a></li>
 /// <br>
 /// </ul><br><br>
 /// <br>

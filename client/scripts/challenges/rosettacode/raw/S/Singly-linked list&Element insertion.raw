@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -18,7 +18,7 @@ const assert = require('chai').assert;
 replaceWithActualFunctionHere;
 
 /// description:
-/// Using the link element defined in [[Singly-Linked List (element)]], define a method to insert an element into a [[singly-linked list]] following a given element.
+/// Using the link element defined in <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Singly-Linked List (element)" title="Singly-Linked List (element)"></a>, define a method to insert an element into a <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/singly-linked list" title="singly-linked list"></a> following a given element.
 /// <br>
 /// Using this method, insert an element C into a list comprised of elements A->B, following element A.
 /// <br>

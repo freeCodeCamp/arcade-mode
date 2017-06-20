@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -22,9 +22,9 @@ replaceWithActualFunctionHere;
 /// <br>
 /// The Hailstone sequence of numbers can be generated from a starting positive integer, &nbsp; n &nbsp; by:
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">&nbsp; If &nbsp; n &nbsp; is &nbsp; &nbsp; <span class="rosetta__text--bold">1</span> &nbsp; &nbsp; then the sequence ends.</li>
-/// <li class="rosetta__list-item">&nbsp; If &nbsp; n &nbsp; is &nbsp; <span class="rosetta__text--bold">even</span> then the next &nbsp; n &nbsp; of the sequence &nbsp; <big><code> = n/2 </code></big></li>
-/// <li class="rosetta__list-item">&nbsp; If &nbsp; n &nbsp; is &nbsp; <span class="rosetta__text--bold">odd</span>  &nbsp; then the next &nbsp; n &nbsp; of the sequence &nbsp; <big><code> = (3 * n) + 1 </code></big></li>
+/// <li class="rosetta__list-item--unordered">&nbsp; If &nbsp; n &nbsp; is &nbsp; &nbsp; <span class="rosetta__text--bold">1</span> &nbsp; &nbsp; then the sequence ends.</li>
+/// <li class="rosetta__list-item--unordered">&nbsp; If &nbsp; n &nbsp; is &nbsp; <span class="rosetta__text--bold">even</span> then the next &nbsp; n &nbsp; of the sequence &nbsp; <big><code> = n/2 </code></big></li>
+/// <li class="rosetta__list-item--unordered">&nbsp; If &nbsp; n &nbsp; is &nbsp; <span class="rosetta__text--bold">odd</span>  &nbsp; then the next &nbsp; n &nbsp; of the sequence &nbsp; <big><code> = (3 * n) + 1 </code></big></li>
 /// <br>
 /// </ul>
 /// <br>
@@ -35,14 +35,16 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
-/// # Create a routine to generate the hailstone sequence for a number.
-/// # Use the routine to show that the hailstone sequence for the number 27 has 112 elements starting with <code>27, 82, 41, 124</code> and ending with <code>8, 4, 2, 1</code>
-/// # Show the number less than 100,000 which has the longest hailstone sequence together with that sequence's length.<br> &nbsp;  (But don't show the actual sequence!)
+/// <ol class="rosetta__ordered-list">
+/// <li class="rosetta__list-item--ordered">Create a routine to generate the hailstone sequence for a number.</li>
+/// <li class="rosetta__list-item--ordered">Use the routine to show that the hailstone sequence for the number 27 has 112 elements starting with <code>27, 82, 41, 124</code> and ending with <code>8, 4, 2, 1</code></li>
+/// <li class="rosetta__list-item--ordered">Show the number less than 100,000 which has the longest hailstone sequence together with that sequence's length.<br> &nbsp;  (But don't show the actual sequence!)</li>
 /// <br>
+/// </ol>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">See also:</dt></dl>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">&nbsp; [http://xkcd.com/710 xkcd] (humourous).</li>
+/// <li class="rosetta__list-item--unordered">&nbsp; [http://xkcd.com/710 xkcd] (humourous).</li>
 /// <br>
 /// </ul><br><br>
 /// <br>

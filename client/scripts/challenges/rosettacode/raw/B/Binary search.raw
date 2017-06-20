@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Recursion
 
 /// difficulty: ?
 
@@ -18,13 +18,10 @@ const assert = require('chai').assert;
 replaceWithActualFunctionHere;
 
 /// description:
-/// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category:Recursion]]
+/// <br>
 /// A binary search divides a range of values into halves, and continues to narrow down the field of search until the unknown value is found. It is the classic example of a "divide and conquer" algorithm.
 /// <br>
-/// As an analogy, consider the children's game "[[Guess the number/With feedback" title="Category:Recursion]]
-/// A binary search divides a range of values into halves, and continues to narrow down the field of search until the unknown value is found. It is the classic example of a "divide and conquer" algorithm.
-/// <br>
-/// As an analogy, consider the children's game "[[Guess the number/With feedback">guess a number</a>."  The scorer has a secret number, and will only tell the player if their guessed number is higher than, lower than, or equal to the secret number. The player then uses this information to guess a new number.
+/// As an analogy, consider the children's game "<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Guess the number/With feedback" title="Guess the number/With feedback">guess a number</a>."  The scorer has a secret number, and will only tell the player if their guessed number is higher than, lower than, or equal to the secret number. The player then uses this information to guess a new number.
 /// <br>
 /// As the player, an optimal strategy for the general case is to start by choosing the range's midpoint as the guess, and then asking whether the guess was higher, lower, or equal to the secret number. If the guess was too high, one would select the point exactly between the range midpoint and the beginning of the range. If the original guess was too low, one would ask about the point exactly between the range midpoint and the end of the range. This process repeats until one has reached the secret number.
 /// <br>
@@ -36,10 +33,10 @@ replaceWithActualFunctionHere;
 /// <br>
 /// All of the following code examples use an "inclusive" upper bound (i.e. <code>high = N-1</code> initially). Any of the examples can be converted into an equivalent example using "exclusive" upper bound (i.e. <code>high = N</code> initially) by making the following simple changes (which simply increase <code>high</code> by 1):
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">change <code>high = N-1</code> to <code>high = N</code></li>
-/// <li class="rosetta__list-item">change <code>high = mid-1</code> to <code>high = mid</code></li>
-/// <li class="rosetta__list-item">(for recursive algorithm) change <code>if (high < low)</code> to <code>if (high <= low)</code></li>
-/// <li class="rosetta__list-item">(for iterative algorithm) change <code>while (low <= high)</code> to <code>while (low < high)</code></li>
+/// <li class="rosetta__list-item--unordered">change <code>high = N-1</code> to <code>high = N</code></li>
+/// <li class="rosetta__list-item--unordered">change <code>high = mid-1</code> to <code>high = mid</code></li>
+/// <li class="rosetta__list-item--unordered">(for recursive algorithm) change <code>if (high < low)</code> to <code>if (high <= low)</code></li>
+/// <li class="rosetta__list-item--unordered">(for iterative algorithm) change <code>while (low <= high)</code> to <code>while (low < high)</code></li>
 /// <br>
 /// </ul>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title"> Traditional algorithm</dt></dl>
@@ -161,7 +158,7 @@ replaceWithActualFunctionHere;
 /// where <code> >>> </code> is the logical right shift operator. The reason why this works is that, for signed integers, even though it overflows, when viewed as an unsigned number, the value is still the correct sum. To divide an unsigned number by 2, simply do a logical right shift.
 /// <br>
 /// <span class="rosetta__text--bold">References:</span><br>
-/// <span class="rosetta__text--indented">* C.f: [[Guess the number/With Feedback (Player)]]</span>
+/// <span class="rosetta__text--indented">* C.f: <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Guess the number/With Feedback (Player)" title="Guess the number/With Feedback (Player)"></a></span>
 /// <span class="rosetta__text--indented">* [[wp:Binary search algorithm]]</span>
 /// <span class="rosetta__text--indented">* [http://googleresearch.blogspot.com/2006/06/extra-extra-read-all-about-it-nearly.html Extra, Extra - Read All About It: Nearly All Binary Searches and Mergesorts are Broken].</span>
 /// <br>

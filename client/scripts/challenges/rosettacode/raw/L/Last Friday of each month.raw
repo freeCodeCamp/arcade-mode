@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Date and time
 
 /// difficulty: ?
 
@@ -19,7 +19,7 @@ replaceWithActualFunctionHere;
 
 /// description:
 ///  
-/// [[Category:Date and time]]
+/// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
 /// Write a program or a script that returns the date of the last Fridays of each month of a given year. 
@@ -46,9 +46,9 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks</dt></dl>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">[[Five weekends]]</li>
-/// <li class="rosetta__list-item">[[Day of the week]]</li>
-/// <li class="rosetta__list-item">[[Find the last Sunday of each month]]</li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Five weekends" title="Five weekends"></a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Day of the week" title="Day of the week"></a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Find the last Sunday of each month" title="Find the last Sunday of each month"></a></li>
 /// <br>
 /// </ul><br><br>
 /// <br>

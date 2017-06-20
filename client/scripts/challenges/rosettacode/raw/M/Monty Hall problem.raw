@@ -10,7 +10,8 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Games
+/// Probability and statistics
 
 /// difficulty: ?
 
@@ -18,9 +19,8 @@ const assert = require('chai').assert;
 replaceWithActualFunctionHere;
 
 /// description:
-/// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category:Games]][[Category:Probability and statistics]]
-/// [[File:Monte_Hall_problem.jpg" title="Category:Games]][[Category:Probability and statistics]]
-/// [[File:Monte_Hall_problem.jpg">500px||right</a>
+/// <br>
+/// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:Monte_Hall_problem.jpg" title="File:Monte_Hall_problem.jpg">500px||right</a>
 /// <br>
 /// Run random simulations of the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Monty_Hall_problem" title="wp: Monty_Hall_problem">Monty Hall</a> game. Show the effects of a strategy of the contestant always keeping his first guess so it can be contrasted with the strategy of the contestant always switching his guess.
 /// <br>
@@ -35,7 +35,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Reference:</dt></dl>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">[https://www.youtube.com/watch?v=4Lb-6rxZxx0 Monty Hall Problem - Numberphile]. (Video).</li>
+/// <li class="rosetta__list-item--unordered">[https://www.youtube.com/watch?v=4Lb-6rxZxx0 Monty Hall Problem - Numberphile]. (Video).</li>
 /// <br>
 /// </ul><br><br>
 /// <br>

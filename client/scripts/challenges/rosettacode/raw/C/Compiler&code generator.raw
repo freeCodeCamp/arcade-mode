@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -25,7 +25,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <br>
-/// Take the output of the Syntax analyzer <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/syntax_analyzer" title="Compiler/syntax_analyzer">task</a> - which is a <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Flatten_a_list" title="Flatten_a_list">flattened</a> Abstract Syntax Tree (AST) - and convert it to virtual machine code, that can be run by the
+/// Take the output of the Syntax analyzer <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/syntax_analyzer" title="Compiler/syntax_analyzer">task]] - which is a [[Flatten_a_list|flattened</a> Abstract Syntax Tree (AST) - and convert it to virtual machine code, that can be run by the
 /// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/virtual_machine_interpreter" title="Compiler/virtual_machine_interpreter">Virtual machine interpreter</a>.  The output is in text format, and represents virtual assembly code.
 /// <br>
 /// The program should read input from a file and/or stdin, and write output to a file and/or
@@ -182,23 +182,23 @@ replaceWithActualFunctionHere;
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title"> Output format - refer to the table above</dt></dl>
 /// <br>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">The first line is the header: Size of data, and number of constant strings.</li>
+/// <li class="rosetta__list-item--unordered">The first line is the header: Size of data, and number of constant strings.</li>
 /// <br>
 /// </ul>** size of data is the number of 32-bit unique variables used.  In this example, one variable, <span class="rosetta__text--bold">count</span>
 /// ** number of constant strings is just that - how many there are
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">After that, the constant strings</li>
-/// <li class="rosetta__list-item">Finally, the assembly code</li>
+/// <li class="rosetta__list-item--unordered">After that, the constant strings</li>
+/// <li class="rosetta__list-item--unordered">Finally, the assembly code</li>
 /// <br>
 /// </ul>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Registers:</dt></dl>
 /// <br>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">sp: the stack pointer - points to the next top of stack.  The stack is a 32-bit integer array.</li>
+/// <li class="rosetta__list-item--unordered">sp: the stack pointer - points to the next top of stack.  The stack is a 32-bit integer array.</li>
 /// <br>
 /// </ul>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">pc: the program counter - points to the current instruction to be performed.  The code is an array of bytes.</li>
+/// <li class="rosetta__list-item--unordered">pc: the program counter - points to the current instruction to be performed.  The code is an array of bytes.</li>
 /// <br>
 /// </ul>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Data: </dt></dl>
@@ -284,10 +284,10 @@ replaceWithActualFunctionHere;
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related Tasks</dt></dl>
 /// <br>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/lexical_analyzer" title="Compiler/lexical_analyzer">Lexical Analyzer task</a></li>
-/// <li class="rosetta__list-item"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/syntax_analyzer" title="Compiler/syntax_analyzer">Syntax Analyzer task</a></li>
-/// <li class="rosetta__list-item"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/virtual_machine_interpreter" title="Compiler/virtual_machine_interpreter">Virtual Machine Interpreter task</a></li>
-/// <li class="rosetta__list-item"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/AST_interpreter" title="Compiler/AST_interpreter">AST Interpreter task</a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/lexical_analyzer" title="Compiler/lexical_analyzer">Lexical Analyzer task</a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/syntax_analyzer" title="Compiler/syntax_analyzer">Syntax Analyzer task</a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/virtual_machine_interpreter" title="Compiler/virtual_machine_interpreter">Virtual Machine Interpreter task</a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/AST_interpreter" title="Compiler/AST_interpreter">AST Interpreter task</a></li>
 /// <br>
 /// </ul>
 /// <hr>

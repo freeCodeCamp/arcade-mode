@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -18,7 +18,7 @@ const assert = require('chai').assert;
 replaceWithActualFunctionHere;
 
 /// description:
-/// Define the data structure for a [[singly-linked list]] element. Said element should contain a data member capable of holding a numeric value, and the link to the next element should be mutable.
+/// Define the data structure for a <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/singly-linked list" title="singly-linked list"></a> element. Said element should contain a data member capable of holding a numeric value, and the link to the next element should be mutable.
 /// <br>
 /// <br>
 /// <br>

@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -23,19 +23,19 @@ replaceWithActualFunctionHere;
 /// This task is about creating functions to handle <span class="rosetta__text--italic">binary</span> strings (strings made of arbitrary bytes, i.e. <span class="rosetta__text--italic">byte strings</span> according to Wikipedia) for those languages that don't have built-in support for them. If your language of choice does have this built-in support, show a possible alternative implementation for the <span class="rosetta__text--italic">functions</span> or <span class="rosetta__text--italic">abilities</span> already provided by the language.
 /// In particular the functions you need to create are:
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">String creation and destruction (when needed and if there's no [[garbage collection]] or similar mechanism)</li>
-/// <li class="rosetta__list-item">String assignment</li>
-/// <li class="rosetta__list-item">String comparison</li>
-/// <li class="rosetta__list-item">String cloning and copying</li>
-/// <li class="rosetta__list-item">Check if a string is empty</li>
-/// <li class="rosetta__list-item">Append a byte to a string</li>
-/// <li class="rosetta__list-item">Extract a substring from a string</li>
-/// <li class="rosetta__list-item">Replace every occurrence of a byte (or a string) in a string with another string</li>
-/// <li class="rosetta__list-item">Join strings</li>
+/// <li class="rosetta__list-item--unordered">String creation and destruction (when needed and if there's no <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/garbage collection" title="garbage collection"></a> or similar mechanism)</li>
+/// <li class="rosetta__list-item--unordered">String assignment</li>
+/// <li class="rosetta__list-item--unordered">String comparison</li>
+/// <li class="rosetta__list-item--unordered">String cloning and copying</li>
+/// <li class="rosetta__list-item--unordered">Check if a string is empty</li>
+/// <li class="rosetta__list-item--unordered">Append a byte to a string</li>
+/// <li class="rosetta__list-item--unordered">Extract a substring from a string</li>
+/// <li class="rosetta__list-item--unordered">Replace every occurrence of a byte (or a string) in a string with another string</li>
+/// <li class="rosetta__list-item--unordered">Join strings</li>
 /// <br>
 /// </ul>
 /// <br>
-/// Possible contexts of use: compression algorithms (like [[LZW compression]]), L-systems (manipulation of symbols), many more.
+/// Possible contexts of use: compression algorithms (like <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/LZW compression" title="LZW compression"></a>), L-systems (manipulation of symbols), many more.
 /// <br><br>
 /// <br>
 /// <br>

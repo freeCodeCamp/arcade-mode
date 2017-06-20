@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -59,13 +59,13 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Algorithmic options:</dt></dl>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">Iterate through all previous forward differences and re-calculate a new array each time.</li>
-/// <li class="rosetta__list-item">Use this formula (from <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Forward difference" title="wp: Forward difference">Wikipedia</a>):</li>
+/// <li class="rosetta__list-item--unordered">Iterate through all previous forward differences and re-calculate a new array each time.</li>
+/// <li class="rosetta__list-item--unordered">Use this formula (from <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Forward difference" title="wp: Forward difference">Wikipedia</a>):</li>
 /// <br>
 /// </ul><big><big>
 /// <span class="rosetta__text--indented">:: $\Delta^n [f](x)= \sum_{k=0}^n {n \choose k} (-1)^{n-k} f(x+k)$</span>
 /// </big></big>
-/// <span class="rosetta__text--indented">:: ([[Pascal's Triangle]] &nbsp; may be useful for this option.)</span>
+/// <span class="rosetta__text--indented">:: (<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Pascal's Triangle" title="Pascal's Triangle"></a> &nbsp; may be useful for this option.)</span>
 /// <br><br>
 /// <br>
 /// <br>

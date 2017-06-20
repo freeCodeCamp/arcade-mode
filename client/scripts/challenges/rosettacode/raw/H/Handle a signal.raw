@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Signal handling
 
 /// difficulty: ?
 
@@ -20,7 +20,7 @@ replaceWithActualFunctionHere;
 /// description:
 ///  
 ///  
-/// [[Category:Signal handling]]
+/// <br>
 /// <br>
 /// <br>
 /// <br>

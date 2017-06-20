@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -91,9 +91,9 @@ replaceWithActualFunctionHere;
 /// For this task, implement a function (or method, procedure, subroutine, etc.) <code>deconv</code> to perform <span class="rosetta__text--italic">deconvolution</span> (i.e., the <span class="rosetta__text--italic">inverse</span> of convolution) by constructing and solving such a system of equations represented by the above matrix $A$ for $\mathit{h}$ given $\mathit{f}$ and $\mathit{g}$.
 /// <br>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">The function should work for $\mathit{G}$ of arbitrary length (i.e., not hard coded or constant) and $\mathit{F}$ of any length up to that of $\mathit{G}$. Note that $|\mathit{H}|$ will be given by $|\mathit{G}| - |\mathit{F}| + 1$.</li>
-/// <li class="rosetta__list-item">There may be more equations than unknowns. If convenient, use a function from a [http://www.netlib.org/lapack/lug/node27.html library] that finds the best fitting solution to an overdetermined system of linear equations (as in the [[Multiple regression]] task).  Otherwise, prune the set of equations as needed and solve as in the [[Reduced row echelon form]] task.</li>
-/// <li class="rosetta__list-item">Test your solution on the following data. Be sure to verify both that <code>deconv</code>$(g,f) = h$ and <code>deconv</code>$(g,h) = f$ and display the results in a human readable form.</li>
+/// <li class="rosetta__list-item--unordered">The function should work for $\mathit{G}$ of arbitrary length (i.e., not hard coded or constant) and $\mathit{F}$ of any length up to that of $\mathit{G}$. Note that $|\mathit{H}|$ will be given by $|\mathit{G}| - |\mathit{F}| + 1$.</li>
+/// <li class="rosetta__list-item--unordered">There may be more equations than unknowns. If convenient, use a function from a [http://www.netlib.org/lapack/lug/node27.html library] that finds the best fitting solution to an overdetermined system of linear equations (as in the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Multiple regression" title="Multiple regression"></a> task).  Otherwise, prune the set of equations as needed and solve as in the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Reduced row echelon form" title="Reduced row echelon form"></a> task.</li>
+/// <li class="rosetta__list-item--unordered">Test your solution on the following data. Be sure to verify both that <code>deconv</code>$(g,f) = h$ and <code>deconv</code>$(g,h) = f$ and display the results in a human readable form.</li>
 /// <br>
 /// </ul><code>
 /// h = [-8,-9,-3,-1,-6,7]<br>

@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Graphics algorithms
 
 /// difficulty: ?
 
@@ -19,13 +19,10 @@ replaceWithActualFunctionHere;
 
 /// description:
 /// <br>
-/// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category:Graphics algorithms]]
+/// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
-/// Using the data storage type defined [[Basic_bitmap_storage" title="Category:Graphics algorithms]]
-/// <br>
-/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
-/// Using the data storage type defined [[Basic_bitmap_storage">on this page</a> for raster graphics images, draw a line given two points with the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Bresenham's line algorithm" title="wp: Bresenham's line algorithm">Bresenham's line algorithm</a>.
+/// Using the data storage type defined <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Basic_bitmap_storage" title="Basic_bitmap_storage">on this page</a> for raster graphics images, draw a line given two points with the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Bresenham's line algorithm" title="wp: Bresenham's line algorithm">Bresenham's line algorithm</a>.
 /// <br><br>
 /// <br>
 /// <br>

@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -105,10 +105,10 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">Define a new type that emulates <span class="rosetta__text--italic">ternary logic</span> by storing data <span class="rosetta__text--bold">trits</span>.</li>
-/// <li class="rosetta__list-item">Given all the binary logic operators of the original programming language, reimplement these operators for the new <span class="rosetta__text--italic">Ternary logic</span> type <span class="rosetta__text--bold">trit</span>.</li>
-/// <li class="rosetta__list-item">Generate a sampling of results using <span class="rosetta__text--bold">trit</span> variables.</li>
-/// <li class="rosetta__list-item"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Kudos" title="wp: Kudos">Kudos</a> for actually thinking up a test case algorithm where <span class="rosetta__text--italic">ternary logic</span> is intrinsically useful, optimises the test case algorithm and is preferable to binary logic.</li>
+/// <li class="rosetta__list-item--unordered">Define a new type that emulates <span class="rosetta__text--italic">ternary logic</span> by storing data <span class="rosetta__text--bold">trits</span>.</li>
+/// <li class="rosetta__list-item--unordered">Given all the binary logic operators of the original programming language, reimplement these operators for the new <span class="rosetta__text--italic">Ternary logic</span> type <span class="rosetta__text--bold">trit</span>.</li>
+/// <li class="rosetta__list-item--unordered">Generate a sampling of results using <span class="rosetta__text--bold">trit</span> variables.</li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Kudos" title="wp: Kudos">Kudos</a> for actually thinking up a test case algorithm where <span class="rosetta__text--italic">ternary logic</span> is intrinsically useful, optimises the test case algorithm and is preferable to binary logic.</li>
 /// <br>
 /// </ul>
 /// <br>

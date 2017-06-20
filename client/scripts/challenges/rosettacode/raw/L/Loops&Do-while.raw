@@ -10,7 +10,8 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Conditional loops
+/// Simple
 
 /// difficulty: ?
 
@@ -18,14 +19,14 @@ const assert = require('chai').assert;
 replaceWithActualFunctionHere;
 
 /// description:
-///  [[Category:Conditional loops]] [[Category:Simple]]
+///   
 /// Start with a value at 0. Loop while value mod 6 is not equal to 0. 
 /// Each time through the loop, add 1 to the value then print it. 
 /// The loop must execute at least once.
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Reference:</dt></dl>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Do while loop" title="wp: Do while loop">Do while loop</a> Wikipedia.</li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Do while loop" title="wp: Do while loop">Do while loop</a> Wikipedia.</li>
 /// <br>
 /// </ul>
 

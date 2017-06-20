@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Graphics algorithms
 
 /// difficulty: ?
 
@@ -18,7 +18,7 @@ const assert = require('chai').assert;
 replaceWithActualFunctionHere;
 
 /// description:
-/// [[Category:Graphics algorithms]]
+/// <br>
 /// Implement the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Xiaolin Wu's line algorithm" title="wp: Xiaolin Wu's line algorithm">Xiaolin Wu's line algorithm]] as described in Wikipedia. This algorithm draw antialiased lines. See [[Bresenham's line algorithm</a> for <span class="rosetta__text--italic">aliased</span> lines.
 /// <br>
 /// <br>

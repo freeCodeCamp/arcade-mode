@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -31,11 +31,11 @@ replaceWithActualFunctionHere;
 /// Implement a great-circle distance function, or use a library function, 
 /// to show the great-circle distance between:
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">Nashville International Airport (BNA) &nbsp; in Nashville, TN, USA, &nbsp; which is: </li>
+/// <li class="rosetta__list-item--unordered">Nashville International Airport (BNA) &nbsp; in Nashville, TN, USA, &nbsp; which is: </li>
 /// <br>
 /// </ul>   <big><big> <span class="rosetta__text--bold">N</span> 36°7.2',   <span class="rosetta__text--bold">W</span> 86°40.2'     (36.12,   -86.67) </big></big>          -and-
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">Los Angeles International Airport (LAX) &nbsp;in Los Angeles, CA, USA, &nbsp; which is:</li>
+/// <li class="rosetta__list-item--unordered">Los Angeles International Airport (LAX) &nbsp;in Los Angeles, CA, USA, &nbsp; which is:</li>
 /// <br>
 /// </ul>   <big><big> <span class="rosetta__text--bold">N</span> 33°56.4',  <span class="rosetta__text--bold">W</span> 118°24.0'    (33.94,  -118.40) </big></big>  
 /// <br>

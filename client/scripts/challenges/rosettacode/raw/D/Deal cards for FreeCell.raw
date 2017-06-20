@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Cards
 
 /// difficulty: ?
 
@@ -18,36 +18,40 @@ const assert = require('chai').assert;
 replaceWithActualFunctionHere;
 
 /// description:
-///  [[Category:Cards]]
+///  
 /// <br>
-/// <span class="rosetta__text--italic">Free Cell</span> is the solitaire card game that Paul Alfille introduced to the PLATO system in 1978. Jim Horne, at Microsoft, changed the name to <span class="rosetta__text--italic">FreeCell</span> and reimplemented the game for [[DOS]], then [[Windows]]. <br>
+/// <span class="rosetta__text--italic">Free Cell</span> is the solitaire card game that Paul Alfille introduced to the PLATO system in 1978. Jim Horne, at Microsoft, changed the name to <span class="rosetta__text--italic">FreeCell</span> and reimplemented the game for <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/DOS" title="DOS"></a>, then <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Windows" title="Windows"></a>. <br>
 /// This version introduced 32000 numbered deals. (The [http://www.solitairelaboratory.com/fcfaq.html FreeCell FAQ] tells this history.)
 /// <br>
 /// As the game became popular, Jim Horne disclosed [http://www.solitairelaboratory.com/mshuffle.txt the algorithm], and other implementations of FreeCell began to reproduce the Microsoft deals. <br>
 /// These deals are numbered from 1 to 32000. 
 /// Newer versions from Microsoft have 1 million deals, numbered from 1 to 1000000; some implementations allow numbers outside that range.
 /// <br>
-/// The algorithm uses this [[linear congruential generator]] from Microsoft C:
+/// The algorithm uses this <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/linear congruential generator" title="linear congruential generator"></a> from Microsoft C:
 /// <br>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">$state_{n + 1} \equiv 214013 \times state_n + 2531011 \pmod{2^{31}}$</li>
-/// <li class="rosetta__list-item">$rand_n = state_n \div 2^{16}$</li>
-/// <li class="rosetta__list-item">$rand_n$ is in range 0 to 32767.</li>
-/// <li class="rosetta__list-item">Rosetta Code has another task, [[linear congruential generator]], with code for this RNG in several languages.</li>
+/// <li class="rosetta__list-item--unordered">$state_{n + 1} \equiv 214013 \times state_n + 2531011 \pmod{2^{31}}$</li>
+/// <li class="rosetta__list-item--unordered">$rand_n = state_n \div 2^{16}$</li>
+/// <li class="rosetta__list-item--unordered">$rand_n$ is in range 0 to 32767.</li>
+/// <li class="rosetta__list-item--unordered">Rosetta Code has another task, <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/linear congruential generator" title="linear congruential generator"></a>, with code for this RNG in several languages.</li>
 /// <br>
 /// </ul>
 /// <br>
 /// The algorithm follows:
 /// <br>
-/// # Seed the RNG with the number of the deal.
-/// # Create an [[array]] of 52 cards: Ace of Clubs, Ace of Diamonds, Ace of Hearts, Ace of Spades, 2 of Clubs, 2 of Diamonds, and so on through the ranks: Ace, 2, 3, 4, 5, 6, 7, 8, 9, 10, Jack, Queen, King. The array indexes are 0 to 51, with Ace of Clubs at 0, and King of Spades at 51.
-/// # Until the array is empty:
-/// #* Choose a random card at <span class="rosetta__text--italic">index</span> &equiv; <span class="rosetta__text--italic">next random number</span> (mod <span class="rosetta__text--italic">array length</span>).
+/// <ol class="rosetta__ordered-list">
+/// <li class="rosetta__list-item--ordered">Seed the RNG with the number of the deal.</li>
+/// <li class="rosetta__list-item--ordered">Create an <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/array" title="array"></a> of 52 cards: Ace of Clubs, Ace of Diamonds, Ace of Hearts, Ace of Spades, 2 of Clubs, 2 of Diamonds, and so on through the ranks: Ace, 2, 3, 4, 5, 6, 7, 8, 9, 10, Jack, Queen, King. The array indexes are 0 to 51, with Ace of Clubs at 0, and King of Spades at 51.</li>
+/// <li class="rosetta__list-item--ordered">Until the array is empty:</li>
+/// <br>
+/// </ol>#* Choose a random card at <span class="rosetta__text--italic">index</span> &equiv; <span class="rosetta__text--italic">next random number</span> (mod <span class="rosetta__text--italic">array length</span>).
 /// #* Swap this random card with the last card of the array.
 /// #* Remove this random card from the array. (Array length goes down by 1.)
 /// #* Deal this random card.
-/// # Deal all 52 cards, face up, across 8 columns. The first 8 cards go in 8 columns, the next 8 cards go on the first 8 cards, and so on.
+/// <ol class="rosetta__ordered-list">
+/// <li class="rosetta__list-item--ordered">Deal all 52 cards, face up, across 8 columns. The first 8 cards go in 8 columns, the next 8 cards go on the first 8 cards, and so on.</li>
 /// <br>
+/// </ol>
 /// {| class="wikitable"
 /// !| Order to deal cards
 /// !| Game #1

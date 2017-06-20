@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -22,8 +22,8 @@ replaceWithActualFunctionHere;
 /// The task is to strip control codes and extended characters from a string. The solution should demonstrate how to achieve each of the following results:
 /// <br>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">a string with control codes stripped (but extended characters not stripped)</li>
-/// <li class="rosetta__list-item">a string with control codes and extended characters stripped</li>
+/// <li class="rosetta__list-item--unordered">a string with control codes stripped (but extended characters not stripped)</li>
+/// <li class="rosetta__list-item--unordered">a string with control codes and extended characters stripped</li>
 /// <br>
 /// </ul>
 /// <br>

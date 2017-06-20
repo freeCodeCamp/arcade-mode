@@ -10,7 +10,9 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// String manipulation
+///  String manipulation
+/// Simple
 
 /// difficulty: ?
 
@@ -20,9 +22,9 @@ replaceWithActualFunctionHere;
 /// description:
 ///  
 /// <br>
-/// [[Category:String manipulation]] 
-/// [[Category: String manipulation]] 
-/// [[Category:Simple]] 
+///  
+///  
+///  
 /// <br>
 /// <br>
 /// <br>

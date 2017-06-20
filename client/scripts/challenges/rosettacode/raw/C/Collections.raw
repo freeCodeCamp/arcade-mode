@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Data Structures
 
 /// difficulty: ?
 
@@ -19,7 +19,7 @@ replaceWithActualFunctionHere;
 
 /// description:
 /// <br>
-/// [[Category:Data Structures]]
+/// <br>
 /// <br>
 /// <br>
 /// Collections are abstractions to represent sets of values.  

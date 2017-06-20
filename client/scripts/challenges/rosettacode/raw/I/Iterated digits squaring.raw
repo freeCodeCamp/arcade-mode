@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -39,9 +39,9 @@ replaceWithActualFunctionHere;
 /// For a quick algorithm for this task see <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Talk:Iterated_digits_squaring" title="Talk:Iterated_digits_squaring">the talk page</a>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Cf:</dt></dl>
-/// *[[Combinations with repetitions]]
-/// *[[Digital root]]
-/// *[[Digital root/Multiplicative digital root]]
+/// *<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Combinations with repetitions" title="Combinations with repetitions"></a>
+/// *<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Digital root" title="Digital root"></a>
+/// *<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Digital root/Multiplicative digital root" title="Digital root/Multiplicative digital root"></a>
 /// <br><br>
 /// <br>
 /// <br>

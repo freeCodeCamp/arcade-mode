@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Search
 
 /// difficulty: ?
 
@@ -18,7 +18,7 @@ const assert = require('chai').assert;
 replaceWithActualFunctionHere;
 
 /// description:
-/// [[Category:Search]]
+/// <br>
 /// <br>
 /// An <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Inverted_index" title="wp: Inverted_index">Inverted Index</a> is a data structure used to create full text search.
 /// <br>

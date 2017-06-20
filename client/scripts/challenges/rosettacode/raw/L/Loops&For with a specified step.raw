@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Simple
 
 /// difficulty: ?
 
@@ -19,7 +19,7 @@ replaceWithActualFunctionHere;
 
 /// description:
 /// <br>
-/// [[Category:Simple]]
+/// <br>
 /// <br>
 /// Demonstrate a for-loop where the step-value is greater than one.
 /// <br><br>

@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Basic language learning
 
 /// difficulty: ?
 
@@ -19,17 +19,12 @@ replaceWithActualFunctionHere;
 
 /// description:
 /// <br>
-/// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category:Basic language learning]]
+/// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
 /// Using either native language concurrency syntax or freely available libraries, write a program to display the strings "Enjoy" "Rosetta" "Code", one string per line, in random order. 
 /// <br>
-/// Concurrency syntax must use [[thread" title="Category:Basic language learning]]
-/// <br>
-/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
-/// Using either native language concurrency syntax or freely available libraries, write a program to display the strings "Enjoy" "Rosetta" "Code", one string per line, in random order. 
-/// <br>
-/// Concurrency syntax must use [[thread">threads</a>, tasks, co-routines, or whatever concurrency is called in your language.
+/// Concurrency syntax must use <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/thread" title="thread">threads</a>, tasks, co-routines, or whatever concurrency is called in your language.
 /// <br><br>
 /// <br>
 /// <br>

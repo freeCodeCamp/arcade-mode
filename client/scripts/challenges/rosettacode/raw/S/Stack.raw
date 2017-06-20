@@ -10,7 +10,8 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Encyclopedia
+/// Classic CS problems and programs
 
 /// difficulty: ?
 
@@ -19,8 +20,8 @@ replaceWithActualFunctionHere;
 
 /// description:
 /// <br>
-/// [[Category:Encyclopedia]]
-/// [[Category:Classic CS problems and programs]]
+/// <br>
+/// <br>
 /// <br>
 /// A <span class="rosetta__text--bold">stack</span> is a container of elements with &nbsp; <big><u>l</u>ast <u>i</u>n, <u>f</u>irst <u>o</u>ut</big>  &nbsp; access policy. &nbsp; Sometimes it also called <span class="rosetta__text--bold">LIFO</span>. 
 /// <br>
@@ -29,16 +30,16 @@ replaceWithActualFunctionHere;
 /// The basic stack operations are:
 /// <br>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">&nbsp; <span class="rosetta__text--italic">push</span> &nbsp; stores a new element onto the stack top;</li>
-/// <li class="rosetta__list-item">&nbsp; <span class="rosetta__text--italic">pop</span> &nbsp; returns the last pushed stack element, while removing it from the stack;</li>
-/// <li class="rosetta__list-item">&nbsp; <span class="rosetta__text--italic">empty</span> &nbsp; tests if the stack contains no elements.</li>
+/// <li class="rosetta__list-item--unordered">&nbsp; <span class="rosetta__text--italic">push</span> &nbsp; stores a new element onto the stack top;</li>
+/// <li class="rosetta__list-item--unordered">&nbsp; <span class="rosetta__text--italic">pop</span> &nbsp; returns the last pushed stack element, while removing it from the stack;</li>
+/// <li class="rosetta__list-item--unordered">&nbsp; <span class="rosetta__text--italic">empty</span> &nbsp; tests if the stack contains no elements.</li>
 /// <br>
 /// </ul>
 /// <br>
 /// Sometimes the last pushed stack element is made accessible for immutable access (for read) or mutable access (for write):
 /// <br>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">&nbsp; <span class="rosetta__text--italic">top</span> &nbsp; (sometimes called <span class="rosetta__text--italic">peek</span> to keep with the <span class="rosetta__text--italic">p</span> theme) returns the topmost element without modifying the stack.</li>
+/// <li class="rosetta__list-item--unordered">&nbsp; <span class="rosetta__text--italic">top</span> &nbsp; (sometimes called <span class="rosetta__text--italic">peek</span> to keep with the <span class="rosetta__text--italic">p</span> theme) returns the topmost element without modifying the stack.</li>
 /// <br>
 /// </ul>
 /// <br>

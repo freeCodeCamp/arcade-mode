@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Networking and Web Interaction
 
 /// difficulty: ?
 
@@ -19,19 +19,14 @@ replaceWithActualFunctionHere;
 
 /// description:
 /// <br>
-/// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category:Networking and Web Interaction]]
+/// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
 /// Print an HTTPS URL's content to the console. Checking the host certificate for validity is recommended. 
 /// <br>
-/// The client should not authenticate itself to the server — the webpage https://sourceforge.net/ supports that access policy — as that is the subject of other [[HTTPS request with authentication" title="Category:Networking and Web Interaction]]
+/// The client should not authenticate itself to the server — the webpage https://sourceforge.net/ supports that access policy — as that is the subject of other <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/HTTPS request with authentication" title="HTTPS request with authentication">tasks</a>.
 /// <br>
-/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
-/// Print an HTTPS URL's content to the console. Checking the host certificate for validity is recommended. 
-/// <br>
-/// The client should not authenticate itself to the server — the webpage https://sourceforge.net/ supports that access policy — as that is the subject of other [[HTTPS request with authentication">tasks</a>.
-/// <br>
-/// Readers may wish to contrast with the [[HTTP Request]] task, and also the task on [[HTTPS request with authentication]].
+/// Readers may wish to contrast with the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/HTTP Request" title="HTTP Request"></a> task, and also the task on <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/HTTPS request with authentication" title="HTTPS request with authentication"></a>.
 /// <br><br>
 /// <br>
 /// <br>

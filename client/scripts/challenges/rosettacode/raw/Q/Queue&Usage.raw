@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -24,7 +24,7 @@ replaceWithActualFunctionHere;
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
 /// Create a queue data structure and demonstrate its operations. 
 /// <br>
-/// (For implementations of queues, see the [[FIFO]] task.)
+/// (For implementations of queues, see the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/FIFO" title="FIFO"></a> task.)
 /// <br>
 /// <br>
 /// Operations:

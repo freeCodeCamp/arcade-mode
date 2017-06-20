@@ -10,7 +10,8 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+///  Conditional loops
+/// Randomness
 
 /// difficulty: ?
 
@@ -19,8 +20,8 @@ replaceWithActualFunctionHere;
 
 /// description:
 ///  
-/// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category: Conditional loops]] 
-/// [[Category:Randomness]]
+///  
+/// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
 /// Write a program where the program chooses a number between &nbsp; <span class="rosetta__text--bold">1</span> &nbsp; and &nbsp; <span class="rosetta__text--bold">10</span>. 
@@ -29,25 +30,15 @@ replaceWithActualFunctionHere;
 /// <br>
 /// When the player has made a successful guess the computer will issue a &nbsp; "Well guessed!" &nbsp; message, &nbsp; and the program exits.
 /// <br>
-/// A &nbsp; [[:Category:Conditional loops" title="Category: Conditional loops]] 
-/// [[Category:Randomness]]
-/// <br>
-/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
-/// Write a program where the program chooses a number between &nbsp; <span class="rosetta__text--bold">1</span> &nbsp; and &nbsp; <span class="rosetta__text--bold">10</span>. 
-/// <br>
-/// A player is then prompted to enter a guess. &nbsp; If the player guesses wrong, &nbsp; then the prompt appears again until the guess is correct. 
-/// <br>
-/// When the player has made a successful guess the computer will issue a &nbsp; "Well guessed!" &nbsp; message, &nbsp; and the program exits.
-/// <br>
-/// A &nbsp; [[:Category:Conditional loops">conditional loop</a> &nbsp; may be used to repeat the guessing until the user is correct.
+/// A &nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/:Category:Conditional loops" title=":Category:Conditional loops">conditional loop</a> &nbsp; may be used to repeat the guessing until the user is correct.
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks:</dt></dl>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">&nbsp; [[Bulls and cows]]</li>
-/// <li class="rosetta__list-item">&nbsp; [[Bulls and cows/Player]]</li>
-/// <li class="rosetta__list-item">&nbsp; [[Guess the number/With Feedback]]</li>
-/// <li class="rosetta__list-item">&nbsp; [[Mastermind]]</li>
+/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Bulls and cows" title="Bulls and cows"></a></li>
+/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Bulls and cows/Player" title="Bulls and cows/Player"></a></li>
+/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Guess the number/With Feedback" title="Guess the number/With Feedback"></a></li>
+/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Mastermind" title="Mastermind"></a></li>
 /// <br>
 /// </ul><br><br>
 /// <br>

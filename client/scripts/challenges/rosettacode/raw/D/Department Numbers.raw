@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Puzzles
 
 /// difficulty: ?
 
@@ -18,7 +18,7 @@ const assert = require('chai').assert;
 replaceWithActualFunctionHere;
 
 /// description:
-/// [[Category:Puzzles]]
+/// <br>
 /// <br>
 /// <br>
 /// There is a highly organized city that has decided to assign a number to each of their departments:

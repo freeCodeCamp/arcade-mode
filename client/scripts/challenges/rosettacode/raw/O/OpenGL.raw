@@ -10,7 +10,8 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// GUI
+/// Temporal media
 
 /// difficulty: ?
 
@@ -19,9 +20,9 @@ replaceWithActualFunctionHere;
 
 /// description:
 /// <br>
-/// [[Category:GUI]][[Category:Temporal media]]In this task, the goal is to display a smooth shaded triangle with OpenGL.
+/// In this task, the goal is to display a smooth shaded triangle with OpenGL.
 /// <br>
-/// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/image:Triangle.png" title="image:Triangle.png">right|thumb|150px|Triangle created using C example compiled with [[GCC</a> 4.1.2 and [[freeglut3]].]]
+/// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/image:Triangle.png" title="image:Triangle.png">right|thumb|150px|Triangle created using C example compiled with [[GCC]] 4.1.2 and [[freeglut3]].</a>
 /// <br>
 /// <br>
 

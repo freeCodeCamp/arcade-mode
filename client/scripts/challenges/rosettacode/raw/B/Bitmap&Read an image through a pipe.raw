@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Input Output
 
 /// difficulty: ?
 
@@ -19,11 +19,9 @@ replaceWithActualFunctionHere;
 
 /// description:
 /// <br>
-/// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category:Input Output]]
 /// <br>
-/// This task is the <span class="rosetta__text--italic">opposite</span> of the [[PPM conversion through a pipe]]. In this task, using a delegate tool (like <span class="rosetta__text--bold">cjpeg</span>, one of the netpbm package, or <span class="rosetta__text--bold">convert</span> of the ImageMagick package) we read an image file and load it into the data storage type [[Basic bitmap storage" title="Category:Input Output]]
 /// <br>
-/// This task is the <span class="rosetta__text--italic">opposite</span> of the [[PPM conversion through a pipe]]. In this task, using a delegate tool (like <span class="rosetta__text--bold">cjpeg</span>, one of the netpbm package, or <span class="rosetta__text--bold">convert</span> of the ImageMagick package) we read an image file and load it into the data storage type [[Basic bitmap storage">defined here</a>. We can also use the code from [[Read ppm file]], so that we can use PPM format like a (natural) bridge between the foreign image format and our simple data storage.
+/// This task is the <span class="rosetta__text--italic">opposite</span> of the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/PPM conversion through a pipe" title="PPM conversion through a pipe"></a>. In this task, using a delegate tool (like <span class="rosetta__text--bold">cjpeg</span>, one of the netpbm package, or <span class="rosetta__text--bold">convert</span> of the ImageMagick package) we read an image file and load it into the data storage type <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Basic bitmap storage" title="Basic bitmap storage">defined here]]. We can also use the code from [[Read ppm file</a>, so that we can use PPM format like a (natural) bridge between the foreign image format and our simple data storage.
 /// <br>
 /// <br>
 

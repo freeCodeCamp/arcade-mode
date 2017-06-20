@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -29,7 +29,7 @@ replaceWithActualFunctionHere;
 /// (Over)write a file so that it contains a string.
 /// <br>
 /// <br>
-/// The reverse of [[Read entire file]]—for when you want to update or create a file which you would read in its entirety all at once.
+/// The reverse of <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Read entire file" title="Read entire file"></a>—for when you want to update or create a file which you would read in its entirety all at once.
 /// <br><br>
 /// <br>
 /// <br>

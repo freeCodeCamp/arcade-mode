@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Graphics algorithms
 
 /// difficulty: ?
 
@@ -18,17 +18,19 @@ const assert = require('chai').assert;
 replaceWithActualFunctionHere;
 
 /// description:
-/// [[Category:Graphics algorithms]]
+/// <br>
 /// Implement the Catmull-Clark surface subdivision (<a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Catmull–Clark_subdivision_surface" title="wp: Catmull–Clark_subdivision_surface">description on Wikipedia</a>), which is an algorithm that maps from a surface (described as a set of points and a set of polygons with vertices at those points) to another more refined surface. The resulting surface will always consist of a mesh of quadrilaterals.
 /// <br>
 /// The process for computing the new locations of the points works as follows when the surface is free of holes:
 /// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Image:CatmullClark_subdiv_0.png" title="Image:CatmullClark_subdiv_0.png">thumb|Starting cubic mesh; the meshes below are derived from this.</a>
 /// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Image:CatmullClark_subdiv_1.png" title="Image:CatmullClark_subdiv_1.png">thumb|After one round of the Catmull-Clark algorithm applied to a cubic mesh.</a>
 /// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Image:CatmullClark_subdiv_2.png" title="Image:CatmullClark_subdiv_2.png">thumb|After two rounds of the Catmull-Clark algorithm. As can be seen, this is converging to a surface that looks nearly spherical.</a>
-/// # for each face, a <span class="rosetta__text--italic">face point</span> is created which is the average of all the points of the face.
-/// # for each edge, an <span class="rosetta__text--italic">edge point</span> is created which is the average between the center of the edge and the center of the segment made with the face points of the two adjacent faces.
-/// # for each vertex point, its coordinates are updated from (<tt>new_coords</tt>):
-/// ## the old coordinates (<tt>old_coords</tt>),
+/// <ol class="rosetta__ordered-list">
+/// <li class="rosetta__list-item--ordered">for each face, a <span class="rosetta__text--italic">face point</span> is created which is the average of all the points of the face.</li>
+/// <li class="rosetta__list-item--ordered">for each edge, an <span class="rosetta__text--italic">edge point</span> is created which is the average between the center of the edge and the center of the segment made with the face points of the two adjacent faces.</li>
+/// <li class="rosetta__list-item--ordered">for each vertex point, its coordinates are updated from (<tt>new_coords</tt>):</li>
+/// <br>
+/// </ol>## the old coordinates (<tt>old_coords</tt>),
 /// ## the average of the face points of the faces the point belongs to (<tt>avg_face_points</tt>),
 /// ## the average of the centers of edges the point belongs to (<tt>avg_mid_edges</tt>),
 /// ## how many faces a point belongs to (<tt>n</tt>), then use this formula:
@@ -41,13 +43,13 @@ replaceWithActualFunctionHere;
 /// <br>
 /// Then each face is replaced by new faces made with the new points,
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">for a triangle face (a,b,c):</li>
+/// <li class="rosetta__list-item--unordered">for a triangle face (a,b,c):</li>
 /// <br>
 /// </ul>    (a, edge_point<sub>ab</sub>, face_point<sub>abc</sub>, edge_point<sub>ca</sub>)
 ///     (b, edge_point<sub>bc</sub>, face_point<sub>abc</sub>, edge_point<sub>ab</sub>)
 ///     (c, edge_point<sub>ca</sub>, face_point<sub>abc</sub>, edge_point<sub>bc</sub>)
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">for a quad face (a,b,c,d):</li>
+/// <li class="rosetta__list-item--unordered">for a quad face (a,b,c,d):</li>
 /// <br>
 /// </ul>    (a, edge_point<sub>ab</sub>, face_point<sub>abcd</sub>, edge_point<sub>da</sub>)
 ///     (b, edge_point<sub>bc</sub>, face_point<sub>abcd</sub>, edge_point<sub>ab</sub>)
@@ -56,14 +58,16 @@ replaceWithActualFunctionHere;
 /// <br>
 /// When there is a hole, we can detect it as follows:
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">an edge is the border of a hole if it belongs to only one face,</li>
-/// <li class="rosetta__list-item">a point is on the border of a hole if <tt>n<sub>faces</sub> != n<sub>edges</sub></tt> with <tt>n<sub>faces</sub></tt> the number of faces the point belongs to, and <tt>n<sub>edges</sub></tt> the number of edges a point belongs to.</li>
+/// <li class="rosetta__list-item--unordered">an edge is the border of a hole if it belongs to only one face,</li>
+/// <li class="rosetta__list-item--unordered">a point is on the border of a hole if <tt>n<sub>faces</sub> != n<sub>edges</sub></tt> with <tt>n<sub>faces</sub></tt> the number of faces the point belongs to, and <tt>n<sub>edges</sub></tt> the number of edges a point belongs to.</li>
 /// <br>
 /// </ul>
 /// On the border of a hole the subdivision occurs as follows:
-/// # for the edges that are on the border of a hole, the edge point is just the middle of the edge.
-/// # for the vertex points that are on the border of a hole, the new coordinates are calculated as follows:
-/// ## in all the edges the point belongs to, only take in account the middles of the edges that are on the border of the hole
+/// <ol class="rosetta__ordered-list">
+/// <li class="rosetta__list-item--ordered">for the edges that are on the border of a hole, the edge point is just the middle of the edge.</li>
+/// <li class="rosetta__list-item--ordered">for the vertex points that are on the border of a hole, the new coordinates are calculated as follows:</li>
+/// <br>
+/// </ol>## in all the edges the point belongs to, only take in account the middles of the edges that are on the border of the hole
 /// ## calculate the average between these points (on the hole boundary) and the old coordinates (also on the hole boundary).
 /// <br>
 /// For edges and vertices not next to a hole, the standard algorithm from above is used.

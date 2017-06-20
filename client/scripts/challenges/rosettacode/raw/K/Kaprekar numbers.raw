@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -22,23 +22,23 @@ replaceWithActualFunctionHere;
 /// <br>
 /// A positive integer is a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Kaprekar number" title="wp: Kaprekar number">Kaprekar number</a> if:
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">It is 1</li>
-/// <li class="rosetta__list-item">The decimal representation of its square may be split once into two parts consisting of positive integers which sum to the original number. </li>
+/// <li class="rosetta__list-item--unordered">It is 1</li>
+/// <li class="rosetta__list-item--unordered">The decimal representation of its square may be split once into two parts consisting of positive integers which sum to the original number. </li>
 /// <br>
 /// </ul><br>Note that a split resulting in a part consisting purely of 0s is not valid, 
 /// as 0 is not considered positive.
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Example Kaprekar numbers:</dt></dl>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">$2223$ is a Kaprekar number, as $2223 * 2223 = 4941729$, $4941729$ may be split to $494$ and $1729$, and $494 + 1729 = 2223$.</li>
-/// <li class="rosetta__list-item">The series of Kaprekar numbers is known as <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/oeis:A006886" title="oeis:A006886">A006886</a>, and begins as $1, 9, 45, 55, ...$.</li>
+/// <li class="rosetta__list-item--unordered">$2223$ is a Kaprekar number, as $2223 * 2223 = 4941729$, $4941729$ may be split to $494$ and $1729$, and $494 + 1729 = 2223$.</li>
+/// <li class="rosetta__list-item--unordered">The series of Kaprekar numbers is known as <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/oeis:A006886" title="oeis:A006886">A006886</a>, and begins as $1, 9, 45, 55, ...$.</li>
 /// <br>
 /// </ul>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Example process:</dt></dl>
 /// 10000 (100<sup>2</sup>) splitting from left to right:
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">The first split is [1, 0000], and is invalid; the 0000 element consists entirely of 0s, and 0 is not considered positive.</li>
-/// <li class="rosetta__list-item">Slight optimization opportunity: When splitting from left to right, once the right part consists entirely of 0s, no further testing is needed; all further splits would also be invalid.</li>
+/// <li class="rosetta__list-item--unordered">The first split is [1, 0000], and is invalid; the 0000 element consists entirely of 0s, and 0 is not considered positive.</li>
+/// <li class="rosetta__list-item--unordered">Slight optimization opportunity: When splitting from left to right, once the right part consists entirely of 0s, no further testing is needed; all further splits would also be invalid.</li>
 /// <br>
 /// </ul>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task description:</dt></dl>
@@ -53,16 +53,16 @@ replaceWithActualFunctionHere;
 /// <br>
 /// For this purpose, do the following:
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">Find all Kaprekar numbers for base 17 between 1 and 1,000,000 (one million);</li>
-/// <li class="rosetta__list-item">Display each of them in base 10 representation;</li>
-/// <li class="rosetta__list-item">Optionally, using base 17 representation (use letters 'a' to 'g' for digits 10(10) to 16(10)), display each of the numbers, its square, and where to split the square. </li>
+/// <li class="rosetta__list-item--unordered">Find all Kaprekar numbers for base 17 between 1 and 1,000,000 (one million);</li>
+/// <li class="rosetta__list-item--unordered">Display each of them in base 10 representation;</li>
+/// <li class="rosetta__list-item--unordered">Optionally, using base 17 representation (use letters 'a' to 'g' for digits 10(10) to 16(10)), display each of the numbers, its square, and where to split the square. </li>
 /// <br>
 /// </ul> 
 /// <br>For example, 225(10) is "d4" in base 17, its square "a52g", and a5(17) + 2g(17) = d4(17), so the display would be something like:<pre>225   d4  a52g  a5 + 2g</pre>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Reference:</dt></dl>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">[http://www.cs.uwaterloo.ca/journals/JIS/VOL3/iann2a.html The Kaprekar Numbers] by Douglas E. Iannucci (2000). [http://pictor.math.uqam.ca/~plouffe/OEIS/jis/The%20Kaprekar%20Numbers.pdf PDF version]</li>
+/// <li class="rosetta__list-item--unordered">[http://www.cs.uwaterloo.ca/journals/JIS/VOL3/iann2a.html The Kaprekar Numbers] by Douglas E. Iannucci (2000). [http://pictor.math.uqam.ca/~plouffe/OEIS/jis/The%20Kaprekar%20Numbers.pdf PDF version]</li>
 /// <br>
 /// </ul><br><br>
 /// <br>

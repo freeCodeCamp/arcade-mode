@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -29,23 +29,25 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
-/// # Create a named function/method/subroutine/... to generate derangements of the integers <span class="rosetta__text--italic">0..n-1</span>, (or <span class="rosetta__text--italic">1..n</span> if you prefer). 
-/// # Generate <span class="rosetta__text--italic">and show</span> all the derangements of 4 integers using the above routine.
-/// # Create a function that calculates the subfactorial of <span class="rosetta__text--italic">n</span>, !<span class="rosetta__text--italic">n</span>.
-/// # Print and show a table of the <span class="rosetta__text--italic">counted</span> number of derangements of <span class="rosetta__text--italic">n</span> vs. the calculated !<span class="rosetta__text--italic">n</span> for n from 0..9 inclusive.
+/// <ol class="rosetta__ordered-list">
+/// <li class="rosetta__list-item--ordered">Create a named function/method/subroutine/... to generate derangements of the integers <span class="rosetta__text--italic">0..n-1</span>, (or <span class="rosetta__text--italic">1..n</span> if you prefer). </li>
+/// <li class="rosetta__list-item--ordered">Generate <span class="rosetta__text--italic">and show</span> all the derangements of 4 integers using the above routine.</li>
+/// <li class="rosetta__list-item--ordered">Create a function that calculates the subfactorial of <span class="rosetta__text--italic">n</span>, !<span class="rosetta__text--italic">n</span>.</li>
+/// <li class="rosetta__list-item--ordered">Print and show a table of the <span class="rosetta__text--italic">counted</span> number of derangements of <span class="rosetta__text--italic">n</span> vs. the calculated !<span class="rosetta__text--italic">n</span> for n from 0..9 inclusive.</li>
 /// <br>
+/// </ol>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Optional stretch goal:</dt></dl>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">&nbsp; Calculate &nbsp; <big><big> !<span class="rosetta__text--italic">20</span> </big></big></li>
+/// <li class="rosetta__list-item--unordered">&nbsp; Calculate &nbsp; <big><big> !<span class="rosetta__text--italic">20</span> </big></big></li>
 /// <br>
 /// </ul>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks:</dt></dl>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">&nbsp; [[Anagrams/Deranged anagrams]]</li>
-/// <li class="rosetta__list-item">&nbsp; [[Best shuffle]]</li>
-/// <li class="rosetta__list-item">&nbsp; [[Left_factorials]]</li>
+/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Anagrams/Deranged anagrams" title="Anagrams/Deranged anagrams"></a></li>
+/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Best shuffle" title="Best shuffle"></a></li>
+/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Left_factorials" title="Left_factorials"></a></li>
 /// <br>
 /// </ul><br><br>
 /// <br>

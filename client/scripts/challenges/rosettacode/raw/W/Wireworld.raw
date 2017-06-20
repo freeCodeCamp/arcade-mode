@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Cellular automata
 
 /// difficulty: ?
 
@@ -19,7 +19,7 @@ replaceWithActualFunctionHere;
 
 /// description:
 ///  
-/// [[Category:Cellular automata]]
+/// <br>
 /// <br>
 /// <br>
 /// <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Wireworld" title="wp: Wireworld">Wireworld]] is a cellular automaton with some similarities to [[Conway's Game of Life</a>. 

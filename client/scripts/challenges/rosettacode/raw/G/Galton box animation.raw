@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Randomness
 
 /// difficulty: ?
 
@@ -19,7 +19,7 @@ replaceWithActualFunctionHere;
 
 /// description:
 /// <br>
-/// [[Category:Randomness]]
+/// <br>
 /// <br>
 /// <br>
 /// Generate an animated simulation of <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Bean_machine" title="wp: Bean_machine">Sir Francis Galton's device</a>.  

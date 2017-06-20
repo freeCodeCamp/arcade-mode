@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Bitwise operations
 
 /// difficulty: ?
 
@@ -18,7 +18,7 @@ const assert = require('chai').assert;
 replaceWithActualFunctionHere;
 
 /// description:
-/// [[Category:Bitwise operations]]
+/// <br>
 /// The aim of this task is to write functions (or create a class if your
 /// language is Object Oriented and you prefer) for reading and writing sequences of
 /// bits. While the output of a <tt>asciiprint "STRING"</tt> is the ASCII byte sequence
@@ -35,12 +35,12 @@ replaceWithActualFunctionHere;
 /// <br>
 /// These bit oriented I/O functions can be used to implement compressors and
 /// decompressors; e.g. Dynamic and Static Huffman encodings use variable length
-/// bits sequences, while LZW (see [[LZW compression]]) use fixed or variable <span class="rosetta__text--italic">words</span>
+/// bits sequences, while LZW (see <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/LZW compression" title="LZW compression"></a>) use fixed or variable <span class="rosetta__text--italic">words</span>
 /// nine (or more) bits long.
 /// <br>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">Limits in the maximum number of bits that can be written/read in a single read/write operation are allowed.</li>
-/// <li class="rosetta__list-item">Errors handling is not mandatory</li>
+/// <li class="rosetta__list-item--unordered">Limits in the maximum number of bits that can be written/read in a single read/write operation are allowed.</li>
+/// <li class="rosetta__list-item--unordered">Errors handling is not mandatory</li>
 /// <br>
 /// </ul><br><br>
 /// <br>

@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -25,9 +25,9 @@ replaceWithActualFunctionHere;
 /// <br>
 /// The solutions may assume that the base of the number in the string is known. In particular, if your language has a facility to guess the base of a number by looking at a prefix (e.g. "0x" for hexadecimal) or other distinguishing syntax as it parses it, please show that.
 /// <br>
-/// The reverse operation is in task [[Non-decimal radices/Output]]
+/// The reverse operation is in task <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Non-decimal radices/Output" title="Non-decimal radices/Output"></a>
 /// <br>
-/// For general number base conversion, see [[Non-decimal radices/Convert]].
+/// For general number base conversion, see <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Non-decimal radices/Convert" title="Non-decimal radices/Convert"></a>.
 /// <br>
 /// <br>
 

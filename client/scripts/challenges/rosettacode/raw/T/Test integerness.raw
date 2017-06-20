@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -22,9 +22,9 @@ replaceWithActualFunctionHere;
 /// <br>
 /// Mathematically,
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Integer" title="wp: Integer">integers]] <span class="rosetta__text--bold">Z</span> are included in the [[wp:Rational number|rational numbers</a> <span class="rosetta__text--bold">Q</span>,</li>
-/// <li class="rosetta__list-item">which are included in the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Real number" title="wp: Real number">real numbers</a> <span class="rosetta__text--bold">R</span>,</li>
-/// <li class="rosetta__list-item">which can be generalized to the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Complex number" title="wp: Complex number">complex numbers</a> <span class="rosetta__text--bold">C</span>.</li>
+/// <li class="rosetta__list-item--unordered">the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Integer" title="wp: Integer">integers]] <span class="rosetta__text--bold">Z</span> are included in the [[wp:Rational number|rational numbers</a> <span class="rosetta__text--bold">Q</span>,</li>
+/// <li class="rosetta__list-item--unordered">which are included in the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Real number" title="wp: Real number">real numbers</a> <span class="rosetta__text--bold">R</span>,</li>
+/// <li class="rosetta__list-item--unordered">which can be generalized to the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Complex number" title="wp: Complex number">complex numbers</a> <span class="rosetta__text--bold">C</span>.</li>
 /// <br>
 /// </ul>
 /// <br>

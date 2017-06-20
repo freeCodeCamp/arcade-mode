@@ -10,7 +10,8 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Puzzles
+/// Games
 
 /// difficulty: ?
 
@@ -18,8 +19,8 @@ const assert = require('chai').assert;
 replaceWithActualFunctionHere;
 
 /// description:
-/// [[Category:Puzzles]]
-/// [[Category:Games]]
+/// <br>
+/// <br>
 /// <br>
 /// <br>
 /// <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Bulls and Cows" title="wp: Bulls and Cows">Bulls and Cows</a> &nbsp; is an old game played with pencil and paper that was later implemented using computers.
@@ -35,17 +36,19 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// The score is computed as:
-/// # The player wins if the guess is the same as the randomly chosen number, and the program ends.
-/// # A score of one <span class="rosetta__text--bold">bull</span> is accumulated for each digit in the guess that equals the corresponding digit in the randomly chosen initial number.
-/// # A score of one <span class="rosetta__text--bold">cow</span> is accumulated for each digit in the guess that also appears in the randomly chosen number, but in the wrong position.
+/// <ol class="rosetta__ordered-list">
+/// <li class="rosetta__list-item--ordered">The player wins if the guess is the same as the randomly chosen number, and the program ends.</li>
+/// <li class="rosetta__list-item--ordered">A score of one <span class="rosetta__text--bold">bull</span> is accumulated for each digit in the guess that equals the corresponding digit in the randomly chosen initial number.</li>
+/// <li class="rosetta__list-item--ordered">A score of one <span class="rosetta__text--bold">cow</span> is accumulated for each digit in the guess that also appears in the randomly chosen number, but in the wrong position.</li>
 /// <br>
+/// </ol>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks:</dt></dl>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">&nbsp; [[Bulls and cows/Player]]</li>
-/// <li class="rosetta__list-item">&nbsp; [[Guess the number]]</li>
-/// <li class="rosetta__list-item">&nbsp; [[Guess the number/With Feedback]]</li>
-/// <li class="rosetta__list-item">&nbsp; [[Mastermind]]</li>
+/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Bulls and cows/Player" title="Bulls and cows/Player"></a></li>
+/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Guess the number" title="Guess the number"></a></li>
+/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Guess the number/With Feedback" title="Guess the number/With Feedback"></a></li>
+/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Mastermind" title="Mastermind"></a></li>
 /// <br>
 /// </ul><br><br>
 /// <br>

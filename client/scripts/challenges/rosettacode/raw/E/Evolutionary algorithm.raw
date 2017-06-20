@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -22,11 +22,11 @@ replaceWithActualFunctionHere;
 /// <br>
 /// Starting with:
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">The <code>target</code> string: <code>"METHINKS IT IS LIKE A WEASEL"</code>.</li>
-/// <li class="rosetta__list-item">An array of random characters chosen from the set of upper-case letters together with the space, and of the same length as the target string. (Call it the <code>parent</code>).</li>
-/// <li class="rosetta__list-item">A <code>fitness</code> function that computes the ‘closeness’ of its argument to the target string.</li>
-/// <li class="rosetta__list-item">A <code>mutate</code> function that given a string and a mutation rate returns a copy of the string, with some characters probably mutated.</li>
-/// <li class="rosetta__list-item">While the <code>parent</code> is not yet the <code>target</code>:</li>
+/// <li class="rosetta__list-item--unordered">The <code>target</code> string: <code>"METHINKS IT IS LIKE A WEASEL"</code>.</li>
+/// <li class="rosetta__list-item--unordered">An array of random characters chosen from the set of upper-case letters together with the space, and of the same length as the target string. (Call it the <code>parent</code>).</li>
+/// <li class="rosetta__list-item--unordered">A <code>fitness</code> function that computes the ‘closeness’ of its argument to the target string.</li>
+/// <li class="rosetta__list-item--unordered">A <code>mutate</code> function that given a string and a mutation rate returns a copy of the string, with some characters probably mutated.</li>
+/// <li class="rosetta__list-item--unordered">While the <code>parent</code> is not yet the <code>target</code>:</li>
 /// <br>
 /// </ul><span class="rosetta__text--indented">* copy the <code>parent</code> C times, each time allowing some random probability that another character might be substituted using <code>mutate</code>.</span>
 /// <span class="rosetta__text--indented">* Assess the <code>fitness</code> of the parent and all the copies to the <code>target</code> and make the most fit string the new <code>parent</code>, discarding the others.</span>
@@ -35,8 +35,8 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">See also:</dt></dl>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">&nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Weasel_program#Weasel_algorithm" title="wp: Weasel_program#Weasel_algorithm">Weasel algorithm</a>.</li>
-/// <li class="rosetta__list-item">&nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Evolutionary algorithm" title="wp: Evolutionary algorithm">Evolutionary algorithm</a>.</li>
+/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Weasel_program#Weasel_algorithm" title="wp: Weasel_program#Weasel_algorithm">Weasel algorithm</a>.</li>
+/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Evolutionary algorithm" title="wp: Evolutionary algorithm">Evolutionary algorithm</a>.</li>
 /// <br>
 /// </ul>
 /// <br>
@@ -45,7 +45,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// A cursory examination of a few of the solutions reveals that the instructions have not been followed rigorously in some solutions. Specifically,
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">While the <code>parent</code> is not yet the <code>target</code>:</li>
+/// <li class="rosetta__list-item--unordered">While the <code>parent</code> is not yet the <code>target</code>:</li>
 /// <br>
 /// </ul><span class="rosetta__text--indented">* copy the <code>parent</code> C times, each time allowing some random probability that another character might be substituted using <code>mutate</code>.</span>
 /// <br>

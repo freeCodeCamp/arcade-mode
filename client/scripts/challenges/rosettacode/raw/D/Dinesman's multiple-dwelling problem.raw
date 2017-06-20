@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -34,12 +34,12 @@ replaceWithActualFunctionHere;
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">The problem</dt></dl>
 /// Baker, Cooper, Fletcher, Miller, and Smith live on different floors of an apartment house that contains only five floors.<br>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">Baker does not live on the top floor.</li>
-/// <li class="rosetta__list-item">Cooper does not live on the bottom floor. </li>
-/// <li class="rosetta__list-item">Fletcher does not live on either the top or the bottom floor.</li>
-/// <li class="rosetta__list-item">Miller lives on a higher floor than does Cooper.</li>
-/// <li class="rosetta__list-item">Smith does not live on a floor adjacent to Fletcher's. </li>
-/// <li class="rosetta__list-item">Fletcher does not live on a floor adjacent to Cooper's.<br><br></li>
+/// <li class="rosetta__list-item--unordered">Baker does not live on the top floor.</li>
+/// <li class="rosetta__list-item--unordered">Cooper does not live on the bottom floor. </li>
+/// <li class="rosetta__list-item--unordered">Fletcher does not live on either the top or the bottom floor.</li>
+/// <li class="rosetta__list-item--unordered">Miller lives on a higher floor than does Cooper.</li>
+/// <li class="rosetta__list-item--unordered">Smith does not live on a floor adjacent to Fletcher's. </li>
+/// <li class="rosetta__list-item--unordered">Fletcher does not live on a floor adjacent to Cooper's.<br><br></li>
 /// <br>
 /// </ul><span class="rosetta__text--italic">Where does everyone live?</span><br>
 /// <br><br>

@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -21,7 +21,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
-/// Implement a &nbsp; <span class="rosetta__text--bold"> [[HQ9+]] </span> &nbsp; interpreter or compiler.
+/// Implement a &nbsp; <span class="rosetta__text--bold"> <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/HQ9+" title="HQ9+"></a> </span> &nbsp; interpreter or compiler.
 /// <br><br>
 /// <br>
 /// <br>

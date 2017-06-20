@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -102,22 +102,22 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Links:</dt></dl>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">A paper that explains the problem and its solution in a functional language:</li>
+/// <li class="rosetta__list-item--unordered">A paper that explains the problem and its solution in a functional language:</li>
 /// <br>
 /// </ul>http://www.cs.wright.edu/~tkprasad/courses/cs776/paraffins-turner.pdf
 /// <br>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">A Haskell implementation:</li>
+/// <li class="rosetta__list-item--unordered">A Haskell implementation:</li>
 /// <br>
 /// </ul>https://github.com/ghc/nofib/blob/master/imaginary/paraffins/Main.hs
 /// <br>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">A Scheme implementation:</li>
+/// <li class="rosetta__list-item--unordered">A Scheme implementation:</li>
 /// <br>
 /// </ul>http://www.ccs.neu.edu/home/will/Twobit/src/paraffins.scm
 /// <br>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">A Fortress implementation:</li>
+/// <li class="rosetta__list-item--unordered">A Fortress implementation:</li>
 /// <br>
 /// </ul>http://java.net/projects/projectfortress/sources/sources/content/ProjectFortress/demos/turnersParaffins0.fss?rev=3005
 /// <br><br>

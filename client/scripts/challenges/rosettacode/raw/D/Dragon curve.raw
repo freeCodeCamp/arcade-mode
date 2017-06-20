@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Recursion
 
 /// difficulty: ?
 
@@ -18,9 +18,8 @@ const assert = require('chai').assert;
 replaceWithActualFunctionHere;
 
 /// description:
-/// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category:Recursion]]
-/// [[File:dragon_curve_steps.png" title="Category:Recursion]]
-/// [[File:dragon_curve_steps.png">400px||right</a>
+/// <br>
+/// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:dragon_curve_steps.png" title="File:dragon_curve_steps.png">400px||right</a>
 /// <br>
 /// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:dragon_curve.png" title="File:dragon_curve.png">400px||right</a>
 /// <br>
@@ -34,7 +33,7 @@ replaceWithActualFunctionHere;
 /// Here are some brief notes the algorithms used and how they might suit various languages.
 /// <br>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">Recursively a right curling dragon is a right dragon followed by a left dragon, at 90-degree angle.  And a left dragon is a left followed by a right.</li>
+/// <li class="rosetta__list-item--unordered">Recursively a right curling dragon is a right dragon followed by a left dragon, at 90-degree angle.  And a left dragon is a left followed by a right.</li>
 /// <br>
 /// </ul>
 /// <pre>*---R----*     expands to     *       *
@@ -52,11 +51,11 @@ replaceWithActualFunctionHere;
 /// <span class="rosetta__text--indented"> The co-routines <code>dcl</code> and <code>dcr</code> in various examples do this recursively to a desired expansion level.</span>
 /// <br>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">The curl direction right or left can be a parameter instead of two separate routines.</li>
+/// <li class="rosetta__list-item--unordered">The curl direction right or left can be a parameter instead of two separate routines.</li>
 /// <br>
 /// </ul>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">Recursively, a curl direction can be eliminated by noting the dragon consists of two copies of itself drawn towards a central point at 45-degrees.</li>
+/// <li class="rosetta__list-item--unordered">Recursively, a curl direction can be eliminated by noting the dragon consists of two copies of itself drawn towards a central point at 45-degrees.</li>
 /// <br>
 /// </ul>
 /// <pre>*------->*   becomes    *       *     Recursive copies drawn
@@ -65,10 +64,10 @@ replaceWithActualFunctionHere;
 ///                            v v
 ///                             *</pre>
 /// <br>
-/// <span class="rosetta__text--indented"> This can be seen in the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/#SVG" title="#SVG">SVG</a> example.  This is best suited to off-line drawing since the reversal in the second half means the drawing jumps backward and forward (in binary reflected <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Gray code]] order) which is not very good for a plotter or for drawing progressively on screen.</span>
+/// <span class="rosetta__text--indented"> This can be seen in the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/#SVG" title="#SVG">SVG]] example.  This is best suited to off-line drawing since the reversal in the second half means the drawing jumps backward and forward (in binary reflected [[Gray code</a> order) which is not very good for a plotter or for drawing progressively on screen.</span>
 /// <br>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">Successive approximation repeatedly re-writes each straight line as two new segments at a right angle,</li>
+/// <li class="rosetta__list-item--unordered">Successive approximation repeatedly re-writes each straight line as two new segments at a right angle,</li>
 /// <br>
 /// </ul>
 /// <pre>                       *       
@@ -83,28 +82,10 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <span class="rosetta__text--indented"> Numbering from the start of the curve built so far, if the segment is at an odd position then the bend introduced is on the right side.  If the segment is an even position then on the left.  The process is then repeated on the new doubled list of segments.  This constructs a full set of line segments before any drawing.</span>
 /// <br>
-/// <span class="rosetta__text--indented"> The effect of the splitting is a kind of bottom-up version of the recursions.  See the [[#Asymptote" title="Gray code]] order) which is not very good for a plotter or for drawing progressively on screen.</span>
+/// <span class="rosetta__text--indented"> The effect of the splitting is a kind of bottom-up version of the recursions.  See the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/#Asymptote" title="#Asymptote">Asymptote</a> example for code doing this.</span>
 /// <br>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">Successive approximation repeatedly re-writes each straight line as two new segments at a right angle,</li>
-/// <br>
-/// </ul>
-/// <pre>                       *       
-/// *-----*   becomes     / \      bend to left
-///                      /   \     if N odd
-///                     *     *
-/// <br>
-///                     *     *   
-/// *-----*   becomes    \   /     bend to right  
-///                       \ /      if N even 
-///                        *</pre>
-/// <br>
-/// <span class="rosetta__text--indented"> Numbering from the start of the curve built so far, if the segment is at an odd position then the bend introduced is on the right side.  If the segment is an even position then on the left.  The process is then repeated on the new doubled list of segments.  This constructs a full set of line segments before any drawing.</span>
-/// <br>
-/// <span class="rosetta__text--indented"> The effect of the splitting is a kind of bottom-up version of the recursions.  See the [[#Asymptote">Asymptote</a> example for code doing this.</span>
-/// <br>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">Iteratively the curve always turns 90-degrees left or right at each point.  The direction of the turn is given by the bit above the lowest 1-bit of n.  Some bit-twiddling can extract that efficiently.</li>
+/// <li class="rosetta__list-item--unordered">Iteratively the curve always turns 90-degrees left or right at each point.  The direction of the turn is given by the bit above the lowest 1-bit of n.  Some bit-twiddling can extract that efficiently.</li>
 /// <br>
 /// </ul>
 /// <pre>n = 1010110000
@@ -122,11 +103,11 @@ replaceWithActualFunctionHere;
 /// <span class="rosetta__text--indented"> Going by turns suits turtle graphics such as <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/#Logo" title="#Logo">Logo</a> or a plotter drawing with a pen and current direction.</span>
 /// <br>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">If a language doesn't maintain a "current direction" for drawing then you can always keep that separately and apply turns by bit-above-lowest-1.</li>
+/// <li class="rosetta__list-item--unordered">If a language doesn't maintain a "current direction" for drawing then you can always keep that separately and apply turns by bit-above-lowest-1.</li>
 /// <br>
 /// </ul>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">Absolute direction to move at point n can be calculated by the number of bit-transitions in n.</li>
+/// <li class="rosetta__list-item--unordered">Absolute direction to move at point n can be calculated by the number of bit-transitions in n.</li>
 /// <br>
 /// </ul>
 /// <pre>n = 11 00 1111 0 1
@@ -136,11 +117,11 @@ replaceWithActualFunctionHere;
 /// <span class="rosetta__text--indented"> This can be calculated by counting the number of 1 bits in "n XOR (n RIGHTSHIFT 1)" since such a shift and xor leaves a single 1 bit at each position where two adjacent bits differ.</span>
 /// <br>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">Absolute X,Y coordinates of a point n can be calculated in complex numbers by some powers (i+1)^k and add/subtract/rotate.  This is done in the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/#gnuplot" title="#gnuplot">gnuplot</a> code.  This might suit things similar to Gnuplot which want to calculate each point independently.</li>
+/// <li class="rosetta__list-item--unordered">Absolute X,Y coordinates of a point n can be calculated in complex numbers by some powers (i+1)^k and add/subtract/rotate.  This is done in the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/#gnuplot" title="#gnuplot">gnuplot</a> code.  This might suit things similar to Gnuplot which want to calculate each point independently.</li>
 /// <br>
 /// </ul>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">Predicate test for whether a given X,Y point or segment is on the curve can be done.  This might suit line-by-line output rather than building an entire image before printing.  See <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/#M4" title="#M4">M4</a> for an example of this.</li>
+/// <li class="rosetta__list-item--unordered">Predicate test for whether a given X,Y point or segment is on the curve can be done.  This might suit line-by-line output rather than building an entire image before printing.  See <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/#M4" title="#M4">M4</a> for an example of this.</li>
 /// <br>
 /// </ul>
 /// <span class="rosetta__text--indented"> A predicate works by dividing out complex number i+1 until reaching the origin, so it takes roughly a bit at a time from X and Y is thus quite efficient.  Why it works is slightly subtle but the calculation is not difficult.  (Check segment by applying an offset to move X,Y to an "even" position before dividing i+1.  Check vertex by whether the segment either East or West is on the curve.)</span>
@@ -148,7 +129,7 @@ replaceWithActualFunctionHere;
 /// <span class="rosetta__text--indented"> The number of steps in the predicate corresponds to doublings of the curve, so stopping the check at say 8 steps can limit the curve drawn to 2^8=256 points.  The offsets arising in the predicate are bits of n the segment number, so can note those bits to calculate n and limit to an arbitrary desired length or sub-section.</span>
 /// <br>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">As a <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Lindenmayer system]] of expansions.  The simplest is two symbols F and S both straight lines, as used by the [[#PGF" title="Lindenmayer system]] of expansions.  The simplest is two symbols F and S both straight lines, as used by the [[#PGF">PGF</a> code.</li>
+/// <li class="rosetta__list-item--unordered">As a <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Lindenmayer system" title="Lindenmayer system"></a> of expansions.  The simplest is two symbols F and S both straight lines, as used by the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/#PGF" title="#PGF">PGF</a> code.</li>
 /// <br>
 /// </ul>
 /// <pre>Axiom F, angle 90 degrees
@@ -157,7 +138,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// This always has F at even positions and S at odd.  Eg. after 3 levels <code>F_S_F_S_F_S_F_S</code>.  The +/- turns in between bend to the left or right the same as the "successive approximation" method above.  Read more at for instance [http://www.cs.unm.edu/~joel/PaperFoldingFractal/L-system-rules.html Joel Castellanos' L-system page].
 /// <br>
-/// Variations are possible if you have only a single symbol for line draw, for example the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/#Icon and Unicon" title="#Icon and Unicon">Icon and Unicon</a> and <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/#Xfractint" title="#Xfractint">Xfractint</a> code.  The angles can also be broken into 45-degree parts to keep the expansion in a single direction rather than the endpoint rotating around.
+/// Variations are possible if you have only a single symbol for line draw, for example the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/#Icon and Unicon" title="#Icon and Unicon">Icon and Unicon]] and [[#Xfractint|Xfractint</a> code.  The angles can also be broken into 45-degree parts to keep the expansion in a single direction rather than the endpoint rotating around.
 /// <br>
 /// The string rewrites can be done recursively without building the whole string, just follow its instructions at the target level.  See for example <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/#C by IFS Drawing" title="#C by IFS Drawing">C by IFS Drawing</a> code.  The effect is the same as "recursive with parameter" above but can draw other curves defined by L-systems. <br><br>
 /// <br>

@@ -10,7 +10,9 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Environment variables
+/// Initialization
+/// Simple
 
 /// difficulty: ?
 
@@ -19,9 +21,9 @@ replaceWithActualFunctionHere;
 
 /// description:
 ///  
-/// [[Category:Environment variables]] 
-/// [[Category:Initialization]] 
-/// [[Category:Simple]]
+///  
+///  
+/// <br>
 /// <br>
 ///   <!-- Does not have an environment other than regular global variables. -->
 /// <br>

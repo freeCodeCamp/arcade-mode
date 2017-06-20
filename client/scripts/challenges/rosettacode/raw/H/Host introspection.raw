@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -30,7 +30,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// Print the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Word_size#Word_size_choice" title="wp: Word_size#Word_size_choice">word size]] and [[wp:Endianness|endianness</a> of the host machine.
 /// <br>
-/// See also: [[Variable size/Get]]
+/// See also: <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Variable size/Get" title="Variable size/Get"></a>
 /// <br>
 /// <br>
 

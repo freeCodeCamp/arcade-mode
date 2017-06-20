@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -21,17 +21,21 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// The <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Multiplicative digital root" title="wp: Multiplicative digital root">multiplicative digital root]] (MDR) and multiplicative persistence (MP) of a number, $n$, is calculated rather like the [[Digital root</a> except digits are multiplied instead of being added:
-/// # Set $m$ to $n$ and $i$ to $0$.
-/// # While $m$ has more than one digit:
-/// #* Find a replacement $m$ as the multiplication of the digits of the current value of $m$.
-/// #* Increment $i$.
-/// # Return $i$ (= MP) and $m$ (= MDR)
+/// <ol class="rosetta__ordered-list">
+/// <li class="rosetta__list-item--ordered">Set $m$ to $n$ and $i$ to $0$.</li>
+/// <li class="rosetta__list-item--ordered">While $m$ has more than one digit:</li>
 /// <br>
+/// </ol>#* Find a replacement $m$ as the multiplication of the digits of the current value of $m$.
+/// #* Increment $i$.
+/// <ol class="rosetta__ordered-list">
+/// <li class="rosetta__list-item--ordered">Return $i$ (= MP) and $m$ (= MDR)</li>
+/// <br>
+/// </ol>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">Tabulate the MP and MDR of the numbers 123321, 7739, 893, 899998</li>
-/// <li class="rosetta__list-item">Tabulate MDR versus the first five numbers having that MDR, something like:</li>
+/// <li class="rosetta__list-item--unordered">Tabulate the MP and MDR of the numbers 123321, 7739, 893, 899998</li>
+/// <li class="rosetta__list-item--unordered">Tabulate MDR versus the first five numbers having that MDR, something like:</li>
 /// <br>
 /// </ul><pre>
 /// MDR: [n0..n4]
@@ -52,8 +56,8 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">References:</dt></dl>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">[http://mathworld.wolfram.com/MultiplicativeDigitalRoot.html Multiplicative Digital Root] on Wolfram Mathworld.</li>
-/// <li class="rosetta__list-item">[http://oeis.org/A031347 Multiplicative digital root] on The On-Line Encyclopedia of Integer Sequences.</li>
+/// <li class="rosetta__list-item--unordered">[http://mathworld.wolfram.com/MultiplicativeDigitalRoot.html Multiplicative Digital Root] on Wolfram Mathworld.</li>
+/// <li class="rosetta__list-item--unordered">[http://oeis.org/A031347 Multiplicative digital root] on The On-Line Encyclopedia of Integer Sequences.</li>
 /// <br>
 /// </ul><br><br>
 /// <br>

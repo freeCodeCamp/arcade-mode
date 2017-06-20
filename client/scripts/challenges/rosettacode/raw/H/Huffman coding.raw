@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -32,13 +32,17 @@ replaceWithActualFunctionHere;
 /// A Huffman encoding can be computed by first creating a tree of nodes:
 /// <br>
 /// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Image:Huffman_coding_example.jpg" title="Image:Huffman_coding_example.jpg">right|250px</a>
-/// # Create a leaf node for each symbol and add it to the [[priority queue]].
-/// # While there is more than one node in the queue:
-/// ## Remove the node of highest priority (lowest probability) twice to get two nodes.
+/// <ol class="rosetta__ordered-list">
+/// <li class="rosetta__list-item--ordered">Create a leaf node for each symbol and add it to the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/priority queue" title="priority queue"></a>.</li>
+/// <li class="rosetta__list-item--ordered">While there is more than one node in the queue:</li>
+/// <br>
+/// </ol>## Remove the node of highest priority (lowest probability) twice to get two nodes.
 /// ## Create a new internal node with these two nodes as children and with probability equal to the sum of the two nodes' probabilities.
 /// ## Add the new node to the queue.
-/// # The remaining node is the root node and the tree is complete.
+/// <ol class="rosetta__ordered-list">
+/// <li class="rosetta__list-item--ordered">The remaining node is the root node and the tree is complete.</li>
 /// <br>
+/// </ol>
 /// <br>
 /// Traverse the constructed binary tree from root to leaves assigning and accumulating a '0' for one branch and a '1' for the other at each node. The accumulated  zeros and ones at each leaf constitute a Huffman encoding for those symbols and weights:
 /// <br>

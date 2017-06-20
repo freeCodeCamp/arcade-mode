@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -23,19 +23,19 @@ replaceWithActualFunctionHere;
 /// <br>
 /// The powers that be have identified 5 tasks that need to be solved urgently. Being imaginative chaps, they have called them “A”, “B”, “C”, “D”, and “E”. They estimate that:
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">A will require 30 hours of work,</li>
-/// <li class="rosetta__list-item">B will require 20 hours of work,</li>
-/// <li class="rosetta__list-item">C will require 70 hours of work,</li>
-/// <li class="rosetta__list-item">D will require 30 hours of work, and</li>
-/// <li class="rosetta__list-item">E will require 60 hours of work.</li>
+/// <li class="rosetta__list-item--unordered">A will require 30 hours of work,</li>
+/// <li class="rosetta__list-item--unordered">B will require 20 hours of work,</li>
+/// <li class="rosetta__list-item--unordered">C will require 70 hours of work,</li>
+/// <li class="rosetta__list-item--unordered">D will require 30 hours of work, and</li>
+/// <li class="rosetta__list-item--unordered">E will require 60 hours of work.</li>
 /// <br>
 /// </ul>
 /// They have identified 4 contractors willing to do the work, called “W”, “X”, “Y”, and “Z”.
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">W has 50 hours available to commit to working,</li>
-/// <li class="rosetta__list-item">X has 60 hours available,</li>
-/// <li class="rosetta__list-item">Y has 50 hours available, and</li>
-/// <li class="rosetta__list-item">Z has 50 hours available.</li>
+/// <li class="rosetta__list-item--unordered">W has 50 hours available to commit to working,</li>
+/// <li class="rosetta__list-item--unordered">X has 60 hours available,</li>
+/// <li class="rosetta__list-item--unordered">Y has 50 hours available, and</li>
+/// <li class="rosetta__list-item--unordered">Z has 50 hours available.</li>
 /// <br>
 /// </ul>The cost per hour for each contractor for each task is summarized by the following table:
 /// <br>
@@ -96,7 +96,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Cf.</dt></dl>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Transportation_problem" title="Transportation_problem">Transportation problem</a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Transportation_problem" title="Transportation_problem">Transportation problem</a></li>
 /// <br>
 /// </ul>
 /// <br>

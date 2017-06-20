@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Pragmatic directives
 
 /// difficulty: ?
 
@@ -19,7 +19,7 @@ replaceWithActualFunctionHere;
 
 /// description:
 /// <br>
-/// [[Category:Pragmatic directives]]
+/// <br>
 /// <br>
 /// Pragmatic directives cause the language to operate in a specific manner, &nbsp; allowing support for operational variances within the program code &nbsp; (possibly by the loading of specific or alternative modules).
 /// <br>

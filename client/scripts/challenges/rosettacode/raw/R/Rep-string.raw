@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -28,9 +28,9 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">Write a function/subroutine/method/... that takes a string and returns an indication of if it is a rep-string and the repeated string. &nbsp; (Either the string that is repeated, or the number of repeated characters would suffice).  </li>
-/// <li class="rosetta__list-item">There may be multiple sub-strings that make a string a rep-string - in that case an indication of all, or the longest, or the shortest would suffice.</li>
-/// <li class="rosetta__list-item">Use the function to indicate the repeating substring if any, in the following:</li>
+/// <li class="rosetta__list-item--unordered">Write a function/subroutine/method/... that takes a string and returns an indication of if it is a rep-string and the repeated string. &nbsp; (Either the string that is repeated, or the number of repeated characters would suffice).  </li>
+/// <li class="rosetta__list-item--unordered">There may be multiple sub-strings that make a string a rep-string - in that case an indication of all, or the longest, or the shortest would suffice.</li>
+/// <li class="rosetta__list-item--unordered">Use the function to indicate the repeating substring if any, in the following:</li>
 /// <br>
 /// </ul><dl><dd>
 /// <pre>
@@ -48,7 +48,7 @@ replaceWithActualFunctionHere;
 /// </pre>
 /// </dl>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">Show your output on this page.</li>
+/// <li class="rosetta__list-item--unordered">Show your output on this page.</li>
 /// <br>
 /// </ul><br><br>
 /// <br>

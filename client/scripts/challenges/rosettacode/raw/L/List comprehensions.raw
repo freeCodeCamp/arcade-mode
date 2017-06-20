@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -28,13 +28,15 @@ replaceWithActualFunctionHere;
 /// A <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/List_comprehension" title="wp: List_comprehension">list comprehension</a> is a special syntax in some programming languages to describe lists. It is similar to the way mathematicians describe sets, with a <span class="rosetta__text--italic">set comprehension</span>, hence the name.
 /// <br>
 /// Some attributes of a list comprehension are:
-/// # They should be distinct from (nested) for loops and the use of map and filter functions within the syntax of the language.
-/// # They should return either a list or an iterator (something that returns successive members of a collection, in order).
-/// # The syntax has parts corresponding to that of <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Set-builder_notation" title="wp: Set-builder_notation">set-builder notation</a>.  
+/// <ol class="rosetta__ordered-list">
+/// <li class="rosetta__list-item--ordered">They should be distinct from (nested) for loops and the use of map and filter functions within the syntax of the language.</li>
+/// <li class="rosetta__list-item--ordered">They should return either a list or an iterator (something that returns successive members of a collection, in order).</li>
+/// <li class="rosetta__list-item--ordered">The syntax has parts corresponding to that of <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Set-builder_notation" title="wp: Set-builder_notation">set-builder notation</a>.  </li>
 /// <br>
+/// </ol>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
-/// Write a list comprehension that builds the list of all [[Pythagorean triples]] with elements between &nbsp; <span class="rosetta__text--bold">1</span> &nbsp; and &nbsp; <span class="rosetta__text--bold">n</span>. 
+/// Write a list comprehension that builds the list of all <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Pythagorean triples" title="Pythagorean triples"></a> with elements between &nbsp; <span class="rosetta__text--bold">1</span> &nbsp; and &nbsp; <span class="rosetta__text--bold">n</span>. 
 /// <br>
 /// If the language has multiple ways for expressing such a construct (for example, direct list comprehensions and generators), write one example for each.
 /// <br><br>

@@ -10,7 +10,9 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Basic language learning
+/// Programming environment operations
+/// Initialization
 
 /// difficulty: ?
 
@@ -18,11 +20,11 @@ const assert = require('chai').assert;
 replaceWithActualFunctionHere;
 
 /// description:
-///  [[Category:Basic language learning]][[Category:Programming environment operations]][[Category:Initialization]]Retrieve the list of command-line arguments given to the program. For programs that only print the arguments when run directly, see [[Scripted main]].
+///  Retrieve the list of command-line arguments given to the program. For programs that only print the arguments when run directly, see <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Scripted main" title="Scripted main"></a>.
 /// <br>
-/// See also [[Program name]].
+/// See also <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Program name" title="Program name"></a>.
 /// <br>
-/// For parsing command line arguments intelligently, see [[Parsing command-line arguments]].
+/// For parsing command line arguments intelligently, see <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Parsing command-line arguments" title="Parsing command-line arguments"></a>.
 /// <br>
 /// Example command line:
 /// <br>

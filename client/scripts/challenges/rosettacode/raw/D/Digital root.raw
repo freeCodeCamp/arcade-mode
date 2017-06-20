@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -37,15 +37,12 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">See:</dt></dl>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Casting out nines]] for this wiki's use of this procedure.</li>
-/// <li class="rosetta__list-item">[[Digital root/Multiplicative digital root]]</li>
-/// <li class="rosetta__list-item">[[Sum digits of an integer]]</li>
-/// <li class="rosetta__list-item">[[oeis:A010888" title="Casting out nines]] for this wiki's use of this procedure.</li>
-/// <li class="rosetta__list-item">[[Digital root/Multiplicative digital root]]</li>
-/// <li class="rosetta__list-item">[[Sum digits of an integer]]</li>
-/// <li class="rosetta__list-item">[[oeis:A010888">Digital root sequence on OEIS</a></li>
-/// <li class="rosetta__list-item"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/oeis:A031286" title="oeis:A031286">Additive persistence sequence on OEIS</a></li>
-/// <li class="rosetta__list-item">[[Iterated digits squaring]]</li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Casting out nines" title="Casting out nines"></a> for this wiki's use of this procedure.</li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Digital root/Multiplicative digital root" title="Digital root/Multiplicative digital root"></a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Sum digits of an integer" title="Sum digits of an integer"></a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/oeis:A010888" title="oeis:A010888">Digital root sequence on OEIS</a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/oeis:A031286" title="oeis:A031286">Additive persistence sequence on OEIS</a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Iterated digits squaring" title="Iterated digits squaring"></a></li>
 /// <br>
 /// </ul><br><br>
 /// <br>

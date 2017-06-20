@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Networking and Web Interaction
 
 /// difficulty: ?
 
@@ -19,12 +19,12 @@ replaceWithActualFunctionHere;
 
 /// description:
 /// <br>
-/// [[Category:Networking and Web Interaction]]
+/// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
 /// Access and print a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Uniform Resource Locator" title="wp: Uniform Resource Locator">URL's</a> content (the located resource) to the console.
 /// <br>
-/// There is a separate task for [[HTTPS Request]]s.
+/// There is a separate task for <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/HTTPS Request" title="HTTPS Request"></a>s.
 /// <br><br>
 /// <br>
 /// <br>

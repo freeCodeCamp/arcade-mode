@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Temporal media
 
 /// difficulty: ?
 
@@ -18,7 +18,7 @@ const assert = require('chai').assert;
 replaceWithActualFunctionHere;
 
 /// description:
-///   [[Category:Temporal media]]
+///   
 /// <br>
 /// <br>
 /// <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Morse_code" title="wp: Morse_code">Morse code</a> is one of the simplest and most versatile methods of telecommunication in existence. 

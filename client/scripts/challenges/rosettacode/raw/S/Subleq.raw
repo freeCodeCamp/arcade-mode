@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -34,27 +34,27 @@ replaceWithActualFunctionHere;
 /// Execution begins with the instruction pointer aimed at the first word, which is address 0.  It proceeds as follows:
 /// <br>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">Let A, B, and C be the value stored in the three consecutive words in memory starting at the instruction pointer.</li>
+/// <li class="rosetta__list-item--unordered">Let A, B, and C be the value stored in the three consecutive words in memory starting at the instruction pointer.</li>
 /// <br>
 /// </ul>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">Advance the instruction pointer 3 words to point at the address after the one containing C.</li>
+/// <li class="rosetta__list-item--unordered">Advance the instruction pointer 3 words to point at the address after the one containing C.</li>
 /// <br>
 /// </ul>  
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">If A is -1, then a character is read from standard input and its code point stored in the address given by B. C is unused.</li>
+/// <li class="rosetta__list-item--unordered">If A is -1, then a character is read from standard input and its code point stored in the address given by B. C is unused.</li>
 /// <br>
 /// </ul>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">If B is -1, then the number contained in the address given by A is interpreted as a code point and the corresponding character output. C is again unused.</li>
+/// <li class="rosetta__list-item--unordered">If B is -1, then the number contained in the address given by A is interpreted as a code point and the corresponding character output. C is again unused.</li>
 /// <br>
 /// </ul>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">Otherwise, both A and B are treated as the addresses of memory locations.  The number contained in the address given by A is subtracted from the number at the address given by B (and the result stored back in address B).  If the result is zero or negative, the value C becomes the new instruction pointer.</li>
+/// <li class="rosetta__list-item--unordered">Otherwise, both A and B are treated as the addresses of memory locations.  The number contained in the address given by A is subtracted from the number at the address given by B (and the result stored back in address B).  If the result is zero or negative, the value C becomes the new instruction pointer.</li>
 /// <br>
 /// </ul>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">If the instruction pointer becomes negative, execution halts.</li>
+/// <li class="rosetta__list-item--unordered">If the instruction pointer becomes negative, execution halts.</li>
 /// <br>
 /// </ul>
 /// <br>Other negative addresses besides -1 may be treated as equivalent to -1, or generate an error, as you see fit.

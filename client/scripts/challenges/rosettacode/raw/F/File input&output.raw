@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Simple
 
 /// difficulty: ?
 
@@ -18,7 +18,7 @@ const assert = require('chai').assert;
 replaceWithActualFunctionHere;
 
 /// description:
-///   [[Category:Simple]]
+///   
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
 /// Create a file called &nbsp; "output.txt", &nbsp; and place in it the contents of the file &nbsp; "input.txt", &nbsp; <span class="rosetta__text--italic">via an intermediate variable</span>. 

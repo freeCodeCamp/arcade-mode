@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -23,12 +23,12 @@ replaceWithActualFunctionHere;
 /// <br>
 /// The encoding steps are:
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">take the X and Y coordinates of the given public point, and concatenate them in order to have a 64 byte-longed string ;</li>
-/// <li class="rosetta__list-item">add one byte prefix equal to 4 (it is a convention for this way of encoding a public point) ;</li>
-/// <li class="rosetta__list-item">compute the [[SHA-256]] of this string ;</li>
-/// <li class="rosetta__list-item">compute the [[RIPEMD-160]] of this SHA-256 digest ;</li>
-/// <li class="rosetta__list-item">compute the checksum of the concatenation of the version number digit (a single zero byte) and this RIPEMD-160 digest, as described in [[bitcoin/address validation]] ;</li>
-/// <li class="rosetta__list-item">Base-58 encode (see below) the concatenation of the version number (zero in this case), the ripemd digest and the checksum</li>
+/// <li class="rosetta__list-item--unordered">take the X and Y coordinates of the given public point, and concatenate them in order to have a 64 byte-longed string ;</li>
+/// <li class="rosetta__list-item--unordered">add one byte prefix equal to 4 (it is a convention for this way of encoding a public point) ;</li>
+/// <li class="rosetta__list-item--unordered">compute the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/SHA-256" title="SHA-256"></a> of this string ;</li>
+/// <li class="rosetta__list-item--unordered">compute the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/RIPEMD-160" title="RIPEMD-160"></a> of this SHA-256 digest ;</li>
+/// <li class="rosetta__list-item--unordered">compute the checksum of the concatenation of the version number digit (a single zero byte) and this RIPEMD-160 digest, as described in <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/bitcoin/address validation" title="bitcoin/address validation"></a> ;</li>
+/// <li class="rosetta__list-item--unordered">Base-58 encode (see below) the concatenation of the version number (zero in this case), the ripemd digest and the checksum</li>
 /// <br>
 /// </ul>
 /// The base-58 encoding is based on an alphabet of alphanumeric characters (numbers, upper case and lower case, in that order) but without the four characters 0, O, l and I.

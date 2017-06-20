@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -27,9 +27,11 @@ replaceWithActualFunctionHere;
 /// Note that a list may have more than one subsequence that is of the maximum length.
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Ref:</dt></dl>
-/// # [http://www.youtube.com/watch?v=4fQJGoeW5VE Dynamic Programming #1: Longest Increasing Subsequence] on Youtube
-/// # An efficient solution can be based on <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Patience sorting" title="wp: Patience sorting">Patience sorting</a>.
+/// <ol class="rosetta__ordered-list">
+/// <li class="rosetta__list-item--ordered">[http://www.youtube.com/watch?v=4fQJGoeW5VE Dynamic Programming #1: Longest Increasing Subsequence] on Youtube</li>
+/// <li class="rosetta__list-item--ordered">An efficient solution can be based on <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Patience sorting" title="wp: Patience sorting">Patience sorting</a>.</li>
 /// <br>
+/// </ol>
 /// <br>
 
 /// challengeSeed:

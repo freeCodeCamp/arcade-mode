@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Arbitrary precision
 
 /// difficulty: ?
 
@@ -18,7 +18,7 @@ const assert = require('chai').assert;
 replaceWithActualFunctionHere;
 
 /// description:
-/// [[Category:Arbitrary precision]]
+/// <br>
 /// <br>
 /// <br>
 /// The prime decomposition of a number is defined as a list of prime numbers 
@@ -30,27 +30,27 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
-/// Write a function which returns an <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Arrays" title="Arrays">array</a> or <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Collections" title="Collections">collection</a> which contains the prime decomposition of a given number &nbsp; <big><big>$n$</big></big> &nbsp; greater than &nbsp; <span class="rosetta__text--bold">1</span>. 
+/// Write a function which returns an <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Arrays" title="Arrays">array]] or [[Collections|collection</a> which contains the prime decomposition of a given number &nbsp; <big><big>$n$</big></big> &nbsp; greater than &nbsp; <span class="rosetta__text--bold">1</span>. 
 /// <br>
 /// If your language does not have an isPrime-like function available, 
 /// you may assume that you have a function which determines 
 /// whether a number is prime (note its name before your code). 
 /// <br>
-/// If you would like to test code from this task, you may use code from <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Primality by trial division" title="Primality by trial division">trial division</a> or the [[Sieve of Eratosthenes]].
+/// If you would like to test code from this task, you may use code from <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Primality by trial division" title="Primality by trial division">trial division]] or the [[Sieve of Eratosthenes</a>.
 /// <br>
 /// Note: The program must not be limited by the word size of your computer or some other artificial limit; it should work for any number regardless of size (ignoring the physical limits of RAM etc).
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks:</dt></dl>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">&nbsp; [[count in factors]]</li>
-/// <li class="rosetta__list-item">&nbsp; [[factors of an integer]]</li>
-/// <li class="rosetta__list-item">&nbsp; [[Sieve of Eratosthenes]]</li>
-/// <li class="rosetta__list-item">&nbsp; [[primality by trial division]]</li>
-/// <li class="rosetta__list-item">&nbsp; [[factors of a Mersenne number]]</li>
-/// <li class="rosetta__list-item">&nbsp; [[trial factoring of a Mersenne number]]</li>
-/// <li class="rosetta__list-item">&nbsp; [[partition an integer X into N primes]]</li>
-/// <li class="rosetta__list-item">&nbsp; [[sequence of primes by Trial Division]]</li>
+/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/count in factors" title="count in factors"></a></li>
+/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/factors of an integer" title="factors of an integer"></a></li>
+/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Sieve of Eratosthenes" title="Sieve of Eratosthenes"></a></li>
+/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/primality by trial division" title="primality by trial division"></a></li>
+/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/factors of a Mersenne number" title="factors of a Mersenne number"></a></li>
+/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/trial factoring of a Mersenne number" title="trial factoring of a Mersenne number"></a></li>
+/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/partition an integer X into N primes" title="partition an integer X into N primes"></a></li>
+/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/sequence of primes by Trial Division" title="sequence of primes by Trial Division"></a></li>
 /// <br>
 /// </ul><br><br>
 /// <br>

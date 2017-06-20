@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -22,7 +22,7 @@ replaceWithActualFunctionHere;
 /// A <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Voronoi diagram" title="wp: Voronoi diagram">Voronoi diagram</a> is a diagram consisting of a number of sites. Each Voronoi site <span class="rosetta__text--italic">s</span>  also has a Voronoi cell consisting of all points closest to <span class="rosetta__text--italic">s</span>.
 /// <br>
 /// The task is to demonstrate how to generate and display a Voroni diagram.  
-/// See algo [[K-means++ clustering]].
+/// See algo <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/K-means++ clustering" title="K-means++ clustering"></a>.
 /// <br>
 /// <br>
 

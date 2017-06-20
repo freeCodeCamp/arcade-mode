@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -22,8 +22,8 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Floyd's triangle" title="wp: Floyd's triangle">Floyd's triangle</a> &nbsp; lists the natural numbers in a right triangle aligned to the left where 
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">the first row is &nbsp; <span class="rosetta__text--bold">1</span> &nbsp; &nbsp; (unity)</li>
-/// <li class="rosetta__list-item">successive rows start towards the left with the next number followed by successive naturals listing one more number than the line above.</li>
+/// <li class="rosetta__list-item--unordered">the first row is &nbsp; <span class="rosetta__text--bold">1</span> &nbsp; &nbsp; (unity)</li>
+/// <li class="rosetta__list-item--unordered">successive rows start towards the left with the next number followed by successive naturals listing one more number than the line above.</li>
 /// <br>
 /// </ul>
 /// <br>

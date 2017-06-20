@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Testing
 
 /// difficulty: ?
 
@@ -18,7 +18,7 @@ const assert = require('chai').assert;
 replaceWithActualFunctionHere;
 
 /// description:
-/// [[Category:Testing]]Simulate the click of a mouse button by the user. Specify if the target GUI may be externally created.
+/// Simulate the click of a mouse button by the user. Specify if the target GUI may be externally created.
 /// <br>
 /// <br>
 

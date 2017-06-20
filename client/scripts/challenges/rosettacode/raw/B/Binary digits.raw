@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Radices
 
 /// difficulty: ?
 
@@ -19,7 +19,7 @@ replaceWithActualFunctionHere;
 
 /// description:
 /// <br>
-/// [[Category:Radices]]
+/// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
 /// Create and display the sequence of binary digits for a given &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Natural number" title="wp: Natural number">non-negative integer</a>.

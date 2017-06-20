@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -22,7 +22,7 @@ replaceWithActualFunctionHere;
 /// Quoting from the [http://esolangs.org/wiki/Narcissist Esolangs wiki page]:
 /// <br>
 /// <blockquote>
-/// A <span class="rosetta__text--bold">narcissist</span> (or <span class="rosetta__text--bold">Narcissus program</span>) is the decision-problem version of a [[quine]].
+/// A <span class="rosetta__text--bold">narcissist</span> (or <span class="rosetta__text--bold">Narcissus program</span>) is the decision-problem version of a <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/quine" title="quine"></a>.
 /// </blockquote><blockquote>
 /// A quine, when run, takes no input, but produces a copy of its own source code at its output. In contrast, a narcissist reads a string of symbols from its input, and produces no output except a "1" or "accept" if that string matches its own source code, or a "0" or "reject" if it does not.
 /// </blockquote>

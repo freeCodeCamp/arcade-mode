@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -20,7 +20,7 @@ replaceWithActualFunctionHere;
 /// description:
 /// <br>
 /// <br>
-/// Make sure you [[Connect to Active Directory]]
+/// Make sure you <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Connect to Active Directory" title="Connect to Active Directory"></a>
 /// <br>
 /// <br>
 

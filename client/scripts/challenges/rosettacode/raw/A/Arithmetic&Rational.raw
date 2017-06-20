@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Arithmetic
 
 /// difficulty: ?
 
@@ -19,7 +19,7 @@ replaceWithActualFunctionHere;
 
 /// description:
 /// <br>
-/// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category:Arithmetic]]
+/// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
 /// Create a reasonably complete implementation of rational arithmetic in the particular language using the idioms of the language.
@@ -35,28 +35,12 @@ replaceWithActualFunctionHere;
 /// If space allows, define standard increment and decrement <span class="rosetta__text--bold">operators</span> (e.g. '+:=' & '-:=' etc.).
 /// <br>
 /// Finally test the operators:
-/// Use the new type <span class="rosetta__text--bold">frac</span> to find all [[Perfect Numbers" title="Category:Arithmetic]]
-/// <br>
-/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
-/// Create a reasonably complete implementation of rational arithmetic in the particular language using the idioms of the language.
-/// <br>
-/// <br>
-/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Example:</dt></dl>
-/// Define a new type called <span class="rosetta__text--bold">frac</span> with binary operator "//" of two integers that returns a <span class="rosetta__text--bold">structure</span> made up of the numerator and the denominator (as per a rational number).
-/// <br>
-/// Further define the appropriate rational unary <span class="rosetta__text--bold">operators</span> <span class="rosetta__text--bold">abs</span> and '-', with the binary <span class="rosetta__text--bold">operators</span> for addition '+', subtraction '-', multiplication '&times;', division '/', integer division '&divide;', modulo division, the comparison operators (e.g. '<', '&le;', '>', & '&ge;') and equality operators (e.g. '=' & '&ne;').
-/// <br>
-/// Define standard coercion <span class="rosetta__text--bold">operators</span> for casting <span class="rosetta__text--bold">int</span> to <span class="rosetta__text--bold">frac</span> etc.
-/// <br>
-/// If space allows, define standard increment and decrement <span class="rosetta__text--bold">operators</span> (e.g. '+:=' & '-:=' etc.).
-/// <br>
-/// Finally test the operators:
-/// Use the new type <span class="rosetta__text--bold">frac</span> to find all [[Perfect Numbers">perfect numbers</a> less than 2<sup>19</sup> by summing the reciprocal of the factors.
+/// Use the new type <span class="rosetta__text--bold">frac</span> to find all <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Perfect Numbers" title="Perfect Numbers">perfect numbers</a> less than 2<sup>19</sup> by summing the reciprocal of the factors.
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related task:</dt></dl>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">&nbsp; [[Perfect Numbers]]</li>
+/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Perfect Numbers" title="Perfect Numbers"></a></li>
 /// <br>
 /// </ul><br><br>
 /// <br>

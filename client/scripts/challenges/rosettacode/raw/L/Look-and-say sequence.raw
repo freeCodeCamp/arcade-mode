@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -25,19 +25,19 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <span class="rosetta__text--bold">Sequence Definition</span>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">Take a decimal number</li>
-/// <li class="rosetta__list-item"><span class="rosetta__text--italic">Look</span> at the number, visually grouping consecutive runs of the same digit.</li>
-/// <li class="rosetta__list-item"><span class="rosetta__text--italic">Say</span> the number, from left to right, group by group; as how many of that digit there are - followed by the digit grouped.</li>
+/// <li class="rosetta__list-item--unordered">Take a decimal number</li>
+/// <li class="rosetta__list-item--unordered"><span class="rosetta__text--italic">Look</span> at the number, visually grouping consecutive runs of the same digit.</li>
+/// <li class="rosetta__list-item--unordered"><span class="rosetta__text--italic">Say</span> the number, from left to right, group by group; as how many of that digit there are - followed by the digit grouped.</li>
 /// <br>
 /// </ul><span class="rosetta__text--indented"> This becomes the next number of the sequence.</span>
 /// <br>
 /// <br>
 /// <span class="rosetta__text--bold">An example:</span> 
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">Starting with the number 1, &nbsp; you have <span class="rosetta__text--italic">one</span> 1 which produces 11</li>
-/// <li class="rosetta__list-item">Starting with 11, &nbsp; you have <span class="rosetta__text--italic">two</span> 1's. &nbsp; I.E.: &nbsp; 21</li>
-/// <li class="rosetta__list-item">Starting with 21, &nbsp; you have <span class="rosetta__text--italic">one</span> 2, then <span class="rosetta__text--italic">one</span> 1. &nbsp; I.E.: &nbsp; (12)(11) which becomes 1211</li>
-/// <li class="rosetta__list-item">Starting with 1211, &nbsp; you have <span class="rosetta__text--italic">one</span> 1, <span class="rosetta__text--italic">one</span> 2, then <span class="rosetta__text--italic">two</span> 1's. &nbsp; I.E.: &nbsp; (11)(12)(21) which becomes 111221</li>
+/// <li class="rosetta__list-item--unordered">Starting with the number 1, &nbsp; you have <span class="rosetta__text--italic">one</span> 1 which produces 11</li>
+/// <li class="rosetta__list-item--unordered">Starting with 11, &nbsp; you have <span class="rosetta__text--italic">two</span> 1's. &nbsp; I.E.: &nbsp; 21</li>
+/// <li class="rosetta__list-item--unordered">Starting with 21, &nbsp; you have <span class="rosetta__text--italic">one</span> 2, then <span class="rosetta__text--italic">one</span> 1. &nbsp; I.E.: &nbsp; (12)(11) which becomes 1211</li>
+/// <li class="rosetta__list-item--unordered">Starting with 1211, &nbsp; you have <span class="rosetta__text--italic">one</span> 1, <span class="rosetta__text--italic">one</span> 2, then <span class="rosetta__text--italic">two</span> 1's. &nbsp; I.E.: &nbsp; (11)(12)(21) which becomes 111221</li>
 /// <br>
 /// </ul>
 /// <br>
@@ -47,9 +47,9 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">See also:</dt></dl>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">&nbsp; [https://www.youtube.com/watch?v=ea7lJkEhytA Look-and-Say Numbers (feat John Conway)], A Numberphile Video.</li>
-/// <li class="rosetta__list-item">&nbsp; This task is related to, and an application of, the [[Run-length encoding]] task.</li>
-/// <li class="rosetta__list-item">&nbsp; Sequence [https://oeis.org/A005150 A005150] on  The On-Line Encyclopedia of Integer Sequences.</li>
+/// <li class="rosetta__list-item--unordered">&nbsp; [https://www.youtube.com/watch?v=ea7lJkEhytA Look-and-Say Numbers (feat John Conway)], A Numberphile Video.</li>
+/// <li class="rosetta__list-item--unordered">&nbsp; This task is related to, and an application of, the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Run-length encoding" title="Run-length encoding"></a> task.</li>
+/// <li class="rosetta__list-item--unordered">&nbsp; Sequence [https://oeis.org/A005150 A005150] on  The On-Line Encyclopedia of Integer Sequences.</li>
 /// <br>
 /// </ul><br><br>
 /// <br>

@@ -10,7 +10,8 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Speech synthesis
+/// Temporal media
 
 /// difficulty: ?
 
@@ -20,8 +21,8 @@ replaceWithActualFunctionHere;
 /// description:
 /// <br>
 /// <!-- this task to be in "Temporal media" category once ready. -->
-/// [[Category:Speech synthesis]]
-/// [[Category:Temporal media]]
+/// <br>
+/// <br>
 /// <br>
 /// Render the text &nbsp; &nbsp; &nbsp; <span class="rosetta__text--bold">This is an example of speech synthesis</span>&nbsp; &nbsp; &nbsp; as speech.
 /// <br><br>

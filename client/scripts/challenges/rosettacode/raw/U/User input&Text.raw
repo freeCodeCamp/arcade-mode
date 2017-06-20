@@ -10,7 +10,9 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Basic language learning
+/// Keyboard Input
+/// Simple
 
 /// difficulty: ?
 
@@ -18,10 +20,10 @@ const assert = require('chai').assert;
 replaceWithActualFunctionHere;
 
 /// description:
-/// [[Category:Basic language learning]][[Category:Keyboard Input]] [[Category:Simple]]
+///  
 /// In this task, the goal is to input a string and the integer 75000, from the text console.
 /// <br>
-/// See also: [[User input/Graphical]]
+/// See also: <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/User input/Graphical" title="User input/Graphical"></a>
 /// <br>
 
 /// challengeSeed:

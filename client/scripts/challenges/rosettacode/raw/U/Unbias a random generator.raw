@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -23,9 +23,9 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task details:</dt></dl>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">Use your language's random number generator to create a function/method/subroutine/... <span class="rosetta__text--bold">randN</span> that returns a one or a zero, but with one occurring, on average, 1 out of N times, where N is an integer from the range 3 to 6 inclusive.</li>
-/// <li class="rosetta__list-item">Create a function <span class="rosetta__text--bold">unbiased</span> that uses only randN as its source of randomness to become an unbiased generator of random ones and zeroes.</li>
-/// <li class="rosetta__list-item">For N over its range, generate and show counts of the outputs of randN and unbiased(randN).</li>
+/// <li class="rosetta__list-item--unordered">Use your language's random number generator to create a function/method/subroutine/... <span class="rosetta__text--bold">randN</span> that returns a one or a zero, but with one occurring, on average, 1 out of N times, where N is an integer from the range 3 to 6 inclusive.</li>
+/// <li class="rosetta__list-item--unordered">Create a function <span class="rosetta__text--bold">unbiased</span> that uses only randN as its source of randomness to become an unbiased generator of random ones and zeroes.</li>
+/// <li class="rosetta__list-item--unordered">For N over its range, generate and show counts of the outputs of randN and unbiased(randN).</li>
 /// <br>
 /// </ul>
 /// <br>

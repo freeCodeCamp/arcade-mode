@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -22,7 +22,7 @@ replaceWithActualFunctionHere;
 /// Produce a graphical representation of a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Sierpinski triangle" title="wp: Sierpinski triangle">Sierpinski triangle</a> of order N in any orientation.  
 /// <br>
 /// An example of Sierpinski's triangle (order = 8) looks like this: <br/><br/>
-/// [[File:Sierpinski_Triangle_Unicon.PNG]]
+/// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:Sierpinski_Triangle_Unicon.PNG" title="File:Sierpinski_Triangle_Unicon.PNG"></a>
 /// <br>
 /// <br>
 

@@ -10,7 +10,8 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Functions and subroutines
+/// Simple
 
 /// difficulty: ?
 
@@ -18,8 +19,8 @@ const assert = require('chai').assert;
 replaceWithActualFunctionHere;
 
 /// description:
-/// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category:Functions and subroutines]] 
-/// [[Category:Simple]]
+///  
+/// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
 /// Demonstrate the different syntax and semantics provided for calling a function. 
@@ -28,17 +29,7 @@ replaceWithActualFunctionHere;
 /// This may include:
 /// <span class="rosetta__text--indented">* &nbsp; Calling a function that requires no arguments</span>
 /// <span class="rosetta__text--indented">* &nbsp; Calling a function with a fixed number of arguments</span>
-/// <span class="rosetta__text--indented">* &nbsp; Calling a function with [[Optional parameters" title="Category:Functions and subroutines]] </span>
-/// [[Category:Simple]]
-/// <br>
-/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
-/// Demonstrate the different syntax and semantics provided for calling a function. 
-/// <br>
-/// <br>
-/// This may include:
-/// <span class="rosetta__text--indented">* &nbsp; Calling a function that requires no arguments</span>
-/// <span class="rosetta__text--indented">* &nbsp; Calling a function with a fixed number of arguments</span>
-/// <span class="rosetta__text--indented">* &nbsp; Calling a function with [[Optional parameters">optional arguments</a></span>
+/// <span class="rosetta__text--indented">* &nbsp; Calling a function with <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Optional parameters" title="Optional parameters">optional arguments</a></span>
 /// <span class="rosetta__text--indented">* &nbsp; Calling a function with a <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Variadic function" title="Variadic function">variable number of arguments</a></span>
 /// <span class="rosetta__text--indented">* &nbsp; Calling a function with <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Named parameters" title="Named parameters">named arguments</a></span>
 /// <span class="rosetta__text--indented">* &nbsp; Using a function in statement context</span>

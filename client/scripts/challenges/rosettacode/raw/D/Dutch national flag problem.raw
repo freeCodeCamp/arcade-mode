@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -26,15 +26,17 @@ replaceWithActualFunctionHere;
 /// When the problem was first posed, Dijkstra then went on to successively refine a solution, minimising the number of swaps and the number of times the colour of a ball needed to determined and restricting the balls to end in an array, ...
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task</dt></dl>
-/// # Generate a randomized order of balls <span class="rosetta__text--italic">ensuring that they are not in the order of the Dutch national flag</span>.
-/// # Sort the balls in a way idiomatic to your language.
-/// # Check the sorted balls <span class="rosetta__text--italic">are</span> in the order of the Dutch national flag.
+/// <ol class="rosetta__ordered-list">
+/// <li class="rosetta__list-item--ordered">Generate a randomized order of balls <span class="rosetta__text--italic">ensuring that they are not in the order of the Dutch national flag</span>.</li>
+/// <li class="rosetta__list-item--ordered">Sort the balls in a way idiomatic to your language.</li>
+/// <li class="rosetta__list-item--ordered">Check the sorted balls <span class="rosetta__text--italic">are</span> in the order of the Dutch national flag.</li>
 /// <br>
+/// </ol>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">C.f.:</dt></dl>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Dutch national flag problem" title="wp: Dutch national flag problem">Dutch national flag problem</a></li>
-/// <li class="rosetta__list-item">[https://www.google.co.uk/search?rlz=1C1DSGK_enGB472GB472&sugexp=chrome,mod=8&sourceid=chrome&ie=UTF-8&q=Dutch+national+flag+problem#hl=en&rlz=1C1DSGK_enGB472GB472&sclient=psy-ab&q=Probabilistic+analysis+of+algorithms+for+the+Dutch+national+flag+problem&oq=Probabilistic+analysis+of+algorithms+for+the+Dutch+national+flag+problem&gs_l=serp.3...60754.61818.1.62736.1.1.0.0.0.0.72.72.1.1.0...0.0.Pw3RGungndU&psj=1&bav=on.2,or.r_gc.r_pw.r_cp.r_qf.,cf.osb&fp=c33d18147f5082cc&biw=1395&bih=951 Probabilistic analysis of algorithms for the Dutch national flag problem] by Wei-Mei Chen. (pdf)</li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Dutch national flag problem" title="wp: Dutch national flag problem">Dutch national flag problem</a></li>
+/// <li class="rosetta__list-item--unordered">[https://www.google.co.uk/search?rlz=1C1DSGK_enGB472GB472&sugexp=chrome,mod=8&sourceid=chrome&ie=UTF-8&q=Dutch+national+flag+problem#hl=en&rlz=1C1DSGK_enGB472GB472&sclient=psy-ab&q=Probabilistic+analysis+of+algorithms+for+the+Dutch+national+flag+problem&oq=Probabilistic+analysis+of+algorithms+for+the+Dutch+national+flag+problem&gs_l=serp.3...60754.61818.1.62736.1.1.0.0.0.0.72.72.1.1.0...0.0.Pw3RGungndU&psj=1&bav=on.2,or.r_gc.r_pw.r_cp.r_qf.,cf.osb&fp=c33d18147f5082cc&biw=1395&bih=951 Probabilistic analysis of algorithms for the Dutch national flag problem] by Wei-Mei Chen. (pdf)</li>
 /// <br>
 /// </ul><br><br>
 /// <br>

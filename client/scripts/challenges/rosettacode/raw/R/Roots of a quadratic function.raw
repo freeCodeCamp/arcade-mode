@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -25,7 +25,7 @@ replaceWithActualFunctionHere;
 /// The obvious way to implement the quadratic formula suffers catastrophic loss of accuracy when one of the roots to be found is much closer to 0 than the other. 
 /// In their classic textbook on numeric methods <span class="rosetta__text--italic">[http://www.pdas.com/fmm.htm Computer Methods for Mathematical Computations]</span>, George Forsythe, Michael Malcolm, and Cleve Moler suggest trying the naive algorithm with $a = 1$, $b = -10^5$, and $c = 1$. 
 /// (For double-precision floats, set $b = -10^9$.) 
-/// Consider the following implementation in [[Ada]]:
+/// Consider the following implementation in <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Ada" title="Ada"></a>:
 /// <lang ada>with Ada.Text_IO;                        use Ada.Text_IO;
 /// with Ada.Numerics.Elementary_Functions;  use Ada.Numerics.Elementary_Functions;
 /// <br>

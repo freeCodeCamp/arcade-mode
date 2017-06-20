@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -22,8 +22,8 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <span class="rosetta__text--bold">Task</span>: 
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">Generate a string with &nbsp; <span class="rosetta__text--bold">N</span> &nbsp; opening brackets &nbsp; <big><span class="rosetta__text--bold">[</span></big> &nbsp; and with &nbsp; <span class="rosetta__text--bold">N</span> &nbsp; closing brackets &nbsp; <big><span class="rosetta__text--bold">]</span></big>, &nbsp; in some arbitrary order. </li>
-/// <li class="rosetta__list-item">Determine whether the generated string is <span class="rosetta__text--italic">balanced</span>; that is, whether it consists entirely of pairs of opening/closing brackets (in that order), none of which mis-nest.</li>
+/// <li class="rosetta__list-item--unordered">Generate a string with &nbsp; <span class="rosetta__text--bold">N</span> &nbsp; opening brackets &nbsp; <big><span class="rosetta__text--bold">[</span></big> &nbsp; and with &nbsp; <span class="rosetta__text--bold">N</span> &nbsp; closing brackets &nbsp; <big><span class="rosetta__text--bold">]</span></big>, &nbsp; in some arbitrary order. </li>
+/// <li class="rosetta__list-item--unordered">Determine whether the generated string is <span class="rosetta__text--italic">balanced</span>; that is, whether it consists entirely of pairs of opening/closing brackets (in that order), none of which mis-nest.</li>
 /// <br>
 /// </ul>
 /// <br>
@@ -32,7 +32,7 @@ replaceWithActualFunctionHere;
 ///     (empty)   OK
 ///     []        OK   ][        NOT OK
 ///     [][]      OK   ][][      NOT OK
-///     [[][]]    OK   []][[]    NOT OK
+///     <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/][" title="]["></a>    OK   []][[]    NOT OK
 /// <br><br>
 /// <br>
 /// <br>

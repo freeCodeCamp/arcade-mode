@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -25,14 +25,14 @@ replaceWithActualFunctionHere;
 /// as each individual token is processed.
 /// <br>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">Assume an input of a correct, space separated, string of tokens representing an infix expression</li>
-/// <li class="rosetta__list-item">Generate a space separated output string representing the RPN</li>
-/// <li class="rosetta__list-item">Test with the input string:</li>
+/// <li class="rosetta__list-item--unordered">Assume an input of a correct, space separated, string of tokens representing an infix expression</li>
+/// <li class="rosetta__list-item--unordered">Generate a space separated output string representing the RPN</li>
+/// <li class="rosetta__list-item--unordered">Test with the input string:</li>
 /// <br>
 /// </ul><span class="rosetta__text--indented">::: <big><big><code> 3 + 4 * 2 / ( 1 - 5 ) ^ 2 ^ 3 </code></big></big> </span>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">print and display the output here.</li>
-/// <li class="rosetta__list-item">Operator precedence is given in this table:</li>
+/// <li class="rosetta__list-item--unordered">print and display the output here.</li>
+/// <li class="rosetta__list-item--unordered">Operator precedence is given in this table:</li>
 /// <br>
 /// </ul><span class="rosetta__text--indented">{| class="wikitable"</span>
 /// <br>
@@ -60,8 +60,8 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">See also:</dt></dl>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">[[Parsing/RPN calculator algorithm]] for a method of calculating a final value from this output RPN expression.</li>
-/// <li class="rosetta__list-item">[[Parsing/RPN to infix conversion]].</li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Parsing/RPN calculator algorithm" title="Parsing/RPN calculator algorithm"></a> for a method of calculating a final value from this output RPN expression.</li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Parsing/RPN to infix conversion" title="Parsing/RPN to infix conversion"></a>.</li>
 /// <br>
 /// </ul><br><br>
 /// <br>

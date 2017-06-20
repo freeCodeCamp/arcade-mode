@@ -10,7 +10,8 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Scope
+/// Functions and subroutines
 
 /// difficulty: ?
 
@@ -38,7 +39,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <span class="rosetta__text--indented">* <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Nested_function" title="wp: Nested_function">Nested function</a></span>
 /// <br>
-/// [[Category:Scope]][[Category:Functions and subroutines]]
+/// <br>
 /// <br>
 /// <br>
 

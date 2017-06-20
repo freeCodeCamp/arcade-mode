@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -33,7 +33,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// For each function to maintain the correct number, it has to capture the <span class="rosetta__text--italic">value</span> of the variable at the time it was created, rather than just a reference to the variable, which would have a different value by the time the function was run.
 /// <br>
-/// See also: [[Multiple distinct objects]]
+/// See also: <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Multiple distinct objects" title="Multiple distinct objects"></a>
 /// <br>
 /// <br>
 

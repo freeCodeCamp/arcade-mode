@@ -10,7 +10,8 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// String manipulation
+/// Simple
 
 /// difficulty: ?
 
@@ -30,7 +31,7 @@ replaceWithActualFunctionHere;
 /// <span class="rosetta__text--indented">:* &nbsp; Demonstrate how to check that a string is not empty.</span>
 /// <br><br>
 /// <br>
-/// [[Category:String manipulation]] [[Category:Simple]]
+///  
 /// <br>
 /// <br>
 

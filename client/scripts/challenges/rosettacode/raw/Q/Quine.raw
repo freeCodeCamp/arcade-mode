@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -38,12 +38,12 @@ replaceWithActualFunctionHere;
 /// <br>
 /// There are several difficulties that one runs into when writing a quine, mostly dealing with quoting:
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">Part of the code usually needs to be stored as a string or structural literal in the language, which needs to be quoted somehow. However, including quotation marks in the string literal itself would be troublesome because it requires them to be escaped, which then necessitates the escaping character (e.g. a backslash) in the string, which itself usually needs to be escaped, and so on.</li>
+/// <li class="rosetta__list-item--unordered">Part of the code usually needs to be stored as a string or structural literal in the language, which needs to be quoted somehow. However, including quotation marks in the string literal itself would be troublesome because it requires them to be escaped, which then necessitates the escaping character (e.g. a backslash) in the string, which itself usually needs to be escaped, and so on.</li>
 /// <br>
 /// </ul>** Some languages have a function for getting the "source code representation" of a string (i.e. adds quotation marks, etc.); in these languages, this can be used to circumvent the quoting problem.
-/// ** Another solution is to construct the quote character from its [[character code]], without having to write the quote character itself. Then the character is inserted into the string at the appropriate places. The ASCII code for double-quote is 34, and for single-quote is 39.
+/// ** Another solution is to construct the quote character from its <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/character code" title="character code"></a>, without having to write the quote character itself. Then the character is inserted into the string at the appropriate places. The ASCII code for double-quote is 34, and for single-quote is 39.
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">Newlines in the program may have to be reproduced as newlines in the string, which usually requires some kind of escape sequence (e.g. "\n"). This causes the same problem as above, where the escaping character needs to itself be escaped, etc.</li>
+/// <li class="rosetta__list-item--unordered">Newlines in the program may have to be reproduced as newlines in the string, which usually requires some kind of escape sequence (e.g. "\n"). This causes the same problem as above, where the escaping character needs to itself be escaped, etc.</li>
 /// <br>
 /// </ul>** If the language has a way of getting the "source code representation", it usually handles the escaping of characters, so this is not a problem.
 /// ** Some languages allow you to have a string literal that spans multiple lines, which embeds the newlines into the string without escaping.

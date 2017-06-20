@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -59,11 +59,11 @@ replaceWithActualFunctionHere;
 /// placebo. 
 /// <br>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">Do this by considering every possible alternative assignment from the same pool of volunteers to a treatment group of size $n$ and a control group of size $m$ (i.e., the same group sizes used in the actual experiment but with the group members chosen differently), while assuming that each volunteer's effect remains constant regardless.</li>
-/// <li class="rosetta__list-item">Note that the number of alternatives will be the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Binomial_coefficient" title="wp: Binomial_coefficient">binomial coefficient</a> $\tbinom{n+m}{n}$.</li>
-/// <li class="rosetta__list-item">Compute the mean effect for each group and the difference in means between the groups in every case by subtracting the mean of the control group from the mean of the treatment group.</li>
-/// <li class="rosetta__list-item">Report the percentage of alternative groupings for which the difference in means is less or equal to the actual experimentally observed difference in means, and the percentage for which it is greater.</li>
-/// <li class="rosetta__list-item">Note that they should sum to 100%.</li>
+/// <li class="rosetta__list-item--unordered">Do this by considering every possible alternative assignment from the same pool of volunteers to a treatment group of size $n$ and a control group of size $m$ (i.e., the same group sizes used in the actual experiment but with the group members chosen differently), while assuming that each volunteer's effect remains constant regardless.</li>
+/// <li class="rosetta__list-item--unordered">Note that the number of alternatives will be the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Binomial_coefficient" title="wp: Binomial_coefficient">binomial coefficient</a> $\tbinom{n+m}{n}$.</li>
+/// <li class="rosetta__list-item--unordered">Compute the mean effect for each group and the difference in means between the groups in every case by subtracting the mean of the control group from the mean of the treatment group.</li>
+/// <li class="rosetta__list-item--unordered">Report the percentage of alternative groupings for which the difference in means is less or equal to the actual experimentally observed difference in means, and the percentage for which it is greater.</li>
+/// <li class="rosetta__list-item--unordered">Note that they should sum to 100%.</li>
 /// <br>
 /// </ul>
 /// Extremely dissimilar values are evidence of an effect not entirely due

@@ -10,7 +10,9 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Hardware
+/// Terminal control
+/// Simple
 
 /// difficulty: ?
 
@@ -19,18 +21,15 @@ replaceWithActualFunctionHere;
 
 /// description:
 ///  
-/// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category:Hardware]] 
-/// [[Category:Terminal control]] 
-/// [[Category:Simple]] 
-/// [[user input::task" title="Category:Hardware]] 
-/// [[Category:Terminal control]] 
-/// [[Category:Simple]] 
-/// [[user input::task"> </a> 
+///  
+///  
+///  
+/// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/user input::task" title="user input::task"> </a> 
 /// <br>
 /// <br>
 /// <br>
 /// <br>
-/// Flush the &nbsp; [[input device::keyboard]] &nbsp; buffer.
+/// Flush the &nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/input device::keyboard" title="input device::keyboard"></a> &nbsp; buffer.
 ///  
 /// This reads characters from the keyboard input and 
 /// discards them until there are no more currently buffered, &nbsp;  

@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -26,15 +26,11 @@ replaceWithActualFunctionHere;
 /// $P_{ij}=\displaystyle\sum_{k=-R}^R \sum_{l=-R}^R P_{i+k\ j+l} K_{k l}$
 /// </blockquote>
 /// <br>
-/// Color images are usually split into the channels which are filtered independently. A color model can be changed as well, i.e. filtration is performed not necessarily in RGB. Common kernels sizes are 3x3 and 5x5. The complexity of filtrating grows quadratically (<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/O]](<i>n</i><sup>2</sup>)) with the kernel width.
+/// Color images are usually split into the channels which are filtered independently. A color model can be changed as well, i.e. filtration is performed not necessarily in RGB. Common kernels sizes are 3x3 and 5x5. The complexity of filtrating grows quadratically (<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/O" title="O"></a>(<i>n</i><sup>2</sup>)) with the kernel width.
 /// <br>
 /// <span class="rosetta__text--bold">Task</span>: Write a generic convolution 3x3 kernel filter. Optionally show some end user filters that use this generic one.
 /// <br>
-/// ''(You can use, to test the functions below, these [[Read_ppm_file" title="O]](<i>n</i><sup>2</sup>)) with the kernel width.
-/// <br>
-/// <span class="rosetta__text--bold">Task</span>: Write a generic convolution 3x3 kernel filter. Optionally show some end user filters that use this generic one.
-/// <br>
-/// <span class="rosetta__text--italic">(You can use, to test the functions below, these [[Read_ppm_file">input</a> and <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Write_ppm_file" title="Write_ppm_file">output</a> solutions.)</span>
+/// <span class="rosetta__text--italic">(You can use, to test the functions below, these <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Read_ppm_file" title="Read_ppm_file">input]] and [[Write_ppm_file|output</a> solutions.)</span>
 /// <br>
 /// <br>
 

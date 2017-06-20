@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -74,9 +74,11 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <p style="font-size:115%; margin:1em 0 0.5em 0"><span class="rosetta__text--bold"><span class="rosetta__text--italic">The Task</span></span></p>
 /// <br>
-/// # Write a function that can perform a perfect shuffle on an even-sized list of values.
-/// # Call this function repeatedly to count how many shuffles are needed to get a deck back to its original order, for each of the deck sizes listed under "Test Cases" below.
-/// #* <small>You can use a list of numbers (or anything else that's convenient) to represent a deck; just make sure that all "cards" are unique within each deck.</small>
+/// <ol class="rosetta__ordered-list">
+/// <li class="rosetta__list-item--ordered">Write a function that can perform a perfect shuffle on an even-sized list of values.</li>
+/// <li class="rosetta__list-item--ordered">Call this function repeatedly to count how many shuffles are needed to get a deck back to its original order, for each of the deck sizes listed under "Test Cases" below.</li>
+/// <br>
+/// </ol>#* <small>You can use a list of numbers (or anything else that's convenient) to represent a deck; just make sure that all "cards" are unique within each deck.</small>
 /// #* <small>Print out the resulting shuffle counts, to demonstrate that your program passes the test-cases.</small>
 /// <br>
 /// <p style="font-size:115%; margin:1em 0 0.5em 0"><span class="rosetta__text--bold"><span class="rosetta__text--italic">Test Cases</span></span></p>

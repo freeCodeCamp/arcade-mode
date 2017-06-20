@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Test card
 
 /// difficulty: ?
 
@@ -18,7 +18,7 @@ const assert = require('chai').assert;
 replaceWithActualFunctionHere;
 
 /// description:
-/// [[Category:Test card]]
+/// <br>
 /// The task is to display a series of vertical greyscale bars (contrast bars) with a sufficient number of bars to span the entire width of the display. 
 /// <br>
 /// For the top quarter of the display, the left hand bar should be black, and we then incrementally step through six shades of grey until we have a white bar on the right hand side of the display. (This gives a total of 8 bars)

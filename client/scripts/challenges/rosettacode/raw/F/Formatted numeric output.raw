@@ -10,7 +10,8 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Text processing
+/// Simple
 
 /// difficulty: ?
 
@@ -19,8 +20,8 @@ replaceWithActualFunctionHere;
 
 /// description:
 /// <br>
-/// [[Category:Text processing]] 
-/// [[Category:Simple]]
+///  
+/// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
 /// Express a number in decimal as a fixed-length string with leading zeros.

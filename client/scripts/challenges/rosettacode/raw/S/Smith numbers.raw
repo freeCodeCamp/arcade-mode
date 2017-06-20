@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -40,11 +40,11 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">See also</dt></dl>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">from Wikipedia: &nbsp; [[https://en.wikipedia.org/wiki/Smith_number Smith number]].</li>
-/// <li class="rosetta__list-item">from MathWorld: &nbsp; [[http://mathworld.wolfram.com/SmithNumber.html Smith number]]. </li>
-/// <li class="rosetta__list-item">from OEIS A6753: &nbsp; [[https://oeis.org/A006753 OEIS sequence A6753]].</li>
-/// <li class="rosetta__list-item">from OEIS A104170: &nbsp; [[https://oeis.org/A104170 Number of Smith numbers below 10^n]]. </li>
-/// <li class="rosetta__list-item">from The Prime pages: &nbsp; [[http://primes.utm.edu/glossary/xpage/SmithNumber.html Smith numbers]].</li>
+/// <li class="rosetta__list-item--unordered">from Wikipedia: &nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/https://en.wikipedia.org/wiki/Smith_number Smith number" title="https://en.wikipedia.org/wiki/Smith_number Smith number"></a>.</li>
+/// <li class="rosetta__list-item--unordered">from MathWorld: &nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/http://mathworld.wolfram.com/SmithNumber.html Smith number" title="http://mathworld.wolfram.com/SmithNumber.html Smith number"></a>. </li>
+/// <li class="rosetta__list-item--unordered">from OEIS A6753: &nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/https://oeis.org/A006753 OEIS sequence A6753" title="https://oeis.org/A006753 OEIS sequence A6753"></a>.</li>
+/// <li class="rosetta__list-item--unordered">from OEIS A104170: &nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/https://oeis.org/A104170 Number of Smith numbers below 10^n" title="https://oeis.org/A104170 Number of Smith numbers below 10^n"></a>. </li>
+/// <li class="rosetta__list-item--unordered">from The Prime pages: &nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/http://primes.utm.edu/glossary/xpage/SmithNumber.html Smith numbers" title="http://primes.utm.edu/glossary/xpage/SmithNumber.html Smith numbers"></a>.</li>
 /// <br>
 /// </ul><br><br>
 /// <br>

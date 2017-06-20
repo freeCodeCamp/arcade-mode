@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -38,8 +38,8 @@ replaceWithActualFunctionHere;
 /// <br>
 /// See also:
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">[[Number reversal game]]</li>
-/// <li class="rosetta__list-item">[[Topswops]]</li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Number reversal game" title="Number reversal game"></a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Topswops" title="Topswops"></a></li>
 /// <br>
 /// </ul><br><br>
 /// <br>

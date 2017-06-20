@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -59,18 +59,22 @@ replaceWithActualFunctionHere;
 ///    ivy: ian, col, hal, gav, fred, bob, abe, ed, jon, dan
 ///    jan: ed, hal, gav, abe, bob, jon, col, ian, fred, dan
 /// <br>
-/// # Use the Gale Shapley algorithm to find a stable set of engagements
-/// # Perturb this set of engagements to form an unstable set of engagements then check this new set for stability.
+/// <ol class="rosetta__ordered-list">
+/// <li class="rosetta__list-item--ordered">Use the Gale Shapley algorithm to find a stable set of engagements</li>
+/// <li class="rosetta__list-item--ordered">Perturb this set of engagements to form an unstable set of engagements then check this new set for stability.</li>
 /// <br>
+/// </ol>
 /// <br>
 /// <span class="rosetta__text--bold">References</span>
-/// #  [http://www.cs.columbia.edu/~evs/intro/stable/writeup.html The Stable Marriage Problem]. (Eloquent description and background information).
-/// # [http://sephlietz.com/gale-shapley/ Gale-Shapley Algorithm Demonstration].
-/// # [http://mathsite.math.berkeley.edu/smp/smp.html Another Gale-Shapley Algorithm Demonstration].
-/// # [https://www.youtube.com/watch?v=Qcv1IqHWAzg Stable Marriage Problem - Numberphile] (Video).
-/// # [https://www.youtube.com/watch?v=LtTV6rIxhdo Stable Marriage Problem (the math bit)] (Video).
-/// # [http://www.ams.org/samplings/feature-column/fc-2015-03 The Stable Marriage Problem and School Choice]. (Excellent exposition)
-/// <br><br>
+/// <ol class="rosetta__ordered-list">
+/// <li class="rosetta__list-item--ordered"> [http://www.cs.columbia.edu/~evs/intro/stable/writeup.html The Stable Marriage Problem]. (Eloquent description and background information).</li>
+/// <li class="rosetta__list-item--ordered">[http://sephlietz.com/gale-shapley/ Gale-Shapley Algorithm Demonstration].</li>
+/// <li class="rosetta__list-item--ordered">[http://mathsite.math.berkeley.edu/smp/smp.html Another Gale-Shapley Algorithm Demonstration].</li>
+/// <li class="rosetta__list-item--ordered">[https://www.youtube.com/watch?v=Qcv1IqHWAzg Stable Marriage Problem - Numberphile] (Video).</li>
+/// <li class="rosetta__list-item--ordered">[https://www.youtube.com/watch?v=LtTV6rIxhdo Stable Marriage Problem (the math bit)] (Video).</li>
+/// <li class="rosetta__list-item--ordered">[http://www.ams.org/samplings/feature-column/fc-2015-03 The Stable Marriage Problem and School Choice]. (Excellent exposition)</li>
+/// <br>
+/// </ol><br><br>
 /// <br>
 /// <br>
 

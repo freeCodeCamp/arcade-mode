@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -28,7 +28,7 @@ replaceWithActualFunctionHere;
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
 /// List the special characters and show escape sequences in the language.
 /// <br>
-/// See also: [[Quotes]]
+/// See also: <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Quotes" title="Quotes"></a>
 /// <br><br>
 /// <br>
 /// <br>

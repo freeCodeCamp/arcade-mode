@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Scope
 
 /// difficulty: ?
 
@@ -18,15 +18,15 @@ const assert = require('chai').assert;
 replaceWithActualFunctionHere;
 
 /// description:
-/// [[Category:Scope]]
+/// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
 /// Explain or demonstrate the levels of visibility of function names and labels within the language.
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">See also:</dt></dl>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">[[Variables]] for levels of scope relating to visibility of program variables</li>
-/// <li class="rosetta__list-item">[[Scope modifiers]] for general scope modification facilities</li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Variables" title="Variables"></a> for levels of scope relating to visibility of program variables</li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Scope modifiers" title="Scope modifiers"></a> for general scope modification facilities</li>
 /// <br>
 /// </ul><br><br>
 /// <br>

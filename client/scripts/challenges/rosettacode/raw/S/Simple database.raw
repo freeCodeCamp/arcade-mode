@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -32,34 +32,34 @@ replaceWithActualFunctionHere;
 /// <br>
 /// You should track the following details:
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">A description of the item. (e.g., title, name)</li>
-/// <li class="rosetta__list-item">A category or tag (genre, topic, relationship such as “friend” or “family”)</li>
-/// <li class="rosetta__list-item">A date (either the date when the entry was made or some other date that is meaningful, like the birthday); the date may be generated or entered manually</li>
-/// <li class="rosetta__list-item">Other optional fields</li>
+/// <li class="rosetta__list-item--unordered">A description of the item. (e.g., title, name)</li>
+/// <li class="rosetta__list-item--unordered">A category or tag (genre, topic, relationship such as “friend” or “family”)</li>
+/// <li class="rosetta__list-item--unordered">A date (either the date when the entry was made or some other date that is meaningful, like the birthday); the date may be generated or entered manually</li>
+/// <li class="rosetta__list-item--unordered">Other optional fields</li>
 /// <br>
 /// </ul>
 /// <br>
-/// The command should support the following [[Command-line arguments]] to run:
+/// The command should support the following <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Command-line arguments" title="Command-line arguments"></a> to run:
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">Add a new entry</li>
-/// <li class="rosetta__list-item">Print the latest entry</li>
-/// <li class="rosetta__list-item">Print the latest entry for each category</li>
-/// <li class="rosetta__list-item">Print all entries sorted by a date</li>
+/// <li class="rosetta__list-item--unordered">Add a new entry</li>
+/// <li class="rosetta__list-item--unordered">Print the latest entry</li>
+/// <li class="rosetta__list-item--unordered">Print the latest entry for each category</li>
+/// <li class="rosetta__list-item--unordered">Print all entries sorted by a date</li>
 /// <br>
 /// </ul>
 /// <br>
 /// The category may be realized as a tag or as structure (by making all entries in that category subitems)
 /// <br>
 /// The file format on disk should be human readable, but it need not be standardized. &nbsp; A natively available format that doesn't need an external library is preferred. &nbsp; Avoid developing your own format if you can use an already existing one. &nbsp; If there is no existing format available, pick one of:
-/// <span class="rosetta__text--indented">::* &nbsp; [[JSON]]</span>
-/// <span class="rosetta__text--indented">::* &nbsp; [[S-Expressions]]</span>
-/// <span class="rosetta__text--indented">::* &nbsp; [[YAML]]</span>
+/// <span class="rosetta__text--indented">::* &nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/JSON" title="JSON"></a></span>
+/// <span class="rosetta__text--indented">::* &nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/S-Expressions" title="S-Expressions"></a></span>
+/// <span class="rosetta__text--indented">::* &nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/YAML" title="YAML"></a></span>
 /// <span class="rosetta__text--indented">::* &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Comparison_of_data_serialization_formats" title="wp: Comparison_of_data_serialization_formats">others</a></span>
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related task:</dt></dl>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">&nbsp; [[Take notes on the command line]] </li>
+/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Take notes on the command line" title="Take notes on the command line"></a> </li>
 /// <br>
 /// </ul><br><br>
 /// <br>

@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Cellular automata
 
 /// difficulty: ?
 
@@ -18,7 +18,7 @@ const assert = require('chai').assert;
 replaceWithActualFunctionHere;
 
 /// description:
-///  [[Category:Cellular automata]]
+///  
 /// Assume an array of cells with an initial distribution of live and dead cells, 
 /// and imaginary cells off the end of the array having fixed values.
 /// <br>

@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Games
 
 /// difficulty: ?
 
@@ -19,9 +19,8 @@ replaceWithActualFunctionHere;
 
 /// description:
 /// <br>
-/// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category:Games]]
-/// [[File:Tic_tac_toe.jpg" title="Category:Games]]
-/// [[File:Tic_tac_toe.jpg">500px||right</a>
+/// <br>
+/// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:Tic_tac_toe.jpg" title="File:Tic_tac_toe.jpg">500px||right</a>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
 /// Play a game of <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Tic-tac-toe" title="wp: Tic-tac-toe">tic-tac-toe</a>. Ensure that legal moves are played and that a winning position is notified.
@@ -29,7 +28,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">See also</dt></dl>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">[http://mathworld.wolfram.com/Tic-Tac-Toe.html Mathworld&trade;, Tic-Tac-Toe game].</li>
+/// <li class="rosetta__list-item--unordered">[http://mathworld.wolfram.com/Tic-Tac-Toe.html Mathworld&trade;, Tic-Tac-Toe game].</li>
 /// <br>
 /// </ul><br><br>
 /// <br>

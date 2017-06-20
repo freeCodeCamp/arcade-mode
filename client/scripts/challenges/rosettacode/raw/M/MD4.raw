@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Checksums
 
 /// difficulty: ?
 
@@ -18,9 +18,9 @@ const assert = require('chai').assert;
 replaceWithActualFunctionHere;
 
 /// description:
-///  [[Category:Checksums]]
+///  
 /// <br>
-/// Find the MD4 message digest of a string of [[octet]]s. 
+/// Find the MD4 message digest of a string of <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/octet" title="octet"></a>s. 
 /// Use the ASCII encoded string “<tt>Rosetta Code</tt>” (without quotes). 
 /// You may either call an MD4 library, or implement MD4 in your language.
 /// <br>

@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -26,10 +26,10 @@ replaceWithActualFunctionHere;
 /// There is more than one way to solve this task:
 /// <br>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">Use the even and odd predicates, if the language provides them.</li>
-/// <li class="rosetta__list-item">Check the least significant digit. With binary integers, <span class="rosetta__text--italic">i <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/bitwise operations" title="bitwise operations">bitwise-and</a> 1</span> equals 0 <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/wikt:iff" title="wikt:iff">iff</a> <span class="rosetta__text--italic">i</span> is even, or equals 1 iff <span class="rosetta__text--italic">i</span> is odd.</li>
-/// <li class="rosetta__list-item">Divide <span class="rosetta__text--italic">i</span> by 2. The remainder equals 0 iff <span class="rosetta__text--italic">i</span> is even. The remainder equals +1 or -1 iff <span class="rosetta__text--italic">i</span> is odd.</li>
-/// <li class="rosetta__list-item">Use modular congruences:</li>
+/// <li class="rosetta__list-item--unordered">Use the even and odd predicates, if the language provides them.</li>
+/// <li class="rosetta__list-item--unordered">Check the least significant digit. With binary integers, <span class="rosetta__text--italic">i <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/bitwise operations" title="bitwise operations">bitwise-and]] 1</span> equals 0 [[wikt:iff|iff</a> <span class="rosetta__text--italic">i</span> is even, or equals 1 iff <span class="rosetta__text--italic">i</span> is odd.</li>
+/// <li class="rosetta__list-item--unordered">Divide <span class="rosetta__text--italic">i</span> by 2. The remainder equals 0 iff <span class="rosetta__text--italic">i</span> is even. The remainder equals +1 or -1 iff <span class="rosetta__text--italic">i</span> is odd.</li>
+/// <li class="rosetta__list-item--unordered">Use modular congruences:</li>
 /// <br>
 /// </ul>** <span class="rosetta__text--italic">i</span> &equiv; 0 (mod 2) iff <span class="rosetta__text--italic">i</span> is even.
 /// ** <span class="rosetta__text--italic">i</span> &equiv; 1 (mod 2) iff <span class="rosetta__text--italic">i</span> is odd.

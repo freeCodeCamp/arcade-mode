@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -37,8 +37,8 @@ replaceWithActualFunctionHere;
 /// </pre>
 /// Inductive proof that step_up() steps up one step, if it terminates:
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">Base case (if the step() call returns true): it stepped up one step. QED</li>
-/// <li class="rosetta__list-item">Inductive case (if the step() call returns false): Assume that recursive calls to step_up() step up one step. It stepped down one step (because step() returned false), but now we step up two steps using two step_up() calls. QED</li>
+/// <li class="rosetta__list-item--unordered">Base case (if the step() call returns true): it stepped up one step. QED</li>
+/// <li class="rosetta__list-item--unordered">Inductive case (if the step() call returns false): Assume that recursive calls to step_up() step up one step. It stepped down one step (because step() returned false), but now we step up two steps using two step_up() calls. QED</li>
 /// <br>
 /// </ul>
 /// <br>

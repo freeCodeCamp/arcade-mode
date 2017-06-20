@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -32,9 +32,11 @@ replaceWithActualFunctionHere;
 /// In all cases, the terms in the products are positive integers.
 /// <br>
 /// If we define the degree of the multifactorial as the difference in successive terms that are multiplied together for a multifactorial (the number of exclamation marks), then the task is twofold: 
-/// # Write a function that given n and the degree, calculates the multifactorial.
-/// # Use the function to generate and display here a table of the first ten members (1 to 10) of the first five degrees of multifactorial.
+/// <ol class="rosetta__ordered-list">
+/// <li class="rosetta__list-item--ordered">Write a function that given n and the degree, calculates the multifactorial.</li>
+/// <li class="rosetta__list-item--ordered">Use the function to generate and display here a table of the first ten members (1 to 10) of the first five degrees of multifactorial.</li>
 /// <br>
+/// </ol>
 /// <br>
 /// <span class="rosetta__text--bold">Note:</span> The <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Factorial#Multifactorials" title="wp: Factorial#Multifactorials">wikipedia entry on multifactorials</a> gives a different formula. This task uses the [http://mathworld.wolfram.com/Multifactorial.html Wolfram mathworld definition].
 /// <br>

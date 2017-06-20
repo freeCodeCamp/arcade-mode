@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -34,8 +34,8 @@ replaceWithActualFunctionHere;
 /// <br>
 /// The word &nbsp; <span class="rosetta__text--italic">stateful</span> &nbsp; in the task description refers to the need for &nbsp; SMA() &nbsp; to remember certain information between calls to it:
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">&nbsp; The period, &nbsp; P</li>
-/// <li class="rosetta__list-item">&nbsp; An ordered container of at least the last &nbsp; P &nbsp; numbers from each of its individual calls.</li>
+/// <li class="rosetta__list-item--unordered">&nbsp; The period, &nbsp; P</li>
+/// <li class="rosetta__list-item--unordered">&nbsp; An ordered container of at least the last &nbsp; P &nbsp; numbers from each of its individual calls.</li>
 /// <br>
 /// </ul>
 /// <br>

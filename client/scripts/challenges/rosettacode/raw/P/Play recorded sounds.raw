@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Games
 
 /// difficulty: ?
 
@@ -18,21 +18,21 @@ const assert = require('chai').assert;
 replaceWithActualFunctionHere;
 
 /// description:
-/// [[Category:Games]]
+/// <br>
 /// Load at least two prerecorded sounds, and demonstrate as many of these features as you can:
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">playing them individually and simultaneously</li>
-/// <li class="rosetta__list-item">stopping before the end of the sound</li>
-/// <li class="rosetta__list-item">looping (preferably glitch-free)</li>
-/// <li class="rosetta__list-item">setting the volume of each sound</li>
-/// <li class="rosetta__list-item">stereo or 3D positional mixing</li>
-/// <li class="rosetta__list-item">performing other actions when marked times in the sound arrive</li>
+/// <li class="rosetta__list-item--unordered">playing them individually and simultaneously</li>
+/// <li class="rosetta__list-item--unordered">stopping before the end of the sound</li>
+/// <li class="rosetta__list-item--unordered">looping (preferably glitch-free)</li>
+/// <li class="rosetta__list-item--unordered">setting the volume of each sound</li>
+/// <li class="rosetta__list-item--unordered">stereo or 3D positional mixing</li>
+/// <li class="rosetta__list-item--unordered">performing other actions when marked times in the sound arrive</li>
 /// <br>
 /// </ul>Describe:
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">The supported audio formats, briefly.</li>
-/// <li class="rosetta__list-item">Whether it is suitable for game sound effects (low-latency start, resource efficiency, supports many simultaneous sounds, etc.)</li>
-/// <li class="rosetta__list-item">Whether it is suitable for playing music (long duration <!-- Other attributes? -->).</li>
+/// <li class="rosetta__list-item--unordered">The supported audio formats, briefly.</li>
+/// <li class="rosetta__list-item--unordered">Whether it is suitable for game sound effects (low-latency start, resource efficiency, supports many simultaneous sounds, etc.)</li>
+/// <li class="rosetta__list-item--unordered">Whether it is suitable for playing music (long duration <!-- Other attributes? -->).</li>
 /// <br>
 /// </ul>
 /// [Note: If it seems to be a good idea, this task may be revised to specify a particular timeline rather than just 'demonstrate these features'.]

@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -21,7 +21,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// Many programming languages allow you to specify computations to be run in parallel. 
-/// While [[Concurrent computing]] is focused on concurrency, 
+/// While <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Concurrent computing" title="Concurrent computing"></a> is focused on concurrency, 
 /// the purpose of this task is to distribute time-consuming calculations 
 /// on as many CPUs as possible.
 /// <br>
@@ -39,7 +39,7 @@ replaceWithActualFunctionHere;
 /// and return that number and its prime factors.
 /// <br>
 /// For the prime number decomposition 
-/// you may use the solution of the [[Prime decomposition]] task.
+/// you may use the solution of the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Prime decomposition" title="Prime decomposition"></a> task.
 /// <br>
 /// <br>
 /// <br>

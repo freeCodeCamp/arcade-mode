@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -29,7 +29,7 @@ replaceWithActualFunctionHere;
 /// <span class="rosetta__text--indented"> Input:  <code>WWWWWWWWWWWWBWWWWWWWWWWWWBBBWWWWWWWWWWWWWWWWWWWWWWWWBWWWWWWWWWWWWWW</code></span>
 /// <span class="rosetta__text--indented"> Output: <code>12W1B12W3B24W1B14W</code></span>
 /// <br>
-/// Note: the encoding step in the above example is the same as a step of the [[Look-and-say sequence]].
+/// Note: the encoding step in the above example is the same as a step of the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Look-and-say sequence" title="Look-and-say sequence"></a>.
 /// <br>
 /// <br>
 

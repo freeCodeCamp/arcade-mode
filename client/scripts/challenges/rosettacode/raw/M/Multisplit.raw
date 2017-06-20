@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// String manipulation
 
 /// difficulty: ?
 
@@ -18,7 +18,7 @@ const assert = require('chai').assert;
 replaceWithActualFunctionHere;
 
 /// description:
-///  [[Category:String manipulation]]
+///  
 /// It is often necessary to split a string into pieces 
 /// based on several different (potentially multi-character) separator strings, 
 /// while still retaining the information about which separators were present in the input. 

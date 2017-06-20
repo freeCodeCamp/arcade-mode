@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -19,7 +19,7 @@ replaceWithActualFunctionHere;
 
 /// description:
 /// <br>
-/// Create a set of data types based upon [[inheritance]]. Each data type or class should have a print command that displays the contents of an instance of that class to standard output. Create instances of each class in your inheritance hierarchy and display them to standard output. Write each of the objects to a file named <span class="rosetta__text--italic">objects.dat</span> in binary form using serialization or marshalling. Read the file <span class="rosetta__text--italic">objects.dat</span> and print the contents of each serialized object.
+/// Create a set of data types based upon <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/inheritance" title="inheritance"></a>. Each data type or class should have a print command that displays the contents of an instance of that class to standard output. Create instances of each class in your inheritance hierarchy and display them to standard output. Write each of the objects to a file named <span class="rosetta__text--italic">objects.dat</span> in binary form using serialization or marshalling. Read the file <span class="rosetta__text--italic">objects.dat</span> and print the contents of each serialized object.
 /// <br>
 /// <br>
 

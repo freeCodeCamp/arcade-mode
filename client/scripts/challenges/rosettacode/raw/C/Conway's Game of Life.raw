@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Cellular automata
 
 /// difficulty: ?
 
@@ -19,7 +19,7 @@ replaceWithActualFunctionHere;
 
 /// description:
 /// <br>
-/// [[Category:Cellular automata]]
+/// <br>
 /// <br>
 /// The <span class="rosetta__text--bold">Game of Life</span> is a &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/cellular automaton" title="wp: cellular automaton">cellular automaton]] &nbsp; devised by the British mathematician &nbsp; [[wp:John Horton Conway|John Horton Conway</a> &nbsp; in 1970. &nbsp; It is the best-known example of a cellular automaton.
 /// <br>
@@ -46,14 +46,14 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">References:</dt></dl>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">&nbsp; Its creator John Conway, explains &nbsp; [http://www.youtube.com/watch?v=E8kUJL04ELA the game of life]. &nbsp;  Video from numberphile on youtube.</li>
-/// <li class="rosetta__list-item">&nbsp; John Conway &nbsp; [http://www.youtube.com/watch?v=R9Plq-D1gEk Inventing Game of Life] &nbsp; - Numberphile video.</li>
+/// <li class="rosetta__list-item--unordered">&nbsp; Its creator John Conway, explains &nbsp; [http://www.youtube.com/watch?v=E8kUJL04ELA the game of life]. &nbsp;  Video from numberphile on youtube.</li>
+/// <li class="rosetta__list-item--unordered">&nbsp; John Conway &nbsp; [http://www.youtube.com/watch?v=R9Plq-D1gEk Inventing Game of Life] &nbsp; - Numberphile video.</li>
 /// <br>
 /// </ul>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">See also:</dt></dl>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">&nbsp; [[Langton's ant]] &nbsp; - another well known cellular automaton.</li>
+/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Langton's ant" title="Langton's ant"></a> &nbsp; - another well known cellular automaton.</li>
 /// <br>
 /// </ul><br><br>
 /// <br>

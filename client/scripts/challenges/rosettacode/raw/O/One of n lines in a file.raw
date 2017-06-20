@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -21,9 +21,9 @@ replaceWithActualFunctionHere;
 /// <br>
 /// A method of choosing a line randomly from a file:
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">Without reading the file more than once</li>
-/// <li class="rosetta__list-item">When substantial parts of the file cannot be held in memory</li>
-/// <li class="rosetta__list-item">Without knowing how many lines are in the file</li>
+/// <li class="rosetta__list-item--unordered">Without reading the file more than once</li>
+/// <li class="rosetta__list-item--unordered">When substantial parts of the file cannot be held in memory</li>
+/// <li class="rosetta__list-item--unordered">Without knowing how many lines are in the file</li>
 /// <br>
 /// </ul>Is to:
 /// <span class="rosetta__text--indented">* keep the first line of the file as a possible choice, then</span>
@@ -35,10 +35,12 @@ replaceWithActualFunctionHere;
 /// <span class="rosetta__text--indented">* Return the computed possible choice when no further lines exist in the file.</span>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
-/// # Create a function/method/routine called <code>one_of_n</code> that given <code>n</code>, the number of actual lines in a file, follows the algorithm above to return an integer - the line number of the line chosen from the file. <br>The number returned can vary, randomly, in each run.
-/// # Use <code>one_of_n</code> in a <span class="rosetta__text--italic">simulation</span> to find what woud be the chosen line of a 10 line file simulated 1,000,000 times.
-/// # Print and show how many times each of the 10 lines is chosen as a rough measure of how well the algorithm works.
+/// <ol class="rosetta__ordered-list">
+/// <li class="rosetta__list-item--ordered">Create a function/method/routine called <code>one_of_n</code> that given <code>n</code>, the number of actual lines in a file, follows the algorithm above to return an integer - the line number of the line chosen from the file. <br>The number returned can vary, randomly, in each run.</li>
+/// <li class="rosetta__list-item--ordered">Use <code>one_of_n</code> in a <span class="rosetta__text--italic">simulation</span> to find what woud be the chosen line of a 10 line file simulated 1,000,000 times.</li>
+/// <li class="rosetta__list-item--ordered">Print and show how many times each of the 10 lines is chosen as a rough measure of how well the algorithm works.</li>
 /// <br>
+/// </ol>
 /// Note: You may choose a smaller number of repetitions if necessary, but mention this up-front.
 /// <br>
 /// <br>

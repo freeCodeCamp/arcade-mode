@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -30,7 +30,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// Your program should naively iterate through all possible passwords consisting only of five lower-case ASCII English letters.  It should use concurrent or parallel processing, if your language supports that feature.  You may calculate SHA-256 hashes by calling a library or through a custom implementation. Print each matching password, along with its SHA-256 hash. 
 /// <br>
-/// Related task:  [[SHA-256]]
+/// Related task:  <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/SHA-256" title="SHA-256"></a>
 /// <br>
 /// <br>
 

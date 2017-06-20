@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -25,10 +25,10 @@ replaceWithActualFunctionHere;
 /// Create a program that takes an <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Reverse Polish notation" title="wp: Reverse Polish notation">RPN]] representation of an expression formatted as a space separated sequence of tokens and generates the equivalent expression in [[wp:Infix notation|infix notation</a>.
 /// <br>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">Assume an input of a correct, space separated, string of tokens</li>
-/// <li class="rosetta__list-item">Generate a space separated output string representing the same expression in infix notation</li>
-/// <li class="rosetta__list-item">Show how the major datastructure of your algorithm changes with each new token parsed.</li>
-/// <li class="rosetta__list-item">Test with the following input RPN strings then print and display the output here.</li>
+/// <li class="rosetta__list-item--unordered">Assume an input of a correct, space separated, string of tokens</li>
+/// <li class="rosetta__list-item--unordered">Generate a space separated output string representing the same expression in infix notation</li>
+/// <li class="rosetta__list-item--unordered">Show how the major datastructure of your algorithm changes with each new token parsed.</li>
+/// <li class="rosetta__list-item--unordered">Test with the following input RPN strings then print and display the output here.</li>
 /// <br>
 /// </ul><span class="rosetta__text--indented">{| class="wikitable"</span>
 /// ! RPN input !! sample output
@@ -39,7 +39,7 @@ replaceWithActualFunctionHere;
 /// |}
 /// <br>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">Operator precedence and operator associativity is given in this table:</li>
+/// <li class="rosetta__list-item--unordered">Operator precedence and operator associativity is given in this table:</li>
 /// <br>
 /// </ul><span class="rosetta__text--indented">{| class="wikitable"</span>
 /// <br>
@@ -59,9 +59,9 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">See also:</dt></dl>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">&nbsp; [[Parsing/Shunting-yard algorithm]] &nbsp; for a method of generating an RPN from an infix expression.</li>
-/// <li class="rosetta__list-item">&nbsp; [[Parsing/RPN calculator algorithm]] &nbsp; for a method of calculating a final value from this output RPN expression.</li>
-/// <li class="rosetta__list-item">&nbsp; [http://www.rubyquiz.com/quiz148.html Postfix to infix] &nbsp; from the RubyQuiz site.</li>
+/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Parsing/Shunting-yard algorithm" title="Parsing/Shunting-yard algorithm"></a> &nbsp; for a method of generating an RPN from an infix expression.</li>
+/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Parsing/RPN calculator algorithm" title="Parsing/RPN calculator algorithm"></a> &nbsp; for a method of calculating a final value from this output RPN expression.</li>
+/// <li class="rosetta__list-item--unordered">&nbsp; [http://www.rubyquiz.com/quiz148.html Postfix to infix] &nbsp; from the RubyQuiz site.</li>
 /// <br>
 /// </ul><br><br>
 /// <br>

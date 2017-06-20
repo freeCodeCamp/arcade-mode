@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Recursion
 
 /// difficulty: ?
 
@@ -20,7 +20,7 @@ replaceWithActualFunctionHere;
 /// description:
 /// <br>
 /// <br>
-/// [[Category:Recursion]]
+/// <br>
 ///  
 /// <br>
 /// <br>
@@ -46,7 +46,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// The worst pivot creates an empty partition (for example, if the pivot is the first or last element of a sorted array). 
 /// <br>
-/// The run-time of Quicksort ranges from &nbsp; <big> <span class="rosetta__text--italic"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/O]](n </span>log<span class="rosetta__text--italic"> n)</span> </big> &nbsp; with the best pivots, to &nbsp; <big>  <span class="rosetta__text--italic">[[O]](n<sup>2</sup>)</span> </big> &nbsp; with the worst pivots, where &nbsp; <big> <span class="rosetta__text--italic">n</span> </big> &nbsp; is the number of elements in the array.
+/// The run-time of Quicksort ranges from &nbsp; <big> <span class="rosetta__text--italic"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/O" title="O"></a>(n </span>log<span class="rosetta__text--italic"> n)</span> </big> &nbsp; with the best pivots, to &nbsp; <big>  <span class="rosetta__text--italic"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/O" title="O"></a>(n<sup>2</sup>)</span> </big> &nbsp; with the worst pivots, where &nbsp; <big> <span class="rosetta__text--italic">n</span> </big> &nbsp; is the number of elements in the array.
 /// <br>
 /// <br>
 /// This is a simple quicksort algorithm, adapted from Wikipedia.
@@ -82,51 +82,15 @@ replaceWithActualFunctionHere;
 ///          quicksort(array <span class="rosetta__text--bold">from first index to</span> right)
 ///          quicksort(array <span class="rosetta__text--bold">from</span> left <span class="rosetta__text--bold">to last index</span>)
 /// <br>
-/// Quicksort has a reputation as the fastest sort. Optimized variants of quicksort are common features of many languages and libraries. One often contrasts quicksort with &nbsp; [[../Merge sort" title="O]](n <span class="rosetta__text--italic">log</span> n)<span class="rosetta__text--italic"> </big> &nbsp; with the best pivots, to &nbsp; <big>  </span>[[O]](n<sup>2</sup>)<span class="rosetta__text--italic"> </big> &nbsp; with the worst pivots, where &nbsp; <big> </span>n'' </big> &nbsp; is the number of elements in the array.
-/// <br>
-/// <br>
-/// This is a simple quicksort algorithm, adapted from Wikipedia.
-/// <br>
-///  <span class="rosetta__text--bold">function</span> <span class="rosetta__text--italic">quicksort</span>(array)
-///      less, equal, greater <span class="rosetta__text--bold">:=</span> three empty arrays
-///      <span class="rosetta__text--bold">if</span> length(array) > 1  
-///          pivot <span class="rosetta__text--bold">:=</span> <span class="rosetta__text--italic">select any element of</span> array
-///          <span class="rosetta__text--bold">for each</span> x <span class="rosetta__text--bold">in</span> array
-///              <span class="rosetta__text--bold">if</span> x < pivot <span class="rosetta__text--bold">then add</span> x <span class="rosetta__text--bold">to</span> less
-///              <span class="rosetta__text--bold">if</span> x = pivot <span class="rosetta__text--bold">then add</span> x <span class="rosetta__text--bold">to</span> equal
-///              <span class="rosetta__text--bold">if</span> x > pivot <span class="rosetta__text--bold">then add</span> x <span class="rosetta__text--bold">to</span> greater
-///          quicksort(less)
-///          quicksort(greater)
-///          array <span class="rosetta__text--bold">:=</span> concatenate(less, equal, greater)
-/// <br>
-/// A better quicksort algorithm works in place, by swapping elements within the array, to avoid the memory allocation of more arrays.
-/// <br>
-///  <span class="rosetta__text--bold">function</span> <span class="rosetta__text--italic">quicksort</span>(array)
-///      <span class="rosetta__text--bold">if</span> length(array) > 1
-///          pivot <span class="rosetta__text--bold">:=</span> <span class="rosetta__text--italic">select any element of</span> array
-///          left <span class="rosetta__text--bold">:= first index of</span> array
-///          right <span class="rosetta__text--bold">:=</span> <span class="rosetta__text--bold">last index of</span> array
-///          <span class="rosetta__text--bold">while</span> left ≤ right
-///              <span class="rosetta__text--bold">while</span> array[left] < pivot
-///                  left := left + 1
-///              <span class="rosetta__text--bold">while</span> array[right] > pivot
-///                  right := right - 1
-///              <span class="rosetta__text--bold">if</span> left ≤ right
-///                  <span class="rosetta__text--bold">swap</span> array[left] <span class="rosetta__text--bold">with</span> array[right]
-///                  left := left + 1
-///                  right := right - 1
-///          quicksort(array <span class="rosetta__text--bold">from first index to</span> right)
-///          quicksort(array <span class="rosetta__text--bold">from</span> left <span class="rosetta__text--bold">to last index</span>)
-/// <br>
-/// Quicksort has a reputation as the fastest sort. Optimized variants of quicksort are common features of many languages and libraries. One often contrasts quicksort with &nbsp; [[../Merge sort">merge sort</a>, &nbsp; because both sorts have an average time of &nbsp; <big> <span class="rosetta__text--italic">[[O]](n </span>log<span class="rosetta__text--italic"> n)</span>. </big>
+/// Quicksort has a reputation as the fastest sort. Optimized variants of quicksort are common features of many languages and libraries. One often contrasts quicksort with &nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/../Merge sort" title="../Merge sort">merge sort]], &nbsp; because both sorts have an average time of &nbsp; <big> <span class="rosetta__text--italic">[[O</a>(n </span>log<span class="rosetta__text--italic"> n)</span>. </big>
 /// <br>
 /// <span class="rosetta__text--indented"> <span class="rosetta__text--italic">"On average, mergesort does fewer comparisons than quicksort, so it may be better when complicated comparison routines are used. Mergesort also takes advantage of pre-existing order, so it would be favored for using sort() to merge several sorted arrays. On the other hand, quicksort is often faster for small arrays, and on arrays of a few distinct values, repeated many times."</span> — http://perldoc.perl.org/sort.html</span>
 /// <br>
 /// Quicksort is at one end of the spectrum of divide-and-conquer algorithms, with merge sort at the opposite end.
 /// <br>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">Quicksort is a conquer-then-divide algorithm, which does most of the work during the partitioning and the recursive calls. The subsequent reassembly of the sorted partitions involves trivial effort.</li>
-/// <li class="rosetta__list-item">Merge sort is a divide-then-conquer algorithm. The partioning happens in a trivial way, by splitting the input array in half. Most of the work happens during the recursive calls and the merge phase.</li>
+/// <li class="rosetta__list-item--unordered">Quicksort is a conquer-then-divide algorithm, which does most of the work during the partitioning and the recursive calls. The subsequent reassembly of the sorted partitions involves trivial effort.</li>
+/// <li class="rosetta__list-item--unordered">Merge sort is a divide-then-conquer algorithm. The partioning happens in a trivial way, by splitting the input array in half. Most of the work happens during the recursive calls and the merge phase.</li>
 /// <br>
 /// </ul>
 /// <br>

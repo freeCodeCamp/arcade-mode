@@ -10,7 +10,8 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// String manipulation
+/// Simple
 
 /// difficulty: ?
 
@@ -18,7 +19,7 @@ const assert = require('chai').assert;
 replaceWithActualFunctionHere;
 
 /// description:
-/// [[Category:String manipulation]][[Category:Simple]]
+/// <br>
 /// <br>
 /// <br>
 /// Given a string and defined variables or values, <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/String literal#Variable_interpolation" title="wp: String literal#Variable_interpolation">string interpolation</a> is the replacement of defined character sequences in the string by values or variable values. 
@@ -27,9 +28,11 @@ replaceWithActualFunctionHere;
 /// <span class="rosetta__text--indented">(Languages usually include an infrequently used character or sequence of characters to indicate what is to be replaced such as "%", or "#" rather than "X").</span>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">The task is to: </dt></dl>
-/// # Use your languages inbuilt string interpolation abilities to interpolate a string missing the text <code>"little"</code> which is held in a variable, to produce the output string <code>"Mary had a little lamb"</code>.
-/// # If possible, give links to further documentation on your languages string interpolation features.
+/// <ol class="rosetta__ordered-list">
+/// <li class="rosetta__list-item--ordered">Use your languages inbuilt string interpolation abilities to interpolate a string missing the text <code>"little"</code> which is held in a variable, to produce the output string <code>"Mary had a little lamb"</code>.</li>
+/// <li class="rosetta__list-item--ordered">If possible, give links to further documentation on your languages string interpolation features.</li>
 /// <br>
+/// </ol>
 /// <small>Note: The task is not to create a string interpolation routine, but to show a language's built-in capability.</small>
 /// <br>
 /// <br>

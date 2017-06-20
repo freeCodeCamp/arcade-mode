@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -22,9 +22,9 @@ replaceWithActualFunctionHere;
 /// <br>
 /// A <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Vampire_number" title="wp: Vampire_number">vampire number</a> is a natural number with an even number of digits, that can be factored into two integers. These two factors are called the <span class="rosetta__text--italic">fangs</span>, and must have the following properties:
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">they each contain half the number of the digits of the original number</li>
-/// <li class="rosetta__list-item">together they consist of exactly the same digits as the original number</li>
-/// <li class="rosetta__list-item">at most one of them has a trailing zero</li>
+/// <li class="rosetta__list-item--unordered">they each contain half the number of the digits of the original number</li>
+/// <li class="rosetta__list-item--unordered">together they consist of exactly the same digits as the original number</li>
+/// <li class="rosetta__list-item--unordered">at most one of them has a trailing zero</li>
 /// <br>
 /// </ul>
 /// <br>
@@ -32,9 +32,11 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
-/// # Print the first 25 Vampire numbers and their fangs. 
-/// # Check if the following numbers are Vampire numbers and, if  so, print them and their fangs: 
-/// <big><code> 16758243290880,  24959017348650,  14593825548650 </code></big>
+/// <ol class="rosetta__ordered-list">
+/// <li class="rosetta__list-item--ordered">Print the first 25 Vampire numbers and their fangs. </li>
+/// <li class="rosetta__list-item--ordered">Check if the following numbers are Vampire numbers and, if  so, print them and their fangs: </li>
+/// <br>
+/// </ol><big><code> 16758243290880,  24959017348650,  14593825548650 </code></big>
 /// <br>
 /// <br>
 /// Note that a Vampire number can have more than one pair of fangs.
@@ -42,9 +44,9 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">See also:</dt></dl>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">[http://www.numberphile.com/videos/vampire_numbers.html numberphile.com].</li>
-/// <li class="rosetta__list-item">[http://users.cybercity.dk/~dsl522332/math/vampires/ Vampire search algorithm]</li>
-/// <li class="rosetta__list-item"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/oeis:A014575" title="oeis:A014575">Vampire numbers on OEIS</a></li>
+/// <li class="rosetta__list-item--unordered">[http://www.numberphile.com/videos/vampire_numbers.html numberphile.com].</li>
+/// <li class="rosetta__list-item--unordered">[http://users.cybercity.dk/~dsl522332/math/vampires/ Vampire search algorithm]</li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/oeis:A014575" title="oeis:A014575">Vampire numbers on OEIS</a></li>
 /// <br>
 /// </ul><br><br>
 /// <br>

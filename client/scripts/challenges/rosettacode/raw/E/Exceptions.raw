@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -28,7 +28,7 @@ replaceWithActualFunctionHere;
 /// This task is to give an example of an exception handling routine 
 /// and to "throw" a new exception.
 /// <br>
-/// Cf. [[Exceptions Through Nested Calls]]
+/// Cf. <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Exceptions Through Nested Calls" title="Exceptions Through Nested Calls"></a>
 /// <br>
 /// <br>
 

@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -22,7 +22,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
 /// <br>
-/// Spawn a new [[process]] which can run simultaneously with, and independently of, the original parent process.
+/// Spawn a new <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/process" title="process"></a> which can run simultaneously with, and independently of, the original parent process.
 /// <br><br>
 /// <br>
 /// <br>

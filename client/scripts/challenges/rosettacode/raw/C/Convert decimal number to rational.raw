@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -28,21 +28,21 @@ replaceWithActualFunctionHere;
 /// <br>
 /// Because of this, the following fractions cannot be obtained (reliably) unless the language has some way of representing repeating decimals:
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">67 / 74 = 0.9(054) = 0.9054054...</li>
-/// <li class="rosetta__list-item">14 / 27 = 0.(518)  = 0.518518...</li>
+/// <li class="rosetta__list-item--unordered">67 / 74 = 0.9(054) = 0.9054054...</li>
+/// <li class="rosetta__list-item--unordered">14 / 27 = 0.(518)  = 0.518518...</li>
 /// <br>
 /// </ul>
 /// <br>Acceptable output:
 /// <br>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">0.9054054 → 4527027 / 5000000</li>
-/// <li class="rosetta__list-item">0.518518  → 259259 / 500000</li>
+/// <li class="rosetta__list-item--unordered">0.9054054 → 4527027 / 5000000</li>
+/// <li class="rosetta__list-item--unordered">0.518518  → 259259 / 500000</li>
 /// <br>
 /// </ul>
 /// <br>Finite decimals are of course no problem:
 /// <br>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">0.75      → 3 / 4 </li>
+/// <li class="rosetta__list-item--unordered">0.75      → 3 / 4 </li>
 /// <br>
 /// </ul><br><br>
 /// <br>

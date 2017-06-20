@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Initialization
 
 /// difficulty: ?
 
@@ -18,11 +18,9 @@ const assert = require('chai').assert;
 replaceWithActualFunctionHere;
 
 /// description:
-/// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category:Initialization]]
+/// <br>
 /// Clear the terminal window.
-/// [[Terminal Control::task" title="Category:Initialization]]
-/// Clear the terminal window.
-/// [[Terminal Control::task"> </a>
+/// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Terminal Control::task" title="Terminal Control::task"> </a>
 /// <br>
 
 /// challengeSeed:

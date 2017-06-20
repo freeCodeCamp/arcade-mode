@@ -10,7 +10,8 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Iteration
+/// Data Structures
 
 /// difficulty: ?
 
@@ -18,7 +19,7 @@ const assert = require('chai').assert;
 replaceWithActualFunctionHere;
 
 /// description:
-/// [[Category:Iteration]][[Category:Data Structures]]
+/// <br>
 /// Show how to iterate over the key-value pairs of an associative array, and print each pair out. 
 /// <br>
 /// Also show how to iterate just over the keys, or the values, if there is a separate way to do that in your language.

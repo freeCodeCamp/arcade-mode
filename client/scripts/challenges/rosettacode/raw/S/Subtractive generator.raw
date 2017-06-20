@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -24,40 +24,44 @@ replaceWithActualFunctionHere;
 /// The formula is
 /// <br>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item"><big>$r_n = r_{(n - i)} - r_{(n - j)} \pmod m$</big></li>
+/// <li class="rosetta__list-item--unordered"><big>$r_n = r_{(n - i)} - r_{(n - j)} \pmod m$</big></li>
 /// <br>
 /// </ul>
 /// for some fixed values of <big>$i$</big>, <big>$j$</big> and <big>$m$</big>, all positive integers. Supposing that <big>$i > j$</big>, then the state of this generator is the list of the previous numbers from <big>$r_{n - i}$</big> to <big>$r_{n - 1}$</big>. Many states generate uniform random integers from <big>$0$</big> to <big>$m - 1$</big>, but some states are bad. A state, filled with zeros, generates only zeros. If <big>$m$</big> is even, then a state, filled with even numbers, generates only even numbers. More generally, if <big>$f$</big> is a factor of <big>$m$</big>, then a state, filled with multiples of <big>$f$</big>, generates only multiples of <big>$f$</big>.
 /// <br>
 /// All subtractive generators have some weaknesses. The formula correlates <big>$r_n$</big>, <big>$r_{(n - i)}$</big> and <big>$r_{(n - j)}$</big>; these three numbers are not independent, as true random numbers would be. Anyone who observes <big>$i$</big> consecutive numbers can predict the next numbers, so the generator is not cryptographically secure. The authors of <span class="rosetta__text--italic">Freeciv</span> ([http://svn.gna.org/viewcvs/freeciv/trunk/utility/rand.c?view=markup utility/rand.c]) and <span class="rosetta__text--italic">xpat2</span> (src/testit2.c) knew another problem: the low bits are less random than the high bits.
 /// <br>
-/// The subtractive generator has a better reputation than the [[linear congruential generator]], perhaps because it holds more state. A subtractive generator might never multiply numbers: this helps where multiplication is slow. A subtractive generator might also avoid division: the value of <big>$r_{(n - i)} - r_{(n - j)}$</big> is always between <big>$-m$</big> and <big>$m$</big>, so a program only needs to add <big>$m$</big> to negative numbers.
+/// The subtractive generator has a better reputation than the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/linear congruential generator" title="linear congruential generator"></a>, perhaps because it holds more state. A subtractive generator might never multiply numbers: this helps where multiplication is slow. A subtractive generator might also avoid division: the value of <big>$r_{(n - i)} - r_{(n - j)}$</big> is always between <big>$-m$</big> and <big>$m$</big>, so a program only needs to add <big>$m$</big> to negative numbers.
 /// <br>
 /// The choice of <big>$i$</big> and <big>$j$</big> affects the period of the generator. A popular choice is <big>$i = 55$</big> and <big>$j = 24$</big>, so the formula is
 /// <br>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item"><big>$r_n = r_{(n - 55)} - r_{(n - 24)} \pmod m$</big></li>
+/// <li class="rosetta__list-item--unordered"><big>$r_n = r_{(n - 55)} - r_{(n - 24)} \pmod m$</big></li>
 /// <br>
 /// </ul>
 /// The subtractive generator from <span class="rosetta__text--italic">xpat2</span> uses
 /// <br>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item"><big>$r_n = r_{(n - 55)} - r_{(n - 24)} \pmod{10^9}$</big></li>
+/// <li class="rosetta__list-item--unordered"><big>$r_n = r_{(n - 55)} - r_{(n - 24)} \pmod{10^9}$</big></li>
 /// <br>
 /// </ul>
 /// The implementation is by J. Bentley and comes from program_tools/universal.c of [ftp://dimacs.rutgers.edu/pub/netflow/ the DIMACS (netflow) archive] at Rutgers University. It credits Knuth, <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/The Art of Computer Programming" title="wp: The Art of Computer Programming"><span class="rosetta__text--italic">TAOCP</span></a>, Volume 2, Section 3.2.2 (Algorithm A).
 /// <br>
 /// Bentley uses this clever algorithm to seed the generator.
 /// <br>
-/// # Start with a single <big>$seed$</big> in range <big>$0$</big> to <big>$10^9 - 1$</big>.
-/// # Set <big>$s_0 = seed$</big> and <big>$s_1 = 1$</big>. The inclusion of <big>$s_1 = 1$</big> avoids some bad states (like all zeros, or all multiples of 10).
-/// # Compute <big>$s_2, s_3, ..., s_{54}$</big> using the subtractive formula <big>$s_n = s_{(n - 2)} - s_{(n - 1)} \pmod{10^9}$</big>.
-/// # Reorder these 55 values so <big>$r_0 = s_{34}$</big>, <big>$r_1 = s_{13}$</big>, <big>$r_2 = s_{47}$</big>, ..., <big>$r_n = s_{(34 * (n + 1) \pmod{55})}$</big>.
-/// #* This is the same order as <big>$s_0 = r_{54}$</big>, <big>$s_1 = r_{33}$</big>, <big>$s_2 = r_{12}$</big>, ..., <big>$s_n = r_{((34 * n) - 1 \pmod{55})}$</big>.
-/// #* This rearrangement exploits how 34 and 55 are relatively prime.
-/// # Compute the next 165 values <big>$r_{55}$</big> to <big>$r_{219}$</big>. Store the last 55 values.
+/// <ol class="rosetta__ordered-list">
+/// <li class="rosetta__list-item--ordered">Start with a single <big>$seed$</big> in range <big>$0$</big> to <big>$10^9 - 1$</big>.</li>
+/// <li class="rosetta__list-item--ordered">Set <big>$s_0 = seed$</big> and <big>$s_1 = 1$</big>. The inclusion of <big>$s_1 = 1$</big> avoids some bad states (like all zeros, or all multiples of 10).</li>
+/// <li class="rosetta__list-item--ordered">Compute <big>$s_2, s_3, ..., s_{54}$</big> using the subtractive formula <big>$s_n = s_{(n - 2)} - s_{(n - 1)} \pmod{10^9}$</big>.</li>
+/// <li class="rosetta__list-item--ordered">Reorder these 55 values so <big>$r_0 = s_{34}$</big>, <big>$r_1 = s_{13}$</big>, <big>$r_2 = s_{47}$</big>, ..., <big>$r_n = s_{(34 * (n + 1) \pmod{55})}$</big>.</li>
 /// <br>
-/// This generator yields the sequence <big>$r_{220}$</big>, <big>$r_{221}$</big>, <big>$r_{222}$</big> and so on. For example, if the seed is 292929, then the sequence begins with <big>$r_{220} = 467478574$</big>, <big>$r_{221} = 512932792$</big>, <big>$r_{222} = 539453717$</big>. By starting at <big>$r_{220}$</big>, this generator avoids a bias from the first numbers of the sequence. This generator must store the last 55 numbers of the sequence, so to compute the next <big>$r_n$</big>. Any array or list would work; a [[ring buffer]] is ideal but not necessary.
+/// </ol>#* This is the same order as <big>$s_0 = r_{54}$</big>, <big>$s_1 = r_{33}$</big>, <big>$s_2 = r_{12}$</big>, ..., <big>$s_n = r_{((34 * n) - 1 \pmod{55})}$</big>.
+/// #* This rearrangement exploits how 34 and 55 are relatively prime.
+/// <ol class="rosetta__ordered-list">
+/// <li class="rosetta__list-item--ordered">Compute the next 165 values <big>$r_{55}$</big> to <big>$r_{219}$</big>. Store the last 55 values.</li>
+/// <br>
+/// </ol>
+/// This generator yields the sequence <big>$r_{220}$</big>, <big>$r_{221}$</big>, <big>$r_{222}$</big> and so on. For example, if the seed is 292929, then the sequence begins with <big>$r_{220} = 467478574$</big>, <big>$r_{221} = 512932792$</big>, <big>$r_{222} = 539453717$</big>. By starting at <big>$r_{220}$</big>, this generator avoids a bias from the first numbers of the sequence. This generator must store the last 55 numbers of the sequence, so to compute the next <big>$r_n$</big>. Any array or list would work; a <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/ring buffer" title="ring buffer"></a> is ideal but not necessary.
 /// <br>
 /// Implement a subtractive generator that replicates the sequences from <span class="rosetta__text--italic">xpat2</span>.
 /// <br><br>

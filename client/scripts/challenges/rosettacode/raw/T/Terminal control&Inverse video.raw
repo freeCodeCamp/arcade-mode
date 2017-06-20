@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Terminal control
 
 /// difficulty: ?
 
@@ -18,7 +18,7 @@ const assert = require('chai').assert;
 replaceWithActualFunctionHere;
 
 /// description:
-/// [[Category:Terminal control]]
+/// <br>
 /// The task is to display a word in inverse video (or reverse video) followed by a word in normal video.
 /// <br>
 /// <br>

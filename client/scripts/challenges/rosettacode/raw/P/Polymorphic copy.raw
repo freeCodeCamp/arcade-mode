@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -30,8 +30,8 @@ replaceWithActualFunctionHere;
 /// <br>
 /// The task: let a polymorphic object contain an instance of some specific type S derived from a type T. 
 /// The type T is known. 
-/// The type S is possibly unknown until [[run time]]. 
-/// The objective is to create an exact copy of such polymorphic object (not to create a [[reference]], nor a pointer to). 
+/// The type S is possibly unknown until <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/run time" title="run time"></a>. 
+/// The objective is to create an exact copy of such polymorphic object (not to create a <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/reference" title="reference"></a>, nor a pointer to). 
 /// Let further the type T have a method overridden by S. 
 /// This method is to be called on the copy to demonstrate that the specific type of the copy is indeed S.
 /// <br>

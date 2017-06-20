@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -24,7 +24,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// Quarter of the way down the display, we can switch to a wider 2 pixel wide vertical pinstripe pattern, alternating two pixels white, two pixels black. Half way down the display, we switch to 3 pixels wide, and for the lower quarter of the display we use 4 pixels.
 /// <br>
-/// c.f. [[Colour_pinstripe/Display]]
+/// c.f. <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Colour_pinstripe/Display" title="Colour_pinstripe/Display"></a>
 /// <br>
 /// <br>
 

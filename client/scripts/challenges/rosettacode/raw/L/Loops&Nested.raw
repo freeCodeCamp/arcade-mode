@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Loop modifiers
 
 /// difficulty: ?
 
@@ -18,19 +18,13 @@ const assert = require('chai').assert;
 replaceWithActualFunctionHere;
 
 /// description:
-///  <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category:Loop modifiers]]
+///  
 /// <br>
 /// Show a nested loop which searches a two-dimensional array filled with random numbers uniformly distributed over $[1,\ldots,20]$. 
 /// <br>
 /// The loops iterate rows and columns of the array printing the elements until the value $20$ is met. 
 /// <br>
-/// Specifically, this task also shows how to [[Loop/Break" title="Category:Loop modifiers]]
-/// <br>
-/// Show a nested loop which searches a two-dimensional array filled with random numbers uniformly distributed over $[1,\ldots,20]$. 
-/// <br>
-/// The loops iterate rows and columns of the array printing the elements until the value $20$ is met. 
-/// <br>
-/// Specifically, this task also shows how to [[Loop/Break">break</a> out of nested loops.
+/// Specifically, this task also shows how to <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Loop/Break" title="Loop/Break">break</a> out of nested loops.
 /// <br><br>
 /// <br>
 /// <br>

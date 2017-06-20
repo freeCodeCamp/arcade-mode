@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -22,7 +22,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// From [http://en.wikipedia.org/wiki/Modular_multiplicative_inverse Wikipedia]:
 /// <br>
-/// In <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/modular arithmetic" title="wp: modular arithmetic">modular arithmetic]], &nbsp; the <span class="rosetta__text--bold">modular multiplicative inverse</span> of an [[integer]] &nbsp; <big> <span class="rosetta__text--italic">a</span> </big> &nbsp; [[wp:modular arithmetic|modulo</a> &nbsp; <big> <span class="rosetta__text--italic">m</span> </big> &nbsp; is an integer &nbsp; <big> <span class="rosetta__text--italic">x</span> </big> &nbsp; such that
+/// In <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/modular arithmetic" title="wp: modular arithmetic">modular arithmetic]], &nbsp; the <span class="rosetta__text--bold">modular multiplicative inverse</span> of an <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/integer" title="integer"></a> &nbsp; <big> <span class="rosetta__text--italic">a</span> </big> &nbsp; [[wp:modular arithmetic|modulo</a> &nbsp; <big> <span class="rosetta__text--italic">m</span> </big> &nbsp; is an integer &nbsp; <big> <span class="rosetta__text--italic">x</span> </big> &nbsp; such that
 /// <br>
 /// <span class="rosetta__text--indented">:$a\,x \equiv 1 \pmod{m}.$</span>
 /// <br>

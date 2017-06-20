@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// String manipulation
 
 /// difficulty: ?
 
@@ -18,15 +18,15 @@ const assert = require('chai').assert;
 replaceWithActualFunctionHere;
 
 /// description:
-/// [[Category:String manipulation]]
+/// <br>
 /// The task is to demonstrate how to remove the first and last characters from a string. 
 /// <br>
 /// The solution should demonstrate how to obtain the following results:
 /// <br>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">String with first character removed</li>
-/// <li class="rosetta__list-item">String with last character removed</li>
-/// <li class="rosetta__list-item">String with both the first and last characters removed</li>
+/// <li class="rosetta__list-item--unordered">String with first character removed</li>
+/// <li class="rosetta__list-item--unordered">String with last character removed</li>
+/// <li class="rosetta__list-item--unordered">String with both the first and last characters removed</li>
 /// <br>
 /// </ul>
 /// <br>

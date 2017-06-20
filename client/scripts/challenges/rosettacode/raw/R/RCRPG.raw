@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -21,10 +21,10 @@ replaceWithActualFunctionHere;
 /// Create a simple interactive game which incorporates the following features:
 /// <br>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">room-based navigation in three integer dimensions (x,y,z)</li>
-/// <li class="rosetta__list-item">player inventory</li>
-/// <li class="rosetta__list-item">three types of item: sledge, gold and ladder</li>
-/// <li class="rosetta__list-item">a goal coordinate</li>
+/// <li class="rosetta__list-item--unordered">room-based navigation in three integer dimensions (x,y,z)</li>
+/// <li class="rosetta__list-item--unordered">player inventory</li>
+/// <li class="rosetta__list-item--unordered">three types of item: sledge, gold and ladder</li>
+/// <li class="rosetta__list-item--unordered">a goal coordinate</li>
 /// <br>
 /// </ul>
 /// Use of the sledge should be required to create a passage between rooms.  The ladder should be present in a room (but not held by the player), in order for the player to access the room above him.  The gold need not have a function.

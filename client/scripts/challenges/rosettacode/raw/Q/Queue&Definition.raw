@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -30,21 +30,21 @@ replaceWithActualFunctionHere;
 /// <br>
 /// Operations:
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">&nbsp; push   &nbsp; (aka <span class="rosetta__text--italic">enqueue</span>) &nbsp; - add element</li>
-/// <li class="rosetta__list-item">&nbsp; pop    &nbsp; &nbsp; (aka <span class="rosetta__text--italic">dequeue</span>) &nbsp; - pop first element</li>
-/// <li class="rosetta__list-item">&nbsp; empty  &nbsp; - return truth value when empty</li>
+/// <li class="rosetta__list-item--unordered">&nbsp; push   &nbsp; (aka <span class="rosetta__text--italic">enqueue</span>) &nbsp; - add element</li>
+/// <li class="rosetta__list-item--unordered">&nbsp; pop    &nbsp; &nbsp; (aka <span class="rosetta__text--italic">dequeue</span>) &nbsp; - pop first element</li>
+/// <li class="rosetta__list-item--unordered">&nbsp; empty  &nbsp; - return truth value when empty</li>
 /// <br>
 /// </ul>
 /// <br>
 /// Errors:
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">&nbsp; handle the error of trying to pop from an empty queue (behavior depends on the language and platform)</li>
+/// <li class="rosetta__list-item--unordered">&nbsp; handle the error of trying to pop from an empty queue (behavior depends on the language and platform)</li>
 /// <br>
 /// </ul>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">See:</dt></dl>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">&nbsp; [[Queue/Usage]] &nbsp; for the built-in FIFO or queue of your language or standard library.</li>
+/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Queue/Usage" title="Queue/Usage"></a> &nbsp; for the built-in FIFO or queue of your language or standard library.</li>
 /// <br>
 /// </ul>
 /// <br>

@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -25,7 +25,7 @@ replaceWithActualFunctionHere;
 /// <span class="rosetta__text--indented">$A = LU$</span>
 /// <br>
 /// It is a modified form of Gaussian elimination. 
-/// While the [[Cholesky decomposition]] only works for symmetric, 
+/// While the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Cholesky decomposition" title="Cholesky decomposition"></a> only works for symmetric, 
 /// positive definite matrices, the more general LU decomposition 
 /// works for any square matrix. 
 /// <br>

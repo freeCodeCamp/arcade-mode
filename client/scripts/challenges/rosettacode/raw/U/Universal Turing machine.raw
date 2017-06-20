@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -44,12 +44,12 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <span class="rosetta__text--bold">Simple incrementer</span>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item"><span class="rosetta__text--bold">States:</span> q0, qf</li>
-/// <li class="rosetta__list-item"><span class="rosetta__text--bold">Initial state:</span> q0</li>
-/// <li class="rosetta__list-item"><span class="rosetta__text--bold">Terminating states:</span> qf</li>
-/// <li class="rosetta__list-item"><span class="rosetta__text--bold">Permissible symbols:</span> B, 1</li>
-/// <li class="rosetta__list-item"><span class="rosetta__text--bold">Blank symbol:</span> B</li>
-/// <li class="rosetta__list-item"><span class="rosetta__text--bold">Rules:</span></li>
+/// <li class="rosetta__list-item--unordered"><span class="rosetta__text--bold">States:</span> q0, qf</li>
+/// <li class="rosetta__list-item--unordered"><span class="rosetta__text--bold">Initial state:</span> q0</li>
+/// <li class="rosetta__list-item--unordered"><span class="rosetta__text--bold">Terminating states:</span> qf</li>
+/// <li class="rosetta__list-item--unordered"><span class="rosetta__text--bold">Permissible symbols:</span> B, 1</li>
+/// <li class="rosetta__list-item--unordered"><span class="rosetta__text--bold">Blank symbol:</span> B</li>
+/// <li class="rosetta__list-item--unordered"><span class="rosetta__text--bold">Rules:</span></li>
 /// <br>
 /// </ul>** (q0, 1, 1, right, q0)
 /// ** (q0, B, 1, stay,  qf)
@@ -60,12 +60,12 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <span class="rosetta__text--bold">Three-state busy beaver</span>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item"><span class="rosetta__text--bold">States:</span> a, b, c, halt</li>
-/// <li class="rosetta__list-item"><span class="rosetta__text--bold">Initial state:</span> a</li>
-/// <li class="rosetta__list-item"><span class="rosetta__text--bold">Terminating states:</span> halt</li>
-/// <li class="rosetta__list-item"><span class="rosetta__text--bold">Permissible symbols:</span> 0, 1</li>
-/// <li class="rosetta__list-item"><span class="rosetta__text--bold">Blank symbol:</span> 0</li>
-/// <li class="rosetta__list-item"><span class="rosetta__text--bold">Rules:</span></li>
+/// <li class="rosetta__list-item--unordered"><span class="rosetta__text--bold">States:</span> a, b, c, halt</li>
+/// <li class="rosetta__list-item--unordered"><span class="rosetta__text--bold">Initial state:</span> a</li>
+/// <li class="rosetta__list-item--unordered"><span class="rosetta__text--bold">Terminating states:</span> halt</li>
+/// <li class="rosetta__list-item--unordered"><span class="rosetta__text--bold">Permissible symbols:</span> 0, 1</li>
+/// <li class="rosetta__list-item--unordered"><span class="rosetta__text--bold">Blank symbol:</span> 0</li>
+/// <li class="rosetta__list-item--unordered"><span class="rosetta__text--bold">Rules:</span></li>
 /// <br>
 /// </ul>** (a, 0, 1, right, b)
 /// ** (a, 1, 1, left,  c)
@@ -82,12 +82,12 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <span class="rosetta__text--bold">5-state, 2-symbol probable Busy Beaver machine from Wikipedia</span>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item"><span class="rosetta__text--bold">States:</span> A, B, C, D, E, H</li>
-/// <li class="rosetta__list-item"><span class="rosetta__text--bold">Initial state:</span> A</li>
-/// <li class="rosetta__list-item"><span class="rosetta__text--bold">Terminating states:</span> H</li>
-/// <li class="rosetta__list-item"><span class="rosetta__text--bold">Permissible symbols:</span> 0, 1</li>
-/// <li class="rosetta__list-item"><span class="rosetta__text--bold">Blank symbol:</span> 0</li>
-/// <li class="rosetta__list-item"><span class="rosetta__text--bold">Rules:</span></li>
+/// <li class="rosetta__list-item--unordered"><span class="rosetta__text--bold">States:</span> A, B, C, D, E, H</li>
+/// <li class="rosetta__list-item--unordered"><span class="rosetta__text--bold">Initial state:</span> A</li>
+/// <li class="rosetta__list-item--unordered"><span class="rosetta__text--bold">Terminating states:</span> H</li>
+/// <li class="rosetta__list-item--unordered"><span class="rosetta__text--bold">Permissible symbols:</span> 0, 1</li>
+/// <li class="rosetta__list-item--unordered"><span class="rosetta__text--bold">Blank symbol:</span> 0</li>
+/// <li class="rosetta__list-item--unordered"><span class="rosetta__text--bold">Rules:</span></li>
 /// <br>
 /// </ul>** (A, 0, 1, right, B)
 /// ** (A, 1, 1, left,  C)

@@ -10,7 +10,8 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Graphics
+/// Raster graphics operations
 
 /// difficulty: ?
 
@@ -19,7 +20,7 @@ replaceWithActualFunctionHere;
 
 /// description:
 /// <br>
-///  [[Category:Graphics]] [[Category:Raster graphics operations]] 
+///    
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>

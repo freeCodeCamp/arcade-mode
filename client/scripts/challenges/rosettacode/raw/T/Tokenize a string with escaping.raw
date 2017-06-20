@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -25,9 +25,9 @@ replaceWithActualFunctionHere;
 /// <br>
 /// It should accept three input parameters:
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">The <b>string</b></li>
-/// <li class="rosetta__list-item">The <b>separator character</b></li>
-/// <li class="rosetta__list-item">The <b>escape character</b></li>
+/// <li class="rosetta__list-item--unordered">The <b>string</b></li>
+/// <li class="rosetta__list-item--unordered">The <b>separator character</b></li>
+/// <li class="rosetta__list-item--unordered">The <b>escape character</b></li>
 /// <br>
 /// </ul>
 /// <br>
@@ -37,16 +37,16 @@ replaceWithActualFunctionHere;
 /// <br>
 /// Rules for splitting:
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">The fields that were separated by the separators, become the elements of the output list.</li>
-/// <li class="rosetta__list-item">Empty fields should be preserved, even at the start and end.</li>
+/// <li class="rosetta__list-item--unordered">The fields that were separated by the separators, become the elements of the output list.</li>
+/// <li class="rosetta__list-item--unordered">Empty fields should be preserved, even at the start and end.</li>
 /// <br>
 /// </ul>
 /// <br>
 /// Rules for escaping:
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">"Escaped" means preceded by an occurrence of the escape character that is not already escaped itself.</li>
-/// <li class="rosetta__list-item">When the escape character precedes a character that has no special meaning, it still counts as an escape (but does not do anything special).</li>
-/// <li class="rosetta__list-item">Each occurrences of the escape character that was used to escape something, should <span class="rosetta__text--bold">not</span> become part of the output.</li>
+/// <li class="rosetta__list-item--unordered">"Escaped" means preceded by an occurrence of the escape character that is not already escaped itself.</li>
+/// <li class="rosetta__list-item--unordered">When the escape character precedes a character that has no special meaning, it still counts as an escape (but does not do anything special).</li>
+/// <li class="rosetta__list-item--unordered">Each occurrences of the escape character that was used to escape something, should <span class="rosetta__text--bold">not</span> become part of the output.</li>
 /// <br>
 /// </ul>
 /// <br>
@@ -88,8 +88,8 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">[[Tokenize a string]]</li>
-/// <li class="rosetta__list-item">[[Brace expansion]]</li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Tokenize a string" title="Tokenize a string"></a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Brace expansion" title="Brace expansion"></a></li>
 /// <br>
 /// </ul><br><br>
 /// <br>

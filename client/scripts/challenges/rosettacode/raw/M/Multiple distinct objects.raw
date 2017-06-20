@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -20,7 +20,7 @@ replaceWithActualFunctionHere;
 /// description:
 /// <br>
 /// <br>
-/// Create a [[sequence]] (array, list, whatever) consisting of <var>n</var> distinct, initialized items of the same type. <var>n</var> should be determined at runtime.
+/// Create a <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/sequence" title="sequence"></a> (array, list, whatever) consisting of <var>n</var> distinct, initialized items of the same type. <var>n</var> should be determined at runtime.
 /// <br>
 /// By <span class="rosetta__text--italic">distinct</span> we mean that if they are mutable, changes to one do not affect all others; if there is an appropriate equality operator they are considered unequal; etc. The code need not specify a particular kind of distinction, but do not use e.g. a numeric-range generator which does not generalize.
 /// <br>
@@ -30,7 +30,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// This task is most relevant to languages operating in the pass-references-by-value style (most object-oriented, garbage-collected, and/or 'dynamic' languages).
 /// <br>
-/// See also: [[Closures/Value capture]]
+/// See also: <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Closures/Value capture" title="Closures/Value capture"></a>
 /// <br>
 /// <br>
 

@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -20,7 +20,7 @@ replaceWithActualFunctionHere;
 /// description:
 /// <br>
 /// <br>
-/// A pascal matrix is a two-dimensional square matrix holding numbers from &nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Pascal's triangle]], &nbsp; also known as &nbsp; [[Evaluate binomial coefficients" title="Pascal's triangle]], &nbsp; also known as &nbsp; [[Evaluate binomial coefficients">binomial coefficients</a> &nbsp; and which can be shown as &nbsp;  <big><sup>n</sup>C<sub>r</sub>.</big>
+/// A pascal matrix is a two-dimensional square matrix holding numbers from &nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Pascal's triangle" title="Pascal's triangle"></a>, &nbsp; also known as &nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Evaluate binomial coefficients" title="Evaluate binomial coefficients">binomial coefficients</a> &nbsp; and which can be shown as &nbsp;  <big><sup>n</sup>C<sub>r</sub>.</big>
 /// <br>
 /// Shown below are truncated &nbsp; 5-by-5 &nbsp; matrices &nbsp; M[i, j] &nbsp; for &nbsp; i,j &nbsp; in range &nbsp; 0..4. <br>
 /// <br>
@@ -61,7 +61,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Note:  </dt></dl>
-/// The &nbsp; [[Cholesky decomposition]] &nbsp; of a Pascal symmetric matrix is the Pascal lower-triangle matrix of the same size. 
+/// The &nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Cholesky decomposition" title="Cholesky decomposition"></a> &nbsp; of a Pascal symmetric matrix is the Pascal lower-triangle matrix of the same size. 
 /// <br><br> 
 /// <br>
 /// <br>

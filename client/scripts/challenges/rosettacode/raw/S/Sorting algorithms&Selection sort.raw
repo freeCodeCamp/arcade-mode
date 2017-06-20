@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -21,7 +21,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
-/// Sort an [[array]] (or list) of elements using the Selection sort algorithm. 
+/// Sort an <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/array" title="array"></a> (or list) of elements using the Selection sort algorithm. 
 /// <br>
 /// <br>
 /// It works as follows:
@@ -29,7 +29,7 @@ replaceWithActualFunctionHere;
 /// First find the smallest element in the array and exchange it with the element in the first position, then find the second smallest element and exchange it with the element in the second position, and continue in this way until the entire array is sorted. 
 /// <br>
 /// <br>
-/// Its asymptotic complexity is &nbsp; <big> [[O]](n<sup>2</sup>) </big> &nbsp; making it inefficient on large arrays. 
+/// Its asymptotic complexity is &nbsp; <big> <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/O" title="O"></a>(n<sup>2</sup>) </big> &nbsp; making it inefficient on large arrays. 
 /// <br>
 /// Its primary purpose is for when writing data is very expensive (slow) when compared to reading, eg. writing to flash memory or EEPROM. 
 /// <br>
@@ -38,7 +38,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Reference:</dt></dl>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">Wikipedia: &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Selection_sort" title="wp: Selection_sort">Selection sort</a></li>
+/// <li class="rosetta__list-item--unordered">Wikipedia: &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Selection_sort" title="wp: Selection_sort">Selection sort</a></li>
 /// <br>
 /// </ul><br><br>
 /// <br>

@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Hardware
 
 /// difficulty: ?
 
@@ -18,7 +18,7 @@ const assert = require('chai').assert;
 replaceWithActualFunctionHere;
 
 /// description:
-///  [[Category:Hardware]]
+///  
 /// The task is to determine the joystick position and represent this on the display via a crosshair.
 /// For a centred joystick, the crosshair should appear in the centre of the screen. 
 /// If the joystick is pushed left or right, then the cross hair should move left or right according to the extent that the joystick is pushed. 

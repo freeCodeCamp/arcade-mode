@@ -10,7 +10,8 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// String manipulation
+/// Simple
 
 /// difficulty: ?
 
@@ -19,15 +20,15 @@ replaceWithActualFunctionHere;
 
 /// description:
 ///  
-/// [[Category:String manipulation]] [[Category:Simple]]
+///  
 /// In this task display a substring:
 /// <br>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">starting from <tt>n</tt> characters in and of <tt>m</tt> length;</li>
-/// <li class="rosetta__list-item">starting from <tt>n</tt> characters in, up to the end of the string;</li>
-/// <li class="rosetta__list-item">whole string minus last character;</li>
-/// <li class="rosetta__list-item">starting from a known character within the string and of <tt>m</tt> length;</li>
-/// <li class="rosetta__list-item">starting from a known substring within the string and of <tt>m</tt> length.</li>
+/// <li class="rosetta__list-item--unordered">starting from <tt>n</tt> characters in and of <tt>m</tt> length;</li>
+/// <li class="rosetta__list-item--unordered">starting from <tt>n</tt> characters in, up to the end of the string;</li>
+/// <li class="rosetta__list-item--unordered">whole string minus last character;</li>
+/// <li class="rosetta__list-item--unordered">starting from a known character within the string and of <tt>m</tt> length;</li>
+/// <li class="rosetta__list-item--unordered">starting from a known substring within the string and of <tt>m</tt> length.</li>
 /// <br>
 /// </ul>
 /// <br>

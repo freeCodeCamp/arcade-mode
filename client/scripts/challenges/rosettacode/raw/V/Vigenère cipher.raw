@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// String manipulation
 
 /// difficulty: ?
 
@@ -19,7 +19,7 @@ replaceWithActualFunctionHere;
 
 /// description:
 ///  
-/// [[Category:String manipulation]]
+/// <br>
 /// <br>
 /// <br>
 /// <br>
@@ -34,9 +34,9 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks:</dt></dl>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">&nbsp; [[Caesar cipher]]</li>
-/// <li class="rosetta__list-item">&nbsp; [[Rot-13]]</li>
-/// <li class="rosetta__list-item">&nbsp; [[Substitution Cipher]]</li>
+/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Caesar cipher" title="Caesar cipher"></a></li>
+/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Rot-13" title="Rot-13"></a></li>
+/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Substitution Cipher" title="Substitution Cipher"></a></li>
 /// <br>
 /// </ul><br><br>
 /// <br>

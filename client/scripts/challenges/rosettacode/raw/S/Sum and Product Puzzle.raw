@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -28,9 +28,9 @@ replaceWithActualFunctionHere;
 /// The following conversation occurs:
 /// <br>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">S says "P does not know X and Y."</li>
-/// <li class="rosetta__list-item">P says "Now I know X and Y."</li>
-/// <li class="rosetta__list-item">S says "Now I also know X and Y!"</li>
+/// <li class="rosetta__list-item--unordered">S says "P does not know X and Y."</li>
+/// <li class="rosetta__list-item--unordered">P says "Now I know X and Y."</li>
+/// <li class="rosetta__list-item--unordered">S says "Now I also know X and Y!"</li>
 /// <br>
 /// </ul>
 /// What are X and Y?
@@ -62,8 +62,8 @@ replaceWithActualFunctionHere;
 /// <br>
 /// Terminology:
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item"><span class="rosetta__text--italic">"sum decomposition" of a number</span> = Any pair of positive integers <tt>(A, B)</tt> so that <tt>A+B</tt> equals the number. Here, with the additional constraint <tt>2 ≤ A < B</tt>.</li>
-/// <li class="rosetta__list-item"><span class="rosetta__text--italic">"product decomposition" of a number</span> = Any pair of positive integers <tt>(A, B)</tt> so that <tt>A*B</tt> equals the number. Here, with the additional constraint <tt>2 ≤ A < B</tt>.</li>
+/// <li class="rosetta__list-item--unordered"><span class="rosetta__text--italic">"sum decomposition" of a number</span> = Any pair of positive integers <tt>(A, B)</tt> so that <tt>A+B</tt> equals the number. Here, with the additional constraint <tt>2 ≤ A < B</tt>.</li>
+/// <li class="rosetta__list-item--unordered"><span class="rosetta__text--italic">"product decomposition" of a number</span> = Any pair of positive integers <tt>(A, B)</tt> so that <tt>A*B</tt> equals the number. Here, with the additional constraint <tt>2 ≤ A < B</tt>.</li>
 /// <br>
 /// </ul><br>
 /// <br>
@@ -73,7 +73,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">&nbsp; Wikipedia: &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Sum and Product Puzzle" title="wp: Sum and Product Puzzle">Sum and Product Puzzle</a></li>
+/// <li class="rosetta__list-item--unordered">&nbsp; Wikipedia: &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Sum and Product Puzzle" title="wp: Sum and Product Puzzle">Sum and Product Puzzle</a></li>
 /// <br>
 /// </ul><hr>
 /// <br>

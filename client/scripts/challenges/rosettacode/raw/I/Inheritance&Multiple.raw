@@ -10,7 +10,8 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Object oriented
+/// Type System
 
 /// difficulty: ?
 
@@ -19,10 +20,9 @@ replaceWithActualFunctionHere;
 
 /// description:
 /// <br>
-/// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category:Object oriented]] [[Category:Type System]]
-/// Multiple inheritance allows to specify that one [[classes " title="Category:Object oriented]] [[Category:Type System]]
-/// Multiple inheritance allows to specify that one [[classes "> class</a> is a subclass of several other classes. 
-/// Some languages allow multiple [[inheritance]] for arbitrary classes, 
+///  
+/// Multiple inheritance allows to specify that one <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/classes " title="classes "> class</a> is a subclass of several other classes. 
+/// Some languages allow multiple <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/inheritance" title="inheritance"></a> for arbitrary classes, 
 /// others restrict it to interfaces, some don't allow it at all.
 /// <br>
 /// Write two classes (or interfaces) <tt>Camera</tt> and <tt>MobilePhone</tt>, 

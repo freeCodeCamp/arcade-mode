@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Checksums
 
 /// difficulty: ?
 
@@ -20,7 +20,7 @@ replaceWithActualFunctionHere;
 /// description:
 /// #C-based_code_.28and_possibly_others.29_improperly_validates" title="#C-based_code_.28and_possibly_others.29_improperly_validates">incomplete</a>. It is recommended that you use an established [https://en.bitcoin.it/wiki/Software#Libraries library] for any projects that are likely to see external use}}
 /// <br>
-/// [[Category:Checksums]]
+/// <br>
 /// <br>
 /// <br>
 /// <br>
@@ -31,16 +31,16 @@ replaceWithActualFunctionHere;
 /// <br>
 /// With this encoding, a bitcoin address encodes 25 bytes:
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">the first byte is the version number, which will be zero for this task ;</li>
-/// <li class="rosetta__list-item">the next twenty bytes are a [[RIPEMD-160]] digest, but you don't have to know that for this task:  you can consider them a pure arbitrary data ;</li>
-/// <li class="rosetta__list-item">the last four bytes are a checksum check.  They are the first four bytes of a double [[SHA-256]] digest of the previous 21 bytes.</li>
+/// <li class="rosetta__list-item--unordered">the first byte is the version number, which will be zero for this task ;</li>
+/// <li class="rosetta__list-item--unordered">the next twenty bytes are a <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/RIPEMD-160" title="RIPEMD-160"></a> digest, but you don't have to know that for this task:  you can consider them a pure arbitrary data ;</li>
+/// <li class="rosetta__list-item--unordered">the last four bytes are a checksum check.  They are the first four bytes of a double <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/SHA-256" title="SHA-256"></a> digest of the previous 21 bytes.</li>
 /// <br>
 /// </ul>
 /// To check the bitcoin address, you must read the first twenty-one bytes, compute the checksum, and check that it corresponds to the last four bytes.
 /// <br>
 /// The program can either return a boolean value or throw an exception when not valid.
 /// <br>
-/// You can use a digest library for [[SHA-256]].
+/// You can use a digest library for <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/SHA-256" title="SHA-256"></a>.
 /// <br>
 /// Here is an example of a bitcoin address:
 /// <br>

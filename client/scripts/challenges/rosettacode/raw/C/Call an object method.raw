@@ -10,7 +10,8 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Object oriented
+/// Encyclopedia
 
 /// difficulty: ?
 
@@ -19,10 +20,10 @@ replaceWithActualFunctionHere;
 
 /// description:
 /// <br>
-/// [[Category:Object oriented]]
-/// [[Category:Encyclopedia]]
 /// <br>
-/// In [[object-oriented programming]] a method is a function associated with a particular class or object. In most forms of object oriented implementations methods can be static, associated with the class itself; or instance, associated with an instance of a class.
+/// <br>
+/// <br>
+/// In <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/object-oriented programming" title="object-oriented programming"></a> a method is a function associated with a particular class or object. In most forms of object oriented implementations methods can be static, associated with the class itself; or instance, associated with an instance of a class.
 /// <br>
 /// Show how to call a static or class method, and an instance method of a class.
 /// <br>

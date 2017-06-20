@@ -10,7 +10,8 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Recursion
+/// Games
 
 /// difficulty: ?
 
@@ -19,8 +20,8 @@ replaceWithActualFunctionHere;
 
 /// description:
 /// <br>
-/// [[Category:Recursion]]
-/// [[Category:Games]]
+/// <br>
+/// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
 /// Solve the &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Towers_of_Hanoi" title="wp: Towers_of_Hanoi">Towers of Hanoi</a> &nbsp; problem with recursion.

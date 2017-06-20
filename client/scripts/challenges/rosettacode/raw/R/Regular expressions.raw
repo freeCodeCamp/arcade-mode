@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Regular expressions
 
 /// difficulty: ?
 
@@ -18,7 +18,7 @@ const assert = require('chai').assert;
 replaceWithActualFunctionHere;
 
 /// description:
-///  [[Category:Regular expressions]]
+///  
 /// <br>
 /// <br>
 /// <br>
@@ -26,8 +26,8 @@ replaceWithActualFunctionHere;
 /// <br>
 /// The goal of this task is
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">to match a string against a regular expression</li>
-/// <li class="rosetta__list-item">to substitute part of a string using a regular expression</li>
+/// <li class="rosetta__list-item--unordered">to match a string against a regular expression</li>
+/// <li class="rosetta__list-item--unordered">to substitute part of a string using a regular expression</li>
 /// <br>
 /// </ul>
 /// <br>

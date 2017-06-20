@@ -10,7 +10,8 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+///  String manipulation
+/// Simple
 
 /// difficulty: ?
 
@@ -18,8 +19,8 @@ const assert = require('chai').assert;
 replaceWithActualFunctionHere;
 
 /// description:
-/// [[Category: String manipulation]]
-/// [[Category:Simple]]
+/// <br>
+/// <br>
 /// <br>
 /// <br>
 /// <!--  this problem is also known as  "splitsville"  elsewhere.  !-->

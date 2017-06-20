@@ -10,7 +10,9 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// String manipulation
+///  String manipulation
+/// Simple
 
 /// difficulty: ?
 
@@ -19,10 +21,10 @@ replaceWithActualFunctionHere;
 
 /// description:
 /// <br>
-/// [[Category:String manipulation]]
-/// [[Category: String manipulation]]
+/// <br>
+/// <br>
 ///  
-/// [[Category:Simple]]
+/// <br>
 /// <br>
 /// Most languages provide a way to concatenate two string values, but some languages also provide a convenient way to append in-place to an existing string variable without referring to the variable twice.
 /// <br>

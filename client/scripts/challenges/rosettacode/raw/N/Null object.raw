@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Simple
 
 /// difficulty: ?
 
@@ -19,11 +19,11 @@ replaceWithActualFunctionHere;
 
 /// description:
 ///  
-/// [[Category:Simple]]
+/// <br>
 /// <br>
 /// <span class="rosetta__text--bold">Null</span> (or <span class="rosetta__text--bold">nil</span>) is the computer science concept of an undefined or unbound object. 
 /// Some languages have an explicit way to access the null object, and some don't. 
-/// Some languages distinguish the null object from [[undefined values]], and some don't.
+/// Some languages distinguish the null object from <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/undefined values" title="undefined values"></a>, and some don't.
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>

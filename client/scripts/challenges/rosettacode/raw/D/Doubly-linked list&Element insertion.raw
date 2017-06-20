@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -18,11 +18,9 @@ const assert = require('chai').assert;
 replaceWithActualFunctionHere;
 
 /// description:
-/// Use the link structure defined in <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Doubly-Linked List (element)]] to define a procedure for inserting a link into a doubly-linked list. Call this procedure to insert element C into a list {A,B}, between elements A and B.
+/// Use the link structure defined in <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Doubly-Linked List (element)" title="Doubly-Linked List (element)"></a> to define a procedure for inserting a link into a doubly-linked list. Call this procedure to insert element C into a list {A,B}, between elements A and B.
 /// <br>
-/// This is much like inserting into a [[Singly-Linked List (element insertion)" title="Doubly-Linked List (element)]] to define a procedure for inserting a link into a doubly-linked list. Call this procedure to insert element C into a list {A,B}, between elements A and B.
-/// <br>
-/// This is much like inserting into a [[Singly-Linked List (element insertion)">Singly-Linked List</a>, but with added assignments so that the backwards-pointing links remain correct.
+/// This is much like inserting into a <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Singly-Linked List (element insertion)" title="Singly-Linked List (element insertion)">Singly-Linked List</a>, but with added assignments so that the backwards-pointing links remain correct.
 /// <br>
 /// <br>
 /// <br>

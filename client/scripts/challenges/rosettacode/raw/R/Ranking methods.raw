@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -35,12 +35,14 @@ replaceWithActualFunctionHere;
 /// 39 Stephen</pre>
 /// <br>
 /// For each of the following ranking methods, create a function/method/procedure/subroutine... that applies the ranking method to an ordered list of scores with scorers:
-/// # Standard. (Ties share what would have been their first ordinal number).
-/// # Modified. (Ties share what would have been their last ordinal number).
-/// # Dense. (Ties share the next available integer). 
-/// # Ordinal. ((Competitors take the next available integer. Ties are not treated otherwise).
-/// # Fractional. (Ties share the mean of what would have been their ordinal numbers).
+/// <ol class="rosetta__ordered-list">
+/// <li class="rosetta__list-item--ordered">Standard. (Ties share what would have been their first ordinal number).</li>
+/// <li class="rosetta__list-item--ordered">Modified. (Ties share what would have been their last ordinal number).</li>
+/// <li class="rosetta__list-item--ordered">Dense. (Ties share the next available integer). </li>
+/// <li class="rosetta__list-item--ordered">Ordinal. ((Competitors take the next available integer. Ties are not treated otherwise).</li>
+/// <li class="rosetta__list-item--ordered">Fractional. (Ties share the mean of what would have been their ordinal numbers).</li>
 /// <br>
+/// </ol>
 /// <br>
 /// See the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Ranking" title="wp: Ranking">wikipedia article</a> for a fuller description.
 /// <br>

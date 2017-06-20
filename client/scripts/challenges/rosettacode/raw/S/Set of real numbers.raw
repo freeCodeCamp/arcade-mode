@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -21,17 +21,17 @@ replaceWithActualFunctionHere;
 /// <br>
 /// All real numbers form the uncountable set ℝ.  Among its subsets, relatively simple are the convex sets, each expressed as a range between two real numbers <span class="rosetta__text--italic">a</span> and <span class="rosetta__text--italic">b</span> where <span class="rosetta__text--italic">a</span> ≤ <span class="rosetta__text--italic">b</span>.  There are actually four cases for the meaning of "between", depending on open or closed boundary:
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">[<span class="rosetta__text--italic">a</span>, <span class="rosetta__text--italic">b</span>]: {<span class="rosetta__text--italic">x</span> | <span class="rosetta__text--italic">a</span> ≤ <span class="rosetta__text--italic">x</span> and <span class="rosetta__text--italic">x</span> ≤ <span class="rosetta__text--italic">b</span> }</li>
-/// <li class="rosetta__list-item">(<span class="rosetta__text--italic">a</span>, <span class="rosetta__text--italic">b</span>): {<span class="rosetta__text--italic">x</span> | <span class="rosetta__text--italic">a</span> < <span class="rosetta__text--italic">x</span> and <span class="rosetta__text--italic">x</span> < <span class="rosetta__text--italic">b</span> }</li>
-/// <li class="rosetta__list-item">[<span class="rosetta__text--italic">a</span>, <span class="rosetta__text--italic">b</span>): {<span class="rosetta__text--italic">x</span> | <span class="rosetta__text--italic">a</span> ≤ <span class="rosetta__text--italic">x</span> and <span class="rosetta__text--italic">x</span> < <span class="rosetta__text--italic">b</span> }</li>
-/// <li class="rosetta__list-item">(<span class="rosetta__text--italic">a</span>, <span class="rosetta__text--italic">b</span>]: {<span class="rosetta__text--italic">x</span> | <span class="rosetta__text--italic">a</span> < <span class="rosetta__text--italic">x</span> and <span class="rosetta__text--italic">x</span> ≤ <span class="rosetta__text--italic">b</span> }</li>
+/// <li class="rosetta__list-item--unordered">[<span class="rosetta__text--italic">a</span>, <span class="rosetta__text--italic">b</span>]: {<span class="rosetta__text--italic">x</span> | <span class="rosetta__text--italic">a</span> ≤ <span class="rosetta__text--italic">x</span> and <span class="rosetta__text--italic">x</span> ≤ <span class="rosetta__text--italic">b</span> }</li>
+/// <li class="rosetta__list-item--unordered">(<span class="rosetta__text--italic">a</span>, <span class="rosetta__text--italic">b</span>): {<span class="rosetta__text--italic">x</span> | <span class="rosetta__text--italic">a</span> < <span class="rosetta__text--italic">x</span> and <span class="rosetta__text--italic">x</span> < <span class="rosetta__text--italic">b</span> }</li>
+/// <li class="rosetta__list-item--unordered">[<span class="rosetta__text--italic">a</span>, <span class="rosetta__text--italic">b</span>): {<span class="rosetta__text--italic">x</span> | <span class="rosetta__text--italic">a</span> ≤ <span class="rosetta__text--italic">x</span> and <span class="rosetta__text--italic">x</span> < <span class="rosetta__text--italic">b</span> }</li>
+/// <li class="rosetta__list-item--unordered">(<span class="rosetta__text--italic">a</span>, <span class="rosetta__text--italic">b</span>]: {<span class="rosetta__text--italic">x</span> | <span class="rosetta__text--italic">a</span> < <span class="rosetta__text--italic">x</span> and <span class="rosetta__text--italic">x</span> ≤ <span class="rosetta__text--italic">b</span> }</li>
 /// <br>
 /// </ul>Note that if <span class="rosetta__text--italic">a</span> = <span class="rosetta__text--italic">b</span>, of the four only [<span class="rosetta__text--italic">a</span>, <span class="rosetta__text--italic">a</span>] would be non-empty.
 /// <br>
 /// <span class="rosetta__text--bold">Task</span>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">Devise a way to represent any set of real numbers, for the definition of 'any' in the implementation notes below.</li>
-/// <li class="rosetta__list-item">Provide methods for these common set operations (<span class="rosetta__text--italic">x</span> is a real number; <span class="rosetta__text--italic">A</span> and <span class="rosetta__text--italic">B</span> are sets):</li>
+/// <li class="rosetta__list-item--unordered">Devise a way to represent any set of real numbers, for the definition of 'any' in the implementation notes below.</li>
+/// <li class="rosetta__list-item--unordered">Provide methods for these common set operations (<span class="rosetta__text--italic">x</span> is a real number; <span class="rosetta__text--italic">A</span> and <span class="rosetta__text--italic">B</span> are sets):</li>
 /// <br>
 /// </ul><span class="rosetta__text--indented">* <span class="rosetta__text--italic">x</span> ∈ <span class="rosetta__text--italic">A</span>: determine if <span class="rosetta__text--italic">x</span> is an element of <span class="rosetta__text--italic">A</span></span>
 /// <span class="rosetta__text--indented">: example: 1 is in [1, 2), while 2, 3, ... are not.</span>
@@ -42,7 +42,7 @@ replaceWithActualFunctionHere;
 /// <span class="rosetta__text--indented">* <span class="rosetta__text--italic">A</span> - <span class="rosetta__text--italic">B</span>: difference between <span class="rosetta__text--italic">A</span> and <span class="rosetta__text--italic">B</span>, also written as <span class="rosetta__text--italic">A</span> \ <span class="rosetta__text--italic">B</span>, i.e. {<span class="rosetta__text--italic">x</span> | <span class="rosetta__text--italic">x</span> ∈ <span class="rosetta__text--italic">A</span> and <span class="rosetta__text--italic">x</span> ∉ <span class="rosetta__text--italic">B</span>}</span>
 /// <span class="rosetta__text--indented">: example: [0, 2) − (1, 3) = [0, 1]</span>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">Test your implementation by checking if numbers 0, 1, and 2 are in any of the following sets:</li>
+/// <li class="rosetta__list-item--unordered">Test your implementation by checking if numbers 0, 1, and 2 are in any of the following sets:</li>
 /// <br>
 /// </ul><span class="rosetta__text--indented">* (0, 1] ∪ [0, 2)</span>
 /// <span class="rosetta__text--indented">* [0, 2) ∩ (1, 2]</span>
@@ -51,15 +51,15 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <span class="rosetta__text--bold">Implementation notes</span>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">'Any' real set means 'sets that can be expressed as the union of a finite number of convex real sets'.  Cantor's set needs not apply.</li>
-/// <li class="rosetta__list-item">Infinities should be handled gracefully; indeterminate numbers (NaN) can be ignored.</li>
-/// <li class="rosetta__list-item">You can use your machine's native real number representation, which is probably IEEE floating point, and assume it's good enough (it usually is).</li>
+/// <li class="rosetta__list-item--unordered">'Any' real set means 'sets that can be expressed as the union of a finite number of convex real sets'.  Cantor's set needs not apply.</li>
+/// <li class="rosetta__list-item--unordered">Infinities should be handled gracefully; indeterminate numbers (NaN) can be ignored.</li>
+/// <li class="rosetta__list-item--unordered">You can use your machine's native real number representation, which is probably IEEE floating point, and assume it's good enough (it usually is).</li>
 /// <br>
 /// </ul>
 /// <span class="rosetta__text--bold">Optional work</span>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">Create a function to determine if a given set is empty (contains no element).</li>
-/// <li class="rosetta__list-item">Define <span class="rosetta__text--italic">[http://www.wolframalpha.com/input/?i=%7Csin%28pi+x2%29%7C%3E1%2F2%2C+0+%3C+x+%3C+10 A]</span> = {<span class="rosetta__text--italic">x</span> | 0 < <span class="rosetta__text--italic">x</span> < 10 and |sin(π <span class="rosetta__text--italic">x</span>²)| > 1/2 }, <span class="rosetta__text--italic">[http://www.wolframalpha.com/input/?i=%7Csin%28pi+x%29%7C%3E1%2F2%2C+0+%3C+x+%3C+10 B]</span> = {<span class="rosetta__text--italic">x</span> | 0 < <span class="rosetta__text--italic">x</span> < 10 and |sin(π <span class="rosetta__text--italic">x</span>)| > 1/2}, calculate the length of the real axis covered by the set <span class="rosetta__text--italic">A</span> − <span class="rosetta__text--italic">B</span>.  Note that </li>
+/// <li class="rosetta__list-item--unordered">Create a function to determine if a given set is empty (contains no element).</li>
+/// <li class="rosetta__list-item--unordered">Define <span class="rosetta__text--italic">[http://www.wolframalpha.com/input/?i=%7Csin%28pi+x2%29%7C%3E1%2F2%2C+0+%3C+x+%3C+10 A]</span> = {<span class="rosetta__text--italic">x</span> | 0 < <span class="rosetta__text--italic">x</span> < 10 and |sin(π <span class="rosetta__text--italic">x</span>²)| > 1/2 }, <span class="rosetta__text--italic">[http://www.wolframalpha.com/input/?i=%7Csin%28pi+x%29%7C%3E1%2F2%2C+0+%3C+x+%3C+10 B]</span> = {<span class="rosetta__text--italic">x</span> | 0 < <span class="rosetta__text--italic">x</span> < 10 and |sin(π <span class="rosetta__text--italic">x</span>)| > 1/2}, calculate the length of the real axis covered by the set <span class="rosetta__text--italic">A</span> − <span class="rosetta__text--italic">B</span>.  Note that </li>
 /// <br>
 /// </ul>|sin(π <span class="rosetta__text--italic">x</span>)| > 1/2 is the same as <span class="rosetta__text--italic">n</span> + 1/6 < <span class="rosetta__text--italic">x</span> < <span class="rosetta__text--italic">n</span> + 5/6 for all integers <span class="rosetta__text--italic">n</span>; your program does not need to derive this by itself.
 /// <br>

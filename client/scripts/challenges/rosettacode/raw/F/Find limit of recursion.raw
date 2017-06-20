@@ -10,7 +10,9 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Basic language learning
+/// Programming environment operations
+/// Simple
 
 /// difficulty: ?
 
@@ -20,9 +22,9 @@ replaceWithActualFunctionHere;
 /// description:
 /// <br>
 /// <br>
-/// [[Category:Basic language learning]]
-/// [[Category:Programming environment operations]] 
-/// [[Category:Simple]]
+/// <br>
+///  
+/// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
 /// Find the limit of recursion.

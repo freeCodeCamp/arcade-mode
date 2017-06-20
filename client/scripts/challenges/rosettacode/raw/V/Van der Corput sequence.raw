@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -63,21 +63,21 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task description:</dt></dl>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">Create a function/method/routine that given <span class="rosetta__text--italic">n</span>, generates the <span class="rosetta__text--italic">n</span>'th term of the van der Corput sequence in base 2.</li>
-/// <li class="rosetta__list-item">Use the function to compute <span class="rosetta__text--italic">and display</span> the first ten members of the sequence. (The first member of the sequence is for <span class="rosetta__text--italic">n</span>=0).</li>
+/// <li class="rosetta__list-item--unordered">Create a function/method/routine that given <span class="rosetta__text--italic">n</span>, generates the <span class="rosetta__text--italic">n</span>'th term of the van der Corput sequence in base 2.</li>
+/// <li class="rosetta__list-item--unordered">Use the function to compute <span class="rosetta__text--italic">and display</span> the first ten members of the sequence. (The first member of the sequence is for <span class="rosetta__text--italic">n</span>=0).</li>
 /// <br>
 /// </ul>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">As a stretch goal/extra credit, compute and show members of the sequence for bases other than 2.</li>
+/// <li class="rosetta__list-item--unordered">As a stretch goal/extra credit, compute and show members of the sequence for bases other than 2.</li>
 /// <br>
 /// </ul>
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">See also:</dt></dl>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">[http://www.puc-rio.br/marco.ind/quasi_mc.html#low_discrep The Basic Low Discrepancy Sequences]</li>
-/// <li class="rosetta__list-item">[[Non-decimal radices/Convert]]</li>
-/// <li class="rosetta__list-item"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Van der Corput sequence" title="wp: Van der Corput sequence">Van der Corput sequence</a></li>
+/// <li class="rosetta__list-item--unordered">[http://www.puc-rio.br/marco.ind/quasi_mc.html#low_discrep The Basic Low Discrepancy Sequences]</li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Non-decimal radices/Convert" title="Non-decimal radices/Convert"></a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Van der Corput sequence" title="wp: Van der Corput sequence">Van der Corput sequence</a></li>
 /// <br>
 /// </ul><br><br>
 /// <br>

@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Type System
 
 /// difficulty: ?
 
@@ -18,10 +18,10 @@ const assert = require('chai').assert;
 replaceWithActualFunctionHere;
 
 /// description:
-///  [[Category:Type System]]
+///  
 /// <br>
 /// <span class="rosetta__text--bold">Constrained genericity</span> or <span class="rosetta__text--bold">bounded quantification</span> means 
-/// that a parametrized type or function (see [[parametric polymorphism]]) 
+/// that a parametrized type or function (see <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/parametric polymorphism" title="parametric polymorphism"></a>) 
 /// can only be instantiated on types fulfilling some conditions, 
 /// even if those conditions are not used in that function.
 /// <br>

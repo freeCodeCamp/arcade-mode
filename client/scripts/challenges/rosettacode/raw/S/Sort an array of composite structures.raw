@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -35,7 +35,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// then define a sort routine that sorts the array <span class="rosetta__text--italic">x</span> by the key <span class="rosetta__text--italic">name</span>.
 /// <br>
-/// This task can always be accomplished with [[Sorting Using a Custom Comparator]]. If your language is not listed here, please see the other article.
+/// This task can always be accomplished with <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Sorting Using a Custom Comparator" title="Sorting Using a Custom Comparator"></a>. If your language is not listed here, please see the other article.
 /// <br><br>
 /// <br>
 /// <br>

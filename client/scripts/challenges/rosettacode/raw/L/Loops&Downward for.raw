@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Simple
 
 /// difficulty: ?
 
@@ -19,7 +19,7 @@ replaceWithActualFunctionHere;
 
 /// description:
 ///  
-/// [[Category:Simple]]
+/// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
 /// Write a &nbsp; <big><big> <span class="rosetta__text--italic">for</span> </big></big> &nbsp; loop which writes a countdown from &nbsp; <span class="rosetta__text--bold">10</span> &nbsp; to &nbsp; <span class="rosetta__text--bold">0</span>.

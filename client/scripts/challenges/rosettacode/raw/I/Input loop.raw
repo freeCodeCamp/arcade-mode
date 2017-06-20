@@ -10,7 +10,9 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Basic language learning
+/// Streams
+/// Simple
 
 /// difficulty: ?
 
@@ -20,9 +22,9 @@ replaceWithActualFunctionHere;
 /// description:
 ///  
 /// <br>
-/// [[Category:Basic language learning]] 
-/// [[Category:Streams]] 
-/// [[Category:Simple]]
+///  
+///  
+/// <br>
 /// <br>
 ///  <!-- No streams other than user input, not really applicable. -->
 /// <br>

@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -19,7 +19,7 @@ replaceWithActualFunctionHere;
 
 /// description:
 /// <br>
-/// Using a well-known testing-specific library/module/suite for your language, write some tests for your language's entry in [[Palindrome]]. If your language does not have a testing specific library well known to the language's community then state this or omit the language. 
+/// Using a well-known testing-specific library/module/suite for your language, write some tests for your language's entry in <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Palindrome" title="Palindrome"></a>. If your language does not have a testing specific library well known to the language's community then state this or omit the language. 
 /// <br>
 /// <br>
 

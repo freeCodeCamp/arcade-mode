@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -32,7 +32,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// Of course, in practice one should avoid reading an entire file at once 
 /// if the file is large and the task can be accomplished incrementally instead 
-/// (in which case check [[File IO]]); 
+/// (in which case check <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File IO" title="File IO"></a>); 
 /// this is for those cases where having the entire file is actually what is wanted.
 /// <br><br>
 /// <br>

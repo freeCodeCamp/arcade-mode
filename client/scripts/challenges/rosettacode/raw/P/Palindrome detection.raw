@@ -10,7 +10,10 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Recursion
+/// String manipulation
+/// Classic CS problems and programs
+/// Palindromes
 
 /// difficulty: ?
 
@@ -19,10 +22,10 @@ replaceWithActualFunctionHere;
 
 /// description:
 ///  
-/// [[Category:Recursion]] 
-/// [[Category:String manipulation]]
-/// [[Category:Classic CS problems and programs]]
-/// [[Category:Palindromes]]
+///  
+/// <br>
+/// <br>
+/// <br>
 /// <br>
 /// A <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Palindrome" title="wp: Palindrome">palindrome</a> is a phrase which reads the same backward and forward.
 /// <br>
@@ -33,14 +36,14 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <span class="rosetta__text--bold"><span class="rosetta__text--italic">For extra credit:</span></span>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">Support Unicode characters.</li>
-/// <li class="rosetta__list-item">Write a second function (possibly as a wrapper to the first) which detects <span class="rosetta__text--italic">inexact</span> palindromes, i.e. phrases that are palindromes if white-space and punctuation is ignored and case-insensitive comparison is used.</li>
+/// <li class="rosetta__list-item--unordered">Support Unicode characters.</li>
+/// <li class="rosetta__list-item--unordered">Write a second function (possibly as a wrapper to the first) which detects <span class="rosetta__text--italic">inexact</span> palindromes, i.e. phrases that are palindromes if white-space and punctuation is ignored and case-insensitive comparison is used.</li>
 /// <br>
 /// </ul>
 /// <br>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">It might be useful for this task to know how to <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Reversing a string" title="Reversing a string">reverse a string</a>.</li>
-/// <li class="rosetta__list-item">This task's entries might also form the subjects of the task [[Test a function]].</li>
+/// <li class="rosetta__list-item--unordered">It might be useful for this task to know how to <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Reversing a string" title="Reversing a string">reverse a string</a>.</li>
+/// <li class="rosetta__list-item--unordered">This task's entries might also form the subjects of the task <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Test a function" title="Test a function"></a>.</li>
 /// <br>
 /// </ul>
 /// <br>

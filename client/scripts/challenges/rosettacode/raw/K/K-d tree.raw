@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Data Structures
 
 /// difficulty: ?
 
@@ -20,7 +20,7 @@ replaceWithActualFunctionHere;
 /// description:
 /// <br>
 /// <br>
-/// [[Category:Data Structures]]
+/// <br>
 /// A k-d tree (short for <span class="rosetta__text--italic">k</span>-dimensional tree) is a space-partitioning data structure for organizing points in a k-dimensional space. k-d trees are a useful data structure for several applications, such as searches involving a multidimensional search key (e.g. range searches and nearest neighbor searches). 
 /// k-d trees are a special case of binary space partitioning trees.
 /// <br>
@@ -29,9 +29,11 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <span class="rosetta__text--bold">Task:</span> Construct a k-d tree and perform a nearest neighbor search for two example data sets:
 /// <br>
-/// # The Wikipedia example data of [(2,3), (5,4), (9,6), (4,7), (8,1), (7,2)].
-/// # 1000 3-d points uniformly distributed in a 3-d cube.
+/// <ol class="rosetta__ordered-list">
+/// <li class="rosetta__list-item--ordered">The Wikipedia example data of [(2,3), (5,4), (9,6), (4,7), (8,1), (7,2)].</li>
+/// <li class="rosetta__list-item--ordered">1000 3-d points uniformly distributed in a 3-d cube.</li>
 /// <br>
+/// </ol>
 /// For the Wikipedia example, find the nearest neighbor to point (9, 2)
 /// For the random data, pick a random location and find the nearest neighbor.
 /// <br>

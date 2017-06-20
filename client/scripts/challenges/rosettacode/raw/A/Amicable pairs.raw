@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -26,8 +26,8 @@ replaceWithActualFunctionHere;
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Example:</dt></dl>
 /// <span class="rosetta__text--bold">1184</span> and <span class="rosetta__text--bold">1210</span> are an amicable pair, with proper divisors:
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">&nbsp; 1, 2, 4, 8, 16, 32, 37, 74, 148, 296, 592 &nbsp; and </li>
-/// <li class="rosetta__list-item">&nbsp; 1, 2, 5, 10, 11, 22, 55, 110, 121, 242, 605  &nbsp; respectively.</li>
+/// <li class="rosetta__list-item--unordered">&nbsp; 1, 2, 4, 8, 16, 32, 37, 74, 148, 296, 592 &nbsp; and </li>
+/// <li class="rosetta__list-item--unordered">&nbsp; 1, 2, 5, 10, 11, 22, 55, 110, 121, 242, 605  &nbsp; respectively.</li>
 /// <br>
 /// </ul>
 /// <br>
@@ -37,9 +37,9 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks</dt></dl>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">[[Proper divisors]]</li>
-/// <li class="rosetta__list-item">[[Abundant, deficient and perfect number classifications]]</li>
-/// <li class="rosetta__list-item">[[Aliquot sequence classifications]] and its amicable <span class="rosetta__text--italic">classification</span>. </li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Proper divisors" title="Proper divisors"></a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Abundant, deficient and perfect number classifications" title="Abundant, deficient and perfect number classifications"></a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Aliquot sequence classifications" title="Aliquot sequence classifications"></a> and its amicable <span class="rosetta__text--italic">classification</span>. </li>
 /// <br>
 /// </ul><br><br>
 /// <br>

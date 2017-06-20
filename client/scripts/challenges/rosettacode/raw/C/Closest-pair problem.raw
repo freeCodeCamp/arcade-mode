@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -81,11 +81,11 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">References and further readings:</dt></dl>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">&nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Closest pair of points problem" title="wp: Closest pair of points problem">Closest pair of points problem</a></li>
-/// <li class="rosetta__list-item">&nbsp; [http://www.cs.mcgill.ca/~cs251/ClosestPair/ClosestPairDQ.html Closest Pair (McGill)]</li>
-/// <li class="rosetta__list-item">&nbsp; [http://www.cs.ucsb.edu/~suri/cs235/ClosestPair.pdf Closest Pair (UCSB)]</li>
-/// <li class="rosetta__list-item">&nbsp; [http://classes.cec.wustl.edu/~cse241/handouts/closestpair.pdf Closest pair (WUStL)]</li>
-/// <li class="rosetta__list-item">&nbsp; [http://www.cs.iupui.edu/~xkzou/teaching/CS580/Divide-and-conquer-closestPair.ppt Closest pair (IUPUI)] </li>
+/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Closest pair of points problem" title="wp: Closest pair of points problem">Closest pair of points problem</a></li>
+/// <li class="rosetta__list-item--unordered">&nbsp; [http://www.cs.mcgill.ca/~cs251/ClosestPair/ClosestPairDQ.html Closest Pair (McGill)]</li>
+/// <li class="rosetta__list-item--unordered">&nbsp; [http://www.cs.ucsb.edu/~suri/cs235/ClosestPair.pdf Closest Pair (UCSB)]</li>
+/// <li class="rosetta__list-item--unordered">&nbsp; [http://classes.cec.wustl.edu/~cse241/handouts/closestpair.pdf Closest pair (WUStL)]</li>
+/// <li class="rosetta__list-item--unordered">&nbsp; [http://www.cs.iupui.edu/~xkzou/teaching/CS580/Divide-and-conquer-closestPair.ppt Closest pair (IUPUI)] </li>
 /// <br>
 /// </ul><br><br>
 /// <br>

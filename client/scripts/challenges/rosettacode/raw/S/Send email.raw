@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -25,9 +25,9 @@ replaceWithActualFunctionHere;
 /// <br>
 /// The function should have parameters for setting From, To and Cc addresses; the Subject, and the message text, and optionally fields for the server name and login details.
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">If appropriate, explain what notifications of problems/success are given.</li>
-/// <li class="rosetta__list-item">Solutions using libraries or functions from the language are preferred, but failing that, external programs can be used with an explanation.</li>
-/// <li class="rosetta__list-item">Note how portable the solution given is between operating systems when multi-OS languages are used.</li>
+/// <li class="rosetta__list-item--unordered">If appropriate, explain what notifications of problems/success are given.</li>
+/// <li class="rosetta__list-item--unordered">Solutions using libraries or functions from the language are preferred, but failing that, external programs can be used with an explanation.</li>
+/// <li class="rosetta__list-item--unordered">Note how portable the solution given is between operating systems when multi-OS languages are used.</li>
 /// <br>
 /// </ul>
 /// <br>

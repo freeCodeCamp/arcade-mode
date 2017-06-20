@@ -10,7 +10,8 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Recursion
+/// Memoization
 
 /// difficulty: ?
 
@@ -18,7 +19,7 @@ const assert = require('chai').assert;
 replaceWithActualFunctionHere;
 
 /// description:
-/// [[Category:Recursion]][[Category:Memoization]]
+/// <br>
 /// The <span class="rosetta__text--bold">longest common subsequence</span> (or [http://en.wikipedia.org/wiki/Longest_common_subsequence_problem <span class="rosetta__text--bold">LCS</span>]) of groups A and B is the longest group of elements from A and B that are common between the two groups and in the same order in each group. For example, the sequences "1234" and "1224533324" have an LCS of "1234":
 ///  <span class="rosetta__text--bold"><u>1234</u></span>
 ///  <span class="rosetta__text--bold"><u>12</u></span>245<span class="rosetta__text--bold"><u>3</u></span>332<span class="rosetta__text--bold"><u>4</u></span>

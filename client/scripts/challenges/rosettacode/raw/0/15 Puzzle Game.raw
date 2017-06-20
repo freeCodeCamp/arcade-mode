@@ -10,7 +10,8 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Puzzles
+/// Games
 
 /// difficulty: ?
 
@@ -20,8 +21,8 @@ replaceWithActualFunctionHere;
 /// description:
 /// <br>
 /// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:15_puzzle.png" title="File:15_puzzle.png">300px|thumb|right</a>
-/// [[Category:Puzzles]]
-/// [[Category:Games]]
+/// <br>
+/// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
 /// Implement the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/15_puzzle" title="wp: 15_puzzle">Fifteen Puzzle Game</a>.
 /// <br>

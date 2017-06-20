@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -36,14 +36,14 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <span class="rosetta__text--bold">To test</span>, generate and print examples of:
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">&nbsp; A sample of permutations from 1 to 12 and Combinations from 10 to 60 using exact Integer arithmetic.</li>
-/// <li class="rosetta__list-item">&nbsp; A sample of permutations from 5 to 15000 and Combinations from 100 to 1000 using approximate Floating point arithmetic.<br> This 'floating point' code could be implemented using an approximation, e.g., by calling the [[Gamma function]].</li>
+/// <li class="rosetta__list-item--unordered">&nbsp; A sample of permutations from 1 to 12 and Combinations from 10 to 60 using exact Integer arithmetic.</li>
+/// <li class="rosetta__list-item--unordered">&nbsp; A sample of permutations from 5 to 15000 and Combinations from 100 to 1000 using approximate Floating point arithmetic.<br> This 'floating point' code could be implemented using an approximation, e.g., by calling the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Gamma function" title="Gamma function"></a>.</li>
 /// <br>
 /// </ul>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related task:</dt></dl>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">&nbsp; [[Evaluate binomial coefficients]]</li>
+/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Evaluate binomial coefficients" title="Evaluate binomial coefficients"></a></li>
 /// <br>
 /// </ul>
 /// <br>

@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// HTML
 
 /// difficulty: ?
 
@@ -18,14 +18,14 @@ const assert = require('chai').assert;
 replaceWithActualFunctionHere;
 
 /// description:
-/// [[Category:HTML]]
+/// <br>
 /// Create an HTML table. 
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">The table body should have at least three rows of three columns.</li>
-/// <li class="rosetta__list-item">Each of these three columns should be labelled "X", "Y", and "Z". </li>
-/// <li class="rosetta__list-item">An extra column should be added at either the extreme left or the extreme right of the table that has no heading, but is filled with sequential row numbers. </li>
-/// <li class="rosetta__list-item">The rows of the "X", "Y", and "Z" columns should be filled with random or sequential integers having 4 digits or less. </li>
-/// <li class="rosetta__list-item">The numbers should be aligned in the same fashion for all columns.</li>
+/// <li class="rosetta__list-item--unordered">The table body should have at least three rows of three columns.</li>
+/// <li class="rosetta__list-item--unordered">Each of these three columns should be labelled "X", "Y", and "Z". </li>
+/// <li class="rosetta__list-item--unordered">An extra column should be added at either the extreme left or the extreme right of the table that has no heading, but is filled with sequential row numbers. </li>
+/// <li class="rosetta__list-item--unordered">The rows of the "X", "Y", and "Z" columns should be filled with random or sequential integers having 4 digits or less. </li>
+/// <li class="rosetta__list-item--unordered">The numbers should be aligned in the same fashion for all columns.</li>
 /// <br>
 /// </ul><br><br>
 /// <br>

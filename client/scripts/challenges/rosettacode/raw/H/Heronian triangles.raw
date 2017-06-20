@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -43,13 +43,15 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
-/// # Create a named function/method/procedure/... that implements Hero's formula.
-/// # Use the function to generate all the <span class="rosetta__text--italic">primitive</span> Heronian triangles with sides <= 200.
-/// # Show the count of how many triangles are found.
-/// # Order the triangles by first increasing area, then by increasing perimeter, then by increasing maximum side lengths
-/// # Show the first ten ordered triangles in a table of sides, perimeter, and area.
-/// # Show a similar ordered table for those triangles with area = 210
+/// <ol class="rosetta__ordered-list">
+/// <li class="rosetta__list-item--ordered">Create a named function/method/procedure/... that implements Hero's formula.</li>
+/// <li class="rosetta__list-item--ordered">Use the function to generate all the <span class="rosetta__text--italic">primitive</span> Heronian triangles with sides <= 200.</li>
+/// <li class="rosetta__list-item--ordered">Show the count of how many triangles are found.</li>
+/// <li class="rosetta__list-item--ordered">Order the triangles by first increasing area, then by increasing perimeter, then by increasing maximum side lengths</li>
+/// <li class="rosetta__list-item--ordered">Show the first ten ordered triangles in a table of sides, perimeter, and area.</li>
+/// <li class="rosetta__list-item--ordered">Show a similar ordered table for those triangles with area = 210</li>
 /// <br>
+/// </ol>
 /// <br>
 /// Show all output here.
 /// <br>

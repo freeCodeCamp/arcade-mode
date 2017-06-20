@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -37,28 +37,28 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task </dt></dl>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">Create a function fs( f, s ) that takes a function, f( n ), of one value and a sequence of values s.<br> Function fs should return an ordered sequence of the result of applying function f to every value of s in turn.</li>
+/// <li class="rosetta__list-item--unordered">Create a function fs( f, s ) that takes a function, f( n ), of one value and a sequence of values s.<br> Function fs should return an ordered sequence of the result of applying function f to every value of s in turn.</li>
 /// <br>
 /// </ul>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">Create function f1 that takes a value and returns it multiplied by 2.</li>
-/// <li class="rosetta__list-item">Create function f2 that takes a value and returns it squared.</li>
+/// <li class="rosetta__list-item--unordered">Create function f1 that takes a value and returns it multiplied by 2.</li>
+/// <li class="rosetta__list-item--unordered">Create function f2 that takes a value and returns it squared.</li>
 /// <br>
 /// </ul>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">Partially apply f1 to fs to form function fsf1( s )</li>
-/// <li class="rosetta__list-item">Partially apply f2 to fs to form function fsf2( s )</li>
+/// <li class="rosetta__list-item--unordered">Partially apply f1 to fs to form function fsf1( s )</li>
+/// <li class="rosetta__list-item--unordered">Partially apply f2 to fs to form function fsf2( s )</li>
 /// <br>
 /// </ul>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">Test fsf1 and fsf2 by evaluating them with s being the sequence of integers from 0 to 3 inclusive and then the sequence of even integers from 2 to 8 inclusive.</li>
+/// <li class="rosetta__list-item--unordered">Test fsf1 and fsf2 by evaluating them with s being the sequence of integers from 0 to 3 inclusive and then the sequence of even integers from 2 to 8 inclusive.</li>
 /// <br>
 /// </ul>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Notes</dt></dl>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">In partially applying the functions f1 or f2 to fs, there should be no <span class="rosetta__text--italic">explicit</span> mention of any other parameters to fs, although introspection of fs within the partial applicator to find its parameters <span class="rosetta__text--italic">is</span> allowed.</li>
-/// <li class="rosetta__list-item">This task is more about <span class="rosetta__text--italic">how</span> results are generated rather than just getting results.</li>
+/// <li class="rosetta__list-item--unordered">In partially applying the functions f1 or f2 to fs, there should be no <span class="rosetta__text--italic">explicit</span> mention of any other parameters to fs, although introspection of fs within the partial applicator to find its parameters <span class="rosetta__text--italic">is</span> allowed.</li>
+/// <li class="rosetta__list-item--unordered">This task is more about <span class="rosetta__text--italic">how</span> results are generated rather than just getting results.</li>
 /// <br>
 /// </ul><br><br>
 /// <br>

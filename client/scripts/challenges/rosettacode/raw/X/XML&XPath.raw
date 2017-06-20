@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -22,9 +22,9 @@ replaceWithActualFunctionHere;
 /// <br>
 /// Perform the following three XPath queries on the XML Document below:
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">Retrieve the first "item" element</li>
-/// <li class="rosetta__list-item">Perform an action on each "price" element (print it out)</li>
-/// <li class="rosetta__list-item">Get an array of all the "name" elements</li>
+/// <li class="rosetta__list-item--unordered">Retrieve the first "item" element</li>
+/// <li class="rosetta__list-item--unordered">Perform an action on each "price" element (print it out)</li>
+/// <li class="rosetta__list-item--unordered">Get an array of all the "name" elements</li>
 /// <br>
 /// </ul>
 /// XML Document:

@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Recursion
 
 /// difficulty: ?
 
@@ -19,7 +19,7 @@ replaceWithActualFunctionHere;
 
 /// description:
 /// <br>
-/// [[Category:Recursion]]
+/// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
 /// Implement a binary tree where each node carries an integer, &nbsp; and implement:
@@ -49,7 +49,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">See also:</dt></dl>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">&nbsp; Wikipedia article: &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Tree traversal" title="wp: Tree traversal">Tree traversal</a>.</li>
+/// <li class="rosetta__list-item--unordered">&nbsp; Wikipedia article: &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Tree traversal" title="wp: Tree traversal">Tree traversal</a>.</li>
 /// <br>
 /// </ul><br><br>
 /// <br>

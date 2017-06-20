@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -22,11 +22,11 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
-/// Provide an algorithm as per the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Calendar]] task, except the entire code for the algorithm must be presented &nbsp; <span class="rosetta__text--italic">entirely without lowercase</span>. 
+/// Provide an algorithm as per the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Calendar" title="Calendar"></a> task, except the entire code for the algorithm must be presented &nbsp; <span class="rosetta__text--italic">entirely without lowercase</span>. 
 /// <br>
 /// Also - as per many 1969 era <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/line printer#Paper (forms) handling" title="wp: line printer#Paper (forms) handling">line printer</a>s - format the calendar to nicely fill a page that is 132 characters wide.
 /// <br>
-/// (Hint: manually convert the code from the [[Calendar]] task to all UPPERCASE)
+/// (Hint: manually convert the code from the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Calendar" title="Calendar"></a> task to all UPPERCASE)
 /// <br>
 /// This task also is inspired by [http://www.ee.ryerson.ca/~elf/hack/realmen.html Real Programmers Don't Use PASCAL] by Ed Post, Datamation, volume 29 number 7, July 1983.
 ///  THE REAL PROGRAMMER'S NATURAL HABITAT
@@ -35,20 +35,7 @@ replaceWithActualFunctionHere;
 /// Moreover this task is further inspired by the <span class="rosetta__text--italic">long lost</span> corollary article titled:
 ///  "Real programmers think in UPPERCASE"!
 /// <br>
-/// Note: Whereas today we <span class="rosetta__text--italic">only</span> need to worry about <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/ASCII" title="wp: ASCII">ASCII]], [[wp:UTF-8" title="Calendar]] task, except the entire code for the algorithm must be presented &nbsp; <span class="rosetta__text--italic">entirely without lowercase</span>. 
-/// <br>
-/// Also - as per many 1969 era <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/line printer#Paper (forms) handling" title="wp: line printer#Paper (forms) handling">line printer</a>s - format the calendar to nicely fill a page that is 132 characters wide.
-/// <br>
-/// (Hint: manually convert the code from the [[Calendar]] task to all UPPERCASE)
-/// <br>
-/// This task also is inspired by [http://www.ee.ryerson.ca/~elf/hack/realmen.html Real Programmers Don't Use PASCAL] by Ed Post, Datamation, volume 29 number 7, July 1983.
-///  THE REAL PROGRAMMER'S NATURAL HABITAT
-///  "Taped to the wall is a line-printer Snoopy calender for the year 1969."
-/// <br>
-/// Moreover this task is further inspired by the <span class="rosetta__text--italic">long lost</span> corollary article titled:
-///  "Real programmers think in UPPERCASE"!
-/// <br>
-/// Note: Whereas today we <span class="rosetta__text--italic">only</span> need to worry about <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/ASCII" title="wp: ASCII">ASCII]], [[wp:UTF-8">UTF-8</a>, [[wp:UTF-16/UCS-2|UTF-16]], [[wp:UTF-32/UCS-4|UTF-32]], [[wp:UTF-7|UTF-7]] and [[wp:UTF-EBCDIC|UTF-EBCDIC]] encodings, in the 1960s having code in UPPERCASE was often mandatory as characters were often stuffed into [[wp:36-bit|36-bit]] words as 6 lots of [[wp:6-bit|6-bit]] characters. More extreme words sizes include [[wp:60-bit|60-bit]] words of the [[wp:CDC 6000 series|CDC 6000 series</a> computers.   The Soviets even had a national character set that was inclusive of all
+/// Note: Whereas today we <span class="rosetta__text--italic">only</span> need to worry about <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/ASCII" title="wp: ASCII">ASCII]], [[wp:UTF-8|UTF-8]], [[wp:UTF-16/UCS-2|UTF-16]], [[wp:UTF-32/UCS-4|UTF-32]], [[wp:UTF-7|UTF-7]] and [[wp:UTF-EBCDIC|UTF-EBCDIC]] encodings, in the 1960s having code in UPPERCASE was often mandatory as characters were often stuffed into [[wp:36-bit|36-bit]] words as 6 lots of [[wp:6-bit|6-bit]] characters. More extreme words sizes include [[wp:60-bit|60-bit]] words of the [[wp:CDC 6000 series|CDC 6000 series</a> computers.   The Soviets even had a national character set that was inclusive of all
 /// <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/GOST_10859#4-bit code: Binary coded decimal" title="wp: GOST_10859#4-bit code: Binary coded decimal">4-bit</a>,
 /// <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/GOST_10859#5-bit code: with BCD & mathematical operators" title="wp: GOST_10859#5-bit code: with BCD & mathematical operators">5-bit</a>,
 /// <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/GOST_10859#6-bit code: with only Cyrillic upper case letters" title="wp: GOST_10859#6-bit code: with only Cyrillic upper case letters">6-bit</a> &

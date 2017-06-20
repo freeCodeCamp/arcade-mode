@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Simple
 
 /// difficulty: ?
 
@@ -19,7 +19,7 @@ replaceWithActualFunctionHere;
 
 /// description:
 /// <br>
-/// [[Category:Simple]]
+/// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
 /// Print out &nbsp; &nbsp; &nbsp; <big> <span class="rosetta__text--bold">SPAM</span> </big> &nbsp; &nbsp; &nbsp; followed by a &nbsp; <span class="rosetta__text--italic">newline</span> &nbsp; in an infinite loop.

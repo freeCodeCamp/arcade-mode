@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Recursion
 
 /// difficulty: ?
 
@@ -18,33 +18,33 @@ const assert = require('chai').assert;
 replaceWithActualFunctionHere;
 
 /// description:
-/// [[Category:Recursion]]
+/// <br>
 /// Create a program which parses and evaluates arithmetic expressions.
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Requirements:</dt></dl>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">An <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Abstract_syntax_tree" title="wp: Abstract_syntax_tree">abstract-syntax tree</a> (AST) for the expression must be created from parsing the input. </li>
-/// <li class="rosetta__list-item">The AST must be used in evaluation, also, so the input may not be directly evaluated (e.g. by calling eval or a similar language feature.) </li>
-/// <li class="rosetta__list-item">The expression will be a string or list of symbols like "(1+3)*7". </li>
-/// <li class="rosetta__list-item">The four symbols + - * / must be supported as binary operators with conventional precedence rules. </li>
-/// <li class="rosetta__list-item">Precedence-control parentheses must also be supported.</li>
+/// <li class="rosetta__list-item--unordered">An <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Abstract_syntax_tree" title="wp: Abstract_syntax_tree">abstract-syntax tree</a> (AST) for the expression must be created from parsing the input. </li>
+/// <li class="rosetta__list-item--unordered">The AST must be used in evaluation, also, so the input may not be directly evaluated (e.g. by calling eval or a similar language feature.) </li>
+/// <li class="rosetta__list-item--unordered">The expression will be a string or list of symbols like "(1+3)*7". </li>
+/// <li class="rosetta__list-item--unordered">The four symbols + - * / must be supported as binary operators with conventional precedence rules. </li>
+/// <li class="rosetta__list-item--unordered">Precedence-control parentheses must also be supported.</li>
 /// <br>
 /// </ul><br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Note:</dt></dl>
 /// For those who don't remember, mathematical precedence is as follows:
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">Parentheses</li>
-/// <li class="rosetta__list-item">Multiplication/Division (left to right)</li>
-/// <li class="rosetta__list-item">Addition/Subtraction (left to right)</li>
+/// <li class="rosetta__list-item--unordered">Parentheses</li>
+/// <li class="rosetta__list-item--unordered">Multiplication/Division (left to right)</li>
+/// <li class="rosetta__list-item--unordered">Addition/Subtraction (left to right)</li>
 /// <br>
 /// </ul><br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">C.f: </dt></dl>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">[[24 game Player]].</li>
-/// <li class="rosetta__list-item">[[Parsing/RPN calculator algorithm]].</li>
-/// <li class="rosetta__list-item">[[Parsing/RPN to infix conversion]].</li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/24 game Player" title="24 game Player"></a>.</li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Parsing/RPN calculator algorithm" title="Parsing/RPN calculator algorithm"></a>.</li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Parsing/RPN to infix conversion" title="Parsing/RPN to infix conversion"></a>.</li>
 /// <br>
 /// </ul><br><br>
 /// <br>

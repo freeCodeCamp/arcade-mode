@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -37,9 +37,9 @@ replaceWithActualFunctionHere;
 /// <br>
 /// Caveats:
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">case and spacing aren't significant - just letters (harmonize case)</li>
-/// <li class="rosetta__list-item">don't expect the names to be in any order - such as being sorted</li>
-/// <li class="rosetta__list-item">don't rely on names to be unique (eliminate duplicates - meaning if Iowa appears twice you can only use it once)</li>
+/// <li class="rosetta__list-item--unordered">case and spacing aren't significant - just letters (harmonize case)</li>
+/// <li class="rosetta__list-item--unordered">don't expect the names to be in any order - such as being sorted</li>
+/// <li class="rosetta__list-item--unordered">don't rely on names to be unique (eliminate duplicates - meaning if Iowa appears twice you can only use it once)</li>
 /// <br>
 /// </ul>
 /// Comma separated list of state names used in the original puzzle:

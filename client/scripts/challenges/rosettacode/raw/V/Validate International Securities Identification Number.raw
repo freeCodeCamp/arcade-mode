@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -44,9 +44,11 @@ replaceWithActualFunctionHere;
 /// For this task, you may assume that any 2-character alphabetic sequence is a valid country code.
 /// <br>
 /// The checksum can be validated as follows:
-/// # <span class="rosetta__text--bold">Replace letters with digits</span>, by converting each character from base 36 to base 10, e.g. <code>AU0000XVGZA3</code> &rarr;<code>1030000033311635103</code>.
-/// # <span class="rosetta__text--bold">Perform the Luhn test on this base-10 number.</span><br>There is a separate task for this test: <span class="rosetta__text--italic">[[Luhn test of credit card numbers]]</span>.<br>You don't have to replicate the implementation of this test here &ndash; you can just call the existing function from that task. (Add a comment stating if you did this.)
+/// <ol class="rosetta__ordered-list">
+/// <li class="rosetta__list-item--ordered"><span class="rosetta__text--bold">Replace letters with digits</span>, by converting each character from base 36 to base 10, e.g. <code>AU0000XVGZA3</code> &rarr;<code>1030000033311635103</code>.</li>
+/// <li class="rosetta__list-item--ordered"><span class="rosetta__text--bold">Perform the Luhn test on this base-10 number.</span><br>There is a separate task for this test: <span class="rosetta__text--italic"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Luhn test of credit card numbers" title="Luhn test of credit card numbers"></a></span>.<br>You don't have to replicate the implementation of this test here &ndash; you can just call the existing function from that task. (Add a comment stating if you did this.)</li>
 /// <br>
+/// </ol>
 /// <br>
 /// <br>
 /// {| class="wikitable"
@@ -69,20 +71,20 @@ replaceWithActualFunctionHere;
 /// | <tt>FR0000988040</tt>  || valid || 
 /// |}
 /// <br>
-/// (The comments are just informational. Your function should simply return a Boolean result. See [[#Perl_6]] for a reference solution.)
+/// (The comments are just informational. Your function should simply return a Boolean result. See <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/#Perl_6" title="#Perl_6"></a> for a reference solution.)
 /// <br>
 /// <br>
 /// <br>
 /// Useful resources:
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">[http://www.isincodes.net/validate-isin.php Interactive online ISIN validator]</li>
-/// <li class="rosetta__list-item">Wikipedia article: <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/International_Securities_Identification_Number" title="wp: International_Securities_Identification_Number">International Securities Identification Number</a></li>
+/// <li class="rosetta__list-item--unordered">[http://www.isincodes.net/validate-isin.php Interactive online ISIN validator]</li>
+/// <li class="rosetta__list-item--unordered">Wikipedia article: <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/International_Securities_Identification_Number" title="wp: International_Securities_Identification_Number">International Securities Identification Number</a></li>
 /// <br>
 /// </ul><br>
 /// <br>
 /// Related tasks:
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">[[Luhn test of credit card numbers]]</li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Luhn test of credit card numbers" title="Luhn test of credit card numbers"></a></li>
 /// <br>
 /// </ul><br>
 /// <hr>

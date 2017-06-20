@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -32,12 +32,12 @@ replaceWithActualFunctionHere;
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
 /// Implement at least one of these algorithms and print out the first 15 Catalan numbers with each. 
 /// <br>
-/// [[Memoization]] &nbsp; is not required, but may be worth the effort when using the second method above.
+/// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Memoization" title="Memoization"></a> &nbsp; is not required, but may be worth the effort when using the second method above.
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks:</dt></dl>
-/// *[[Catalan numbers/Pascal's triangle]]
-/// *[[Evaluate binomial coefficients]]
+/// *<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Catalan numbers/Pascal's triangle" title="Catalan numbers/Pascal's triangle"></a>
+/// *<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Evaluate binomial coefficients" title="Evaluate binomial coefficients"></a>
 /// <br><br>
 /// <br>
 /// <br>

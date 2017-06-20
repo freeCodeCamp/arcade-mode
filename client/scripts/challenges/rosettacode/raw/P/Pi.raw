@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -28,10 +28,10 @@ replaceWithActualFunctionHere;
 /// The output should be a decimal sequence beginning &nbsp; 3.14159265 ...
 /// <br>
 /// <br>
-/// Note: this task is about &nbsp; <span class="rosetta__text--italic">calculating</span> &nbsp; pi. &nbsp; For information on built-in pi constants see [[Real constants and functions]].
+/// Note: this task is about &nbsp; <span class="rosetta__text--italic">calculating</span> &nbsp; pi. &nbsp; For information on built-in pi constants see <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Real constants and functions" title="Real constants and functions"></a>.
 /// <br>
 /// <br>
-/// Related Task [[Arithmetic-geometric mean/Calculate Pi]]
+/// Related Task <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Arithmetic-geometric mean/Calculate Pi" title="Arithmetic-geometric mean/Calculate Pi"></a>
 /// <br><br>
 /// <br>
 /// <br>

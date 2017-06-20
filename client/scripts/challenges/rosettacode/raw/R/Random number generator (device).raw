@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Input Output
 
 /// difficulty: ?
 
@@ -19,7 +19,7 @@ replaceWithActualFunctionHere;
 
 /// description:
 /// <br>
-/// [[Category:Input Output]]
+/// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
 /// If your system has a means to generate random numbers involving not only a software algorithm &nbsp; (like the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki//dev/random" title="wp: /dev/random">/dev/urandom</a> devices in Unix), &nbsp; then:

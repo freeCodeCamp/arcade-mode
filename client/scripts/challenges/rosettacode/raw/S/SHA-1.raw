@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Checksums
 
 /// difficulty: ?
 
@@ -18,7 +18,7 @@ const assert = require('chai').assert;
 replaceWithActualFunctionHere;
 
 /// description:
-///  <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category:Checksums]]
+///  
 /// <span class="rosetta__text--bold">SHA-1</span> or <span class="rosetta__text--bold">SHA1</span> is a one-way hash function; 
 /// it computes a 160-bit message digest. 
 /// SHA-1 often appears in security protocols; for example, 
@@ -26,17 +26,9 @@ replaceWithActualFunctionHere;
 /// BitTorrent uses SHA-1 to verify downloads. 
 /// Git and Mercurial use SHA-1 digests to identify commits.
 /// <br>
-/// A US government standard, [[SHA-1/FIPS-180-1" title="Category:Checksums]]
-/// <span class="rosetta__text--bold">SHA-1</span> or <span class="rosetta__text--bold">SHA1</span> is a one-way hash function; 
-/// it computes a 160-bit message digest. 
-/// SHA-1 often appears in security protocols; for example, 
-/// many HTTPS websites use RSA with SHA-1 to secure their connections. 
-/// BitTorrent uses SHA-1 to verify downloads. 
-/// Git and Mercurial use SHA-1 digests to identify commits.
+/// A US government standard, <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/SHA-1/FIPS-180-1" title="SHA-1/FIPS-180-1">FIPS 180-1</a>, defines SHA-1.
 /// <br>
-/// A US government standard, [[SHA-1/FIPS-180-1">FIPS 180-1</a>, defines SHA-1.
-/// <br>
-/// Find the SHA-1 message digest for a string of [[octet]]s. You may either call a SHA-1 library, or implement SHA-1 in your language. Both approaches interest Rosetta Code.
+/// Find the SHA-1 message digest for a string of <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/octet" title="octet"></a>s. You may either call a SHA-1 library, or implement SHA-1 in your language. Both approaches interest Rosetta Code.
 /// <br>
 /// {{alertbox|lightgray|<span class="rosetta__text--bold">Warning:</span> SHA-1 has [https://en.wikinews.org/wiki/Chinese_researchers_crack_major_U.S._government_algorithm_used_in_digital_signatures known weaknesses]. Theoretical attacks may find a collision after [http://lwn.net/Articles/337745/ 2<sup>52</sup> operations], or perhaps fewer. 
 /// This is much faster than a brute force attack of 2<sup>80</sup> operations. USgovernment [http://csrc.nist.gov/groups/ST/hash/statement.html deprecated SHA-1]. 

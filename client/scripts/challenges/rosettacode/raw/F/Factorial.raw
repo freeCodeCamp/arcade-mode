@@ -10,7 +10,11 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Recursion
+/// Memoization
+/// Classic CS problems and programs
+/// Arithmetic
+/// Simple
 
 /// difficulty: ?
 
@@ -19,10 +23,10 @@ replaceWithActualFunctionHere;
 
 /// description:
 /// <br>
-/// [[Category:Recursion]]
-/// [[Category:Memoization]][[Category:Classic CS problems and programs]]
-/// [[Category:Arithmetic]]
-/// [[Category:Simple]]
+/// <br>
+/// <br>
+/// <br>
+/// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Definitions:</dt></dl>
 /// <span class="rosetta__text--indented">* &nbsp; The &nbsp; <span class="rosetta__text--bold">Factorial Function</span> &nbsp; of a positive integer, &nbsp; <big> <span class="rosetta__text--italic">n</span>, </big> &nbsp; is defined as the product of the sequence:</span>

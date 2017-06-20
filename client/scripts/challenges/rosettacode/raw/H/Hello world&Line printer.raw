@@ -10,7 +10,8 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Hardware
+/// Printer
 
 /// difficulty: ?
 
@@ -19,8 +20,8 @@ replaceWithActualFunctionHere;
 
 /// description:
 ///  
-/// [[Category:Hardware]] 
-/// [[Category:Printer]]
+///  
+/// <br>
 /// <br>
 /// <br>
 /// <br>

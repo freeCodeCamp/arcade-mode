@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -20,7 +20,7 @@ replaceWithActualFunctionHere;
 /// description:
 /// <br>
 /// An <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Aliquot sequence" title="wp: Aliquot sequence">aliquot sequence</a> of a positive integer K is defined recursively as the first member
-/// being K and subsequent members being the sum of the [[Proper divisors]] of the previous term.
+/// being K and subsequent members being the sum of the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Proper divisors" title="Proper divisors"></a> of the previous term.
 /// <br>
 /// <span class="rosetta__text--indented">* If the terms eventually reach 0 then the series for K is said to <span class="rosetta__text--bold">terminate</span>.</span>
 /// <br>
@@ -37,19 +37,21 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
-/// # Create routine(s) to generate the aliquot sequence of a positive integer enough to classify it according to the classifications given above.
-/// # Use it to display the classification and sequences of the numbers one to ten inclusive.
-/// # Use it to show the classification and sequences of the following integers, in order:
-/// <span class="rosetta__text--indented">: 11, 12, 28, 496, 220, 1184,  12496, 1264460, 790, 909, 562, 1064, 1488, and optionally 15355717786080.</span>
+/// <ol class="rosetta__ordered-list">
+/// <li class="rosetta__list-item--ordered">Create routine(s) to generate the aliquot sequence of a positive integer enough to classify it according to the classifications given above.</li>
+/// <li class="rosetta__list-item--ordered">Use it to display the classification and sequences of the numbers one to ten inclusive.</li>
+/// <li class="rosetta__list-item--ordered">Use it to show the classification and sequences of the following integers, in order:</li>
+/// <br>
+/// </ol><span class="rosetta__text--indented">: 11, 12, 28, 496, 220, 1184,  12496, 1264460, 790, 909, 562, 1064, 1488, and optionally 15355717786080.</span>
 /// <br>
 /// Show all output on this page.
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Cf.</dt></dl>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">[[Abundant, deficient and perfect number classifications]]. (Classifications from only the first two members of the whole sequence).</li>
-/// <li class="rosetta__list-item">[[Proper divisors]]</li>
-/// <li class="rosetta__list-item">[[Amicable pairs]]</li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Abundant, deficient and perfect number classifications" title="Abundant, deficient and perfect number classifications"></a>. (Classifications from only the first two members of the whole sequence).</li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Proper divisors" title="Proper divisors"></a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Amicable pairs" title="Amicable pairs"></a></li>
 /// <br>
 /// </ul><br><br>
 /// <br>

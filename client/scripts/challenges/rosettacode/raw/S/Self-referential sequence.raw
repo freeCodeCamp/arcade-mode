@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -19,7 +19,7 @@ replaceWithActualFunctionHere;
 
 /// description:
 /// <br>
-/// There are several ways to generate a self-referential sequence. One very common one (the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Look-and-say sequence]]) is to start with a positive integer, then generate the next term by concatenating enumerated groups of adjacent alike digits:
+/// There are several ways to generate a self-referential sequence. One very common one (the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Look-and-say sequence" title="Look-and-say sequence"></a>) is to start with a positive integer, then generate the next term by concatenating enumerated groups of adjacent alike digits:
 /// <br>
 /// 0, 10, 1110, 3110, 132110, 1113122110, 311311222110 ...
 /// <br>
@@ -29,17 +29,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// Count how many of each alike digit there is, then concatenate the sum and digit for each of the sorted enumerated digits. Note that the first five terms are the same as for the previous sequence.
 /// <br>
-/// 0, 10, 1110, 3110, 132110, 13123110, 23124110 ... see [[oeis:A036058" title="Look-and-say sequence]]) is to start with a positive integer, then generate the next term by concatenating enumerated groups of adjacent alike digits:
-/// <br>
-/// 0, 10, 1110, 3110, 132110, 1113122110, 311311222110 ...
-/// <br>
-/// The terms generated grow in length geometrically and never converge.
-/// <br>
-/// Another way to generate a self-referential sequence is to summarize the previous term.
-/// <br>
-/// Count how many of each alike digit there is, then concatenate the sum and digit for each of the sorted enumerated digits. Note that the first five terms are the same as for the previous sequence.
-/// <br>
-/// 0, 10, 1110, 3110, 132110, 13123110, 23124110 ... see [[oeis:A036058">The On-Line Encyclopedia of Integer Sequences</a>
+/// 0, 10, 1110, 3110, 132110, 13123110, 23124110 ... see <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/oeis:A036058" title="oeis:A036058">The On-Line Encyclopedia of Integer Sequences</a>
 /// <br>
 /// Sort the digits largest to smallest. Do not include counts of digits that do not appear in the previous term.
 /// <br>
@@ -76,7 +66,7 @@ replaceWithActualFunctionHere;
 /// 19281716151413427110
 /// 19182716152413228110
 /// </pre>
-/// See also: [[Self-describing numbers]] and [[Look-and-say sequence]]
+/// See also: <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Self-describing numbers" title="Self-describing numbers"></a> and <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Look-and-say sequence" title="Look-and-say sequence"></a>
 /// <br>
 /// <br>
 

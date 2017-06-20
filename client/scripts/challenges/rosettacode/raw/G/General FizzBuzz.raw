@@ -10,7 +10,8 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Iteration
+/// Recursion
 
 /// difficulty: ?
 
@@ -19,11 +20,11 @@ replaceWithActualFunctionHere;
 
 /// description:
 ///  
-/// [[Category:Iteration]] 
-/// [[Category:Recursion]] 
+///  
+///  
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
-/// Write a generalized version of [[FizzBuzz]] that works for any list of factors, along with their words. 
+/// Write a generalized version of <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/FizzBuzz" title="FizzBuzz"></a> that works for any list of factors, along with their words. 
 /// <br>
 /// This is basically a "fizzbuzz" implementation where the user supplies the parameters. 
 /// <br>

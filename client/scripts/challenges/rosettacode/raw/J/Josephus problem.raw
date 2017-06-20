@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -47,10 +47,12 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Notes:</dt></dl>
-/// # You can always play the executioner and follow the procedure exactly as described, walking around the circle, counting (and cutting off) heads along the way.  This would yield the complete killing sequence and answer the above questions, with a complexity of probably $O(kn)$.  However, individually it takes no more than $O(m)$ to find out which prisoner is the $m$-th to die.
-/// # If it's more convenient, you can number prisoners from &nbsp; $1$ to $n$ &nbsp; instead. &nbsp; If you choose to do so, please state it clearly.
-/// # An alternative description has the people committing assisted suicide instead of being executed, and the last person simply walks away. These details are not relevant, at least not mathematically.
-/// <br><br>
+/// <ol class="rosetta__ordered-list">
+/// <li class="rosetta__list-item--ordered">You can always play the executioner and follow the procedure exactly as described, walking around the circle, counting (and cutting off) heads along the way.  This would yield the complete killing sequence and answer the above questions, with a complexity of probably $O(kn)$.  However, individually it takes no more than $O(m)$ to find out which prisoner is the $m$-th to die.</li>
+/// <li class="rosetta__list-item--ordered">If it's more convenient, you can number prisoners from &nbsp; $1$ to $n$ &nbsp; instead. &nbsp; If you choose to do so, please state it clearly.</li>
+/// <li class="rosetta__list-item--ordered">An alternative description has the people committing assisted suicide instead of being executed, and the last person simply walks away. These details are not relevant, at least not mathematically.</li>
+/// <br>
+/// </ol><br><br>
 /// <br>
 /// <br>
 

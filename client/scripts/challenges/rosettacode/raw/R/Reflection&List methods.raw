@@ -10,7 +10,8 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Programming Tasks
+/// Object oriented
 
 /// difficulty: ?
 
@@ -19,17 +20,12 @@ replaceWithActualFunctionHere;
 
 /// description:
 /// <br>
-///  <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Category:Programming Tasks]] [[Category:Object oriented]]
+///   
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
 /// The goal is to get the methods of an object, as names, values or both.
 /// <br>
-/// Some languages offer [[Respond to an unknown method call" title="Category:Programming Tasks]] [[Category:Object oriented]]
-/// <br>
-/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
-/// The goal is to get the methods of an object, as names, values or both.
-/// <br>
-/// Some languages offer [[Respond to an unknown method call">dynamic methods</a>, which in general can only be inspected if a class' public API includes a way of listing them.
+/// Some languages offer <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Respond to an unknown method call" title="Respond to an unknown method call">dynamic methods</a>, which in general can only be inspected if a class' public API includes a way of listing them.
 /// <br>
 /// <br>
 

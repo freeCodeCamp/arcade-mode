@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -94,7 +94,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">See also;</dt></dl>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">&nbsp; [https://perso.ens-lyon.fr/jean-michel.muller/chapitre1.pdf Floating-Point Arithmetic] &nbsp; Section 1.3.2 Difficult problems.</li>
+/// <li class="rosetta__list-item--unordered">&nbsp; [https://perso.ens-lyon.fr/jean-michel.muller/chapitre1.pdf Floating-Point Arithmetic] &nbsp; Section 1.3.2 Difficult problems.</li>
 /// <br>
 /// </ul><br><br>
 /// <br>

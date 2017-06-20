@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -33,13 +33,13 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks</dt></dl>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">[[A* search algorithm]]</li>
-/// <li class="rosetta__list-item">[[N-queens problem]]</li>
-/// <li class="rosetta__list-item">[[Solve a Hidato puzzle]]</li>
-/// <li class="rosetta__list-item">[[Solve a Holy Knight's tour]]</li>
-/// <li class="rosetta__list-item">[[Solve a Hopido puzzle]]</li>
-/// <li class="rosetta__list-item">[[Solve a Numbrix puzzle]]</li>
-/// <li class="rosetta__list-item">[[Solve the no connection puzzle]]</li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/A* search algorithm" title="A* search algorithm"></a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/N-queens problem" title="N-queens problem"></a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Solve a Hidato puzzle" title="Solve a Hidato puzzle"></a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Solve a Holy Knight's tour" title="Solve a Holy Knight's tour"></a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Solve a Hopido puzzle" title="Solve a Hopido puzzle"></a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Solve a Numbrix puzzle" title="Solve a Numbrix puzzle"></a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Solve the no connection puzzle" title="Solve the no connection puzzle"></a></li>
 /// <br>
 /// </ul><br><br>
 /// <br>

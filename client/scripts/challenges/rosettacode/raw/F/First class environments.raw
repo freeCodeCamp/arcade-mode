@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -31,7 +31,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// The task: Build a dozen environments, and a single piece of code to be run repeatedly in each of these envionments.
 /// <br>
-/// Each environment contains the bindings for two variables: A value in the [[Hailstone sequence]], and a count which is incremented until the value drops to 1. The initial hailstone values are 1 through 12, and the count in each environment is zero.
+/// Each environment contains the bindings for two variables: A value in the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Hailstone sequence" title="Hailstone sequence"></a>, and a count which is incremented until the value drops to 1. The initial hailstone values are 1 through 12, and the count in each environment is zero.
 /// <br>
 /// When the code runs, it calculates the next hailstone step in the current environment (unless the value is already 1) and counts the steps. Then it prints the current value in a tabular form.
 /// <br>

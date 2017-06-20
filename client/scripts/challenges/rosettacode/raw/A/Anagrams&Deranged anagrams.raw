@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -31,8 +31,8 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">[[Permutations/Derangements]]</li>
-/// <li class="rosetta__list-item">[[Best shuffle]]</li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Permutations/Derangements" title="Permutations/Derangements"></a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Best shuffle" title="Best shuffle"></a></li>
 /// <br>
 /// </ul>
 /// <br>

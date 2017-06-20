@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -38,8 +38,8 @@ replaceWithActualFunctionHere;
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
 /// Using <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Kronecker_product" title="Kronecker_product"> Kronecker product</a> implement and show two popular and well-known fractals, i.e.:
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Vicsek fractal" title="wp: Vicsek fractal"> Vicsek fractal</a>;</li>
-/// <li class="rosetta__list-item"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Sierpinski carpet" title="wp: Sierpinski carpet"> Sierpinski carpet fractal</a>.</li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Vicsek fractal" title="wp: Vicsek fractal"> Vicsek fractal</a>;</li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Sierpinski carpet" title="wp: Sierpinski carpet"> Sierpinski carpet fractal</a>.</li>
 /// <br>
 /// </ul>
 /// <br>The last one (<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Sierpinski carpet" title="Sierpinski carpet"> Sierpinski carpet</a>) is already here on RC, but built using different approaches.<br>
@@ -52,9 +52,9 @@ replaceWithActualFunctionHere;
 /// </pre>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Note:</dt></dl>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">Output could be a graphical or ASCII-art representation, but if an order is set > 4 then printing is not suitable.</li>
-/// <li class="rosetta__list-item">The orientation and distortion of the fractal could be your language/tool specific.</li>
-/// <li class="rosetta__list-item">It would be nice to see one additional fractal of your choice, e.g., based on using a single (double) letter(s) of an alphabet, any sign(s) or alredy made a resultant matrix of the Kronecker product.</li>
+/// <li class="rosetta__list-item--unordered">Output could be a graphical or ASCII-art representation, but if an order is set > 4 then printing is not suitable.</li>
+/// <li class="rosetta__list-item--unordered">The orientation and distortion of the fractal could be your language/tool specific.</li>
+/// <li class="rosetta__list-item--unordered">It would be nice to see one additional fractal of your choice, e.g., based on using a single (double) letter(s) of an alphabet, any sign(s) or alredy made a resultant matrix of the Kronecker product.</li>
 /// <br>
 /// </ul>
 /// <br>See implementations and results below in JavaScript, PARI/GP and R languages. They have additional samples of "H", "+" and checkerboard fractals.

@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -22,16 +22,16 @@ replaceWithActualFunctionHere;
 /// <br>
 /// Do so in a way which:
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">does not involve string manipulation of the input source code</li>
-/// <li class="rosetta__list-item">is plausibly extensible to a runtime-chosen set of bindings rather than just <var>x</var></li>
-/// <li class="rosetta__list-item">does not make <var>x</var> a <span class="rosetta__text--italic">global</span> variable</li>
+/// <li class="rosetta__list-item--unordered">does not involve string manipulation of the input source code</li>
+/// <li class="rosetta__list-item--unordered">is plausibly extensible to a runtime-chosen set of bindings rather than just <var>x</var></li>
+/// <li class="rosetta__list-item--unordered">does not make <var>x</var> a <span class="rosetta__text--italic">global</span> variable</li>
 /// <br>
 /// </ul>or note that these are impossible.
 /// <br>
 /// ===See also===
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">For more general examples and language-specific details, see [[Eval]].</li>
-/// <li class="rosetta__list-item">[[Dynamic variable names]] is a similar task.</li>
+/// <li class="rosetta__list-item--unordered">For more general examples and language-specific details, see <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Eval" title="Eval"></a>.</li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Dynamic variable names" title="Dynamic variable names"></a> is a similar task.</li>
 /// <br>
 /// </ul>
 /// <br>

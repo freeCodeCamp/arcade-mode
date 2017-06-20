@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Raster graphics operations
 
 /// difficulty: ?
 
@@ -28,13 +28,13 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <br>
-/// [[Category:Raster graphics operations]]
+/// <br>
 /// Generate a random black and white 320x240 image continuously, 
 /// showing FPS (frames per second).
 /// <br>
 /// Sample image:
 /// <br>
-/// [[Image:NoiseOutput.png]]
+/// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Image:NoiseOutput.png" title="Image:NoiseOutput.png"></a>
 /// <br>
 /// <br>
 

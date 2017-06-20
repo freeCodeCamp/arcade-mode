@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -39,7 +39,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// Demonstrate how to get the size of a variable.
 /// <br>
-/// See also: [[Host introspection]]
+/// See also: <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Host introspection" title="Host introspection"></a>
 /// <br>
 /// <br>
 

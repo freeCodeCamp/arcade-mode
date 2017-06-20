@@ -10,7 +10,8 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Functions and subroutines
+/// Simple
 
 /// difficulty: ?
 
@@ -18,7 +19,7 @@ const assert = require('chai').assert;
 replaceWithActualFunctionHere;
 
 /// description:
-/// [[Category:Functions and subroutines]] [[Category:Simple]]
+///  
 /// A function is a body of code that returns a value. 
 /// <br>
 /// The value returned may depend on arguments provided to the function.
@@ -32,7 +33,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related task:</dt></dl>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">&nbsp; [[Function prototype]]</li>
+/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Function prototype" title="Function prototype"></a></li>
 /// <br>
 /// </ul><br><br>
 /// <br>

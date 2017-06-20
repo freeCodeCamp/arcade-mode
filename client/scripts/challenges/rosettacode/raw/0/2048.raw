@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -26,7 +26,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// Requirements:
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">"Non-greedy" movement. The tiles that were created by combining other tiles should not be combined again during the same turn (move). That is to say that moving the tile row of</li>
+/// <li class="rosetta__list-item--unordered">"Non-greedy" movement. The tiles that were created by combining other tiles should not be combined again during the same turn (move). That is to say that moving the tile row of</li>
 /// <br>
 /// </ul>
 ///   [2][2][2][2]
@@ -40,7 +40,7 @@ replaceWithActualFunctionHere;
 ///   .........[8]
 /// <br>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">"Move direction priority". If more than one variant of combining is possible, move direction shows one that will take effect. For example, moving the tile row of</li>
+/// <li class="rosetta__list-item--unordered">"Move direction priority". If more than one variant of combining is possible, move direction shows one that will take effect. For example, moving the tile row of</li>
 /// <br>
 /// </ul>
 ///   ...[2][2][2]
@@ -54,10 +54,10 @@ replaceWithActualFunctionHere;
 ///   ......[4][2]
 /// <br>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">Adding a new tile on a blank space. Most of the time new "2" is to be added and occasionally (10% of the time) - "4"</li>
-/// <li class="rosetta__list-item">Check for valid moves. The player shouldn't be able to skip their turn by trying a move that doesn't change the board.</li>
-/// <li class="rosetta__list-item">Win condition.</li>
-/// <li class="rosetta__list-item">Lose condition.</li>
+/// <li class="rosetta__list-item--unordered">Adding a new tile on a blank space. Most of the time new "2" is to be added and occasionally (10% of the time) - "4"</li>
+/// <li class="rosetta__list-item--unordered">Check for valid moves. The player shouldn't be able to skip their turn by trying a move that doesn't change the board.</li>
+/// <li class="rosetta__list-item--unordered">Win condition.</li>
+/// <li class="rosetta__list-item--unordered">Lose condition.</li>
 /// <br>
 /// </ul>
 /// <br>

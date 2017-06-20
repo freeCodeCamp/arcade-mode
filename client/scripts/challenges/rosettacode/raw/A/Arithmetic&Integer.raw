@@ -10,7 +10,9 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+/// Arithmetic operations
+/// Arithmetic
+/// Simple
 
 /// difficulty: ?
 
@@ -19,9 +21,9 @@ replaceWithActualFunctionHere;
 
 /// description:
 /// <br>
-/// [[Category:Arithmetic operations]]
-/// [[Category:Arithmetic]]
-///  [[Category:Simple]]
+/// <br>
+/// <br>
+///  
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
 /// Get two integers from the user, &nbsp;  and then (for those two integers), display their:

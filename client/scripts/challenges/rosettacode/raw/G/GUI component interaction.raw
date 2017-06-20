@@ -10,7 +10,7 @@ const assert = require('chai').assert;
 /// type: rosetta-code
 
 /// categories:
-/// ?
+
 
 /// difficulty: ?
 
@@ -43,9 +43,9 @@ replaceWithActualFunctionHere;
 /// Typically, the following is needed:
 /// <br>
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item">put values into input fields under program control</li>
-/// <li class="rosetta__list-item">read and check input from the user</li>
-/// <li class="rosetta__list-item">pop up dialogs to query the user for further information</li>
+/// <li class="rosetta__list-item--unordered">put values into input fields under program control</li>
+/// <li class="rosetta__list-item--unordered">read and check input from the user</li>
+/// <li class="rosetta__list-item--unordered">pop up dialogs to query the user for further information</li>
 /// <br>
 /// </ul>
 /// <br>
@@ -67,7 +67,7 @@ replaceWithActualFunctionHere;
 /// Pressing the "random" button presents a confirmation dialog, 
 /// and resets the field's value to a random value if the answer is "Yes".
 /// <br>
-/// (This task may be regarded as an extension of the task [[Simple windowed application]]).<br><br>
+/// (This task may be regarded as an extension of the task <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Simple windowed application" title="Simple windowed application"></a>).<br><br>
 /// <br>
 /// <br>
 
