@@ -38,7 +38,7 @@ function operateOnIDB (IDB, operation, data) {
         request.onsuccess = () => resolve(request.result);
         request.onerror = () => reject(request.error);
         break;
-      case 'DEL':
+      case 'DELETE':
         request = store.delete(data.toJS().id);
         request.onsuccess = () => resolve(request.result);
         request.onerror = () => reject(request.error);
@@ -67,5 +67,5 @@ async function operateWithIDB (operation, data) {
 export default function Persist () {
   this.fromStorage = () => operateWithIDB('GET', null);
   this.toStorage = data => operateWithIDB('PUT', data);
-  this.deleteFromStorage = data => operateWithIDB('DEL', data);
+  this.deleteFromStorage = data => operateWithIDB('DELETE', data);
 }
