@@ -40,8 +40,10 @@ const assert = require('chai').assert;
 /// (P C)
 /// (Z M)
 /// Some rules to keep in mind:
-/// 1. Once a letter on a block is used, that block cannot be used again.
-/// 2. The function should be case-insensitive.
+/// <ol class='rosetta__ordered-list'>
+/// <li class='rosetta__list-item--ordered'>Once a letter on a block is used, that block cannot be used again.</li>
+/// <li class='rosetta__list-item--ordered'>The function should be case-insensitive.</li>
+/// </ol>
 /// Implement a function that takes a string (word) and determines whether the word can be spelled with the given collection of blocks.
 
 /// challengeSeed:

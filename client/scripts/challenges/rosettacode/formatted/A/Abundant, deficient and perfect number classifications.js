@@ -18,8 +18,8 @@ const assert = require('chai').assert;
 getDPA(20000);
 
 /// description:
-/// These define three classifications of positive integers based on their Proper Divisors.
-/// Let P(n) be the sum of the proper divisors of n where proper divisors are all positive integers n other than n itself.
+/// These define three classifications of positive integers based on their <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Proper divisors" title="Proper divisors">proper divisors</a>.<br/>
+/// Let $P(n)$ be the sum of the proper divisors of n where proper divisors are all positive integers n other than n itself.
 /// if <code>P(n) < n</code> then n is classed as "deficient"
 /// if <code>P(n) === n</code> then n is classed as "perfect"
 /// if <code>P(n) > n</code> then n is classed as "abundant"

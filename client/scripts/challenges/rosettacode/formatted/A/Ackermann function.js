@@ -22,7 +22,7 @@ const assert = require('chai').assert;
 ///  A(m-1, 1) & \mbox{if } m > 0 \mbox{ and } n = 0 \\
 ///  A(m-1, A(m, n-1)) & \mbox{if } m > 0 \mbox{ and } n > 0.
 ///  \end{cases}$$
-/// Its arguments are never negative and it always terminates. Write a function which returns the value of A(m, n). Arbitrary precision is preferred (since the function grows so quickly), but not required.
+/// Its arguments are never negative and it always terminates. Write a function which returns the value of $A(m, n)$. Arbitrary precision is preferred (since the function grows so quickly), but not required.
 
 /// challengeSeed:
 function ack (m, n) {
