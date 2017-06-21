@@ -4,6 +4,10 @@
   - Progress:
     1. Further improve upon RosettaCode task extraction/parsing script.
     2. Add Google spreadsheet to keep track of and make notes of task conversion process: https://docs.google.com/spreadsheets/d/1b_wMIaKR-gA0tD6ADQfDjDT5BBWaUsQyIPP0TS6o7is/edit?usp=sharing
+    3. Add 24 game challenge (WIP).
+    4. Add 9 billion names of God the integer challenge.
+    5. Add Amicable pairs challenge.
+    6. Update build process following an npm install.
   - @:
     - [ ] Newline spaces are added to text nodes that follow any div HTML element.
 
