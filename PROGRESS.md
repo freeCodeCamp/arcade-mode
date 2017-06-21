@@ -54,7 +54,7 @@
     1. Add MathJax for mathematical equation rendering.
   - @:
     - [ ] main.bundle.js failed to fetch in a different environment; displays old version despite updates. Cache refreshed and pushed still required two page refreshes to resolve to current iteration.
-    - [ ] Static copy of MathJax currently unusable. Using from CDNJS, which means possibility of presentation during offline sessions.
+    - [ ] Static copy of MathJax currently unusable due to its use of non-`strict mode` code. Currently serving from cdnjs, which involves the possibility of retrieval failure during offline sessions.
 
 ## Wednesday 6/14/17:
 ### Tim:
