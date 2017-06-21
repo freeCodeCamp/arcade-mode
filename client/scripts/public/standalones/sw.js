@@ -18,9 +18,11 @@ const CURRENT_CACHES = {
   img: `img-cache-v${CACHE_VERSION}`,
   js: `js-cache-v${CACHE_VERSION}`
   // json: `json-cache-v${CACHE_VERSION}` // this should be in indexedDB.
-  // currently appcache has everything stored in it, including json
-  // will eventually need to take out json and move it to indexedDB.
-  // indexedDB currently stores the user's progress.
+  // Currently appcache has everything stored in it, including json.
+  // Shouldn't be a problem to move everything to IDB being that it has incredibly high compatibility (~94%).
+  // Need to move all non-structural files to be stored in and accessed from IDB.
+  // This includes all JSON, non-base images, and files used by various challenges.
+  // IDB currently just stores the user's progress.
 };
 
 // challenges currently do not need to be imported as it's part of the main.bundle.js
