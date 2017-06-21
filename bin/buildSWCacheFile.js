@@ -11,7 +11,7 @@ const readdir = require('recursive-readdir');
 
 const filePath = 'client/scripts/public/standalones/swCache.json';
 
-console.log('buildSWCacheFile.js: script started.');
+console.log('buildSWCacheFile.js: Script started.');
 
 readdir('public').then(files => {
   const CACHE = {};
@@ -55,4 +55,4 @@ readdir('public').then(files => {
   }
 })
 .catch(err => console.error(`error: ${err}`))
-.then(() => console.log('buildSWCacheFile.js: script finished.'));
+.then(() => console.log('buildSWCacheFile.js: Script finished.'));
