@@ -28,6 +28,7 @@ let fetchCounter = 1;
 
 function getNextBatch (url) {
   if (!url) {
+    console.log('fetchAndProcessRosettaCodeTasks.js: script finished.');
     return;
   }
   let nextURL = '';
@@ -36,8 +37,8 @@ function getNextBatch (url) {
     // Assign new url for fetching next batch:
     .then(checkContinue => {
       if (checkContinue.continue) {
-        console.log(`Fetching batch ${fetchCounter} - ${fetchCounter + 50}`);
-        fetchCounter += 50;
+        console.log(`Fetching batch ${fetchCounter} - ${fetchCounter + batchSize}`);
+        fetchCounter += batchSize;
 
         const continueTrue = checkContinue.continue.continue;
         const continueFetch = checkContinue.continue.gcmcontinue;
@@ -74,7 +75,7 @@ function getNextBatch (url) {
     .catch(err => console.error(err));
 }
 
-console.log('Starting fetch and processing of RosettaCode tasks...');
+console.log('fetchAndProcessRosettaCodeTasks.js: script started.');
 console.log('The entire process should take about two minutes to fetch/process ~850 tasks.');
 console.log('These files will be saved under client/scripts/challenges/rosettacode/raw');
 getNextBatch(queryURL);
