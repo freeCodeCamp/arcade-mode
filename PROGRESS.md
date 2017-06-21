@@ -63,7 +63,7 @@
     2. Rework first RosettaCode task into Rosetta challenge - 100 doors.
   - @:
     - [ ] Conventurist time-based assertion tests capable of returning different results/run.
-    - [ ] 100 doors challenge stock solution.
+    - [ ] 100 doors challenge stock solution? Efficient solution requires seeing the mathematical pattern.
 
 ### Tuomas:
   - Progress:
@@ -120,6 +120,11 @@
 ### Tim:
   - Progress:
     1. Add Rome Bookstore challenge.
+
+## Tuesday 5/30/17:
+### Tim:
+  - Progress:
+    1. Set up gh-pages branch and generate GitHub Pages site at https://freecodecamp.github.io/arcade-mode/
 
 ## Sunday 5/28/17:
 ### Tim:
