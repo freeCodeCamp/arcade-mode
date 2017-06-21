@@ -88,8 +88,8 @@ function processRawRosettaCodeTask (taskName, content) {
 
   // 1. Regexes for transforming RosettaCode specific syntax to in-house/regular.
   const categoriesRegex = /\[\[Category:([^\]]*)\]\]/g;
-  const wikipediaTemplateRegex = /\[\[(?:wp:)([^|]*)\|(.*)\]\]/g;
-  const rosettaTemplateRegex = /\[\[(?!wp:)(?!Category:)(.*?)(?:\|(.*))?\]\]/g;
+  const wikipediaTemplateRegex = /\[\[(?:wp:)([^|]*?)\|(.*?)\]\]/g;
+  const rosettaTemplateRegex = /\[\[(?!wp:)(?!Category:)(.*?)(?:\|(.*?))?\]\]/g;
   const tripleSingleQuotesRegex = /'''(.*?)'''/g; // convert to bold
   const doubleSingleQuotesRegex = /''(.*?)''/g; // convert to italics
   const doubleCurlyBraceRegex = /{{(.*?)}}/g; // remove all double curly braces
@@ -111,8 +111,12 @@ function processRawRosettaCodeTask (taskName, content) {
     })
     .replace(wikipediaTemplateRegex,
       '<a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/$1" title="wp: $1">$2</a>')
-    .replace(rosettaTemplateRegex,
-      '<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/$1" title="$1">$2</a>')
+    .replace(rosettaTemplateRegex, (match, m1, m2) => {
+      if (m2) {
+        return `<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/${m1}" title="${m1}">${m2}</a>`;
+      }
+      return `<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/${m1}" title="${m1}">${m1}</a>`;
+    })
     .replace(tripleSingleQuotesRegex, '<span class="rosetta__text--bold">$1</span>')
     .replace(doubleSingleQuotesRegex, '<span class="rosetta__text--italic">$1</span>')
     .replace(doubleCurlyBraceRegex, '')
@@ -122,10 +126,12 @@ function processRawRosettaCodeTask (taskName, content) {
     .replace(asteriskLineStartRegex, '<li class="rosetta__list-item--unordered">$1</li>')
     .replace(hashLineStartRegex, '<li class="rosetta__list-item--ordered">$1</li>')
     .replace(wrapAllListElementsRegex, listEls => {
+      // strip last newline:
+      listEls = listEls.trim();
       if (listEls.match(/<li .*(?=rosetta__list-item--unordered).*>/g)) {
-        return `<ul class="rosetta__unordered-list">\n${listEls}\n</ul>`;
+        return `<ul class="rosetta__unordered-list">${listEls}</ul>`;
       }
-      return `<ol class="rosetta__ordered-list">\n${listEls}\n</ol>`;
+      return `<ol class="rosetta__ordered-list">${listEls}</ol>`;
     })
     .replace(mathRegex, '$')
     .replace(addTripleSlashAndSpace, match => match === '' ? '/// <br>' : `/// ${match}`);
