@@ -13,6 +13,7 @@
 /* eslint no-param-reassign: 0 */
 
 const fs = require('fs');
+const path = require('path');
 const fetch = require('node-fetch');
 
 const batchSize = 50; // this is the limit for queries
@@ -23,6 +24,8 @@ const contentURL = 'http://rosettacode.org/mw/api.php?action=query&prop=revision
 
 const outputPath = 'client/scripts/challenges/rosettacode/raw';
 
+let fetchCounter = 1;
+
 function getNextBatch (url) {
   if (!url) {
     return;
@@ -32,12 +35,15 @@ function getNextBatch (url) {
     .then(res => res.json())
     // Assign new url for fetching next batch:
     .then(checkContinue => {
-      console.log(checkContinue);
       if (checkContinue.continue) {
+        console.log(`Fetching batch ${fetchCounter} - ${fetchCounter + 50}`);
+        fetchCounter += 50;
+
         const continueTrue = checkContinue.continue.continue;
         const continueFetch = checkContinue.continue.gcmcontinue;
         nextURL = `${queryURL}${continueTrue}&gcmcontinue=${continueFetch}`;
       }
+      else console.log('Processing last batch!');
       return checkContinue;
     })
     .then(body => Object.keys(body.query.pages).join('|'))
@@ -68,6 +74,9 @@ function getNextBatch (url) {
     .catch(err => console.error(err));
 }
 
+console.log('Starting fetch and processing of RosettaCode tasks...');
+console.log('The entire process should take about two minutes to fetch/process ~850 tasks.');
+console.log('These files will be saved under client/scripts/challenges/rosettacode/raw');
 getNextBatch(queryURL);
 
 // Helpers
@@ -75,6 +84,7 @@ function ensureDirectoryExistence(filePath) {
   if (fs.existsSync(filePath)) {
     return true;
   }
+  ensureDirectoryExistence(path.dirname(filePath));
   fs.mkdirSync(filePath);
 }
 
