@@ -24,17 +24,11 @@ replaceWithActualFunctionHere;
 /// The <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Luhn algorithm" title="wp: Luhn algorithm">Luhn test</a> is used by some credit card companies to distinguish valid credit card numbers from what could be a random selection of digits.
 /// <br>
 /// Those companies using credit card numbers that can be validated by the Luhn test have numbers that pass the following test:
-/// <ol class="rosetta__ordered-list">
-/// <li class="rosetta__list-item--ordered"> Reverse the order of the digits in the number.</li>
+/// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered"> Reverse the order of the digits in the number.</li>
 /// <li class="rosetta__list-item--ordered"> Take the first, third, ... and every other odd digit in the reversed digits and sum them to form the partial sum s1</li>
-/// <li class="rosetta__list-item--ordered"> Taking the second, fourth ... and every other even digit in the reversed digits:</li>
-/// <br>
-/// </ol><span class="rosetta__text--indented">#  Multiply each digit by two and sum the digits if the answer is greater than nine to form partial sums for the even digits</span>
+/// <li class="rosetta__list-item--ordered"> Taking the second, fourth ... and every other even digit in the reversed digits:</li></ol><span class="rosetta__text--indented">#  Multiply each digit by two and sum the digits if the answer is greater than nine to form partial sums for the even digits</span>
 /// <span class="rosetta__text--indented">#  Sum the partial sums of the even digits to form s2</span>
-/// <ol class="rosetta__ordered-list">
-/// <li class="rosetta__list-item--ordered">If s1 + s2 ends in zero then the original number is in the form of a valid credit card number as verified by the Luhn test.</li>
-/// <br>
-/// </ol>
+/// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">If s1 + s2 ends in zero then the original number is in the form of a valid credit card number as verified by the Luhn test.</li></ol>
 /// <br>
 /// For example, if the trial number is 49927398716:
 /// <pre>Reverse the digits:
@@ -63,11 +57,8 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks:</dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/SEDOLs" title="SEDOLs">SEDOL</a></li>
-/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Calculate International Securities Identification Number" title="Calculate International Securities Identification Number">ISIN</a></li>
-/// <br>
-/// </ul><br><br>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/SEDOLs" title="SEDOLs">SEDOL</a></li>
+/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Calculate International Securities Identification Number" title="Calculate International Securities Identification Number">ISIN</a></li></ul><br><br>
 /// <br>
 /// <br>
 

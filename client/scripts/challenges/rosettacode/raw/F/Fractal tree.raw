@@ -22,18 +22,12 @@ replaceWithActualFunctionHere;
 /// <br>
 /// Generate and draw a fractal tree.
 /// <br>
-/// <ol class="rosetta__ordered-list">
-/// <li class="rosetta__list-item--ordered">Draw the trunk</li>
+/// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">Draw the trunk</li>
 /// <li class="rosetta__list-item--ordered">At the end of the trunk, split by some angle and draw two branches</li>
-/// <li class="rosetta__list-item--ordered">Repeat at the end of each branch until a sufficient level of branching is reached</li>
-/// <br>
-/// </ol>
+/// <li class="rosetta__list-item--ordered">Repeat at the end of each branch until a sufficient level of branching is reached</li></ol>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks</dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Pythagoras_tree" title="Pythagoras_tree">Pythagoras Tree</a></li>
-/// <br>
-/// </ul><br><br>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Pythagoras_tree" title="Pythagoras_tree">Pythagoras Tree</a></li></ul><br><br>
 /// <br>
 /// <br>
 

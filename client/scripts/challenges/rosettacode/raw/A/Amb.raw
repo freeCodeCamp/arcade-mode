@@ -55,13 +55,10 @@ replaceWithActualFunctionHere;
 /// <br>
 /// The task is to somehow implement Amb, and demonstrate it with a program which chooses one word from each of the following four sets of character strings to generate a four-word sentence:
 /// <br>
-/// <ol class="rosetta__ordered-list">
-/// <li class="rosetta__list-item--ordered"><code>"the" "that" "a"</code></li>
+/// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered"><code>"the" "that" "a"</code></li>
 /// <li class="rosetta__list-item--ordered"><code>"frog" "elephant" "thing"</code></li>
 /// <li class="rosetta__list-item--ordered"><code>"walked" "treaded" "grows"</code></li>
-/// <li class="rosetta__list-item--ordered"><code>"slowly" "quickly"</code></li>
-/// <br>
-/// </ol>
+/// <li class="rosetta__list-item--ordered"><code>"slowly" "quickly"</code></li></ol>
 /// The constraint to be satisfied is that the last character of each word (other than the last) is the same as the first character of its successor.
 /// <br>
 /// The only successful sentence is <code>"that thing grows slowly"</code>; other combinations do not satisfy the constraint and thus fail.

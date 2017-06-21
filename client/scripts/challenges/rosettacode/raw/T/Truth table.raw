@@ -24,26 +24,17 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
-/// <ol class="rosetta__ordered-list">
-/// <li class="rosetta__list-item--ordered">Input a Boolean equation from the user as a string then calculate and print a formatted truth table for the given equation.<br> (One can assume that the user input is correct).</li>
+/// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">Input a Boolean equation from the user as a string then calculate and print a formatted truth table for the given equation.<br> (One can assume that the user input is correct).</li>
 /// <li class="rosetta__list-item--ordered">Print and show output for Boolean equations of two and three input variables, but any program should not be limited to that many variables in the equation. </li>
-/// <li class="rosetta__list-item--ordered">Either reverse-polish or infix notation expressions are allowed.</li>
-/// <br>
-/// </ol>
+/// <li class="rosetta__list-item--ordered">Either reverse-polish or infix notation expressions are allowed.</li></ol>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks:</dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Boolean values" title="Boolean values"></a></li>
-/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Ternary logic" title="Ternary logic"></a></li>
-/// <br>
-/// </ul>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Boolean values" title="Boolean values">Boolean values</a></li>
+/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Ternary logic" title="Ternary logic">Ternary logic</a></li></ul>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">See also:</dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">&nbsp; [http://mathworld.wolfram.com/TruthTable.html Wolfram MathWorld entry on truth tables].</li>
-/// <li class="rosetta__list-item--unordered">&nbsp; [http://www.google.co.uk/search?q=truth+table&hl=en&client=firefox-a&hs=Om7&rls=org.mozilla:en-GB:official&prmd=imvns&tbm=isch&tbo=u&source=univ&sa=X&ei=C0uuTtjuH4Wt8gOF4dmYCw&ved=0CDUQsAQ&biw=941&bih=931&sei=%20Jk-uTuKKD4Sg8QOFkPGcCw some "truth table" examples from Google].</li>
-/// <br>
-/// </ul><br><br>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">&nbsp; [http://mathworld.wolfram.com/TruthTable.html Wolfram MathWorld entry on truth tables].</li>
+/// <li class="rosetta__list-item--unordered">&nbsp; [http://www.google.co.uk/search?q=truth+table&hl=en&client=firefox-a&hs=Om7&rls=org.mozilla:en-GB:official&prmd=imvns&tbm=isch&tbo=u&source=univ&sa=X&ei=C0uuTtjuH4Wt8gOF4dmYCw&ved=0CDUQsAQ&biw=941&bih=931&sei=%20Jk-uTuKKD4Sg8QOFkPGcCw some "truth table" examples from Google].</li></ul><br><br>
 /// <br>
 /// <br>
 

@@ -19,23 +19,17 @@ replaceWithActualFunctionHere;
 
 /// description:
 /// <br>
-/// The <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/linear congruential generator" title="wp: linear congruential generator">linear congruential generator]] is a very simple example of a [[random number generator</a>. All linear congruential generators use this formula:
+/// The <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/linear congruential generator" title="wp: linear congruential generator">linear congruential generator</a> is a very simple example of a <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/random number generator" title="random number generator">random number generator</a>. All linear congruential generators use this formula:
 /// <br>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">$r_{n + 1} = a \times r_n + c \pmod m$</li>
-/// <br>
-/// </ul>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">$r_{n + 1} = a \times r_n + c \pmod m$</li></ul>
 /// Where:
 /// <br>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">$r_0$ is a seed.</li>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">$r_0$ is a seed.</li>
 /// <li class="rosetta__list-item--unordered">$r_1$, $r_2$, $r_3$, ..., are the random numbers.</li>
-/// <li class="rosetta__list-item--unordered">$a$, $c$, $m$ are constants.</li>
-/// <br>
-/// </ul>
+/// <li class="rosetta__list-item--unordered">$a$, $c$, $m$ are constants.</li></ul>
 /// If one chooses the values of $a$, $c$ and $m$ with care, then the generator produces a uniform distribution of integers from $0$ to $m - 1$.
 /// <br>
-/// LCG numbers have poor quality. $r_n$ and $r_{n + 1}$ are not independent, as true random numbers would be. Anyone who knows $r_n$ can predict $r_{n + 1}$, therefore LCG is not cryptographically secure. The LCG is still good enough for simple tasks like <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Miller-Rabin primality test" title="Miller-Rabin primality test"></a>, or <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/deal cards for FreeCell" title="deal cards for FreeCell">FreeCell deals</a>. Among the benefits of the LCG, one can easily reproduce a sequence of numbers, from the same $r_0$. One can also reproduce such sequence with a different programming language, because the formula is so simple.
+/// LCG numbers have poor quality. $r_n$ and $r_{n + 1}$ are not independent, as true random numbers would be. Anyone who knows $r_n$ can predict $r_{n + 1}$, therefore LCG is not cryptographically secure. The LCG is still good enough for simple tasks like <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Miller-Rabin primality test" title="Miller-Rabin primality test">Miller-Rabin primality test</a>, or <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/deal cards for FreeCell" title="deal cards for FreeCell">FreeCell deals</a>. Among the benefits of the LCG, one can easily reproduce a sequence of numbers, from the same $r_0$. One can also reproduce such sequence with a different programming language, because the formula is so simple.
 /// <br>
 /// The task is to replicate two historic random number generators. One is the <code>rand()</code> function from <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/:Category:BSD libc" title=":Category:BSD libc">BSD libc</a>, and the other is the <code>rand()</code> function from the Microsoft C Runtime (MSCVRT.DLL). Each replica must yield the same sequence of integers as the original generator, when starting from the same seed.
 /// <br>
@@ -43,21 +37,15 @@ replaceWithActualFunctionHere;
 /// <br>
 /// BSD formula:
 /// <br>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">$state_{n + 1} = 1103515245 \times state_n + 12345 \pmod{2^{31}}$</li>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">$state_{n + 1} = 1103515245 \times state_n + 12345 \pmod{2^{31}}$</li>
 /// <li class="rosetta__list-item--unordered">$rand_n = state_n$</li>
-/// <li class="rosetta__list-item--unordered">$rand_n$ is in range 0 to 2147483647.</li>
-/// <br>
-/// </ul>
+/// <li class="rosetta__list-item--unordered">$rand_n$ is in range 0 to 2147483647.</li></ul>
 /// Microsoft formula:
 /// <br>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">$state_{n + 1} = 214013 \times state_n + 2531011 \pmod{2^{31}}$</li>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">$state_{n + 1} = 214013 \times state_n + 2531011 \pmod{2^{31}}$</li>
 /// <li class="rosetta__list-item--unordered">$rand_n = state_n \div 2^{16}$</li>
-/// <li class="rosetta__list-item--unordered">$rand_n$ is in range 0 to 32767.</li>
-/// <br>
-/// </ul>
-/// The BSD formula was so awful that FreeBSD switched to a different formula. More info is at <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Random number generator (included)#C" title="Random number generator (included)#C"></a>.
+/// <li class="rosetta__list-item--unordered">$rand_n$ is in range 0 to 32767.</li></ul>
+/// The BSD formula was so awful that FreeBSD switched to a different formula. More info is at <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Random number generator (included)#C" title="Random number generator (included)#C">Random number generator (included)#C</a>.
 /// <br>
 /// <br>
 

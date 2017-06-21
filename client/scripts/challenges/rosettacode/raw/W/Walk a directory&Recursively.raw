@@ -32,10 +32,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related task:</dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Walk a directory/Non-recursively" title="Walk a directory/Non-recursively"></a> &nbsp; (read a <span class="rosetta__text--italic">single directory</span>). </li>
-/// <br>
-/// </ul><br><br>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Walk a directory/Non-recursively" title="Walk a directory/Non-recursively">Walk a directory/Non-recursively</a> &nbsp; (read a <span class="rosetta__text--italic">single directory</span>). </li></ul><br><br>
 /// <br>
 /// <br>
 

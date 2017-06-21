@@ -28,7 +28,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <br>
-/// The browser is the new <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/GUI" title="GUI"></a> !
+/// The browser is the new <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/GUI" title="GUI">GUI</a> !
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
@@ -39,7 +39,7 @@ replaceWithActualFunctionHere;
 /// Note that starting a web browser or opening a new window with this URL 
 /// is not part of the task. 
 /// <br>
-/// Additionally, it is permissible to serve the provided page as a plain text file (there is no requirement to serve properly formatted <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/HTML" title="HTML"></a> here). 
+/// Additionally, it is permissible to serve the provided page as a plain text file (there is no requirement to serve properly formatted <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/HTML" title="HTML">HTML</a> here). 
 /// <br>
 /// The browser will generally do the right thing with simple text like this.  
 /// <br><br>

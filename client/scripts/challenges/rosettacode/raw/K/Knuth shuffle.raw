@@ -35,11 +35,8 @@ replaceWithActualFunctionHere;
 ///      <span class="rosetta__text--bold">swap</span> <span class="rosetta__text--italic">items</span>[<span class="rosetta__text--italic">i</span>] <span class="rosetta__text--bold">with</span> <span class="rosetta__text--italic">items</span>[<span class="rosetta__text--italic">j</span>]
 /// <br>
 /// Notes:
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">It modifies the input array in-place. If that is unreasonable in your programming language, you may amend the algorithm to return the shuffled items as a new array instead.</li>
-/// <li class="rosetta__list-item--unordered">The algorithm can also be amended to iterate from left to right, if that is more convenient.</li>
-/// <br>
-/// </ul>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">It modifies the input array in-place. If that is unreasonable in your programming language, you may amend the algorithm to return the shuffled items as a new array instead.</li>
+/// <li class="rosetta__list-item--unordered">The algorithm can also be amended to iterate from left to right, if that is more convenient.</li></ul>
 /// <br>
 /// <br>
 /// {| class="wikitable"
@@ -64,10 +61,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <br>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Sattolo cycle" title="Sattolo cycle"></a></li>
-/// <br>
-/// </ul>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Sattolo cycle" title="Sattolo cycle">Sattolo cycle</a></li></ul>
 /// <hr>
 /// <br>
 /// <br>

@@ -26,19 +26,13 @@ replaceWithActualFunctionHere;
 /// Generate and show a maze, using the simple <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Maze_generation_algorithm#Depth-first_search" title="wp: Maze_generation_algorithm#Depth-first_search">Depth-first search</a> algorithm.
 /// <br>
 /// <!-- BEGIN TEXT FROM WIKIPEDIA -->
-/// <ol class="rosetta__ordered-list">
-/// <li class="rosetta__list-item--ordered">Start at a random cell.</li>
+/// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">Start at a random cell.</li>
 /// <li class="rosetta__list-item--ordered">Mark the current cell as visited, and get a list of its neighbors. For each neighbor, starting with a randomly selected neighbor:</li>
-/// <li class="rosetta__list-item--ordered">:If that neighbor hasn't been visited, remove the wall between this cell and that neighbor, and then recurse with that neighbor as the current cell.</li>
-/// <br>
-/// </ol><!-- END TEXT FROM WIKIPEDIA -->
+/// <li class="rosetta__list-item--ordered">:If that neighbor hasn't been visited, remove the wall between this cell and that neighbor, and then recurse with that neighbor as the current cell.</li></ol><!-- END TEXT FROM WIKIPEDIA -->
 /// <br><br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title"> Related tasks</dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Maze solving" title="Maze solving"></a>.</li>
-/// <br>
-/// </ul><br><br>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Maze solving" title="Maze solving">Maze solving</a>.</li></ul><br><br>
 /// <br>
 /// <br>
 

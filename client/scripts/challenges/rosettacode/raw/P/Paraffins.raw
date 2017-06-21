@@ -68,29 +68,14 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <lang haskell>*Main> all_paraffins 1
 ///  [CCP H H H H]
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">Main> all_paraffins 2</li>
-/// <br>
-/// </ul> [BCP (C H H H) (C H H H)]
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">Main> all_paraffins 3</li>
-/// <br>
-/// </ul> [CCP H H (C H H H) (C H H H)]
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">Main> all_paraffins 4</li>
-/// <br>
-/// </ul> [BCP (C H H (C H H H)) (C H H (C H H H)),CCP H (C H H H) (C H H H)
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Main> all_paraffins 2</li></ul> [BCP (C H H H) (C H H H)]
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Main> all_paraffins 3</li></ul> [CCP H H (C H H H) (C H H H)]
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Main> all_paraffins 4</li></ul> [BCP (C H H (C H H H)) (C H H (C H H H)),CCP H (C H H H) (C H H H)
 ///  (C H H H)]
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">Main> all_paraffins 5</li>
-/// <br>
-/// </ul> [CCP H H (C H H (C H H H)) (C H H (C H H H)),CCP H (C H H H)
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Main> all_paraffins 5</li></ul> [CCP H H (C H H (C H H H)) (C H H (C H H H)),CCP H (C H H H)
 ///  (C H H H) (C H H (C H H H)),CCP (C H H H) (C H H H) (C H H H)
 ///  (C H H H)]
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">Main> all_paraffins 6</li>
-/// <br>
-/// </ul> [BCP (C H H (C H H (C H H H))) (C H H (C H H (C H H H))),BCP
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Main> all_paraffins 6</li></ul> [BCP (C H H (C H H (C H H H))) (C H H (C H H (C H H H))),BCP
 ///  (C H H (C H H (C H H H))) (C H (C H H H) (C H H H)),BCP (C H
 ///  (C H H H) (C H H H)) (C H (C H H H) (C H H H)),CCP H (C H H H)
 ///  (C H H (C H H H)) (C H H (C H H H)),CCP (C H H H) (C H H H)
@@ -111,25 +96,13 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Links:</dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">A paper that explains the problem and its solution in a functional language:</li>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">A paper that explains the problem and its solution in a functional language:</li></ul>http://www.cs.wright.edu/~tkprasad/courses/cs776/paraffins-turner.pdf
 /// <br>
-/// </ul>http://www.cs.wright.edu/~tkprasad/courses/cs776/paraffins-turner.pdf
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">A Haskell implementation:</li></ul>https://github.com/ghc/nofib/blob/master/imaginary/paraffins/Main.hs
 /// <br>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">A Haskell implementation:</li>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">A Scheme implementation:</li></ul>http://www.ccs.neu.edu/home/will/Twobit/src/paraffins.scm
 /// <br>
-/// </ul>https://github.com/ghc/nofib/blob/master/imaginary/paraffins/Main.hs
-/// <br>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">A Scheme implementation:</li>
-/// <br>
-/// </ul>http://www.ccs.neu.edu/home/will/Twobit/src/paraffins.scm
-/// <br>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">A Fortress implementation:</li>
-/// <br>
-/// </ul>http://java.net/projects/projectfortress/sources/sources/content/ProjectFortress/demos/turnersParaffins0.fss?rev=3005
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">A Fortress implementation:</li></ul>http://java.net/projects/projectfortress/sources/sources/content/ProjectFortress/demos/turnersParaffins0.fss?rev=3005
 /// <br><br>
 /// <br>
 

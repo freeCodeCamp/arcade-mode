@@ -46,7 +46,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// The worst pivot creates an empty partition (for example, if the pivot is the first or last element of a sorted array). 
 /// <br>
-/// The run-time of Quicksort ranges from &nbsp; <big> <span class="rosetta__text--italic"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/O" title="O"></a>(n </span>log<span class="rosetta__text--italic"> n)</span> </big> &nbsp; with the best pivots, to &nbsp; <big>  <span class="rosetta__text--italic"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/O" title="O"></a>(n<sup>2</sup>)</span> </big> &nbsp; with the worst pivots, where &nbsp; <big> <span class="rosetta__text--italic">n</span> </big> &nbsp; is the number of elements in the array.
+/// The run-time of Quicksort ranges from &nbsp; <big> <span class="rosetta__text--italic"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/O" title="O">O</a>(n </span>log<span class="rosetta__text--italic"> n)</span> </big> &nbsp; with the best pivots, to &nbsp; <big>  <span class="rosetta__text--italic"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/O" title="O">O</a>(n<sup>2</sup>)</span> </big> &nbsp; with the worst pivots, where &nbsp; <big> <span class="rosetta__text--italic">n</span> </big> &nbsp; is the number of elements in the array.
 /// <br>
 /// <br>
 /// This is a simple quicksort algorithm, adapted from Wikipedia.
@@ -82,17 +82,14 @@ replaceWithActualFunctionHere;
 ///          quicksort(array <span class="rosetta__text--bold">from first index to</span> right)
 ///          quicksort(array <span class="rosetta__text--bold">from</span> left <span class="rosetta__text--bold">to last index</span>)
 /// <br>
-/// Quicksort has a reputation as the fastest sort. Optimized variants of quicksort are common features of many languages and libraries. One often contrasts quicksort with &nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/../Merge sort" title="../Merge sort">merge sort]], &nbsp; because both sorts have an average time of &nbsp; <big> <span class="rosetta__text--italic">[[O</a>(n </span>log<span class="rosetta__text--italic"> n)</span>. </big>
+/// Quicksort has a reputation as the fastest sort. Optimized variants of quicksort are common features of many languages and libraries. One often contrasts quicksort with &nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/../Merge sort" title="../Merge sort">merge sort</a>, &nbsp; because both sorts have an average time of &nbsp; <big> <span class="rosetta__text--italic"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/O" title="O">O</a>(n </span>log<span class="rosetta__text--italic"> n)</span>. </big>
 /// <br>
 /// <span class="rosetta__text--indented"> <span class="rosetta__text--italic">"On average, mergesort does fewer comparisons than quicksort, so it may be better when complicated comparison routines are used. Mergesort also takes advantage of pre-existing order, so it would be favored for using sort() to merge several sorted arrays. On the other hand, quicksort is often faster for small arrays, and on arrays of a few distinct values, repeated many times."</span> — http://perldoc.perl.org/sort.html</span>
 /// <br>
 /// Quicksort is at one end of the spectrum of divide-and-conquer algorithms, with merge sort at the opposite end.
 /// <br>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">Quicksort is a conquer-then-divide algorithm, which does most of the work during the partitioning and the recursive calls. The subsequent reassembly of the sorted partitions involves trivial effort.</li>
-/// <li class="rosetta__list-item--unordered">Merge sort is a divide-then-conquer algorithm. The partioning happens in a trivial way, by splitting the input array in half. Most of the work happens during the recursive calls and the merge phase.</li>
-/// <br>
-/// </ul>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Quicksort is a conquer-then-divide algorithm, which does most of the work during the partitioning and the recursive calls. The subsequent reassembly of the sorted partitions involves trivial effort.</li>
+/// <li class="rosetta__list-item--unordered">Merge sort is a divide-then-conquer algorithm. The partioning happens in a trivial way, by splitting the input array in half. Most of the work happens during the recursive calls and the merge phase.</li></ul>
 /// <br>
 /// With quicksort, every element in the first partition is less than or equal to every element in the second partition. Therefore, the merge phase of quicksort is so trivial that it needs no mention!
 /// <br>

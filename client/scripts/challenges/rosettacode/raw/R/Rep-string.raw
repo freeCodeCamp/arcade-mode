@@ -27,12 +27,9 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">Write a function/subroutine/method/... that takes a string and returns an indication of if it is a rep-string and the repeated string. &nbsp; (Either the string that is repeated, or the number of repeated characters would suffice).  </li>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Write a function/subroutine/method/... that takes a string and returns an indication of if it is a rep-string and the repeated string. &nbsp; (Either the string that is repeated, or the number of repeated characters would suffice).  </li>
 /// <li class="rosetta__list-item--unordered">There may be multiple sub-strings that make a string a rep-string - in that case an indication of all, or the longest, or the shortest would suffice.</li>
-/// <li class="rosetta__list-item--unordered">Use the function to indicate the repeating substring if any, in the following:</li>
-/// <br>
-/// </ul><dl><dd>
+/// <li class="rosetta__list-item--unordered">Use the function to indicate the repeating substring if any, in the following:</li></ul><dl><dd>
 /// <pre>
 /// 1001110011
 /// 1110111011
@@ -47,10 +44,7 @@ replaceWithActualFunctionHere;
 /// 1
 /// </pre>
 /// </dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">Show your output on this page.</li>
-/// <br>
-/// </ul><br><br>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Show your output on this page.</li></ul><br><br>
 /// <br>
 /// <br>
 

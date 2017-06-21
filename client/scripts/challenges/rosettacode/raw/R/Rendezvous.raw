@@ -22,25 +22,19 @@ replaceWithActualFunctionHere;
 /// <br>
 /// Demonstrate the “rendezvous” communications technique by implementing a printer monitor.
 /// ==Detailed Description of Programming Task==
-/// Rendezvous is a synchronization mechanism based on procedural decomposition. Rendezvous is similar to a procedure call with the difference that the caller and the callee belong to different <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/task" title="task"></a>s. The called procedure is usually called an <span class="rosetta__text--bold">entry point</span> of the corresponding task. A call to an entry point is synchronous, i.e. the caller is blocked until completion. For the caller a call to the entry point is indivisible. Internally it consists of:
+/// Rendezvous is a synchronization mechanism based on procedural decomposition. Rendezvous is similar to a procedure call with the difference that the caller and the callee belong to different <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/task" title="task">task</a>s. The called procedure is usually called an <span class="rosetta__text--bold">entry point</span> of the corresponding task. A call to an entry point is synchronous, i.e. the caller is blocked until completion. For the caller a call to the entry point is indivisible. Internally it consists of:
 /// <br>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">Waiting for the callee ready to accept the rendezvous;</li>
-/// <li class="rosetta__list-item--unordered">Engaging the rendezvous (servicing the entry point).</li>
-/// <br>
-/// </ul>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Waiting for the callee ready to accept the rendezvous;</li>
+/// <li class="rosetta__list-item--unordered">Engaging the rendezvous (servicing the entry point).</li></ul>
 /// The caller may limit the waiting time to the callee to accept the rendezvous. I.e. a rendezvous request can be aborted if not yet accepted by the callee. When accepted the rendezvous is processed until its completion. During this time the caller and the callee tasks stay synchronized. Which context is used to process the rendezvous depends on the implementation which may wish to minimize context switching.
 /// <br>
 /// The callee task may accept several rendezvous requests:
 /// <br>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">Rendezvous to the same entry point from different tasks;</li>
-/// <li class="rosetta__list-item--unordered">Rendezvous to different entry points.</li>
-/// <br>
-/// </ul>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Rendezvous to the same entry point from different tasks;</li>
+/// <li class="rosetta__list-item--unordered">Rendezvous to different entry points.</li></ul>
 /// The callee accepts one rendezvous at a time.
 /// <br>
-/// Language mechanism of <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/exceptions" title="exceptions"></a> (if any) has to be consistent with the rendezvous. In particular when an exception is propagated out of a rendezvous it shall do in both tasks. The exception propagation is synchronous within the rendezvous and asynchronous outside it.
+/// Language mechanism of <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/exceptions" title="exceptions">exceptions</a> (if any) has to be consistent with the rendezvous. In particular when an exception is propagated out of a rendezvous it shall do in both tasks. The exception propagation is synchronous within the rendezvous and asynchronous outside it.
 /// <br>
 /// An engaged rendezvous can be requeued by the callee to another entry point of its task or to another task, transparently to the caller.
 /// <br>

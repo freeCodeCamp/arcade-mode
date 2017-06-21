@@ -25,22 +25,10 @@ replaceWithActualFunctionHere;
 /// There are 81 cards in a deck. 
 /// Each card contains a unique variation of the following four features: <span class="rosetta__text--italic">color, symbol, number and shading</span>.
 /// <br>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">there are three colors:<br> &nbsp;&nbsp;&nbsp;<span class="rosetta__text--italic">red, green, purple</span><br><br></li>
-/// <br>
-/// </ul>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">there are three symbols:<br> &nbsp;&nbsp;&nbsp;<span class="rosetta__text--italic">oval, squiggle, diamond</span><br><br></li>
-/// <br>
-/// </ul>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">there is a number of symbols on the card:<br> &nbsp;&nbsp;&nbsp;<span class="rosetta__text--italic">one, two, three</span><br><br></li>
-/// <br>
-/// </ul>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">there are three shadings:<br> &nbsp;&nbsp;&nbsp;<span class="rosetta__text--italic">solid, open, striped</span><br><br></li>
-/// <br>
-/// </ul>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">there are three colors:<br> &nbsp;&nbsp;&nbsp;<span class="rosetta__text--italic">red, green, purple</span><br><br></li></ul>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">there are three symbols:<br> &nbsp;&nbsp;&nbsp;<span class="rosetta__text--italic">oval, squiggle, diamond</span><br><br></li></ul>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">there is a number of symbols on the card:<br> &nbsp;&nbsp;&nbsp;<span class="rosetta__text--italic">one, two, three</span><br><br></li></ul>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">there are three shadings:<br> &nbsp;&nbsp;&nbsp;<span class="rosetta__text--italic">solid, open, striped</span><br><br></li></ul>
 /// Three cards form a <span class="rosetta__text--italic">set</span> if each feature is either the same on each card, or is different on each card. For instance: all 3 cards are red, all 3 cards have a different symbol, all 3 cards have a different number of symbols, all 3 cards are striped.
 /// <br>
 /// There are two degrees of difficulty: [http://www.setgame.com/set/rules_basic.htm <span class="rosetta__text--italic">basic</span>] and [http://www.setgame.com/set/rules_advanced.htm <span class="rosetta__text--italic">advanced</span>]. The basic mode deals 9 cards, that contain exactly 4 sets; the advanced mode deals 12 cards that contain exactly 6 sets. 

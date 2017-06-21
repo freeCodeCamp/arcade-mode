@@ -31,7 +31,7 @@ replaceWithActualFunctionHere;
 /// Parse a well-formed URL to retrieve the relevant information: &nbsp; <span class="rosetta__text--bold">scheme</span>, <span class="rosetta__text--bold">domain</span>, <span class="rosetta__text--bold">path</span>, ...
 /// <br>
 /// <br>
-/// Note: &nbsp; this task has nothing to do with <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/URL encoding" title="URL encoding"></a> or <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/URL decoding" title="URL decoding"></a>.
+/// Note: &nbsp; this task has nothing to do with <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/URL encoding" title="URL encoding">URL encoding</a> or <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/URL decoding" title="URL decoding">URL decoding</a>.
 /// <br>
 /// <br>
 /// According to the standards, the characters:
@@ -45,11 +45,8 @@ replaceWithActualFunctionHere;
 /// <br>
 /// Extra credit is given for clear error diagnostics.
 /// <br>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">&nbsp; Here is the official standard: &nbsp; &nbsp; https://tools.ietf.org/html/rfc3986, </li>
-/// <li class="rosetta__list-item--unordered">&nbsp; and here is a simpler &nbsp; BNF: &nbsp; &nbsp; http://www.w3.org/Addressing/URL/5_URI_BNF.html.</li>
-/// <br>
-/// </ul>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">&nbsp; Here is the official standard: &nbsp; &nbsp; https://tools.ietf.org/html/rfc3986, </li>
+/// <li class="rosetta__list-item--unordered">&nbsp; and here is a simpler &nbsp; BNF: &nbsp; &nbsp; http://www.w3.org/Addressing/URL/5_URI_BNF.html.</li></ul>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Test cases:</dt></dl>
 /// According to T. Berners-Lee

@@ -22,13 +22,10 @@ replaceWithActualFunctionHere;
 /// <br>
 /// A possible algorithm consists of the following steps:
 /// <br>
-/// <ol class="rosetta__ordered-list">
-/// <li class="rosetta__list-item--ordered"><span class="rosetta__text--bold">Noise reduction.</span> May be performed by <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Gaussian blur" title="wp: Gaussian blur">Gaussian filter</a>.</li>
+/// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered"><span class="rosetta__text--bold">Noise reduction.</span> May be performed by <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Gaussian blur" title="wp: Gaussian blur">Gaussian filter</a>.</li>
 /// <li class="rosetta__list-item--ordered">Compute <span class="rosetta__text--bold">intensity gradient</span> (matrices $G_x$ and $G_y$) and its <span class="rosetta__text--bold">magnitude</span> $G$.<br>&nbsp;&nbsp;&nbsp;$G=\sqrt{G_x^2+G_y^2}$<br> May be performed by <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/image convolution" title="image convolution">convolution of an image</a> with <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Sobel operator" title="wp: Sobel operator">Sobel operators</a>.</li>
 /// <li class="rosetta__list-item--ordered"><span class="rosetta__text--bold">Non-maximum suppression.</span> For each pixel compute the orientation of intensity gradient vector: $\theta = {\rm atan2}\left(G_y, \, G_x\right)$. Transform angle $\theta$ to one of four directions: 0, 45, 90, 135 degrees. Compute new array $N$: if<br>&nbsp;&nbsp;&nbsp;$G\left(p_a\right)<G\left(p\right)<G\left(p_b\right)$<br>where $p$ is the current pixel, $p_a$ and $p_b$ are the two neighbour pixels in the direction of gradient, then $N(p) = G(p)$, otherwise $N(p) = 0$. Nonzero pixels in resulting array correspond to local maxima of $G$ in direction $\theta(p)$.</li>
-/// <li class="rosetta__list-item--ordered"><span class="rosetta__text--bold">Tracing edges with hysteresis.</span> At this stage two thresholds for the values of $G$ are introduced: $T_{min}$ and $T_{max}$. Starting from pixels with $N(p) \geqslant T_{max}$ find all paths of pixels with $N(p) \geqslant T_{min}$ and put them to the resulting image.</li>
-/// <br>
-/// </ol>
+/// <li class="rosetta__list-item--ordered"><span class="rosetta__text--bold">Tracing edges with hysteresis.</span> At this stage two thresholds for the values of $G$ are introduced: $T_{min}$ and $T_{max}$. Starting from pixels with $N(p) \geqslant T_{max}$ find all paths of pixels with $N(p) \geqslant T_{min}$ and put them to the resulting image.</li></ol>
 /// <br>
 
 /// challengeSeed:

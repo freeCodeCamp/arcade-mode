@@ -20,12 +20,9 @@ replaceWithActualFunctionHere;
 /// description:
 /// <br>
 /// <br>
-/// <ol class="rosetta__ordered-list">
-/// <li class="rosetta__list-item--ordered">Take an integer n, greater than zero.</li>
+/// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">Take an integer n, greater than zero.</li>
 /// <li class="rosetta__list-item--ordered">Form the next n of its series by reversing the digits of the current n and adding the result to the current n.</li>
-/// <li class="rosetta__list-item--ordered">Stop when n becomes palindromic - i.e. the digits of n in reverse order == n.</li>
-/// <br>
-/// </ol>
+/// <li class="rosetta__list-item--ordered">Stop when n becomes palindromic - i.e. the digits of n in reverse order == n.</li></ol>
 /// <br>
 /// The above recurrence relation when applied to most starting numbers n = 1, 2, ... terminates in a palindrome quite quickly, for example if n<sub>0</sub> = 12 we get
 /// <pre>12
@@ -66,23 +63,17 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered"> Find the number of seed Lychrel number candidates and related numbers for n in the range 1..10000 inclusive. (With that iteration limit of 500).</li>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"> Find the number of seed Lychrel number candidates and related numbers for n in the range 1..10000 inclusive. (With that iteration limit of 500).</li>
 /// <li class="rosetta__list-item--unordered"> Print the number of seed Lychrels found; the actual seed Lychrels; and just the <span class="rosetta__text--italic">number</span> of relateds found.</li>
-/// <li class="rosetta__list-item--unordered"> Print any seed Lychrel or related number that is itself a palindrome.</li>
-/// <br>
-/// </ul>
+/// <li class="rosetta__list-item--unordered"> Print any seed Lychrel or related number that is itself a palindrome.</li></ul>
 /// <br>
 /// Show all output here.
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">References:</dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">[https://www.youtube.com/watch?v=bN8PE3eljdA What's special about 196?] Numberphile video.</li>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">[https://www.youtube.com/watch?v=bN8PE3eljdA What's special about 196?] Numberphile video.</li>
 /// <li class="rosetta__list-item--unordered">[http://oeis.org/A023108 A023108] Positive integers which apparently never result in a palindrome under repeated applications of the function f(x) = x + (x with digits reversed).</li>
-/// <li class="rosetta__list-item--unordered">[http://mathoverflow.net/questions/117104/status-of-the-196-conjecture/117277#117277 Status of the 196 conjecture?] Mathoverflow.</li>
-/// <br>
-/// </ul><br><br>
+/// <li class="rosetta__list-item--unordered">[http://mathoverflow.net/questions/117104/status-of-the-196-conjecture/117277#117277 Status of the 196 conjecture?] Mathoverflow.</li></ul><br><br>
 /// <br>
 /// <br>
 

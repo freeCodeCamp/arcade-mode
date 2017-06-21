@@ -28,8 +28,7 @@ replaceWithActualFunctionHere;
 /// is a logic puzzle which is to be solved programmatically. <br>
 /// It has several variants, one of them this:
 /// <br>
-/// <ol class="rosetta__ordered-list">
-/// <li class="rosetta__list-item--ordered">There are five houses.</li>
+/// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">There are five houses.</li>
 /// <li class="rosetta__list-item--ordered">The English man lives in the red house.</li>
 /// <li class="rosetta__list-item--ordered">The Swede has a dog.</li>
 /// <li class="rosetta__list-item--ordered">The Dane drinks tea.</li>
@@ -44,9 +43,7 @@ replaceWithActualFunctionHere;
 /// <li class="rosetta__list-item--ordered">The man who smokes Blue Master drinks beer.</li>
 /// <li class="rosetta__list-item--ordered">The German smokes Prince.</li>
 /// <li class="rosetta__list-item--ordered">The Norwegian lives next to the blue house.</li>
-/// <li class="rosetta__list-item--ordered">They drink water in a house next to the house where they smoke Blend. </li>
-/// <br>
-/// </ol>
+/// <li class="rosetta__list-item--ordered">They drink water in a house next to the house where they smoke Blend. </li></ol>
 /// <br>The question is, who owns the zebra?
 /// <br>
 /// Additionally, list the solution for all the houses. 
@@ -54,11 +51,8 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks:</dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Dinesman's multiple-dwelling problem" title="Dinesman's multiple-dwelling problem"></a></li>
-/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Twelve statements" title="Twelve statements"></a></li>
-/// <br>
-/// </ul><br><br>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Dinesman's multiple-dwelling problem" title="Dinesman's multiple-dwelling problem">Dinesman's multiple-dwelling problem</a></li>
+/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Twelve statements" title="Twelve statements">Twelve statements</a></li></ul><br><br>
 /// <br>
 /// <br>
 

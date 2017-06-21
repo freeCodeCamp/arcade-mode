@@ -32,15 +32,12 @@ replaceWithActualFunctionHere;
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
 /// Implement at least one of these algorithms and print out the first 15 Catalan numbers with each. 
 /// <br>
-/// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Memoization" title="Memoization"></a> &nbsp; is not required, but may be worth the effort when using the second method above.
+/// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Memoization" title="Memoization">Memoization</a> &nbsp; is not required, but may be worth the effort when using the second method above.
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks:</dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Catalan numbers/Pascal's triangle" title="Catalan numbers/Pascal's triangle"></a></li>
-/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Evaluate binomial coefficients" title="Evaluate binomial coefficients"></a></li>
-/// <br>
-/// </ul><br><br>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Catalan numbers/Pascal's triangle" title="Catalan numbers/Pascal's triangle">Catalan numbers/Pascal's triangle</a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Evaluate binomial coefficients" title="Evaluate binomial coefficients">Evaluate binomial coefficients</a></li></ul><br><br>
 /// <br>
 /// <br>
 

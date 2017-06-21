@@ -26,9 +26,9 @@ replaceWithActualFunctionHere;
 /// Implement a &nbsp; <span class="rosetta__text--italic">comb sort</span>. 
 /// <br>
 /// <br>
-/// The <span class="rosetta__text--bold">Comb Sort</span> is a variant of the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Bubble Sort" title="Bubble Sort"></a>. 
+/// The <span class="rosetta__text--bold">Comb Sort</span> is a variant of the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Bubble Sort" title="Bubble Sort">Bubble Sort</a>. 
 /// <br>
-/// Like the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Shell sort" title="Shell sort"></a>, the Comb Sort increases the gap used in comparisons and exchanges.
+/// Like the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Shell sort" title="Shell sort">Shell sort</a>, the Comb Sort increases the gap used in comparisons and exchanges.
 /// <br>
 /// Dividing the gap by &nbsp; <big>$(1-e^{-\varphi})^{-1} \approx 1.247330950103979$ </big> &nbsp; works best, but &nbsp; <big> 1.3</big> &nbsp; may be more practical. 
 /// <br>
@@ -37,17 +37,11 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Also see:</dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">&nbsp; the Wikipedia article: &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Comb sort" title="wp: Comb sort">Comb sort</a>.</li>
-/// <br>
-/// </ul>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">&nbsp; the Wikipedia article: &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Comb sort" title="wp: Comb sort">Comb sort</a>.</li></ul>
 /// <br>
 /// Variants:
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">Combsort11 makes sure the gap ends in (11, 8, 6, 4, 3, 2, 1), which is significantly faster than the other two possible endings.</li>
-/// <li class="rosetta__list-item--unordered">Combsort with different endings changes to a more efficient sort when the data is almost sorted (when the gap is small). &nbsp; Comb sort with a low gap isn't much better than the Bubble Sort.</li>
-/// <br>
-/// </ul>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Combsort11 makes sure the gap ends in (11, 8, 6, 4, 3, 2, 1), which is significantly faster than the other two possible endings.</li>
+/// <li class="rosetta__list-item--unordered">Combsort with different endings changes to a more efficient sort when the data is almost sorted (when the gap is small). &nbsp; Comb sort with a low gap isn't much better than the Bubble Sort.</li></ul>
 /// <br>
 /// Pseudocode:
 ///  <span class="rosetta__text--bold">function</span> combsort(<span class="rosetta__text--bold">array</span> input)
@@ -60,9 +54,9 @@ replaceWithActualFunctionHere;
 ///            gap := 1
 ///          <span class="rosetta__text--bold">end if</span>
 ///          i := 0
-///          swaps := 0 <span class="rosetta__text--italic">//see <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Bubble Sort" title="Bubble Sort"></a> for an explanation</span>
+///          swaps := 0 <span class="rosetta__text--italic">//see <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Bubble Sort" title="Bubble Sort">Bubble Sort</a> for an explanation</span>
 ///          <span class="rosetta__text--italic">//a single "comb" over the input list</span>
-///          <span class="rosetta__text--bold">loop until</span> i + gap >= input<span class="rosetta__text--bold">.size</span> <span class="rosetta__text--italic">//see <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Shell sort" title="Shell sort"></a> for similar idea</span>
+///          <span class="rosetta__text--bold">loop until</span> i + gap >= input<span class="rosetta__text--bold">.size</span> <span class="rosetta__text--italic">//see <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Shell sort" title="Shell sort">Shell sort</a> for similar idea</span>
 ///              <span class="rosetta__text--bold">if</span> input[i] > input[i+gap]
 ///                  <span class="rosetta__text--bold">swap</span>(input[i], input[i+gap])
 ///                  swaps := 1 <span class="rosetta__text--italic">// Flag a swap has occurred, so the</span>

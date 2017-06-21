@@ -21,9 +21,9 @@ replaceWithActualFunctionHere;
 ///  
 /// The task is to programmatically obtain the name used to invoke the program. (For example determine whether the user ran "python hello.py", or "python hellocaller.py", a program importing the code from "hello.py".)
 /// <br>
-/// Sometimes a <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/multiline shebang" title="multiline shebang"></a> is necessary in order to provide the script name to a language's internal ARGV.
+/// Sometimes a <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/multiline shebang" title="multiline shebang">multiline shebang</a> is necessary in order to provide the script name to a language's internal ARGV.
 /// <br>
-/// See also <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Command-line arguments" title="Command-line arguments"></a>
+/// See also <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Command-line arguments" title="Command-line arguments">Command-line arguments</a>
 /// <br>
 /// Examples from [https://github.com/mcandre/scriptname GitHub].
 /// <br>

@@ -26,7 +26,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// Optionally: output the list of selected letters and show the last selected letter, cater for a different number of columns or a different number of hexagons in each column, cater for two players, (turns alternate and the hexagons change a different colour depending on whether they were selected by player one or player two and records of both players selections are maintained.)
 /// <br>
-/// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/image:honeycomb.gif" title="image:honeycomb.gif"></a>
+/// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/image:honeycomb.gif" title="image:honeycomb.gif">image:honeycomb.gif</a>
 /// <br>
 /// <br>
 

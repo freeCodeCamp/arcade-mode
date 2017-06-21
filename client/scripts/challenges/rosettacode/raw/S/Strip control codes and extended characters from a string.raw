@@ -21,11 +21,8 @@ replaceWithActualFunctionHere;
 /// <br>
 /// The task is to strip control codes and extended characters from a string. The solution should demonstrate how to achieve each of the following results:
 /// <br>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">a string with control codes stripped (but extended characters not stripped)</li>
-/// <li class="rosetta__list-item--unordered">a string with control codes and extended characters stripped</li>
-/// <br>
-/// </ul>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">a string with control codes stripped (but extended characters not stripped)</li>
+/// <li class="rosetta__list-item--unordered">a string with control codes and extended characters stripped</li></ul>
 /// <br>
 /// In ASCII, the control codes have decimal codes 0 through to 31 and 127. On an ASCII based system, if the control codes are stripped, the resultant string would have all of its characters within the range of 32 to 126 decimal on the ASCII table.
 /// <br>

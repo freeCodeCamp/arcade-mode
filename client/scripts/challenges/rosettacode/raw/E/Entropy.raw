@@ -53,8 +53,8 @@ replaceWithActualFunctionHere;
 /// In keeping with Landauer's limit, the physics entropy generated from erasing N bits is $S = H_2 N k_B \ln(2)$ if the bit storage device is perfectly efficient.  This can be solved for H<sub>2</sub>*N to (arguably) get the number of bits of information that a physical entropy represents. 
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks: </dt></dl>
-/// <span class="rosetta__text--indented">* <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Fibonacci_word" title="Fibonacci_word"></a></span>
-/// <span class="rosetta__text--indented">* <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Entropy/Narcissist" title="Entropy/Narcissist"></a></span>
+/// <span class="rosetta__text--indented">* <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Fibonacci_word" title="Fibonacci_word">Fibonacci_word</a></span>
+/// <span class="rosetta__text--indented">* <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Entropy/Narcissist" title="Entropy/Narcissist">Entropy/Narcissist</a></span>
 /// <br><br>
 /// <br>
 /// <br>

@@ -35,14 +35,11 @@ replaceWithActualFunctionHere;
 /// <br>
 /// These bit oriented I/O functions can be used to implement compressors and
 /// decompressors; e.g. Dynamic and Static Huffman encodings use variable length
-/// bits sequences, while LZW (see <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/LZW compression" title="LZW compression"></a>) use fixed or variable <span class="rosetta__text--italic">words</span>
+/// bits sequences, while LZW (see <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/LZW compression" title="LZW compression">LZW compression</a>) use fixed or variable <span class="rosetta__text--italic">words</span>
 /// nine (or more) bits long.
 /// <br>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">Limits in the maximum number of bits that can be written/read in a single read/write operation are allowed.</li>
-/// <li class="rosetta__list-item--unordered">Errors handling is not mandatory</li>
-/// <br>
-/// </ul><br><br>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Limits in the maximum number of bits that can be written/read in a single read/write operation are allowed.</li>
+/// <li class="rosetta__list-item--unordered">Errors handling is not mandatory</li></ul><br><br>
 /// <br>
 /// <br>
 

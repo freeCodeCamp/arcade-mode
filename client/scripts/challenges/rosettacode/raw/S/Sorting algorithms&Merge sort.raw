@@ -77,10 +77,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">See also:</dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">&nbsp; the Wikipedia entry: &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Merge_sort" title="wp: Merge_sort"> merge sort</a></li>
-/// <br>
-/// </ul>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">&nbsp; the Wikipedia entry: &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Merge_sort" title="wp: Merge_sort"> merge sort</a></li></ul>
 /// <br>
 /// Note: &nbsp; better performance can be expected if, rather than recursing until &nbsp; <big> length(m) ≤ 1, </big> &nbsp; an insertion sort is used for &nbsp; <big> length(m) </big> &nbsp; smaller than some threshold larger than &nbsp; <span class="rosetta__text--bold">1</span>. &nbsp; However, this complicates the example code, so it is not shown here.
 /// <br><br>

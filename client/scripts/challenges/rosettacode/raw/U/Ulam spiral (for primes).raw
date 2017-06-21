@@ -122,19 +122,13 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks:</dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Spiral matrix" title="Spiral matrix"></a></li>
-/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Zig-zag matrix" title="Zig-zag matrix"></a></li>
-/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Identity_matrix" title="Identity_matrix"></a> </li>
-/// <br>
-/// </ul>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Spiral matrix" title="Spiral matrix">Spiral matrix</a></li>
+/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Zig-zag matrix" title="Zig-zag matrix">Zig-zag matrix</a></li>
+/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Identity_matrix" title="Identity_matrix">Identity_matrix</a> </li></ul>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">See also</dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">Wikipedia entry:        &nbsp; [http://en.wikipedia.org/wiki/Ulam_spiral Ulam spiral]  </li>
-/// <li class="rosetta__list-item--unordered">MathWorld&trade; entry: &nbsp; [http://mathworld.wolfram.com/PrimeSpiral.html Prime Spiral]</li>
-/// <br>
-/// </ul><br><br>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Wikipedia entry:        &nbsp; [http://en.wikipedia.org/wiki/Ulam_spiral Ulam spiral]  </li>
+/// <li class="rosetta__list-item--unordered">MathWorld&trade; entry: &nbsp; [http://mathworld.wolfram.com/PrimeSpiral.html Prime Spiral]</li></ul><br><br>
 /// <br>
 /// <br>
 

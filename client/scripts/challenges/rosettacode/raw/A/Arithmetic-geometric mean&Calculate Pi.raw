@@ -21,7 +21,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// [http://www.maa.org/sites/default/files/pdf/upload_library/22/Ford/Almkvist-Berndt585-608.pdf Almkvist Berndt 1988] begins with an investigation of why the agm is such an efficient algorithm, and proves that it converges quadratically. This is an efficient method to calculate $\pi$.
 /// <br>
-/// With the same notations used in <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Arithmetic-geometric mean" title="Arithmetic-geometric mean"></a>, we can summarize the paper by writing:
+/// With the same notations used in <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Arithmetic-geometric mean" title="Arithmetic-geometric mean">Arithmetic-geometric mean</a>, we can summarize the paper by writing:
 /// <br>
 /// $\pi =
 /// \frac{4\; \mathrm{agm}(1, 1/\sqrt{2})^2}

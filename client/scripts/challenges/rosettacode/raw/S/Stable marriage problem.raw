@@ -59,22 +59,16 @@ replaceWithActualFunctionHere;
 ///    ivy: ian, col, hal, gav, fred, bob, abe, ed, jon, dan
 ///    jan: ed, hal, gav, abe, bob, jon, col, ian, fred, dan
 /// <br>
-/// <ol class="rosetta__ordered-list">
-/// <li class="rosetta__list-item--ordered">Use the Gale Shapley algorithm to find a stable set of engagements</li>
-/// <li class="rosetta__list-item--ordered">Perturb this set of engagements to form an unstable set of engagements then check this new set for stability.</li>
-/// <br>
-/// </ol>
+/// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">Use the Gale Shapley algorithm to find a stable set of engagements</li>
+/// <li class="rosetta__list-item--ordered">Perturb this set of engagements to form an unstable set of engagements then check this new set for stability.</li></ol>
 /// <br>
 /// <span class="rosetta__text--bold">References</span>
-/// <ol class="rosetta__ordered-list">
-/// <li class="rosetta__list-item--ordered"> [http://www.cs.columbia.edu/~evs/intro/stable/writeup.html The Stable Marriage Problem]. (Eloquent description and background information).</li>
+/// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered"> [http://www.cs.columbia.edu/~evs/intro/stable/writeup.html The Stable Marriage Problem]. (Eloquent description and background information).</li>
 /// <li class="rosetta__list-item--ordered">[http://sephlietz.com/gale-shapley/ Gale-Shapley Algorithm Demonstration].</li>
 /// <li class="rosetta__list-item--ordered">[http://mathsite.math.berkeley.edu/smp/smp.html Another Gale-Shapley Algorithm Demonstration].</li>
 /// <li class="rosetta__list-item--ordered">[https://www.youtube.com/watch?v=Qcv1IqHWAzg Stable Marriage Problem - Numberphile] (Video).</li>
 /// <li class="rosetta__list-item--ordered">[https://www.youtube.com/watch?v=LtTV6rIxhdo Stable Marriage Problem (the math bit)] (Video).</li>
-/// <li class="rosetta__list-item--ordered">[http://www.ams.org/samplings/feature-column/fc-2015-03 The Stable Marriage Problem and School Choice]. (Excellent exposition)</li>
-/// <br>
-/// </ol><br><br>
+/// <li class="rosetta__list-item--ordered">[http://www.ams.org/samplings/feature-column/fc-2015-03 The Stable Marriage Problem and School Choice]. (Excellent exposition)</li></ol><br><br>
 /// <br>
 /// <br>
 

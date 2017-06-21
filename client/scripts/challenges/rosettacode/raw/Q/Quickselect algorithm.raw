@@ -23,10 +23,7 @@ replaceWithActualFunctionHere;
 /// <span class="rosetta__text--indented"> [9, 8, 7, 6, 5, 0, 1, 2, 3, 4]</span>
 /// To show the first, second, third, ... up to the tenth largest member of the vector, in order, here on this page.
 /// <br>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">Note: Quick<span class="rosetta__text--italic">sort</span> has a separate <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Sorting algorithms/Quicksort" title="Sorting algorithms/Quicksort">task</a>. <br><br></li>
-/// <br>
-/// </ul>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Note: Quick<span class="rosetta__text--italic">sort</span> has a separate <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Sorting algorithms/Quicksort" title="Sorting algorithms/Quicksort">task</a>. <br><br></li></ul>
 /// <br>
 
 /// challengeSeed:

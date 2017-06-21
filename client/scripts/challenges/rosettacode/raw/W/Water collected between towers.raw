@@ -53,12 +53,9 @@ replaceWithActualFunctionHere;
 /// <br>
 /// See, also:
 /// <br>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">[https://youtu.be/ftcIcn8AmSY?t=536 Four Solutions to a Trivial Problem] – a Google Tech Talk by Guy Steele</li>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">[https://youtu.be/ftcIcn8AmSY?t=536 Four Solutions to a Trivial Problem] – a Google Tech Talk by Guy Steele</li>
 /// <li class="rosetta__list-item--unordered">[http://stackoverflow.com/questions/24414700/amazon-water-collected-between-towers/ Water collected between towers] on Stack Overflow, from which the example above is taken)</li>
-/// <li class="rosetta__list-item--unordered">[https://gist.github.com/paf31/9d84ecf6a6a9b69cdb597a390f25764d An interesting Haskell solution], using the Tardis monad, by [https://gist.github.com/paf31 Phil Freeman] in a [https://gist.github.com/paf31/9d84ecf6a6a9b69cdb597a390f25764d Github gist].</li>
-/// <br>
-/// </ul>
+/// <li class="rosetta__list-item--unordered">[https://gist.github.com/paf31/9d84ecf6a6a9b69cdb597a390f25764d An interesting Haskell solution], using the Tardis monad, by [https://gist.github.com/paf31 Phil Freeman] in a [https://gist.github.com/paf31/9d84ecf6a6a9b69cdb597a390f25764d Github gist].</li></ul>
 /// <br>
 /// <br>
 /// <br>

@@ -24,7 +24,7 @@ replaceWithActualFunctionHere;
 /// Using the data storage type defined <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Basic_bitmap_storage" title="Basic_bitmap_storage">on this page</a> for raster images, read an image from a PPM file (binary P6 prefered).
 /// (Read <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Netpbm_format" title="wp: Netpbm_format">the definition of PPM file</a> on Wikipedia.)
 /// <br>
-/// <span class="rosetta__text--bold">Task</span>: Use <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/write ppm file" title="write ppm file"></a> solution and <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/grayscale image" title="grayscale image"></a> solution with this one in order to convert a color image to grayscale one.
+/// <span class="rosetta__text--bold">Task</span>: Use <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/write ppm file" title="write ppm file">write ppm file</a> solution and <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/grayscale image" title="grayscale image">grayscale image</a> solution with this one in order to convert a color image to grayscale one.
 /// <br>
 /// <br>
 

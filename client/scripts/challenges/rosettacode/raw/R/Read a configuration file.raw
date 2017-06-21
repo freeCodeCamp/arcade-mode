@@ -57,27 +57,18 @@ replaceWithActualFunctionHere;
 /// <br>
 /// For the task we need to set four variables according to the configuration entries as follows:
 /// <br>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">fullname = Foo Barber</li>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">fullname = Foo Barber</li>
 /// <li class="rosetta__list-item--unordered">favouritefruit = banana</li>
 /// <li class="rosetta__list-item--unordered">needspeeling = true</li>
-/// <li class="rosetta__list-item--unordered">seedsremoved = false</li>
-/// <br>
-/// </ul>
+/// <li class="rosetta__list-item--unordered">seedsremoved = false</li></ul>
 /// <br>
 /// We also have an option that contains multiple parameters. These may be stored in an array.
 /// <br>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">otherfamily(1) = Rhu Barber</li>
-/// <li class="rosetta__list-item--unordered">otherfamily(2) = Harry Barber</li>
-/// <br>
-/// </ul>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">otherfamily(1) = Rhu Barber</li>
+/// <li class="rosetta__list-item--unordered">otherfamily(2) = Harry Barber</li></ul>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks</dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Update a configuration file" title="Update a configuration file"></a></li>
-/// <br>
-/// </ul><br><br>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Update a configuration file" title="Update a configuration file">Update a configuration file</a></li></ul><br><br>
 /// <br>
 /// <br>
 

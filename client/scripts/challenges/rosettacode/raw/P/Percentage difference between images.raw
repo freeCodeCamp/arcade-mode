@@ -18,7 +18,7 @@ const assert = require('chai').assert;
 replaceWithActualFunctionHere;
 
 /// description:
-/// Compute the percentage of difference between 2 JPEG images of the same size. Alternatively, compare two bitmaps as defined in <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/basic bitmap storage" title="basic bitmap storage"></a>.
+/// Compute the percentage of difference between 2 JPEG images of the same size. Alternatively, compare two bitmaps as defined in <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/basic bitmap storage" title="basic bitmap storage">basic bitmap storage</a>.
 /// <br>
 /// Useful for comparing two JPEG images saved with a different compression ratios.
 /// <br>

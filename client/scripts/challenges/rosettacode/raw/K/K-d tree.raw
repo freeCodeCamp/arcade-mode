@@ -29,11 +29,8 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <span class="rosetta__text--bold">Task:</span> Construct a k-d tree and perform a nearest neighbor search for two example data sets:
 /// <br>
-/// <ol class="rosetta__ordered-list">
-/// <li class="rosetta__list-item--ordered">The Wikipedia example data of [(2,3), (5,4), (9,6), (4,7), (8,1), (7,2)].</li>
-/// <li class="rosetta__list-item--ordered">1000 3-d points uniformly distributed in a 3-d cube.</li>
-/// <br>
-/// </ol>
+/// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">The Wikipedia example data of [(2,3), (5,4), (9,6), (4,7), (8,1), (7,2)].</li>
+/// <li class="rosetta__list-item--ordered">1000 3-d points uniformly distributed in a 3-d cube.</li></ol>
 /// For the Wikipedia example, find the nearest neighbor to point (9, 2)
 /// For the random data, pick a random location and find the nearest neighbor.
 /// <br>

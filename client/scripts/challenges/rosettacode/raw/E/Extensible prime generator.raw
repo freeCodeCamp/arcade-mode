@@ -24,21 +24,15 @@ replaceWithActualFunctionHere;
 /// Write a generator of prime numbers, in order, that will automatically adjust to accommodate the generation of any reasonably high prime.
 /// <br>
 /// The routine should demonstrably rely on either:
-/// <ol class="rosetta__ordered-list">
-/// <li class="rosetta__list-item--ordered">Being based on an open-ended counter set to count without upper limit other than system or programming language limits. In this case, explain where this counter is in the code.</li>
+/// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">Being based on an open-ended counter set to count without upper limit other than system or programming language limits. In this case, explain where this counter is in the code.</li>
 /// <li class="rosetta__list-item--ordered">Being based on a limit that is extended automatically. In this case, choose a small limit that ensures the limit will be passed when generating some of the values to be asked for below.</li>
-/// <li class="rosetta__list-item--ordered">If other methods of creating an extensible prime generator are used, the algorithm's means of extensibility/lack of limits should be stated.</li>
-/// <br>
-/// </ol>
+/// <li class="rosetta__list-item--ordered">If other methods of creating an extensible prime generator are used, the algorithm's means of extensibility/lack of limits should be stated.</li></ol>
 /// <br>
 /// The routine should be used to:
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">Show the first twenty primes.</li>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Show the first twenty primes.</li>
 /// <li class="rosetta__list-item--unordered">Show the primes between 100 and 150.</li>
 /// <li class="rosetta__list-item--unordered">Show the <span class="rosetta__text--italic">number</span> of primes between 7,700 and 8,000.</li>
-/// <li class="rosetta__list-item--unordered">Show the 10,000th prime.</li>
-/// <br>
-/// </ul>
+/// <li class="rosetta__list-item--unordered">Show the 10,000th prime.</li></ul>
 /// <br>
 /// Show output on this page.
 /// <br>
@@ -47,10 +41,7 @@ replaceWithActualFunctionHere;
 /// <span class="rosetta__text--bold">Note 2:</span> If a languages in-built prime generator is extensible or is guaranteed to generate primes up to a system limit, (2<sup>31</sup> or memory overflow for example), then this may be used as long as an explanation of the limits of the prime generator is also given. (Which may include a link to/excerpt from, language documentation). 
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">See also:</dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">The task is written so it may be useful in solving task <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Emirp primes" title="Emirp primes"></a> as well as others (depending on its efficiency).</li>
-/// <br>
-/// </ul><br><br>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">The task is written so it may be useful in solving task <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Emirp primes" title="Emirp primes">Emirp primes</a> as well as others (depending on its efficiency).</li></ul><br><br>
 /// <br>
 /// <br>
 

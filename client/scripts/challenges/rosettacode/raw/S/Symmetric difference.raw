@@ -21,7 +21,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task</dt></dl>
-/// Given two <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/set" title="set"></a>s <span class="rosetta__text--italic">A</span> and <span class="rosetta__text--italic">B</span>, compute $(A \setminus B) \cup (B \setminus A).$
+/// Given two <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/set" title="set">set</a>s <span class="rosetta__text--italic">A</span> and <span class="rosetta__text--italic">B</span>, compute $(A \setminus B) \cup (B \setminus A).$
 /// <br>
 /// That is, enumerate the items that are in <span class="rosetta__text--italic">A</span> or <span class="rosetta__text--italic">B</span> but not both. This set is called the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Symmetric difference" title="wp: Symmetric difference">symmetric difference</a> of <span class="rosetta__text--italic">A</span> and <span class="rosetta__text--italic">B</span>. 
 /// <br>
@@ -36,11 +36,8 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Notes</dt></dl>
-/// <ol class="rosetta__ordered-list">
-/// <li class="rosetta__list-item--ordered">If your code uses lists of items to represent sets then ensure duplicate items in lists are correctly handled. For example two lists representing sets of <code>a = ["John", "Serena", "Bob", "Mary", "Serena"]</code> and <code>b = ["Jim", "Mary", "John", "Jim", "Bob"]</code> should produce the result of just two strings: <code>["Serena", "Jim"]</code>, in any order.</li>
-/// <li class="rosetta__list-item--ordered">In the mathematical notation above <code>A \ B</code> gives the set of items in A that are not in B; <code>A ∪ B</code> gives the set of items in both A and B, (their <span class="rosetta__text--italic">union</span>); and <code>A ∩ B</code> gives the set of items that are in both A and B (their <span class="rosetta__text--italic">intersection</span>).</li>
-/// <br>
-/// </ol><br><br>
+/// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">If your code uses lists of items to represent sets then ensure duplicate items in lists are correctly handled. For example two lists representing sets of <code>a = ["John", "Serena", "Bob", "Mary", "Serena"]</code> and <code>b = ["Jim", "Mary", "John", "Jim", "Bob"]</code> should produce the result of just two strings: <code>["Serena", "Jim"]</code>, in any order.</li>
+/// <li class="rosetta__list-item--ordered">In the mathematical notation above <code>A \ B</code> gives the set of items in A that are not in B; <code>A ∪ B</code> gives the set of items in both A and B, (their <span class="rosetta__text--italic">union</span>); and <code>A ∩ B</code> gives the set of items that are in both A and B (their <span class="rosetta__text--italic">intersection</span>).</li></ol><br><br>
 /// <br>
 
 /// challengeSeed:

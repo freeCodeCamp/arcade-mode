@@ -25,23 +25,17 @@ replaceWithActualFunctionHere;
 /// <br>
 /// For example, &nbsp; <span class="rosetta__text--bold">2020</span> &nbsp; is a four-digit self describing number:
 /// <br>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">&nbsp; position &nbsp; 0 &nbsp; has value &nbsp; 2 &nbsp; and there are two 0s in the number;</li>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">&nbsp; position &nbsp; 0 &nbsp; has value &nbsp; 2 &nbsp; and there are two 0s in the number;</li>
 /// <li class="rosetta__list-item--unordered">&nbsp; position &nbsp; 1 &nbsp; has value &nbsp; 0 &nbsp; and there are no 1s in the number;</li>
 /// <li class="rosetta__list-item--unordered">&nbsp; position &nbsp; 2 &nbsp; has value &nbsp; 2 &nbsp; and there are two 2s;</li>
-/// <li class="rosetta__list-item--unordered">&nbsp; position &nbsp; 3 &nbsp; has value &nbsp; 0 &nbsp; and there are zero 3s.</li>
-/// <br>
-/// </ul>
+/// <li class="rosetta__list-item--unordered">&nbsp; position &nbsp; 3 &nbsp; has value &nbsp; 0 &nbsp; and there are zero 3s.</li></ul>
 /// <br>
 /// Self-describing numbers < 100.000.000&nbsp; are: &nbsp; &nbsp; 1210, &nbsp; 2020, &nbsp; 21200, &nbsp; 3211000, &nbsp; 42101000.
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task Description</dt></dl>
-/// <ol class="rosetta__ordered-list">
-/// <li class="rosetta__list-item--ordered">Write a function/routine/method/... that will check whether a given positive integer is self-describing.</li>
-/// <li class="rosetta__list-item--ordered">As an optional stretch goal - generate and display the set of self-describing numbers.</li>
-/// <br>
-/// </ol><br><br>
+/// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">Write a function/routine/method/... that will check whether a given positive integer is self-describing.</li>
+/// <li class="rosetta__list-item--ordered">As an optional stretch goal - generate and display the set of self-describing numbers.</li></ol><br><br>
 /// <br>
 /// <br>
 

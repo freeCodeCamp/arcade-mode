@@ -170,13 +170,10 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related Tasks</dt></dl>
 /// <br>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/lexical_analyzer" title="Compiler/lexical_analyzer">Lexical Analyzer task</a></li>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/lexical_analyzer" title="Compiler/lexical_analyzer">Lexical Analyzer task</a></li>
 /// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/syntax_analyzer" title="Compiler/syntax_analyzer">Syntax Analyzer task</a></li>
 /// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/code_generator" title="Compiler/code_generator">Code Generator task</a></li>
-/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/virtual_machine_interpreter" title="Compiler/virtual_machine_interpreter">Virtual Machine Interpreter task</a></li>
-/// <br>
-/// </ul>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/virtual_machine_interpreter" title="Compiler/virtual_machine_interpreter">Virtual Machine Interpreter task</a></li></ul>
 /// <hr>
 /// __TOC__
 /// <br>

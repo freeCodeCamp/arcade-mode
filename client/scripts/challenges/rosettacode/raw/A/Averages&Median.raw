@@ -31,7 +31,7 @@ replaceWithActualFunctionHere;
 /// Sorting would take at least &nbsp; <big><span style="font-family: serif">O(<span class="rosetta__text--italic">n</span> log<span class="rosetta__text--italic">n</span>)</span></big>. &nbsp; Another approach would be to build a priority queue from the elements, and then extract half of the elements to get to the middle element(s). &nbsp; This would also take &nbsp; <big><span style="font-family: serif">O(<span class="rosetta__text--italic">n</span> log<span class="rosetta__text--italic">n</span>)</span></big>. &nbsp; The best solution is to use the &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Selection algorithm" title="wp: Selection algorithm">selection algorithm</a> &nbsp; to find the median in &nbsp; <big><span style="font-family: serif">O(<span class="rosetta__text--italic">n</span>)</span></big> &nbsp; time.
 /// <br>
 /// <br>
-/// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Quickselect_algorithm" title="Quickselect_algorithm"></a>
+/// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Quickselect_algorithm" title="Quickselect_algorithm">Quickselect_algorithm</a>
 /// <br>
 /// <br>
 /// <hr>

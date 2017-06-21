@@ -22,9 +22,9 @@ replaceWithActualFunctionHere;
 /// <br>
 /// This task is about arrays.
 ///  
-/// For hashes or associative arrays, please see <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Creating an Associative Array" title="Creating an Associative Array"></a>. 
+/// For hashes or associative arrays, please see <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Creating an Associative Array" title="Creating an Associative Array">Creating an Associative Array</a>. 
 /// <br>
-/// For a definition and in-depth discussion of what an array is, see <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Array" title="Array"></a>.
+/// For a definition and in-depth discussion of what an array is, see <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Array" title="Array">Array</a>.
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
@@ -36,18 +36,15 @@ replaceWithActualFunctionHere;
 /// Please discuss at Village Pump: &nbsp; .  
 /// <br>
 /// Please merge code in from these obsolete tasks:
-/// <span class="rosetta__text--indented">::* &nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Creating an Array" title="Creating an Array"></a></span>
-/// <span class="rosetta__text--indented">::* &nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Assigning Values to an Array" title="Assigning Values to an Array"></a></span>
-/// <span class="rosetta__text--indented">::* &nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Retrieving an Element of an Array" title="Retrieving an Element of an Array"></a></span>
+/// <span class="rosetta__text--indented">::* &nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Creating an Array" title="Creating an Array">Creating an Array</a></span>
+/// <span class="rosetta__text--indented">::* &nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Assigning Values to an Array" title="Assigning Values to an Array">Assigning Values to an Array</a></span>
+/// <span class="rosetta__text--indented">::* &nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Retrieving an Element of an Array" title="Retrieving an Element of an Array">Retrieving an Element of an Array</a></span>
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks:</dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Collections" title="Collections"></a></li>
-/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Creating an Associative Array" title="Creating an Associative Array"></a></li>
-/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Two-dimensional array (runtime)" title="Two-dimensional array (runtime)"></a></li>
-/// <br>
-/// </ul><br><br>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Collections" title="Collections">Collections</a></li>
+/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Creating an Associative Array" title="Creating an Associative Array">Creating an Associative Array</a></li>
+/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Two-dimensional array (runtime)" title="Two-dimensional array (runtime)">Two-dimensional array (runtime)</a></li></ul><br><br>
 /// <br>
 /// <br>
 

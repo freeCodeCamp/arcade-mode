@@ -22,7 +22,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// This task is an exercise in <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Call-by-name#Call_by_name" title="wp: Call-by-name#Call_by_name">call by name</a>.
 /// <br>
-/// <span class="rosetta__text--bold">Jensen's Device</span> is a computer programming technique devised by Danish computer scientist <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Jørn_Jensen" title="wp: Jørn_Jensen">Jørn Jensen]] after studying the [[ALGOL 60</a> Report.
+/// <span class="rosetta__text--bold">Jensen's Device</span> is a computer programming technique devised by Danish computer scientist <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Jørn_Jensen" title="wp: Jørn_Jensen">Jørn Jensen</a> after studying the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/ALGOL 60" title="ALGOL 60">ALGOL 60</a> Report.
 /// <br>
 /// The following program was proposed to illustrate the technique. It computes the 100th <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Harmonic_number" title="wp: Harmonic_number">harmonic number</a>:
 /// <br>
@@ -49,7 +49,7 @@ replaceWithActualFunctionHere;
 /// Moreover, the <span class="rosetta__text--italic">first</span> parameter to <span class="rosetta__text--italic">sum</span>, representing the "bound" variable of the summation, must also be passed by name (or at least by reference), otherwise changes to it (made within <span class="rosetta__text--italic">sum</span>) would not be visible in the caller's context when computing each of the values to be added.
 /// (On the other hand, the global variable does not have to use the same identifier, in this case <span class="rosetta__text--italic">i</span>, as the formal parameter.)
 /// <br>
-/// <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Donald_Knuth" title="wp: Donald_Knuth">Donald Knuth]] later proposed the [[Man or boy test|Man or Boy Test</a> as a more rigorous exercise.
+/// <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Donald_Knuth" title="wp: Donald_Knuth">Donald Knuth</a> later proposed the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Man or boy test" title="Man or boy test">Man or Boy Test</a> as a more rigorous exercise.
 /// <br><br>
 /// <br>
 

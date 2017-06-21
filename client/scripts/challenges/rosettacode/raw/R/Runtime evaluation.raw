@@ -27,7 +27,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// You may not invoke a separate evaluator program, or invoke a compiler and then its output, unless the interface of that program, and the syntax and means of executing it, are considered part of your language/library/platform.
 /// <br>
-/// For a more constrained task giving a specific program fragment to evaluate, see <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Eval in environment" title="Eval in environment"></a>.
+/// For a more constrained task giving a specific program fragment to evaluate, see <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Eval in environment" title="Eval in environment">Eval in environment</a>.
 /// <br><br>
 /// <br>
 /// <br>

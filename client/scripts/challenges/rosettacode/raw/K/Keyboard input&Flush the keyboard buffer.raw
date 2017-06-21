@@ -29,7 +29,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <br>
-/// Flush the &nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/input device::keyboard" title="input device::keyboard"></a> &nbsp; buffer.
+/// Flush the &nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/input device::keyboard" title="input device::keyboard">input device::keyboard</a> &nbsp; buffer.
 ///  
 /// This reads characters from the keyboard input and 
 /// discards them until there are no more currently buffered, &nbsp;  

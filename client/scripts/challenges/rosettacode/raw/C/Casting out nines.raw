@@ -29,7 +29,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Part 2</dt></dl>
 /// Notwithstanding past Intel microcode errors, checking computer calculations like this would not be sensible. To find a computer use for your procedure:
-/// <span class="rosetta__text--indented"> Consider the statement "318682 is 101558 + 217124 and squared is 101558217124" (see: <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Kaprekar numbers#Casting Out Nines (fast)" title="Kaprekar numbers#Casting Out Nines (fast)"></a>).</span>
+/// <span class="rosetta__text--indented"> Consider the statement "318682 is 101558 + 217124 and squared is 101558217124" (see: <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Kaprekar numbers#Casting Out Nines (fast)" title="Kaprekar numbers#Casting Out Nines (fast)">Kaprekar numbers#Casting Out Nines (fast)</a>).</span>
 /// <span class="rosetta__text--indented"> note that $318682$ has the same checksum as ($101558 + 217124$);</span>
 /// <span class="rosetta__text--indented"> note that $101558217124$ has the same checksum as ($101558 + 217124$) because for a Kaprekar they are made up of the same digits (sometimes with extra zeroes);</span>
 /// <span class="rosetta__text--indented"> note that this implies that for Kaprekar numbers the checksum of $k$ equals the checksum of $k^2$.</span>

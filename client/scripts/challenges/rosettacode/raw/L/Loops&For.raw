@@ -32,19 +32,13 @@ replaceWithActualFunctionHere;
 /// <br>
 /// Specifically print out the following pattern by using one for loop nested in another:
 /// <pre>*
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">*</li>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">*</li>
 /// <li class="rosetta__list-item--unordered">**</li>
 /// <li class="rosetta__list-item--unordered">***</li>
-/// <li class="rosetta__list-item--unordered">****</pre></li>
-/// <br>
-/// </ul>
+/// <li class="rosetta__list-item--unordered">****</pre></li></ul>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Reference:</dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/For loop" title="wp: For loop">For loop</a> Wikipedia.</li>
-/// <br>
-/// </ul><br><br>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/For loop" title="wp: For loop">For loop</a> Wikipedia.</li></ul><br><br>
 /// <br>
 /// <br>
 

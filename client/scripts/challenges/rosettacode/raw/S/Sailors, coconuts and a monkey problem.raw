@@ -29,33 +29,21 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">The task:</dt></dl>
-/// <ol class="rosetta__ordered-list">
-/// <li class="rosetta__list-item--ordered">Calculate the minimum possible size of the initial pile of coconuts collected during the first day.</li>
+/// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">Calculate the minimum possible size of the initial pile of coconuts collected during the first day.</li>
 /// <li class="rosetta__list-item--ordered">Use a method that assumes an answer is possible, and then applies the constraints of the tale to see if it is correct. (I.e. no applying some formula that generates the correct answer without integer divisions and remainders and tests on remainders; but constraint solvers <span class="rosetta__text--italic">are</span> allowed.)</li>
 /// <li class="rosetta__list-item--ordered">Calculate the size of the initial pile of coconuts if six sailors were marooned and went through a similar process (but split into six piles instead of five of course).</li>
-/// <li class="rosetta__list-item--ordered">Show your answers here.</li>
-/// <br>
-/// </ol>
+/// <li class="rosetta__list-item--ordered">Show your answers here.</li></ol>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Extra credit (optional):</dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">Give some indication of the number of coconuts each sailor hides during the night.</li>
-/// <br>
-/// </ul>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Give some indication of the number of coconuts each sailor hides during the night.</li></ul>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Note:</dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">Of course the tale is told in a world where the collection of any amount of coconuts in a day and multiple divisions of the pile, etc can occur in time fitting the story line, so as not to affect the mathematics.</li>
-/// <li class="rosetta__list-item--unordered">The tale is also told in a version where the monkey also gets a coconut in the morning. This is <span class="rosetta__text--italic">not</span> that tale!</li>
-/// <br>
-/// </ul>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Of course the tale is told in a world where the collection of any amount of coconuts in a day and multiple divisions of the pile, etc can occur in time fitting the story line, so as not to affect the mathematics.</li>
+/// <li class="rosetta__list-item--unordered">The tale is also told in a version where the monkey also gets a coconut in the morning. This is <span class="rosetta__text--italic">not</span> that tale!</li></ul>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">C.f:</dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">[https://www.youtube.com/watch?v=U9qU20VmvaU Monkeys and Coconuts - Numberphile] (Video) Analytical solution.</li>
-/// <li class="rosetta__list-item--unordered">[http://oeis.org/A002021 A002021 Pile of coconuts problem] The On-Line Encyclopedia of Integer Sequences. (Although some of its references may use the alternate form of the tale).</li>
-/// <br>
-/// </ul><br><br>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">[https://www.youtube.com/watch?v=U9qU20VmvaU Monkeys and Coconuts - Numberphile] (Video) Analytical solution.</li>
+/// <li class="rosetta__list-item--unordered">[http://oeis.org/A002021 A002021 Pile of coconuts problem] The On-Line Encyclopedia of Integer Sequences. (Although some of its references may use the alternate form of the tale).</li></ul><br><br>
 /// <br>
 /// <br>
 

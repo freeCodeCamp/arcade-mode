@@ -36,26 +36,17 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">Compute and display the lowest 25 taxicab numbers (in numeric order, and in a human-readable format).</li>
-/// <li class="rosetta__list-item--unordered">For each of the taxicab numbers, show the number as well as it's constituent cubes.</li>
-/// <br>
-/// </ul>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Compute and display the lowest 25 taxicab numbers (in numeric order, and in a human-readable format).</li>
+/// <li class="rosetta__list-item--unordered">For each of the taxicab numbers, show the number as well as it's constituent cubes.</li></ul>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Extra credit</dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">Show the 2,000<sup>th</sup> taxicab number, and a half dozen more</li>
-/// <br>
-/// </ul>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Show the 2,000<sup>th</sup> taxicab number, and a half dozen more</li></ul>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">See also:</dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">[http://oeis.org/A001235 A001235 taxicab numbers] on The On-Line Encyclopedia of Integer Sequences.</li>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">[http://oeis.org/A001235 A001235 taxicab numbers] on The On-Line Encyclopedia of Integer Sequences.</li>
 /// <li class="rosetta__list-item--unordered">[http://mathworld.wolfram.com/Hardy-RamanujanNumber.html Hardy-Ramanujan Number] on MathWorld.</li>
 /// <li class="rosetta__list-item--unordered">[http://mathworld.wolfram.com/TaxicabNumber.html taxicab number] on MathWorld.</li>
-/// <li class="rosetta__list-item--unordered">[https://en.wikipedia.org/wiki/Taxicab_number taxicab number] on Wikipedia.</li>
-/// <br>
-/// </ul><br><br>
+/// <li class="rosetta__list-item--unordered">[https://en.wikipedia.org/wiki/Taxicab_number taxicab number] on Wikipedia.</li></ul><br><br>
 /// <br>
 /// <br>
 

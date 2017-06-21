@@ -25,13 +25,10 @@ replaceWithActualFunctionHere;
 /// <span class="rosetta__text--bold">Test task</span>
 /// <br>
 /// Histogram is useful for many image processing operations. As an example, use it to convert an image into black and white art. The method works as follows:
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">Convert image to grayscale;</li>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Convert image to grayscale;</li>
 /// <li class="rosetta__list-item--unordered">Compute the histogram</li>
 /// <li class="rosetta__list-item--unordered">Find the median: defined as the luminance such that the image has an approximately equal number of pixels with lesser and greater luminance.</li>
-/// <li class="rosetta__list-item--unordered">Replace each pixel of luminance lesser than the median to black, and others to white.</li>
-/// <br>
-/// </ul>Use <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/read ppm file " title="read ppm file "> read]]/[[write ppm file]], and [[grayscale image</a> solutions. 
+/// <li class="rosetta__list-item--unordered">Replace each pixel of luminance lesser than the median to black, and others to white.</li></ul>Use <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/read ppm file " title="read ppm file "> read</a>/<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/write ppm file" title="write ppm file">write ppm file</a>, and <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/grayscale image" title="grayscale image">grayscale image</a> solutions. 
 /// <br>
 /// <br>
 

@@ -28,7 +28,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// One possible algorithm that is efficient also for large numbers is the following: By the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Chinese_Remainder_Theorem" title="wp: Chinese_Remainder_Theorem">Chinese Remainder Theorem</a>, it's enough to calculate the multiplicative order for each prime exponent <span class="rosetta__text--italic">p^k</span> of <span class="rosetta__text--italic">m</span>, and
-/// combine the results with the <span class="rosetta__text--italic"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/least common multiple" title="least common multiple"></a></span> operation.
+/// combine the results with the <span class="rosetta__text--italic"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/least common multiple" title="least common multiple">least common multiple</a></span> operation.
 /// <br>
 /// Now the order of <span class="rosetta__text--italic">a</span> with regard to <span class="rosetta__text--italic">p^k</span> must divide <span class="rosetta__text--italic">&Phi;(p^k)</span>. Call this number <span class="rosetta__text--italic">t</span>, and determine it's factors <span class="rosetta__text--italic">q^e</span>. Since each multiple of the order will also yield 1 when used as exponent for <span class="rosetta__text--italic">a</span>, it's enough to find the least d such that <span class="rosetta__text--italic">(q^d)*(t/(q^e))</span> yields 1 when used as exponent. 
 /// <br>

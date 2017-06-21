@@ -20,13 +20,10 @@ replaceWithActualFunctionHere;
 /// description:
 /// Create a simple interactive game which incorporates the following features:
 /// <br>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">room-based navigation in three integer dimensions (x,y,z)</li>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">room-based navigation in three integer dimensions (x,y,z)</li>
 /// <li class="rosetta__list-item--unordered">player inventory</li>
 /// <li class="rosetta__list-item--unordered">three types of item: sledge, gold and ladder</li>
-/// <li class="rosetta__list-item--unordered">a goal coordinate</li>
-/// <br>
-/// </ul>
+/// <li class="rosetta__list-item--unordered">a goal coordinate</li></ul>
 /// Use of the sledge should be required to create a passage between rooms.  The ladder should be present in a room (but not held by the player), in order for the player to access the room above him.  The gold need not have a function.
 /// <br>
 /// This project is based on [http://web.archive.org/web/20080212201605/http://shortcircuit.us/muddy-kinda-like-a-mud-but-single-player/ this blog post] by <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/User:Short Circuit" title="User:Short Circuit">Michael Mol</a>, and the Perl version comes from there.

@@ -24,19 +24,13 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
-/// <ol class="rosetta__ordered-list">
-/// <li class="rosetta__list-item--ordered">Write a program to show all months that have this same characteristic of five full weekends from the year 1900 through 2100 (Gregorian calendar). </li>
+/// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">Write a program to show all months that have this same characteristic of five full weekends from the year 1900 through 2100 (Gregorian calendar). </li>
 /// <li class="rosetta__list-item--ordered">Show the <span class="rosetta__text--italic">number</span> of months with this property (there should be 201).</li>
-/// <li class="rosetta__list-item--ordered">Show at least the first and last five dates, in order.</li>
-/// <br>
-/// </ol>
+/// <li class="rosetta__list-item--ordered">Show at least the first and last five dates, in order.</li></ol>
 /// <br>
 /// <span class="rosetta__text--bold">Algorithm suggestions</span>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">Count the number of Fridays, Saturdays, and Sundays in every month.</li>
-/// <li class="rosetta__list-item--unordered">Find all of the 31-day months that begin on Friday.</li>
-/// <br>
-/// </ul>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Count the number of Fridays, Saturdays, and Sundays in every month.</li>
+/// <li class="rosetta__list-item--unordered">Find all of the 31-day months that begin on Friday.</li></ul>
 /// <br>
 /// <span class="rosetta__text--bold">Extra credit</span>
 /// <br>
@@ -44,12 +38,9 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks</dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Day of the week" title="Day of the week"></a></li>
-/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Last Friday of each month" title="Last Friday of each month"></a></li>
-/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Find last sunday of each month" title="Find last sunday of each month"></a></li>
-/// <br>
-/// </ul><br><br>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Day of the week" title="Day of the week">Day of the week</a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Last Friday of each month" title="Last Friday of each month">Last Friday of each month</a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Find last sunday of each month" title="Find last sunday of each month">Find last sunday of each month</a></li></ul><br><br>
 /// <br>
 /// <br>
 

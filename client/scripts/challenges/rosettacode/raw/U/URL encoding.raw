@@ -30,26 +30,20 @@ replaceWithActualFunctionHere;
 /// <br>
 /// For the purposes of this task, every character except 0-9, A-Z and a-z requires conversion, so the following characters all require conversion by default:
 /// <br>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">ASCII control codes (Character ranges 00-1F hex (0-31 decimal) and 7F (127 decimal).</li>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">ASCII control codes (Character ranges 00-1F hex (0-31 decimal) and 7F (127 decimal).</li>
 /// <li class="rosetta__list-item--unordered">ASCII symbols (Character ranges 32-47 decimal (20-2F hex))</li>
 /// <li class="rosetta__list-item--unordered">ASCII symbols (Character ranges 58-64 decimal (3A-40 hex))</li>
 /// <li class="rosetta__list-item--unordered">ASCII symbols (Character ranges 91-96 decimal (5B-60 hex))</li>
 /// <li class="rosetta__list-item--unordered">ASCII symbols (Character ranges 123-126 decimal (7B-7E hex))</li>
-/// <li class="rosetta__list-item--unordered">Extended characters with character codes of 128 decimal (80 hex) and above.</li>
-/// <br>
-/// </ul>
+/// <li class="rosetta__list-item--unordered">Extended characters with character codes of 128 decimal (80 hex) and above.</li></ul>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Example:</dt></dl>
 /// The string "<code><nowiki>http://foo bar/</nowiki></code>" would be encoded as "<code><nowiki>http%3A%2F%2Ffoo%20bar%2F</nowiki></code>".
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Variations:</dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">Lowercase escapes are legal, as in "<code><nowiki>http%3a%2f%2ffoo%20bar%2f</nowiki></code>".</li>
-/// <li class="rosetta__list-item--unordered">Some standards give different rules: RFC 3986, <span class="rosetta__text--italic">Uniform Resource Identifier (URI): Generic Syntax</span>, section 2.3, says that "-._~" should not be encoded. HTML 5, section [http://www.whatwg.org/specs/web-apps/current-work/multipage/association-of-controls-and-forms.html#url-encoded-form-data 4.10.22.5 URL-encoded form data], says to preserve "-._*", and to encode space " " to "+". The options below provide for utilization of an exception string, enabling preservation (non encoding) of particular characters to meet specific standards.</li>
-/// <br>
-/// </ul>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Lowercase escapes are legal, as in "<code><nowiki>http%3a%2f%2ffoo%20bar%2f</nowiki></code>".</li>
+/// <li class="rosetta__list-item--unordered">Some standards give different rules: RFC 3986, <span class="rosetta__text--italic">Uniform Resource Identifier (URI): Generic Syntax</span>, section 2.3, says that "-._~" should not be encoded. HTML 5, section [http://www.whatwg.org/specs/web-apps/current-work/multipage/association-of-controls-and-forms.html#url-encoded-form-data 4.10.22.5 URL-encoded form data], says to preserve "-._*", and to encode space " " to "+". The options below provide for utilization of an exception string, enabling preservation (non encoding) of particular characters to meet specific standards.</li></ul>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Options:</dt></dl>
 /// It is permissible to use an exception string (containing a set of symbols 
@@ -58,11 +52,8 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks: </dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/URL decoding" title="URL decoding"></a></li>
-/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/URL parser" title="URL parser"></a></li>
-/// <br>
-/// </ul><br><br>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/URL decoding" title="URL decoding">URL decoding</a></li>
+/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/URL parser" title="URL parser">URL parser</a></li></ul><br><br>
 /// <br>
 /// <br>
 

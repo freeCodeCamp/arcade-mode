@@ -26,13 +26,13 @@ replaceWithActualFunctionHere;
 /// <br>
 /// Show how language objects can be allocated at a specific machine addresses.
 /// <br>
-/// Since most <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/OS" title="OS"></a>es prohibit access to the physical memory if it is not mapped by the application, as an example, rather than a physical address, take the address of some existing object (using suitable <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Address Operations" title="Address Operations">address operations</a> if necessary). For example, create an integer object. Print the machine address of the object. Take the address of the object and create another integer object at this address. Print the value of this object to verify that it is same as one of the origin. Change the value of the origin and verify it again.
+/// Since most <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/OS" title="OS">OS</a>es prohibit access to the physical memory if it is not mapped by the application, as an example, rather than a physical address, take the address of some existing object (using suitable <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Address Operations" title="Address Operations">address operations</a> if necessary). For example, create an integer object. Print the machine address of the object. Take the address of the object and create another integer object at this address. Print the value of this object to verify that it is same as one of the origin. Change the value of the origin and verify it again.
 /// <br>
 /// <br>
 /// <br>
 /// <br>
 /// ====
-/// In <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/6502 Assembly" title="6502 Assembly"></a> memory is represented by either an 8-bit or a 16-bit address (i.e. $0000 - $FFFF). 8-bit address are reserved for the memory from $00 to $FF - known as zero page; access to this memory takes one less byte in the opcode and one less cycle to execute.
+/// In <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/6502 Assembly" title="6502 Assembly">6502 Assembly</a> memory is represented by either an 8-bit or a 16-bit address (i.e. $0000 - $FFFF). 8-bit address are reserved for the memory from $00 to $FF - known as zero page; access to this memory takes one less byte in the opcode and one less cycle to execute.
 /// <br>
 /// Data can be stored, one byte at a time, through the store instructions, for example to store data at $1900:
 /// <lang 6502asm>        sta $1900
@@ -64,7 +64,7 @@ replaceWithActualFunctionHere;
 /// It should be noted that on the 6502 processor hardware is normally memory mapped, so this is often used for manipulating hardware.
 /// <br>
 /// ====
-/// In <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Ada" title="Ada"></a> object address can be specified using the address representation clause [http://www.adaic.org/standards/05rm/html/RM-13-3.html RM 13.3]:
+/// In <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Ada" title="Ada">Ada</a> object address can be specified using the address representation clause [http://www.adaic.org/standards/05rm/html/RM-13-3.html RM 13.3]:
 /// <lang ada>
 /// type IO_Port is mod 2**8; -- One byte
 /// Device_Port : type IO_Port;

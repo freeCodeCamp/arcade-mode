@@ -44,21 +44,15 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <span class="rosetta__text--bold">Summary of the task requirements:</span>
 /// <br>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered"> Encrypt and Decrypt a short message or two using RSA with a demonstration key.  </li>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"> Encrypt and Decrypt a short message or two using RSA with a demonstration key.  </li>
 /// <li class="rosetta__list-item--unordered"> Implement RSA do not call a library.</li>
 /// <li class="rosetta__list-item--unordered"> Encode and decode the message using any reversible method of your choice (ASCII or a=1,..,z=26 are equally fine). </li>
 /// <li class="rosetta__list-item--unordered"> Either support blocking or give an error if the message would require blocking)</li>
-/// <li class="rosetta__list-item--unordered"> Demonstrate that your solution could support real keys by using a non-trivial key that requires large integer support (built-in or libraries).  There is no need to include library code but it must be referenced unless it is built into the language. The following keys will be meet this requirement;however, they are NOT long enough to be considered secure:</li>
-/// <br>
-/// </ul><span class="rosetta__text--indented">: n = 9516311845790656153499716760847001433441357</span>
+/// <li class="rosetta__list-item--unordered"> Demonstrate that your solution could support real keys by using a non-trivial key that requires large integer support (built-in or libraries).  There is no need to include library code but it must be referenced unless it is built into the language. The following keys will be meet this requirement;however, they are NOT long enough to be considered secure:</li></ul><span class="rosetta__text--indented">: n = 9516311845790656153499716760847001433441357</span>
 /// <span class="rosetta__text--indented">: e = 65537</span>
 /// <span class="rosetta__text--indented">: d = 5617843187844953170308463622230283376298685</span>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered"> Messages can be hard-coded into the program, there is no need for elaborate input coding.</li>
-/// <li class="rosetta__list-item--unordered"> Demonstrate that your implementation works by showing plaintext, intermediate results, encrypted text, and decrypted text.</li>
-/// <br>
-/// </ul>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"> Messages can be hard-coded into the program, there is no need for elaborate input coding.</li>
+/// <li class="rosetta__list-item--unordered"> Demonstrate that your implementation works by showing plaintext, intermediate results, encrypted text, and decrypted text.</li></ul>
 /// <br>
 /// <br>
 

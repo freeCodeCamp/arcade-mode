@@ -22,7 +22,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
-/// Create a function that given a variable representing size, generates a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/File:Yin_and_Yang.svg" title="wp: File:Yin_and_Yang.svg">Yin and yang]] also known as a [[wp:Taijitu|Taijitu</a> symbol scaled to that size.
+/// Create a function that given a variable representing size, generates a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/File:Yin_and_Yang.svg" title="wp: File:Yin_and_Yang.svg">Yin and yang</a> also known as a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Taijitu" title="wp: Taijitu">Taijitu</a> symbol scaled to that size.
 /// <br>
 /// Generate and display the symbol generated for two different (small) sizes.
 /// <br><br>

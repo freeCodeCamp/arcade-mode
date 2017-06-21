@@ -23,12 +23,9 @@ replaceWithActualFunctionHere;
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
 /// Given a prompt and a list containing a number of strings of which one is to be selected, create a function that:
 /// <br>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">prints a textual menu formatted as an index value followed by its corresponding string for each item in the list;</li>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">prints a textual menu formatted as an index value followed by its corresponding string for each item in the list;</li>
 /// <li class="rosetta__list-item--unordered">prompts the user to enter a number;</li>
-/// <li class="rosetta__list-item--unordered">returns the string corresponding to the selected index number.</li>
-/// <br>
-/// </ul>
+/// <li class="rosetta__list-item--unordered">returns the string corresponding to the selected index number.</li></ul>
 /// <br>
 /// The function should reject input that is not an integer or is out of range by redisplaying the whole menu before asking again for a number. The function should return an empty string if called with an empty list. 
 /// <br>

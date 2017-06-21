@@ -22,7 +22,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <br>
-/// <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Wireworld" title="wp: Wireworld">Wireworld]] is a cellular automaton with some similarities to [[Conway's Game of Life</a>. 
+/// <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Wireworld" title="wp: Wireworld">Wireworld</a> is a cellular automaton with some similarities to <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Conway's Game of Life" title="Conway's Game of Life">Conway's Game of Life</a>. 
 /// <br>
 /// It is capable of doing sophisticated computations with appropriate programs 
 /// (it is actually <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Turing-complete" title="wp: Turing-complete">Turing complete</a>), 

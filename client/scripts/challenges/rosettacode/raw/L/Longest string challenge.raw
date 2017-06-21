@@ -60,13 +60,10 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Original list of restrictions</dt></dl>
 /// <br>
-/// <ol class="rosetta__ordered-list">
-/// <li class="rosetta__list-item--ordered">No comparison operators may be used.</li>
+/// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">No comparison operators may be used.</li>
 /// <li class="rosetta__list-item--ordered">No arithmetic operations, such as addition and subtraction, may be used.</li>
 /// <li class="rosetta__list-item--ordered">The only datatypes you may use are integer and string. In particular, you may not use lists.</li>
-/// <li class="rosetta__list-item--ordered">Do not re-read the input file. Avoid using files as a replacement for lists (this restriction became apparent in the discussion).</li>
-/// <br>
-/// </ol>
+/// <li class="rosetta__list-item--ordered">Do not re-read the input file. Avoid using files as a replacement for lists (this restriction became apparent in the discussion).</li></ol>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Intent of restrictions:</dt></dl>
 /// Because of the variety of languages on Rosetta Code and the wide variety of concepts used in them, there needs to be a bit of clarification and guidance here to get to the spirit of the challenge and the intent of the restrictions.
@@ -77,23 +74,17 @@ replaceWithActualFunctionHere;
 /// <br>
 /// Now having said that, the restrictions require some elaboration.
 /// <br>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">In general, the restrictions are meant to avoid the explicit use of these features.</li>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">In general, the restrictions are meant to avoid the explicit use of these features.</li>
 /// <li class="rosetta__list-item--unordered">"No comparison operators may be used" - At some level there must be some test that allows the solution to get at the length and determine if one string is longer. Comparison operators, in particular any less/greater comparison should be avoided.  Representing the length of any string as a number should also be avoided. Various approaches allow for detecting the end of a string. Some of these involve implicitly using equal/not-equal; however, explicitly using equal/not-equal should be acceptable.</li>
 /// <li class="rosetta__list-item--unordered">"No arithmetic operations" - Again, at some level something may have to advance through the string. Often there are ways a language can do this implicitly advance a cursor or pointer without explicitly using a +, - , ++, --, add, subtract, etc.</li>
-/// <li class="rosetta__list-item--unordered">The datatype restrictions are amongst the most difficult to reinterpret. In the language of the original challenge strings are atomic datatypes and structured datatypes like lists are quite distinct and have many different operations that apply to them. This becomes a bit fuzzier with languages with a different programming paradigm. The intent would be to avoid using an easy structure to accumulate the longest strings and spit them out. There will be some natural reinterpretation here.</li>
-/// <br>
-/// </ul>
+/// <li class="rosetta__list-item--unordered">The datatype restrictions are amongst the most difficult to reinterpret. In the language of the original challenge strings are atomic datatypes and structured datatypes like lists are quite distinct and have many different operations that apply to them. This becomes a bit fuzzier with languages with a different programming paradigm. The intent would be to avoid using an easy structure to accumulate the longest strings and spit them out. There will be some natural reinterpretation here.</li></ul>
 /// <br>
 /// To make this a bit more concrete, here are a couple of specific examples:
 /// In C, a string is an array of chars, so using a couple of arrays as strings is in the spirit while using a second array in a non-string like fashion would violate the intent.
 /// In APL or J, arrays are the core of the language so ruling them out is unfair. Meeting the spirit will come down to how they are used.
 /// <br>
 /// Please keep in mind these are just examples and you may hit new territory finding a solution. There will be other cases like these. Explain your reasoning. You may want to open a discussion on the talk page as well.
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">The added "No rereading" restriction is for practical reasons, re-reading stdin should be broken. I haven't outright banned the use of other files but I've discouraged them as it is basically another form of a list. Somewhere there may be a language that just sings when doing file manipulation and where that makes sense; however, for most there should be a way to accomplish without resorting to an externality.</li>
-/// <br>
-/// </ul>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">The added "No rereading" restriction is for practical reasons, re-reading stdin should be broken. I haven't outright banned the use of other files but I've discouraged them as it is basically another form of a list. Somewhere there may be a language that just sings when doing file manipulation and where that makes sense; however, for most there should be a way to accomplish without resorting to an externality.</li></ul>
 /// <br>
 /// At the end of the day for the implementer this should be a bit of fun. As an implementer you represent the expertise in your language, the reader may have no knowledge of your language. For the reader it should give them insight into how people think outside the box in other languages. Comments, especially for non-obvious (to the reader) bits will be extremely helpful. While the implementations may be a bit artificial in the context of this task, the general techniques may be useful elsewhere.
 /// <br><br>

@@ -20,7 +20,7 @@ replaceWithActualFunctionHere;
 /// description:
 /// <br>
 /// <br>
-/// Using the data storage type defined <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Basic_bitmap_storage" title="Basic_bitmap_storage">on this page]] for raster images, delegate writing a JPEG file through a <span class="rosetta__text--bold">pipe</span> using the <tt>output_ppm</tt> function defined [[Write_ppm_file|on this other page</a>.
+/// Using the data storage type defined <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Basic_bitmap_storage" title="Basic_bitmap_storage">on this page</a> for raster images, delegate writing a JPEG file through a <span class="rosetta__text--bold">pipe</span> using the <tt>output_ppm</tt> function defined <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Write_ppm_file" title="Write_ppm_file">on this other page</a>.
 /// <br>
 /// There are various utilities that can be used for this task, for example: <span class="rosetta__text--bold">cjpeg</span> (package <span class="rosetta__text--italic">"jpeg-progs"</span> on Linux), <span class="rosetta__text--bold">ppmtojpeg</span> (package <span class="rosetta__text--italic">"netpbm"</span> on Linux), <span class="rosetta__text--bold">convert</span> (from <span class="rosetta__text--italic">ImageMagick</span>, multi-platform).
 /// <br>

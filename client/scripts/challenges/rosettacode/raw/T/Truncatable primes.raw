@@ -27,14 +27,11 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">C.f: </dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Find largest left truncatable prime in a given base" title="Find largest left truncatable prime in a given base"></a></li>
-/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Sieve of Eratosthenes" title="Sieve of Eratosthenes"></a></li>
-/// <li class="rosetta__list-item--unordered">[http://mathworld.wolfram.com/TruncatablePrime.html Truncatable Prime] from Mathworld.</li>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Find largest left truncatable prime in a given base" title="Find largest left truncatable prime in a given base">Find largest left truncatable prime in a given base</a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Sieve of Eratosthenes" title="Sieve of Eratosthenes">Sieve of Eratosthenes</a></li>
+/// <li class="rosetta__list-item--unordered">[http://mathworld.wolfram.com/TruncatablePrime.html Truncatable Prime] from Mathworld.</li></ul>
 /// <br>
-/// </ul>
-/// <br>
-/// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/:Category: Prime_Numbers" title=":Category: Prime_Numbers"></a>
+/// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/:Category: Prime_Numbers" title=":Category: Prime_Numbers">:Category: Prime_Numbers</a>
 /// <br><br>
 /// <br>
 /// <br>

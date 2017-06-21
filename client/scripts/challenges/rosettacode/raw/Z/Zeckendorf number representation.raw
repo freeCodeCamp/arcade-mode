@@ -36,17 +36,11 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Also see:</dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">&nbsp; [http://oeis.org/A014417 OEIS A014417] &nbsp; for the the sequence of required results.</li>
-/// <li class="rosetta__list-item--unordered">&nbsp; [http://www.youtube.com/watch?v=kQZmZRE0cQY&list=UUoxcjq-8xIDTYp3uz647V5A&index=3&feature=plcp Brown's Criterion - Numberphile]</li>
-/// <br>
-/// </ul>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">&nbsp; [http://oeis.org/A014417 OEIS A014417] &nbsp; for the the sequence of required results.</li>
+/// <li class="rosetta__list-item--unordered">&nbsp; [http://www.youtube.com/watch?v=kQZmZRE0cQY&list=UUoxcjq-8xIDTYp3uz647V5A&index=3&feature=plcp Brown's Criterion - Numberphile]</li></ul>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related task:</dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Fibonacci sequence" title="Fibonacci sequence"></a></li>
-/// <br>
-/// </ul><br><br>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Fibonacci sequence" title="Fibonacci sequence">Fibonacci sequence</a></li></ul><br><br>
 /// <br>
 /// <br>
 

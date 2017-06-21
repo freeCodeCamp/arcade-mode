@@ -29,11 +29,11 @@ replaceWithActualFunctionHere;
 /// on your system) to time how long a function takes to execute.
 /// <br>
 /// Whenever possible, use methods which measure only the processing time used 
-/// by the current process; instead of the difference in <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/system time" title="system time"></a> 
+/// by the current process; instead of the difference in <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/system time" title="system time">system time</a> 
 /// between start and finish, which could include time used by 
 /// other processes on the computer.
 /// <br>
-/// This task is intended as a subtask for <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Measure relative performance of sorting algorithms implementations" title="Measure relative performance of sorting algorithms implementations"></a>.
+/// This task is intended as a subtask for <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Measure relative performance of sorting algorithms implementations" title="Measure relative performance of sorting algorithms implementations">Measure relative performance of sorting algorithms implementations</a>.
 /// <br><br>
 /// <br>
 /// <br>

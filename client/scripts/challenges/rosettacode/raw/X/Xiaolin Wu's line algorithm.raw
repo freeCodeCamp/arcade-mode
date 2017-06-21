@@ -19,7 +19,7 @@ replaceWithActualFunctionHere;
 
 /// description:
 /// <br>
-/// Implement the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Xiaolin Wu's line algorithm" title="wp: Xiaolin Wu's line algorithm">Xiaolin Wu's line algorithm]] as described in Wikipedia. This algorithm draw antialiased lines. See [[Bresenham's line algorithm</a> for <span class="rosetta__text--italic">aliased</span> lines.
+/// Implement the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Xiaolin Wu's line algorithm" title="wp: Xiaolin Wu's line algorithm">Xiaolin Wu's line algorithm</a> as described in Wikipedia. This algorithm draw antialiased lines. See <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Bresenham's line algorithm" title="Bresenham's line algorithm">Bresenham's line algorithm</a> for <span class="rosetta__text--italic">aliased</span> lines.
 /// <br>
 /// <br>
 

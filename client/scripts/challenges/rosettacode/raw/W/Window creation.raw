@@ -19,7 +19,7 @@ replaceWithActualFunctionHere;
 
 /// description:
 /// <br>
-/// Display a <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/GUI" title="GUI"></a> window. The window need not have any contents, but should respond to requests to be closed.
+/// Display a <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/GUI" title="GUI">GUI</a> window. The window need not have any contents, but should respond to requests to be closed.
 /// <br>
 /// <br>
 

@@ -31,12 +31,9 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">Show addition, multiplication, negation, and inversion of complex numbers in separate functions. (Subtraction and division operations can be made with pairs of these operations.) </li>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Show addition, multiplication, negation, and inversion of complex numbers in separate functions. (Subtraction and division operations can be made with pairs of these operations.) </li>
 /// <li class="rosetta__list-item--unordered">Print the results for each operation tested.</li>
-/// <li class="rosetta__list-item--unordered"><span class="rosetta__text--italic">Optional:</span> Show complex conjugation.</li>
-/// <br>
-/// </ul>
+/// <li class="rosetta__list-item--unordered"><span class="rosetta__text--italic">Optional:</span> Show complex conjugation.</li></ul>
 /// <br>
 /// By definition, the &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/complex conjugate" title="wp: complex conjugate">complex conjugate</a> &nbsp; of 
 /// <big>$a + bi$</big> 

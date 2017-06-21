@@ -29,22 +29,10 @@ replaceWithActualFunctionHere;
 ///         <big> B = (b<sub>1</sub>,  b<sub>2</sub>,  b<sub>3</sub>) </big>
 ///         <big> C = (c<sub>1</sub>,  c<sub>2</sub>,  c<sub>3</sub>) </big>
 /// then the following common vector products are defined:
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered"><span class="rosetta__text--bold">The dot product</span> &nbsp; &nbsp; &nbsp; (a scalar quantity)</li>
-/// <br>
-/// </ul><span class="rosetta__text--indented">::: <big> A • B = a<sub>1</sub>b<sub>1</sub> &nbsp; + &nbsp; a<sub>2</sub>b<sub>2</sub> &nbsp; + &nbsp;  a<sub>3</sub>b<sub>3</sub> </big> </span>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered"><span class="rosetta__text--bold">The cross product</span> &nbsp; &nbsp; &nbsp; (a vector quantity)</li>
-/// <br>
-/// </ul><span class="rosetta__text--indented">::: <big> A x B = (a<sub>2</sub>b<sub>3</sub>&nbsp;  - &nbsp; a<sub>3</sub>b<sub>2</sub>, &nbsp; &nbsp; a<sub>3</sub>b<sub>1</sub> &nbsp; - &nbsp; a<sub>1</sub>b<sub>3</sub>, &nbsp; &nbsp; a<sub>1</sub>b<sub>2</sub> &nbsp; - &nbsp; a<sub>2</sub>b<sub>1</sub>) </big> </span>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered"><span class="rosetta__text--bold">The scalar triple product</span> &nbsp; &nbsp; &nbsp; (a scalar quantity)</li>
-/// <br>
-/// </ul><span class="rosetta__text--indented">::: <big> A • (B x C) </big></span>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered"><span class="rosetta__text--bold">The vector triple product</span> &nbsp; &nbsp; &nbsp; (a vector quantity)</li>
-/// <br>
-/// </ul><span class="rosetta__text--indented">::: <big> A x (B x C) </big></span>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"><span class="rosetta__text--bold">The dot product</span> &nbsp; &nbsp; &nbsp; (a scalar quantity)</li></ul><span class="rosetta__text--indented">::: <big> A • B = a<sub>1</sub>b<sub>1</sub> &nbsp; + &nbsp; a<sub>2</sub>b<sub>2</sub> &nbsp; + &nbsp;  a<sub>3</sub>b<sub>3</sub> </big> </span>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"><span class="rosetta__text--bold">The cross product</span> &nbsp; &nbsp; &nbsp; (a vector quantity)</li></ul><span class="rosetta__text--indented">::: <big> A x B = (a<sub>2</sub>b<sub>3</sub>&nbsp;  - &nbsp; a<sub>3</sub>b<sub>2</sub>, &nbsp; &nbsp; a<sub>3</sub>b<sub>1</sub> &nbsp; - &nbsp; a<sub>1</sub>b<sub>3</sub>, &nbsp; &nbsp; a<sub>1</sub>b<sub>2</sub> &nbsp; - &nbsp; a<sub>2</sub>b<sub>1</sub>) </big> </span>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"><span class="rosetta__text--bold">The scalar triple product</span> &nbsp; &nbsp; &nbsp; (a scalar quantity)</li></ul><span class="rosetta__text--indented">::: <big> A • (B x C) </big></span>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"><span class="rosetta__text--bold">The vector triple product</span> &nbsp; &nbsp; &nbsp; (a vector quantity)</li></ul><span class="rosetta__text--indented">::: <big> A x (B x C) </big></span>
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
@@ -52,33 +40,24 @@ replaceWithActualFunctionHere;
 ///          a = ( 3,    4,    5)
 ///          b = ( 4,    3,    5)
 ///          c = (-5,  -12,  -13)
-/// <ol class="rosetta__ordered-list">
-/// <li class="rosetta__list-item--ordered">Create a named function/subroutine/method to compute the dot product of two vectors.</li>
+/// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">Create a named function/subroutine/method to compute the dot product of two vectors.</li>
 /// <li class="rosetta__list-item--ordered">Create a function to compute the cross product of two vectors.</li>
 /// <li class="rosetta__list-item--ordered">Optionally create a function to compute the scalar triple product of three vectors.</li>
 /// <li class="rosetta__list-item--ordered">Optionally create a function to compute the vector triple product of three vectors.</li>
 /// <li class="rosetta__list-item--ordered">Compute and display: <code>a • b</code></li>
 /// <li class="rosetta__list-item--ordered">Compute and display: <code>a x b</code></li>
 /// <li class="rosetta__list-item--ordered">Compute and display: <code>a • b x c</code>, the scalar triple product.</li>
-/// <li class="rosetta__list-item--ordered">Compute and display: <code>a x b x c</code>, the vector triple product.</li>
-/// <br>
-/// </ol>
+/// <li class="rosetta__list-item--ordered">Compute and display: <code>a x b x c</code>, the vector triple product.</li></ol>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">References:</dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">&nbsp; A starting page on Wolfram MathWorld is &nbsp; .</li>
-/// <li class="rosetta__list-item--unordered">&nbsp; Wikipedia &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Dot product" title="wp: Dot product">dot product</a>, </li>
-/// <br>
-/// </ul><span class="rosetta__text--indented"> &nbsp; Wikipedia &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Cross product" title="wp: Cross product">cross product</a> </span>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">&nbsp; A starting page on Wolfram MathWorld is &nbsp; .</li>
+/// <li class="rosetta__list-item--unordered">&nbsp; Wikipedia &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Dot product" title="wp: Dot product">dot product</a>, </li></ul><span class="rosetta__text--indented"> &nbsp; Wikipedia &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Cross product" title="wp: Cross product">cross product</a> </span>
 /// <span class="rosetta__text--indented"> &nbsp; Wikipedia &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Triple product" title="wp: Triple product">triple product</a> entries.</span>
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks:</dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Dot product" title="Dot product"></a></li>
-/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Quaternion type" title="Quaternion type"></a></li>
-/// <br>
-/// </ul><br><br>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Dot product" title="Dot product">Dot product</a></li>
+/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Quaternion type" title="Quaternion type">Quaternion type</a></li></ul><br><br>
 /// <br>
 /// <br>
 

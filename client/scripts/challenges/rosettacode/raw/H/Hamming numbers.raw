@@ -29,20 +29,14 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
 /// Generate the sequence of Hamming numbers, <span class="rosetta__text--italic">in increasing order</span>. &nbsp; In particular:
-/// <ol class="rosetta__ordered-list">
-/// <li class="rosetta__list-item--ordered">Show the &nbsp; first twenty &nbsp; Hamming numbers.</li>
+/// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">Show the &nbsp; first twenty &nbsp; Hamming numbers.</li>
 /// <li class="rosetta__list-item--ordered">Show the &nbsp; 1691<sup>st</sup> &nbsp; Hamming number (the last one below &nbsp; 2<sup>31</sup>).</li>
-/// <li class="rosetta__list-item--ordered">Show the &nbsp; one million<sup>th</sup> &nbsp; Hamming number (if the language – or a convenient library – supports arbitrary-precision integers).</li>
-/// <br>
-/// </ol>
+/// <li class="rosetta__list-item--ordered">Show the &nbsp; one million<sup>th</sup> &nbsp; Hamming number (if the language – or a convenient library – supports arbitrary-precision integers).</li></ol>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">References:</dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Hamming numbers" title="wp: Hamming numbers">Hamming numbers</a></li>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Hamming numbers" title="wp: Hamming numbers">Hamming numbers</a></li>
 /// <li class="rosetta__list-item--unordered"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Smooth number" title="wp: Smooth number">Smooth number</a></li>
-/// <li class="rosetta__list-item--unordered">[http://dobbscodetalk.com/index.php?option=com_content&task=view&id=913&Itemid=85 Hamming problem] from Dr. Dobb's CodeTalk (dead link as of Sep 2011; parts of the thread [http://drdobbs.com/blogs/architecture-and-design/228700538 here] and [http://www.jsoftware.com/jwiki/Essays/Hamming%20Number here]).</li>
-/// <br>
-/// </ul><br><br>
+/// <li class="rosetta__list-item--unordered">[http://dobbscodetalk.com/index.php?option=com_content&task=view&id=913&Itemid=85 Hamming problem] from Dr. Dobb's CodeTalk (dead link as of Sep 2011; parts of the thread [http://drdobbs.com/blogs/architecture-and-design/228700538 here] and [http://www.jsoftware.com/jwiki/Essays/Hamming%20Number here]).</li></ul><br><br>
 /// <br>
 /// <br>
 

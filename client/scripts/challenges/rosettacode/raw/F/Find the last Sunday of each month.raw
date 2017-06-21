@@ -38,12 +38,9 @@ replaceWithActualFunctionHere;
 /// 2013-12-29</pre>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks</dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Day of the week" title="Day of the week"></a></li>
-/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Five weekends" title="Five weekends"></a></li>
-/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Last Friday of each month" title="Last Friday of each month"></a></li>
-/// <br>
-/// </ul><br><br>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Day of the week" title="Day of the week">Day of the week</a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Five weekends" title="Five weekends">Five weekends</a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Last Friday of each month" title="Last Friday of each month">Last Friday of each month</a></li></ul><br><br>
 /// <br>
 
 /// challengeSeed:

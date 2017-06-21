@@ -27,12 +27,9 @@ replaceWithActualFunctionHere;
 /// <br>
 /// The following conversation occurs:
 /// <br>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">S says "P does not know X and Y."</li>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">S says "P does not know X and Y."</li>
 /// <li class="rosetta__list-item--unordered">P says "Now I know X and Y."</li>
-/// <li class="rosetta__list-item--unordered">S says "Now I also know X and Y!"</li>
-/// <br>
-/// </ul>
+/// <li class="rosetta__list-item--unordered">S says "Now I also know X and Y!"</li></ul>
 /// What are X and Y?
 /// }}
 /// <br>
@@ -61,21 +58,15 @@ replaceWithActualFunctionHere;
 /// |}
 /// <br>
 /// Terminology:
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered"><span class="rosetta__text--italic">"sum decomposition" of a number</span> = Any pair of positive integers <tt>(A, B)</tt> so that <tt>A+B</tt> equals the number. Here, with the additional constraint <tt>2 ≤ A < B</tt>.</li>
-/// <li class="rosetta__list-item--unordered"><span class="rosetta__text--italic">"product decomposition" of a number</span> = Any pair of positive integers <tt>(A, B)</tt> so that <tt>A*B</tt> equals the number. Here, with the additional constraint <tt>2 ≤ A < B</tt>.</li>
-/// <br>
-/// </ul><br>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"><span class="rosetta__text--italic">"sum decomposition" of a number</span> = Any pair of positive integers <tt>(A, B)</tt> so that <tt>A+B</tt> equals the number. Here, with the additional constraint <tt>2 ≤ A < B</tt>.</li>
+/// <li class="rosetta__list-item--unordered"><span class="rosetta__text--italic">"product decomposition" of a number</span> = Any pair of positive integers <tt>(A, B)</tt> so that <tt>A*B</tt> equals the number. Here, with the additional constraint <tt>2 ≤ A < B</tt>.</li></ul><br>
 /// <br>
 /// Your program can solve the puzzle by considering all possible pairs <tt>(X, Y)</tt> in the range <tt>2 ≤ X < Y ≤ 98</tt>, and then successively eliminating candidates based on the three facts. It turns out only one solution remains!<br>
 /// See the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/#Python" title="#Python">Python example</a> for an implementation that uses this approach with a few optimizations.
 /// <br>
 /// <br>
 /// <br>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">&nbsp; Wikipedia: &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Sum and Product Puzzle" title="wp: Sum and Product Puzzle">Sum and Product Puzzle</a></li>
-/// <br>
-/// </ul><hr>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">&nbsp; Wikipedia: &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Sum and Product Puzzle" title="wp: Sum and Product Puzzle">Sum and Product Puzzle</a></li></ul><hr>
 /// <br>
 /// <br>
 

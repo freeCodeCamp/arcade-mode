@@ -39,11 +39,8 @@ replaceWithActualFunctionHere;
 /// <br>
 /// Where:
 /// <br>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">$m$ &nbsp; is the number of <span class="rosetta__text--italic">matching characters</span>;</li>
-/// <li class="rosetta__list-item--unordered">$t$ &nbsp; is half the number of <span class="rosetta__text--italic">transpositions</span>.</li>
-/// <br>
-/// </ul>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">$m$ &nbsp; is the number of <span class="rosetta__text--italic">matching characters</span>;</li>
+/// <li class="rosetta__list-item--unordered">$t$ &nbsp; is half the number of <span class="rosetta__text--italic">transpositions</span>.</li></ul>
 /// <br>
 /// Two characters from &nbsp; $s_1$ &nbsp; and &nbsp; $s_2$ &nbsp; respectively, are considered <span class="rosetta__text--italic">matching</span> only if they are the same and not farther than &nbsp; $\left\lfloor\frac{\max(|s_1|,|s_2|)}{2}\right\rfloor-1$.
 /// <br>
@@ -58,13 +55,10 @@ replaceWithActualFunctionHere;
 /// <br>
 /// Given the strings &nbsp; $s_1$ &nbsp; <span class="rosetta__text--italic">DWAYNE</span> &nbsp; and &nbsp; $s_2$ &nbsp; <span class="rosetta__text--italic">DUANE</span> &nbsp; we find:
 /// <br>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">$m = 4$</li>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">$m = 4$</li>
 /// <li class="rosetta__list-item--unordered">$|s_1| = 6$</li>
 /// <li class="rosetta__list-item--unordered">$|s_2| = 5$</li>
-/// <li class="rosetta__list-item--unordered">$t = 0$</li>
-/// <br>
-/// </ul>
+/// <li class="rosetta__list-item--unordered">$t = 0$</li></ul>
 /// <br>
 /// We find a Jaro score of:
 /// <br>
@@ -75,18 +69,12 @@ replaceWithActualFunctionHere;
 /// <br>
 /// Implement the Jaro-distance algorithm and show the distances for each of the following pairs:
 /// <br>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">("MARTHA", "MARHTA")</li>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">("MARTHA", "MARHTA")</li>
 /// <li class="rosetta__list-item--unordered">("DIXON", "DICKSONX")</li>
-/// <li class="rosetta__list-item--unordered">("JELLYFISH", "SMELLYFISH")</li>
-/// <br>
-/// </ul>
+/// <li class="rosetta__list-item--unordered">("JELLYFISH", "SMELLYFISH")</li></ul>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title"> See also</dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Jaro-Winkler_distance" title="wp: Jaro-Winkler_distance">Jaro–Winkler distance</a> on Wikipedia.</li>
-/// <br>
-/// </ul><br><br>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Jaro-Winkler_distance" title="wp: Jaro-Winkler_distance">Jaro–Winkler distance</a> on Wikipedia.</li></ul><br><br>
 /// <br>
 /// <br>
 

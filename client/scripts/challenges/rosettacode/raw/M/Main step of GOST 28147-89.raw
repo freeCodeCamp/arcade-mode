@@ -19,14 +19,11 @@ replaceWithActualFunctionHere;
 
 /// description:
 /// <br>
-/// <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/GOST (block cipher)" title="wp: GOST (block cipher)">GOST 28147-89]] is a standard symmetric encryption based on a [[wp:Feistel cipher|Feistel network</a>. Structure of the algorithm consists of three levels:
+/// <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/GOST (block cipher)" title="wp: GOST (block cipher)">GOST 28147-89</a> is a standard symmetric encryption based on a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Feistel cipher" title="wp: Feistel cipher">Feistel network</a>. Structure of the algorithm consists of three levels:
 /// <br>
-/// <ol class="rosetta__ordered-list">
-/// <li class="rosetta__list-item--ordered">encryption modes - simple replacement, application range, imposing a range of feedback and authentication code generation;</li>
+/// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">encryption modes - simple replacement, application range, imposing a range of feedback and authentication code generation;</li>
 /// <li class="rosetta__list-item--ordered">cycles - 32-З, 32-Р and 16-З, is a repetition of the main step;</li>
-/// <li class="rosetta__list-item--ordered"><span class="rosetta__text--italic">main step</span>, a function that takes a 64-bit block of text and one of the eight 32-bit encryption key elements, and uses the replacement table (8x16 matrix of 4-bit values), and returns encrypted block.</li>
-/// <br>
-/// </ol>
+/// <li class="rosetta__list-item--ordered"><span class="rosetta__text--italic">main step</span>, a function that takes a 64-bit block of text and one of the eight 32-bit encryption key elements, and uses the replacement table (8x16 matrix of 4-bit values), and returns encrypted block.</li></ol>
 /// Implement the main step of this encryption algorithm.
 /// <br>
 /// <br>

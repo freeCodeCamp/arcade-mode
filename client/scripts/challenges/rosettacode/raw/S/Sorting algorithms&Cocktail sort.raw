@@ -19,7 +19,7 @@ replaceWithActualFunctionHere;
 
 /// description:
 /// <br>
-/// The cocktail shaker sort is an improvement on the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Bubble Sort" title="Bubble Sort"></a>. 
+/// The cocktail shaker sort is an improvement on the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Bubble Sort" title="Bubble Sort">Bubble Sort</a>. 
 /// The improvement is basically that values "bubble" both directions through the array, because on each iteration the cocktail shaker sort bubble sorts once forwards and once backwards. Pseudocode for the algorithm (from <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Cocktail sort" title="wp: Cocktail sort">wikipedia</a>):
 ///  <span class="rosetta__text--bold">function</span> <span class="rosetta__text--italic">cocktailSort</span>( A : list of sortable items )
 ///   <span class="rosetta__text--bold">do</span>

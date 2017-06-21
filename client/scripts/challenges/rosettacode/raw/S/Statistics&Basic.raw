@@ -21,7 +21,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Statistics" title="Statistics">Statistics</a> is all about large groups of numbers.  
-/// When talking about a set of sampled data, most frequently used is their <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Mean" title="wp: Mean">mean value]] and [[wp:Standard_deviation|standard deviation (stddev)</a>.  
+/// When talking about a set of sampled data, most frequently used is their <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Mean" title="wp: Mean">mean value</a> and <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Standard_deviation" title="wp: Standard_deviation">standard deviation (stddev)</a>.  
 /// If you have set of data $x_i$ where $i = 1, 2, \ldots, n\,\!$, the mean is $\bar{x}\equiv {1\over n}\sum_i x_i$, while the stddev is $\sigma\equiv\sqrt{{1\over n}\sum_i \left(x_i - \bar x \right)^2}$.
 /// <br>
 /// When examining a large quantity of data, one often uses a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Histogram" title="wp: Histogram">histogram</a>, which shows the counts of data samples falling into a prechosen set of intervals (or bins).  
@@ -48,10 +48,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <br>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Statistics/Normal_distribution" title="Statistics/Normal_distribution">Statistics/Normal distribution</a></li>
-/// <br>
-/// </ul>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Statistics/Normal_distribution" title="Statistics/Normal_distribution">Statistics/Normal distribution</a></li></ul>
 /// <br>
 /// <br>
 /// <br><hr>

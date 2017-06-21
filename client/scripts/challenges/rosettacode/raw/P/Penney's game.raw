@@ -20,7 +20,7 @@ replaceWithActualFunctionHere;
 /// description:
 /// <br>
 /// <br>
-/// <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Penney's_game" title="wp: Penney's_game">Penney's game]] is a game where two players bet on being the first to see a particular sequence of [[wp:Coin_flipping|heads or tails]] in consecutive tosses of a [[wp:Fair_coin|fair coin</a>.
+/// <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Penney's_game" title="wp: Penney's_game">Penney's game</a> is a game where two players bet on being the first to see a particular sequence of <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Coin_flipping" title="wp: Coin_flipping">heads or tails</a> in consecutive tosses of a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Fair_coin" title="wp: Fair_coin">fair coin</a>.
 /// <br>
 /// It is common to agree on a sequence length of three then one player will openly choose a sequence, for example:
 ///   Heads,  Tails,  Heads, or <span class="rosetta__text--bold">HTH</span> for short.
@@ -35,23 +35,17 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task</dt></dl>
 /// Create a program that tosses the coin, keeps score and plays Penney's game against a human opponent.
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">Who chooses and shows their sequence of three should be chosen randomly.</li>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Who chooses and shows their sequence of three should be chosen randomly.</li>
 /// <li class="rosetta__list-item--unordered">If going first, the computer should randomly choose its sequence of three.</li>
 /// <li class="rosetta__list-item--unordered">If going second, the computer should automatically play <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Penney's_game#Analysis_of_the_three-bit_game" title="wp: Penney's_game#Analysis_of_the_three-bit_game">the optimum sequence</a>.</li>
-/// <li class="rosetta__list-item--unordered">Successive coin tosses should be shown.</li>
-/// <br>
-/// </ul>
+/// <li class="rosetta__list-item--unordered">Successive coin tosses should be shown.</li></ul>
 /// <br>
 /// Show output of a game where the computer chooses first and a game where the user goes first here on this page.
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">See also</dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">[https://www.youtube.com/watch?v=OcYnlSenF04 The Penney Ante Part 1] (Video).</li>
-/// <li class="rosetta__list-item--unordered">[https://www.youtube.com/watch?v=U9wak7g5yQA The Penney Ante Part 2] (Video).</li>
-/// <br>
-/// </ul><br><br>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">[https://www.youtube.com/watch?v=OcYnlSenF04 The Penney Ante Part 1] (Video).</li>
+/// <li class="rosetta__list-item--unordered">[https://www.youtube.com/watch?v=U9wak7g5yQA The Penney Ante Part 2] (Video).</li></ul><br><br>
 /// <br>
 /// <br>
 

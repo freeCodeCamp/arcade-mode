@@ -27,15 +27,12 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
 /// Ensure the last digit &nbsp; (i.e., the &nbsp; <span class="rosetta__text--italic">check digit</span>) &nbsp; of the <span class="rosetta__text--bold">CUSIP</span> code (the 1<sup>st</sup> column) is correct, against the following:
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">&nbsp;  037833100   &nbsp; &nbsp; &nbsp;   Apple Incorporated       </li>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">&nbsp;  037833100   &nbsp; &nbsp; &nbsp;   Apple Incorporated       </li>
 /// <li class="rosetta__list-item--unordered">&nbsp;  17275R102   &nbsp; &nbsp; &nbsp;   Cisco Systems   </li>
 /// <li class="rosetta__list-item--unordered">&nbsp;  38259P508   &nbsp; &nbsp; &nbsp;   Google Incorporated  </li>
 /// <li class="rosetta__list-item--unordered">&nbsp;  594918104   &nbsp; &nbsp; &nbsp;   Microsoft Corporation   </li>
 /// <li class="rosetta__list-item--unordered">&nbsp;  68389X106   &nbsp; &nbsp; &nbsp;   Oracle Corporation &nbsp; (<span class="rosetta__text--italic">incorrect</span>)</li>
-/// <li class="rosetta__list-item--unordered">&nbsp;  68389X105   &nbsp; &nbsp; &nbsp;   Oracle Corporation    </li>
-/// <br>
-/// </ul>
+/// <li class="rosetta__list-item--unordered">&nbsp;  68389X105   &nbsp; &nbsp; &nbsp;   Oracle Corporation    </li></ul>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Example pseudo-code below.</dt></dl>
 /// <lang>algorithm Cusip-Check-Digit(cusip) is
@@ -67,11 +64,8 @@ replaceWithActualFunctionHere;
 /// end function</lang>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">See related tasks: </dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/SEDOLs" title="SEDOLs">SEDOL</a></li>
-/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Validate_International_Securities_Identification_Number" title="Validate_International_Securities_Identification_Number">ISIN</a></li>
-/// <br>
-/// </ul><br><br>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/SEDOLs" title="SEDOLs">SEDOL</a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Validate_International_Securities_Identification_Number" title="Validate_International_Securities_Identification_Number">ISIN</a></li></ul><br><br>
 /// <br>
 /// <br>
 

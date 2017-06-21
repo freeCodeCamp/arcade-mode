@@ -38,7 +38,7 @@ replaceWithActualFunctionHere;
 /// <span class="rosetta__text--bold">Task Description</span>
 /// <span class="rosetta__text--indented">Create a routine that takes a list of coefficients of a polynomial in order of increasing powers of x; together with a value of x to compute its value at, and return the value of the polynomial at that value using [http://www.physics.utah.edu/~detar/lessons/c++/array/node1.html Horner's rule].</span>
 /// <br>
-/// Cf. <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Formal power series" title="Formal power series"></a>
+/// Cf. <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Formal power series" title="Formal power series">Formal power series</a>
 /// <br>
 /// <br>
 

@@ -19,7 +19,7 @@ replaceWithActualFunctionHere;
 
 /// description:
 /// <br>
-/// In <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/First-class functions" title="First-class functions"></a>, a language is showing how its manipulation of functions is similar to its manipulation of other types.
+/// In <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/First-class functions" title="First-class functions">First-class functions</a>, a language is showing how its manipulation of functions is similar to its manipulation of other types.
 /// <br>
 /// This tasks aim is to compare and contrast a language's implementation of first class functions, with its normal handling of numbers.
 /// <br>
@@ -37,7 +37,7 @@ replaceWithActualFunctionHere;
 ///   # where new_function(m) returns the result of n1 * n2 * m
 /// <br>
 /// Applying the multiplier of a number and its inverse from the two ordered collections of numbers in pairs, show that the result in each case is one.<br>
-/// <span class="rosetta__text--bold">Compare and contrast the resultant program with the corresponding entry in <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/First-class functions" title="First-class functions"></a>.</span> They should be close.
+/// <span class="rosetta__text--bold">Compare and contrast the resultant program with the corresponding entry in <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/First-class functions" title="First-class functions">First-class functions</a>.</span> They should be close.
 /// <br>
 /// <small>To paraphrase the task description: Do what was done before, but with numbers rather than functions</small>
 /// <br>

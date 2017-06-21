@@ -93,12 +93,9 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks:</dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Knapsack problem/Unbounded" title="Knapsack problem/Unbounded"></a></li>
-/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Knapsack problem/Continuous" title="Knapsack problem/Continuous"></a></li>
-/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Knapsack problem/0-1" title="Knapsack problem/0-1"></a></li>
-/// <br>
-/// </ul><br><br>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Knapsack problem/Unbounded" title="Knapsack problem/Unbounded">Knapsack problem/Unbounded</a></li>
+/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Knapsack problem/Continuous" title="Knapsack problem/Continuous">Knapsack problem/Continuous</a></li>
+/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Knapsack problem/0-1" title="Knapsack problem/0-1">Knapsack problem/0-1</a></li></ul><br><br>
 /// <br>
 /// <br>
 

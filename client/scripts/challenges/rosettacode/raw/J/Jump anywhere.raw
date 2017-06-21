@@ -20,19 +20,16 @@ replaceWithActualFunctionHere;
 
 /// description:
 ///   
-/// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Imperative programming" title="Imperative programming">Imperative programs]] like to jump around, but some languages restrict these jumps. Many structured languages restrict their [[conditional structures]] and [[loops</a> to <span class="rosetta__text--italic">local jumps</span> within a function. Some assembly languages limit certain jumps or branches to a small range.
+/// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Imperative programming" title="Imperative programming">Imperative programs</a> like to jump around, but some languages restrict these jumps. Many structured languages restrict their <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/conditional structures" title="conditional structures">conditional structures</a> and <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/loops" title="loops">loops</a> to <span class="rosetta__text--italic">local jumps</span> within a function. Some assembly languages limit certain jumps or branches to a small range.
 /// <br>
 /// This task is demonstrate a local jump and a global jump and the various other types of jumps that the language supports. 
 /// For the purpose of this task, the jumps need not be used for a single purpose and you have the freedom to use these jumps for different purposes. 
-/// You may also defer to more specific tasks, like <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Exceptions" title="Exceptions"></a> or <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Generator" title="Generator"></a>. 
+/// You may also defer to more specific tasks, like <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Exceptions" title="Exceptions">Exceptions</a> or <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Generator" title="Generator">Generator</a>. 
 /// This task provides a "grab bag" for several types of jumps. There are <span class="rosetta__text--italic">non-local jumps</span> across function calls, or <span class="rosetta__text--italic">long jumps</span> to anywhere within a program. Anywhere means not only to the tops of functions!
 /// <br>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">Some languages can <span class="rosetta__text--italic">go to</span> any global label in a program.</li>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Some languages can <span class="rosetta__text--italic">go to</span> any global label in a program.</li>
 /// <li class="rosetta__list-item--unordered">Some languages can break multiple function calls, also known as <span class="rosetta__text--italic">unwinding the call stack</span>.</li>
-/// <li class="rosetta__list-item--unordered">Some languages can save a <span class="rosetta__text--italic">continuation</span>. The program can later continue from the same place. So you can jump anywhere, but only if you have a previous visit there (to save the continuation).</li>
-/// <br>
-/// </ul>
+/// <li class="rosetta__list-item--unordered">Some languages can save a <span class="rosetta__text--italic">continuation</span>. The program can later continue from the same place. So you can jump anywhere, but only if you have a previous visit there (to save the continuation).</li></ul>
 /// <br>These jumps are not all alike. 
 /// A simple <span class="rosetta__text--italic">goto</span> never touches the call stack. 
 /// A continuation saves the call stack, so you can continue a function call after it ends.
@@ -43,7 +40,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// Because the possibilities vary by language, this task is not specific. 
 /// You have the freedom to use these jumps for different purposes. 
-/// You may also defer to more specific tasks, like <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Exceptions" title="Exceptions"></a> or <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Generator" title="Generator"></a>.
+/// You may also defer to more specific tasks, like <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Exceptions" title="Exceptions">Exceptions</a> or <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Generator" title="Generator">Generator</a>.
 /// <br><br>
 /// <br>
 /// <br>

@@ -241,7 +241,7 @@ replaceWithActualFunctionHere;
 /// </li>
 /// </ul>
 /// <br>
-/// For every possible input string, your implementation should produce exactly the output which this specification mandates. Please comply with this even when it's inconvenient, to ensure that all implementations are comparable. However, none of the above should be interpreted as instructions (or even recommendations) for <span class="rosetta__text--bold">how</span> to implement it. Try to come up with a solution that is idiomatic in your programming language. <span class="rosetta__text--italic">(See <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/#Perl" title="#Perl"></a> for a reference implementation.)</span>
+/// For every possible input string, your implementation should produce exactly the output which this specification mandates. Please comply with this even when it's inconvenient, to ensure that all implementations are comparable. However, none of the above should be interpreted as instructions (or even recommendations) for <span class="rosetta__text--bold">how</span> to implement it. Try to come up with a solution that is idiomatic in your programming language. <span class="rosetta__text--italic">(See <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/#Perl" title="#Perl">#Perl</a> for a reference implementation.)</span>
 /// <br>
 /// <br>
 /// <br>

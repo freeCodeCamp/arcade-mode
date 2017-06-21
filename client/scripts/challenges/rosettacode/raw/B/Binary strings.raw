@@ -19,11 +19,10 @@ replaceWithActualFunctionHere;
 
 /// description:
 /// <br>
-/// Many languages have powerful and useful (<span class="rosetta__text--bold">binary safe</span>) <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/String (computer science)" title="wp: String (computer science)">string]] [[wp:Comparison of programming languages (string functions)|manipulation functions</a>, while others don't, making it harder for these languages to accomplish some tasks.
+/// Many languages have powerful and useful (<span class="rosetta__text--bold">binary safe</span>) <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/String (computer science)" title="wp: String (computer science)">string</a> <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Comparison of programming languages (string functions)" title="wp: Comparison of programming languages (string functions)">manipulation functions</a>, while others don't, making it harder for these languages to accomplish some tasks.
 /// This task is about creating functions to handle <span class="rosetta__text--italic">binary</span> strings (strings made of arbitrary bytes, i.e. <span class="rosetta__text--italic">byte strings</span> according to Wikipedia) for those languages that don't have built-in support for them. If your language of choice does have this built-in support, show a possible alternative implementation for the <span class="rosetta__text--italic">functions</span> or <span class="rosetta__text--italic">abilities</span> already provided by the language.
 /// In particular the functions you need to create are:
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">String creation and destruction (when needed and if there's no <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/garbage collection" title="garbage collection"></a> or similar mechanism)</li>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">String creation and destruction (when needed and if there's no <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/garbage collection" title="garbage collection">garbage collection</a> or similar mechanism)</li>
 /// <li class="rosetta__list-item--unordered">String assignment</li>
 /// <li class="rosetta__list-item--unordered">String comparison</li>
 /// <li class="rosetta__list-item--unordered">String cloning and copying</li>
@@ -31,11 +30,9 @@ replaceWithActualFunctionHere;
 /// <li class="rosetta__list-item--unordered">Append a byte to a string</li>
 /// <li class="rosetta__list-item--unordered">Extract a substring from a string</li>
 /// <li class="rosetta__list-item--unordered">Replace every occurrence of a byte (or a string) in a string with another string</li>
-/// <li class="rosetta__list-item--unordered">Join strings</li>
+/// <li class="rosetta__list-item--unordered">Join strings</li></ul>
 /// <br>
-/// </ul>
-/// <br>
-/// Possible contexts of use: compression algorithms (like <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/LZW compression" title="LZW compression"></a>), L-systems (manipulation of symbols), many more.
+/// Possible contexts of use: compression algorithms (like <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/LZW compression" title="LZW compression">LZW compression</a>), L-systems (manipulation of symbols), many more.
 /// <br><br>
 /// <br>
 /// <br>

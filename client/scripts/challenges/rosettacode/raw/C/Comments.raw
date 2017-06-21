@@ -27,18 +27,12 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks:</dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Documentation" title="Documentation"></a></li>
-/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Here_document" title="Here_document"></a></li>
-/// <br>
-/// </ul>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Documentation" title="Documentation">Documentation</a></li>
+/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Here_document" title="Here_document">Here_document</a></li></ul>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">See also:</dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">&nbsp; [https://en.wikipedia.org/wiki/Comment_(computer_programming) Wikipedia]</li>
-/// <li class="rosetta__list-item--unordered">&nbsp; [http://xkcd.com/156 xkcd] (Humor: hand gesture denoting <code>//</code> for "commenting out" people.)</li>
-/// <br>
-/// </ul><br><br>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">&nbsp; [https://en.wikipedia.org/wiki/Comment_(computer_programming) Wikipedia]</li>
+/// <li class="rosetta__list-item--unordered">&nbsp; [http://xkcd.com/156 xkcd] (Humor: hand gesture denoting <code>//</code> for "commenting out" people.)</li></ul><br><br>
 /// <br>
 /// <br>
 

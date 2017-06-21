@@ -45,11 +45,8 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <span class="rosetta__text--bold">Note</span>: <code>vector * scalar</code> multiplies each element of the vector by the scalar; <code>vectorA - vectorB</code> subtracts each element of the vectorB from the element of the vectorA with "the same index". The vectors in the pseudocode are zero-based.
 /// <br>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">Error handling (for allocations or for wrong inputs) is not mandatory.</li>
-/// <li class="rosetta__list-item--unordered">Conventions can be different; in particular, note that if the first coefficient in the vector is the highest power of x for the polynomial represented by the vector, then the algorithm becomes simpler.</li>
-/// <br>
-/// </ul>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Error handling (for allocations or for wrong inputs) is not mandatory.</li>
+/// <li class="rosetta__list-item--unordered">Conventions can be different; in particular, note that if the first coefficient in the vector is the highest power of x for the polynomial represented by the vector, then the algorithm becomes simpler.</li></ul>
 /// <span class="rosetta__text--bold">Example for clarification</span>
 /// <br>
 /// This example is from Wikipedia, but changed to show how the given pseudocode works.

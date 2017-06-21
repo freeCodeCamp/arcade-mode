@@ -20,7 +20,7 @@ replaceWithActualFunctionHere;
 /// description:
 /// <br>
 /// <br>
-/// Programming languages often have built-in routines to convert a non-negative integer for printing in different number bases. Such common number bases might include binary, <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Octal" title="Octal"></a> and <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Hexadecimal" title="Hexadecimal"></a>.
+/// Programming languages often have built-in routines to convert a non-negative integer for printing in different number bases. Such common number bases might include binary, <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Octal" title="Octal">Octal</a> and <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Hexadecimal" title="Hexadecimal">Hexadecimal</a>.
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
@@ -28,9 +28,9 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Note:</dt></dl>
-/// This is distinct from <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Number base conversion" title="Number base conversion"></a> as a user-defined conversion function is <span class="rosetta__text--bold">not</span> asked for.)
+/// This is distinct from <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Number base conversion" title="Number base conversion">Number base conversion</a> as a user-defined conversion function is <span class="rosetta__text--bold">not</span> asked for.)
 /// <br>
-/// The reverse operation is <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Common number base parsing" title="Common number base parsing"></a>.
+/// The reverse operation is <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Common number base parsing" title="Common number base parsing">Common number base parsing</a>.
 /// <br><br>
 /// <br>
 /// <br>

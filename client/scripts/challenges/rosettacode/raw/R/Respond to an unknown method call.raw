@@ -23,7 +23,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// This task is intended only for object systems that use a dynamic dispatch mechanism without static checking.
 /// <br>
-/// See also <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Send an unknown method call" title="Send an unknown method call"></a>.
+/// See also <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Send an unknown method call" title="Send an unknown method call">Send an unknown method call</a>.
 /// <br>
 /// <br>
 

@@ -23,7 +23,7 @@ replaceWithActualFunctionHere;
 /// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/user input::task" title="user input::task"> </a>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
-/// Obtain a valid &nbsp; <span class="rosetta__text--bold">Y</span> &nbsp; or &nbsp; <span class="rosetta__text--bold">N</span> &nbsp; response from the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/input device::keyboard" title="input device::keyboard"></a>. 
+/// Obtain a valid &nbsp; <span class="rosetta__text--bold">Y</span> &nbsp; or &nbsp; <span class="rosetta__text--bold">N</span> &nbsp; response from the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/input device::keyboard" title="input device::keyboard">input device::keyboard</a>. 
 /// <br>
 /// The keyboard should be flushed, so that any outstanding key-presses are removed, preventing any existing &nbsp; <span class="rosetta__text--bold">Y</span> &nbsp; or &nbsp; <span class="rosetta__text--bold">N</span> &nbsp; key-press from being evaluated. 
 /// <br>

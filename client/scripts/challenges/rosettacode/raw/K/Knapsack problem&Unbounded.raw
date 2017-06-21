@@ -77,33 +77,21 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Note: </dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">&nbsp; There are four solutions that maximize the value taken. &nbsp; Only one <span class="rosetta__text--italic">need</span> be given.</li>
-/// <br>
-/// </ul>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">&nbsp; There are four solutions that maximize the value taken. &nbsp; Only one <span class="rosetta__text--italic">need</span> be given.</li></ul>
 /// <br>
 /// <!-- All solutions
 /// <br>
-/// <ol class="rosetta__ordered-list">
-/// <li class="rosetta__list-item--ordered">((value, -weight, -volume), (#panacea, #ichor, #gold)</li>
-/// <br>
-/// </ol>[((54500, -25.0, -0.24699999999999997), (0, 15, 11)),
+/// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">((value, -weight, -volume), (#panacea, #ichor, #gold)</li></ol>[((54500, -25.0, -0.24699999999999997), (0, 15, 11)),
 ///  ((54500, -24.899999999999999, -0.247), (3, 10, 11)),
 ///  ((54500, -24.800000000000001, -0.24700000000000003), (6, 5, 11)),
 ///  ((54500, -24.699999999999999, -0.247), (9, 0, 11))]
 /// <br>
-/// <ol class="rosetta__ordered-list">
-/// <li class="rosetta__list-item--ordered">(9, 0, 11) also minimizes weight and volume within the limits of calculation</li>
-/// <br>
-/// </ol>-->
+/// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">(9, 0, 11) also minimizes weight and volume within the limits of calculation</li></ol>-->
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks:</dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Knapsack problem/Bounded" title="Knapsack problem/Bounded"></a></li>
-/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Knapsack problem/Continuous" title="Knapsack problem/Continuous"></a></li>
-/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Knapsack problem/0-1" title="Knapsack problem/0-1"></a></li>
-/// <br>
-/// </ul><br><br>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Knapsack problem/Bounded" title="Knapsack problem/Bounded">Knapsack problem/Bounded</a></li>
+/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Knapsack problem/Continuous" title="Knapsack problem/Continuous">Knapsack problem/Continuous</a></li>
+/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Knapsack problem/0-1" title="Knapsack problem/0-1">Knapsack problem/0-1</a></li></ul><br><br>
 /// <br>
 /// <br>
 

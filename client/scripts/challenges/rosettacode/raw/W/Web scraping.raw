@@ -33,7 +33,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
-/// Create a program that downloads the time from this URL: &nbsp; [http://tycho.usno.navy.mil/cgi-bin/timer.pl http://tycho.usno.navy.mil/cgi-bin/timer.pl] &nbsp; and then prints the current UTC time by extracting just the UTC time from the web page's <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/HTML" title="HTML"></a>.
+/// Create a program that downloads the time from this URL: &nbsp; [http://tycho.usno.navy.mil/cgi-bin/timer.pl http://tycho.usno.navy.mil/cgi-bin/timer.pl] &nbsp; and then prints the current UTC time by extracting just the UTC time from the web page's <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/HTML" title="HTML">HTML</a>.
 /// <br>
 /// <!-- As of March 2014, the page is available
 /// <br>
@@ -57,7 +57,7 @@ replaceWithActualFunctionHere;
 /// </pre>
 /// End of comment -->
 /// <br>
-/// If possible, only use libraries that come at no <span class="rosetta__text--italic">extra</span> monetary cost with the programming language and that are widely available and popular such as [http://www.cpan.org/ CPAN] for Perl or <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Boost" title="Boost"></a> for C++.
+/// If possible, only use libraries that come at no <span class="rosetta__text--italic">extra</span> monetary cost with the programming language and that are widely available and popular such as [http://www.cpan.org/ CPAN] for Perl or <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Boost" title="Boost">Boost</a> for C++.
 /// <br><br>
 /// <br>
 /// <br>

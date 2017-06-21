@@ -24,7 +24,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// After filling the top quarter of the display, we switch to a wider 2 pixel wide vertical pinstripe pattern. Halfway down the display we switch to 3 pixel wide vertical pinstripe and then finally to a 4 pixels wide vertical pinstripe for the last quarter of the display.
 /// <br>
-/// c.f. <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Pinstripe/Display" title="Pinstripe/Display"></a>
+/// c.f. <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Pinstripe/Display" title="Pinstripe/Display">Pinstripe/Display</a>
 /// <br>
 /// <br>
 

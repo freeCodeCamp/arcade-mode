@@ -23,11 +23,8 @@ replaceWithActualFunctionHere;
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
 /// Given a &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/List_(abstract_data_type)" title="wp: List_(abstract_data_type)">list</a> &nbsp; of arbitrarily many strings, show how to:
 /// <br>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">&nbsp; test if they are all lexically <span class="rosetta__text--bold">equal</span></li>
-/// <li class="rosetta__list-item--unordered">&nbsp; test if every string is lexically <span class="rosetta__text--bold">less than</span> the one after it  <span class="rosetta__text--italic">(i.e. whether the list is in strict ascending order)</span></li>
-/// <br>
-/// </ul>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">&nbsp; test if they are all lexically <span class="rosetta__text--bold">equal</span></li>
+/// <li class="rosetta__list-item--unordered">&nbsp; test if every string is lexically <span class="rosetta__text--bold">less than</span> the one after it  <span class="rosetta__text--italic">(i.e. whether the list is in strict ascending order)</span></li></ul>
 /// <br>
 /// Each of those two tests should result in a single true or false value, which could be used as the condition of an &nbsp; <code> if </code> &nbsp; statement or similar. 
 /// <br>
@@ -39,14 +36,11 @@ replaceWithActualFunctionHere;
 /// <br>
 /// Try to write your solution in a way that does not modify the original list, &nbsp; but if it does then please add a note to make that clear to readers.
 /// <br>
-/// <i>If you need further guidance/clarification, &nbsp; see <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/#Perl" title="#Perl"></a> and <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/#Python" title="#Python"></a> for solutions that use implicit short-circuiting loops, &nbsp; and <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/#Perl_6" title="#Perl_6"></a> for a solution that gets away with simply using a built-in language feature. </i>
+/// <i>If you need further guidance/clarification, &nbsp; see <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/#Perl" title="#Perl">#Perl</a> and <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/#Python" title="#Python">#Python</a> for solutions that use implicit short-circuiting loops, &nbsp; and <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/#Perl_6" title="#Perl_6">#Perl_6</a> for a solution that gets away with simply using a built-in language feature. </i>
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks:</dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/String comparison" title="String comparison"></a></li>
-/// <br>
-/// </ul><br><br>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/String comparison" title="String comparison">String comparison</a></li></ul><br><br>
 /// <br>
 /// <br>
 

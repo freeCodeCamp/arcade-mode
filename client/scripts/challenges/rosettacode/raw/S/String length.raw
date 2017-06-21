@@ -26,7 +26,7 @@ replaceWithActualFunctionHere;
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
 /// Find the <em>character</em> and <em>byte</em> length of a string.
 ///  
-/// This means encodings like <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/UTF-8" title="UTF-8"></a> need to be handled properly, as there is not necessarily a one-to-one relationship between bytes and characters. 
+/// This means encodings like <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/UTF-8" title="UTF-8">UTF-8</a> need to be handled properly, as there is not necessarily a one-to-one relationship between bytes and characters. 
 /// <br>
 /// By <span class="rosetta__text--italic">character</span>, we mean an individual Unicode <span class="rosetta__text--italic">code point</span>, not a user-visible <span class="rosetta__text--italic">grapheme</span> containing combining characters. 
 /// <br>

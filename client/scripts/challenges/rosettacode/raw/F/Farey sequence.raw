@@ -43,21 +43,15 @@ replaceWithActualFunctionHere;
 /// <span class="rosetta__text--indented">${\bf\it{F}}_5 = \frac{0}{1}, \frac{1}{5}, \frac{1}{4}, \frac{1}{3}, \frac{2}{5}, \frac{1}{2}, \frac{3}{5}, \frac{2}{3}, \frac{3}{4}, \frac{4}{5}, \frac{1}{1}$</span>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task</dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">&nbsp; Compute and show the Farey sequence for orders &nbsp; <span class="rosetta__text--bold">1</span> &nbsp; through &nbsp; <span class="rosetta__text--bold">11</span> &nbsp; (inclusive).</li>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">&nbsp; Compute and show the Farey sequence for orders &nbsp; <span class="rosetta__text--bold">1</span> &nbsp; through &nbsp; <span class="rosetta__text--bold">11</span> &nbsp; (inclusive).</li>
 /// <li class="rosetta__list-item--unordered">&nbsp; Compute and display the &nbsp; <span class="rosetta__text--italic">number</span> &nbsp; of fractions in the Farey sequence for order &nbsp; <span class="rosetta__text--bold">100</span> &nbsp; through &nbsp; <span class="rosetta__text--bold">1,000</span> &nbsp; (inclusive) &nbsp; by hundreds.</li>
-/// <li class="rosetta__list-item--unordered">&nbsp; Show the fractions as &nbsp; <big> <span class="rosetta__text--bold">n/d</span> </big> &nbsp; (using the solidus [or slash] to separate the numerator from the denominator).   </li>
-/// <br>
-/// </ul>
+/// <li class="rosetta__list-item--unordered">&nbsp; Show the fractions as &nbsp; <big> <span class="rosetta__text--bold">n/d</span> </big> &nbsp; (using the solidus [or slash] to separate the numerator from the denominator).   </li></ul>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">See also</dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">&nbsp;  OEIS sequence  &nbsp; [http://oeis.org/A006842 A006842 numerators   of Farey series of order 1, 2, ···] </li>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">&nbsp;  OEIS sequence  &nbsp; [http://oeis.org/A006842 A006842 numerators   of Farey series of order 1, 2, ···] </li>
 /// <li class="rosetta__list-item--unordered">&nbsp;  OEIS sequence  &nbsp; [http://oeis.org/A006843 A006843 denominators of Farey series of order 1, 2, ···] </li>
 /// <li class="rosetta__list-item--unordered">&nbsp;  OEIS sequence  &nbsp; [http://oeis.org/A005728 A005728 number of fractions in Farey series of order n.] </li>
-/// <li class="rosetta__list-item--unordered">&nbsp; MathWorld entry &nbsp; [http://mathworld.wolfram.com/FareySequence.html Farey sequence]</li>
-/// <br>
-/// </ul><br><br>
+/// <li class="rosetta__list-item--unordered">&nbsp; MathWorld entry &nbsp; [http://mathworld.wolfram.com/FareySequence.html Farey sequence]</li></ul><br><br>
 /// <br>
 /// <br>
 

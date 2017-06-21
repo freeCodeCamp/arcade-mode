@@ -23,14 +23,11 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <span class="rosetta__text--bold">Method:</span> <br>
-/// <ol class="rosetta__ordered-list">
-/// <li class="rosetta__list-item--ordered">Take two numbers to be multiplied and write them down at the top of two columns.</li>
+/// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">Take two numbers to be multiplied and write them down at the top of two columns.</li>
 /// <li class="rosetta__list-item--ordered">In the left-hand column repeatedly halve the last number, discarding any remainders, and write the result below the last in the same column, until you write a value of 1.</li>
 /// <li class="rosetta__list-item--ordered">In the right-hand column repeatedly double the last number and write the result below. stop when you add a result in the same row as where the left hand column shows 1.</li>
 /// <li class="rosetta__list-item--ordered">Examine the table produced and discard any row where the value in the left column is even.</li>
-/// <li class="rosetta__list-item--ordered">Sum the values in the right-hand column that remain to produce the result of multiplying the original two numbers together</li>
-/// <br>
-/// </ol>
+/// <li class="rosetta__list-item--ordered">Sum the values in the right-hand column that remain to produce the result of multiplying the original two numbers together</li></ol>
 /// <br>
 /// <span class="rosetta__text--bold">For example:</span> &nbsp; 17 &times; 34
 ///         17    34
@@ -65,25 +62,19 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
 /// The task is to <span class="rosetta__text--bold">define three named functions</span>/methods/procedures/subroutines:
-/// <ol class="rosetta__ordered-list">
-/// <li class="rosetta__list-item--ordered">one to <span class="rosetta__text--bold">halve an integer</span>,</li>
+/// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">one to <span class="rosetta__text--bold">halve an integer</span>,</li>
 /// <li class="rosetta__list-item--ordered">one to <span class="rosetta__text--bold">double an integer</span>, and</li>
-/// <li class="rosetta__list-item--ordered">one to <span class="rosetta__text--bold">state if an integer is even</span>.</li>
-/// <br>
-/// </ol>
+/// <li class="rosetta__list-item--ordered">one to <span class="rosetta__text--bold">state if an integer is even</span>.</li></ol>
 /// <br>
 /// Use these functions to <span class="rosetta__text--bold">create a function that does Ethiopian multiplication</span>.
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">References:</dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">[http://www.bbc.co.uk/learningzone/clips/ethiopian-multiplication-explained/11232.html Ethiopian multiplication explained] (Video)</li>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">[http://www.bbc.co.uk/learningzone/clips/ethiopian-multiplication-explained/11232.html Ethiopian multiplication explained] (Video)</li>
 /// <li class="rosetta__list-item--unordered">[http://www.youtube.com/watch?v=Nc4yrFXw20Q A Night Of Numbers - Go Forth And Multiply] (Video)</li>
 /// <li class="rosetta__list-item--unordered">[http://www.ncetm.org.uk/blogs/3064 Ethiopian multiplication]</li>
 /// <li class="rosetta__list-item--unordered">[http://www.bbc.co.uk/dna/h2g2/A22808126 Russian Peasant Multiplication]</li>
-/// <li class="rosetta__list-item--unordered">[http://thedailywtf.com/Articles/Programming-Praxis-Russian-Peasant-Multiplication.aspx Programming Praxis: Russian Peasant Multiplication]</li>
-/// <br>
-/// </ul><br><br>
+/// <li class="rosetta__list-item--unordered">[http://thedailywtf.com/Articles/Programming-Praxis-Russian-Peasant-Multiplication.aspx Programming Praxis: Russian Peasant Multiplication]</li></ul><br><br>
 /// <br>
 /// <br>
 

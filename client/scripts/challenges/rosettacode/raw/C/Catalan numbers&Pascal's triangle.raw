@@ -25,14 +25,11 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">See:</dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">&nbsp; [http://milan.milanovic.org/math/english/fibo/fibo4.html Catalan Numbers and the Pascal Triangle]. &nbsp; &nbsp; This method enables calculation of Catalan Numbers using only addition and subtraction. </li>
-/// <li class="rosetta__list-item--unordered">&nbsp; [http://mathworld.wolfram.com/CatalansTriangle.html Catalan's Triangle] for a Number Triangle that generates Catalan Numbers using only addition.</li>
-/// <br>
-/// </ul>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">&nbsp; [http://milan.milanovic.org/math/english/fibo/fibo4.html Catalan Numbers and the Pascal Triangle]. &nbsp; &nbsp; This method enables calculation of Catalan Numbers using only addition and subtraction. </li>
+/// <li class="rosetta__list-item--unordered">&nbsp; [http://mathworld.wolfram.com/CatalansTriangle.html Catalan's Triangle] for a Number Triangle that generates Catalan Numbers using only addition.</li></ul>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related Tasks:</dt></dl>
-/// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Pascal's triangle" title="Pascal's triangle"></a>
+/// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Pascal's triangle" title="Pascal's triangle">Pascal's triangle</a>
 /// <br><br>
 /// <br>
 /// <br>

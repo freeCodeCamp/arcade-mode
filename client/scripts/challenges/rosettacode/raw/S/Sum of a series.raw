@@ -19,7 +19,7 @@ replaceWithActualFunctionHere;
 
 /// description:
 /// <br>
-/// Compute the &nbsp; <span class="rosetta__text--bold">n</span><sup>th</sup> &nbsp; term of a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Series (mathematics)" title="wp: Series (mathematics)">series]], &nbsp; i.e. the sum of the &nbsp; <span class="rosetta__text--bold">n</span> &nbsp; first terms  of the corresponding [[wp:sequence|sequence</a>.  
+/// Compute the &nbsp; <span class="rosetta__text--bold">n</span><sup>th</sup> &nbsp; term of a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Series (mathematics)" title="wp: Series (mathematics)">series</a>, &nbsp; i.e. the sum of the &nbsp; <span class="rosetta__text--bold">n</span> &nbsp; first terms  of the corresponding <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/sequence" title="wp: sequence">sequence</a>.  
 /// <br>
 /// Informally this value, or its limit when &nbsp; <span class="rosetta__text--bold">n</span> &nbsp; tends to infinity, is also called the <span class="rosetta__text--italic">sum of the series</span>, thus the title of this task.
 /// <br>

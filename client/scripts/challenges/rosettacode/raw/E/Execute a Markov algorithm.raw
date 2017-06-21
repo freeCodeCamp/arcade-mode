@@ -45,11 +45,8 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Ruleset 1:</dt></dl>
 /// <pre>
-/// <ol class="rosetta__ordered-list">
-/// <li class="rosetta__list-item--ordered">This rules file is extracted from Wikipedia:</li>
-/// <li class="rosetta__list-item--ordered">http://en.wikipedia.org/wiki/Markov_Algorithm</li>
-/// <br>
-/// </ol>A -> apple
+/// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">This rules file is extracted from Wikipedia:</li>
+/// <li class="rosetta__list-item--ordered">http://en.wikipedia.org/wiki/Markov_Algorithm</li></ol>A -> apple
 /// B -> bag
 /// S -> shop
 /// T -> the
@@ -65,10 +62,7 @@ replaceWithActualFunctionHere;
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Ruleset 2:</dt></dl>
 /// A test of the terminating rule
 /// <pre>
-/// <ol class="rosetta__ordered-list">
-/// <li class="rosetta__list-item--ordered">Slightly modified from the rules on Wikipedia</li>
-/// <br>
-/// </ol>A -> apple
+/// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">Slightly modified from the rules on Wikipedia</li></ol>A -> apple
 /// B -> bag
 /// S -> .shop
 /// T -> the
@@ -83,10 +77,7 @@ replaceWithActualFunctionHere;
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Ruleset 3:</dt></dl>
 /// This tests for correct substitution order and may trap simple regexp based replacement routines if special regexp characters are not escaped.
 /// <pre>
-/// <ol class="rosetta__ordered-list">
-/// <li class="rosetta__list-item--ordered">BNF Syntax testing rules</li>
-/// <br>
-/// </ol>A -> apple
+/// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">BNF Syntax testing rules</li></ol>A -> apple
 /// WWWW -> with
 /// Bgage -> ->.*
 /// B -> bag
@@ -106,24 +97,15 @@ replaceWithActualFunctionHere;
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Ruleset 4:</dt></dl>
 /// This tests for correct order of scanning of rules, and may trap replacement routines that scan in the wrong order. &nbsp; It implements a general unary multiplication engine. &nbsp; (Note that the input expression must be placed within underscores in this implementation.)
 /// <pre>
-/// <ol class="rosetta__ordered-list">
-/// <li class="rosetta__list-item--ordered">## Unary Multiplication Engine, for testing Markov Algorithm implementations</li>
+/// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">## Unary Multiplication Engine, for testing Markov Algorithm implementations</li>
 /// <li class="rosetta__list-item--ordered">## By Donal Fellows.</li>
-/// <li class="rosetta__list-item--ordered">Unary addition engine</li>
-/// <br>
-/// </ol>_+1 -> _1+
+/// <li class="rosetta__list-item--ordered">Unary addition engine</li></ol>_+1 -> _1+
 /// 1+1 -> 11+
-/// <ol class="rosetta__ordered-list">
-/// <li class="rosetta__list-item--ordered">Pass for converting from the splitting of multiplication into ordinary</li>
-/// <li class="rosetta__list-item--ordered">addition</li>
-/// <br>
-/// </ol>1! -> !1
+/// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">Pass for converting from the splitting of multiplication into ordinary</li>
+/// <li class="rosetta__list-item--ordered">addition</li></ol>1! -> !1
 /// ,! -> !+
 /// _! -> _
-/// <ol class="rosetta__ordered-list">
-/// <li class="rosetta__list-item--ordered">Unary multiplication by duplicating left side, right side times</li>
-/// <br>
-/// </ol>1*1 -> x,@y
+/// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">Unary multiplication by duplicating left side, right side times</li></ol>1*1 -> x,@y
 /// 1x -> xX
 /// X, -> 1,1
 /// X1 -> 1X
@@ -131,17 +113,11 @@ replaceWithActualFunctionHere;
 /// ,x -> ,X
 /// y1 -> 1y
 /// y_ -> _
-/// <ol class="rosetta__ordered-list">
-/// <li class="rosetta__list-item--ordered">Next phase of applying</li>
-/// <br>
-/// </ol>1@1 -> x,@y
+/// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">Next phase of applying</li></ol>1@1 -> x,@y
 /// 1@_ -> @_
 /// ,@_ -> !_
 /// ++ -> +
-/// <ol class="rosetta__ordered-list">
-/// <li class="rosetta__list-item--ordered">Termination cleanup for addition</li>
-/// <br>
-/// </ol>_1 -> 1
+/// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">Termination cleanup for addition</li></ol>_1 -> 1
 /// 1+_ -> 1
 /// _+_ -> 
 /// </pre>
@@ -160,34 +136,16 @@ replaceWithActualFunctionHere;
 /// <br>
 /// Besides demonstrating that the Markov algorithm is Turing-complete, it also made me catch a bug in the C++ implementation which wasn't caught by the first four rulesets.
 /// <pre>
-/// <ol class="rosetta__ordered-list">
-/// <li class="rosetta__list-item--ordered">Turing machine: three-state busy beaver</li>
-/// <li class="rosetta__list-item--ordered"># state A, symbol 0 => write 1, move right, new state B</li>
-/// <br>
-/// </ol>A0 -> 1B
-/// <ol class="rosetta__ordered-list">
-/// <li class="rosetta__list-item--ordered">state A, symbol 1 => write 1, move left, new state C</li>
-/// <br>
-/// </ol>0A1 -> C01
+/// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">Turing machine: three-state busy beaver</li>
+/// <li class="rosetta__list-item--ordered"># state A, symbol 0 => write 1, move right, new state B</li></ol>A0 -> 1B
+/// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">state A, symbol 1 => write 1, move left, new state C</li></ol>0A1 -> C01
 /// 1A1 -> C11
-/// <ol class="rosetta__ordered-list">
-/// <li class="rosetta__list-item--ordered">state B, symbol 0 => write 1, move left, new state A</li>
-/// <br>
-/// </ol>0B0 -> A01
+/// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">state B, symbol 0 => write 1, move left, new state A</li></ol>0B0 -> A01
 /// 1B0 -> A11
-/// <ol class="rosetta__ordered-list">
-/// <li class="rosetta__list-item--ordered">state B, symbol 1 => write 1, move right, new state B</li>
-/// <br>
-/// </ol>B1 -> 1B
-/// <ol class="rosetta__ordered-list">
-/// <li class="rosetta__list-item--ordered">state C, symbol 0 => write 1, move left, new state B</li>
-/// <br>
-/// </ol>0C0 -> B01
+/// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">state B, symbol 1 => write 1, move right, new state B</li></ol>B1 -> 1B
+/// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">state C, symbol 0 => write 1, move left, new state B</li></ol>0C0 -> B01
 /// 1C0 -> B11
-/// <ol class="rosetta__ordered-list">
-/// <li class="rosetta__list-item--ordered">state C, symbol 1 => write 1, move left, halt</li>
-/// <br>
-/// </ol>0C1 -> H01
+/// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">state C, symbol 1 => write 1, move left, halt</li></ol>0C1 -> H01
 /// 1C1 -> H11
 /// </pre>
 /// This ruleset should turn

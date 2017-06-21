@@ -20,25 +20,22 @@ replaceWithActualFunctionHere;
 /// description:
 /// <br>
 /// <br>
-/// A language has <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/First-class function" title="wp: First-class function">first-class functions]] if it can do each of the following without recursively invoking a compiler or interpreter or otherwise [[metaprogramming</a>:
+/// A language has <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/First-class function" title="wp: First-class function">first-class functions</a> if it can do each of the following without recursively invoking a compiler or interpreter or otherwise <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/metaprogramming" title="metaprogramming">metaprogramming</a>:
 /// <br>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">Create new functions from preexisting functions at run-time</li>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Create new functions from preexisting functions at run-time</li>
 /// <li class="rosetta__list-item--unordered">Store functions in collections</li>
 /// <li class="rosetta__list-item--unordered">Use functions as arguments to other functions</li>
-/// <li class="rosetta__list-item--unordered">Use functions as return values of other functions</li>
-/// <br>
-/// </ul>
+/// <li class="rosetta__list-item--unordered">Use functions as return values of other functions</li></ul>
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
-/// Write a program to create an ordered collection <span class="rosetta__text--italic">A</span> of functions of a real number. At least one function should be built-in and at least one should be user-defined; try using the sine, cosine, and cubing functions. Fill another collection <span class="rosetta__text--italic">B</span> with the inverse of each function in <span class="rosetta__text--italic">A</span>. Implement function composition as in <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Functional Composition" title="Functional Composition"></a>. Finally, demonstrate that the result of applying the composition of each function in <span class="rosetta__text--italic">A</span> and its inverse in <span class="rosetta__text--italic">B</span> to a value, is the original value. <small>(Within the limits of computational accuracy)</small>.
+/// Write a program to create an ordered collection <span class="rosetta__text--italic">A</span> of functions of a real number. At least one function should be built-in and at least one should be user-defined; try using the sine, cosine, and cubing functions. Fill another collection <span class="rosetta__text--italic">B</span> with the inverse of each function in <span class="rosetta__text--italic">A</span>. Implement function composition as in <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Functional Composition" title="Functional Composition">Functional Composition</a>. Finally, demonstrate that the result of applying the composition of each function in <span class="rosetta__text--italic">A</span> and its inverse in <span class="rosetta__text--italic">B</span> to a value, is the original value. <small>(Within the limits of computational accuracy)</small>.
 /// <br>
 /// (A solution need not actually call the collections "A" and "B". These names are only used in the preceding paragraph for clarity.)
 ///  
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related task: </dt></dl>
-/// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/First-class Numbers" title="First-class Numbers"></a>
+/// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/First-class Numbers" title="First-class Numbers">First-class Numbers</a>
 /// <br><br>
 /// <br>
 /// <br>

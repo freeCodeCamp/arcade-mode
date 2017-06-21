@@ -46,13 +46,10 @@ replaceWithActualFunctionHere;
 ///    <span class="rosetta__text--bold">return</span> <span class="rosetta__text--italic">A</span>[0] (which is <span class="rosetta__text--italic">B</span><sub><span class="rosetta__text--italic">n</span></sub>)
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">See also</dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">Sequence [http://oeis.org/A027641 A027641 Numerator of Bernoulli number B_n] on The On-Line Encyclopedia of Integer Sequences.</li>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Sequence [http://oeis.org/A027641 A027641 Numerator of Bernoulli number B_n] on The On-Line Encyclopedia of Integer Sequences.</li>
 /// <li class="rosetta__list-item--unordered">Sequence [http://oeis.org/A027642 A027642 Denominator of Bernoulli number B_n] on The On-Line Encyclopedia of Integer Sequences.</li>
 /// <li class="rosetta__list-item--unordered">Entry [http://mathworld.wolfram.com/BernoulliNumber.html Bernoulli number] on The Eric Weisstein's World of Mathematics (TM).</li>
-/// <li class="rosetta__list-item--unordered">Luschny's [http://luschny.de/math/zeta/The-Bernoulli-Manifesto.html The Bernoulli Manifesto] for a discussion on $B_1$ = -&frac12; vs. +&frac12;.</li>
-/// <br>
-/// </ul><br><br>
+/// <li class="rosetta__list-item--unordered">Luschny's [http://luschny.de/math/zeta/The-Bernoulli-Manifesto.html The Bernoulli Manifesto] for a discussion on $B_1$ = -&frac12; vs. +&frac12;.</li></ul><br><br>
 /// <br>
 /// <br>
 

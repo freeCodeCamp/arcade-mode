@@ -47,13 +47,10 @@ replaceWithActualFunctionHere;
 /// as possible (simple, obvious solutions allowed, too).
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">See also: </dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">http://99-bottles-of-beer.net/</li>
-/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/:Category:99_Bottles_of_Beer" title=":Category:99_Bottles_of_Beer"></a></li>
-/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/:Category:Programming language families" title=":Category:Programming language families"></a></li>
-/// <li class="rosetta__list-item--unordered">[https://en.wikipedia.org/wiki/99_Bottles_of_Beer Wikipedia 99 bottles of beer]</li>
-/// <br>
-/// </ul><br><br>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">http://99-bottles-of-beer.net/</li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/:Category:99_Bottles_of_Beer" title=":Category:99_Bottles_of_Beer">:Category:99_Bottles_of_Beer</a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/:Category:Programming language families" title=":Category:Programming language families">:Category:Programming language families</a></li>
+/// <li class="rosetta__list-item--unordered">[https://en.wikipedia.org/wiki/99_Bottles_of_Beer Wikipedia 99 bottles of beer]</li></ul><br><br>
 /// <br>
 /// <br>
 

@@ -95,11 +95,8 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Note:</dt></dl>
-/// <ol class="rosetta__ordered-list">
-/// <li class="rosetta__list-item--ordered">The Cholesky decomposition of a <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Pascal matrix generation‎" title="Pascal matrix generation‎">Pascal</a> upper-triangle matrix is the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Identity matrix" title="wp: Identity matrix">Identity matrix</a> of the same size. </li>
-/// <li class="rosetta__list-item--ordered">The Cholesky decomposition of a Pascal symmetric matrix is the Pascal lower-triangle matrix of the same size. </li>
-/// <br>
-/// </ol>
+/// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">The Cholesky decomposition of a <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Pascal matrix generation‎" title="Pascal matrix generation‎">Pascal</a> upper-triangle matrix is the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Identity matrix" title="wp: Identity matrix">Identity matrix</a> of the same size. </li>
+/// <li class="rosetta__list-item--ordered">The Cholesky decomposition of a Pascal symmetric matrix is the Pascal lower-triangle matrix of the same size. </li></ol>
 /// <br>
 /// <br>
 

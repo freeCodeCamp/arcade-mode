@@ -21,12 +21,9 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// Perform the following three XPath queries on the XML Document below:
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">Retrieve the first "item" element</li>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Retrieve the first "item" element</li>
 /// <li class="rosetta__list-item--unordered">Perform an action on each "price" element (print it out)</li>
-/// <li class="rosetta__list-item--unordered">Get an array of all the "name" elements</li>
-/// <br>
-/// </ul>
+/// <li class="rosetta__list-item--unordered">Get an array of all the "name" elements</li></ul>
 /// XML Document:
 ///  <inventory title="OmniCorp Store #45x10^3">
 ///    <section name="health">

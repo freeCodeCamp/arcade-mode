@@ -18,7 +18,7 @@ const assert = require('chai').assert;
 replaceWithActualFunctionHere;
 
 /// description:
-/// <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Gray code" title="wp: Gray code">Gray code]] is a form of binary encoding where transitions between consecutive numbers differ by only one bit. This is a useful encoding for reducing hardware data hazards with values that change rapidly and/or connect to slower hardware as inputs. It is also useful for generating inputs for [[wp:Karnaugh map|Karnaugh maps</a> in order from left to right or top to bottom.
+/// <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Gray code" title="wp: Gray code">Gray code</a> is a form of binary encoding where transitions between consecutive numbers differ by only one bit. This is a useful encoding for reducing hardware data hazards with values that change rapidly and/or connect to slower hardware as inputs. It is also useful for generating inputs for <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Karnaugh map" title="wp: Karnaugh map">Karnaugh maps</a> in order from left to right or top to bottom.
 /// <br>
 /// Create functions to encode a number to and decode a number from Gray code. 
 /// <br>
@@ -45,10 +45,7 @@ replaceWithActualFunctionHere;
 /// b[i] = g[i] xor b[i-1]</pre>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Reference</dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">[http://www.wisc-online.com/Objects/ViewObject.aspx?ID=IAU8307 Converting Between Gray and Binary Codes]. It includes step-by-step animations.</li>
-/// <br>
-/// </ul>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">[http://www.wisc-online.com/Objects/ViewObject.aspx?ID=IAU8307 Converting Between Gray and Binary Codes]. It includes step-by-step animations.</li></ul>
 /// <br>
 
 /// challengeSeed:

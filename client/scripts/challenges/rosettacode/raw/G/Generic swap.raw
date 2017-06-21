@@ -34,7 +34,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// Functional languages, whether static or dynamic, do not necessarily allow a destructive operation such as swapping two variables regardless of their generic capabilities.
 /// <br>
-/// Some static languages have difficulties with generic programming due to a lack of support for (<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Parametric Polymorphism" title="Parametric Polymorphism"></a>). 
+/// Some static languages have difficulties with generic programming due to a lack of support for (<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Parametric Polymorphism" title="Parametric Polymorphism">Parametric Polymorphism</a>). 
 /// <br>
 /// Do your best!
 /// <br><br>

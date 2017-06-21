@@ -21,7 +21,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <br>
-/// In information theory and computer science, the <span class="rosetta__text--bold">Levenshtein distance</span> is a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/string metric" title="wp: string metric">metric]] for measuring the amount of difference between two sequences (i.e. an [[wp:edit distance|edit distance</a>). The Levenshtein distance between two strings is defined as the minimum number of edits needed to transform one string into the other, with the allowable edit operations being insertion, deletion, or substitution of a single character. 
+/// In information theory and computer science, the <span class="rosetta__text--bold">Levenshtein distance</span> is a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/string metric" title="wp: string metric">metric</a> for measuring the amount of difference between two sequences (i.e. an <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/edit distance" title="wp: edit distance">edit distance</a>). The Levenshtein distance between two strings is defined as the minimum number of edits needed to transform one string into the other, with the allowable edit operations being insertion, deletion, or substitution of a single character. 
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Example:</dt></dl>
@@ -41,10 +41,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related task:</dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Longest common subsequence" title="Longest common subsequence"></a></li>
-/// <br>
-/// </ul><br><br>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Longest common subsequence" title="Longest common subsequence">Longest common subsequence</a></li></ul><br><br>
 /// <br>
 /// <br>
 

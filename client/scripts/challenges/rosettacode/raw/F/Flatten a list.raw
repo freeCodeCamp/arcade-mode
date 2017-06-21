@@ -25,16 +25,13 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// Your program should work on the equivalent of this list:
-///    <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/1], 2, [[3, 4], 5], [[[" title="1], 2, [[3, 4], 5], [[["></a>], <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/[6" title="[6"></a>], 7, 8, []]
+///    <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/1], 2, [[3, 4], 5], [[[" title="1], 2, [[3, 4], 5], [[[">1], 2, [[3, 4], 5], [[[</a>], <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/[6" title="[6">[6</a>], 7, 8, []]
 /// Where the correct result would be the list:
 ///     [1, 2, 3, 4, 5, 6, 7, 8]
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related task:</dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Tree traversal" title="Tree traversal"></a></li>
-/// <br>
-/// </ul><br><br>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Tree traversal" title="Tree traversal">Tree traversal</a></li></ul><br><br>
 /// <br>
 /// <br>
 

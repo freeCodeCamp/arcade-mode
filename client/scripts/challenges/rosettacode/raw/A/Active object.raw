@@ -21,7 +21,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <br>
-/// In <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/object-oriented programming" title="object-oriented programming"></a> an object is active when its state depends on clock. Usually an active object encapsulates a <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/task" title="task"></a> that updates the object's state. To the outer world the object looks like a normal object with methods that can be called from outside. Implementation of such methods must have a certain synchronization mechanism with the encapsulated task in order to prevent object's state corruption.
+/// In <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/object-oriented programming" title="object-oriented programming">object-oriented programming</a> an object is active when its state depends on clock. Usually an active object encapsulates a <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/task" title="task">task</a> that updates the object's state. To the outer world the object looks like a normal object with methods that can be called from outside. Implementation of such methods must have a certain synchronization mechanism with the encapsulated task in order to prevent object's state corruption.
 /// <br>
 /// A typical instance of an active object is an animation widget. The widget state changes with the time, while as an object it has all properties of a normal widget.
 /// <br>
@@ -30,14 +30,11 @@ replaceWithActualFunctionHere;
 /// Implement an active integrator object. The object has an input and output. The input can be set using the method <span class="rosetta__text--italic">Input</span>. The input is a function of time. The output can be queried using the method <span class="rosetta__text--italic">Output</span>. The object integrates its input over the time and the result becomes the object's output. So if the input is <span class="rosetta__text--italic">K</span>(<span class="rosetta__text--italic">t</span>) and the output is <span class="rosetta__text--italic">S</span>, the object state <span class="rosetta__text--italic">S</span> is changed to <span class="rosetta__text--italic">S</span> + (<span class="rosetta__text--italic">K</span>(<span class="rosetta__text--italic">t</span><sub>1</sub>) + <span class="rosetta__text--italic">K</span>(<span class="rosetta__text--italic">t</span><sub>0</sub>)) * (<span class="rosetta__text--italic">t</span><sub>1</sub> - <span class="rosetta__text--italic">t</span><sub>0</sub>) / 2, i.e. it integrates <span class="rosetta__text--italic">K</span> using the trapeze method. Initially <span class="rosetta__text--italic">K</span> is constant 0 and <span class="rosetta__text--italic">S</span> is 0.
 /// <br>
 /// In order to test the object:
-/// <ol class="rosetta__ordered-list">
-/// <li class="rosetta__list-item--ordered">set its input to sin (2π <span class="rosetta__text--italic">f t</span>), where the frequency <span class="rosetta__text--italic">f</span>=0.5Hz. The phase is irrelevant.</li>
+/// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">set its input to sin (2π <span class="rosetta__text--italic">f t</span>), where the frequency <span class="rosetta__text--italic">f</span>=0.5Hz. The phase is irrelevant.</li>
 /// <li class="rosetta__list-item--ordered">wait 2s</li>
 /// <li class="rosetta__list-item--ordered">set the input to constant 0</li>
-/// <li class="rosetta__list-item--ordered">wait 0.5s</li>
-/// <br>
-/// </ol>
-/// Verify that now the object's output is approximately 0 (the sine has the period of 2s). The accuracy of the result will depend on the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/OS" title="OS"></a> scheduler time slicing and the accuracy of the clock.
+/// <li class="rosetta__list-item--ordered">wait 0.5s</li></ol>
+/// Verify that now the object's output is approximately 0 (the sine has the period of 2s). The accuracy of the result will depend on the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/OS" title="OS">OS</a> scheduler time slicing and the accuracy of the clock.
 /// <br>
 /// <br>
 /// <br>

@@ -24,14 +24,11 @@ replaceWithActualFunctionHere;
 /// <br>
 /// Multiple approaches are allowed (even preferable), so long as they can accomplish these goals:
 /// <br>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">Run N seconds worth of jobs and/or Y jobs.</li>
-/// <li class="rosetta__list-item--unordered">Report at least three distinct times.</li>
-/// <br>
-/// </ul>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Run N seconds worth of jobs and/or Y jobs.</li>
+/// <li class="rosetta__list-item--unordered">Report at least three distinct times.</li></ul>
 /// <br>Be aware of the precision and accuracy limitations of your timing mechanisms, and document them if you can.
 /// <br>
-/// <span class="rosetta__text--bold">See also:</span> <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/System time" title="System time"></a>, <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Time a function" title="Time a function"></a>
+/// <span class="rosetta__text--bold">See also:</span> <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/System time" title="System time">System time</a>, <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Time a function" title="Time a function">Time a function</a>
 /// <br>
 /// <br>
 /// <br>

@@ -21,7 +21,7 @@ replaceWithActualFunctionHere;
 ///  
 /// <br>
 /// <span class="rosetta__text--bold">Constrained genericity</span> or <span class="rosetta__text--bold">bounded quantification</span> means 
-/// that a parametrized type or function (see <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/parametric polymorphism" title="parametric polymorphism"></a>) 
+/// that a parametrized type or function (see <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/parametric polymorphism" title="parametric polymorphism">parametric polymorphism</a>) 
 /// can only be instantiated on types fulfilling some conditions, 
 /// even if those conditions are not used in that function.
 /// <br>

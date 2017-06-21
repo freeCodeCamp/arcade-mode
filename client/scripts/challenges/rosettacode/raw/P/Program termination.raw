@@ -25,7 +25,7 @@ replaceWithActualFunctionHere;
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
 /// Show the syntax for a complete stoppage of a program inside a &nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Conditional Structures" title="Conditional Structures">conditional</a>. 
 /// <br>
-/// This includes all <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/threads" title="threads"></a>/<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/processes" title="processes"></a> which are part of your program.
+/// This includes all <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/threads" title="threads">threads</a>/<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/processes" title="processes">processes</a> which are part of your program.
 /// <br>
 /// Explain the cleanup (or lack thereof) caused by the termination (allocated memory, database connections, open files, object finalizers/destructors, run-on-exit hooks, etc.).  
 /// <br>

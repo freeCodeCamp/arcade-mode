@@ -19,7 +19,7 @@ replaceWithActualFunctionHere;
 
 /// description:
 /// <br>
-/// In this task we want to find the ordered partitions into fixed-size blocks. This task is related to <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Combinations" title="Combinations"></a> in that it has to do with discrete mathematics and moreover a helper function to compute combinations is (probably) needed to solve this task.
+/// In this task we want to find the ordered partitions into fixed-size blocks. This task is related to <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Combinations" title="Combinations">Combinations</a> in that it has to do with discrete mathematics and moreover a helper function to compute combinations is (probably) needed to solve this task.
 /// <br>
 /// $partitions(\mathit{arg}_1,\mathit{arg}_2,...,\mathit{arg}_n)$ should generate all distributions of the elements in $\{1,...,\Sigma_{i=1}^n\mathit{arg}_i\}$ into $n$ blocks of respective size $\mathit{arg}_1,\mathit{arg}_2,...,\mathit{arg}_n$.
 /// <br>

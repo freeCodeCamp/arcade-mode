@@ -20,7 +20,7 @@ replaceWithActualFunctionHere;
 /// description:
 /// <br>
 /// <br>
-/// Given the following XML fragment, extract the list of <span class="rosetta__text--italic">student names</span> using whatever means desired. If the only viable method is to use XPath, refer the reader to the task <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/XML and XPath" title="XML and XPath"></a>.
+/// Given the following XML fragment, extract the list of <span class="rosetta__text--italic">student names</span> using whatever means desired. If the only viable method is to use XPath, refer the reader to the task <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/XML and XPath" title="XML and XPath">XML and XPath</a>.
 /// <br>
 /// <lang xml><Students>
 ///   <Student Name="April" Gender="F" DateOfBirth="1989-01-02" />

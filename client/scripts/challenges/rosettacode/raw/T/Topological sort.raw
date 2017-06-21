@@ -29,13 +29,10 @@ replaceWithActualFunctionHere;
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task;</dt></dl>
 /// Write a function that will return a valid compile order of VHDL libraries from their dependencies.
 /// <br>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">Assume library names are single words. </li>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Assume library names are single words. </li>
 /// <li class="rosetta__list-item--unordered">Items mentioned as only dependents, (sic), have no dependents of their own, but their order of compiling must be given.</li>
 /// <li class="rosetta__list-item--unordered">Any self dependencies should be ignored. </li>
-/// <li class="rosetta__list-item--unordered">Any un-orderable dependencies should be flagged.</li>
-/// <br>
-/// </ul>
+/// <li class="rosetta__list-item--unordered">Any un-orderable dependencies should be flagged.</li></ul>
 /// <br>
 /// Use the following data as an example:
 /// <pre>
@@ -61,10 +58,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">C.f.:</dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered"> <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Topological sort/Extracted top item" title="Topological sort/Extracted top item"></a>.</li>
-/// <br>
-/// </ul>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"> <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Topological sort/Extracted top item" title="Topological sort/Extracted top item">Topological sort/Extracted top item</a>.</li></ul>
 /// <br>
 /// There are two popular algorithms for topological sorting:
 /// Kahn's 1962 topological sort, and depth-first search.

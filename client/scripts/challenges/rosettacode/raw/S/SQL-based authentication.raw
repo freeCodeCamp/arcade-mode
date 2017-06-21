@@ -21,12 +21,9 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// This task has three parts:
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">Connect to a <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/MySQL" title="MySQL"></a> database (<tt>connect_db</tt>)</li>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Connect to a <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/MySQL" title="MySQL">MySQL</a> database (<tt>connect_db</tt>)</li>
 /// <li class="rosetta__list-item--unordered">Create user/password records in the following table (<tt>create_user</tt>)</li>
-/// <li class="rosetta__list-item--unordered">Authenticate login requests against the table (<tt>authenticate_user</tt>)</li>
-/// <br>
-/// </ul>
+/// <li class="rosetta__list-item--unordered">Authenticate login requests against the table (<tt>authenticate_user</tt>)</li></ul>
 /// This is the table definition:
 /// <lang sql>create table users (
 ///     userid int primary key auto_increment,

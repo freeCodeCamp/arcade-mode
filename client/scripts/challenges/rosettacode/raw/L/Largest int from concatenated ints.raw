@@ -30,19 +30,13 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Possible algorithms:</dt></dl>
-/// <ol class="rosetta__ordered-list">
-/// <li class="rosetta__list-item--ordered">A solution could be found by trying all combinations and return the best. </li>
+/// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">A solution could be found by trying all combinations and return the best. </li>
 /// <li class="rosetta__list-item--ordered">Another way to solve this is to note that in the best arrangement, for any two adjacent original integers <span class="rosetta__text--bold">X</span> and <span class="rosetta__text--bold">Y</span>, the concatenation <span class="rosetta__text--bold">X</span> followed by <span class="rosetta__text--bold">Y</span> will be numerically greater than or equal to the concatenation <span class="rosetta__text--bold">Y</span> followed by '''X.</li>
-/// <li class="rosetta__list-item--ordered">Yet another way to solve this is to pad the integers to the same size by repeating the digits then sort using these repeated integers as a sort key.</li>
-/// <br>
-/// </ol>
+/// <li class="rosetta__list-item--ordered">Yet another way to solve this is to pad the integers to the same size by repeating the digits then sort using these repeated integers as a sort key.</li></ol>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">See also:</dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">&nbsp; [http://www.quora.com/Algorithms/What-is-the-most-efficient-way-to-arrange-the-given-numbers-to-form-the-biggest-number Algorithms: What is the most efficient way to arrange the given numbers to form the biggest number?]</li>
-/// <li class="rosetta__list-item--unordered">&nbsp; [http://stackoverflow.com/questions/14532105/constructing-the-largest-number-possible-by-rearranging-a-list/14539943#14539943 Constructing the largest number possible by rearranging a list]</li>
-/// <br>
-/// </ul><br><br>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">&nbsp; [http://www.quora.com/Algorithms/What-is-the-most-efficient-way-to-arrange-the-given-numbers-to-form-the-biggest-number Algorithms: What is the most efficient way to arrange the given numbers to form the biggest number?]</li>
+/// <li class="rosetta__list-item--unordered">&nbsp; [http://stackoverflow.com/questions/14532105/constructing-the-largest-number-possible-by-rearranging-a-list/14539943#14539943 Constructing the largest number possible by rearranging a list]</li></ul><br><br>
 /// <br>
 /// <br>
 

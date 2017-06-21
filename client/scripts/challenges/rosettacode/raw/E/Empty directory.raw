@@ -22,7 +22,7 @@ replaceWithActualFunctionHere;
 /// Starting with a path to some directory, determine whether the directory is empty.
 /// <br>
 /// An empty directory contains no files nor subdirectories. 
-/// With <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Unix" title="Unix"></a> or <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Windows" title="Windows"></a> systems, every directory contains an entry for “<code>.</code>” and almost every directory contains “<code>..</code>” (except for a root directory); an empty directory contains no other entries.
+/// With <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Unix" title="Unix">Unix</a> or <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Windows" title="Windows">Windows</a> systems, every directory contains an entry for “<code>.</code>” and almost every directory contains “<code>..</code>” (except for a root directory); an empty directory contains no other entries.
 /// <br>
 /// <br>
 

@@ -58,27 +58,18 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
-/// <ol class="rosetta__ordered-list">
-/// <li class="rosetta__list-item--ordered">Create a function to generate a permutation from a rank.</li>
+/// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">Create a function to generate a permutation from a rank.</li>
 /// <li class="rosetta__list-item--ordered">Create the inverse function that given the permutation generates its rank.</li>
 /// <li class="rosetta__list-item--ordered">Show that for $n=3$ the two functions are indeed inverses of each other.</li>
-/// <li class="rosetta__list-item--ordered">Compute and show here 4 random, individual, samples of permutations of 12 objects.</li>
-/// <br>
-/// </ol>
+/// <li class="rosetta__list-item--ordered">Compute and show here 4 random, individual, samples of permutations of 12 objects.</li></ol>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Stretch goal:</dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">State how reasonable it would be to use your program to address the limits of the Stack Overflow question.</li>
-/// <br>
-/// </ul>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">State how reasonable it would be to use your program to address the limits of the Stack Overflow question.</li></ul>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">References:</dt></dl>
-/// <ol class="rosetta__ordered-list">
-/// <li class="rosetta__list-item--ordered">[http://webhome.cs.uvic.ca/~ruskey/Publications/RankPerm/RankPerm.html Ranking and Unranking Permutations in Linear Time] by Myrvold & Ruskey. (Also available via Google [https://docs.google.com/viewer?a=v&q=cache:t8G2xQ3-wlkJ:citeseerx.ist.psu.edu/viewdoc/download%3Fdoi%3D10.1.1.43.4521%26rep%3Drep1%26type%3Dpdf+&hl=en&gl=uk&pid=bl&srcid=ADGEESgDcCc4JVd_57ziRRFlhDFxpPxoy88eABf9UG_TLXMzfxiC8D__qx4xfY3JAhw_nuPDrZ9gSInX0MbpYjgh807ZfoNtLrl40wdNElw2JMdi94Znv1diM-XYo53D8uelCXnK053L&sig=AHIEtbQtx-sxcVzaZgy9uhniOmETuW4xKg here]).</li>
+/// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">[http://webhome.cs.uvic.ca/~ruskey/Publications/RankPerm/RankPerm.html Ranking and Unranking Permutations in Linear Time] by Myrvold & Ruskey. (Also available via Google [https://docs.google.com/viewer?a=v&q=cache:t8G2xQ3-wlkJ:citeseerx.ist.psu.edu/viewdoc/download%3Fdoi%3D10.1.1.43.4521%26rep%3Drep1%26type%3Dpdf+&hl=en&gl=uk&pid=bl&srcid=ADGEESgDcCc4JVd_57ziRRFlhDFxpPxoy88eABf9UG_TLXMzfxiC8D__qx4xfY3JAhw_nuPDrZ9gSInX0MbpYjgh807ZfoNtLrl40wdNElw2JMdi94Znv1diM-XYo53D8uelCXnK053L&sig=AHIEtbQtx-sxcVzaZgy9uhniOmETuW4xKg here]).</li>
 /// <li class="rosetta__list-item--ordered">[http://www.davdata.nl/math/ranks.html Ranks] on the DevData site.</li>
-/// <li class="rosetta__list-item--ordered">[http://stackoverflow.com/a/1506337/10562 Another answer] on Stack Overflow to a different question that explains its algorithm in detail.</li>
-/// <br>
-/// </ol><br><br>
+/// <li class="rosetta__list-item--ordered">[http://stackoverflow.com/a/1506337/10562 Another answer] on Stack Overflow to a different question that explains its algorithm in detail.</li></ol><br><br>
 /// <br>
 /// <br>
 

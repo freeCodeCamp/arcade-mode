@@ -40,12 +40,9 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks:</dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Aliquot sequence classifications" title="Aliquot sequence classifications"></a>. &nbsp; (The whole series from which this task is a subset.)</li>
-/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Proper divisors" title="Proper divisors"></a></li>
-/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Amicable pairs" title="Amicable pairs"></a></li>
-/// <br>
-/// </ul>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Aliquot sequence classifications" title="Aliquot sequence classifications">Aliquot sequence classifications</a>. &nbsp; (The whole series from which this task is a subset.)</li>
+/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Proper divisors" title="Proper divisors">Proper divisors</a></li>
+/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Amicable pairs" title="Amicable pairs">Amicable pairs</a></li></ul>
 /// <br>
 /// <br>
 

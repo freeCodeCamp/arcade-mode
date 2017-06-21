@@ -19,7 +19,7 @@ replaceWithActualFunctionHere;
 
 /// description:
 ///  
-/// <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Smith numbers" title="wp: Smith numbers">Smith numbers]] are numbers such that the [[Sum_digits_of_an_integer|sum of the decimal digits of the integers</a> that make up that number is the same as the sum of the decimal digits of its prime factors excluding 1. 
+/// <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Smith numbers" title="wp: Smith numbers">Smith numbers</a> are numbers such that the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Sum_digits_of_an_integer" title="Sum_digits_of_an_integer">sum of the decimal digits of the integers</a> that make up that number is the same as the sum of the decimal digits of its prime factors excluding 1. 
 /// <br>
 /// By definition, all primes are <span class="rosetta__text--italic">excluded</span> as they (naturally) satisfy this condition!
 /// <br>
@@ -39,14 +39,11 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">See also</dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">from Wikipedia: &nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/https://en.wikipedia.org/wiki/Smith_number Smith number" title="https://en.wikipedia.org/wiki/Smith_number Smith number"></a>.</li>
-/// <li class="rosetta__list-item--unordered">from MathWorld: &nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/http://mathworld.wolfram.com/SmithNumber.html Smith number" title="http://mathworld.wolfram.com/SmithNumber.html Smith number"></a>. </li>
-/// <li class="rosetta__list-item--unordered">from OEIS A6753: &nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/https://oeis.org/A006753 OEIS sequence A6753" title="https://oeis.org/A006753 OEIS sequence A6753"></a>.</li>
-/// <li class="rosetta__list-item--unordered">from OEIS A104170: &nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/https://oeis.org/A104170 Number of Smith numbers below 10^n" title="https://oeis.org/A104170 Number of Smith numbers below 10^n"></a>. </li>
-/// <li class="rosetta__list-item--unordered">from The Prime pages: &nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/http://primes.utm.edu/glossary/xpage/SmithNumber.html Smith numbers" title="http://primes.utm.edu/glossary/xpage/SmithNumber.html Smith numbers"></a>.</li>
-/// <br>
-/// </ul><br><br>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">from Wikipedia: &nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/https://en.wikipedia.org/wiki/Smith_number Smith number" title="https://en.wikipedia.org/wiki/Smith_number Smith number">https://en.wikipedia.org/wiki/Smith_number Smith number</a>.</li>
+/// <li class="rosetta__list-item--unordered">from MathWorld: &nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/http://mathworld.wolfram.com/SmithNumber.html Smith number" title="http://mathworld.wolfram.com/SmithNumber.html Smith number">http://mathworld.wolfram.com/SmithNumber.html Smith number</a>. </li>
+/// <li class="rosetta__list-item--unordered">from OEIS A6753: &nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/https://oeis.org/A006753 OEIS sequence A6753" title="https://oeis.org/A006753 OEIS sequence A6753">https://oeis.org/A006753 OEIS sequence A6753</a>.</li>
+/// <li class="rosetta__list-item--unordered">from OEIS A104170: &nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/https://oeis.org/A104170 Number of Smith numbers below 10^n" title="https://oeis.org/A104170 Number of Smith numbers below 10^n">https://oeis.org/A104170 Number of Smith numbers below 10^n</a>. </li>
+/// <li class="rosetta__list-item--unordered">from The Prime pages: &nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/http://primes.utm.edu/glossary/xpage/SmithNumber.html Smith numbers" title="http://primes.utm.edu/glossary/xpage/SmithNumber.html Smith numbers">http://primes.utm.edu/glossary/xpage/SmithNumber.html Smith numbers</a>.</li></ul><br><br>
 /// <br>
 /// <br>
 

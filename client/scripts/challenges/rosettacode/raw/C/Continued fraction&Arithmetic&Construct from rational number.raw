@@ -18,7 +18,7 @@ const assert = require('chai').assert;
 replaceWithActualFunctionHere;
 
 /// description:
-/// To understand this task in context please see <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Continued fraction arithmetic" title="Continued fraction arithmetic"></a>
+/// To understand this task in context please see <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Continued fraction arithmetic" title="Continued fraction arithmetic">Continued fraction arithmetic</a>
 /// <br>
 /// The purpose of this task is to write a function $\mathit{r2cf}(\mathrm{int}$ $N_1, \mathrm{int}$ $N_2)$, or $\mathit{r2cf}(\mathrm{Fraction}$ $N)$, which will output a continued fraction assuming:
 /// <span class="rosetta__text--indented">$N_1$ is the numerator</span>

@@ -34,7 +34,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
 /// Write a program that finds textonyms in a list of words such as &nbsp; 
-/// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Textonyms/wordlist" title="Textonyms/wordlist"></a> &nbsp; or &nbsp; 
+/// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Textonyms/wordlist" title="Textonyms/wordlist">Textonyms/wordlist</a> &nbsp; or &nbsp; 
 /// [http://www.puzzlers.org/pub/wordlists/unixdict.txt unixdict.txt].
 /// <br>
 /// The task should produce a report:

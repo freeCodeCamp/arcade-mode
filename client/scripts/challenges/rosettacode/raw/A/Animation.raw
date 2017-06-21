@@ -23,7 +23,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <br>
-/// <span class="rosetta__text--bold">Animation</span> is integral to many parts of <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/GUI" title="GUI"></a>s, including both the fancy effects when things change used in window managers, and of course games. &nbsp; The core of any animation system is a scheme for periodically changing the display while still remaining responsive to the user. &nbsp; This task demonstrates this.
+/// <span class="rosetta__text--bold">Animation</span> is integral to many parts of <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/GUI" title="GUI">GUI</a>s, including both the fancy effects when things change used in window managers, and of course games. &nbsp; The core of any animation system is a scheme for periodically changing the display while still remaining responsive to the user. &nbsp; This task demonstrates this.
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>

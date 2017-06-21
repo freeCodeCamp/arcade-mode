@@ -72,42 +72,30 @@ replaceWithActualFunctionHere;
 /// <br>
 /// Obviously the boundary pixels of the image cannot have the full eight neighbours.
 /// <br>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">Define $A(P1)$ = the number of transitions from white to black, (0 -> 1) in the sequence P2,P3,P4,P5,P6,P7,P8,P9,P2. (Note the extra P2 at the end - it is circular).</li>
-/// <li class="rosetta__list-item--unordered">Define $B(P1)$ = The number of black pixel neighbours of P1. ( = sum(P2 .. P9) )</li>
-/// <br>
-/// </ul>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Define $A(P1)$ = the number of transitions from white to black, (0 -> 1) in the sequence P2,P3,P4,P5,P6,P7,P8,P9,P2. (Note the extra P2 at the end - it is circular).</li>
+/// <li class="rosetta__list-item--unordered">Define $B(P1)$ = The number of black pixel neighbours of P1. ( = sum(P2 .. P9) )</li></ul>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Step 1:</dt></dl>
 /// All pixels are tested and pixels satisfying all the following conditions (simultaneously) are just noted at this stage.
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">(0) The pixel is black and has eight neighbours</li>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">(0) The pixel is black and has eight neighbours</li>
 /// <li class="rosetta__list-item--unordered">(1) $2 <= B(P1) <= 6$</li>
 /// <li class="rosetta__list-item--unordered">(2) A(P1) = 1</li>
 /// <li class="rosetta__list-item--unordered">(3) At least one of P2 and P4 and P6 is white</li>
-/// <li class="rosetta__list-item--unordered">(4) At least one of P4 and P6 and P8 is white</li>
-/// <br>
-/// </ul>After iterating over the image and collecting all the pixels satisfying all step 1 conditions, all these condition satisfying pixels are set to white.
+/// <li class="rosetta__list-item--unordered">(4) At least one of P4 and P6 and P8 is white</li></ul>After iterating over the image and collecting all the pixels satisfying all step 1 conditions, all these condition satisfying pixels are set to white.
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Step 2:</dt></dl>
 /// All pixels are again tested and pixels satisfying all the following conditions are just noted at this stage.
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">(0) The pixel is black and has eight neighbours</li>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">(0) The pixel is black and has eight neighbours</li>
 /// <li class="rosetta__list-item--unordered">(1) $2 <= B(P1) <= 6$</li>
 /// <li class="rosetta__list-item--unordered">(2) A(P1) = 1</li>
 /// <li class="rosetta__list-item--unordered">(3) At least one of P2 and P4 and <span class="rosetta__text--bold">P8</span> is white</li>
-/// <li class="rosetta__list-item--unordered">(4) At least one of <span class="rosetta__text--bold">P2</span> and P6 and P8 is white</li>
-/// <br>
-/// </ul>After iterating over the image and collecting all the pixels satisfying all step 2 conditions, all these condition satisfying pixels are again set to white.
+/// <li class="rosetta__list-item--unordered">(4) At least one of <span class="rosetta__text--bold">P2</span> and P6 and P8 is white</li></ul>After iterating over the image and collecting all the pixels satisfying all step 2 conditions, all these condition satisfying pixels are again set to white.
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Iteration:</dt></dl>
 /// If any pixels were set in this round of either step 1 or step 2 then all steps are repeated until no image pixels are so changed.
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
-/// <ol class="rosetta__ordered-list">
-/// <li class="rosetta__list-item--ordered">Write a routine to perform Zhang-Suen thinning on an image matrix of ones and zeroes.</li>
-/// <li class="rosetta__list-item--ordered">Use the routine to thin the following image and show the output here on this page as either a matrix of ones and zeroes, an image, or an ASCII-art image of space/non-space characters.</li>
-/// <br>
-/// </ol><pre>00000000000000000000000000000000
+/// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">Write a routine to perform Zhang-Suen thinning on an image matrix of ones and zeroes.</li>
+/// <li class="rosetta__list-item--ordered">Use the routine to thin the following image and show the output here on this page as either a matrix of ones and zeroes, an image, or an ASCII-art image of space/non-space characters.</li></ol><pre>00000000000000000000000000000000
 /// 01111111110000000111111110000000
 /// 01110001111000001111001111000000
 /// 01110000111000001110000111000000
@@ -119,11 +107,8 @@ replaceWithActualFunctionHere;
 /// 00000000000000000000000000000000</pre>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Reference:</dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">[http://nayefreza.wordpress.com/2013/05/11/zhang-suen-thinning-algorithm-java-implementation/ Zhang-Suen Thinning Algorithm, Java Implementation] by Nayef Reza.</li>
-/// <li class="rosetta__list-item--unordered">"Character Recognition Systems: A Guide for Students and Practitioners" By Mohamed Cheriet, Nawwaf Kharma, Cheng-Lin Liu, Ching Suen</li>
-/// <br>
-/// </ul><br><br>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">[http://nayefreza.wordpress.com/2013/05/11/zhang-suen-thinning-algorithm-java-implementation/ Zhang-Suen Thinning Algorithm, Java Implementation] by Nayef Reza.</li>
+/// <li class="rosetta__list-item--unordered">"Character Recognition Systems: A Guide for Students and Practitioners" By Mohamed Cheriet, Nawwaf Kharma, Cheng-Lin Liu, Ching Suen</li></ul><br><br>
 ///  
 /// <br>
 

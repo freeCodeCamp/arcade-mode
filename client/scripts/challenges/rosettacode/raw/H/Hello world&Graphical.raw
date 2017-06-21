@@ -27,14 +27,11 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
-/// Display the string &nbsp; &nbsp; &nbsp; <span class="rosetta__text--bold">Goodbye, World!</span> &nbsp; &nbsp; &nbsp; on a <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/GUI" title="GUI"></a> object &nbsp; (alert box, plain window, text area, etc.).
+/// Display the string &nbsp; &nbsp; &nbsp; <span class="rosetta__text--bold">Goodbye, World!</span> &nbsp; &nbsp; &nbsp; on a <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/GUI" title="GUI">GUI</a> object &nbsp; (alert box, plain window, text area, etc.).
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related task:</dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Hello world/Text" title="Hello world/Text"></a></li>
-/// <br>
-/// </ul><br><br>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Hello world/Text" title="Hello world/Text">Hello world/Text</a></li></ul><br><br>
 /// <br>
 /// <br>
 

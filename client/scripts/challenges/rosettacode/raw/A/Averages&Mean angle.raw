@@ -25,12 +25,9 @@ replaceWithActualFunctionHere;
 /// If one wanted an average direction of the wind over two readings where the first reading was of 350 degrees and the second was of 10 degrees then the average of the numbers is 180 degrees, whereas if you can note that 350 degrees is equivalent to -10 degrees and so you have two readings at 10 degrees either side of zero degrees leading to a more fitting mean angle of zero degrees.
 /// <br>
 /// To calculate the mean angle of several angles:
-/// <ol class="rosetta__ordered-list">
-/// <li class="rosetta__list-item--ordered">Assume all angles are on the unit circle and convert them to complex numbers expressed in real and imaginary form.</li>
+/// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">Assume all angles are on the unit circle and convert them to complex numbers expressed in real and imaginary form.</li>
 /// <li class="rosetta__list-item--ordered">Compute the mean of the complex numbers.</li>
-/// <li class="rosetta__list-item--ordered">Convert the complex mean to polar coordinates whereupon the phase of the complex mean is the required angular mean.</li>
-/// <br>
-/// </ol>
+/// <li class="rosetta__list-item--ordered">Convert the complex mean to polar coordinates whereupon the phase of the complex mean is the required angular mean.</li></ol>
 /// <br>
 /// (Note that, since the mean is the sum divided by the number of numbers, and division by a positive real number does not affect the angle, you can also simply compute the sum for step 2.)
 /// <br>
@@ -42,15 +39,12 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <br>
-/// <ol class="rosetta__ordered-list">
-/// <li class="rosetta__list-item--ordered">write a function/method/subroutine/... that given a list of angles in degrees returns their mean angle. <br> (You should use a built-in function if you have one that does this for degrees or radians). </li>
+/// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">write a function/method/subroutine/... that given a list of angles in degrees returns their mean angle. <br> (You should use a built-in function if you have one that does this for degrees or radians). </li>
 /// <li class="rosetta__list-item--ordered">Use the function to compute the means of these lists of angles (in degrees): </li>
 /// <li class="rosetta__list-item--ordered">* &nbsp; [350, 10]  </li>
 /// <li class="rosetta__list-item--ordered">* &nbsp; [90, 180, 270, 360] </li>
 /// <li class="rosetta__list-item--ordered">* &nbsp; [10, 20, 30]</li>
-/// <li class="rosetta__list-item--ordered">Show your output here.</li>
-/// <br>
-/// </ol>
+/// <li class="rosetta__list-item--ordered">Show your output here.</li></ol>
 /// <br>
 /// <br>
 /// <br>

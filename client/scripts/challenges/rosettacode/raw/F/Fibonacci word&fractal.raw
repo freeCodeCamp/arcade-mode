@@ -21,7 +21,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:Fib_word_fractal.gif" title="File:Fib_word_fractal.gif">613px||right</a>
 /// <br>
-/// The <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Fibonacci word" title="Fibonacci word"></a> may be represented as a fractal as described [http://hal.archives-ouvertes.fr/docs/00/36/79/72/PDF/The_Fibonacci_word_fractal.pdf here]:
+/// The <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Fibonacci word" title="Fibonacci word">Fibonacci word</a> may be represented as a fractal as described [http://hal.archives-ouvertes.fr/docs/00/36/79/72/PDF/The_Fibonacci_word_fractal.pdf here]:
 /// <br>
 /// <span class="rosetta__text--indented">For F_word<sub>m</sub> start with F_wordChar<sub>n=1</sub></span>
 /// <span class="rosetta__text--indented">Draw a segment forward</span>

@@ -19,7 +19,7 @@ replaceWithActualFunctionHere;
 
 /// description:
 /// <br>
-/// This task is a straightforward generalization of <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Deconvolution/1D" title="Deconvolution/1D"></a> to higher dimensions. For example, the one dimensional case would be applicable to audio signals, whereas two dimensions would pertain to images. Define the discrete convolution in $\mathit d$ dimensions of two functions
+/// This task is a straightforward generalization of <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Deconvolution/1D" title="Deconvolution/1D">Deconvolution/1D</a> to higher dimensions. For example, the one dimensional case would be applicable to audio signals, whereas two dimensions would pertain to images. Define the discrete convolution in $\mathit d$ dimensions of two functions
 /// <br>
 /// <span class="rosetta__text--indented">$H,F:\mathbb{Z}^d\rightarrow\mathbb{R}$ </span>
 /// <br>
@@ -34,14 +34,11 @@ replaceWithActualFunctionHere;
 /// for all $\mathit d$-tuples of integers $(n_0, \dots, n_{d-1})\in\mathbb{Z}^d$. Assume
 /// $\mathit F$ and $\mathit H$ (and therefore $\mathit G$) are non-zero over only a finite domain bounded by the origin, hence possible to represent as finite multi-dimensional arrays or nested lists $\mathit f$, $\mathit h$, and $\mathit g$.
 /// <br>
-/// For this task, implement a function (or method, procedure, subroutine, etc.) <code>deconv</code> to perform <span class="rosetta__text--italic">deconvolution</span> (i.e., the <span class="rosetta__text--italic">inverse</span> of convolution) by solving for $\mathit{h}$ given $\mathit{f}$ and $\mathit{g}$. (See <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Deconvolution/1D" title="Deconvolution/1D"></a> for details.)
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">The function should work for $\mathit{g}$ of arbitrary length in each dimension (i.e., not hard coded or constant) and $\mathit{f}$ of any length up to that of $\mathit{g}$ in the corresponding dimension.</li>
+/// For this task, implement a function (or method, procedure, subroutine, etc.) <code>deconv</code> to perform <span class="rosetta__text--italic">deconvolution</span> (i.e., the <span class="rosetta__text--italic">inverse</span> of convolution) by solving for $\mathit{h}$ given $\mathit{f}$ and $\mathit{g}$. (See <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Deconvolution/1D" title="Deconvolution/1D">Deconvolution/1D</a> for details.)
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">The function should work for $\mathit{g}$ of arbitrary length in each dimension (i.e., not hard coded or constant) and $\mathit{f}$ of any length up to that of $\mathit{g}$ in the corresponding dimension.</li>
 /// <li class="rosetta__list-item--unordered">The <code>deconv</code> function will need to be parameterized by the dimension $\mathit d$ unless the dimension can be inferred from the data structures representing $\mathit g$ and $\mathit f$.</li>
-/// <li class="rosetta__list-item--unordered">There may be more equations than unknowns. If convenient, use a function from a [http://www.netlib.org/lapack/lug/node27.html library] that finds the best fitting solution to an overdetermined system of linear equations (as in the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Multiple regression" title="Multiple regression"></a> task).  Otherwise, prune the set of equations as needed and solve as in the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Reduced row echelon form" title="Reduced row echelon form"></a> task.</li>
-/// <li class="rosetta__list-item--unordered">Debug your solution using [http://rosettacode.org/mw/index.php?title=Deconvolution/2D%2B/Test_data&action=raw this test data], of which a portion is shown below. Be sure to verify both that the deconvolution of $\mathit g$ with $\mathit f$ is $\mathit h$ and that the deconvolution of $\mathit g$ with $\mathit h$ is $\mathit f$. Display the results in a human readable form for the three dimensional case <span class="rosetta__text--italic">only</span>.</li>
-/// <br>
-/// </ul>
+/// <li class="rosetta__list-item--unordered">There may be more equations than unknowns. If convenient, use a function from a [http://www.netlib.org/lapack/lug/node27.html library] that finds the best fitting solution to an overdetermined system of linear equations (as in the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Multiple regression" title="Multiple regression">Multiple regression</a> task).  Otherwise, prune the set of equations as needed and solve as in the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Reduced row echelon form" title="Reduced row echelon form">Reduced row echelon form</a> task.</li>
+/// <li class="rosetta__list-item--unordered">Debug your solution using [http://rosettacode.org/mw/index.php?title=Deconvolution/2D%2B/Test_data&action=raw this test data], of which a portion is shown below. Be sure to verify both that the deconvolution of $\mathit g$ with $\mathit f$ is $\mathit h$ and that the deconvolution of $\mathit g$ with $\mathit h$ is $\mathit f$. Display the results in a human readable form for the three dimensional case <span class="rosetta__text--italic">only</span>.</li></ul>
 /// dimension 1:
 /// <pre>
 /// h: [-8, 2, -9, -2, 9, -8, -2]
@@ -72,12 +69,12 @@ replaceWithActualFunctionHere;
 /// dimension 3:
 /// <pre>
 /// h: [
-///       <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/-6, -8, -5, 9], [-7, 9, -6, -8], [2, -7, 9, 8" title="-6, -8, -5, 9], [-7, 9, -6, -8], [2, -7, 9, 8"></a>, 
-///       <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/7, 4, 4, -6], [9, 9, 4, -4], [-3, 7, -2, -3" title="7, 4, 4, -6], [9, 9, 4, -4], [-3, 7, -2, -3"></a>]
+///       <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/-6, -8, -5, 9], [-7, 9, -6, -8], [2, -7, 9, 8" title="-6, -8, -5, 9], [-7, 9, -6, -8], [2, -7, 9, 8">-6, -8, -5, 9], [-7, 9, -6, -8], [2, -7, 9, 8</a>, 
+///       <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/7, 4, 4, -6], [9, 9, 4, -4], [-3, 7, -2, -3" title="7, 4, 4, -6], [9, 9, 4, -4], [-3, 7, -2, -3">7, 4, 4, -6], [9, 9, 4, -4], [-3, 7, -2, -3</a>]
 /// f: [
-///       <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/-9, 5, -8], [3, 5, 1" title="-9, 5, -8], [3, 5, 1"></a>, 
-///       <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/-1, -7, 2], [-5, -6, 6" title="-1, -7, 2], [-5, -6, 6"></a>, 
-///       <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/8, 5, 8],[-2, -6, -4" title="8, 5, 8],[-2, -6, -4"></a>]
+///       <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/-9, 5, -8], [3, 5, 1" title="-9, 5, -8], [3, 5, 1">-9, 5, -8], [3, 5, 1</a>, 
+///       <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/-1, -7, 2], [-5, -6, 6" title="-1, -7, 2], [-5, -6, 6">-1, -7, 2], [-5, -6, 6</a>, 
+///       <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/8, 5, 8],[-2, -6, -4" title="8, 5, 8],[-2, -6, -4">8, 5, 8],[-2, -6, -4</a>]
 /// g: [
 ///       [
 ///          [54, 42, 53, -42, 85, -72], 

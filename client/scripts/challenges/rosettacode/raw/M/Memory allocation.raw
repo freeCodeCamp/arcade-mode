@@ -23,7 +23,7 @@ replaceWithActualFunctionHere;
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
 /// Show how to explicitly allocate and deallocate blocks of memory in your language. 
 /// <br>
-/// Show access to different types of memory (i.e., <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/heap" title="heap"></a>, <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/system stack" title="system stack">stack</a>, shared, foreign) if applicable.
+/// Show access to different types of memory (i.e., <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/heap" title="heap">heap</a>, <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/system stack" title="system stack">stack</a>, shared, foreign) if applicable.
 /// <br><br>
 /// <br>
 /// <br>

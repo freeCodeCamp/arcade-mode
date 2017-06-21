@@ -24,10 +24,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// The theorem on which the test is based can be stated as follows:
 /// <br>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">&nbsp; a number &nbsp; <big><big>$p$</big></big> &nbsp; is prime &nbsp; if and only if &nbsp; all the coefficients of the polynomial expansion of</li>
-/// <br>
-/// </ul><span class="rosetta__text--indented">:: <big><big>$(x-1)^p - (x^p - 1)$</big></big></span>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">&nbsp; a number &nbsp; <big><big>$p$</big></big> &nbsp; is prime &nbsp; if and only if &nbsp; all the coefficients of the polynomial expansion of</li></ul><span class="rosetta__text--indented">:: <big><big>$(x-1)^p - (x^p - 1)$</big></big></span>
 /// are divisible by &nbsp; <big><big>$p$.</big></big>
 /// <br>
 /// <br>
@@ -48,21 +45,15 @@ replaceWithActualFunctionHere;
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
 /// <br>
 /// <br>
-/// <ol class="rosetta__ordered-list">
-/// <li class="rosetta__list-item--ordered">Create a function/subroutine/method that given &nbsp; <big><big>$p$</big></big> &nbsp; generates the coefficients of the expanded polynomial representation of &nbsp; <big><big>$(x-1)^p$.</big></big></li>
+/// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">Create a function/subroutine/method that given &nbsp; <big><big>$p$</big></big> &nbsp; generates the coefficients of the expanded polynomial representation of &nbsp; <big><big>$(x-1)^p$.</big></big></li>
 /// <li class="rosetta__list-item--ordered">Use the function to show here the polynomial expansions of &nbsp; <big><big>$(x-1)^p$</big></big> &nbsp; for &nbsp; <big><big>$p$</big></big> &nbsp; in the range &nbsp; <span class="rosetta__text--bold">0</span> &nbsp; to at least &nbsp; <span class="rosetta__text--bold">7</span>, &nbsp; inclusive.</li>
 /// <li class="rosetta__list-item--ordered">Use the previous function in creating another function that when given &nbsp; <big><big>$p$</big></big> &nbsp; returns whether &nbsp; <big><big>$p$</big></big> &nbsp; is prime using the theorem.</li>
 /// <li class="rosetta__list-item--ordered">Use your test to generate a list of all primes <span class="rosetta__text--italic">under</span> &nbsp; <span class="rosetta__text--bold">35</span>.</li>
-/// <li class="rosetta__list-item--ordered"><span class="rosetta__text--bold">As a stretch goal</span>, &nbsp; generate all primes under &nbsp; <span class="rosetta__text--bold">50</span> &nbsp; (needs integers larger than 31-bit).</li>
-/// <br>
-/// </ol>
+/// <li class="rosetta__list-item--ordered"><span class="rosetta__text--bold">As a stretch goal</span>, &nbsp; generate all primes under &nbsp; <span class="rosetta__text--bold">50</span> &nbsp; (needs integers larger than 31-bit).</li></ol>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">References:</dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">[https://en.wikipedia.org/wiki/AKS_primality_test Agrawal-Kayal-Saxena (AKS) primality test] (Wikipedia) </li>
-/// <li class="rosetta__list-item--unordered">[http://www.youtube.com/watch?v=HvMSRWTE2mI Fool-Proof Test for Primes] - Numberphile (Video).  The accuracy of this video is disputed -- at best it is an oversimplification.</li>
-/// <br>
-/// </ul><br><br>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">[https://en.wikipedia.org/wiki/AKS_primality_test Agrawal-Kayal-Saxena (AKS) primality test] (Wikipedia) </li>
+/// <li class="rosetta__list-item--unordered">[http://www.youtube.com/watch?v=HvMSRWTE2mI Fool-Proof Test for Primes] - Numberphile (Video).  The accuracy of this video is disputed -- at best it is an oversimplification.</li></ul><br><br>
 /// <br>
 /// <br>
 

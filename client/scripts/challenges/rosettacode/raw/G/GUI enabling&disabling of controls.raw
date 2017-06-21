@@ -36,14 +36,14 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <br>
-/// In addition to fundamental <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/GUI component interaction" title="GUI component interaction"></a>, an application should
+/// In addition to fundamental <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/GUI component interaction" title="GUI component interaction">GUI component interaction</a>, an application should
 /// dynamically enable and disable GUI components, to give some guidance to the
 /// user, and prohibit (inter)actions which are inappropriate in the current state
 /// of the application.
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
-/// Similar to the task <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/GUI component interaction" title="GUI component interaction"></a>, write a program 
+/// Similar to the task <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/GUI component interaction" title="GUI component interaction">GUI component interaction</a>, write a program 
 /// that presents a form with three components to the user: 
 /// <span class="rosetta__text--indented">:# &nbsp; a numeric input field ("Value") </span>
 /// <span class="rosetta__text--indented">:# &nbsp; a button &nbsp; ("increment")</span>

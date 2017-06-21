@@ -49,13 +49,10 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <span class="rosetta__text--bold">task requirements:</span>
 /// <br>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">&nbsp; Show the first ten primorial numbers &nbsp; (0 ──► 9, &nbsp; inclusive).</li>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">&nbsp; Show the first ten primorial numbers &nbsp; (0 ──► 9, &nbsp; inclusive).</li>
 /// <li class="rosetta__list-item--unordered">&nbsp; Show the length of primorial numbers whose index is: &nbsp; 10 &nbsp; 100 &nbsp; 1,000 &nbsp; 10,000 &nbsp; and &nbsp; 100,000.</li>
 /// <li class="rosetta__list-item--unordered">&nbsp; Show the length of the one millionth primorial number &nbsp; (optional). </li>
-/// <li class="rosetta__list-item--unordered">&nbsp; Use exact integers, not approximations.  </li>
-/// <br>
-/// </ul> 
+/// <li class="rosetta__list-item--unordered">&nbsp; Use exact integers, not approximations.  </li></ul> 
 /// <br>
 /// By &nbsp; <span class="rosetta__text--italic">length</span> &nbsp; (above), it is meant the number of decimal digits in the numbers. <br>
 ///  
@@ -70,11 +67,8 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <span class="rosetta__text--bold">Related tasks:</span>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Factorial" title="Factorial"></a></li>
-/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Sequence of primorial primes" title="Sequence of primorial primes"></a></li>
-/// <br>
-/// </ul>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Factorial" title="Factorial">Factorial</a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Sequence of primorial primes" title="Sequence of primorial primes">Sequence of primorial primes</a></li></ul>
 /// <br><br>
 /// <br>
 /// <br>

@@ -20,7 +20,7 @@ replaceWithActualFunctionHere;
 /// description:
 /// <br>
 /// <br>
-/// Suppose &nbsp; $n_1$, &nbsp; $n_2$, &nbsp; $\ldots$, &nbsp; $n_k$ &nbsp; are positive <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/integer" title="integer"></a>s that are pairwise co-prime. &nbsp; 
+/// Suppose &nbsp; $n_1$, &nbsp; $n_2$, &nbsp; $\ldots$, &nbsp; $n_k$ &nbsp; are positive <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/integer" title="integer">integer</a>s that are pairwise co-prime. &nbsp; 
 /// <br>
 /// Then, for any given sequence of integers &nbsp; $a_1$, &nbsp; $a_2$, &nbsp; $\dots$, &nbsp; $a_k$, &nbsp; there exists an integer &nbsp; $x$ &nbsp; solving the following system of simultaneous congruences:
 /// <br>

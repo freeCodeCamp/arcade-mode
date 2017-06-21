@@ -24,19 +24,13 @@ replaceWithActualFunctionHere;
 /// Given the operator characteristics and input from the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Shunting-yard_algorithm" title="wp: Shunting-yard_algorithm">Shunting-yard algorithm</a> page and tables, use the algorithm to show the changes in the operator stack and RPN output
 /// as each individual token is processed.
 /// <br>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">Assume an input of a correct, space separated, string of tokens representing an infix expression</li>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Assume an input of a correct, space separated, string of tokens representing an infix expression</li>
 /// <li class="rosetta__list-item--unordered">Generate a space separated output string representing the RPN</li>
-/// <li class="rosetta__list-item--unordered">Test with the input string:</li>
+/// <li class="rosetta__list-item--unordered">Test with the input string:</li></ul><span class="rosetta__text--indented">::: <big><big><code> 3 + 4 * 2 / ( 1 - 5 ) ^ 2 ^ 3 </code></big></big> </span>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">print and display the output here.</li>
+/// <li class="rosetta__list-item--unordered">Operator precedence is given in this table:</li></ul><span class="rosetta__text--indented">{| class="wikitable"</span>
 /// <br>
-/// </ul><span class="rosetta__text--indented">::: <big><big><code> 3 + 4 * 2 / ( 1 - 5 ) ^ 2 ^ 3 </code></big></big> </span>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">print and display the output here.</li>
-/// <li class="rosetta__list-item--unordered">Operator precedence is given in this table:</li>
-/// <br>
-/// </ul><span class="rosetta__text--indented">{| class="wikitable"</span>
-/// <br>
-/// ! operator !! <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Order_of_operations" title="wp: Order_of_operations">precedence]] !! [[wp:Operator_associativity|associativity</a> !! operation
+/// ! operator !! <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Order_of_operations" title="wp: Order_of_operations">precedence</a> !! <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Operator_associativity" title="wp: Operator_associativity">associativity</a> !! operation
 /// |- || align="center"
 /// |                    <big><big> ^ </big></big>  ||  4  ||  right  ||  exponentiation 
 /// |- || align="center" 
@@ -59,11 +53,8 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">See also:</dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Parsing/RPN calculator algorithm" title="Parsing/RPN calculator algorithm"></a> for a method of calculating a final value from this output RPN expression.</li>
-/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Parsing/RPN to infix conversion" title="Parsing/RPN to infix conversion"></a>.</li>
-/// <br>
-/// </ul><br><br>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Parsing/RPN calculator algorithm" title="Parsing/RPN calculator algorithm">Parsing/RPN calculator algorithm</a> for a method of calculating a final value from this output RPN expression.</li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Parsing/RPN to infix conversion" title="Parsing/RPN to infix conversion">Parsing/RPN to infix conversion</a>.</li></ul><br><br>
 /// <br>
 /// <br>
 

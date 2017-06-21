@@ -23,7 +23,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// The <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Miller–Rabin primality test" title="wp: Miller–Rabin primality test">Miller–Rabin primality test</a> or Rabin–Miller primality test is a primality test: an algorithm which determines whether a given number is prime or not.
 /// <br>
-/// The algorithm, as modified by <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Michael O. Rabin" title="wp: Michael O. Rabin">Michael O. Rabin]] to avoid the [[wp:generalized Riemann hypothesis|generalized Riemann hypothesis</a>, is a probabilistic algorithm.
+/// The algorithm, as modified by <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Michael O. Rabin" title="wp: Michael O. Rabin">Michael O. Rabin</a> to avoid the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/generalized Riemann hypothesis" title="wp: generalized Riemann hypothesis">generalized Riemann hypothesis</a>, is a probabilistic algorithm.
 /// <br>
 /// The pseudocode, from <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Miller-Rabin primality test#Algorithm_and_running_time" title="wp: Miller-Rabin primality test#Algorithm_and_running_time">Wikipedia</a> is:
 ///  <span class="rosetta__text--bold">Input</span>: <span class="rosetta__text--italic">n</span> > 2, an odd integer to be tested for primality;
@@ -41,11 +41,8 @@ replaceWithActualFunctionHere;
 ///     <span class="rosetta__text--bold">return</span> <span class="rosetta__text--italic">composite</span>
 ///  <span class="rosetta__text--bold">return</span> <span class="rosetta__text--italic">probably prime</span>
 /// <br>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">The nature of the test involves big numbers, so the use of "big numbers" libraries (or similar features of the language of your choice) are suggested, but <span class="rosetta__text--bold">not</span> mandatory.</li>
-/// <li class="rosetta__list-item--unordered">Deterministic variants of the test exist and can be implemented as extra (not mandatory to complete the task)</li>
-/// <br>
-/// </ul><br><br>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">The nature of the test involves big numbers, so the use of "big numbers" libraries (or similar features of the language of your choice) are suggested, but <span class="rosetta__text--bold">not</span> mandatory.</li>
+/// <li class="rosetta__list-item--unordered">Deterministic variants of the test exist and can be implemented as extra (not mandatory to complete the task)</li></ul><br><br>
 /// <br>
 /// <br>
 

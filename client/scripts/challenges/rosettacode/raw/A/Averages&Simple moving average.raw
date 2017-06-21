@@ -33,11 +33,8 @@ replaceWithActualFunctionHere;
 /// It can be implemented by calling an initialing routine with &nbsp; P &nbsp; as its argument, &nbsp; I(P), &nbsp; which should then return a routine that when called with individual, successive members of a stream of numbers, computes the mean of (up to), the last &nbsp; P &nbsp; of them, lets call this &nbsp; SMA().
 /// <br>
 /// The word &nbsp; <span class="rosetta__text--italic">stateful</span> &nbsp; in the task description refers to the need for &nbsp; SMA() &nbsp; to remember certain information between calls to it:
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">&nbsp; The period, &nbsp; P</li>
-/// <li class="rosetta__list-item--unordered">&nbsp; An ordered container of at least the last &nbsp; P &nbsp; numbers from each of its individual calls.</li>
-/// <br>
-/// </ul>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">&nbsp; The period, &nbsp; P</li>
+/// <li class="rosetta__list-item--unordered">&nbsp; An ordered container of at least the last &nbsp; P &nbsp; numbers from each of its individual calls.</li></ul>
 /// <br>
 /// <span class="rosetta__text--italic">Stateful</span> &nbsp;  also means that successive calls to &nbsp; I(), &nbsp; the initializer, &nbsp; should return separate routines that do &nbsp; <span class="rosetta__text--italic">not</span> &nbsp; share saved state so they could be used on two independent streams of data.
 /// <br>

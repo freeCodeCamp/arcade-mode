@@ -18,7 +18,7 @@ const assert = require('chai').assert;
 replaceWithActualFunctionHere;
 
 /// description:
-///  In <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/linear algebra" title="wp: linear algebra">linear algebra]], [[wp:Cramer's rule|Cramer's rule]] is an explicit formula for the solution of a [[wp:system of linear equations|system of linear equations</a> with as many equations as unknowns, valid whenever the system has a unique solution. It expresses the solution in terms of the determinants of the (square) coefficient matrix and of matrices obtained from it by replacing one column by the vector of right hand sides of the equations.
+///  In <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/linear algebra" title="wp: linear algebra">linear algebra</a>, <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Cramer's rule" title="wp: Cramer's rule">Cramer's rule</a> is an explicit formula for the solution of a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/system of linear equations" title="wp: system of linear equations">system of linear equations</a> with as many equations as unknowns, valid whenever the system has a unique solution. It expresses the solution in terms of the determinants of the (square) coefficient matrix and of matrices obtained from it by replacing one column by the vector of right hand sides of the equations.
 /// <br>
 /// <br>
 /// Given

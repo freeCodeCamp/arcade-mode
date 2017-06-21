@@ -28,12 +28,9 @@ replaceWithActualFunctionHere;
 /// UK  Birmingham</pre>
 /// Similarly, stable sorting on just the first column would generate “UK London” as the first item and “US Birmingham” as the last item (since the order of the elements having the same first word – “UK” or “US” – would be maintained).
 /// <br>
-/// <ol class="rosetta__ordered-list">
-/// <li class="rosetta__list-item--ordered">Examine the documentation on any in-built sort routines supplied by a language.</li>
+/// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">Examine the documentation on any in-built sort routines supplied by a language.</li>
 /// <li class="rosetta__list-item--ordered">Indicate if an in-built routine is supplied</li>
-/// <li class="rosetta__list-item--ordered">If supplied, indicate whether or not the in-built routine is stable.</li>
-/// <br>
-/// </ol>
+/// <li class="rosetta__list-item--ordered">If supplied, indicate whether or not the in-built routine is stable.</li></ol>
 /// <br>
 /// (This <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Stable_sort#Comparison_of_algorithms" title="wp: Stable_sort#Comparison_of_algorithms">Wikipedia table</a> shows the stability of some common sort routines).
 /// <br><br>

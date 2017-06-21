@@ -27,13 +27,10 @@ replaceWithActualFunctionHere;
 /// <br>
 /// It is basically a 2D &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Cellular automaton" title="wp: Cellular automaton">cellular automaton</a> &nbsp; where each cell can be in three distinct states (<span class="rosetta__text--italic">empty</span>, <span class="rosetta__text--italic">tree</span> and <span class="rosetta__text--italic">burning</span>) and evolves according to the following rules (as given by Wikipedia)
 /// <br>
-/// <ol class="rosetta__ordered-list">
-/// <li class="rosetta__list-item--ordered">A burning cell turns into an empty cell</li>
+/// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">A burning cell turns into an empty cell</li>
 /// <li class="rosetta__list-item--ordered">A tree will burn if at least one neighbor is burning</li>
 /// <li class="rosetta__list-item--ordered">A tree ignites with probability &nbsp; <big><span class="rosetta__text--italic">f</span> </big> &nbsp; even if no neighbor is burning</li>
-/// <li class="rosetta__list-item--ordered">An empty space fills with a tree with probability &nbsp; <big> <span class="rosetta__text--italic">p</span> </big></li>
-/// <br>
-/// </ol>
+/// <li class="rosetta__list-item--ordered">An empty space fills with a tree with probability &nbsp; <big> <span class="rosetta__text--italic">p</span> </big></li></ol>
 /// <br>Neighborhood is the &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Moore neighborhood" title="wp: Moore neighborhood">Moore neighborhood</a>; &nbsp; boundary conditions are so that on the boundary the cells are always empty ("fixed" boundary condition).
 /// <br>
 /// At the beginning, populate the lattice with empty and tree cells according to a specific probability (e.g. a cell has the probability 0.5 to be a tree). Then, let the system evolve.
@@ -42,11 +39,8 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks:</dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">&nbsp; See &nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Conway's Game of Life" title="Conway's Game of Life"></a> </li>
-/// <li class="rosetta__list-item--unordered">&nbsp; See &nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Wireworld" title="Wireworld"></a>.</li>
-/// <br>
-/// </ul><br><br>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">&nbsp; See &nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Conway's Game of Life" title="Conway's Game of Life">Conway's Game of Life</a> </li>
+/// <li class="rosetta__list-item--unordered">&nbsp; See &nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Wireworld" title="Wireworld">Wireworld</a>.</li></ul><br><br>
 /// <br>
 /// <br>
 

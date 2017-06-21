@@ -45,22 +45,16 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks:</dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Fibonacci n-step number sequences‎" title="Fibonacci n-step number sequences‎"></a></li>
-/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Leonardo numbers" title="Leonardo numbers"></a></li>
-/// <br>
-/// </ul>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Fibonacci n-step number sequences‎" title="Fibonacci n-step number sequences‎">Fibonacci n-step number sequences‎</a></li>
+/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Leonardo numbers" title="Leonardo numbers">Leonardo numbers</a></li></ul>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">References:</dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Fibonacci number" title="wp: Fibonacci number">Wikipedia, Fibonacci number</a></li>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Fibonacci number" title="wp: Fibonacci number">Wikipedia, Fibonacci number</a></li>
 /// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Lucas number" title="wp: Lucas number">Wikipedia, Lucas number</a></li>
 /// <li class="rosetta__list-item--unordered">&nbsp; [http://mathworld.wolfram.com/FibonacciNumber.html MathWorld, Fibonacci Number]</li>
 /// <li class="rosetta__list-item--unordered">&nbsp; [http://www.math-cs.ucmo.edu/~curtisc/articles/howardcooper/genfib4.pdf Some identities for r-Fibonacci numbers]</li>
 /// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/oeis:A000045" title="oeis:A000045">OEIS Fibonacci numbers</a></li>
-/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/oeis:A000032" title="oeis:A000032">OEIS Lucas numbers</a></li>
-/// <br>
-/// </ul><br><br>
+/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/oeis:A000032" title="oeis:A000032">OEIS Lucas numbers</a></li></ul><br><br>
 /// <br>
 /// <br>
 

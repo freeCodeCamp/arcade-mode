@@ -33,11 +33,8 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// Better suggested methods:
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Lanczos approximation" title="wp: Lanczos approximation">Lanczos approximation</a></li>
-/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Stirling's approximation" title="wp: Stirling's approximation">Stirling's approximation</a></li>
-/// <br>
-/// </ul><br><br>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Lanczos approximation" title="wp: Lanczos approximation">Lanczos approximation</a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Stirling's approximation" title="wp: Stirling's approximation">Stirling's approximation</a></li></ul><br><br>
 /// <br>
 /// <br>
 

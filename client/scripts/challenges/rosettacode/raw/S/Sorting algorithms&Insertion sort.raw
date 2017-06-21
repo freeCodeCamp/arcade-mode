@@ -24,13 +24,13 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <br>
-/// An <span style="font-family: serif"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/O" title="O"></a>(<span class="rosetta__text--italic">n</span><sup>2</sup>)</span> sorting algorithm which moves elements one at a time into the correct position. 
+/// An <span style="font-family: serif"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/O" title="O">O</a>(<span class="rosetta__text--italic">n</span><sup>2</sup>)</span> sorting algorithm which moves elements one at a time into the correct position. 
 /// The algorithm consists of inserting one element at a time into the previously sorted part of the array, moving higher ranked elements up as necessary. 
 /// To start off, the first (or smallest, or any arbitrary) element of the unsorted array is considered to be the sorted part.
 /// <br>
-/// Although insertion sort is an <span style="font-family: serif"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/O" title="O"></a>(<span class="rosetta__text--italic">n</span><sup>2</sup>)</span> algorithm, its simplicity, low overhead, good locality of reference and efficiency make it a good choice in two cases: <br>
+/// Although insertion sort is an <span style="font-family: serif"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/O" title="O">O</a>(<span class="rosetta__text--italic">n</span><sup>2</sup>)</span> algorithm, its simplicity, low overhead, good locality of reference and efficiency make it a good choice in two cases: <br>
 /// (i) small <span style="font-family: serif"><span class="rosetta__text--italic">n</span></span>, <br>
-/// (ii) as the final finishing-off algorithm for <span style="font-family: serif"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/O" title="O"></a>(<span class="rosetta__text--italic">n</span> log<span class="rosetta__text--italic">n</span>)</span> algorithms such as <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Merge sort" title="Merge sort">mergesort]] and [[quicksort</a>.
+/// (ii) as the final finishing-off algorithm for <span style="font-family: serif"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/O" title="O">O</a>(<span class="rosetta__text--italic">n</span> log<span class="rosetta__text--italic">n</span>)</span> algorithms such as <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Merge sort" title="Merge sort">mergesort</a> and <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/quicksort" title="quicksort">quicksort</a>.
 /// <br>
 /// The algorithm is as follows (from <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Insertion_sort#Algorithm" title="wp: Insertion_sort#Algorithm">wikipedia</a>):
 ///  <span class="rosetta__text--bold">function</span> <span class="rosetta__text--italic">insertionSort</span>(array A)

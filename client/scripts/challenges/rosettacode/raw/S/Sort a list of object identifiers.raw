@@ -29,11 +29,8 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <br>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">An OID consists of one or more non-negative integers in base 10, separated by dots. It starts and ends with a number.</li>
-/// <li class="rosetta__list-item--unordered">Their natural sort order is <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Lexicographical" title="wp: Lexicographical">lexicographical</a> with regard to the dot-separated fields, using numeric comparison between fields.</li>
-/// <br>
-/// </ul>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">An OID consists of one or more non-negative integers in base 10, separated by dots. It starts and ends with a number.</li>
+/// <li class="rosetta__list-item--unordered">Their natural sort order is <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Lexicographical" title="wp: Lexicographical">lexicographical</a> with regard to the dot-separated fields, using numeric comparison between fields.</li></ul>
 /// <br>
 /// <br>
 /// {| class="wikitable"
@@ -59,11 +56,8 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <br>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Natural sorting" title="Natural sorting"></a></li>
-/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Sort using a custom comparator" title="Sort using a custom comparator"></a></li>
-/// <br>
-/// </ul>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Natural sorting" title="Natural sorting">Natural sorting</a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Sort using a custom comparator" title="Sort using a custom comparator">Sort using a custom comparator</a></li></ul>
 /// <hr>
 /// <br>
 /// <br>

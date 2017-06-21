@@ -20,7 +20,7 @@ replaceWithActualFunctionHere;
 /// description:
 /// <br>
 /// <br>
-/// The goal of this task is to demonstrate <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/HTTPS request" title="HTTPS request"></a>s with authentication.
+/// The goal of this task is to demonstrate <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/HTTPS request" title="HTTPS request">HTTPS request</a>s with authentication.
 /// Implementations of this task should not use client certificates for this: that is the subject of <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Client-Authenticated HTTPS Request" title="Client-Authenticated HTTPS Request">another task</a>.
 /// <br>
 

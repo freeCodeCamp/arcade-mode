@@ -25,16 +25,10 @@ replaceWithActualFunctionHere;
 /// Objects responsibilities:
 /// <br>
 /// Delegator:
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">Keep an optional delegate instance.</li>
-/// <li class="rosetta__list-item--unordered">Implement "operation" method, returning the delegate "thing" if the delegate respond to "thing", or the string "default implementation".</li>
-/// <br>
-/// </ul>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Keep an optional delegate instance.</li>
+/// <li class="rosetta__list-item--unordered">Implement "operation" method, returning the delegate "thing" if the delegate respond to "thing", or the string "default implementation".</li></ul>
 /// Delegate:
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">Implement "thing" and return the string "delegate implementation"</li>
-/// <br>
-/// </ul>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Implement "thing" and return the string "delegate implementation"</li></ul>
 /// Show how objects are created and used. First, without a delegate, then with a delegate that does not implement "thing", and last with a delegate that implements "thing".
 /// <br>
 /// <br>

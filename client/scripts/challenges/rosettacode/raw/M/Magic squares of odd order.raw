@@ -46,18 +46,12 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title"> Related tasks</dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Magic squares of singly even order" title="Magic squares of singly even order"></a></li>
-/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Magic squares of doubly even order" title="Magic squares of doubly even order"></a><br><br></li>
-/// <br>
-/// </ul>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Magic squares of singly even order" title="Magic squares of singly even order">Magic squares of singly even order</a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Magic squares of doubly even order" title="Magic squares of doubly even order">Magic squares of doubly even order</a><br><br></li></ul>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title"> See also:</dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">MathWorld&trade; entry: [http://mathworld.wolfram.com/MagicSquare.html Magic_square] </li>
-/// <li class="rosetta__list-item--unordered">[http://www.1728.org/magicsq1.htm Odd Magic Squares (1728.org)]<br><br></li>
-/// <br>
-/// </ul>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">MathWorld&trade; entry: [http://mathworld.wolfram.com/MagicSquare.html Magic_square] </li>
+/// <li class="rosetta__list-item--unordered">[http://www.1728.org/magicsq1.htm Odd Magic Squares (1728.org)]<br><br></li></ul>
 /// <br>
 /// <br>
 

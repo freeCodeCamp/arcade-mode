@@ -53,32 +53,20 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Methods:</dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">Obvious method: </li>
-/// <br>
-/// </ul>         enumerate all permutations of   <span class="rosetta__text--bold">A</span>,  <span class="rosetta__text--bold">B</span>,  <span class="rosetta__text--bold">C</span>,  and  <span class="rosetta__text--bold">D</span>,  
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Obvious method: </li></ul>         enumerate all permutations of   <span class="rosetta__text--bold">A</span>,  <span class="rosetta__text--bold">B</span>,  <span class="rosetta__text--bold">C</span>,  and  <span class="rosetta__text--bold">D</span>,  
 ///          and then look for the missing permutation. 
 /// <br>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">alternate method:</li>
-/// <br>
-/// </ul>         Hint:  if all permutations were shown above,  how many 
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">alternate method:</li></ul>         Hint:  if all permutations were shown above,  how many 
 ///          times would  <span class="rosetta__text--bold">A</span>  appear in each position?     
 ///          What is the  <span class="rosetta__text--italic">parity</span>  of this number?
 /// <br>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">another alternate method:</li>
-/// <br>
-/// </ul>         Hint:  if you add up the letter values of each column, 
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">another alternate method:</li></ul>         Hint:  if you add up the letter values of each column, 
 ///          does a missing letter   <span class="rosetta__text--bold">A</span>,  <span class="rosetta__text--bold">B</span>,  <span class="rosetta__text--bold">C</span>,  and  <span class="rosetta__text--bold">D</span>   from each
 ///          column cause the total value for each column to be unique?
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related task:</dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Permutations" title="Permutations"></a>)</li>
-/// <br>
-/// </ul><br><br>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Permutations" title="Permutations">Permutations</a>)</li></ul><br><br>
 /// <br>
 /// <br>
 

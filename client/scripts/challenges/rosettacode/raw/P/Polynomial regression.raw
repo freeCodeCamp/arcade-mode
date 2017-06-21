@@ -29,7 +29,7 @@ replaceWithActualFunctionHere;
 ///  3 x<sup>2</sup> + 2 x + 1
 /// Here, the polynomial's coefficients are (3, 2, 1).
 /// <br>
-/// This task is intended as a subtask for <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Measure relative performance of sorting algorithms implementations" title="Measure relative performance of sorting algorithms implementations"></a>.
+/// This task is intended as a subtask for <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Measure relative performance of sorting algorithms implementations" title="Measure relative performance of sorting algorithms implementations">Measure relative performance of sorting algorithms implementations</a>.
 /// <br>
 /// <br>
 /// <br>

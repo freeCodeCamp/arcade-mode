@@ -32,13 +32,10 @@ replaceWithActualFunctionHere;
 /// There are several binary search algorithms commonly seen. They differ by how they treat multiple values equal to the given value, and whether they indicate whether the element was found or not. For completeness we will present pseudocode for all of them.
 /// <br>
 /// All of the following code examples use an "inclusive" upper bound (i.e. <code>high = N-1</code> initially). Any of the examples can be converted into an equivalent example using "exclusive" upper bound (i.e. <code>high = N</code> initially) by making the following simple changes (which simply increase <code>high</code> by 1):
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">change <code>high = N-1</code> to <code>high = N</code></li>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">change <code>high = N-1</code> to <code>high = N</code></li>
 /// <li class="rosetta__list-item--unordered">change <code>high = mid-1</code> to <code>high = mid</code></li>
 /// <li class="rosetta__list-item--unordered">(for recursive algorithm) change <code>if (high < low)</code> to <code>if (high <= low)</code></li>
-/// <li class="rosetta__list-item--unordered">(for iterative algorithm) change <code>while (low <= high)</code> to <code>while (low < high)</code></li>
-/// <br>
-/// </ul>
+/// <li class="rosetta__list-item--unordered">(for iterative algorithm) change <code>while (low <= high)</code> to <code>while (low < high)</code></li></ul>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title"> Traditional algorithm</dt></dl>
 /// The algorithms are as follows (from <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Binary search" title="wp: Binary search">Wikipedia</a>). The algorithms return the index of some element that equals the given value (if there are multiple such elements, it returns some arbitrary one). It is also possible, when the element is not found, to return the "insertion point" for it (the index that the value would have if it were inserted into the array).
 /// <br>
@@ -158,7 +155,7 @@ replaceWithActualFunctionHere;
 /// where <code> >>> </code> is the logical right shift operator. The reason why this works is that, for signed integers, even though it overflows, when viewed as an unsigned number, the value is still the correct sum. To divide an unsigned number by 2, simply do a logical right shift.
 /// <br>
 /// <span class="rosetta__text--bold">References:</span><br>
-/// <span class="rosetta__text--indented">* C.f: <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Guess the number/With Feedback (Player)" title="Guess the number/With Feedback (Player)"></a></span>
+/// <span class="rosetta__text--indented">* C.f: <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Guess the number/With Feedback (Player)" title="Guess the number/With Feedback (Player)">Guess the number/With Feedback (Player)</a></span>
 /// <span class="rosetta__text--indented">* [[wp:Binary search algorithm]]</span>
 /// <span class="rosetta__text--indented">* [http://googleresearch.blogspot.com/2006/06/extra-extra-read-all-about-it-nearly.html Extra, Extra - Read All About It: Nearly All Binary Searches and Mergesorts are Broken].</span>
 /// <br>

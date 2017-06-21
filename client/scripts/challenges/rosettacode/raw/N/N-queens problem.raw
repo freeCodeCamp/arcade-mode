@@ -32,16 +32,13 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks:</dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/A* search algorithm" title="A* search algorithm"></a></li>
-/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Solve a Hidato puzzle" title="Solve a Hidato puzzle"></a></li>
-/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Solve a Holy Knight's tour" title="Solve a Holy Knight's tour"></a></li>
-/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Knight's tour" title="Knight's tour"></a></li>
-/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Solve a Hopido puzzle" title="Solve a Hopido puzzle"></a></li>
-/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Solve a Numbrix puzzle" title="Solve a Numbrix puzzle"></a></li>
-/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Solve the no connection puzzle" title="Solve the no connection puzzle"></a></li>
-/// <br>
-/// </ul><br><br>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/A* search algorithm" title="A* search algorithm">A* search algorithm</a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Solve a Hidato puzzle" title="Solve a Hidato puzzle">Solve a Hidato puzzle</a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Solve a Holy Knight's tour" title="Solve a Holy Knight's tour">Solve a Holy Knight's tour</a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Knight's tour" title="Knight's tour">Knight's tour</a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Solve a Hopido puzzle" title="Solve a Hopido puzzle">Solve a Hopido puzzle</a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Solve a Numbrix puzzle" title="Solve a Numbrix puzzle">Solve a Numbrix puzzle</a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Solve the no connection puzzle" title="Solve the no connection puzzle">Solve the no connection puzzle</a></li></ul><br><br>
 /// <br>
 /// <br>
 /// <br>

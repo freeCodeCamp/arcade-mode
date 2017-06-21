@@ -23,7 +23,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <br>
-/// The <span class="rosetta__text--bold"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Ackermann function" title="wp: Ackermann function">Ackermann function]]</span> is a classic example of a recursive function, notable especially because it is not a [[wp:Primitive_recursive_function|primitive recursive function</a>. It grows very quickly in value, as does the size of its call tree. 
+/// The <span class="rosetta__text--bold"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Ackermann function" title="wp: Ackermann function">Ackermann function</a></span> is a classic example of a recursive function, notable especially because it is not a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Primitive_recursive_function" title="wp: Primitive_recursive_function">primitive recursive function</a>. It grows very quickly in value, as does the size of its call tree. 
 /// <br>
 /// <br>
 /// The Ackermann function is usually defined as follows:
@@ -44,10 +44,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">See also:</dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Conway_chained_arrow_notation#Ackermann_function" title="wp: Conway_chained_arrow_notation#Ackermann_function">Conway chained arrow notation</a> for the Ackermann function.</li>
-/// <br>
-/// </ul><br><br>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Conway_chained_arrow_notation#Ackermann_function" title="wp: Conway_chained_arrow_notation#Ackermann_function">Conway chained arrow notation</a> for the Ackermann function.</li></ul><br><br>
 /// <br>
 /// <br>
 

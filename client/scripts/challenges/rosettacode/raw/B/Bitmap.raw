@@ -27,17 +27,14 @@ replaceWithActualFunctionHere;
 /// <br>
 /// If possible provide a function to allocate an uninitialised image, 
 /// given its width and height, and provide 3 additional functions:
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">one to fill an image with a plain RGB color,</li>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">one to fill an image with a plain RGB color,</li>
 /// <li class="rosetta__list-item--unordered">one to set a given pixel with a color,</li>
-/// <li class="rosetta__list-item--unordered">one to get the color of a pixel.</li>
-/// <br>
-/// </ul>
+/// <li class="rosetta__list-item--unordered">one to get the color of a pixel.</li></ul>
 /// (If there are specificities about the storage or the allocation, explain those.)
 /// <br>
 /// ''These functions are used as a base for the articles in the category <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Raster_graphics_operations" title="Raster_graphics_operations">raster graphics operations</a>, 
 /// and a basic output function to check the results 
-/// is available in the article <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/write ppm file" title="write ppm file"></a>.''
+/// is available in the article <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/write ppm file" title="write ppm file">write ppm file</a>.''
 /// <br>
 /// <br>
 

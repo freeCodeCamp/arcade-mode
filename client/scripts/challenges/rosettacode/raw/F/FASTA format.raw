@@ -20,7 +20,7 @@ replaceWithActualFunctionHere;
 /// description:
 /// <br>
 /// <br>
-/// In <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/bioinformatics" title="wp: bioinformatics">bioinformatics]], long character strings are often encoded in a format called [[wp:FASTA format|FASTA</a>.  
+/// In <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/bioinformatics" title="wp: bioinformatics">bioinformatics</a>, long character strings are often encoded in a format called <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/FASTA format" title="wp: FASTA format">FASTA</a>.  
 /// <br>
 /// A FASTA file can contain several strings, each identified by a name marked by a <big><big><code>&gt;</code></big></big> (greater than) character at the beginning of the line.
 /// <br>

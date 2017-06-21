@@ -23,20 +23,14 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
 /// Define a data type consisting of a fixed number of 'buckets', each containing a nonnegative integer value, which supports operations to:
-/// <ol class="rosetta__ordered-list">
-/// <li class="rosetta__list-item--ordered">get the current value of any bucket</li>
-/// <li class="rosetta__list-item--ordered">remove a specified amount from one specified bucket and add it to another, preserving the total of all bucket values, and <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Clamping (graphics)" title="wp: Clamping (graphics)">clamping</a> the transferred amount to ensure the values remain non-negative</li>
-/// <br>
-/// </ol>
+/// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">get the current value of any bucket</li>
+/// <li class="rosetta__list-item--ordered">remove a specified amount from one specified bucket and add it to another, preserving the total of all bucket values, and <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Clamping (graphics)" title="wp: Clamping (graphics)">clamping</a> the transferred amount to ensure the values remain non-negative</li></ol>
 /// ----
 /// <br>
 /// In order to exercise this data type, create one set of buckets, and start three concurrent tasks:
-/// <ol class="rosetta__ordered-list">
-/// <li class="rosetta__list-item--ordered">As often as possible, pick two buckets and make their values closer to equal.</li>
+/// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">As often as possible, pick two buckets and make their values closer to equal.</li>
 /// <li class="rosetta__list-item--ordered">As often as possible, pick two buckets and arbitrarily redistribute their values.</li>
-/// <li class="rosetta__list-item--ordered">At whatever rate is convenient, display (by any means) the total value and, optionally, the individual values of each bucket.</li>
-/// <br>
-/// </ol>
+/// <li class="rosetta__list-item--ordered">At whatever rate is convenient, display (by any means) the total value and, optionally, the individual values of each bucket.</li></ol>
 /// <br>
 /// The display task need not be explicit; use of e.g. a debugger or trace tool is acceptable provided it is simple to set up to provide the display.
 /// <br>

@@ -25,17 +25,14 @@ replaceWithActualFunctionHere;
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
 /// Demonstrate the methods available for declaring prototypes within the language. The provided solutions should include:
 /// <br>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">An explanation of any placement restrictions for prototype declarations</li>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">An explanation of any placement restrictions for prototype declarations</li>
 /// <li class="rosetta__list-item--unordered">A prototype declaration for a function that does not require arguments</li>
 /// <li class="rosetta__list-item--unordered">A prototype declaration for a function that requires two arguments</li>
 /// <li class="rosetta__list-item--unordered">A prototype declaration for a function that utilizes varargs</li>
 /// <li class="rosetta__list-item--unordered">A prototype declaration for a function that utilizes optional arguments</li>
 /// <li class="rosetta__list-item--unordered">A prototype declaration for a function that utilizes named parameters</li>
 /// <li class="rosetta__list-item--unordered">Example of prototype declarations for subroutines or procedures (if these differ from functions)</li>
-/// <li class="rosetta__list-item--unordered">An explanation and example of any special forms of prototyping not covered by the above</li>
-/// <br>
-/// </ul>
+/// <li class="rosetta__list-item--unordered">An explanation and example of any special forms of prototyping not covered by the above</li></ul>
 /// <br>
 /// Languages that do not provide function prototyping facilities should be omitted from this task.
 /// <br><br>

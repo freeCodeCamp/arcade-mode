@@ -19,24 +19,18 @@ replaceWithActualFunctionHere;
 
 /// description:
 /// <br>
-/// Dynamically allocated objects take their memory from a <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/heap" title="heap"></a>. The memory for an object is provided by an <span class="rosetta__text--bold">allocator</span> which maintains the storage pool used for the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/heap" title="heap"></a>. Often a call to allocator is denoted as
+/// Dynamically allocated objects take their memory from a <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/heap" title="heap">heap</a>. The memory for an object is provided by an <span class="rosetta__text--bold">allocator</span> which maintains the storage pool used for the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/heap" title="heap">heap</a>. Often a call to allocator is denoted as
 /// <lang ada>P := new T</lang>
-/// where T is the type of an allocated object and P is a <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/reference" title="reference"></a> to the object.
+/// where T is the type of an allocated object and P is a <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/reference" title="reference">reference</a> to the object.
 /// <br>
 /// The storage pool chosen by the allocator can be determined by either:
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">the object type T;</li>
-/// <li class="rosetta__list-item--unordered">the type of pointer P.</li>
-/// <br>
-/// </ul>In the former case objects can be allocated only in one storage pool. In the latter case objects of the type can be allocated in any storage pool or on the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/stack" title="stack"></a>.
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">the object type T;</li>
+/// <li class="rosetta__list-item--unordered">the type of pointer P.</li></ul>In the former case objects can be allocated only in one storage pool. In the latter case objects of the type can be allocated in any storage pool or on the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/stack" title="stack">stack</a>.
 /// <br>
 /// <span class="rosetta__text--bold">Task description</span><br>
 /// The task is to show how allocators and user-defined storage pools are supported by the language. In particular:
-/// <ol class="rosetta__ordered-list">
-/// <li class="rosetta__list-item--ordered">define an arena storage pool. An arena is a pool in which objects are allocated individually, but freed by groups.</li>
-/// <li class="rosetta__list-item--ordered">allocate some objects (e.g., integers) in the pool.</li>
-/// <br>
-/// </ol>Explain what controls the storage pool choice in the language.
+/// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">define an arena storage pool. An arena is a pool in which objects are allocated individually, but freed by groups.</li>
+/// <li class="rosetta__list-item--ordered">allocate some objects (e.g., integers) in the pool.</li></ol>Explain what controls the storage pool choice in the language.
 /// <br>
 /// <br>
 

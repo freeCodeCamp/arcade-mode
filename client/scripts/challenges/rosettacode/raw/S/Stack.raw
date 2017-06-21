@@ -29,19 +29,13 @@ replaceWithActualFunctionHere;
 /// <br>
 /// The basic stack operations are:
 /// <br>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">&nbsp; <span class="rosetta__text--italic">push</span> &nbsp; stores a new element onto the stack top;</li>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">&nbsp; <span class="rosetta__text--italic">push</span> &nbsp; stores a new element onto the stack top;</li>
 /// <li class="rosetta__list-item--unordered">&nbsp; <span class="rosetta__text--italic">pop</span> &nbsp; returns the last pushed stack element, while removing it from the stack;</li>
-/// <li class="rosetta__list-item--unordered">&nbsp; <span class="rosetta__text--italic">empty</span> &nbsp; tests if the stack contains no elements.</li>
-/// <br>
-/// </ul>
+/// <li class="rosetta__list-item--unordered">&nbsp; <span class="rosetta__text--italic">empty</span> &nbsp; tests if the stack contains no elements.</li></ul>
 /// <br>
 /// Sometimes the last pushed stack element is made accessible for immutable access (for read) or mutable access (for write):
 /// <br>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">&nbsp; <span class="rosetta__text--italic">top</span> &nbsp; (sometimes called <span class="rosetta__text--italic">peek</span> to keep with the <span class="rosetta__text--italic">p</span> theme) returns the topmost element without modifying the stack.</li>
-/// <br>
-/// </ul>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">&nbsp; <span class="rosetta__text--italic">top</span> &nbsp; (sometimes called <span class="rosetta__text--italic">peek</span> to keep with the <span class="rosetta__text--italic">p</span> theme) returns the topmost element without modifying the stack.</li></ul>
 /// <br>
 /// Stacks allow a very simple hardware implementation.
 ///  
@@ -55,7 +49,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// See <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Stack_automaton" title="wp: Stack_automaton">stack machine</a>. 
 /// <br>
-/// Many algorithms in pattern matching, compiler construction (e.g. <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Recursive_descent" title="wp: Recursive_descent">recursive descent parsers]]), and machine learning (e.g. based on [[wp:Tree_traversal|tree traversal</a>) have a natural representation in terms of stacks.
+/// Many algorithms in pattern matching, compiler construction (e.g. <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Recursive_descent" title="wp: Recursive_descent">recursive descent parsers</a>), and machine learning (e.g. based on <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Tree_traversal" title="wp: Tree_traversal">tree traversal</a>) have a natural representation in terms of stacks.
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>

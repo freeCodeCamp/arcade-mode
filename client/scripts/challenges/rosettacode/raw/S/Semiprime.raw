@@ -43,12 +43,9 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">See also:</dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">The Wikipedia article: &nbsp; [http://mathworld.wolfram.com/Semiprime.html semiprime].</li>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">The Wikipedia article: &nbsp; [http://mathworld.wolfram.com/Semiprime.html semiprime].</li>
 /// <li class="rosetta__list-item--unordered">The Wikipedia article: &nbsp; [http://mathworld.wolfram.com/AlmostPrime.html almost prime].</li>
-/// <li class="rosetta__list-item--unordered">The OEIS article: &nbsp; [http://oeis.org/A001358 semiprimes] &nbsp; which has a shorter definition: <span class="rosetta__text--italic">the product of two primes</span>.</li>
-/// <br>
-/// </ul><br><br>
+/// <li class="rosetta__list-item--unordered">The OEIS article: &nbsp; [http://oeis.org/A001358 semiprimes] &nbsp; which has a shorter definition: <span class="rosetta__text--italic">the product of two primes</span>.</li></ul><br><br>
 /// <br>
 /// <br>
 

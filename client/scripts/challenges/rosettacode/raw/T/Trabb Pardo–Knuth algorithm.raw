@@ -35,16 +35,13 @@ replaceWithActualFunctionHere;
 ///          <span class="rosetta__text--bold">print</span> <span class="rosetta__text--italic">result</span>
 /// <br>
 /// The task is to implement the algorithm:
-/// <ol class="rosetta__ordered-list">
-/// <li class="rosetta__list-item--ordered">Use the function: &nbsp; &nbsp; <big>$f(x) = |x|^{0.5} + 5x^3$</big></li>
+/// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">Use the function: &nbsp; &nbsp; <big>$f(x) = |x|^{0.5} + 5x^3$</big></li>
 /// <li class="rosetta__list-item--ordered">The overflow condition is an answer of greater than 400.</li>
 /// <li class="rosetta__list-item--ordered">The 'user alert' should not stop processing of other items of the sequence.</li>
 /// <li class="rosetta__list-item--ordered">Print a prompt before accepting <span class="rosetta__text--bold">eleven</span>, textual, numeric inputs.</li>
 /// <li class="rosetta__list-item--ordered">You may optionally print the item as well as its associated result, but the results must be in reverse order of input.</li>
 /// <li class="rosetta__list-item--ordered">The sequence S may be 'implied' and so not shown explicitly.</li>
-/// <li class="rosetta__list-item--ordered"><span class="rosetta__text--italic">Print and show the program in action from a typical run here</span>. (If the output is graphical rather than text then either add a screendump or describe textually what is displayed).</li>
-/// <br>
-/// </ol><br><br>
+/// <li class="rosetta__list-item--ordered"><span class="rosetta__text--italic">Print and show the program in action from a typical run here</span>. (If the output is graphical rather than text then either add a screendump or describe textually what is displayed).</li></ol><br><br>
 /// <br>
 /// <br>
 

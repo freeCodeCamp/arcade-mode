@@ -22,7 +22,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// Assertions are a way of breaking out of code when there is an error or an unexpected input. 
 /// <br>
-/// Some languages throw <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/exceptions" title="exceptions"></a> and some treat it as a break point.
+/// Some languages throw <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/exceptions" title="exceptions">exceptions</a> and some treat it as a break point.
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>

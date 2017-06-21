@@ -21,19 +21,16 @@ replaceWithActualFunctionHere;
 /// <br>
 /// Write a program to let the user play <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Go Fish" title="wp: Go Fish">Go Fish</a> against a computer opponent. Use the following rules:
 /// <br>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">Each player is dealt nine cards to start with.</li>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Each player is dealt nine cards to start with.</li>
 /// <li class="rosetta__list-item--unordered">On their turn, a player asks their opponent for a given rank (such as threes or kings). A player must already have at least one card of a given rank to ask for more.</li>
 /// <li class="rosetta__list-item--unordered">* If the opponent has any cards of the named rank, they must hand over all such cards, and the requester can ask again.</li>
 /// <li class="rosetta__list-item--unordered">* If the opponent has no cards of the named rank, the requester draws a card and ends their turn.</li>
 /// <li class="rosetta__list-item--unordered">A <span class="rosetta__text--italic">book</span> is a collection of every card of a given rank. Whenever a player completes a book, they may remove it from their hand.</li>
 /// <li class="rosetta__list-item--unordered">If at any time a player's hand is empty, they may immediately draw a new card, so long as any new cards remain in the deck.</li>
-/// <li class="rosetta__list-item--unordered">The game ends when every book is complete. The player with the most books wins.</li>
-/// <br>
-/// </ul>
+/// <li class="rosetta__list-item--unordered">The game ends when every book is complete. The player with the most books wins.</li></ul>
 /// The game's AI need not be terribly smart, but it should use at least some strategy. That is, it shouldn't choose legal moves entirely at random.
 /// <br>
-/// You may want to use code from <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Playing Cards" title="Playing Cards"></a>.
+/// You may want to use code from <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Playing Cards" title="Playing Cards">Playing Cards</a>.
 /// <br>
 /// <br>
 

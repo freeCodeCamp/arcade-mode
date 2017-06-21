@@ -31,10 +31,7 @@ replaceWithActualFunctionHere;
 /// Note that for one based, rather than the zero-based indexing above, use the <code>indices: {7, 2, 8}</code>. The indices are described as a set rather than a list but any collection-type of those indices without duplication may be used as long as the example is insensitive to the order of indices given.
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Cf.</dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Order disjoint list items" title="Order disjoint list items"></a></li>
-/// <br>
-/// </ul>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Order disjoint list items" title="Order disjoint list items">Order disjoint list items</a></li></ul>
 /// <br>
 
 /// challengeSeed:

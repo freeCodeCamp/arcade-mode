@@ -32,11 +32,8 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">See also</dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/oeis:A007770" title="oeis:A007770">The &nbsp; &nbsp; happy numbers on OEIS: &nbsp; A007770</a></li>
-/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/oeis:A031177" title="oeis:A031177">The unhappy numbers on OEIS; &nbsp; A031177</a></li>
-/// <br>
-/// </ul><br><br>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/oeis:A007770" title="oeis:A007770">The &nbsp; &nbsp; happy numbers on OEIS: &nbsp; A007770</a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/oeis:A031177" title="oeis:A031177">The unhappy numbers on OEIS; &nbsp; A031177</a></li></ul><br><br>
 /// <br>
 /// <br>
 

@@ -19,7 +19,7 @@ replaceWithActualFunctionHere;
 
 /// description:
 /// <br>
-/// There are several ways to generate a self-referential sequence. One very common one (the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Look-and-say sequence" title="Look-and-say sequence"></a>) is to start with a positive integer, then generate the next term by concatenating enumerated groups of adjacent alike digits:
+/// There are several ways to generate a self-referential sequence. One very common one (the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Look-and-say sequence" title="Look-and-say sequence">Look-and-say sequence</a>) is to start with a positive integer, then generate the next term by concatenating enumerated groups of adjacent alike digits:
 /// <br>
 /// 0, 10, 1110, 3110, 132110, 1113122110, 311311222110 ...
 /// <br>
@@ -66,7 +66,7 @@ replaceWithActualFunctionHere;
 /// 19281716151413427110
 /// 19182716152413228110
 /// </pre>
-/// See also: <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Self-describing numbers" title="Self-describing numbers"></a> and <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Look-and-say sequence" title="Look-and-say sequence"></a>
+/// See also: <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Self-describing numbers" title="Self-describing numbers">Self-describing numbers</a> and <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Look-and-say sequence" title="Look-and-say sequence">Look-and-say sequence</a>
 /// <br>
 /// <br>
 

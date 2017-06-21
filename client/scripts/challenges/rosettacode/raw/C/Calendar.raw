@@ -23,11 +23,8 @@ replaceWithActualFunctionHere;
 /// Test the calendar by generating a calendar for the year 1969, on a device of the time. 
 /// Choose one of the following devices:
 /// <br>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">A line printer with a width of 132 characters.</li>
-/// <li class="rosetta__list-item--unordered">An <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/IBM_3270#Displays" title="wp: IBM_3270#Displays">IBM 3278 model 4 terminal</a> (80×43 display with accented characters). Target formatting the months of the year to fit nicely across the 80 character width screen. Restrict number of lines in test output to 43.</li>
-/// <br>
-/// </ul>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">A line printer with a width of 132 characters.</li>
+/// <li class="rosetta__list-item--unordered">An <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/IBM_3270#Displays" title="wp: IBM_3270#Displays">IBM 3278 model 4 terminal</a> (80×43 display with accented characters). Target formatting the months of the year to fit nicely across the 80 character width screen. Restrict number of lines in test output to 43.</li></ul>
 /// (Ideally, the program will generate well-formatted calendars for any page width from 20 characters up.)
 /// <br>
 /// Kudos (κῦδος) for routines that also transition from [https://en.wikipedia.org/wiki/Julian_calendar Julian] to [https://en.wikipedia.org/wiki/Gregorian_calendar Gregorian calendar].
@@ -39,7 +36,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// For economy of size, do not actually include Snoopy generation in either the code or the output, instead just output a place-holder.
 /// <br>
-/// For other calendar-related tasks, see <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Five weekends" title="Five weekends"></a>.
+/// For other calendar-related tasks, see <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Five weekends" title="Five weekends">Five weekends</a>.
 /// <br>
 /// <br>
 

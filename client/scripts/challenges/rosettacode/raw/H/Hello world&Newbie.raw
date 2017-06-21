@@ -24,23 +24,17 @@ replaceWithActualFunctionHere;
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
 /// Guide a new user of a language through the steps necessary 
 /// to install the programming language and selection of a <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Editor" title="Editor">text editor</a> if needed, 
-/// to run the languages' example in the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Hello world/Text" title="Hello world/Text"></a> task.
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">Assume the language-newbie is a programmer in another language.</li>
+/// to run the languages' example in the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Hello world/Text" title="Hello world/Text">Hello world/Text</a> task.
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Assume the language-newbie is a programmer in another language.</li>
 /// <li class="rosetta__list-item--unordered">Assume the language-newbie is competent in installing software for the platform.</li>
 /// <li class="rosetta__list-item--unordered">Assume the language-newbie can use one simple text editor for the OS/platform, (but that may not necessarily be a particular one if the installation needs a particular editor).</li>
 /// <li class="rosetta__list-item--unordered">Refer to, (and link to), already existing documentation as much as possible (but provide a summary here).</li>
 /// <li class="rosetta__list-item--unordered">Remember to state where to view the output.</li>
-/// <li class="rosetta__list-item--unordered">If particular IDE's or editors are required that are not standard, then point to/explain their installation too.</li>
-/// <br>
-/// </ul>
+/// <li class="rosetta__list-item--unordered">If particular IDE's or editors are required that are not standard, then point to/explain their installation too.</li></ul>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Note<nowiki>:</nowiki></dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">If it is more natural for a language to give output via a GUI or to a file etc, then use that method of output rather than as text to a terminal/command-line, but remember to give instructions on how to view the output generated.</li>
-/// <li class="rosetta__list-item--unordered">You may use sub-headings if giving instructions for multiple platforms.</li>
-/// <br>
-/// </ul><br><br>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">If it is more natural for a language to give output via a GUI or to a file etc, then use that method of output rather than as text to a terminal/command-line, but remember to give instructions on how to view the output generated.</li>
+/// <li class="rosetta__list-item--unordered">You may use sub-headings if giving instructions for multiple platforms.</li></ul><br><br>
 /// <br>
 /// <br>
 

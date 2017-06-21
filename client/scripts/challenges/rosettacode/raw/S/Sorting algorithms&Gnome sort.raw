@@ -21,7 +21,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <br>
-/// Gnome sort is a sorting algorithm which is similar to <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Insertion sort" title="Insertion sort"></a>, except that moving an element to its proper place is accomplished by a series of swaps, as in <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Bubble Sort" title="Bubble Sort"></a>.
+/// Gnome sort is a sorting algorithm which is similar to <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Insertion sort" title="Insertion sort">Insertion sort</a>, except that moving an element to its proper place is accomplished by a series of swaps, as in <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Bubble Sort" title="Bubble Sort">Bubble Sort</a>.
 /// <br>
 /// The pseudocode for the algorithm is:
 ///  <span class="rosetta__text--bold">function</span> <span class="rosetta__text--italic">gnomeSort</span>(a[0..size-1])

@@ -20,11 +20,11 @@ const assert = require('chai').assert;
 replaceWithActualFunctionHere;
 
 /// description:
-///  Retrieve the list of command-line arguments given to the program. For programs that only print the arguments when run directly, see <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Scripted main" title="Scripted main"></a>.
+///  Retrieve the list of command-line arguments given to the program. For programs that only print the arguments when run directly, see <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Scripted main" title="Scripted main">Scripted main</a>.
 /// <br>
-/// See also <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Program name" title="Program name"></a>.
+/// See also <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Program name" title="Program name">Program name</a>.
 /// <br>
-/// For parsing command line arguments intelligently, see <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Parsing command-line arguments" title="Parsing command-line arguments"></a>.
+/// For parsing command line arguments intelligently, see <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Parsing command-line arguments" title="Parsing command-line arguments">Parsing command-line arguments</a>.
 /// <br>
 /// Example command line:
 /// <br>

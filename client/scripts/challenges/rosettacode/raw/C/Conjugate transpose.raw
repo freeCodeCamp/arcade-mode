@@ -21,7 +21,7 @@ replaceWithActualFunctionHere;
 ///  
 /// <br>
 /// <br>
-/// Suppose that a <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/matrix" title="matrix"></a> <big>$M$</big> contains <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Arithmetic/Complex" title="Arithmetic/Complex">complex numbers]]. Then the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/conjugate transpose" title="wp: conjugate transpose">conjugate transpose]] of $M$ is a matrix $M^H$ containing the [[complex conjugate</a>s of the [[matrix transposition</a> of $M$.
+/// Suppose that a <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/matrix" title="matrix">matrix</a> <big>$M$</big> contains <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Arithmetic/Complex" title="Arithmetic/Complex">complex numbers</a>. Then the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/conjugate transpose" title="wp: conjugate transpose">conjugate transpose</a> of $M$ is a matrix $M^H$ containing the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/complex conjugate" title="complex conjugate">complex conjugate</a>s of the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/matrix transposition" title="matrix transposition">matrix transposition</a> of $M$.
 /// <br>
 /// <span class="rosetta__text--indented">:: <big>$(M^H)_{ji} = \overline{M_{ij}}$</big></span>
 /// <br>
@@ -32,12 +32,9 @@ replaceWithActualFunctionHere;
 /// <br>
 /// In the next list, <big>$M$</big> must also be a square matrix.
 /// <br>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">A <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Hermitian matrix" title="wp: Hermitian matrix">Hermitian matrix</a> equals its own conjugate transpose: $M^H = M$.</li>
-/// <li class="rosetta__list-item--unordered">A <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/normal matrix" title="wp: normal matrix">normal matrix]] is commutative in [[matrix multiplication|multiplication</a> with its conjugate transpose: $M^HM = MM^H$.</li>
-/// <li class="rosetta__list-item--unordered">A <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/unitary matrix" title="wp: unitary matrix">unitary matrix]] has its <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/inverse matrix" title="inverse matrix">inverse</a> equal to its conjugate transpose: $M^H = M^{-1}$. <br> This is true [[wikt:iff|iff</a> $M^HM = I_n$ and iff $MM^H = I_n$, where $I_n$ is the identity matrix.</li>
-/// <br>
-/// </ul>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">A <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Hermitian matrix" title="wp: Hermitian matrix">Hermitian matrix</a> equals its own conjugate transpose: $M^H = M$.</li>
+/// <li class="rosetta__list-item--unordered">A <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/normal matrix" title="wp: normal matrix">normal matrix</a> is commutative in <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/matrix multiplication" title="matrix multiplication">multiplication</a> with its conjugate transpose: $M^HM = MM^H$.</li>
+/// <li class="rosetta__list-item--unordered">A <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/unitary matrix" title="wp: unitary matrix">unitary matrix</a> has its <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/inverse matrix" title="inverse matrix">inverse</a> equal to its conjugate transpose: $M^H = M^{-1}$. <br> This is true <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/wikt:iff" title="wikt:iff">iff</a> $M^HM = I_n$ and iff $MM^H = I_n$, where $I_n$ is the identity matrix.</li></ul>
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
@@ -50,13 +47,10 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">See also:</dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">MathWorld entry: [http://mathworld.wolfram.com/ConjugateTranspose.html conjugate transpose]</li>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">MathWorld entry: [http://mathworld.wolfram.com/ConjugateTranspose.html conjugate transpose]</li>
 /// <li class="rosetta__list-item--unordered">MathWorld entry: [http://mathworld.wolfram.com/HermitianMatrix.html Hermitian matrix]</li>
 /// <li class="rosetta__list-item--unordered">MathWorld entry: [http://mathworld.wolfram.com/NormalMatrix.html normal matrix]</li>
-/// <li class="rosetta__list-item--unordered">MathWorld entry: [http://mathworld.wolfram.com/UnitaryMatrix.html unitary matrix]</li>
-/// <br>
-/// </ul><br><br>
+/// <li class="rosetta__list-item--unordered">MathWorld entry: [http://mathworld.wolfram.com/UnitaryMatrix.html unitary matrix]</li></ul><br><br>
 /// <br>
 /// <br>
 

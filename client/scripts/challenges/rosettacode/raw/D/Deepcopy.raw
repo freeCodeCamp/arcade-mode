@@ -30,22 +30,10 @@ replaceWithActualFunctionHere;
 /// <br>
 /// The task should show:
 /// <br>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">Relevant semantics of structures, such as their <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Homogeneity and heterogeneity" title="wp: Homogeneity and heterogeneity">homogeneous or heterogeneous</a> properties, or containment of (self- or mutual-reference) cycles.</li>
-/// <br>
-/// </ul>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">Any limitations of the method.</li>
-/// <br>
-/// </ul>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">That the structure and its copy are different.</li>
-/// <br>
-/// </ul>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">Suitable links to external documentation for common libraries.</li>
-/// <br>
-/// </ul><br><br>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Relevant semantics of structures, such as their <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Homogeneity and heterogeneity" title="wp: Homogeneity and heterogeneity">homogeneous or heterogeneous</a> properties, or containment of (self- or mutual-reference) cycles.</li></ul>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Any limitations of the method.</li></ul>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">That the structure and its copy are different.</li></ul>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Suitable links to external documentation for common libraries.</li></ul><br><br>
 /// <br>
 /// <br>
 

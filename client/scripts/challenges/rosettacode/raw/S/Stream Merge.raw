@@ -25,7 +25,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title"> <span class="rosetta__text--italic">N</span>-stream merge</dt></dl>
 /// <span class="rosetta__text--indented"> The same as above, but reading from &nbsp; <b> <span class="rosetta__text--italic">N</span> </b> &nbsp; sources.</span>
-/// <span class="rosetta__text--indented"> Common algorithm: same as above, but keep buffered items and their source descriptors in a <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/heap" title="heap"></a>.</span>
+/// <span class="rosetta__text--indented"> Common algorithm: same as above, but keep buffered items and their source descriptors in a <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/heap" title="heap">heap</a>.</span>
 /// <br>
 /// <br>
 /// Assume streams are very big. You must not suck them whole in the memory, but read them as streams.

@@ -25,7 +25,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
-/// Implement the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Combination" title="wp: Combination">combination]] &nbsp; <big> (<sup>n</sup>C<sub>k</sub>) </big> &nbsp; and [[wp:Permutation|permutation</a> &nbsp; <big> (<sup>n</sup>P<sub>k</sub>) </big> &nbsp; operators in the target language:
+/// Implement the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Combination" title="wp: Combination">combination</a> &nbsp; <big> (<sup>n</sup>C<sub>k</sub>) </big> &nbsp; and <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Permutation" title="wp: Permutation">permutation</a> &nbsp; <big> (<sup>n</sup>P<sub>k</sub>) </big> &nbsp; operators in the target language:
 /// <br>
 /// <span class="rosetta__text--indented">::* $^n\operatorname C_k =\binom nk = \frac{n(n-1)\ldots(n-k+1)}{k(k-1)\dots1} $</span>
 /// <br>
@@ -35,17 +35,11 @@ replaceWithActualFunctionHere;
 /// See the Wikipedia articles for a more detailed description.
 /// <br>
 /// <span class="rosetta__text--bold">To test</span>, generate and print examples of:
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">&nbsp; A sample of permutations from 1 to 12 and Combinations from 10 to 60 using exact Integer arithmetic.</li>
-/// <li class="rosetta__list-item--unordered">&nbsp; A sample of permutations from 5 to 15000 and Combinations from 100 to 1000 using approximate Floating point arithmetic.<br> This 'floating point' code could be implemented using an approximation, e.g., by calling the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Gamma function" title="Gamma function"></a>.</li>
-/// <br>
-/// </ul>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">&nbsp; A sample of permutations from 1 to 12 and Combinations from 10 to 60 using exact Integer arithmetic.</li>
+/// <li class="rosetta__list-item--unordered">&nbsp; A sample of permutations from 5 to 15000 and Combinations from 100 to 1000 using approximate Floating point arithmetic.<br> This 'floating point' code could be implemented using an approximation, e.g., by calling the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Gamma function" title="Gamma function">Gamma function</a>.</li></ul>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related task:</dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Evaluate binomial coefficients" title="Evaluate binomial coefficients"></a></li>
-/// <br>
-/// </ul>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Evaluate binomial coefficients" title="Evaluate binomial coefficients">Evaluate binomial coefficients</a></li></ul>
 /// <br>
 /// <br><br>
 /// <br>

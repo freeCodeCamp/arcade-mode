@@ -33,7 +33,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <br>
-/// The simple programming language to be analyzed is more or less a subset of <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/C" title="C"></a>. It supports the following tokens:
+/// The simple programming language to be analyzed is more or less a subset of <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/C" title="C">C</a>. It supports the following tokens:
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Operators</dt></dl>
 /// <br>
@@ -74,10 +74,7 @@ replaceWithActualFunctionHere;
 /// |  <tt>Op_or</tt>           ||  logical or            ||  <tt>&brvbar;&brvbar;</tt>
 /// |}
 /// <br>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">The <code>-</code> token should always be interpreted as <tt>Op_subtract</tt> by the lexer. Turning some <tt>Op_subtract</tt> into <tt>Op_negate</tt> will be the job of the syntax analyzer, which is not part of this task.</li>
-/// <br>
-/// </ul>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">The <code>-</code> token should always be interpreted as <tt>Op_subtract</tt> by the lexer. Turning some <tt>Op_subtract</tt> into <tt>Op_negate</tt> will be the job of the syntax analyzer, which is not part of this task.</li></ul>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Symbols</dt></dl>
 /// <br>
 /// {| class="wikitable"
@@ -151,14 +148,11 @@ replaceWithActualFunctionHere;
 /// |  the characters without the double quotes and with escape sequences converted
 /// |}
 /// <br>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">For char and string literals, the <code>\n</code> escape sequence is supported to represent a new-line character.</li>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">For char and string literals, the <code>\n</code> escape sequence is supported to represent a new-line character.</li>
 /// <li class="rosetta__list-item--unordered">For char and string literals, to represent a backslash, use <code>\\</code>.</li>
 /// <li class="rosetta__list-item--unordered">No other special sequences are supported. This means that:</li>
 /// <li class="rosetta__list-item--unordered">* Char literals cannot represent a single quote character (value 39).</li>
-/// <li class="rosetta__list-item--unordered">* String literals cannot represent strings containing double quote characters.</li>
-/// <br>
-/// </ul>
+/// <li class="rosetta__list-item--unordered">* String literals cannot represent strings containing double quote characters.</li></ul>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Zero-width tokens</dt></dl>
 /// <br>
 /// {| class="wikitable"
@@ -170,29 +164,20 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">White space</dt></dl>
 /// <br>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">Zero or more whitespace characters, or comments enclosed in <code>/* ... */</code>, are allowed between any two tokens, with the exceptions noted below.</li>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Zero or more whitespace characters, or comments enclosed in <code>/* ... */</code>, are allowed between any two tokens, with the exceptions noted below.</li>
 /// <li class="rosetta__list-item--unordered">"Longest token matching" is used to resolve conflicts (e.g., in order to match <span class="rosetta__text--bold"><=</span> as a single token rather than the two tokens <span class="rosetta__text--bold"><</span> and <span class="rosetta__text--bold">=</span>).</li>
 /// <li class="rosetta__list-item--unordered">Whitespace is <span class="rosetta__text--italic">required</span> between two tokens that have an alphanumeric character or underscore at the edge.</li>
 /// <li class="rosetta__list-item--unordered">* This means: keywords, identifiers, and integer literals.</li>
 /// <li class="rosetta__list-item--unordered">* e.g. <code>ifprint</code> is recognized as an identifier, instead of the keywords <tt>if</tt> and <tt>print</tt>.</li>
 /// <li class="rosetta__list-item--unordered">* e.g. <code>42fred</code> is invalid, and neither recognized as a number nor an identifier.</li>
 /// <li class="rosetta__list-item--unordered">Whitespace is <span class="rosetta__text--italic">not allowed</span> inside of tokens (except for chars and strings where they are part of the value).</li>
-/// <li class="rosetta__list-item--unordered">* e.g. <code>& &</code> is invalid, and not interpreted as the <tt>&&</tt> operator.</li>
-/// <br>
-/// </ul>
+/// <li class="rosetta__list-item--unordered">* e.g. <code>& &</code> is invalid, and not interpreted as the <tt>&&</tt> operator.</li></ul>
 /// For example, the following two program fragments are equivalent, and should produce the same token stream except for the line and column positions:
 /// <br>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered"><lang c>if ( p /* meaning n is prime */ ) {</li>
-/// <br>
-/// </ul>    print ( n , " " ) ;
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"><lang c>if ( p /* meaning n is prime */ ) {</li></ul>    print ( n , " " ) ;
 ///     count = count + 1 ; /* number of primes found so far */
 /// }</lang>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered"><lang c>if(p){print(n," ");count=count+1;}</lang></li>
-/// <br>
-/// </ul>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"><lang c>if(p){print(n," ");count=count+1;}</lang></li></ul>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Complete list of token names</dt></dl>
 /// <br>
 /// <pre>
@@ -208,14 +193,11 @@ replaceWithActualFunctionHere;
 /// <br>
 /// The program output should be a sequence of lines, each consisting of the following whitespace-separated fields:
 /// <br>
-/// <ol class="rosetta__ordered-list">
-/// <li class="rosetta__list-item--ordered">the line number where the token starts</li>
+/// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">the line number where the token starts</li>
 /// <li class="rosetta__list-item--ordered">the column number where the token starts</li>
 /// <li class="rosetta__list-item--ordered">the token name</li>
 /// <li class="rosetta__list-item--ordered">the token value (only for <tt>Identifier</tt>, <tt>Integer</tt>, and <tt>String</tt> tokens)</li>
-/// <li class="rosetta__list-item--ordered">the number of spaces between fields is up to you.  Neatly aligned is nice, but not a requirement.</li>
-/// <br>
-/// </ol>
+/// <li class="rosetta__list-item--ordered">the number of spaces between fields is up to you.  Neatly aligned is nice, but not a requirement.</li></ol>
 /// <br>
 /// <br>
 /// The following error conditions should be caught:
@@ -400,13 +382,10 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related Tasks</dt></dl>
 /// <br>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/syntax_analyzer" title="Compiler/syntax_analyzer">Syntax Analyzer task</a></li>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/syntax_analyzer" title="Compiler/syntax_analyzer">Syntax Analyzer task</a></li>
 /// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/code_generator" title="Compiler/code_generator">Code Generator task</a></li>
 /// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/virtual_machine_interpreter" title="Compiler/virtual_machine_interpreter">Virtual Machine Interpreter task</a></li>
-/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/AST_interpreter" title="Compiler/AST_interpreter">AST Interpreter task</a></li>
-/// <br>
-/// </ul>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/AST_interpreter" title="Compiler/AST_interpreter">AST Interpreter task</a></li></ul>
 /// <hr>
 /// __TOC__
 /// <br>

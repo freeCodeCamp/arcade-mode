@@ -33,7 +33,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// The Tcl Chatroom is a online chatroom. Its conversations are logged. It is useful to know if some has mentioned you or your project in the chatroom recently. You can find this out by searching the chat logs. The logs are publicly available at http://tclers.tk/conferences/tcl/. One log file corresponds to the messages from one day in <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Time in Germany" title="wp: Time in Germany">Germany's current time zone</a>. Each chat log file has the name <tt>YYYY-MM-DD.tcl</tt> where <tt>YYYY</tt> is the year, <tt>MM</tt> is the month and <tt>DD</tt> the day. The logs store one message per line. The messages themselves are human-readable and their internal structure doesn't matter.
 /// <br>
-/// Retrieve the chat logs from the last 10 days via <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/HTTP" title="HTTP"></a>. Find those lines that include a particular <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/substring" title="substring"></a> and print them in the following format:
+/// Retrieve the chat logs from the last 10 days via <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/HTTP" title="HTTP">HTTP</a>. Find those lines that include a particular <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/substring" title="substring">substring</a> and print them in the following format:
 /// <br>
 /// <pre><log file URL>
 /// ------

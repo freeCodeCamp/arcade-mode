@@ -20,7 +20,7 @@ replaceWithActualFunctionHere;
 /// description:
 /// <br>
 /// <br>
-/// An <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Join_(SQL)#Inner_join" title="wp: Join_(SQL)#Inner_join">inner join]] is an operation that combines two data tables into one table, based on matching column values. The simplest way of implementing this operation is the [[wp:Nested loop join|nested loop join]] algorithm, but a more scalable alternative is the [[wp:hash join|hash join</a> algorithm.
+/// An <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Join_(SQL)#Inner_join" title="wp: Join_(SQL)#Inner_join">inner join</a> is an operation that combines two data tables into one table, based on matching column values. The simplest way of implementing this operation is the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Nested loop join" title="wp: Nested loop join">nested loop join</a> algorithm, but a more scalable alternative is the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/hash join" title="wp: hash join">hash join</a> algorithm.
 /// <br>
 /// <br>
 /// <br>
@@ -32,13 +32,10 @@ replaceWithActualFunctionHere;
 /// <br>
 /// The "hash join" algorithm consists of two steps:
 /// <br>
-/// <ol class="rosetta__ordered-list">
-/// <li class="rosetta__list-item--ordered"><span class="rosetta__text--bold">Hash phase:</span> Create a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Multimap" title="wp: Multimap">multimap</a> from one of the two tables, mapping from each join column value to all the rows that contain it.<br></li>
+/// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered"><span class="rosetta__text--bold">Hash phase:</span> Create a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Multimap" title="wp: Multimap">multimap</a> from one of the two tables, mapping from each join column value to all the rows that contain it.<br></li>
 /// <li class="rosetta__list-item--ordered">* The multimap must support hash-based lookup which scales better than a simple linear search, because that's the whole point of this algorithm.</li>
 /// <li class="rosetta__list-item--ordered">* Ideally we should create the multimap for the <span class="rosetta__text--italic">smaller</span> table, thus minimizing its creation time and memory size.</li>
-/// <li class="rosetta__list-item--ordered"><span class="rosetta__text--bold">Join phase:</span> Scan the other table, and find matching rows by looking in the multimap created before.</li>
-/// <br>
-/// </ol>
+/// <li class="rosetta__list-item--ordered"><span class="rosetta__text--bold">Join phase:</span> Scan the other table, and find matching rows by looking in the multimap created before.</li></ol>
 /// <br>
 /// In pseudo-code, the algorithm could be expressed as follows:
 /// <br>
@@ -137,7 +134,7 @@ replaceWithActualFunctionHere;
 /// |}
 /// <br>
 /// The order of the rows in the output table is not significant.<br>
-/// If you're using numerically indexed arrays to represent table rows (rather than referring to columns by name), you could represent the output rows in the form <code style="white-space:nowrap"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/27, "Jonah"], ["Jonah", "Whales"" title="27, "Jonah"], ["Jonah", "Whales""></a></code>.
+/// If you're using numerically indexed arrays to represent table rows (rather than referring to columns by name), you could represent the output rows in the form <code style="white-space:nowrap"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/27, "Jonah"], ["Jonah", "Whales"" title="27, "Jonah"], ["Jonah", "Whales"">27, "Jonah"], ["Jonah", "Whales"</a></code>.
 /// <br>
 /// <br><hr>
 /// <br>

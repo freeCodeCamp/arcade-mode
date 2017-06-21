@@ -25,7 +25,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <br>
-/// In <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/object-oriented programming" title="object-oriented programming"></a> <span class="rosetta__text--bold">class</span> is a set (a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Transitive_closure" title="wp: Transitive_closure">transitive closure]]) of types bound by the relation of [[inheritance</a>. It is said that all types derived from some base type T and the type T itself form a class T. 
+/// In <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/object-oriented programming" title="object-oriented programming">object-oriented programming</a> <span class="rosetta__text--bold">class</span> is a set (a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Transitive_closure" title="wp: Transitive_closure">transitive closure</a>) of types bound by the relation of <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/inheritance" title="inheritance">inheritance</a>. It is said that all types derived from some base type T and the type T itself form a class T. 
 /// <br>
 /// The first type T from the class T sometimes is called the <span class="rosetta__text--bold">root type</span> of the class.
 /// <br>
@@ -39,11 +39,8 @@ replaceWithActualFunctionHere;
 /// Operations with multiple arguments and/or the results of the class are called <span class="rosetta__text--bold">multi-methods</span>. 
 /// A further generalization of is the operation with arguments and/or results from different classes.
 /// <br>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">single-dispatch languages are those that allow only one argument or result to control the dispatch. Usually it is the first parameter, often hidden, so that a prefix notation <span class="rosetta__text--italic">x</span>.<span class="rosetta__text--italic">f</span>() is used instead of mathematical <span class="rosetta__text--italic">f</span>(<span class="rosetta__text--italic">x</span>).</li>
-/// <li class="rosetta__list-item--unordered">multiple-dispatch languages allow many arguments and/or results to control the dispatch.</li>
-/// <br>
-/// </ul>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">single-dispatch languages are those that allow only one argument or result to control the dispatch. Usually it is the first parameter, often hidden, so that a prefix notation <span class="rosetta__text--italic">x</span>.<span class="rosetta__text--italic">f</span>() is used instead of mathematical <span class="rosetta__text--italic">f</span>(<span class="rosetta__text--italic">x</span>).</li>
+/// <li class="rosetta__list-item--unordered">multiple-dispatch languages allow many arguments and/or results to control the dispatch.</li></ul>
 /// <br>
 /// A polymorphic value has a type tag indicating its specific type from the class and the corresponding specific value of that type. 
 /// This type is sometimes called <span class="rosetta__text--bold">the most specific type</span> of a [polymorphic] value. 
@@ -52,7 +49,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// In many <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/object-oriented programming " title="object-oriented programming "> OO</a> languages 
 /// the type of the class of T and T itself are considered equivalent. 
-/// In some languages they are distinct (like in <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Ada" title="Ada"></a>). 
+/// In some languages they are distinct (like in <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Ada" title="Ada">Ada</a>). 
 /// When class T and T are equivalent, there is no way to distinguish 
 /// polymorphic and specific values.
 /// <br>

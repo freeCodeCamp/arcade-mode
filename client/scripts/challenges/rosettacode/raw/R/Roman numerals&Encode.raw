@@ -27,12 +27,9 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// In Roman numerals:
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">1990  is rendered: 1000=M, 900=CM, 90=XC; resulting in MCMXC</li>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">1990  is rendered: 1000=M, 900=CM, 90=XC; resulting in MCMXC</li>
 /// <li class="rosetta__list-item--unordered">2008  is written as 2000=MM, 8=VIII; or MMVIII</li>
-/// <li class="rosetta__list-item--unordered">1666  uses each Roman symbol in descending order: MDCLXVI</li>
-/// <br>
-/// </ul><br><br>
+/// <li class="rosetta__list-item--unordered">1666  uses each Roman symbol in descending order: MDCLXVI</li></ul><br><br>
 /// <br>
 /// <br>
 

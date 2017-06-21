@@ -28,7 +28,7 @@ replaceWithActualFunctionHere;
 /// What states are these? 
 /// <br>
 /// <br>
-/// The problem was reissued on  [https://tapestry.tucson.az.us/twiki/bin/view/Main/StateNamesPuzzle the Unicon Discussion Web] which includes several solutions with analysis.  Several techniques may be helpful and you may wish to refer to <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Goedel_numbering" title="wp: Goedel_numbering">Gödel numbering]], [[wp:Equivalence_relation|equivalence relations]], and [[wp:Equivalence_classes|equivalence classes</a>.  The basic merits of these were discussed in the Unicon Discussion Web.
+/// The problem was reissued on  [https://tapestry.tucson.az.us/twiki/bin/view/Main/StateNamesPuzzle the Unicon Discussion Web] which includes several solutions with analysis.  Several techniques may be helpful and you may wish to refer to <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Goedel_numbering" title="wp: Goedel_numbering">Gödel numbering</a>, <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Equivalence_relation" title="wp: Equivalence_relation">equivalence relations</a>, and <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Equivalence_classes" title="wp: Equivalence_classes">equivalence classes</a>.  The basic merits of these were discussed in the Unicon Discussion Web.
 /// <br>
 /// A second challenge in the form of a set of fictitious new states was also presented.
 /// <br>
@@ -36,12 +36,9 @@ replaceWithActualFunctionHere;
 /// Write a program to solve the challenge using both the original list of states and the fictitious list.  
 /// <br>
 /// Caveats:
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">case and spacing aren't significant - just letters (harmonize case)</li>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">case and spacing aren't significant - just letters (harmonize case)</li>
 /// <li class="rosetta__list-item--unordered">don't expect the names to be in any order - such as being sorted</li>
-/// <li class="rosetta__list-item--unordered">don't rely on names to be unique (eliminate duplicates - meaning if Iowa appears twice you can only use it once)</li>
-/// <br>
-/// </ul>
+/// <li class="rosetta__list-item--unordered">don't rely on names to be unique (eliminate duplicates - meaning if Iowa appears twice you can only use it once)</li></ul>
 /// Comma separated list of state names used in the original puzzle:
 /// <pre>
 ///     "Alabama", "Alaska", "Arizona", "Arkansas",

@@ -20,7 +20,7 @@ replaceWithActualFunctionHere;
 /// description:
 /// <br>
 /// <br>
-/// This task is inverse to the task <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Call foreign language function" title="Call foreign language function"></a>. Consider the following <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/C" title="C"></a> program:
+/// This task is inverse to the task <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Call foreign language function" title="Call foreign language function">Call foreign language function</a>. Consider the following <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/C" title="C">C</a> program:
 /// <lang c>#include <stdio.h>
 /// <br>
 /// extern int Query (char * Data, size_t * Length);

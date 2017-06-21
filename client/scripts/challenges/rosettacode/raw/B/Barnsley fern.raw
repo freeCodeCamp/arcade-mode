@@ -25,28 +25,16 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
 /// Create this fractal fern, using the following transformations:
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">ƒ1 &nbsp; (chosen 1% of the time)</li>
-/// <br>
-/// </ul>         xn + 1 = 0
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">ƒ1 &nbsp; (chosen 1% of the time)</li></ul>         xn + 1 = 0
 ///          yn + 1 = 0.16 yn
 /// <br>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">ƒ2 &nbsp; (chosen 85% of the time)</li>
-/// <br>
-/// </ul>         xn + 1 = 0.85 xn + 0.04 yn
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">ƒ2 &nbsp; (chosen 85% of the time)</li></ul>         xn + 1 = 0.85 xn + 0.04 yn
 ///          yn + 1 = −0.04 xn + 0.85 yn + 1.6
 /// <br>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">ƒ3 &nbsp; (chosen 7% of the time)</li>
-/// <br>
-/// </ul>         xn + 1 = 0.2 xn − 0.26 yn
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">ƒ3 &nbsp; (chosen 7% of the time)</li></ul>         xn + 1 = 0.2 xn − 0.26 yn
 ///          yn + 1 = 0.23 xn + 0.22 yn + 1.6
 /// <br>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">ƒ4 &nbsp; (chosen 7% of the time)</li>
-/// <br>
-/// </ul>         xn + 1 = −0.15 xn + 0.28 yn
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">ƒ4 &nbsp; (chosen 7% of the time)</li></ul>         xn + 1 = −0.15 xn + 0.28 yn
 ///          yn + 1 = 0.26 xn + 0.24 yn + 0.44.
 /// <br>
 /// Starting position: x = 0, y = 0

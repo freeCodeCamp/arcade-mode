@@ -20,7 +20,7 @@ replaceWithActualFunctionHere;
 /// description:
 /// <br>
 /// <br>
-/// <small>This task is an adjunct to <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Seven-sided dice from five-sided dice" title="Seven-sided dice from five-sided dice"></a>.</small>
+/// <small>This task is an adjunct to <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Seven-sided dice from five-sided dice" title="Seven-sided dice from five-sided dice">Seven-sided dice from five-sided dice</a>.</small>
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Ttask:</dt></dl>
@@ -28,25 +28,16 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// The function should take as arguments:
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">The function (or object) producing random integers.</li>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">The function (or object) producing random integers.</li>
 /// <li class="rosetta__list-item--unordered">The number of times to call the integer generator.</li>
-/// <li class="rosetta__list-item--unordered">A 'delta' value of some sort that indicates how close to a flat distribution is close enough.</li>
-/// <br>
-/// </ul>
+/// <li class="rosetta__list-item--unordered">A 'delta' value of some sort that indicates how close to a flat distribution is close enough.</li></ul>
 /// The function should produce:
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">Some indication of the distribution achieved.</li>
-/// <li class="rosetta__list-item--unordered">An 'error' if the distribution is not flat enough.</li>
-/// <br>
-/// </ul>
-/// Show the distribution checker working when the produced distribution is flat enough and when it is not. (Use a generator from <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Seven-sided dice from five-sided dice" title="Seven-sided dice from five-sided dice"></a>).
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Some indication of the distribution achieved.</li>
+/// <li class="rosetta__list-item--unordered">An 'error' if the distribution is not flat enough.</li></ul>
+/// Show the distribution checker working when the produced distribution is flat enough and when it is not. (Use a generator from <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Seven-sided dice from five-sided dice" title="Seven-sided dice from five-sided dice">Seven-sided dice from five-sided dice</a>).
 /// <br>
 /// See also:
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Verify distribution uniformity/Chi-squared test" title="Verify distribution uniformity/Chi-squared test"></a></li>
-/// <br>
-/// </ul><br><br>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Verify distribution uniformity/Chi-squared test" title="Verify distribution uniformity/Chi-squared test">Verify distribution uniformity/Chi-squared test</a></li></ul><br><br>
 /// <br>
 /// <br>
 

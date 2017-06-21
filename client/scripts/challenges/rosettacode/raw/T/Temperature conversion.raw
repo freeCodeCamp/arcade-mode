@@ -22,7 +22,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// There are quite a number of temperature scales. For this task we will concentrate on four of the perhaps best-known ones: 
-/// <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Kelvin" title="wp: Kelvin">Kelvin]], [[wp:Degree Celsius|Celsius]], [[wp:Fahrenheit|Fahrenheit]], and  [[wp:Degree Rankine|Rankine</a>.
+/// <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Kelvin" title="wp: Kelvin">Kelvin</a>, <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Degree Celsius" title="wp: Degree Celsius">Celsius</a>, <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Fahrenheit" title="wp: Fahrenheit">Fahrenheit</a>, and  <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Degree Rankine" title="wp: Degree Rankine">Rankine</a>.
 /// <br>
 /// The Celsius and Kelvin scales have the same magnitude, but different null points.
 ///  

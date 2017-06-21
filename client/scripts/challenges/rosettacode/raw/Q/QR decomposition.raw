@@ -30,7 +30,7 @@ replaceWithActualFunctionHere;
 /// 6 & 167 & -68 \\
 /// -4 & 24 & -41 \end{pmatrix}$
 /// <br>
-/// and the usage for linear least squares problems on the example from <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Polynomial_regression" title="Polynomial_regression"></a>. The method of <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/ Householder transformation" title="wp:  Householder transformation">Householder reflections</a> should be used:
+/// and the usage for linear least squares problems on the example from <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Polynomial_regression" title="Polynomial_regression">Polynomial_regression</a>. The method of <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/ Householder transformation" title="wp:  Householder transformation">Householder reflections</a> should be used:
 /// <br>
 /// <span class="rosetta__text--bold">Method</span>
 /// <br>
@@ -93,7 +93,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <span class="rosetta__text--indented">:$H_1 H_2 H_3 \; ... \; H_n = Q$</span>
 /// <br>
-/// The QR decomposition should then be used to solve linear least squares (<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Multiple regression" title="Multiple regression"></a>) problems $\mathit A x = b$ by solving
+/// The QR decomposition should then be used to solve linear least squares (<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Multiple regression" title="Multiple regression">Multiple regression</a>) problems $\mathit A x = b$ by solving
 /// <br>
 /// <span class="rosetta__text--indented">:$R \; x = Q^T \; b$</span>
 /// <br>

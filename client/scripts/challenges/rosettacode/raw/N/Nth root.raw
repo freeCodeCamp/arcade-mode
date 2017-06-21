@@ -23,7 +23,7 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
 /// <br>
-/// Implement the algorithm to compute the principal <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Nth root" title="wp: Nth root"><span class="rosetta__text--italic">n</span>th root]] <big>$\sqrt[n]A$</big> of a positive real number <big><span class="rosetta__text--italic">A</span></big>, as explained at the [[wp:Nth root algorithm|Wikipedia page</a>.
+/// Implement the algorithm to compute the principal <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Nth root" title="wp: Nth root"><span class="rosetta__text--italic">n</span>th root</a> <big>$\sqrt[n]A$</big> of a positive real number <big><span class="rosetta__text--italic">A</span></big>, as explained at the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Nth root algorithm" title="wp: Nth root algorithm">Wikipedia page</a>.
 /// <br>
 /// <br>
 /// <br>

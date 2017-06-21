@@ -33,11 +33,8 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">See also:</dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Date format" title="Date format"></a></li>
-/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/System time#Retrieving system time" title="wp: System time#Retrieving system time">Retrieving system time (wiki)</a></li>
-/// <br>
-/// </ul><br><br>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Date format" title="Date format">Date format</a></li>
+/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/System time#Retrieving system time" title="wp: System time#Retrieving system time">Retrieving system time (wiki)</a></li></ul><br><br>
 /// <br>
 /// <br>
 

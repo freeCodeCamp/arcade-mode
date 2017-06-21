@@ -19,7 +19,7 @@ replaceWithActualFunctionHere;
 
 /// description:
 /// <br>
-/// As the world gets smaller each day, internationalization becomes more and more important. &nbsp; For handling multiple languages, <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Unicode" title="Unicode"></a> is your best friend. 
+/// As the world gets smaller each day, internationalization becomes more and more important. &nbsp; For handling multiple languages, <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Unicode" title="Unicode">Unicode</a> is your best friend. 
 /// <br>
 /// It is a very capable tool, but also quite complex compared to older single- and double-byte character encodings. 
 /// <br>
@@ -46,11 +46,8 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">See also:</dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Unicode variable names" title="Unicode variable names"></a></li>
-/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Terminal control/Display an extended character" title="Terminal control/Display an extended character"></a></li>
-/// <br>
-/// </ul><br><br>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Unicode variable names" title="Unicode variable names">Unicode variable names</a></li>
+/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Terminal control/Display an extended character" title="Terminal control/Display an extended character">Terminal control/Display an extended character</a></li></ul><br><br>
 /// <br>
 /// <br>
 

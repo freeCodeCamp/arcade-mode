@@ -20,7 +20,7 @@ replaceWithActualFunctionHere;
 /// description:
 ///  
 /// <br>
-/// Find the MD4 message digest of a string of <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/octet" title="octet"></a>s. 
+/// Find the MD4 message digest of a string of <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/octet" title="octet">octet</a>s. 
 /// Use the ASCII encoded string “<tt>Rosetta Code</tt>” (without quotes). 
 /// You may either call an MD4 library, or implement MD4 in your language.
 /// <br>

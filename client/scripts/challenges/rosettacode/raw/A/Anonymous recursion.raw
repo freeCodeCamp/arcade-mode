@@ -32,11 +32,11 @@ replaceWithActualFunctionHere;
 /// <br>
 /// Some languages allow you to embed recursion directly in-place. &nbsp; This might work via a label, a local <span class="rosetta__text--italic">gosub</span> instruction, or some special keyword.
 /// <br>
-/// Anonymous recursion can also be accomplished using the &nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Y combinator" title="Y combinator"></a>.
+/// Anonymous recursion can also be accomplished using the &nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Y combinator" title="Y combinator">Y combinator</a>.
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
-/// If possible, demonstrate this by writing the recursive version of the fibonacci function &nbsp; (see <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Fibonacci sequence" title="Fibonacci sequence"></a>) &nbsp; which checks for a negative argument before doing the actual recursion.
+/// If possible, demonstrate this by writing the recursive version of the fibonacci function &nbsp; (see <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Fibonacci sequence" title="Fibonacci sequence">Fibonacci sequence</a>) &nbsp; which checks for a negative argument before doing the actual recursion.
 /// <br><br>
 /// <br>
 /// <br>

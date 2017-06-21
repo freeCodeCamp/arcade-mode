@@ -20,7 +20,7 @@ replaceWithActualFunctionHere;
 /// description:
 /// <br>
 /// <br>
-/// <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Quaternion" title="wp: Quaternion">Quaternions]] &nbsp; are an extension of the idea of &nbsp; [[Arithmetic/Complex|complex numbers</a>.
+/// <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Quaternion" title="wp: Quaternion">Quaternions</a> &nbsp; are an extension of the idea of &nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Arithmetic/Complex" title="Arithmetic/Complex">complex numbers</a>.
 /// <br>
 /// A complex number has a real and complex part, &nbsp; sometimes written as &nbsp; <big> <code> a + bi, </code> </big> 
 /// <br>where &nbsp; <big> <code> a </code> </big> &nbsp; and &nbsp; <big> <code> b </code> </big> &nbsp; stand for real numbers, and &nbsp; <big> <code> i </code> </big> &nbsp; stands for the square root of minus 1.
@@ -58,27 +58,21 @@ replaceWithActualFunctionHere;
 /// <br>
 /// <br>
 /// Create functions &nbsp; (or classes) &nbsp; to perform simple maths with quaternions including computing:
-/// <ol class="rosetta__ordered-list">
-/// <li class="rosetta__list-item--ordered">The norm of a quaternion: <br> <big> <code> $ = \sqrt{ a^2 + b^2 + c^2 + d^2 } $ </code> </big> </li>
+/// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">The norm of a quaternion: <br> <big> <code> $ = \sqrt{ a^2 + b^2 + c^2 + d^2 } $ </code> </big> </li>
 /// <li class="rosetta__list-item--ordered">The negative of a quaternion: <br> <big> <code> = (-a, -b, -c, -d)</code> </big> </li>
 /// <li class="rosetta__list-item--ordered">The conjugate of a quaternion: <br> <big> <code> = ( a, -b, -c, -d)</code> </big> </li>
 /// <li class="rosetta__list-item--ordered">Addition of a real number &nbsp; <big> <code> r </code> </big> &nbsp; and &nbsp; <big> <code> a </code> </big> &nbsp; quaternion &nbsp; <big> <code> q: </code> </big> <br> <big> <code> r + q = q + r = (a+r, b, c, d) </code> </big></li>
 /// <li class="rosetta__list-item--ordered">Addition of two quaternions: <br> <big> <code> q<sub>1</sub> + q<sub>2</sub> = (a<sub>1</sub>+a<sub>2</sub>, b<sub>1</sub>+b<sub>2</sub>, c<sub>1</sub>+c<sub>2</sub>, d<sub>1</sub>+d<sub>2</sub>) </code> </big></li>
 /// <li class="rosetta__list-item--ordered">Multiplication of a real number and a quaternion: <br> <big> <code> qr = rq = (ar, br, cr, dr) </code> </big></li>
 /// <li class="rosetta__list-item--ordered">Multiplication of two quaternions &nbsp; <big> <code> q<sub>1</sub> </code> </big> &nbsp; and &nbsp; <big><code>q<sub>2</sub> </code> </big> &nbsp; is given by: <br> <big> <code> ( a<sub>1</sub>a<sub>2</sub> − b<sub>1</sub>b<sub>2</sub> − c<sub>1</sub>c<sub>2</sub> − d<sub>1</sub>d<sub>2</sub>, </code> <br> <code> &nbsp; a<sub>1</sub>b<sub>2</sub> + b<sub>1</sub>a<sub>2</sub> + c<sub>1</sub>d<sub>2</sub> − d<sub>1</sub>c<sub>2</sub>, </code> <br> <code> &nbsp; a<sub>1</sub>c<sub>2</sub> − b<sub>1</sub>d<sub>2</sub> + c<sub>1</sub>a<sub>2</sub> + d<sub>1</sub>b<sub>2</sub>, </code> <br> <code> &nbsp; a<sub>1</sub>d<sub>2</sub> + b<sub>1</sub>c<sub>2</sub> − c<sub>1</sub>b<sub>2</sub> + d<sub>1</sub>a<sub>2</sub> ) </code> </big></li>
-/// <li class="rosetta__list-item--ordered">Show that, for the two quaternions &nbsp; <big> <code> q<sub>1</sub> </code> </big> &nbsp; and &nbsp; <big> <code> q<sub>2</sub>: <br> q<sub>1</sub>q<sub>2</sub> &ne; q<sub>2</sub>q<sub>1</sub> </code> </big></li>
-/// <br>
-/// </ol>
+/// <li class="rosetta__list-item--ordered">Show that, for the two quaternions &nbsp; <big> <code> q<sub>1</sub> </code> </big> &nbsp; and &nbsp; <big> <code> q<sub>2</sub>: <br> q<sub>1</sub>q<sub>2</sub> &ne; q<sub>2</sub>q<sub>1</sub> </code> </big></li></ol>
 /// <br>
 /// If a language has built-in support for quaternions, then use it.
 /// <br>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">C.f.:</dt></dl>
-/// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Vector products" title="Vector products"></a></li>
-/// <li class="rosetta__list-item--unordered">&nbsp; [http://www.maths.tcd.ie/pub/HistMath/People/Hamilton/QLetter/QLetter.pdf On Quaternions]; &nbsp; or on a new System of Imaginaries in Algebra. &nbsp; By Sir William Rowan Hamilton LL.D, P.R.I.A., F.R.A.S., Hon. M. R. Soc. Ed. and Dub., Hon. or Corr. M. of the Royal or Imperial Academies of St. Petersburgh, Berlin, Turin and Paris, Member of the American Academy of Arts and Sciences, and of other Scientific Societies at Home and Abroad, Andrews' Prof. of Astronomy in the University of Dublin, and Royal Astronomer of Ireland.</li>
-/// <br>
-/// </ul><br><br>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">&nbsp; <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Vector products" title="Vector products">Vector products</a></li>
+/// <li class="rosetta__list-item--unordered">&nbsp; [http://www.maths.tcd.ie/pub/HistMath/People/Hamilton/QLetter/QLetter.pdf On Quaternions]; &nbsp; or on a new System of Imaginaries in Algebra. &nbsp; By Sir William Rowan Hamilton LL.D, P.R.I.A., F.R.A.S., Hon. M. R. Soc. Ed. and Dub., Hon. or Corr. M. of the Royal or Imperial Academies of St. Petersburgh, Berlin, Turin and Paris, Member of the American Academy of Arts and Sciences, and of other Scientific Societies at Home and Abroad, Andrews' Prof. of Astronomy in the University of Dublin, and Royal Astronomer of Ireland.</li></ul><br><br>
 /// <br>
 /// <br>
 

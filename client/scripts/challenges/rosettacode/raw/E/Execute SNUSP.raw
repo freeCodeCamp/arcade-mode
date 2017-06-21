@@ -19,7 +19,7 @@ replaceWithActualFunctionHere;
 
 /// description:
 /// <br>
-/// <span class="rosetta__text--bold">RCSNUSP</span> is a set of <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/SNUSP" title="SNUSP"></a> compilers and interpreters written for Rosetta Code in a variety of languages. Below are links to each of the versions of RCSNUSP.
+/// <span class="rosetta__text--bold">RCSNUSP</span> is a set of <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/SNUSP" title="SNUSP">SNUSP</a> compilers and interpreters written for Rosetta Code in a variety of languages. Below are links to each of the versions of RCSNUSP.
 /// <br>
 /// An implementation need only properly implement the Core SNUSP instructions <nowiki>('$', '\', '/', '+', '-', '<', '>', ',', '.', '!', and '?')</nowiki>. Modular SNUSP ('#', '@') and Bloated SNUSP (':', ';', '%', and '&') are also allowed, but not required. Any extra characters that you implement should be noted in the description of your implementation. Any cell size is allowed, EOF support is optional, as is whether you have bounded or unbounded memory.
 /// <br>
