@@ -7,7 +7,7 @@
     "build": "NODE_ENV=production gulp build",
     "build-dev": "NODE_ENV=development gulp build-dev",
     "build-github": "NODE_ENV=production DEST=github gulp build",
-    "postinstall": "npm run build",
+    "postinstall": "npm run build && bin/buildCacheFile.js",
     "start": "node --use-strict server/server.js",
     "test": "NODE_ENV=test mocha --require test/helpers/browser.js --compilers .:babel-core/register --recursive test",
     "test:coverage": "NODE_ENV=test bin/cover_test_client.sh && bin/cover_test_server.sh",
@@ -82,7 +82,7 @@
     "performance-now": "^2.1.0",
     "react-test-renderer": "^15.6.1",
     "recursive-readdir": "^2.2.1",
-    "sinon": "^2.3.4",
+    "sinon": "^2.3.5",
     "tiny-worker": "^2.1.1",
     "uglifyify": "^3.0.4",
     "vinyl-buffer": "^1.0.0",
@@ -118,5 +118,9 @@
     "redux-thunk": "^2.2.0",
     "reselect": "^3.0.1",
     "serve-favicon": "^2.4.2"
+  },
+  "engines": {
+    "node": ">=8.0.0",
+    "npm": ">=5.0.0"
   }
 }
