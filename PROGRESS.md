@@ -1,4 +1,12 @@
 # PROGRESS for Arcade Mode
+## Tuesday 6/20/17:
+### Tim:
+  - Progress:
+    1. Further improve upon RosettaCode task extraction/parsing script.
+    2. Add Google spreadsheet to keep track of and make notes of task conversion process: https://docs.google.com/spreadsheets/d/1b_wMIaKR-gA0tD6ADQfDjDT5BBWaUsQyIPP0TS6o7is/edit?usp=sharing
+  - @:
+    - [ ] Newline spaces are added to text nodes that follow any div HTML element.
+
 ## Monday 6/19/17:
 ### Tim:
   - Progress:
