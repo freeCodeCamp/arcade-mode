@@ -22,6 +22,9 @@ browserify-cache.json
 # Ignore generated static content
 /public
 
+# Ignore raw RosettaCode files
+raw/
+
 # vim + other tools
 .vimrc
 vimproject
