@@ -5,7 +5,7 @@
 .rosetta {
   &__description {
     &-list {
-    
+      margin: 10px 0;
     }
     &-title {
       font-weight: bold;
@@ -25,15 +25,24 @@
   }
 
   &__unordered-list {
-    
+    line-height: 1;
+    margin: 0;
   }
 
   &__ordered-list {
-  
+    line-height: 1;
+    margin: 0;
   }
 
-  &__list-item {
+  &__list-item--ordered {
+    margin: 0;
+    line-height: 1;
+    list-style-position: inside;
+  }
+  &__list-item--unordered {
+    margin: 0;
+    line-height: 1;
     list-style-type: disc;
-    list-style-position: outside;
+    list-style-position: inside;
   }
 }
