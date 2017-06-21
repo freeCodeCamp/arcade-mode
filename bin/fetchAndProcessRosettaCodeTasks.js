@@ -28,7 +28,7 @@ let fetchCounter = 1;
 
 function getNextBatch (url) {
   if (!url) {
-    console.log('fetchAndProcessRosettaCodeTasks.js: script finished.');
+    console.log('fetchAndProcessRosettaCodeTasks.js: Script finished.');
     return;
   }
   let nextURL = '';
@@ -75,9 +75,24 @@ function getNextBatch (url) {
     .catch(err => console.error(err));
 }
 
-console.log('fetchAndProcessRosettaCodeTasks.js: script started.');
-console.log('The entire process should take about two minutes to fetch/process ~850 tasks.');
-console.log('These files will be saved under client/scripts/challenges/rosettacode/raw');
+// Execution Start Point
+// =====================
+console.log('fetchAndProcessRosettaCodeTasks.js: Script started.');
+
+// 1. Check if the raw/ directory exists already.
+if (fs.existsSync(outputPath)) {
+  // 2. If it does, check if a command line arg of '--force' was passed in:
+  const args = process.argv.slice(2);
+  // 3. If no '--force' argument was passed in, exit script.
+  if (args.indexOf('--force') === -1) {
+    console.log(`fetchAndProcessRosettaCodeTasks.js: The directory '${outputPath}' already exists. Skipping script execution.`);
+    console.log('fetchAndProcessRosettaCodeTasks.js: Run the script with the "--force" command line argument to force execution.');
+    process.exit();
+  }
+}
+
+console.log('fetchAndProcessRosettaCodeTasks.js: The entire process should take about two minutes to fetch/process ~850 tasks.');
+console.log('fetchAndProcessRosettaCodeTasks.js: These files will be saved under client/scripts/challenges/rosettacode/raw');
 getNextBatch(queryURL);
 
 // Helpers
