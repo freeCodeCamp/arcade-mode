@@ -27,7 +27,7 @@ const assert = require('chai').assert;
 /// <li class="rosetta__list-item--unordered"> 1, 2, 5, 10, 11, 22, 55, 110, 121, 242, 605   respectively.</li>
 /// </ul>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
-/// Calculate and show here the Amicable pairs below 20,000; (there are eight).
+/// Calculate and show here the Amicable pairs below 20,000 (there are eight).
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks</dt></dl>
 /// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Proper divisors" title="Proper divisors">Proper divisors</a></li>
 /// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Abundant, deficient and perfect number classifications" title="Abundant, deficient and perfect number classifications">Abundant, deficient and perfect number classifications</a></li>
