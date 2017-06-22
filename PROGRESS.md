@@ -6,6 +6,8 @@
       - script only fetches from endpoint when raw/ dir nonexistent. Use --force otherwise.
     2. Remove raw files from version control.
     3. Update challenges to current task processing output.
+  - @:
+    - [ ] Make cache busting update to latest on first page load instead of the second refresh.
 
 ## Tuesday 6/20/17:
 ### Tim:
