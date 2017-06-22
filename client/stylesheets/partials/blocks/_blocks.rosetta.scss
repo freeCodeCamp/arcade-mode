@@ -3,9 +3,16 @@
 // formatting for RosettaCode challenges:
 
 .rosetta {
+  // the entire element itself:
+  white-space: normal;
+
+  &__paragraph {
+    margin: 0;
+  }
+
   &__description {
     &-list {
-      margin: 10px 0;
+      margin: 10px 0 0 0;
     }
     &-title {
       font-weight: bold;
@@ -20,29 +27,35 @@
       font-style: italic;
     }
     &--indented {
-      text-indent: 0.5em;
+      display: inline-block;
+      text-indent: 1em;
     }
   }
 
   &__unordered-list {
-    line-height: 1;
     margin: 0;
   }
 
   &__ordered-list {
-    line-height: 1;
     margin: 0;
   }
 
   &__list-item--ordered {
     margin: 0;
-    line-height: 1;
     list-style-position: inside;
   }
   &__list-item--unordered {
     margin: 0;
-    line-height: 1;
     list-style-type: disc;
     list-style-position: inside;
+  }
+
+  &__pre-wrap {
+    text-align: center;
+  }
+
+  &__pre {
+    text-align: initial;
+    display: inline-block;
   }
 }
