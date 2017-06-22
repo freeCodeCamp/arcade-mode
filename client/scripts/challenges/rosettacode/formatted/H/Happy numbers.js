@@ -17,9 +17,11 @@ const assert = require('chai').assert;
 /// difficulty: 2
 
 /// description:
-/// A happy number is defined by the following process:<br/>
-/// Starting with any positive integer, replace the number by the sum of the squares of its digits, and repeat the process until the number equals 1 (where it will stay), or it loops endlessly in a cycle which does not include 1. Those numbers for which this process ends in 1 are happy numbers, while those that do not end in 1 are unhappy numbers.<br/>
-/// Implement a function that returns true if the number is happy, or false if not.
+/// <div class="rosetta">
+/// <p class="rosetta__paragraph">A happy number is defined by the following process:</p>
+/// <p class="rosetta__paragraph">Starting with any positive integer, replace the number by the sum of the squares of its digits, and repeat the process until the number equals 1 (where it will stay), or it loops endlessly in a cycle which does not include 1. Those numbers for which this process ends in 1 are happy numbers, while those that do not end in 1 are unhappy numbers.</p>
+/// <p class="rosetta__paragraph">Implement a function that returns true if the number is happy, or false if not.</p>
+/// </div>
 
 /// challengeSeed:
 function happy (number) {

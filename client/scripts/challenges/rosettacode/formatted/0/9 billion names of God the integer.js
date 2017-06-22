@@ -19,27 +19,29 @@ const assert = require('chai').assert;
 /// benchmark:
 
 /// description:
-/// This task is a variation of the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/The Nine Billion Names of God#Plot_summary" title="wp: The Nine Billion Names of God#Plot_summary">short story by Arthur C. Clarke</a>.
-/// (Solvers should be aware of the consequences of completing this task.)
-/// In detail, to specify what is meant by a &nbsp; “name”:
-/// <span class="rosetta__text--indented">The integer 1 has 1 name  &nbsp; &nbsp;  “1”.</span>
-/// <span class="rosetta__text--indented">The integer 2 has 2 names &nbsp; “1+1”, &nbsp; and &nbsp; “2”.</span>
-/// <span class="rosetta__text--indented">The integer 3 has 3 names &nbsp; “1+1+1”, &nbsp; “2+1”, &nbsp; and &nbsp; “3”.</span>
-/// <span class="rosetta__text--indented">The integer 4 has 5 names &nbsp; “1+1+1+1”, &nbsp; “2+1+1”, &nbsp; “2+2”, &nbsp; “3+1”, &nbsp; “4”.</span>
-/// <span class="rosetta__text--indented">The integer 5 has 7 names &nbsp; “1+1+1+1+1”, &nbsp; “2+1+1+1”, &nbsp; “2+2+1”, &nbsp; “3+1+1”, &nbsp; “3+2”, &nbsp; “4+1”, &nbsp; “5”.</span>
+/// <div class="rosetta">
+/// <p class="rosetta__paragraph">This task is a variation of the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/The Nine Billion Names of God#Plot_summary" title="wp: The Nine Billion Names of God#Plot_summary">short story by Arthur C. Clarke</a>.</p>
+/// <p class="rosetta__paragraph">(Solvers should be aware of the consequences of completing this task.)</p>
+/// <p class="rosetta__paragraph">In detail, to specify what is meant by a  “name”:</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">The integer 1 has 1 name “1”.</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">The integer 2 has 2 names “1+1”, and “2”.</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">The integer 3 has 3 names “1+1+1”, “2+1”,  and “3”.</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">The integer 4 has 5 names “1+1+1+1”, “2+1+1”, “2+2”, “3+1”, “4”.</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">The integer 5 has 7 names “1+1+1+1+1”, “2+1+1+1”, “2+2+1”, “3+1+1”, “3+2”, “4+1”, “5”.</span></p>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task</dt></dl>
-/// Display the first 25 rows of a number triangle which begins:
-/// <pre>
-///                                       1
-///                                     1   1
-///                                   1   1   1
-///                                 1   2   1   1
-///                               1   2   2   1   1
-///                             1   3   3   2   1   1
-/// </pre>
-/// Where row &nbsp; $n$ &nbsp; corresponds to integer &nbsp; $n$, &nbsp; and each column &nbsp; $C$ &nbsp; in row &nbsp; $m$ &nbsp; from left to right corresponds to the number of names beginning with &nbsp; $C$.
-/// Your function &nbsp; $G(n)$ &nbsp; should return the sum of the &nbsp; $n$-th &nbsp; row.
-/// Optionally note that the sum of the &nbsp; $n$-th &nbsp; row &nbsp; $P(n)$ &nbsp; is the &nbsp;  [http://mathworld.wolfram.com/PartitionFunctionP.html &nbsp; integer partition function].
+/// <p class="rosetta__paragraph">Display the first 25 rows of a number triangle which begins:</p>
+/// <div class="rosetta__pre-wrap"><pre class="rosetta__pre">
+///           1
+///         1   1
+///       1   1   1
+///     1   2   1   1
+///   1   2   2   1   1
+/// 1   3   3   2   1   1
+/// </pre></div>
+/// <p class="rosetta__paragraph">Where row  $n$  corresponds to integer  $n$,  and each column  $C$  in row  $m$  from left to right corresponds to the number of names beginning with $C$.</p>
+/// <p class="rosetta__paragraph">A function  $G(n)$  should return the sum of the  $n$-th  row.</p>
+/// <p class="rosetta__paragraph">Optionally note that the sum of the  $n$-th  row  $P(n)$  is the   <a class="rosetta__link--wiki" href="http://mathworld.wolfram.com/PartitionFunctionP.html" title="link: http://mathworld.wolfram.com/PartitionFunctionP.html">integer partition function</a>.</p>
+/// </div>
 
 /// challengeSeed:
 function numberOfNames (num) {

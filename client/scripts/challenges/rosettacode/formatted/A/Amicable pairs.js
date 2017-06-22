@@ -18,12 +18,13 @@ const assert = require('chai').assert;
 /// benchmark:
 
 /// description:
+/// <div class="rosetta">
 /// Two integers $N$ and $M$ are said to be <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Amicable numbers" title="wp: Amicable numbers">amicable pairs</a> if $N \neq M$ and the sum of the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Proper divisors" title="Proper divisors">proper divisors</a> of $N$ ($\mathrm{sum}(\mathrm{propDivs}(N))$) $= M$ as well as $\mathrm{sum}(\mathrm{propDivs}(M)) = N$.
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Example:</dt></dl>
 /// <span class="rosetta__text--bold">1184</span> and <span class="rosetta__text--bold">1210</span> are an amicable pair, with proper divisors:
 /// <ul class="rosetta__unordered-list">
-/// <li class="rosetta__list-item--unordered">&nbsp; 1, 2, 4, 8, 16, 32, 37, 74, 148, 296, 592 &nbsp; and </li>
-/// <li class="rosetta__list-item--unordered">&nbsp; 1, 2, 5, 10, 11, 22, 55, 110, 121, 242, 605  &nbsp; respectively.</li>
+/// <li class="rosetta__list-item--unordered"> 1, 2, 4, 8, 16, 32, 37, 74, 148, 296, 592  and </li>
+/// <li class="rosetta__list-item--unordered"> 1, 2, 5, 10, 11, 22, 55, 110, 121, 242, 605   respectively.</li>
 /// </ul>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
 /// Calculate and show here the Amicable pairs below 20,000; (there are eight).
@@ -31,6 +32,7 @@ const assert = require('chai').assert;
 /// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Proper divisors" title="Proper divisors">Proper divisors</a></li>
 /// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Abundant, deficient and perfect number classifications" title="Abundant, deficient and perfect number classifications">Abundant, deficient and perfect number classifications</a></li>
 /// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Aliquot sequence classifications" title="Aliquot sequence classifications">Aliquot sequence classifications</a> and its amicable <span class="rosetta__text--italic">classification</span>.</li></ul>
+/// </div>
 
 /// challengeSeed:
 function amicablePairsUpTo (maxNum) {

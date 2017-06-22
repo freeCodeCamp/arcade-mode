@@ -18,33 +18,35 @@ const assert = require('chai').assert;
 /// difficulty: 3
 
 /// description:
-/// You are given a collection of ABC blocks (e.g., childhood alphabet blocks). There are 20 blocks with two letters on each block. A complete alphabet is guaranteed amongst all sides of the blocks. The sample collection of blocks:
-/// (B O)
-/// (X K)
-/// (D Q)
-/// (C P)
-/// (N A)
-/// (G T)
-/// (R E)
-/// (T G)
-/// (Q D)
-/// (F S)
-/// (J W)
-/// (H U)
-/// (V I)
-/// (A N)
-/// (O B)
-/// (E R)
-/// (F S)
-/// (L Y)
-/// (P C)
-/// (Z M)
-/// Some rules to keep in mind:
+/// <div class="rosetta">
+/// <p class="rosetta__paragraph">You are given a collection of ABC blocks (e.g., childhood alphabet blocks). There are 20 blocks with two letters on each block. A complete alphabet is guaranteed amongst all sides of the blocks. The sample collection of blocks:</p>
+/// <p class="rosetta__paragraph">(B O)</p>
+/// <p class="rosetta__paragraph">(X K)</p>
+/// <p class="rosetta__paragraph">(D Q)</p>
+/// <p class="rosetta__paragraph">(C P)</p>
+/// <p class="rosetta__paragraph">(N A)</p>
+/// <p class="rosetta__paragraph">(G T)</p>
+/// <p class="rosetta__paragraph">(R E)</p>
+/// <p class="rosetta__paragraph">(T G)</p>
+/// <p class="rosetta__paragraph">(Q D)</p>
+/// <p class="rosetta__paragraph">(F S)</p>
+/// <p class="rosetta__paragraph">(J W)</p>
+/// <p class="rosetta__paragraph">(H U)</p>
+/// <p class="rosetta__paragraph">(V I)</p>
+/// <p class="rosetta__paragraph">(A N)</p>
+/// <p class="rosetta__paragraph">(O B)</p>
+/// <p class="rosetta__paragraph">(E R)</p>
+/// <p class="rosetta__paragraph">(F S)</p>
+/// <p class="rosetta__paragraph">(L Y)</p>
+/// <p class="rosetta__paragraph">(P C)</p>
+/// <p class="rosetta__paragraph">(Z M)</p>
+/// <p class="rosetta__paragraph">Some rules to keep in mind:</p>
 /// <ol class='rosetta__ordered-list'>
 /// <li class='rosetta__list-item--ordered'>Once a letter on a block is used, that block cannot be used again.</li>
 /// <li class='rosetta__list-item--ordered'>The function should be case-insensitive.</li>
 /// </ol>
-/// Implement a function that takes a string (word) and determines whether the word can be spelled with the given collection of blocks.
+/// <p class="rosetta__paragraph">Implement a function that takes a string (word) and determines whether the word can be spelled with the given collection of blocks.</p>
+/// </div>
 
 /// challengeSeed:
 function canMakeWord (word) {
