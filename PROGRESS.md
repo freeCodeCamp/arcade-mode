@@ -1,4 +1,12 @@
 # PROGRESS for Arcade Mode
+## Wednesday 6/21/17:
+### Tim:
+  - Progress:
+    1. Continue improvements on RosettaCode task extraction/processing script.
+      - script only fetches from endpoint when raw/ dir nonexistent. Use --force otherwise.
+    2. Remove raw files from version control.
+    3. Update challenges to current task processing output.
+
 ## Tuesday 6/20/17:
 ### Tim:
   - Progress:
