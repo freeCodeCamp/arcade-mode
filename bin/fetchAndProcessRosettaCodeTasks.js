@@ -102,7 +102,7 @@ if (fs.existsSync(outputPath)) {
   }
 }
 
-console.log('fetchAndProcessRosettaCodeTasks.js: The entire process should take about three minutes to fetch/process ~850 tasks.');
+console.log('fetchAndProcessRosettaCodeTasks.js: The entire process should take about 3-4 minutes to fetch/process ~850 tasks.');
 console.log('fetchAndProcessRosettaCodeTasks.js: These files will be saved under client/scripts/challenges/rosettacode/raw');
 
 getNextBatch(queryURL);
