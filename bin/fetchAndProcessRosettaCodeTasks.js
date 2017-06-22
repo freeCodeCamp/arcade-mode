@@ -11,6 +11,7 @@
 
 /* eslint no-confusing-arrow: 0 */
 /* eslint no-param-reassign: 0 */
+/* eslint no-mixed-operators: 0 */
 
 const fs = require('fs');
 const path = require('path');
@@ -31,15 +32,20 @@ function getNextBatch (url) {
     console.log('fetchAndProcessRosettaCodeTasks.js: Script finished.');
     return;
   }
+
   let nextURL = '';
+
+  console.log(`Fetching batch ${fetchCounter} - ${fetchCounter + batchSize - 1}`);
+  fetchCounter += batchSize;
+
   return fetch(url)
-    .then(res => res.json())
+    .then(res => {
+      console.log('Received pageids.');
+      return res.json();
+    })
     // Assign new url for fetching next batch:
     .then(checkContinue => {
       if (checkContinue.continue) {
-        console.log(`Fetching batch ${fetchCounter} - ${fetchCounter + batchSize}`);
-        fetchCounter += batchSize;
-
         const continueTrue = checkContinue.continue.continue;
         const continueFetch = checkContinue.continue.gcmcontinue;
         nextURL = `${queryURL}${continueTrue}&gcmcontinue=${continueFetch}`;
@@ -49,9 +55,13 @@ function getNextBatch (url) {
     })
     .then(body => Object.keys(body.query.pages).join('|'))
     .then(pageids => fetch(`${contentURL}${pageids}`))
-    .then(rawcontent => rawcontent.json())
-    .then(content => content.query.pages)
-    .then(pageContents => {
+    .then(rawcontent => {
+      console.log('Received page contents.');
+      return rawcontent.json();
+    })
+    .then(content => {
+      const pageContents = content.query.pages;
+
       Object.keys(pageContents).forEach(pageid => {
         const title = pageContents[pageid].title;
         const text = pageContents[pageid].revisions[0]['*'];
@@ -71,12 +81,13 @@ function getNextBatch (url) {
         }
       });
     })
-    .then(() => getNextBatch(nextURL))
-    .catch(err => console.error(err));
+    .catch(err => console.error(err))
+    .then(() => getNextBatch(nextURL));
 }
 
 // Execution Start Point
 // =====================
+
 console.log('fetchAndProcessRosettaCodeTasks.js: Script started.');
 
 // 1. Check if the raw/ directory exists already.
@@ -91,11 +102,15 @@ if (fs.existsSync(outputPath)) {
   }
 }
 
-console.log('fetchAndProcessRosettaCodeTasks.js: The entire process should take about two minutes to fetch/process ~850 tasks.');
+console.log('fetchAndProcessRosettaCodeTasks.js: The entire process should take about three minutes to fetch/process ~850 tasks.');
 console.log('fetchAndProcessRosettaCodeTasks.js: These files will be saved under client/scripts/challenges/rosettacode/raw');
+
 getNextBatch(queryURL);
 
+
 // Helpers
+// =======
+
 function ensureDirectoryExistence(filePath) {
   if (fs.existsSync(filePath)) {
     return true;
@@ -113,9 +128,11 @@ function processRawRosettaCodeTask (taskName, content) {
   const rawDescription = content.match(descriptionBlobRegex) && content.match(descriptionBlobRegex)[1];
 
   // 1. Regexes for transforming RosettaCode specific syntax to in-house/regular.
+  const stripAllNBSPRegex = /&nbsp;/g;
   const categoriesRegex = /\[\[Category:([^\]]*)\]\]/g;
   const wikipediaTemplateRegex = /\[\[(?:wp:)([^|]*?)\|(.*?)\]\]/g;
   const rosettaTemplateRegex = /\[\[(?!wp:)(?!Category:)(.*?)(?:\|(.*?))?\]\]/g;
+  const otherLinkTemplateRegex = /\[(https?:\/\/(?:[\S]*)) (.*?)\]/g;
   const tripleSingleQuotesRegex = /'''(.*?)'''/g; // convert to bold
   const doubleSingleQuotesRegex = /''(.*?)''/g; // convert to italics
   const doubleCurlyBraceRegex = /{{(.*?)}}/g; // remove all double curly braces
@@ -124,13 +141,17 @@ function processRawRosettaCodeTask (taskName, content) {
   const asteriskLineStartRegex = /^\*\s?(.*)$/gm; // convert all asterisk start lines to li
   const hashLineStartRegex = /^#\s?(.*)$/gm; // convert all hash start lines to numbered
   const wrapAllListElementsRegex = /((?:<li [^>]*>.*<\/li>\n?)+)/g;
-  const mathRegex = /<\/?math>/gi;
+  const preRegex = /<pre>([\s\S]*?)<\/pre>/g; // wrap all pre elements with div for centering
+  const mathRegex = /<\/?math>/gi; // convert all <math> tags to TeX $
+  const regularTextRegex = /(?!(?:^<(?:\/|div|dl|ul|ol|li|pre|br)))^(.*)$/gm;
+  const wrapAllRegex = /^([\s\S]*)$/; // wrap everything in <div class="rosetta">$1</div>
 
   // 2. Regex for adding in-house syntax:
   const addTripleSlashAndSpace = /^(.*)$/gm;
 
   // 3. Convert description:
   const description = rawDescription
+    .replace(stripAllNBSPRegex, '')
     .replace(categoriesRegex, (category, first) => {
       categories.push(`/// ${first}`);
       return '';
@@ -143,6 +164,8 @@ function processRawRosettaCodeTask (taskName, content) {
       }
       return `<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/${m1}" title="${m1}">${m1}</a>`;
     })
+    .replace(otherLinkTemplateRegex, (match, m1, m2) =>
+      `<a class="rosetta__link--wiki" href="${m1}" title="link: ${m1}">${m2.trim()}</a>`)
     .replace(tripleSingleQuotesRegex, '<span class="rosetta__text--bold">$1</span>')
     .replace(doubleSingleQuotesRegex, '<span class="rosetta__text--italic">$1</span>')
     .replace(doubleCurlyBraceRegex, '')
@@ -159,16 +182,20 @@ function processRawRosettaCodeTask (taskName, content) {
       }
       return `<ol class="rosetta__ordered-list">${listEls}</ol>`;
     })
+    .replace(preRegex, '<div class="rosetta__pre-wrap"><pre class="rosetta__pre">$1</pre></div>')
     .replace(mathRegex, '$')
-    .replace(addTripleSlashAndSpace, match => match === '' ? '/// <br>' : `/// ${match}`);
+    .replace(regularTextRegex, match => match.trim() === '' ? '' : `<p class="rosetta__paragraph">${match.trim()}</p>`)
+    .replace(wrapAllRegex, '<div class="rosetta">$1</div>')
+    .replace(addTripleSlashAndSpace, match => match.trim() === '' ? '' : `/// ${match}`);
 
   // PROCESS solution:
+  let solution = '';
+
   // 0. Initial extraction of solution segment:
   const jsSolutionsBlobRegex = /(==\{\{header\|JavaScript\}\}==[\s\S]*?)==\{\{header\|/;
   const rawSolutions = content.match(jsSolutionsBlobRegex) && content.match(jsSolutionsBlobRegex)[1];
 
   // 1. Extract first solution, if available, else return an empty string:
-  let solution = '';
   if (rawSolutions) {
     const solutionsRegex = /<lang JavaScript>([\s\S]*?)<\/lang>/i;
     // only processing the first solution by default:
