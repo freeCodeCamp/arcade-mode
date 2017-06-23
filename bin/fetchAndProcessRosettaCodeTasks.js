@@ -141,13 +141,22 @@ function processRawRosettaCodeTask (taskName, content) {
   const asteriskLineStartRegex = /^\*\s?(.*)$/gm; // convert all asterisk start lines to li
   const hashLineStartRegex = /^#\s?(.*)$/gm; // convert all hash start lines to numbered
   const wrapAllListElementsRegex = /((?:<li [^>]*>.*<\/li>\n?)+)/g;
-  const preRegex = /<pre>([\s\S]*?)<\/pre>/g; // wrap all pre elements with div for centering
   const mathRegex = /<\/?math>/gi; // convert all <math> tags to TeX $
+  const preRegex = /<pre>([\s\S]*?)<\/pre>/g; // wrap all pre elements with div for centering
   const regularTextRegex = /(?!(?:^<(?:\/|div|dl|ul|ol|li|pre|br)))^(.*)$/gm;
+  const prewrapRegex = /<div class="rosetta__pre-wrap">(\d)<\/div>/g;
+  const doubleNewLinesRegex = /(\n)\n\n/g; // convert all \n\n to <br/>
+  const singleNewLineRegex = /([\s\S]*?)\n\n/g; // replace all single \n with preceding <br/>
   const wrapAllRegex = /^([\s\S]*)$/; // wrap everything in <div class="rosetta">$1</div>
 
   // 2. Regex for adding in-house syntax:
   const addTripleSlashAndSpace = /^(.*)$/gm;
+
+  // array to save all <pre> content so that all non-wrapped elements can be
+  // wrapped in <div class="rosetta__paragraph"></div>
+  // reinsert <pre> content following replacement.
+  const savePre = {};
+  let preCount = 0;
 
   // 3. Convert description:
   const description = rawDescription
@@ -182,9 +191,19 @@ function processRawRosettaCodeTask (taskName, content) {
       }
       return `<ol class="rosetta__ordered-list">${listEls}</ol>`;
     })
-    .replace(preRegex, '<div class="rosetta__pre-wrap"><pre class="rosetta__pre">$1</pre></div>')
     .replace(mathRegex, '$')
+    .replace(preRegex, (match, m1) => {
+      preCount++; // thus, numbering actually starts at 1.
+      // save inner content of pre
+      savePre[preCount] = `<pre class="rosetta__pre">${m1}</pre>`;
+      // return pre-wrap for now
+      return `<div class="rosetta__pre-wrap">${preCount}</div>`;
+    })
     .replace(regularTextRegex, match => match.trim() === '' ? '' : `<p class="rosetta__paragraph">${match.trim()}</p>`)
+    // fill in pre-wrap here
+    .replace(prewrapRegex, (match, m1) => `<div class="rosetta__pre-wrap">${savePre[m1]}</div>`)
+    .replace(doubleNewLinesRegex, '$1<br/>')
+    .replace(singleNewLineRegex, '$1<br/>')
     .replace(wrapAllRegex, '<div class="rosetta">$1</div>')
     .replace(addTripleSlashAndSpace, match => match.trim() === '' ? '' : `/// ${match}`);
 
