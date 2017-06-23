@@ -36,8 +36,16 @@ export default class ArcadeMode extends Component {
     this.onClickSaveSession = this.onClickSaveSession.bind(this);
   }
 
-  /* Loads stored user data */
   componentDidMount() {
+    // TODO:
+    // this.props.loadContent();
+    // check if IDB @ generalStorage exists, if not download everything into IDB
+      // option A: retrieve each individual item from IDB; disk read
+      // option B: load everything into RAM?
+    // if error in downloading everything, set flag to have everything fetched from network
+    // if not found in IDB or network flag set, fetch from network
+
+    // Load stored user data
     this.props.loadUserData();
   }
 
