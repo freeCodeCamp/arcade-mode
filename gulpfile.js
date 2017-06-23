@@ -97,7 +97,12 @@ const paths = {
     scripts: ['client/scripts/vendor/**/*'], // browserify currently imports loop-protect
     stylesheets: ['client/stylesheets/vendor/**/*.css']
   },
-  views: ['server/views/*.pug'] // generated for static sites
+  views: ['server/views/*.pug'], // generated for static sites
+  IDB: {
+    images: ['client/IDB/images/**/*'],
+    jsons: ['client/IDB/jsons/**/*'],
+    miscs: ['client/IDB/miscs/**/*']
+  }
 };
 
 
@@ -148,9 +153,9 @@ gulp.task('build-json', () => {
 // Builds the arcade-mode json from js challenge files
 gulp.task('build-js2json', done => {
   const arcade2json = `bin/js2json_challenges.js\
-    --force -f client/scripts/challenges/arcade/*.js -o ${ghPages}public/json/challenges-arcade.json`;
+    --force -f client/scripts/challenges/arcade/*.js -o ${ghPages}public/IDB/json/challenges-arcade.json`;
   const rosetta2json = `bin/js2json_challenges.js\
-    --force -f client/scripts/challenges/rosettacode/formatted/**/*.js -o ${ghPages}public/json/challenges-rosetta.json`;
+    --force -f client/scripts/challenges/rosettacode/formatted/**/*.js -o ${ghPages}public/IDB/json/challenges-rosetta.json`;
 
   return Promise.all([arcade2json, rosetta2json].map(js2json =>
     new Promise((resolve, reject) => {
@@ -244,7 +249,7 @@ gulp.task('build-appcache', () =>
       network: ['*'],
       // fallback:
       filename: 'offline.appcache',
-      exclude: 'offline.appcache'
+      exclude: ['offline.appcache', 'IDB/**/*']
     }))
     .pipe(gulp.dest(`${ghPages}public`))
     .pipe(browserSync.reload({ stream: true }))
@@ -297,7 +302,7 @@ gulp.task('build-appcache-dev', () =>
       network: ['*'],
       // fallback:
       filename: 'offline.appcache',
-      exclude: 'offline.appcache'
+      exclude: ['offline.appcache', 'IDB/**/*']
     }))
     .pipe(gulp.dest('public'))
     .pipe(browserSync.reload({ stream: true }))
