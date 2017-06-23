@@ -1,12 +1,11 @@
-
+/// WIP
+//
 /* eslint spaced-comment: 0 */
 /* eslint no-redeclare: 0 */
 /* eslint no-undef: 0 */
 /* eslint no-unused-vars: 0 */
 
 const assert = require('chai').assert;
-
-/// WIP
 
 /// title: 24 game
 /// type: rosetta-code
