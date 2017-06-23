@@ -1,0 +1,181 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Y combinator
+/// type: rosetta-code
+
+/// categories:
+/// Recursion
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <br/>
+/// <p class="rosetta__paragraph">In strict <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Functional programming" title="wp: Functional programming">functional programming</a> and the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/lambda calculus" title="wp: lambda calculus">lambda calculus</a>, functions (lambda expressions) don't have state and are only allowed to refer to arguments of enclosing functions.</p>
+/// <p class="rosetta__paragraph">This rules out the usual definition of a recursive function wherein a function is associated with the state of a variable and this variable's state is used in the body of the function.</p><br/><p class="rosetta__paragraph">The <a class="rosetta__link--wiki" href="http://mvanier.livejournal.com/2897.html" title="link: http://mvanier.livejournal.com/2897.html">Y combinator</a> is itself a stateless function that, when applied to another stateless function, returns a recursive version of the function. The Y combinator is the simplest of the class of such functions, called <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Fixed-point combinator" title="wp: Fixed-point combinator">fixed-point combinators</a>.</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Define the stateless Y combinator and use it to compute <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Factorial" title="wp: Factorial">factorials</a> and <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Fibonacci number" title="wp: Fibonacci number">Fibonacci numbers</a> from other stateless functions or lambda expressions.</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Cf:</dt></dl>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"><a class="rosetta__link--wiki" href="http://vimeo.com/45140590" title="link: http://vimeo.com/45140590">Jim Weirich: Adventures in Functional Programming</a></li></ul><br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+function Y(f) {
+    var g = f((function(h) {
+        return function() {
+            var g = f(h(h));
+            return g.apply(this, arguments);
+        }
+    })(function(h) {
+        return function() {
+            var g = f(h(h));
+            return g.apply(this, arguments);
+        }
+    }));
+    return g;
+}
+
+var fac = Y(function(f) {
+    return function (n) {
+        return n > 1 ? n * f(n - 1) : 1;
+    };
+});
+
+var fib = Y(function(f) {
+    return function(n) {
+        return n > 1 ? f(n - 1) + f(n - 2) : n;
+    };
+});
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+The standard version of the Y combinator does not use lexically bound local variables (or any local variables at all), which necessitates adding a wrapper function and some code duplication - the remaining locale variables are only there to make the relationship to the previous implementation more explicit:
+<lang javascript>function Y(f) {
+    var g = f((function(h) {
+        return function() {
+            var g = f(h(h));
+            return g.apply(this, arguments);
+        }
+    })(function(h) {
+        return function() {
+            var g = f(h(h));
+            return g.apply(this, arguments);
+        }
+    }));
+    return g;
+}
+
+var fac = Y(function(f) {
+    return function (n) {
+        return n > 1 ? n * f(n - 1) : 1;
+    };
+});
+
+var fib = Y(function(f) {
+    return function(n) {
+        return n > 1 ? f(n - 1) + f(n - 2) : n;
+    };
+});</lang>
+Changing the order of function application (i.e. the place where <code>f</code> gets called) and making use of the fact that we're generating a fixed-point, this can be reduced to
+<lang javascript>function Y(f) {
+    return (function(h) {
+        return h(h);
+    })(function(h) {
+        return f(function() {
+            return h(h).apply(this, arguments);
+        });
+    });
+}</lang>
+A functionally equivalent version using the implicit <code>this</code> parameter is also possible:
+<lang javascript>function pseudoY(f) {
+    return (function(h) {
+        return h(h);
+    })(function(h) {
+        return f.bind(function() {
+            return h(h).apply(null, arguments);
+        });
+    });
+}
+
+var fac = pseudoY(function(n) {
+    return n > 1 ? n * this(n - 1) : 1;
+});
+
+var fib = pseudoY(function(n) {
+    return n > 1 ? this(n - 1) + this(n - 2) : n;
+});</lang>
+However, <code>pseudoY()</code> is not a fixed-point combinator.
+
+The usual version using recursion, disallowed by the task:
+<lang javascript>function Y(f) {
+    return function() {
+    	return f(Y(f)).apply(this, arguments);
+    };
+}</lang>
+
+Another version which is disallowed because it uses <code>arguments.callee</code> for a function to get itself recursively:
+<lang javascript>function Y(f) {
+    return function() {
+    	return f(arguments.callee).apply(this, arguments);
+    };
+}</lang>
+===ECMAScript 2015 (ES6) variants===
+Since ECMAScript 2015 (ES6) just reached final draft, there are new ways to encode the applicative order Y combinator.
+These use the new fat arrow function expression syntax, and are made to allow functions of more than one argument through the use of new rest parameters syntax and the corresponding new spread operator syntax. Also showcases new default parameter value syntax:
+<lang javascript>let
+    Y= // Except for the η-abstraction necessary for applicative order languages, this is the formal Y combinator.
+        f=>((g=>(f((...x)=>g(g)(...x))))
+            (g=>(f((...x)=>g(g)(...x))))),
+    Y2= // Using β-abstraction to eliminate code repetition.
+        f=>((f=>f(f))
+            (g=>(f((...x)=>g(g)(...x))))),
+    Y3= // Using β-abstraction to separate out the self application combinator δ.
+        ((δ=>f=>δ(g=>(f((...x)=>g(g)(...x)))))
+         ((f=>f(f)))),
+    fix= // β/η-equivalent fix point combinator. Easier to convert to memoise than the Y combinator.
+        (((f)=>(g)=>(h)=>(f(h)(g(h)))) // The Substitute combinator out of SKI calculus
+         ((f)=>(g)=>(...x)=>(f(g(g)))(...x)) // S((S(KS)K)S(S(KS)K))(KI)
+         ((f)=>(g)=>(...x)=>(f(g(g)))(...x))),
+    fix2= // β/η-converted form of fix above into a more compact form
+        f=>(f=>f(f))(g=>(...x)=>f(g(g))(...x)),
+    opentailfact= // Open version of the tail call variant of the factorial function
+        fact=>(n,m=1)=>n<2?m:fact(n-1,n*m);
+    tailfact= // Tail call version of factorial function
+        Y(opentailfact);</lang>
+ECMAScript 2015 (ES6) also permits a really compact polyvariadic variant for mutually recursive functions:
+<lang javascript>let
+    polyfix= // A version that takes an array instead of multiple arguments would simply use l instead of (...l) for parameter
+        (...l)=>(
+            (f=>f(f))
+            (g=>l.map(f=>(...x)=>f(...g(g))(...x)))),
+    [even,odd]= // The new destructive assignment syntax for arrays
+        polyfix(
+            (even,odd)=>n=>(n===0)||odd(n-1),
+            (even,odd)=>n=>(n!==0)&&even(n-1));</lang>
+
+A minimalist version:
+
+<lang javascript>var Y = f => (x => x(x))(y => f(x => y(y)(x)));
+var fac = Y(f => n => n > 1 ? n * f(n-1) : 1);</lang>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,0 +1,101 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Singly-linked list/Element definition
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><p class="rosetta__paragraph">Define the data structure for a <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/singly-linked list" title="singly-linked list">singly-linked list</a> element. Said element should contain a data member capable of holding a numeric value, and the link to the next element should be mutable.</p>
+/// <br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+function LinkedList(value, next) {
+    this._value = value;
+    this._next = next;
+}
+LinkedList.prototype.value = function() {
+    if (arguments.length == 1) 
+        this._value = arguments[0];
+    else
+        return this._value;
+}
+LinkedList.prototype.next = function() {
+    if (arguments.length == 1) 
+        this._next = arguments[0];
+    else
+        return this._next;
+}
+
+// convenience function to assist the creation of linked lists.
+function createLinkedListFromArray(ary) {
+    var head = new LinkedList(ary[0], null);
+    var prev = head;
+    for (var i = 1; i < ary.length; i++) {
+        var node = new LinkedList(ary[i], null);
+        prev.next(node);
+        prev = node;
+    }
+    return head;
+}
+
+var head = createLinkedListFromArray([10,20,30,40]);
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+<lang javascript>function LinkedList(value, next) {
+    this._value = value;
+    this._next = next;
+}
+LinkedList.prototype.value = function() {
+    if (arguments.length == 1) 
+        this._value = arguments[0];
+    else
+        return this._value;
+}
+LinkedList.prototype.next = function() {
+    if (arguments.length == 1) 
+        this._next = arguments[0];
+    else
+        return this._next;
+}
+
+// convenience function to assist the creation of linked lists.
+function createLinkedListFromArray(ary) {
+    var head = new LinkedList(ary[0], null);
+    var prev = head;
+    for (var i = 1; i < ary.length; i++) {
+        var node = new LinkedList(ary[i], null);
+        prev.next(node);
+        prev = node;
+    }
+    return head;
+}
+
+var head = createLinkedListFromArray([10,20,30,40]);</lang>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

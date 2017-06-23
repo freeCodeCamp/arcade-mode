@@ -1,0 +1,195 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Zeckendorf number representation
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><br/><p class="rosetta__paragraph">Just as numbers can be represented in a positional notation as sums of multiples of the powers of ten (decimal) or two (binary); all the positive integers can be represented as the sum of one or zero times the distinct members of the Fibonacci series.</p><br/><p class="rosetta__paragraph">Recall that the first six distinct Fibonacci numbers are:  1, 2, 3, 5, 8, 13.</p><br/><p class="rosetta__paragraph">The decimal number eleven can be written as 0*13 + 1*8 + 0*5 + 1*3 + 0*2 + 0*1 or 010100 in positional notation where the columns represent multiplication by a particular member of the sequence. Leading zeroes are dropped so that 11 decimal becomes 10100.</p><br/><p class="rosetta__paragraph">10100 is not the only way to make 11 from the Fibonacci numbers however;  0*13 + 1*8 + 0*5 + 0*3 + 1*2 + 1*1 or 010011 would also represent decimal 11. For a true Zeckendorf number there is the added restriction that <span class="rosetta__text--italic">no two consecutive Fibonacci numbers can be used</span> which leads to the former unique solution.</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Generate and show here a table of the Zeckendorf number representations of the decimal numbers zero to twenty, in order.</p><br/><p class="rosetta__paragraph">The intention in this task to find the Zeckendorf form of an arbitrary integer.  The Zeckendorf form can be iterated by some bit twiddling rather than calculating each value separately but leave that to another separate task.</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Also see:</dt></dl>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"> <a class="rosetta__link--wiki" href="http://oeis.org/A014417" title="link: http://oeis.org/A014417">OEIS A014417</a>  for the the sequence of required results.</li>
+/// <li class="rosetta__list-item--unordered"> <a class="rosetta__link--wiki" href="http://www.youtube.com/watch?v=kQZmZRE0cQY&list=UUoxcjq-8xIDTYp3uz647V5A&index=3&feature=plcp" title="link: http://www.youtube.com/watch?v=kQZmZRE0cQY&list=UUoxcjq-8xIDTYp3uz647V5A&index=3&feature=plcp">Brown's Criterion - Numberphile</a></li></ul><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Related task:</dt></dl>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"> <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Fibonacci sequence" title="Fibonacci sequence">Fibonacci sequence</a></li></ul><br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+(() => {
+    'use strict';
+
+    // zeckendorf :: Int -> String
+    function zeckendorf(n) {
+        let f = (n, x) => (n < x ? [n, 0] : [n - x, 1]);
+
+        return (n === 0 ? (
+                [0]
+            ) : mapAccumL(f, n, reverse(tail(fibUntil(n))))[1])
+            .join('');
+    }
+
+
+    // fibUntil :: Int -> [Int]
+    let fibUntil = n => {
+        let xs = [];
+        until(
+            ([a, b]) => a > n,
+            ([a, b]) => (xs.push(a), [b, a + b]), [1, 1]
+        )
+        return xs;
+    }
+
+    // GENERIC FUNCTIONS
+
+    // mapAccumL :: (acc -> x -> (acc, y)) -> acc -> [x] -> (acc, [y])
+    let mapAccumL = (f, acc, xs) => {
+        return xs.reduce((a, x) => {
+            let pair = f(a[0], x);
+
+            return [pair[0], a[1].concat(pair[1])];
+        }, [acc, []]);
+    }
+
+    // until :: (a -> Bool) -> (a -> a) -> a -> a
+    let until = (p, f, x) => {
+        let v = x;
+        while (!p(v)) v = f(v);
+        return v;
+    }
+
+    // tail :: [a] -> [a]
+    let tail = xs => xs.length ? xs.slice(1) : undefined;
+
+    // reverse :: [a] -> [a]
+    let reverse = xs => xs.slice(0)
+        .reverse();
+
+    // range :: Int -> Int -> [Int]
+    let range = (m, n) =>
+        Array.from({
+            length: Math.floor(n - m) + 1
+        }, (_, i) => m + i);
+
+    // TEST
+    return range(0, 20)
+        .map(zeckendorf)
+        .join('\n')
+
+})();
+
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+===ES6===
+{{Trans|Haskell}} ('''mapAccumuL''' example)
+<lang JavaScript>(() => {
+    'use strict';
+
+    // zeckendorf :: Int -> String
+    function zeckendorf(n) {
+        let f = (n, x) => (n < x ? [n, 0] : [n - x, 1]);
+
+        return (n === 0 ? (
+                [0]
+            ) : mapAccumL(f, n, reverse(tail(fibUntil(n))))[1])
+            .join('');
+    }
+
+
+    // fibUntil :: Int -> [Int]
+    let fibUntil = n => {
+        let xs = [];
+        until(
+            ([a, b]) => a > n,
+            ([a, b]) => (xs.push(a), [b, a + b]), [1, 1]
+        )
+        return xs;
+    }
+
+    // GENERIC FUNCTIONS
+
+    // mapAccumL :: (acc -> x -> (acc, y)) -> acc -> [x] -> (acc, [y])
+    let mapAccumL = (f, acc, xs) => {
+        return xs.reduce((a, x) => {
+            let pair = f(a[0], x);
+
+            return [pair[0], a[1].concat(pair[1])];
+        }, [acc, []]);
+    }
+
+    // until :: (a -> Bool) -> (a -> a) -> a -> a
+    let until = (p, f, x) => {
+        let v = x;
+        while (!p(v)) v = f(v);
+        return v;
+    }
+
+    // tail :: [a] -> [a]
+    let tail = xs => xs.length ? xs.slice(1) : undefined;
+
+    // reverse :: [a] -> [a]
+    let reverse = xs => xs.slice(0)
+        .reverse();
+
+    // range :: Int -> Int -> [Int]
+    let range = (m, n) =>
+        Array.from({
+            length: Math.floor(n - m) + 1
+        }, (_, i) => m + i);
+
+    // TEST
+    return range(0, 20)
+        .map(zeckendorf)
+        .join('\n')
+
+})();
+</lang>
+
+{{Out}}
+<pre>0
+1
+10
+100
+101
+1000
+1001
+1010
+10000
+10001
+10010
+10100
+10101
+100000
+100001
+100010
+100100
+100101
+101000
+101001
+101010</pre>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

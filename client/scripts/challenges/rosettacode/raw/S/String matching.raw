@@ -1,0 +1,110 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: String matching
+/// type: rosetta-code
+
+/// categories:
+///  String manipulation
+/// Simple
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <br/><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Given two strings, demonstrate the following three types of string matching:</p><br/><p class="rosetta__paragraph"><span class="rosetta__text--indented">:#  Determining if the first string starts with second string</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">:#  Determining if the first string contains the second string at any location</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">:#  Determining if the first string ends with the second string</span></p><br/><br>
+/// <p class="rosetta__paragraph">Optional requirements:</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">:#  Print the location of the match for part 2</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">:#  Handle multiple occurrences of a string for part 2.</span></p>
+/// <br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+var stringA = "tacoloco"
+  , stringB = "co"
+  , q1, q2, q2multi, m
+  , q2matches = []
+
+// stringA starts with stringB
+q1 = stringA.substring(0, stringB.length) == stringB
+
+// stringA contains stringB
+q2  = stringA.indexOf(stringB)
+
+// multiple matches
+q2multi = new RegExp(stringB,'g')
+
+while(m = q2multi.exec(stringA)){
+	q2matches.push(m.index)
+}
+
+// stringA ends with stringB
+q3 = stringA.substr(-stringB.length) == stringB
+
+console.log("1: Does '"+stringA+"' start with '"+stringB+"'? " + ( q1 ? "Yes." : "No."))
+console.log("2: Is '"+stringB+"' contained in '"+stringA+"'? " + (~q2 ? "Yes, at index "+q2+"." : "No."))
+if (~q2 && q2matches.length > 1){
+	console.log("   In fact, it happens "+q2matches.length+" times within '"+stringA+"', at index"+(q2matches.length > 1 ? "es" : "")+" "+q2matches.join(', ')+".")
+}
+console.log("3: Does '"+stringA+"' end with '"+stringB+"'? "   + ( q3 ? "Yes." : "No."))
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+
+<lang javascript>var stringA = "tacoloco"
+  , stringB = "co"
+  , q1, q2, q2multi, m
+  , q2matches = []
+
+// stringA starts with stringB
+q1 = stringA.substring(0, stringB.length) == stringB
+
+// stringA contains stringB
+q2  = stringA.indexOf(stringB)
+
+// multiple matches
+q2multi = new RegExp(stringB,'g')
+
+while(m = q2multi.exec(stringA)){
+	q2matches.push(m.index)
+}
+
+// stringA ends with stringB
+q3 = stringA.substr(-stringB.length) == stringB
+
+console.log("1: Does '"+stringA+"' start with '"+stringB+"'? " + ( q1 ? "Yes." : "No."))
+console.log("2: Is '"+stringB+"' contained in '"+stringA+"'? " + (~q2 ? "Yes, at index "+q2+"." : "No."))
+if (~q2 && q2matches.length > 1){
+	console.log("   In fact, it happens "+q2matches.length+" times within '"+stringA+"', at index"+(q2matches.length > 1 ? "es" : "")+" "+q2matches.join(', ')+".")
+}
+console.log("3: Does '"+stringA+"' end with '"+stringB+"'? "   + ( q3 ? "Yes." : "No."))</lang>
+
+{{out}}
+<pre>1: Does 'tacoloco' start with 'co'? No.
+2: Is 'co' contained in 'tacoloco'? Yes, at index 2.
+   In fact, it happens 2 times within 'tacoloco', at indexes 2, 6.
+3: Does 'tacoloco' end with 'co'? Yes.</pre>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

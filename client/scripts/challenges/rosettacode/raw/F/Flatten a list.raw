@@ -1,0 +1,131 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Flatten a list
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Write a function to flatten the nesting in an arbitrary  <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/List (computing)" title="wp: List (computing)">list</a> of values.</p>
+/// <br/><p class="rosetta__paragraph">Your program should work on the equivalent of this list:</p>
+/// <p class="rosetta__paragraph"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/1], 2, [[3, 4], 5], [[[" title="1], 2, [[3, 4], 5], [[[">1], 2, [[3, 4], 5], [[[</a>], <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/[6" title="[6">[6</a>], 7, 8, []]</p>
+/// <p class="rosetta__paragraph">Where the correct result would be the list:</p>
+/// <p class="rosetta__paragraph">[1, 2, 3, 4, 5, 6, 7, 8]</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Related task:</dt></dl>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"> <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Tree traversal" title="Tree traversal">Tree traversal</a></li></ul><br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+function flatten(list) {
+  return list.reduce(function (acc, val) {
+    return acc.concat(val.constructor === Array ? flatten(val) : val);
+  }, []);
+}
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+===ES5===
+<lang javascript>function flatten(list) {
+  return list.reduce(function (acc, val) {
+    return acc.concat(val.constructor === Array ? flatten(val) : val);
+  }, []);
+}</lang>
+
+
+Or, expressed in terms of the more generic '''concatMap''' function:
+
+<lang JavaScript>(function () {
+    'use strict';
+
+    // flatten :: Tree a -> [a]
+    function flatten(t) {
+        return (t instanceof Array ? concatMap(flatten, t) : t);
+    }
+
+    // concatMap :: (a -> [b]) -> [a] -> [b]
+    function concatMap(f, xs) {
+        return [].concat.apply([], xs.map(f));
+    }
+
+    return flatten(
+        [[1], 2, [[3, 4], 5], [[[]]], [[[6]]], 7, 8, []]
+    );
+
+})();</lang>
+
+
+From fusion of ''flatten'' with ''concatMap'' we can then derive:
+
+<lang JavaScript>    // flatten :: Tree a -> [a]
+    function flatten(a) {
+        return a instanceof Array ? [].concat.apply([], a.map(flatten)) : a;
+    }</lang>
+
+For example:
+
+<lang JavaScript>(function () {
+    'use strict';
+
+    // flatten :: Tree a -> [a]
+    function flatten(a) {
+        return a instanceof Array ? [].concat.apply([], a.map(flatten)) : a;
+    }
+
+    return flatten(
+        [[1], 2, [[3, 4], 5], [[[]]], [[[6]]], 7, 8, []]
+    );
+
+})();</lang>
+
+{{Out}}
+
+<pre>[1, 2, 3, 4, 5, 6, 7, 8]</pre>
+
+===ES6===
+====Recursive====
+<lang javascript>let flatten = list => list.reduce(
+    (a, b) => a.concat(Array.isArray(b) ? flatten(b) : b), []
+);</lang>
+
+====Iterative====
+<lang javascript>function flatten(list) {
+  for (let i = 0; i < list.length; i++) {
+    while (true) {
+      if (Array.isArray(list[i])) {
+      	list.splice(i, 1, ...list[i]);
+      } else {
+      	break;
+      }
+    }
+  }
+  return list;
+}</lang>
+
+Result is always: 
+<pre>[1, 2, 3, 4, 5, 6, 7, 8]</pre>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

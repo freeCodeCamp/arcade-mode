@@ -1,0 +1,53 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Use another language to call a function
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><br/><p class="rosetta__paragraph">This task is inverse to the task <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Call foreign language function" title="Call foreign language function">Call foreign language function</a>. Consider the following <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/C" title="C">C</a> program:</p>
+/// <p class="rosetta__paragraph"><lang c>#include <stdio.h></p><br/><p class="rosetta__paragraph">extern int Query (char * Data, size_t * Length);</p><br/><p class="rosetta__paragraph">int main (int argc, char * argv [])</p>
+/// <p class="rosetta__paragraph">{</p>
+/// <p class="rosetta__paragraph">char     Buffer [1024];</p>
+/// <p class="rosetta__paragraph">size_t   Size = sizeof (Buffer);</p><br/><p class="rosetta__paragraph">if (0 == Query (Buffer, &Size))</p>
+/// <p class="rosetta__paragraph">{</p>
+/// <p class="rosetta__paragraph">printf ("failed to call Query\n");</p>
+/// <p class="rosetta__paragraph">}</p>
+/// <p class="rosetta__paragraph">else</p>
+/// <p class="rosetta__paragraph">{</p>
+/// <p class="rosetta__paragraph">char * Ptr = Buffer;</p>
+/// <p class="rosetta__paragraph">while (Size-- > 0) putchar (*Ptr++);</p>
+/// <p class="rosetta__paragraph">putchar ('\n');</p>
+/// <p class="rosetta__paragraph">}</p>
+/// <p class="rosetta__paragraph">}</lang></p><br/><p class="rosetta__paragraph">Implement the missing <code>Query</code> function in your language, and let this C program call it. The function should place the string <span class="rosetta__text--italic"><tt style="margin:0 0.5em">Here am I</tt></span> into the buffer which is passed to it as the parameter <code>Data</code>. The buffer size in bytes is passed as the parameter <code>Length</code>. When there is no room in the buffer, <code>Query</code> shall return 0. Otherwise it overwrites the beginning of <code>Buffer</code>, sets the number of overwritten bytes into <code>Length</code> and returns 1.</p><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,0 +1,54 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Bitwise IO
+/// type: rosetta-code
+
+/// categories:
+/// Bitwise operations
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <p class="rosetta__paragraph">The aim of this task is to write functions (or create a class if your</p>
+/// <p class="rosetta__paragraph">language is Object Oriented and you prefer) for reading and writing sequences of</p>
+/// <p class="rosetta__paragraph">bits. While the output of a <tt>asciiprint "STRING"</tt> is the ASCII byte sequence</p>
+/// <p class="rosetta__paragraph">"S", "T", "R", "I", "N", "G", the output of a "print" of the bits sequence</p>
+/// <p class="rosetta__paragraph">0101011101010 (13 bits) must be 0101011101010; real I/O is performed always</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--italic">quantized</span> by byte (avoiding endianness issues and relying on underlying</p>
+/// <p class="rosetta__paragraph">buffering for performance), therefore you must obtain as output the bytes</p>
+/// <p class="rosetta__paragraph">0101 0111 0101 0<span class="rosetta__text--bold">000</span> (bold bits are padding bits), i.e. in hexadecimal 57 50.</p><br/><p class="rosetta__paragraph">As test, you can implement a <span class="rosetta__text--bold">rough</span> (e.g. don't care about error handling or</p>
+/// <p class="rosetta__paragraph">other issues) compression/decompression program for ASCII sequences</p>
+/// <p class="rosetta__paragraph">of bytes, i.e. bytes for which the most significant bit is always unused, so that you can write</p>
+/// <p class="rosetta__paragraph">seven bits instead of eight (each 8 bytes of input, we write 7 bytes of output).</p><br/><p class="rosetta__paragraph">These bit oriented I/O functions can be used to implement compressors and</p>
+/// <p class="rosetta__paragraph">decompressors; e.g. Dynamic and Static Huffman encodings use variable length</p>
+/// <p class="rosetta__paragraph">bits sequences, while LZW (see <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/LZW compression" title="LZW compression">LZW compression</a>) use fixed or variable <span class="rosetta__text--italic">words</span></p>
+/// <p class="rosetta__paragraph">nine (or more) bits long.</p><br/><ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Limits in the maximum number of bits that can be written/read in a single read/write operation are allowed.</li>
+/// <li class="rosetta__list-item--unordered">Errors handling is not mandatory</li></ul><br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

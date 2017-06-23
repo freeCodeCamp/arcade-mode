@@ -1,0 +1,143 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: XML/XPath
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><br/><p class="rosetta__paragraph">Perform the following three XPath queries on the XML Document below:</p>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Retrieve the first "item" element</li>
+/// <li class="rosetta__list-item--unordered">Perform an action on each "price" element (print it out)</li>
+/// <li class="rosetta__list-item--unordered">Get an array of all the "name" elements</li></ul>
+/// <p class="rosetta__paragraph">XML Document:</p>
+/// <p class="rosetta__paragraph"><inventory title="OmniCorp Store #45x10^3"></p>
+/// <p class="rosetta__paragraph"><section name="health"></p>
+/// <p class="rosetta__paragraph"><item upc="123456789" stock="12"></p>
+/// <p class="rosetta__paragraph"><name>Invisibility Cream</name></p>
+/// <p class="rosetta__paragraph"><price>14.50</price></p>
+/// <p class="rosetta__paragraph"><description>Makes you invisible</description></p>
+/// <p class="rosetta__paragraph"></item></p>
+/// <p class="rosetta__paragraph"><item upc="445322344" stock="18"></p>
+/// <p class="rosetta__paragraph"><name>Levitation Salve</name></p>
+/// <p class="rosetta__paragraph"><price>23.99</price></p>
+/// <p class="rosetta__paragraph"><description>Levitate yourself for up to 3 hours per application</description></p>
+/// <p class="rosetta__paragraph"></item></p>
+/// <p class="rosetta__paragraph"></section></p>
+/// <p class="rosetta__paragraph"><section name="food"></p>
+/// <p class="rosetta__paragraph"><item upc="485672034" stock="653"></p>
+/// <p class="rosetta__paragraph"><name>Blork and Freen Instameal</name></p>
+/// <p class="rosetta__paragraph"><price>4.95</price></p>
+/// <p class="rosetta__paragraph"><description>A tasty meal in a tablet; just add water</description></p>
+/// <p class="rosetta__paragraph"></item></p>
+/// <p class="rosetta__paragraph"><item upc="132957764" stock="44"></p>
+/// <p class="rosetta__paragraph"><name>Grob winglets</name></p>
+/// <p class="rosetta__paragraph"><price>3.56</price></p>
+/// <p class="rosetta__paragraph"><description>Tender winglets of Grob. Just add water</description></p>
+/// <p class="rosetta__paragraph"></item></p>
+/// <p class="rosetta__paragraph"></section></p>
+/// <p class="rosetta__paragraph"></inventory></p>
+/// </div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+//create XMLDocument object from file
+var xhr = new XMLHttpRequest();
+xhr.open('GET', 'file.xml', false);
+xhr.send(null);
+var doc = xhr.responseXML;
+
+//get first <item> element
+var firstItem = doc.evaluate( '//item[1]', doc, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null ).singleNodeValue;
+alert( firstItem.textContent );
+
+//output contents of <price> elements
+var prices = doc.evaluate( '//price', doc, null, XPathResult.ANY_TYPE, null );
+for( var price = prices.iterateNext(); price != null; price = prices.iterateNext() ) {
+  alert( price.textContent );
+}
+
+//add <name> elements to array
+var names = doc.evaluate( '//name', doc, null, XPathResult.ANY_TYPE, null);
+var namesArray = [];
+for( var name = names.iterateNext(); name != null; name = names.iterateNext() ) {
+  namesArray.push( name );
+}
+alert( namesArray );
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+{{works with|Firefox|2.0}}
+<lang javascript>//create XMLDocument object from file
+var xhr = new XMLHttpRequest();
+xhr.open('GET', 'file.xml', false);
+xhr.send(null);
+var doc = xhr.responseXML;
+
+//get first <item> element
+var firstItem = doc.evaluate( '//item[1]', doc, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null ).singleNodeValue;
+alert( firstItem.textContent );
+
+//output contents of <price> elements
+var prices = doc.evaluate( '//price', doc, null, XPathResult.ANY_TYPE, null );
+for( var price = prices.iterateNext(); price != null; price = prices.iterateNext() ) {
+  alert( price.textContent );
+}
+
+//add <name> elements to array
+var names = doc.evaluate( '//name', doc, null, XPathResult.ANY_TYPE, null);
+var namesArray = [];
+for( var name = names.iterateNext(); name != null; name = names.iterateNext() ) {
+  namesArray.push( name );
+}
+alert( namesArray );</lang>
+
+Although some browsers support XPath, working with XML is much easier with E4X.
+
+<lang javascript>//create XML object from file
+var xhr = new XMLHttpRequest();
+xhr.open('GET', 'file.xml', false);
+xhr.send(null);
+var doc = new XML(xhr.responseText);
+
+//get first <item> element
+var firstItem = doc..item[0];
+alert( firstItem );
+
+//output contents of <price> elements
+for each( var price in doc..price ) {
+  alert( price );
+}
+
+//add <name> elements to array
+var names = [];
+for each( var name in doc..name ) {
+  names.push( name );
+}
+alert( names );</lang>
+
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

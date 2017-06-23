@@ -1,0 +1,168 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Function composition
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Create a function, <span style="font-family:serif">compose</span>,  whose two arguments  <span style="font-family:serif"><span class="rosetta__text--italic">f</span></span>  and  <span style="font-family:serif"><span class="rosetta__text--italic">g</span></span>,  are both functions with one argument.</p>
+/// <br/><p class="rosetta__paragraph">The result of <span style="font-family:serif">compose</span> is to be a function of one argument, (lets call the argument  <span style="font-family:serif"><span class="rosetta__text--italic">x</span></span>),  which works like applying function  <span style="font-family:serif"> <span class="rosetta__text--italic">f</span> </span>  to the result of applying function  <span style="font-family:serif"> <span class="rosetta__text--italic">g</span> </span>  to  <span style="font-family:serif"> <span class="rosetta__text--italic">x</span></span>.</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Example:</dt></dl>
+/// <p class="rosetta__paragraph"><span style="font-family:serif">compose(<span class="rosetta__text--italic">f</span>, <span class="rosetta__text--italic">g</span>) (<span class="rosetta__text--italic">x</span>) = <span class="rosetta__text--italic">f</span>(<span class="rosetta__text--italic">g</span>(<span class="rosetta__text--italic">x</span>))</span></p>
+/// <br/><p class="rosetta__paragraph">Reference: <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Function composition (computer science)" title="wp: Function composition (computer science)">Function composition</a></p><br/><p class="rosetta__paragraph">Hint: In some languages, implementing <span style="font-family:serif">compose</span> correctly requires creating a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Closure (computer science)" title="wp: Closure (computer science)">closure</a>.</p>
+/// <br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+function compose(f, g) {
+  return function(x) {
+    return f(g(x));
+  };
+}
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+===ES5===
+====Simple composition of two functions====
+<lang javascript>function compose(f, g) {
+  return function(x) {
+    return f(g(x));
+  };
+}</lang>
+Example:
+<lang javascript>var id = compose(Math.sin, Math.asin);
+print(id(0.5)); // 0.5</lang>
+
+
+====Multiple composition====
+
+Recursion apart, multiple composition can be written in at least two general ways in JS:
+
+# Iteratively (faster to run, perhaps more fiddly to write)
+# With a fold / reduction (see http://rosettacode.org/wiki/Catamorphism). The fold is arguably simpler to write and reason about, though not quite as fast to execute.
+
+<lang JavaScript>(function () {
+    'use strict';
+
+
+    // iterativeComposed :: [f] -> f
+    function iterativeComposed(fs) {
+
+        return function (x) {
+            var i = fs.length,
+                e = x;
+
+            while (i--) e = fs[i](e);
+            return e;
+        }
+    }
+
+    // foldComposed :: [f] -> f
+    function foldComposed(fs) {
+
+        return function (x) {
+            return fs
+                .reduceRight(function (a, f) {
+                    return f(a);
+                }, x);
+        };
+    }
+
+
+    var sqrt = Math.sqrt,
+
+        succ = function (x) {
+            return x + 1;
+        },
+
+        half = function (x) {
+            return x / 2;
+        };
+
+
+    // Testing two different multiple composition ([f] -> f) functions
+
+    return [iterativeComposed, foldComposed]
+        .map(function (compose) {
+
+            // both functions compose from right to left
+            return compose([half, succ, sqrt])(5);
+
+        });
+})();
+</lang>
+
+{{Out}}
+<pre>[1.618033988749895, 1.618033988749895]</pre>
+
+===ES6===
+<lang JavaScript>(() => {
+    'use strict';
+
+    // compose :: [(a -> a)] -> (a -> a)
+    let compose = fs => x => fs.reduceRight((a, f) => f(a), x);
+
+    // TEST a composition of 3 functions (right to left)
+    let sqrt = Math.sqrt,
+
+        succ = x => x + 1,
+
+        half = x => x / 2;
+
+    return compose([half, succ, sqrt])(5);
+
+    // --> 1.618033988749895
+})();</lang>
+
+{{Out}}
+<pre>1.618033988749895</pre>
+
+or, as a simple binary function (first applying f, then g):
+<lang javascript>(() => {
+    'use strict';
+
+    // compose :: (a -> b) -> (b -> c) -> (a -> c)
+    const compose = (f, g) => x => g(f(x));
+
+
+    // TEST
+    const
+        sqrt = Math.sqrt,
+        succ = x => x + 1,
+        half = x => x / 2;
+
+    const
+        succSqrt = compose(sqrt, succ),
+        halfSuccSqrt = compose(succSqrt, half);
+
+    return halfSuccSqrt(5);
+})();</lang>
+{{Out}}
+<pre>1.618033988749895</pre>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

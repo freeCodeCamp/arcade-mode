@@ -1,0 +1,172 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Abundant, deficient and perfect number classifications
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <p class="rosetta__paragraph">These define three classifications of positive integers based on their  <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Proper divisors" title="Proper divisors">proper divisors</a>.</p><br/><p class="rosetta__paragraph">Let  P(n)  be the sum of the proper divisors of  <span class="rosetta__text--bold">n</span>  where the proper divisors are all positive divisors of  <span class="rosetta__text--bold">n</span>  other than  <span class="rosetta__text--bold">n</span>  itself.</p>
+/// <p class="rosetta__paragraph">if   <code> P(n) <  n </code>   then  <span class="rosetta__text--bold">n</span>  is classed as  <span class="rosetta__text--bold">deficient</span>  (<a class="rosetta__link--wiki" href="https://oeis.org/A005100" title="link: https://oeis.org/A005100">OEIS A005100</a>).</p>
+/// <p class="rosetta__paragraph">if   <code> P(n) == n </code>   then  <span class="rosetta__text--bold">n</span>  is classed as  <span class="rosetta__text--bold">perfect</span>    (<a class="rosetta__link--wiki" href="https://oeis.org/A000396" title="link: https://oeis.org/A000396">OEIS A000396</a>).</p>
+/// <p class="rosetta__paragraph">if   <code> P(n) >  n </code>   then  <span class="rosetta__text--bold">n</span>  is classed as  <span class="rosetta__text--bold">abundant</span>   (<a class="rosetta__link--wiki" href="https://oeis.org/A005101" title="link: https://oeis.org/A005101">OEIS A005101</a>).</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Example:</dt></dl>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">6</span>  has proper divisors of  <span class="rosetta__text--bold">1</span>,  <span class="rosetta__text--bold">2</span>,  and  <span class="rosetta__text--bold">3</span>.</p><br/><p class="rosetta__paragraph"><span class="rosetta__text--bold">1 + 2 + 3 = 6</span>,  so  <span class="rosetta__text--bold">6</span>   is classed as a perfect number.</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Calculate how many of the integers  <span class="rosetta__text--bold">1</span>  to  <span class="rosetta__text--bold">20,000</span>  (inclusive) are in each of the three classes.</p><br/><p class="rosetta__paragraph">Show the results here.</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks:</dt></dl>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"> <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Aliquot sequence classifications" title="Aliquot sequence classifications">Aliquot sequence classifications</a>.  (The whole series from which this task is a subset.)</li>
+/// <li class="rosetta__list-item--unordered"> <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Proper divisors" title="Proper divisors">Proper divisors</a></li>
+/// <li class="rosetta__list-item--unordered"> <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Amicable pairs" title="Amicable pairs">Amicable pairs</a></li></ul><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+for (var dpa=[1,0,0], n=2; n<=20000; n+=1) {
+    for (var ds=0, d=1, e=n/2+1; d<e; d+=1) if (n%d==0) ds+=d
+    dpa[ds<n ? 0 : ds==n ? 1 : 2]+=1
+}
+document.write('Deficient:',dpa[0], ', Perfect:',dpa[1], ', Abundant:',dpa[2], '<br>' )
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+
+===ES5===
+<lang Javascript>for (var dpa=[1,0,0], n=2; n<=20000; n+=1) {
+    for (var ds=0, d=1, e=n/2+1; d<e; d+=1) if (n%d==0) ds+=d
+    dpa[ds<n ? 0 : ds==n ? 1 : 2]+=1
+}
+document.write('Deficient:',dpa[0], ', Perfect:',dpa[1], ', Abundant:',dpa[2], '<br>' )</lang>
+'''Or:'''
+<lang Javascript>for (var dpa=[1,0,0], n=2; n<=20000; n+=1) {
+    for (var ds=1, d=2, e=Math.sqrt(n); d<e; d+=1) if (n%d==0) ds+=d+n/d
+    if (n%e==0) ds+=e
+    dpa[ds<n ? 0 : ds==n ? 1 : 2]+=1
+}
+document.write('Deficient:',dpa[0], ', Perfect:',dpa[1], ', Abundant:',dpa[2], '<br>' )</lang>
+'''Or:'''
+<lang Javascript>function primes(t) {
+    var ps = {2:true, 3:true}
+    next: for (var n=5, i=2; n<=t; n+=i, i=6-i) {
+        var s = Math.sqrt( n )
+        for ( var p in ps ) {
+            if ( p > s ) break
+            if ( n % p ) continue
+            continue next
+        }
+        ps[n] = true
+    }
+    return ps
+}
+
+function factorize(f, t) {
+    var cs = {}, ps = primes(t)
+    for (var n=f; n<=t; n++) if (!ps[n]) cs[n] = factors(n)
+    return cs
+    function factors(n) {
+        for ( var p in ps ) if ( n % p == 0 ) break
+        var ts = {}
+        ts[p] = 1
+        if ( ps[n /= p] ) {
+            if ( !ts[n]++ ) ts[n]=1 
+        }
+        else {
+            var fs = cs[n]
+            if ( !fs ) fs = cs[n] = factors(n)
+            for ( var e in fs ) ts[e] = fs[e] + (e==p)
+        }
+        return ts
+    }
+}
+
+function pContrib(p, e) {
+    for (var pc=1, n=1, i=1; i<=e; i+=1) pc+=n*=p;
+    return pc
+}
+
+for (var dpa=[1,0,0], t=20000, cs=factorize(2,t), n=2; n<=t; n+=1) {
+    var ds=1, fs=cs[n]
+    if (fs) {
+        for (var p in fs) ds *= pContrib(p, fs[p])
+        ds -= n
+    }
+    dpa[ds<n ? 0 : ds==n ? 1 : 2]+=1
+}
+document.write('Deficient:',dpa[0], ', Perfect:',dpa[1], ', Abundant:',dpa[2], '<br>' )</lang>
+{{output}}
+<pre>Deficient:15043, Perfect:4, Abundant:4953</pre>
+
+===ES6===
+{{Trans|Haskell}}
+<lang JavaScript>(() => {
+    'use strict';
+
+    const
+    // divisors :: (Integral a) => a -> [a]
+        divisors = n => range(1, Math.floor(n / 2))
+            .filter(x => n % x === 0),
+
+        // classOf :: (Integral a) => a -> Ordering
+        classOf = n => compare(divisors(n)
+            .reduce((a, b) => a + b, 0), n),
+
+        classTypes = {
+            deficient: -1,
+            perfect: 0,
+            abundant: 1
+        };
+
+    // GENERIC FUNCTIONS
+    const
+    // compare :: Ord a => a -> a -> Ordering
+        compare = (a, b) =>
+            a < b ? -1 : (a > b ? 1 : 0),
+
+        // range :: Int -> Int -> [Int]
+        range = (m, n) =>
+            Array.from({
+                length: Math.floor(n - m) + 1
+            }, (_, i) => m + i);
+
+    // TEST
+
+    // classes :: [Ordering]
+    const classes = range(1, 20000)
+        .map(classOf);
+
+    return Object.keys(classTypes)
+        .map(k => k + ": " + classes
+            .filter(x => x === classTypes[k])
+            .length.toString())
+        .join('\n');
+})();</lang>
+
+{{Out}}
+<pre>deficient: 15043
+perfect: 4
+abundant: 4953</pre>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

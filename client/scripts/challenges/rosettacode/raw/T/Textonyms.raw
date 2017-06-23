@@ -1,0 +1,61 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Textonyms
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <p class="rosetta__paragraph">When entering text on a phone's digital pad it is possible that a particular combination of digits corresponds to more than one word. Such are called textonyms.</p><br/><p class="rosetta__paragraph">Assuming the digit keys are mapped to letters as follows:</p>
+/// <p class="rosetta__paragraph">2 -> ABC</p>
+/// <p class="rosetta__paragraph">3 -> DEF</p>
+/// <p class="rosetta__paragraph">4 -> GHI</p>
+/// <p class="rosetta__paragraph">5 -> JKL</p>
+/// <p class="rosetta__paragraph">6 -> MNO</p>
+/// <p class="rosetta__paragraph">7 -> PQRS</p>
+/// <p class="rosetta__paragraph">8 -> TUV</p>
+/// <p class="rosetta__paragraph">9 -> WXYZ</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Write a program that finds textonyms in a list of words such as</p>
+/// <p class="rosetta__paragraph"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Textonyms/wordlist" title="Textonyms/wordlist">Textonyms/wordlist</a>  or</p>
+/// <p class="rosetta__paragraph"><a class="rosetta__link--wiki" href="http://www.puzzlers.org/pub/wordlists/unixdict.txt" title="link: http://www.puzzlers.org/pub/wordlists/unixdict.txt">unixdict.txt</a>.</p><br/><p class="rosetta__paragraph">The task should produce a report:</p><br/><p class="rosetta__paragraph">There are #{0} words in #{1} which can be represented by the digit key mapping.</p>
+/// <p class="rosetta__paragraph">They require #{2} digit combinations to represent them.</p>
+/// <p class="rosetta__paragraph">#{3} digit combinations represent Textonyms.</p><br/><p class="rosetta__paragraph">Where:</p>
+/// <p class="rosetta__paragraph">#{0} is the number of words in the list which can be represented by the digit key mapping.</p>
+/// <p class="rosetta__paragraph">#{1} is the URL of the wordlist being used.</p>
+/// <p class="rosetta__paragraph">#{2} is the number of digit combinations required to represent the words in #{0}.</p>
+/// <p class="rosetta__paragraph">#{3} is the number of #{2} which represent more than one word.</p><br/><p class="rosetta__paragraph">At your discretion show a couple of examples of your solution displaying Textonys.</p><br/><p class="rosetta__paragraph">E.G.:</p><br/><p class="rosetta__paragraph">2748424767 -> "Briticisms", "criticisms"</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Extra credit:</dt></dl>
+/// <p class="rosetta__paragraph">Use a word list and keypad mapping other than English.</p>
+/// <br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

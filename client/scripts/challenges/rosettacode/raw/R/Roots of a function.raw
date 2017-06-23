@@ -1,0 +1,110 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Roots of a function
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Create a program that finds and outputs the roots of a given function, range and (if applicable) step width.</p><br/><p class="rosetta__paragraph">The program should identify whether the root is exact or approximate.</p>
+/// <br/><p class="rosetta__paragraph">For this task, use:   <big><big> ƒ(x)  =  x<sup>3</sup> - 3x<sup>2</sup> + 2x </big></big></p>
+/// <br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+// This function notation is sorta new, but useful here
+// Part of the EcmaScript 6 Draft
+// developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions_and_function_scope
+var poly = (x => x*x*x - 3*x*x + 2*x);
+
+function sign(x) {
+	return (x < 0.0) ? -1 : (x > 0.0) ? 1 : 0;
+}
+
+function printRoots(f, lowerBound, upperBound, step) {
+	var  x = lowerBound, ox = x,
+		 y = f(x), oy = y,
+		 s = sign(y), os = s;
+
+	for (; x <= upperBound ; x += step) {
+	    s = sign(y = f(x));
+	    if (s == 0) {
+			console.log(x);
+	    }
+	    else if (s != os) {
+			var dx = x - ox;
+			var dy = y - oy;
+			var cx = x - dx * (y / dy);
+			console.log("~" + cx);
+	    }
+	    ox = x; oy = y; os = s;
+	}
+}
+
+printRoots(poly, -1.0, 4, 0.002);
+
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+{{trans|Java}}
+{{works with|SpiderMonkey|22}}
+{{works with|Firefox|22}}
+<lang javascript>
+// This function notation is sorta new, but useful here
+// Part of the EcmaScript 6 Draft
+// developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions_and_function_scope
+var poly = (x => x*x*x - 3*x*x + 2*x);
+
+function sign(x) {
+	return (x < 0.0) ? -1 : (x > 0.0) ? 1 : 0;
+}
+
+function printRoots(f, lowerBound, upperBound, step) {
+	var  x = lowerBound, ox = x,
+		 y = f(x), oy = y,
+		 s = sign(y), os = s;
+
+	for (; x <= upperBound ; x += step) {
+	    s = sign(y = f(x));
+	    if (s == 0) {
+			console.log(x);
+	    }
+	    else if (s != os) {
+			var dx = x - ox;
+			var dy = y - oy;
+			var cx = x - dx * (y / dy);
+			console.log("~" + cx);
+	    }
+	    ox = x; oy = y; os = s;
+	}
+}
+
+printRoots(poly, -1.0, 4, 0.002);
+</lang>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

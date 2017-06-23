@@ -1,0 +1,48 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Bitcoin/address validation
+/// type: rosetta-code
+
+/// categories:
+/// Checksums
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">C-based_code_.28and_possibly_others.29_improperly_validates" title="#C-based_code_.28and_possibly_others.29_improperly_validates">incomplete</a>. It is recommended that you use an established <a class="rosetta__link--wiki" href="https://en.bitcoin.it/wiki/Software#Libraries" title="link: https://en.bitcoin.it/wiki/Software#Libraries">library</a> for any projects that are likely to see external use}}</li></ol>
+/// <br/><br/><p class="rosetta__paragraph">Write a program that takes a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/bitcoin" title="wp: bitcoin">bitcoin address</a> as argument,</p>
+/// <p class="rosetta__paragraph">and checks whether or not this address is valid.</p><br/><p class="rosetta__paragraph">A bitcoin address uses a base58 encoding, which uses an alphabet of the characters 0 .. 9, A ..Z, a .. z, but without the four characters 0, O, I and l.</p><br/><p class="rosetta__paragraph">With this encoding, a bitcoin address encodes 25 bytes:</p>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">the first byte is the version number, which will be zero for this task ;</li>
+/// <li class="rosetta__list-item--unordered">the next twenty bytes are a <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/RIPEMD-160" title="RIPEMD-160">RIPEMD-160</a> digest, but you don't have to know that for this task:  you can consider them a pure arbitrary data ;</li>
+/// <li class="rosetta__list-item--unordered">the last four bytes are a checksum check.  They are the first four bytes of a double <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/SHA-256" title="SHA-256">SHA-256</a> digest of the previous 21 bytes.</li></ul>
+/// <p class="rosetta__paragraph">To check the bitcoin address, you must read the first twenty-one bytes, compute the checksum, and check that it corresponds to the last four bytes.</p><br/><p class="rosetta__paragraph">The program can either return a boolean value or throw an exception when not valid.</p><br/><p class="rosetta__paragraph">You can use a digest library for <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/SHA-256" title="SHA-256">SHA-256</a>.</p><br/><p class="rosetta__paragraph">Here is an example of a bitcoin address:</p><br/><p class="rosetta__paragraph">1AGNa15ZQXAZUgFiqJ2i7Z2DPU2J6hW62i</p><br/><p class="rosetta__paragraph">It does not belong to anyone.</p>
+/// <p class="rosetta__paragraph">It is part of the test suite of the bitcoin software.</p>
+/// <p class="rosetta__paragraph">You can change a few characters in this string and check that it will fail the test.</p>
+/// <br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

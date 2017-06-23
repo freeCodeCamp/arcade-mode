@@ -1,0 +1,44 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: RIPEMD-160
+/// type: rosetta-code
+
+/// categories:
+/// Checksums
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <br/>
+/// <br/><p class="rosetta__paragraph"><span class="rosetta__text--bold">RIPEMD-160</span> is another hash function; it computes a 160-bit message digest.</p><br/><p class="rosetta__paragraph">There is a <a class="rosetta__link--wiki" href="http://homes.esat.kuleuven.be/~bosselae/ripemd160.html" title="link: http://homes.esat.kuleuven.be/~bosselae/ripemd160.html">RIPEMD-160 home page</a>, with test vectors and <a class="rosetta__link--wiki" href="http://www.esat.kuleuven.be/~bosselae/ripemd/rmd160.txt" title="link: http://www.esat.kuleuven.be/~bosselae/ripemd/rmd160.txt">pseudocode for RIPEMD-160</a>.</p>
+/// <p class="rosetta__paragraph">For padding the message, RIPEMD-160 acts like <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/MD4" title="MD4">MD4</a> (RFC 1320).</p><br/><p class="rosetta__paragraph">Find the RIPEMD-160 message digest of a string of <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/octet" title="octet">octet</a>s.</p>
+/// <p class="rosetta__paragraph">Use the ASCII encoded string “<tt>Rosetta Code</tt>”.</p>
+/// <p class="rosetta__paragraph">You may either call an RIPEMD-160 library, or implement RIPEMD-160 in your language.</p><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

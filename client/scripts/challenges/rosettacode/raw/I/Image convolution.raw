@@ -1,0 +1,221 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Image convolution
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><br/><p class="rosetta__paragraph">One class of image digital filters is described by a rectangular matrix of real coefficients called <span class="rosetta__text--bold">kernel</span> convoluted in a sliding window of image pixels. Usually the kernel is square $K_{kl}$, where <i>k</i>, <i>l</i> are in the range -<i>R</i>,-<i>R</i>+1,..,<i>R</i>-1,<i>R</i>. <i>W</i>=2<i>R</i>+1 is the kernel width. The filter determines the new value of a monochromatic image pixel P<sub><i>ij</i></sub> as a convolution of the image pixels in the window centered in <i>i</i>, <i>j</i> and the kernel values:</p><br/><p class="rosetta__paragraph"><blockquote></p>
+/// <p class="rosetta__paragraph">$P_{ij}=\displaystyle\sum_{k=-R}^R \sum_{l=-R}^R P_{i+k\ j+l} K_{k l}$</p>
+/// </blockquote><br/><p class="rosetta__paragraph">Color images are usually split into the channels which are filtered independently. A color model can be changed as well, i.e. filtration is performed not necessarily in RGB. Common kernels sizes are 3x3 and 5x5. The complexity of filtrating grows quadratically (<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/O" title="O">O</a>(<i>n</i><sup>2</sup>)) with the kernel width.</p><br/><p class="rosetta__paragraph"><span class="rosetta__text--bold">Task</span>: Write a generic convolution 3x3 kernel filter. Optionally show some end user filters that use this generic one.</p><br/><p class="rosetta__paragraph"><span class="rosetta__text--italic">(You can use, to test the functions below, these <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Read_ppm_file" title="Read_ppm_file">input</a> and <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Write_ppm_file" title="Write_ppm_file">output</a> solutions.)</span></p><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+// Image imageIn, Array kernel, function (Error error, Image imageOut)
+// precondition: Image is loaded
+// returns loaded Image to asynchronous callback function
+function convolve(imageIn, kernel, callback) {
+    var dim = Math.sqrt(kernel.length),
+        pad = Math.floor(dim / 2);
+    
+    if (dim % 2 !== 1) {
+        return callback(new RangeError("Invalid kernel dimension"), null);
+    }
+    
+    var w = imageIn.width,
+        h = imageIn.height,
+        can = document.createElement('canvas'),
+        cw,
+        ch,
+        ctx,
+        imgIn, imgOut,
+        datIn, datOut;
+    
+    can.width = cw = w + pad * 2; // add padding
+    can.height = ch = h + pad * 2; // add padding
+    
+    ctx = can.getContext('2d');
+    ctx.fillStyle = '#000'; // fill with opaque black
+    ctx.fillRect(0, 0, cw, ch);
+    ctx.drawImage(imageIn, pad, pad);
+    
+    imgIn = ctx.getImageData(0, 0, cw, ch);
+    datIn = imgIn.data;
+    
+    imgOut = ctx.createImageData(w, h);
+    datOut = imgOut.data;
+    
+    var row, col, pix, i, dx, dy, r, g, b;
+    
+    for (row = pad; row <= h; row++) {
+        for (col = pad; col <= w; col++) {
+            r = g = b = 0;
+            
+            for (dx = -pad; dx <= pad; dx++) {
+                for (dy = -pad; dy <= pad; dy++) {
+                    i = (dy + pad) * dim + (dx + pad); // kernel index
+                    pix = 4 * ((row + dy) * cw + (col + dx)); // image index
+                    r += datIn[pix++] * kernel[i];
+                    g += datIn[pix++] * kernel[i];
+                    b += datIn[pix  ] * kernel[i];
+                }
+            }
+            
+            pix = 4 * ((row - pad) * w + (col - pad)); // destination index
+            datOut[pix++] = (r + .5) ^ 0;
+            datOut[pix++] = (g + .5) ^ 0;
+            datOut[pix++] = (b + .5) ^ 0;
+            datOut[pix  ] = 255; // we want opaque image
+        }
+    }
+    
+    // reuse canvas
+    can.width = w;
+    can.height = h;
+    
+    ctx.putImageData(imgOut, 0, 0);
+    
+    var imageOut = new Image();
+    
+    imageOut.addEventListener('load', function () {
+        callback(null, imageOut);
+    });
+    
+    imageOut.addEventListener('error', function (error) {
+        callback(error, null);
+    });
+    
+    imageOut.src = can.toDataURL('image/png');
+}
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+
+'''Code:'''
+<lang javascript>// Image imageIn, Array kernel, function (Error error, Image imageOut)
+// precondition: Image is loaded
+// returns loaded Image to asynchronous callback function
+function convolve(imageIn, kernel, callback) {
+    var dim = Math.sqrt(kernel.length),
+        pad = Math.floor(dim / 2);
+    
+    if (dim % 2 !== 1) {
+        return callback(new RangeError("Invalid kernel dimension"), null);
+    }
+    
+    var w = imageIn.width,
+        h = imageIn.height,
+        can = document.createElement('canvas'),
+        cw,
+        ch,
+        ctx,
+        imgIn, imgOut,
+        datIn, datOut;
+    
+    can.width = cw = w + pad * 2; // add padding
+    can.height = ch = h + pad * 2; // add padding
+    
+    ctx = can.getContext('2d');
+    ctx.fillStyle = '#000'; // fill with opaque black
+    ctx.fillRect(0, 0, cw, ch);
+    ctx.drawImage(imageIn, pad, pad);
+    
+    imgIn = ctx.getImageData(0, 0, cw, ch);
+    datIn = imgIn.data;
+    
+    imgOut = ctx.createImageData(w, h);
+    datOut = imgOut.data;
+    
+    var row, col, pix, i, dx, dy, r, g, b;
+    
+    for (row = pad; row <= h; row++) {
+        for (col = pad; col <= w; col++) {
+            r = g = b = 0;
+            
+            for (dx = -pad; dx <= pad; dx++) {
+                for (dy = -pad; dy <= pad; dy++) {
+                    i = (dy + pad) * dim + (dx + pad); // kernel index
+                    pix = 4 * ((row + dy) * cw + (col + dx)); // image index
+                    r += datIn[pix++] * kernel[i];
+                    g += datIn[pix++] * kernel[i];
+                    b += datIn[pix  ] * kernel[i];
+                }
+            }
+            
+            pix = 4 * ((row - pad) * w + (col - pad)); // destination index
+            datOut[pix++] = (r + .5) ^ 0;
+            datOut[pix++] = (g + .5) ^ 0;
+            datOut[pix++] = (b + .5) ^ 0;
+            datOut[pix  ] = 255; // we want opaque image
+        }
+    }
+    
+    // reuse canvas
+    can.width = w;
+    can.height = h;
+    
+    ctx.putImageData(imgOut, 0, 0);
+    
+    var imageOut = new Image();
+    
+    imageOut.addEventListener('load', function () {
+        callback(null, imageOut);
+    });
+    
+    imageOut.addEventListener('error', function (error) {
+        callback(error, null);
+    });
+    
+    imageOut.src = can.toDataURL('image/png');
+}</lang>
+
+'''Example Usage:'''
+<pre>var image = new Image();
+
+image.addEventListener('load', function () {
+    image.alt = 'Player';
+    document.body.appendChild(image);
+    
+    // laplace filter
+    convolve(image,
+             [0, 1, 0,
+              1,-4, 1,
+              0, 1, 0],
+             function (error, result) {
+                 if (error !== null) {
+                     console.error(error);
+                 } else {
+                     result.alt = 'Boundary';
+                     document.body.appendChild(result);
+                 }
+             }
+    );
+});
+
+image.src = '/img/player.png';</pre>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,0 +1,59 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Simple database
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Write a simple tool to track a small set of data.</p><br/><p class="rosetta__paragraph">The tool should have a command-line interface to enter at least two different values.</p><br/><p class="rosetta__paragraph">The entered data should be stored in a structured format and saved to disk.</p><br/><p class="rosetta__paragraph">It does not matter what kind of data is being tracked.  It could be a collection (CDs, coins, baseball cards, books), a diary, an electronic organizer (birthdays/anniversaries/phone numbers/addresses), etc.</p>
+/// <br/><p class="rosetta__paragraph">You should track the following details:</p>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">A description of the item. (e.g., title, name)</li>
+/// <li class="rosetta__list-item--unordered">A category or tag (genre, topic, relationship such as “friend” or “family”)</li>
+/// <li class="rosetta__list-item--unordered">A date (either the date when the entry was made or some other date that is meaningful, like the birthday); the date may be generated or entered manually</li>
+/// <li class="rosetta__list-item--unordered">Other optional fields</li></ul>
+/// <br>
+/// <p class="rosetta__paragraph">The command should support the following <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Command-line arguments" title="Command-line arguments">Command-line arguments</a> to run:</p>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Add a new entry</li>
+/// <li class="rosetta__list-item--unordered">Print the latest entry</li>
+/// <li class="rosetta__list-item--unordered">Print the latest entry for each category</li>
+/// <li class="rosetta__list-item--unordered">Print all entries sorted by a date</li></ul>
+/// <br>
+/// <p class="rosetta__paragraph">The category may be realized as a tag or as structure (by making all entries in that category subitems)</p><br/><p class="rosetta__paragraph">The file format on disk should be human readable, but it need not be standardized.  A natively available format that doesn't need an external library is preferred.  Avoid developing your own format if you can use an already existing one.  If there is no existing format available, pick one of:</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">::*  <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/JSON" title="JSON">JSON</a></span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">::*  <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/S-Expressions" title="S-Expressions">S-Expressions</a></span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">::*  <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/YAML" title="YAML">YAML</a></span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">::*  <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Comparison_of_data_serialization_formats" title="wp: Comparison_of_data_serialization_formats">others</a></span></p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Related task:</dt></dl>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"> <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Take notes on the command line" title="Take notes on the command line">Take notes on the command line</a> </li></ul><br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

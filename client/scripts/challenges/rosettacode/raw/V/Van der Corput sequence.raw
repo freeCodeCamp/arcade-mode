@@ -1,0 +1,69 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Van der Corput sequence
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <p class="rosetta__paragraph">When counting integers in binary, if you put a (binary) point to the right of the count then the column immediately to the left denotes a digit with a multiplier of $2^0$; the digit in the next column to the left has a multiplier of $2^1$; and so on.</p><br/><p class="rosetta__paragraph">So in the following table:</p>
+/// <div class="rosetta__pre-wrap"><pre class="rosetta__pre">  0.
+///   1.
+///  10.
+///  11.
+///  ...</pre></div>
+/// <p class="rosetta__paragraph">the binary number "<code>10</code>" is $1 \times 2^1 + 0 \times 2^0$.</p><br/><p class="rosetta__paragraph">You can also have binary digits to the right of the “point”, just as in the decimal number system. In that case, the digit in the place immediately to the right of the point has a weight of $2^{-1}$, or $1/2$.</p>
+/// <p class="rosetta__paragraph">The weight for the second column to the right of the point is $2^{-2}$ or $1/4$. And so on.</p><br/><p class="rosetta__paragraph">If you take the integer binary count of the first table, and <span class="rosetta__text--italic">reflect</span> the digits about the binary point, you end up with <span class="rosetta__text--bold">the van der Corput sequence of numbers in base 2</span>.</p><br/><div class="rosetta__pre-wrap"><pre class="rosetta__pre">  .0
+///   .1
+///   .01
+///   .11
+///   ...</pre></div><br/><p class="rosetta__paragraph">The third member of the sequence, binary <code>0.01</code>, is therefore $0 \times 2^{-1} + 1 \times 2^{-2}$ or $1/4$.</p><br/><br> <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:Van der corput distribution.png" title="File:Van der corput distribution.png">400|thumb|right|Distribution of 2500 points each: Van der Corput (top) vs pseudorandom</a> Members of the sequence lie within the interval $0 \leq x < 1$. Points within the sequence tend to be evenly distributed which is a useful trait to have for <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Monte Carlo method" title="wp: Monte Carlo method">Monte Carlo simulations</a>. 
+/// <p class="rosetta__paragraph">This sequence is also a superset of the numbers representable by the "fraction" field of <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/IEEE 754-1985" title="wp: IEEE 754-1985">an old IEEE floating point standard</a>. In that standard, the "fraction" field represented the fractional part of a binary number beginning with "1." e.g. 1.101001101.</p><br/><p class="rosetta__paragraph"><span class="rosetta__text--bold">Hint</span></p><br/><p class="rosetta__paragraph">A <span class="rosetta__text--italic">hint</span> at a way to generate members of the sequence is to modify a routine used to change the base of an integer:</p>
+/// <p class="rosetta__paragraph"><lang python>>>> def base10change(n, base):</p>
+/// <p class="rosetta__paragraph">digits = []</p>
+/// <p class="rosetta__paragraph">while n:</p>
+/// <p class="rosetta__paragraph">n,remainder = divmod(n, base)</p>
+/// <p class="rosetta__paragraph">digits.insert(0, remainder)</p>
+/// <p class="rosetta__paragraph">return digits</p><br/><p class="rosetta__paragraph">>>> base10change(11, 2)</p>
+/// <p class="rosetta__paragraph">[1, 0, 1, 1]</lang></p>
+/// <p class="rosetta__paragraph">the above showing that <code>11</code> in decimal is $1\times 2^3 + 0\times 2^2 + 1\times 2^1 + 1\times 2^0$.<br></p>
+/// <p class="rosetta__paragraph">Reflected this would become <code>.1101</code> or $1\times 2^{-1} + 1\times 2^{-2} + 0\times 2^{-3} + 1\times 2^{-4}$</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task description:</dt></dl>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Create a function/method/routine that given <span class="rosetta__text--italic">n</span>, generates the <span class="rosetta__text--italic">n</span>'th term of the van der Corput sequence in base 2.</li>
+/// <li class="rosetta__list-item--unordered">Use the function to compute <span class="rosetta__text--italic">and display</span> the first ten members of the sequence. (The first member of the sequence is for <span class="rosetta__text--italic">n</span>=0).</li></ul>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">As a stretch goal/extra credit, compute and show members of the sequence for bases other than 2.</li></ul>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">See also:</dt></dl>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"><a class="rosetta__link--wiki" href="http://www.puc-rio.br/marco.ind/quasi_mc.html#low_discrep" title="link: http://www.puc-rio.br/marco.ind/quasi_mc.html#low_discrep">The Basic Low Discrepancy Sequences</a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Non-decimal radices/Convert" title="Non-decimal radices/Convert">Non-decimal radices/Convert</a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Van der Corput sequence" title="wp: Van der Corput sequence">Van der Corput sequence</a></li></ul><br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,0 +1,76 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Rosetta Code/Fix code tags
+/// type: rosetta-code
+
+/// categories:
+/// Rosetta Code related
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Fix Rosetta Code deprecated code tags, with these rules:</p>
+/// <div class="rosetta__pre-wrap"><pre class="rosetta__pre">
+/// Change <%s> to <lang %s>
+/// Change </%s> to </lang>
+/// Change <code %s> to <lang %s>
+/// Change </code> to </lang>
+/// </pre></div>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Usage:</dt></dl>
+/// <div class="rosetta__pre-wrap"><pre class="rosetta__pre">
+/// ./convert.py < wikisource.txt > converted.txt
+/// </pre></div>
+/// <br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+var langs = ['foo', 'bar', 'baz']; // real list of langs goes here
+var end_tag = '</'+'lang>';
+
+var line;
+while (line = readline()) {
+    line = line.replace(new RegExp('</code>', 'gi'), end_tag);
+    for (var i = 0; i < langs.length; i++)
+        line = line.replace(new RegExp('<(?:code )?(' + langs[i] + ')>', 'gi'), '<lang $1>')
+                   .replace(new RegExp('</' + langs[i] + '>', 'gi'), end_tag);
+    print(line);
+}
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+{{works with|SpiderMonkey}}
+<lang javascript>var langs = ['foo', 'bar', 'baz']; // real list of langs goes here
+var end_tag = '</'+'lang>';
+
+var line;
+while (line = readline()) {
+    line = line.replace(new RegExp('</code>', 'gi'), end_tag);
+    for (var i = 0; i < langs.length; i++)
+        line = line.replace(new RegExp('<(?:code )?(' + langs[i] + ')>', 'gi'), '<lang $1>')
+                   .replace(new RegExp('</' + langs[i] + '>', 'gi'), end_tag);
+    print(line);
+}</lang>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,0 +1,46 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: 2048
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><p class="rosetta__paragraph">Implement a 2D sliding block puzzle game where blocks with numbers are combined to add their values.</p><br/><p class="rosetta__paragraph">The rules are that each turn the player must perform a valid move shifting all tiles in one direction (up, down, left or right). A move is valid when at least one tile can be moved in that direction. When moved against each other tiles with the same number on them combine into one. A new tile with the value of 2 is spawned at the end of each turn if there is an empty spot for it. To win the player must create a tile with the number 2048. The player loses if no valid moves are possible.</p><br/><p class="rosetta__paragraph">The name comes from the popular open-source implementation of this game mechanic, <a class="rosetta__link--wiki" href="https://gabrielecirulli.github.io/2048/" title="link: https://gabrielecirulli.github.io/2048/">2048</a>.</p><br/><p class="rosetta__paragraph">Requirements:</p>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">"Non-greedy" movement. The tiles that were created by combining other tiles should not be combined again during the same turn (move). That is to say that moving the tile row of</li></ul>
+/// <p class="rosetta__paragraph">[2][2][2][2]</p><br/><p class="rosetta__paragraph">to the right should result in</p><br/><p class="rosetta__paragraph">......[4][4]</p><br/><p class="rosetta__paragraph">and not</p><br/><p class="rosetta__paragraph">.........[8]</p><br/><ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">"Move direction priority". If more than one variant of combining is possible, move direction shows one that will take effect. For example, moving the tile row of</li></ul>
+/// <p class="rosetta__paragraph">...[2][2][2]</p><br/><p class="rosetta__paragraph">to the right should result in</p><br/><p class="rosetta__paragraph">......[2][4]</p><br/><p class="rosetta__paragraph">and not</p><br/><p class="rosetta__paragraph">......[4][2]</p><br/><ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Adding a new tile on a blank space. Most of the time new "2" is to be added and occasionally (10% of the time) - "4"</li>
+/// <li class="rosetta__list-item--unordered">Check for valid moves. The player shouldn't be able to skip their turn by trying a move that doesn't change the board.</li>
+/// <li class="rosetta__list-item--unordered">Win condition.</li>
+/// <li class="rosetta__list-item--unordered">Lose condition.</li></ul>
+/// </div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

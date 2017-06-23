@@ -1,0 +1,40 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Topic variable
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <p class="rosetta__paragraph">Several programming languages offer syntax shortcuts to deal with the notion of "current" or "topic" variable.  A topic variable is a <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Special variables" title="Special variables">special variable</a> with a very short name which can also often be omitted.</p><br/><p class="rosetta__paragraph">Demonstrate the utilization and behaviour of the topic variable within the language and explain or demonstrate how the topic variable behaves under different levels of nesting or scope, if this applies, within the language.</p><br/><p class="rosetta__paragraph">For instance you can (but you don't have to) show how the topic variable can be used by assigning the number $3$ to it and then computing its square and square root.</p><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,0 +1,61 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Pi
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <p class="rosetta__paragraph"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:pi_symbol.jpg" title="File:pi_symbol.jpg">500px||right</a></p><br/><p class="rosetta__paragraph">Create a program to continually calculate and output the next decimal digit of  <big><big>$\pi$</big></big>  (pi).</p><br/><p class="rosetta__paragraph">The program should continue forever (until it is aborted by the user) calculating and outputting each decimal digit in succession.</p><br/><p class="rosetta__paragraph">The output should be a decimal sequence beginning  3.14159265 ...</p>
+/// <br/><p class="rosetta__paragraph">Note: this task is about  <span class="rosetta__text--italic">calculating</span>  pi.  For information on built-in pi constants see <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Real constants and functions" title="Real constants and functions">Real constants and functions</a>.</p>
+/// <br/><p class="rosetta__paragraph">Related Task <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Arithmetic-geometric mean/Calculate Pi" title="Arithmetic-geometric mean/Calculate Pi">Arithmetic-geometric mean/Calculate Pi</a></p>
+/// <br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+null
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+Returns an approximation of Pi.
+
+<lang>var calcPi = function() {
+  var n = 20000;
+  var pi = 0;
+  for (var i = 0; i < n; i++) {
+    var temp = 4 / (i*2+1);
+    if (i % 2 == 0) {
+      pi += temp;
+    }
+    else {
+      pi -= temp;
+    }
+  }
+  return pi;
+}</lang>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,0 +1,260 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Anagrams/Deranged anagrams
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><br/><p class="rosetta__paragraph">Two or more words are said to be <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Anagrams" title="Anagrams">anagrams</a> if they have the same characters, but in a different order.</p><br/><p class="rosetta__paragraph">By analogy with <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Permutations/Derangements" title="Permutations/Derangements">derangements</a> we define a  <span class="rosetta__text--italic">deranged anagram</span> as two words with the same characters, but in which the same character does <span class="rosetta__text--italic">not</span> appear in the same position in both words.</p>
+/// <br/>
+/// <p class="rosetta__paragraph">Use the word list at <a class="rosetta__link--wiki" href="http://www.puzzlers.org/pub/wordlists/unixdict.txt" title="link: http://www.puzzlers.org/pub/wordlists/unixdict.txt">unixdict</a> to find and display the longest deranged anagram.</p>
+/// <br/>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Permutations/Derangements" title="Permutations/Derangements">Permutations/Derangements</a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Best shuffle" title="Best shuffle">Best shuffle</a></li></ul><br/><p class="rosetta__paragraph"><hr></p><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+#!/usr/bin/env js
+
+function main() {
+    var wordList = read('unixdict.txt').split(/\s+/);
+    var anagrams = findAnagrams(wordList);
+    var derangedAnagrams = findDerangedAnagrams(anagrams);
+    var longestPair = findLongestDerangedPair(derangedAnagrams);
+    print(longestPair.join(' '));
+    
+}
+
+function findLongestDerangedPair(danas) {
+    var longestLen = danas[0][0].length;
+    var longestPair = danas[0];
+    for (var i in danas) {
+        if (danas[i][0].length > longestLen) {
+            longestLen = danas[i][0].length;
+            longestPair = danas[i];
+        }
+    }
+    return longestPair;
+}
+
+function findDerangedAnagrams(anagrams) {
+    var deranged = [];
+    
+    function isDeranged(w1, w2) {
+        for (var c = 0; c < w1.length; c++) {
+            if (w1[c] == w2[c]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    function findDeranged(anas) {
+        for (var a = 0; a < anas.length; a++) {
+            for (var b = a + 1; b < anas.length; b++) {
+                if (isDeranged(anas[a], anas[b])) {
+                    deranged.push([anas[a], anas[b]]);
+                }   
+            }
+        }
+    }
+    
+    for (var a in anagrams) {
+        var anas = anagrams[a];
+        findDeranged(anas);
+    }
+    
+    return deranged;
+}
+    
+function findAnagrams(wordList) {
+    var anagrams = {};
+
+    for (var wordNum in wordList) {
+        var word = wordList[wordNum];
+        var key = word.split('').sort().join('');
+        if (!(key in anagrams)) {
+            anagrams[key] = [];
+        }
+        anagrams[key].push(word);
+    }
+
+    for (var a in anagrams) {
+        if (anagrams[a].length < 2) {
+            delete(anagrams[a]);
+        }
+    }
+
+    return anagrams;
+}
+
+main();
+
+
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+
+=== Spidermonkey ===
+
+This example is a little long because 
+it tries to emphasize generality and clarity over
+brevity.
+
+<lang JavaScript>#!/usr/bin/env js
+
+function main() {
+    var wordList = read('unixdict.txt').split(/\s+/);
+    var anagrams = findAnagrams(wordList);
+    var derangedAnagrams = findDerangedAnagrams(anagrams);
+    var longestPair = findLongestDerangedPair(derangedAnagrams);
+    print(longestPair.join(' '));
+    
+}
+
+function findLongestDerangedPair(danas) {
+    var longestLen = danas[0][0].length;
+    var longestPair = danas[0];
+    for (var i in danas) {
+        if (danas[i][0].length > longestLen) {
+            longestLen = danas[i][0].length;
+            longestPair = danas[i];
+        }
+    }
+    return longestPair;
+}
+
+function findDerangedAnagrams(anagrams) {
+    var deranged = [];
+    
+    function isDeranged(w1, w2) {
+        for (var c = 0; c < w1.length; c++) {
+            if (w1[c] == w2[c]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    function findDeranged(anas) {
+        for (var a = 0; a < anas.length; a++) {
+            for (var b = a + 1; b < anas.length; b++) {
+                if (isDeranged(anas[a], anas[b])) {
+                    deranged.push([anas[a], anas[b]]);
+                }   
+            }
+        }
+    }
+    
+    for (var a in anagrams) {
+        var anas = anagrams[a];
+        findDeranged(anas);
+    }
+    
+    return deranged;
+}
+    
+function findAnagrams(wordList) {
+    var anagrams = {};
+
+    for (var wordNum in wordList) {
+        var word = wordList[wordNum];
+        var key = word.split('').sort().join('');
+        if (!(key in anagrams)) {
+            anagrams[key] = [];
+        }
+        anagrams[key].push(word);
+    }
+
+    for (var a in anagrams) {
+        if (anagrams[a].length < 2) {
+            delete(anagrams[a]);
+        }
+    }
+
+    return anagrams;
+}
+
+main();
+
+</lang>
+
+{{out}}
+ excitation intoxicate
+
+=== Gecko ===
+Word file is saved locally because browser won't fetch it cross-site.  Tested on Gecko.
+<lang javascript><html><head><title>Intoxication</title></head>
+<body><pre id='x'></pre>
+<script type="application/javascript">
+
+function show(t) {
+	var l = document.createTextNode(t + '\n');
+	document.getElementById('x').appendChild(l);
+}
+
+// get words; be ware of cross-site restrictions on XMLHttpRequest
+var words = null;
+var req = new XMLHttpRequest();
+req.open('GET', 'file:///tmp/unixdict.txt', false);
+req.send(null);
+words = req.responseText.split('\n');
+
+var idx = {};
+for (var i = 0; i < words.length; i++) {
+	var t = words[i].split('').sort().join('');
+	if (idx[t]) idx[t].push(words[i]);
+	else	    idx[t] = [words[i]];
+}
+
+var best = '';
+var best_pair;
+for (var i in idx) {
+	if (i.length <= best.length) continue;
+	if (idx[i].length == 1) continue;
+
+	var a = idx[i], got = null;
+	for (var j = 0, l1 = a[j]; j < a.length && !got; j++) {
+		for (var k = j + 1, l2 = a[k]; k < a.length && !got; k++)
+			for (var m = 0; m < l1.length || !(got = [l2]); m++)
+				if (l1[m] == l2[m]) break;
+		if (got) got.push(l1);
+	}
+
+	if (got) {
+		best_pair = got;
+		best = got[0];
+	}
+}
+
+show(best_pair);
+</script></body></html></lang>
+
+{{Out|Output (in a browser window)}}
+<pre>intoxicate,excitation</pre>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

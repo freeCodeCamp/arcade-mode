@@ -1,0 +1,53 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: RSA code
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <p class="rosetta__paragraph">Given an <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/RSA" title="wp: RSA">RSA</a> key (n,e,d), construct a program to encrypt and decrypt plaintext messages strings.</p><br/><p class="rosetta__paragraph"><span class="rosetta__text--bold">Background</span></p><br/><p class="rosetta__paragraph">RSA code is used to encode secret messages. It is named after Ron Rivest, Adi Shamir, and Leonard Adleman who published it at MIT in 1977. The advantage of this type of encryption is that you can distribute the number “$n$” and “$e$” (which makes up the Public Key used for encryption) to everyone. The Private Key used for decryption “$d$” is kept secret, so that only the recipient can read the encrypted plaintext.</p><br/><p class="rosetta__paragraph">The process by which this is done is that a message, for example “Hello World” is encoded as numbers (This could be encoding as ASCII or as a subset of characters $a=01,b=02,...,z=26$). This yields a string of numbers, generally referred to as "numerical plaintext", “$P$”. For example, “Hello World” encoded with a=1,...,z=26 by hundreds would yield $0805 1212 1523 1518 1204$.</p><br/><p class="rosetta__paragraph">The plaintext must also be split into blocks so that the numerical plaintext is smaller than $n$ otherwise the decryption will fail.</p><br/><p class="rosetta__paragraph">The ciphertext, $C$, is then computed by taking each block of $P$, and computing</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented"> $C \equiv  P^e \mod n$</span></p>
+/// <p class="rosetta__paragraph">Similarly, to decode, one computes</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented"> $P \equiv  C^d \mod n$ </span></p><br/><p class="rosetta__paragraph">To generate a key, one finds 2 (ideally large) primes $p$ and $q$. the value “$n$” is simply: $n = p \times q$.</p>
+/// <p class="rosetta__paragraph">One must then choose an “$e$” such that $\gcd(e, (p-1)\times(q-1) ) = 1$. That is to say, $e$ and $(p-1)\times(q-1)$ are relatively prime to each other.</p><br/><p class="rosetta__paragraph">The decryption value $d$ is then found by solving</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented"> $d\times e \equiv  1 \mod (p-1)\times(q-1)$</span></p><br/><p class="rosetta__paragraph">The security of the code is based on the secrecy of the Private Key (decryption exponent) “$d$” and the difficulty in factoring “$n$”.  Research into RSA facilitated advances in factoring and a number of <a class="rosetta__link--wiki" href="http://www.rsa.com/rsalabs/node.asp?id=2092" title="link: http://www.rsa.com/rsalabs/node.asp?id=2092">factoring challenges</a>.   Keys of 768 bits have been successfully factored.  While factoring of keys of 1024 bits has not been demonstrated, NIST expected them to be factorable by 2010 and now recommends 2048 bit keys going forward (see <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Key_size#Asymmetric_algorithm_key_lengths" title="wp: Key_size#Asymmetric_algorithm_key_lengths">Asymmetric algorithm key lengths</a> or <a class="rosetta__link--wiki" href="http://csrc.nist.gov/publications/nistpubs/800-57/sp800-57-Part1-revised2_Mar08-2007.pdf" title="link: http://csrc.nist.gov/publications/nistpubs/800-57/sp800-57-Part1-revised2_Mar08-2007.pdf">NIST 800-57 Pt 1 Revised Table 4: Recommended algorithms and minimum key sizes</a>).</p><br/><p class="rosetta__paragraph"><span class="rosetta__text--bold">Summary of the task requirements:</span></p><br/><ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"> Encrypt and Decrypt a short message or two using RSA with a demonstration key.  </li>
+/// <li class="rosetta__list-item--unordered"> Implement RSA do not call a library.</li>
+/// <li class="rosetta__list-item--unordered"> Encode and decode the message using any reversible method of your choice (ASCII or a=1,..,z=26 are equally fine). </li>
+/// <li class="rosetta__list-item--unordered"> Either support blocking or give an error if the message would require blocking)</li>
+/// <li class="rosetta__list-item--unordered"> Demonstrate that your solution could support real keys by using a non-trivial key that requires large integer support (built-in or libraries).  There is no need to include library code but it must be referenced unless it is built into the language. The following keys will be meet this requirement;however, they are NOT long enough to be considered secure:</li></ul><span class="rosetta__text--indented">: n = 9516311845790656153499716760847001433441357</span>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">: e = 65537</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">: d = 5617843187844953170308463622230283376298685</span></p>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"> Messages can be hard-coded into the program, there is no need for elaborate input coding.</li>
+/// <li class="rosetta__list-item--unordered"> Demonstrate that your implementation works by showing plaintext, intermediate results, encrypted text, and decrypted text.</li></ul><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

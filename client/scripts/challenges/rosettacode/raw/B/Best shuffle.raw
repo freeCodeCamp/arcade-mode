@@ -1,0 +1,168 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Best shuffle
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Shuffle the characters of a string in such a way that as many of the character values are in a different position as possible.</p><br/><p class="rosetta__paragraph">A shuffle that produces a randomized result among the best choices is to be preferred. A deterministic approach that produces the same sequence every time is acceptable as an alternative.</p><br/><p class="rosetta__paragraph">Display the result as follows:</p><br/><p class="rosetta__paragraph">original string, shuffled string, (score)</p><br/><p class="rosetta__paragraph">The score gives the number of positions whose character value did <span class="rosetta__text--italic">not</span> change.</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Example:</dt></dl>
+/// <p class="rosetta__paragraph">tree, eetr, (0)</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Test cases:</dt></dl>
+/// <p class="rosetta__paragraph">abracadabra</p>
+/// <p class="rosetta__paragraph">seesaw</p>
+/// <p class="rosetta__paragraph">elk</p>
+/// <p class="rosetta__paragraph">grrrrrr</p>
+/// <p class="rosetta__paragraph">up</p>
+/// <p class="rosetta__paragraph">a</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks</dt></dl>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"> <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Anagrams/Deranged anagrams" title="Anagrams/Deranged anagrams">Anagrams/Deranged anagrams</a></li>
+/// <li class="rosetta__list-item--unordered"> <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Permutations/Derangements" title="Permutations/Derangements">Permutations/Derangements</a></li></ul><br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+function raze(a) { // like .join('') except producing an array instead of a string
+    var r= [];
+    for (var j= 0; j<a.length; j++)
+        for (var k= 0; k<a[j].length; k++)  r.push(a[j][k]);
+    return r;
+}
+function shuffle(y) {
+    var len= y.length;
+    for (var j= 0; j < len; j++) {
+        var i= Math.floor(Math.random()*len);
+        var t= y[i];
+        y[i]= y[j];
+        y[j]= t;
+    }
+    return y;
+}
+function bestShuf(txt) {
+    var chs= txt.split('');
+    var gr= {};
+    var mx= 0;
+    for (var j= 0; j<chs.length; j++) {
+        var ch= chs[j];
+        if (null == gr[ch])  gr[ch]= [];
+        gr[ch].push(j);
+        if (mx < gr[ch].length)  mx++;
+    }
+    var inds= [];
+    for (var ch in gr)  inds.push(shuffle(gr[ch]));
+    var ndx= raze(inds);
+    var cycles= [];
+    for (var k= 0; k < mx; k++)  cycles[k]= [];
+    for (var j= 0; j<chs.length; j++)  cycles[j%mx].push(ndx[j]);
+    var ref= raze(cycles);
+    for (var k= 0; k < mx; k++)  cycles[k].push(cycles[k].shift());
+    var prm= raze(cycles);
+    var shf= [];
+    for (var j= 0; j<chs.length; j++)  shf[ref[j]]= chs[prm[j]];
+    return shf.join('');
+}
+
+function disp(ex) {
+    var r= bestShuf(ex);
+    var n= 0;
+    for (var j= 0; j<ex.length; j++)
+        n+= ex.substr(j, 1) == r.substr(j,1) ?1 :0;
+    return ex+', '+r+', ('+n+')';
+}
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+
+Based on the J implementation (and this would be a lot more concise if we used something like jQuery):
+
+<lang javascript>function raze(a) { // like .join('') except producing an array instead of a string
+    var r= [];
+    for (var j= 0; j<a.length; j++)
+        for (var k= 0; k<a[j].length; k++)  r.push(a[j][k]);
+    return r;
+}
+function shuffle(y) {
+    var len= y.length;
+    for (var j= 0; j < len; j++) {
+        var i= Math.floor(Math.random()*len);
+        var t= y[i];
+        y[i]= y[j];
+        y[j]= t;
+    }
+    return y;
+}
+function bestShuf(txt) {
+    var chs= txt.split('');
+    var gr= {};
+    var mx= 0;
+    for (var j= 0; j<chs.length; j++) {
+        var ch= chs[j];
+        if (null == gr[ch])  gr[ch]= [];
+        gr[ch].push(j);
+        if (mx < gr[ch].length)  mx++;
+    }
+    var inds= [];
+    for (var ch in gr)  inds.push(shuffle(gr[ch]));
+    var ndx= raze(inds);
+    var cycles= [];
+    for (var k= 0; k < mx; k++)  cycles[k]= [];
+    for (var j= 0; j<chs.length; j++)  cycles[j%mx].push(ndx[j]);
+    var ref= raze(cycles);
+    for (var k= 0; k < mx; k++)  cycles[k].push(cycles[k].shift());
+    var prm= raze(cycles);
+    var shf= [];
+    for (var j= 0; j<chs.length; j++)  shf[ref[j]]= chs[prm[j]];
+    return shf.join('');
+}
+
+function disp(ex) {
+    var r= bestShuf(ex);
+    var n= 0;
+    for (var j= 0; j<ex.length; j++)
+        n+= ex.substr(j, 1) == r.substr(j,1) ?1 :0;
+    return ex+', '+r+', ('+n+')';
+}</lang>
+
+Example:
+
+<lang html><html><head><title></title></head><body><pre id="out"></pre></body></html>
+<script type="text/javascript">
+/* ABOVE CODE GOES HERE */
+var sample= ['abracadabra', 'seesaw', 'elk', 'grrrrrr', 'up', 'a']
+for (var i= 0; i<sample.length; i++)
+	document.getElementById('out').innerHTML+= disp(sample[i])+'\r\n';
+</script></lang>
+
+Produced:
+<pre>abracadabra, raababacdar, (0)
+seesaw, ewaess, (0)
+elk, lke, (0)
+grrrrrr, rrrrrgr, (5)
+up, pu, (0)
+a, a, (1)</pre>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

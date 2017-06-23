@@ -1,0 +1,107 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Walk a directory/Recursively
+/// type: rosetta-code
+
+/// categories:
+/// Recursion
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Walk a given directory <span class="rosetta__text--italic">tree</span> and print files matching a given pattern.</p>
+/// <br/><p class="rosetta__paragraph"><span class="rosetta__text--bold">Note:</span> This task is for recursive methods.  These tasks should read an entire directory tree, not a <span class="rosetta__text--italic">single directory</span>.</p>
+/// <br/><p class="rosetta__paragraph"><span class="rosetta__text--bold">Note:</span> Please be careful when running any code examples found here.</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Related task:</dt></dl>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"> <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Walk a directory/Non-recursively" title="Walk a directory/Non-recursively">Walk a directory/Non-recursively</a>  (read a <span class="rosetta__text--italic">single directory</span>). </li></ul><br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+var fso = new ActiveXObject("Scripting.FileSystemObject");
+
+function walkDirectoryTree(folder, folder_name, re_pattern) {
+    WScript.Echo("Files in " + folder_name + " matching '" + re_pattern + "':");
+    walkDirectoryFilter(folder.files, re_pattern);
+
+    var subfolders = folder.SubFolders;
+    WScript.Echo("Folders in " + folder_name + " matching '" + re_pattern + "':");
+    walkDirectoryFilter(subfolders, re_pattern);
+
+    WScript.Echo();
+    var en = new Enumerator(subfolders);
+    while (! en.atEnd()) {
+        var subfolder = en.item();
+        walkDirectoryTree(subfolder, folder_name + "/" + subfolder.name, re_pattern);
+        en.moveNext();
+    }
+}
+
+function walkDirectoryFilter(items, re_pattern) {
+    var e = new Enumerator(items);
+    while (! e.atEnd()) {
+        var item = e.item();
+        if (item.name.match(re_pattern))
+            WScript.Echo(item.name);
+        e.moveNext();
+    }
+}
+
+walkDirectoryTree(dir, dir.name, '\\.txt$');
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+{{works with|JScript}}
+<lang javascript>var fso = new ActiveXObject("Scripting.FileSystemObject");
+
+function walkDirectoryTree(folder, folder_name, re_pattern) {
+    WScript.Echo("Files in " + folder_name + " matching '" + re_pattern + "':");
+    walkDirectoryFilter(folder.files, re_pattern);
+
+    var subfolders = folder.SubFolders;
+    WScript.Echo("Folders in " + folder_name + " matching '" + re_pattern + "':");
+    walkDirectoryFilter(subfolders, re_pattern);
+
+    WScript.Echo();
+    var en = new Enumerator(subfolders);
+    while (! en.atEnd()) {
+        var subfolder = en.item();
+        walkDirectoryTree(subfolder, folder_name + "/" + subfolder.name, re_pattern);
+        en.moveNext();
+    }
+}
+
+function walkDirectoryFilter(items, re_pattern) {
+    var e = new Enumerator(items);
+    while (! e.atEnd()) {
+        var item = e.item();
+        if (item.name.match(re_pattern))
+            WScript.Echo(item.name);
+        e.moveNext();
+    }
+}
+
+walkDirectoryTree(dir, dir.name, '\\.txt$');</lang>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

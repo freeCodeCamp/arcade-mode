@@ -1,0 +1,77 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Guess the number
+/// type: rosetta-code
+
+/// categories:
+///  Conditional loops
+/// Randomness
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <br/>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Write a program where the program chooses a number between  <span class="rosetta__text--bold">1</span>  and  <span class="rosetta__text--bold">10</span>.</p><br/><p class="rosetta__paragraph">A player is then prompted to enter a guess.  If the player guesses wrong,  then the prompt appears again until the guess is correct.</p><br/><p class="rosetta__paragraph">When the player has made a successful guess the computer will issue a  "Well guessed!"  message,  and the program exits.</p><br/><p class="rosetta__paragraph">A  <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/:Category:Conditional loops" title=":Category:Conditional loops">conditional loop</a>  may be used to repeat the guessing until the user is correct.</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks:</dt></dl>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"> <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Bulls and cows" title="Bulls and cows">Bulls and cows</a></li>
+/// <li class="rosetta__list-item--unordered"> <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Bulls and cows/Player" title="Bulls and cows/Player">Bulls and cows/Player</a></li>
+/// <li class="rosetta__list-item--unordered"> <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Guess the number/With Feedback" title="Guess the number/With Feedback">Guess the number/With Feedback</a></li>
+/// <li class="rosetta__list-item--unordered"> <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Mastermind" title="Mastermind">Mastermind</a></li></ul><br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+function guessNumber() {
+  // Get a random integer from 1 to 10 inclusive
+  var num = Math.ceil(Math.random() * 10);
+  var guess;
+
+  while (guess != num) {
+    guess = prompt('Guess the number between 1 and 10 inclusive');
+  }
+  alert('Congratulations!\nThe number was ' + num);
+}
+
+guessNumber();
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+<lang javascript>
+function guessNumber() {
+  // Get a random integer from 1 to 10 inclusive
+  var num = Math.ceil(Math.random() * 10);
+  var guess;
+
+  while (guess != num) {
+    guess = prompt('Guess the number between 1 and 10 inclusive');
+  }
+  alert('Congratulations!\nThe number was ' + num);
+}
+
+guessNumber();</lang>
+
+Requires a host environment that supports <code>prompt</code> and <code>alert</code> such as a browser.
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,0 +1,69 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Sort a list of object identifiers
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <br/><p class="rosetta__paragraph"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Object identifier" title="wp: Object identifier">Object identifiers (OID)</a> are strings used to identify objects in network data.</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Show how to sort a list of OIDs, in their natural sort order.</p>
+/// <br/>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">An OID consists of one or more non-negative integers in base 10, separated by dots. It starts and ends with a number.</li>
+/// <li class="rosetta__list-item--unordered">Their natural sort order is <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Lexicographical" title="wp: Lexicographical">lexicographical</a> with regard to the dot-separated fields, using numeric comparison between fields.</li></ul>
+/// <br/><p class="rosetta__paragraph">{| class="wikitable"</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">! Input <span class="rosetta__text--italic">(list of strings)</span></p>
+/// <p class="rosetta__paragraph">! Output <span class="rosetta__text--italic">(list of strings)</span></p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">|</p>
+/// <p class="rosetta__paragraph"><code>1.3.6.1.4.1.11.2.17.19.3.4.0.10</code><br></p>
+/// <p class="rosetta__paragraph"><code>1.3.6.1.4.1.11.2.17.5.2.0.79</code><br></p>
+/// <p class="rosetta__paragraph"><code>1.3.6.1.4.1.11.2.17.19.3.4.0.4</code><br></p>
+/// <p class="rosetta__paragraph"><code>1.3.6.1.4.1.11150.3.4.0.1</code><br></p>
+/// <p class="rosetta__paragraph"><code>1.3.6.1.4.1.11.2.17.19.3.4.0.1</code><br></p>
+/// <p class="rosetta__paragraph"><code>1.3.6.1.4.1.11150.3.4.0</code></p>
+/// <p class="rosetta__paragraph">|</p>
+/// <p class="rosetta__paragraph"><code>1.3.6.1.4.1.11.2.17.5.2.0.79</code><br></p>
+/// <p class="rosetta__paragraph"><code>1.3.6.1.4.1.11.2.17.19.3.4.0.1</code><br></p>
+/// <p class="rosetta__paragraph"><code>1.3.6.1.4.1.11.2.17.19.3.4.0.4</code><br></p>
+/// <p class="rosetta__paragraph"><code>1.3.6.1.4.1.11.2.17.19.3.4.0.10</code><br></p>
+/// <p class="rosetta__paragraph"><code>1.3.6.1.4.1.11150.3.4.0</code><br></p>
+/// <p class="rosetta__paragraph"><code>1.3.6.1.4.1.11150.3.4.0.1</code></p>
+/// <p class="rosetta__paragraph">|}</p>
+/// <br/>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Natural sorting" title="Natural sorting">Natural sorting</a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Sort using a custom comparator" title="Sort using a custom comparator">Sort using a custom comparator</a></li></ul>
+/// <p class="rosetta__paragraph"><hr></p><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

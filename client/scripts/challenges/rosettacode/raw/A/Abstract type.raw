@@ -1,0 +1,42 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Abstract type
+/// type: rosetta-code
+
+/// categories:
+/// Object oriented
+/// Type System
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <br/><p class="rosetta__paragraph"><span class="rosetta__text--bold">Abstract type</span> is a type without instances or without definition.</p><br/><p class="rosetta__paragraph">For example in <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/object-oriented programming" title="object-oriented programming">object-oriented programming</a> using some languages, abstract types can be partial implementations of other types, which are to be derived there-from. An abstract type may provide implementation of some operations and/or components. Abstract types without any implementation are called <span class="rosetta__text--bold">interfaces</span>. In the languages that do not support multiple <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/inheritance" title="inheritance">inheritance</a> (<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Ada" title="Ada">Ada</a>, <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Java" title="Java">Java</a>), classes can, nonetheless, inherit from multiple interfaces. The languages with multiple inheritance (like <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/C++" title="C++">C++</a>) usually make no distinction between partially implementable abstract types and interfaces. Because the abstract type's implementation is incomplete, <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/object-oriented programming " title="object-oriented programming "> OO</a> languages normally prevent instantiation from them  (instantiation must derived from one of their descendant classes).</p><br/><p class="rosetta__paragraph">The term <span class="rosetta__text--bold">abstract datatype</span> also may denote a type, with an implementation provided by the programmer rather than directly by the language (a <span class="rosetta__text--bold">built-in</span> or an inferred type). Here the word <span class="rosetta__text--italic">abstract</span> means that the implementation is abstracted away, irrelevant for the user of the type. Such implementation can and should be hidden if the language supports separation of implementation and specification. This hides complexity while allowing the implementation to change without repercussions on the usage. The corresponding software design practice is said to follow the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Information_hiding" title="wp: Information_hiding">information hiding principle</a>.</p><br/><p class="rosetta__paragraph">It is important not to confuse this <span class="rosetta__text--italic">abstractness</span> (of implementation) with one of the <span class="rosetta__text--bold">abstract type</span>. The latter is abstract in the sense that the set of its values is empty. In the sense of implementation abstracted away, all user-defined types are abstract.</p><br/><p class="rosetta__paragraph">In some languages, like for example in Objective Caml which is strongly statically typed, it is also possible to have <span class="rosetta__text--bold">abstract types</span> that are not OO related and are not an abstractness too. These are <span class="rosetta__text--italic">pure abstract types</span> without any definition even in the implementation and can be used for example for the type algebra, or for some consistence of the type inference. For example in this area, an abstract type can be used as a phantom type to augment another type as its parameter. <!-- An OCaml Guru would explain this better than me, a poor beginner... --></p><br/><p class="rosetta__paragraph"><span class="rosetta__text--bold">Task</span>: show how an abstract type can be declared in the language. If the language makes a distinction between interfaces and partially implemented types illustrate both.</p>
+/// <br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

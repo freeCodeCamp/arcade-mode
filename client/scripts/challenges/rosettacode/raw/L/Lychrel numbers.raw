@@ -1,0 +1,74 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Lychrel numbers
+/// type: rosetta-code
+
+/// categories:
+/// Palindromes
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><br/><ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">Take an integer n, greater than zero.</li>
+/// <li class="rosetta__list-item--ordered">Form the next n of its series by reversing the digits of the current n and adding the result to the current n.</li>
+/// <li class="rosetta__list-item--ordered">Stop when n becomes palindromic - i.e. the digits of n in reverse order == n.</li></ol>
+/// <br>
+/// <p class="rosetta__paragraph">The above recurrence relation when applied to most starting numbers n = 1, 2, ... terminates in a palindrome quite quickly, for example if n<sub>0</sub> = 12 we get</p>
+/// <div class="rosetta__pre-wrap"><pre class="rosetta__pre">12
+/// 12 + 21 = 33, a palindrome!</pre></div><br/><p class="rosetta__paragraph">And if n<sub>0</sub> = 55 we get</p>
+/// <div class="rosetta__pre-wrap"><pre class="rosetta__pre">55
+/// 55 + 55 = 110
+/// 110 + 011 = 121, a palindrome!</pre></div><br/><p class="rosetta__paragraph">Notice that the check for a palindrome happens <span class="rosetta__text--italic">after</span> an addition.</p>
+/// <br/><p class="rosetta__paragraph">Some starting numbers seem to go on forever; the recurrence relation for 196 has been calculated for millions of repetitions forming numbers with millions of digits, without forming a palindrome. These numbers that do not end in a palindrome are called <span class="rosetta__text--bold">Lychrel numbers</span>.</p><br/><p class="rosetta__paragraph">For the purposes of this task a Lychrel number is any starting number that does not form a palindrome within 500 (or more) iterations.</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Seed and related Lychrel numbers:</dt></dl>
+/// <p class="rosetta__paragraph">Any integer produced in the sequence of a Lychrel number is also a Lychrel number.</p><br/><p class="rosetta__paragraph">In general, any sequence from one Lychrel number <span class="rosetta__text--italic">might</span> converge to join the sequence from a prior Lychrel number candidate; for example the sequences for the numbers 196 and then 689 begin:</p>
+/// <div class="rosetta__pre-wrap"><pre class="rosetta__pre">196
+/// 196 + 691 = 887
+/// 887 + 788 = 1675
+/// 1675 + 5761 = 7436
+/// 7436 + 6347 = 13783
+/// 13783 + 38731 = 52514
+/// 52514 + 41525 = 94039
+/// ...
+/// <br/>689
+/// 689 + 986 = 1675
+/// 1675 + 5761 = 7436
+/// ...</pre></div>
+/// <p class="rosetta__paragraph">So we see that the sequence starting with 689 converges to, and continues with the same numbers as that for 196. Because of this we can further split the Lychrel numbers into true <span class="rosetta__text--bold">Seed</span> Lychrel number candidates, and <span class="rosetta__text--bold">Related</span> numbers that produce no palindromes but have integers in their sequence seen as part of the sequence generated from a lower Lychrel number.</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"> Find the number of seed Lychrel number candidates and related numbers for n in the range 1..10000 inclusive. (With that iteration limit of 500).</li>
+/// <li class="rosetta__list-item--unordered"> Print the number of seed Lychrels found; the actual seed Lychrels; and just the <span class="rosetta__text--italic">number</span> of relateds found.</li>
+/// <li class="rosetta__list-item--unordered"> Print any seed Lychrel or related number that is itself a palindrome.</li></ul>
+/// <br>
+/// <p class="rosetta__paragraph">Show all output here.</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">References:</dt></dl>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"><a class="rosetta__link--wiki" href="https://www.youtube.com/watch?v=bN8PE3eljdA" title="link: https://www.youtube.com/watch?v=bN8PE3eljdA">What's special about 196?</a> Numberphile video.</li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--wiki" href="http://oeis.org/A023108" title="link: http://oeis.org/A023108">A023108</a> Positive integers which apparently never result in a palindrome under repeated applications of the function f(x) = x + (x with digits reversed).</li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--wiki" href="http://mathoverflow.net/questions/117104/status-of-the-196-conjecture/117277#117277" title="link: http://mathoverflow.net/questions/117104/status-of-the-196-conjecture/117277#117277">Status of the 196 conjecture?</a> Mathoverflow.</li></ul><br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

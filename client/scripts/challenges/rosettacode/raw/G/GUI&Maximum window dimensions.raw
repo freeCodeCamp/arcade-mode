@@ -1,0 +1,43 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: GUI/Maximum window dimensions
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><br/><p class="rosetta__paragraph">The task is to determine the maximum height and width of a window that can fit within the physical display area of the screen without scrolling.</p><br/><p class="rosetta__paragraph">This is effectively the screen size (not the total desktop area, which could be bigger than the screen display area) in pixels minus any adjustments for window decorations and menubars.</p><br/><p class="rosetta__paragraph">The idea is to determine the physical display parameters for the maximum height and width of the usable display area in pixels (without scrolling).</p><br/><p class="rosetta__paragraph">The values calculated should represent the usable desktop area of a window maximized to fit the the screen.</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Considerations:</dt></dl><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">--- Multiple Monitors:</dt></dl>
+/// <p class="rosetta__paragraph">For multiple monitors, the values calculated should represent the size of the usable display area on the monitor which is related to the task (i.e.:  the monitor which would display a window if such instructions were given).</p><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">--- Tiling Window Managers</dt></dl>
+/// <p class="rosetta__paragraph">For a tiling window manager, the values calculated should represent the maximum height and width of the display area of the maximum size a window can be created (without scrolling). This would typically be a full screen window (minus any areas occupied by desktop bars), unless the window manager has restrictions that prevents the creation of a full screen window, in which case the values represent the usable area of the desktop that occupies the maximum permissible window size (without scrolling).</p>
+/// <br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

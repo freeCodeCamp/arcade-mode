@@ -1,0 +1,294 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Fibonacci word
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><br/><p class="rosetta__paragraph">The  Fibonacci Word  may be created in a manner analogous to the  Fibonacci Sequence   <a class="rosetta__link--wiki" href="http://hal.archives-ouvertes.fr/docs/00/36/79/72/PDF/The_Fibonacci_word_fractal.pdf" title="link: http://hal.archives-ouvertes.fr/docs/00/36/79/72/PDF/The_Fibonacci_word_fractal.pdf">as described here</a>:</p><br/><p class="rosetta__paragraph">Define  F_Word<sub>1</sub>  as  <span class="rosetta__text--bold">1</span></p>
+/// <p class="rosetta__paragraph">Define  F_Word<sub>2</sub>  as  <span class="rosetta__text--bold">0</span></p>
+/// <p class="rosetta__paragraph">Form   F_Word<sub>3</sub>  as  F_Word<sub>2</sub>   concatenated with  F_Word<sub>1</sub>   i.e.:  <span class="rosetta__text--bold">01</span></p>
+/// <p class="rosetta__paragraph">Form   F_Word<sub>n</sub>  as  F_Word<sub>n-1</sub>  concatenated with  F_word<sub>n-2</sub></p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Perform the above steps for   n = 37.</p><br/><p class="rosetta__paragraph">You may display the first few but not the larger values of  n.</p>
+/// <br><small>{Doing so will get the task's author into trouble with them what be (again!).} </small><br/><p class="rosetta__paragraph">Instead, create a table for  F_Words  <span class="rosetta__text--bold">1</span>  to  <span class="rosetta__text--bold">37</span>  which shows:</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">:*  The number of characters in the word</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">:*  The word's <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Entropy" title="Entropy">Entropy</a></span></p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks:  </dt></dl>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"> <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Fibonacci_word/fractal" title="Fibonacci_word/fractal">Fibonacci word/fractal</a></li>
+/// <li class="rosetta__list-item--unordered"> <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Entropy" title="Entropy">Entropy</a></li>
+/// <li class="rosetta__list-item--unordered"> <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Entropy/Narcissist" title="Entropy/Narcissist">Entropy/Narcissist</a></li></ul><br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+//makes outputting a table possible in environments 
+//that don't support console.table() 
+function console_table(xs) {
+    function pad(n,s) {
+        var res = s;
+        for (var i = s.length; i < n; i++)
+            res += " ";
+        return res;
+    }
+
+    if (xs.length === 0)
+        console.log("No data");
+    else {
+        var widths = [];
+        var cells = [];
+        for (var i = 0; i <= xs.length; i++)
+            cells.push([]);
+        
+        for (var s in xs[0]) {
+            var len = s.length;
+            cells[0].push(s);
+            
+            for (var i = 0; i < xs.length; i++) {
+                var ss = "" + xs[i][s];
+                len = Math.max(len, ss.length);
+                cells[i+1].push(ss);
+            }
+            widths.push(len);
+        }
+        var s = "";
+        for (var x = 0; x < cells.length; x++) {
+            for (var y = 0; y < widths.length; y++)
+                s += "|" + pad(widths[y], cells[x][y]);
+            s += "|\n";
+        }
+        console.log(s);
+    }
+}
+
+//returns the entropy of a string as a number 
+function entropy(s) {
+     //create an object containing each individual char
+	//and the amount of iterations per char 
+    function prob(s) {
+        var h = Object.create(null);
+        s.split('').forEach(function(c) {
+           h[c] && h[c]++ || (h[c] = 1); 
+        });
+        return h;
+    }
+    
+    s = s.toString(); //just in case 
+    var e = 0, l = s.length, h = prob(s);
+    
+    for (var i in h ) {
+        var p = h[i]/l;
+        e -= p * Math.log(p) / Math.log(2);
+    }
+    return e;
+}
+
+//creates Fibonacci Word to n as described on Rosetta Code
+//see rosettacode.org/wiki/Fibonacci_word
+function fibWord(n) {
+    var wOne = "1", wTwo = "0", wNth = [wOne, wTwo], w = "", o = [];
+    
+    for (var i = 0; i < n; i++) {
+        if (i === 0 || i === 1) {
+            w = wNth[i];
+        } else {
+            w = wNth[i - 1] + wNth[i - 2];
+            wNth.push(w);
+        }
+        var l = w.length;
+        var e = entropy(w);
+        
+        if (l <= 21) {
+        	o.push({
+            	N: i + 1,
+            	Length: l,
+            	Entropy: e,
+            	Word: w
+        	});
+        } else {
+        	o.push({
+            	N: i + 1,
+            	Length: l,
+            	Entropy: e,
+            	Word: "..."
+        	});
+        }            
+    }
+    
+    try {
+    	console.table(o);
+    } catch (err) {
+    	console_table(o);
+    }
+}
+
+fibWord(37);
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+<lang JavaScript>//makes outputting a table possible in environments 
+//that don't support console.table() 
+function console_table(xs) {
+    function pad(n,s) {
+        var res = s;
+        for (var i = s.length; i < n; i++)
+            res += " ";
+        return res;
+    }
+
+    if (xs.length === 0)
+        console.log("No data");
+    else {
+        var widths = [];
+        var cells = [];
+        for (var i = 0; i <= xs.length; i++)
+            cells.push([]);
+        
+        for (var s in xs[0]) {
+            var len = s.length;
+            cells[0].push(s);
+            
+            for (var i = 0; i < xs.length; i++) {
+                var ss = "" + xs[i][s];
+                len = Math.max(len, ss.length);
+                cells[i+1].push(ss);
+            }
+            widths.push(len);
+        }
+        var s = "";
+        for (var x = 0; x < cells.length; x++) {
+            for (var y = 0; y < widths.length; y++)
+                s += "|" + pad(widths[y], cells[x][y]);
+            s += "|\n";
+        }
+        console.log(s);
+    }
+}
+
+//returns the entropy of a string as a number 
+function entropy(s) {
+     //create an object containing each individual char
+	//and the amount of iterations per char 
+    function prob(s) {
+        var h = Object.create(null);
+        s.split('').forEach(function(c) {
+           h[c] && h[c]++ || (h[c] = 1); 
+        });
+        return h;
+    }
+    
+    s = s.toString(); //just in case 
+    var e = 0, l = s.length, h = prob(s);
+    
+    for (var i in h ) {
+        var p = h[i]/l;
+        e -= p * Math.log(p) / Math.log(2);
+    }
+    return e;
+}
+
+//creates Fibonacci Word to n as described on Rosetta Code
+//see rosettacode.org/wiki/Fibonacci_word
+function fibWord(n) {
+    var wOne = "1", wTwo = "0", wNth = [wOne, wTwo], w = "", o = [];
+    
+    for (var i = 0; i < n; i++) {
+        if (i === 0 || i === 1) {
+            w = wNth[i];
+        } else {
+            w = wNth[i - 1] + wNth[i - 2];
+            wNth.push(w);
+        }
+        var l = w.length;
+        var e = entropy(w);
+        
+        if (l <= 21) {
+        	o.push({
+            	N: i + 1,
+            	Length: l,
+            	Entropy: e,
+            	Word: w
+        	});
+        } else {
+        	o.push({
+            	N: i + 1,
+            	Length: l,
+            	Entropy: e,
+            	Word: "..."
+        	});
+        }            
+    }
+    
+    try {
+    	console.table(o);
+    } catch (err) {
+    	console_table(o);
+    }
+}
+
+fibWord(37);</lang>
+Output:
+<pre>|N |Length  |Entropy           |Word                 |
+|1 |1       |0                 |1                    |
+|2 |1       |0                 |0                    |
+|3 |2       |1                 |01                   |
+|4 |3       |0.9182958340544896|010                  |
+|5 |5       |0.9709505944546688|01001                |
+|6 |8       |0.954434002924965 |01001010             |
+|7 |13      |0.961236604722876 |0100101001001        |
+|8 |21      |0.9587118829771318|010010100100101001010|
+|9 |34      |0.9596868937742169|...                  |
+|10|55      |0.9593160320543777|...                  |
+|11|89      |0.9594579158386696|...                  |
+|12|144     |0.959403754221023 |...                  |
+|13|233     |0.9594244469559867|...                  |
+|14|377     |0.9594165437404407|...                  |
+|15|610     |0.9594195626031441|...                  |
+|16|987     |0.9594184095152245|...                  |
+|17|1597    |0.9594188499578098|...                  |
+|18|2584    |0.9594186817240322|...                  |
+|19|4181    |0.9594187459836638|...                  |
+|20|6765    |0.9594187214386755|...                  |
+|21|10946   |0.9594187308140276|...                  |
+|22|17711   |0.959418727232962 |...                  |
+|23|28657   |0.9594187286008075|...                  |
+|24|46368   |0.959418728078337 |...                  |
+|25|75025   |0.959418728277903 |...                  |
+|26|121393  |0.9594187282016755|...                  |
+|27|196418  |0.9594187282307918|...                  |
+|28|317811  |0.9594187282196702|...                  |
+|29|514229  |0.9594187282239184|...                  |
+|30|832040  |0.9594187282222958|...                  |
+|31|1346269 |0.9594187282229155|...                  |
+|32|2178309 |0.9594187282226788|...                  |
+|33|3524578 |0.9594187282227693|...                  |
+|34|5702887 |0.9594187282227347|...                  |
+|35|9227465 |0.9594187282227479|...                  |
+|36|14930352|0.9594187282227428|...                  |
+|37|24157817|0.9594187282227447|...                  |</pre>
+
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

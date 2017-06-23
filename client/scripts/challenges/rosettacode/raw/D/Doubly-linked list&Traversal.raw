@@ -1,0 +1,88 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Doubly-linked list/Traversal
+/// type: rosetta-code
+
+/// categories:
+/// Iteration
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <p class="rosetta__paragraph">Traverse from the beginning of a <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Doubly-linked list/Definition" title="Doubly-linked list/Definition">doubly-linked list</a> to the end, and from the end to the beginning.</p>
+/// <br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+DoublyLinkedList.prototype.getTail = function() {
+    var tail;
+    this.traverse(function(node){tail = node;});
+    return tail;
+} 
+DoublyLinkedList.prototype.traverseBackward = function(func) {
+    func(this);
+    if (this.prev() != null)
+        this.prev().traverseBackward(func);
+}
+DoublyLinkedList.prototype.printBackward = function() {
+    this.traverseBackward( function(node) {print(node.value())} );
+}
+
+var head = createDoublyLinkedListFromArray([10,20,30,40]);
+head.print();
+head.getTail().printBackward();
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+See [[Doubly-Linked List (element)#JavaScript]]. The <code>traverse()</code> and <code>print()</code> functions have been inherited from [[Singly-Linked List (traversal)#JavaScript]].
+<lang javascript>DoublyLinkedList.prototype.getTail = function() {
+    var tail;
+    this.traverse(function(node){tail = node;});
+    return tail;
+} 
+DoublyLinkedList.prototype.traverseBackward = function(func) {
+    func(this);
+    if (this.prev() != null)
+        this.prev().traverseBackward(func);
+}
+DoublyLinkedList.prototype.printBackward = function() {
+    this.traverseBackward( function(node) {print(node.value())} );
+}
+
+var head = createDoublyLinkedListFromArray([10,20,30,40]);
+head.print();
+head.getTail().printBackward();</lang>
+
+outputs:
+<pre>10
+20
+30
+40
+40
+30
+20
+10</pre>
+Uses the <code>print()</code> function from [[Rhino]] or [[SpiderMonkey]].
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

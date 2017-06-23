@@ -1,0 +1,56 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Unicode strings
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <p class="rosetta__paragraph">As the world gets smaller each day, internationalization becomes more and more important.  For handling multiple languages, <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Unicode" title="Unicode">Unicode</a> is your best friend.</p><br/><p class="rosetta__paragraph">It is a very capable tool, but also quite complex compared to older single- and double-byte character encodings.</p><br/><p class="rosetta__paragraph">How well prepared is your programming language for Unicode?</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Discuss and demonstrate its unicode awareness and capabilities.</p>
+/// <br/><p class="rosetta__paragraph">Some suggested topics:</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">*  How easy is it to present Unicode strings in source code? </span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">*  Can Unicode literals be written directly, or be part of identifiers/keywords/etc?</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">*  How well can the language communicate with the rest of the world? </span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">*  Is it good at input/output with Unicode?</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">*  Is it convenient to manipulate Unicode strings in the language?</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">*  How broad/deep does the language support Unicode? </span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">*  What encodings (e.g. UTF-8, UTF-16, etc) can be used? </span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">*  Does it support normalization?</span></p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Note:</dt></dl>
+/// <p class="rosetta__paragraph">This task is a bit unusual in that it encourages general discussion rather than clever coding.</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">See also:</dt></dl>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"> <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Unicode variable names" title="Unicode variable names">Unicode variable names</a></li>
+/// <li class="rosetta__list-item--unordered"> <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Terminal control/Display an extended character" title="Terminal control/Display an extended character">Terminal control/Display an extended character</a></li></ul><br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,0 +1,144 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Compiler/AST interpreter
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><p class="rosetta__paragraph">AST interpreter</p><br/><p class="rosetta__paragraph">An AST interpreter interprets an <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Abstract_syntax_tree" title="link: https://en.wikipedia.org/wiki/Abstract_syntax_tree">Abstract Syntax Tree (AST)</a></p>
+/// <p class="rosetta__paragraph">produced by a <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/syntax_analyzer" title="Compiler/syntax_analyzer">Syntax Analyzer</a>.</p>
+/// <br/>
+/// <p class="rosetta__paragraph">Take the AST output from the Syntax analyzer <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/syntax_analyzer" title="Compiler/syntax_analyzer">task</a>, and interpret it as appropriate.</p>
+/// <p class="rosetta__paragraph">Refer to the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/syntax_analyzer" title="Compiler/syntax_analyzer">Syntax analyzer task</a> for details of the AST.</p><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Loading the AST from the syntax analyzer is as simple as (pseudo code):</dt></dl><br/><p class="rosetta__paragraph"><lang python>def load_ast()</p>
+/// <p class="rosetta__paragraph">line = readline()</p>
+/// <p class="rosetta__paragraph"># Each line has at least one token</p>
+/// <p class="rosetta__paragraph">line_list = tokenize the line, respecting double quotes</p><br/><p class="rosetta__paragraph">text = line_list[0] # first token is always the node type</p><br/><p class="rosetta__paragraph">if text == ";"   # a terminal node</p>
+/// <p class="rosetta__paragraph">return NULL</p><br/><p class="rosetta__paragraph">node_type = text # could convert to internal form if desired</p><br/><p class="rosetta__paragraph"># A line with two tokens is a leaf node</p>
+/// <p class="rosetta__paragraph"># Leaf nodes are: Identifier, Integer, String</p>
+/// <p class="rosetta__paragraph"># The 2nd token is the value</p>
+/// <p class="rosetta__paragraph">if len(line_list) > 1</p>
+/// <p class="rosetta__paragraph">return make_leaf(node_type, line_list[1])</p><br/><p class="rosetta__paragraph">left = load_ast()</p>
+/// <p class="rosetta__paragraph">right = load_ast()</p>
+/// <p class="rosetta__paragraph">return make_node(node_type, left, right)</lang></p><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title"> The interpreter algorithm is relatively simple:</dt></dl><br/><p class="rosetta__paragraph"><lang python>interp(x)</p>
+/// <p class="rosetta__paragraph">if x == NULL return NULL</p>
+/// <p class="rosetta__paragraph">elif x.node_type == Integer return x.value converted to an integer</p>
+/// <p class="rosetta__paragraph">elif x.node_type == Ident   return the current value of variable x.value</p>
+/// <p class="rosetta__paragraph">elif x.node_type == String  return x.value</p>
+/// <p class="rosetta__paragraph">elif x.node_type == Assign</p>
+/// <p class="rosetta__paragraph">globals[x.left.value] = interp(x.right)</p>
+/// <p class="rosetta__paragraph">return NULL</p>
+/// <p class="rosetta__paragraph">elif x.node_type is a binary operator return interp(x.left) operator interp(x.right)</p>
+/// <p class="rosetta__paragraph">elif x.node_type is a unary operator, return return operator interp(x.left)</p>
+/// <p class="rosetta__paragraph">elif x.node_type ==  If</p>
+/// <p class="rosetta__paragraph">if (interp(x.left)) then interp(x.right.left)</p>
+/// <p class="rosetta__paragraph">else interp(x.right.right)</p>
+/// <p class="rosetta__paragraph">return NULL</p>
+/// <p class="rosetta__paragraph">elif x.node_type == While</p>
+/// <p class="rosetta__paragraph">while (interp(x.left)) do interp(x.right)</p>
+/// <p class="rosetta__paragraph">return NULL</p>
+/// <p class="rosetta__paragraph">elif x.node_type == Prtc</p>
+/// <p class="rosetta__paragraph">print interp(x.left) as a character, no newline</p>
+/// <p class="rosetta__paragraph">return NULL</p>
+/// <p class="rosetta__paragraph">elif x.node_type == Prti</p>
+/// <p class="rosetta__paragraph">print interp(x.left) as an integer, no newline</p>
+/// <p class="rosetta__paragraph">return NULL</p>
+/// <p class="rosetta__paragraph">elif x.node_type == Prts</p>
+/// <p class="rosetta__paragraph">print interp(x.left) as a string, respecting newlines ("\n")</p>
+/// <p class="rosetta__paragraph">return NULL</p>
+/// <p class="rosetta__paragraph">elif x.node_type == Sequence</p>
+/// <p class="rosetta__paragraph">interp(x.left)</p>
+/// <p class="rosetta__paragraph">interp(x.right)</p>
+/// <p class="rosetta__paragraph">return NULL</p>
+/// <p class="rosetta__paragraph">else</p>
+/// <p class="rosetta__paragraph">error("unknown node type")</lang></p><br/><p class="rosetta__paragraph">Notes:</p><br/><p class="rosetta__paragraph">Because of the simple nature of our tiny language, Semantic analysis is not needed.</p><br/><p class="rosetta__paragraph">Your interpreter should use C like division semantics, for both division and modulus.  For division of positive operands, only the non-fractional portion of the result should be returned.  In other words, the result should be truncated towards 0.</p><br/><p class="rosetta__paragraph">This means, for instance, that 3 / 2 should result in 1.</p><br/><p class="rosetta__paragraph">For division when one of the operands is negative, the result should be truncated towards 0.</p><br/><p class="rosetta__paragraph">This means, for instance, that 3 / -2 should result in -1.</p><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title"> Test program</dt></dl><br/><p class="rosetta__paragraph">{| class="wikitable"</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">! prime.t</p>
+/// <p class="rosetta__paragraph">! lex &lt;prime.t  	&#124; parse &#124; interp</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| style="vertical-align:top" |</p>
+/// <p class="rosetta__paragraph"><lang c>/*</p>
+/// <p class="rosetta__paragraph">Simple prime number generator</p>
+/// <p class="rosetta__paragraph">*/</p>
+/// <p class="rosetta__paragraph">count = 1;</p>
+/// <p class="rosetta__paragraph">n = 1;</p>
+/// <p class="rosetta__paragraph">limit = 100;</p>
+/// <p class="rosetta__paragraph">while (n < limit) {</p>
+/// <p class="rosetta__paragraph">k=3;</p>
+/// <p class="rosetta__paragraph">p=1;</p>
+/// <p class="rosetta__paragraph">n=n+2;</p>
+/// <p class="rosetta__paragraph">while ((k*k<=n) && (p)) {</p>
+/// <p class="rosetta__paragraph">p=n/k*k!=n;</p>
+/// <p class="rosetta__paragraph">k=k+2;</p>
+/// <p class="rosetta__paragraph">}</p>
+/// <p class="rosetta__paragraph">if (p) {</p>
+/// <p class="rosetta__paragraph">print(n, " is prime\n");</p>
+/// <p class="rosetta__paragraph">count = count + 1;</p>
+/// <p class="rosetta__paragraph">}</p>
+/// <p class="rosetta__paragraph">}</p>
+/// <p class="rosetta__paragraph">print("Total primes found: ", count, "\n"); </lang></p><br/><p class="rosetta__paragraph">| style="vertical-align:top" |</p>
+/// <p class="rosetta__paragraph"><b><div class="rosetta__pre-wrap"><pre class="rosetta__pre">
+/// 3 is prime
+/// 5 is prime
+/// 7 is prime
+/// 11 is prime
+/// 13 is prime
+/// 17 is prime
+/// 19 is prime
+/// 23 is prime
+/// 29 is prime
+/// 31 is prime
+/// 37 is prime
+/// 41 is prime
+/// 43 is prime
+/// 47 is prime
+/// 53 is prime
+/// 59 is prime
+/// 61 is prime
+/// 67 is prime
+/// 71 is prime
+/// 73 is prime
+/// 79 is prime
+/// 83 is prime
+/// 89 is prime
+/// 97 is prime
+/// 101 is prime
+/// Total primes found: 26
+/// </pre></div></b></p><br/><p class="rosetta__paragraph">|}</p><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title"> Additional examples</dt></dl><br/><p class="rosetta__paragraph">Your solution should pass all the test cases above and the additional tests found <span class="rosetta__text--bold"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/Sample_programs" title="Compiler/Sample_programs">Here</a></span>.</p>
+/// <br/>
+/// <p class="rosetta__paragraph">The C and Python versions can be considered reference implementations.</p><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Related Tasks</dt></dl><br/><ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/lexical_analyzer" title="Compiler/lexical_analyzer">Lexical Analyzer task</a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/syntax_analyzer" title="Compiler/syntax_analyzer">Syntax Analyzer task</a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/code_generator" title="Compiler/code_generator">Code Generator task</a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/virtual_machine_interpreter" title="Compiler/virtual_machine_interpreter">Virtual Machine Interpreter task</a></li></ul>
+/// <p class="rosetta__paragraph"><hr></p>
+/// <p class="rosetta__paragraph">__TOC__</p><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,0 +1,57 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Rosetta Code/Rank languages by popularity
+/// type: rosetta-code
+
+/// categories:
+/// Networking and Web Interaction
+/// Sorting
+/// Rosetta Code related
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <p class="rosetta__paragraph">Sort most popular programming languages based in number of members in Rosetta Code categories.</p><br/><p class="rosetta__paragraph">Sample output on 4 March 2017:</p><br/><div class="rosetta__pre-wrap"><pre class="rosetta__pre">
+/// rank:  1 (936 entries) Racket
+/// rank:  2 (929 entries) Python
+/// rank:  3 (904 entries) Tcl
+/// rank:  4 (871 entries) Perl 6
+/// rank:  5 (862 entries) J
+/// rank:  6 (831 entries) Zkl
+/// rank:  7 (830 entries) Ruby
+/// rank:  8 (804 entries) C
+/// rank:  9 (792 entries) Go
+/// rank: 10 (782 entries) Haskell
+/// ...</pre></div><br/><p class="rosetta__paragraph"><span class="rosetta__text--bold">Notes</span></p>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Each language typically demonstrates 1 or 2 methods of accessing the data: with web scraping (via http://www.rosettacode.org/mw/index.php?title=Special:Categories&limit=5000), and/or with the API method (examples below for <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Rosetta Code/Rank languages by popularity#AWK" title="Rosetta Code/Rank languages by popularity#AWK">Awk</a>, <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Rosetta Code/Rank languages by popularity#Perl" title="Rosetta Code/Rank languages by popularity#Perl">Perl</a>, <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Rosetta Code/Rank languages by popularity#Ruby" title="Rosetta Code/Rank languages by popularity#Ruby">Ruby</a>, <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Rosetta Code/Rank languages by popularity#Tcl" title="Rosetta Code/Rank languages by popularity#Tcl">Tcl</a>, etc). The scraping and API solutions can be separate subsections, see the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Rosetta Code/Rank languages by popularity#Tcl" title="Rosetta Code/Rank languages by popularity#Tcl">Tcl example</a>.</li>
+/// <li class="rosetta__list-item--unordered">Filtering wrong results is optional. You can check against <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Special:MostLinkedCategories" title="Special:MostLinkedCategories">Special:MostLinkedCategories</a> (if using web scraping)</li>
+/// <li class="rosetta__list-item--unordered">A complete ranked listing of all  <span class="rosetta__text--bold">635</span>  languages (from the REXX example) is included here  ──►  <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/RC_POP.OUT" title="RC_POP.OUT">RC_POP.OUT</a>. <br><br></li></ul>
+/// </div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

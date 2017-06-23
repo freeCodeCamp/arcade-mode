@@ -1,0 +1,222 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Parsing/RPN to infix conversion
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Create a program that takes an <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Reverse Polish notation" title="wp: Reverse Polish notation">RPN</a> representation of an expression formatted as a space separated sequence of tokens and generates the equivalent expression in <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Infix notation" title="wp: Infix notation">infix notation</a>.</p><br/><ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Assume an input of a correct, space separated, string of tokens</li>
+/// <li class="rosetta__list-item--unordered">Generate a space separated output string representing the same expression in infix notation</li>
+/// <li class="rosetta__list-item--unordered">Show how the major datastructure of your algorithm changes with each new token parsed.</li>
+/// <li class="rosetta__list-item--unordered">Test with the following input RPN strings then print and display the output here.</li></ul><span class="rosetta__text--indented">{| class="wikitable"</span>
+/// <p class="rosetta__paragraph">! RPN input !! sample output</p>
+/// <p class="rosetta__paragraph">|- || align="center"</p>
+/// <p class="rosetta__paragraph">| <code>3 4 2 * 1 5 - 2 3 ^ ^ / +</code>|| <code>3 + 4 * 2 / ( 1 - 5 ) ^ 2 ^ 3</code></p>
+/// <p class="rosetta__paragraph">|- || align="center"</p>
+/// <p class="rosetta__paragraph">| <code>1 2 + 3 4 + ^ 5 6 + ^</code>|| <code>( ( 1 + 2 ) ^ ( 3 + 4 ) ) ^ ( 5 + 6 )</code></p>
+/// <p class="rosetta__paragraph">|}</p><br/><ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Operator precedence and operator associativity is given in this table:</li></ul><span class="rosetta__text--indented">{| class="wikitable"</span><br/><p class="rosetta__paragraph">! operator !! <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Order_of_operations" title="wp: Order_of_operations">precedence</a> !! <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Operator_associativity" title="wp: Operator_associativity">associativity</a> !! operation</p>
+/// <p class="rosetta__paragraph">|- || align="center"</p>
+/// <p class="rosetta__paragraph">|                   <big><big> ^ </big></big>  ||  4  ||  right  ||  exponentiation</p>
+/// <p class="rosetta__paragraph">|- || align="center"</p>
+/// <p class="rosetta__paragraph">|                   <big><big> * </big></big>  ||  3  ||   left  ||  multiplication</p>
+/// <p class="rosetta__paragraph">|- || align="center"</p>
+/// <p class="rosetta__paragraph">|                   <big><big> / </big></big>  ||  3  ||   left  ||     division</p>
+/// <p class="rosetta__paragraph">|- || align="center"</p>
+/// <p class="rosetta__paragraph">|                   <big><big> + </big></big>  ||  2  ||   left  ||     addition</p>
+/// <p class="rosetta__paragraph">|- || align="center"</p>
+/// <p class="rosetta__paragraph">|                   <big><big> - </big></big>  ||  2  ||   left  ||   subtraction</p>
+/// <p class="rosetta__paragraph">|}</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">See also:</dt></dl>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"> <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Parsing/Shunting-yard algorithm" title="Parsing/Shunting-yard algorithm">Parsing/Shunting-yard algorithm</a>  for a method of generating an RPN from an infix expression.</li>
+/// <li class="rosetta__list-item--unordered"> <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Parsing/RPN calculator algorithm" title="Parsing/RPN calculator algorithm">Parsing/RPN calculator algorithm</a>  for a method of calculating a final value from this output RPN expression.</li>
+/// <li class="rosetta__list-item--unordered"> <a class="rosetta__link--wiki" href="http://www.rubyquiz.com/quiz148.html" title="link: http://www.rubyquiz.com/quiz148.html">Postfix to infix</a>  from the RubyQuiz site.</li></ul><br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+const Associativity = {
+    /** a / b / c = (a / b) / c */
+    left: 0,
+    /** a ^ b ^ c = a ^ (b ^ c) */
+    right: 1,
+    /** a + b + c = (a + b) + c = a + (b + c) */
+    both: 2,
+};
+const operators = {
+    '+': { precedence: 2, associativity: Associativity.both },
+    '-': { precedence: 2, associativity: Associativity.left },
+    '*': { precedence: 3, associativity: Associativity.both },
+    '/': { precedence: 3, associativity: Associativity.left },
+    '^': { precedence: 4, associativity: Associativity.right },
+};
+class NumberNode {
+    constructor(text) { this.text = text; }
+    toString() { return this.text; }
+}
+class InfixNode {
+    constructor(fnname, operands) {
+        this.fnname = fnname;
+        this.operands = operands;
+    }
+    toString(parentPrecedence = 0) {
+        const op = operators[this.fnname];
+        const leftAdd = op.associativity === Associativity.right ? 0.01 : 0;
+        const rightAdd = op.associativity === Associativity.left ? 0.01 : 0;
+        if (this.operands.length !== 2) throw Error("invalid operand count");
+        const result = this.operands[0].toString(op.precedence + leftAdd)
+            +` ${this.fnname} ${this.operands[1].toString(op.precedence + rightAdd)}`;
+        if (parentPrecedence > op.precedence) return `( ${result} )`;
+        else return result;
+    }
+}
+function rpnToTree(tokens) {
+    const stack = [];
+    console.log(`input = ${tokens}`);
+    for (const token of tokens.split(" ")) {
+        if (token in operators) {
+            const op = operators[token], arity = 2; // all of these operators take 2 arguments
+            if (stack.length < arity) throw Error("stack error");
+            stack.push(new InfixNode(token, stack.splice(stack.length - arity)));
+        }
+        else stack.push(new NumberNode(token));
+        console.log(`read ${token}, stack = [${stack.join(", ")}]`);
+    }
+    if (stack.length !== 1) throw Error("stack error " + stack);
+    return stack[0];
+}
+const tests = [
+    ["3 4 2 * 1 5 - 2 3 ^ ^ / +", "3 + 4 * 2 / ( 1 - 5 ) ^ 2 ^ 3"],
+    ["1 2 + 3 4 + ^ 5 6 + ^", "( ( 1 + 2 ) ^ ( 3 + 4 ) ) ^ ( 5 + 6 )"],
+    ["1 2 3 + +", "1 + 2 + 3"] // test associativity (1+(2+3)) == (1+2+3)
+];
+for (const [inp, oup] of tests) {
+    const realOup = rpnToTree(inp).toString();
+    console.log(realOup === oup ? "Correct!" : "Incorrect!");
+}
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+Needs EcmaScript 6 support (e.g. Chrome).
+
+<lang javascript>const Associativity = {
+    /** a / b / c = (a / b) / c */
+    left: 0,
+    /** a ^ b ^ c = a ^ (b ^ c) */
+    right: 1,
+    /** a + b + c = (a + b) + c = a + (b + c) */
+    both: 2,
+};
+const operators = {
+    '+': { precedence: 2, associativity: Associativity.both },
+    '-': { precedence: 2, associativity: Associativity.left },
+    '*': { precedence: 3, associativity: Associativity.both },
+    '/': { precedence: 3, associativity: Associativity.left },
+    '^': { precedence: 4, associativity: Associativity.right },
+};
+class NumberNode {
+    constructor(text) { this.text = text; }
+    toString() { return this.text; }
+}
+class InfixNode {
+    constructor(fnname, operands) {
+        this.fnname = fnname;
+        this.operands = operands;
+    }
+    toString(parentPrecedence = 0) {
+        const op = operators[this.fnname];
+        const leftAdd = op.associativity === Associativity.right ? 0.01 : 0;
+        const rightAdd = op.associativity === Associativity.left ? 0.01 : 0;
+        if (this.operands.length !== 2) throw Error("invalid operand count");
+        const result = this.operands[0].toString(op.precedence + leftAdd)
+            +` ${this.fnname} ${this.operands[1].toString(op.precedence + rightAdd)}`;
+        if (parentPrecedence > op.precedence) return `( ${result} )`;
+        else return result;
+    }
+}
+function rpnToTree(tokens) {
+    const stack = [];
+    console.log(`input = ${tokens}`);
+    for (const token of tokens.split(" ")) {
+        if (token in operators) {
+            const op = operators[token], arity = 2; // all of these operators take 2 arguments
+            if (stack.length < arity) throw Error("stack error");
+            stack.push(new InfixNode(token, stack.splice(stack.length - arity)));
+        }
+        else stack.push(new NumberNode(token));
+        console.log(`read ${token}, stack = [${stack.join(", ")}]`);
+    }
+    if (stack.length !== 1) throw Error("stack error " + stack);
+    return stack[0];
+}
+const tests = [
+    ["3 4 2 * 1 5 - 2 3 ^ ^ / +", "3 + 4 * 2 / ( 1 - 5 ) ^ 2 ^ 3"],
+    ["1 2 + 3 4 + ^ 5 6 + ^", "( ( 1 + 2 ) ^ ( 3 + 4 ) ) ^ ( 5 + 6 )"],
+    ["1 2 3 + +", "1 + 2 + 3"] // test associativity (1+(2+3)) == (1+2+3)
+];
+for (const [inp, oup] of tests) {
+    const realOup = rpnToTree(inp).toString();
+    console.log(realOup === oup ? "Correct!" : "Incorrect!");
+}</lang>
+
+Output:
+<pre>input = 3 4 2 * 1 5 - 2 3 ^ ^ / +
+read 3, stack = [3]
+read 4, stack = [3, 4]
+read 2, stack = [3, 4, 2]
+read *, stack = [3, 4 * 2]
+read 1, stack = [3, 4 * 2, 1]
+read 5, stack = [3, 4 * 2, 1, 5]
+read -, stack = [3, 4 * 2, 1 - 5]
+read 2, stack = [3, 4 * 2, 1 - 5, 2]
+read 3, stack = [3, 4 * 2, 1 - 5, 2, 3]
+read ^, stack = [3, 4 * 2, 1 - 5, 2 ^ 3]
+read ^, stack = [3, 4 * 2, ( 1 - 5 ) ^ 2 ^ 3]
+read /, stack = [3, 4 * 2 / ( 1 - 5 ) ^ 2 ^ 3]
+read +, stack = [3 + 4 * 2 / ( 1 - 5 ) ^ 2 ^ 3]
+Correct!
+input = 1 2 + 3 4 + ^ 5 6 + ^
+read 1, stack = [1]
+read 2, stack = [1, 2]
+read +, stack = [1 + 2]
+read 3, stack = [1 + 2, 3]
+read 4, stack = [1 + 2, 3, 4]
+read +, stack = [1 + 2, 3 + 4]
+read ^, stack = [( 1 + 2 ) ^ ( 3 + 4 )]
+read 5, stack = [( 1 + 2 ) ^ ( 3 + 4 ), 5]
+read 6, stack = [( 1 + 2 ) ^ ( 3 + 4 ), 5, 6]
+read +, stack = [( 1 + 2 ) ^ ( 3 + 4 ), 5 + 6]
+read ^, stack = [( ( 1 + 2 ) ^ ( 3 + 4 ) ) ^ ( 5 + 6 )]
+Correct!
+input = 1 2 3 + +
+read 1, stack = [1]
+read 2, stack = [1, 2]
+read 3, stack = [1, 2, 3]
+read +, stack = [1, 2 + 3]
+read +, stack = [1 + 2 + 3]
+Correct!</pre>
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

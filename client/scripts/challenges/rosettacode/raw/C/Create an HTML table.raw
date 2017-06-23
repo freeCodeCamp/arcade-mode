@@ -1,0 +1,203 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Create an HTML table
+/// type: rosetta-code
+
+/// categories:
+/// HTML
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <p class="rosetta__paragraph">Create an HTML table.</p>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">The table body should have at least three rows of three columns.</li>
+/// <li class="rosetta__list-item--unordered">Each of these three columns should be labelled "X", "Y", and "Z". </li>
+/// <li class="rosetta__list-item--unordered">An extra column should be added at either the extreme left or the extreme right of the table that has no heading, but is filled with sequential row numbers. </li>
+/// <li class="rosetta__list-item--unordered">The rows of the "X", "Y", and "Z" columns should be filled with random or sequential integers having 4 digits or less. </li>
+/// <li class="rosetta__list-item--unordered">The numbers should be aligned in the same fashion for all columns.</li></ul><br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+<html><head><title>Table maker</title><script type="application/javascript">
+
+// normally, don't do this: at least name it something other than "a"
+Node.prototype.a = function (e) { this.appendChild(e); return this }
+
+function ce(tag, txt) {
+	var x = document.createElement(tag);
+	x.textContent = (txt === undefined) ? '' : txt;
+	return x;
+}
+
+function make_table(cols, rows) {
+	var tbl = ce('table', ''), tr = ce('tr'), th;
+
+	tbl.a(tr.a(ce('th')));
+
+	var z = 'Z'.charCodeAt(0);
+	for (var l = z - cols + 1; l <= z; l++)
+		tr.a(ce('th', String.fromCharCode(l)));
+
+	for (var r = 1; r <= rows; r++) {
+		tbl.a(tr = ce('tr').a(ce('th', r)));
+		for (var c = 0; c < cols; c++)
+			tr.a(ce('td', Math.floor(Math.random() * 10000)));
+	}
+
+	document.body
+		.a(ce('style',
+			'td, th {border: 1px solid #696;' +
+			'padding:.4ex} td {text-align: right }' +
+			'table { border-collapse: collapse}'))
+		.a(tbl);
+}
+</script></head>
+<body><script>make_table(5, 4)</script></body></html>
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+<lang JavaScript><html><head><title>Table maker</title><script type="application/javascript">
+
+// normally, don't do this: at least name it something other than "a"
+Node.prototype.a = function (e) { this.appendChild(e); return this }
+
+function ce(tag, txt) {
+	var x = document.createElement(tag);
+	x.textContent = (txt === undefined) ? '' : txt;
+	return x;
+}
+
+function make_table(cols, rows) {
+	var tbl = ce('table', ''), tr = ce('tr'), th;
+
+	tbl.a(tr.a(ce('th')));
+
+	var z = 'Z'.charCodeAt(0);
+	for (var l = z - cols + 1; l <= z; l++)
+		tr.a(ce('th', String.fromCharCode(l)));
+
+	for (var r = 1; r <= rows; r++) {
+		tbl.a(tr = ce('tr').a(ce('th', r)));
+		for (var c = 0; c < cols; c++)
+			tr.a(ce('td', Math.floor(Math.random() * 10000)));
+	}
+
+	document.body
+		.a(ce('style',
+			'td, th {border: 1px solid #696;' +
+			'padding:.4ex} td {text-align: right }' +
+			'table { border-collapse: collapse}'))
+		.a(tbl);
+}
+</script></head>
+<body><script>make_table(5, 4)</script></body></html></lang>
+
+
+Or, as an alternative to iterative assembly of the HTML string,  we could:
+:#Separate the data definition from the HTML rendering, and
+:#generate the HTML from a functional expression which, for ease of legibility and refactoring, visually resembles the structure of the HTML table code itself.
+
+<lang JavaScript>(function (lngCols, lngRows) {
+
+  //range(5, 20) --> [5..20]
+  //range('a', 'n') --> ['a'..'n']
+  function range(m, n) {
+    var blnAlpha = typeof m === 'string',
+      iFirst = blnAlpha ? m.charCodeAt(0) : m,
+      lstInt = Array.apply(
+        null,
+        Array((blnAlpha ? n.charCodeAt(0) : n) - iFirst + 1)
+      ).map(function (x, i) {
+        return iFirst + i;
+      });
+
+    return blnAlpha ? lstInt.map(
+      function (x) {
+        return String.fromCharCode(x);
+      }
+    ) : lstInt;
+  }
+  
+  // Letter label for first column (last column will be 'Z')
+  var strFirstCol = String.fromCharCode('Z'.charCodeAt(0) - (lngCols - 1));
+  
+  var lstData = [[''].concat(range(strFirstCol, 'Z'))].concat(
+      range(1, lngRows).map(
+        function (row) {
+          return [row].concat(
+            range(1, lngCols).map(
+              function () {
+                return Math.floor(
+                  Math.random() * 9999
+                );
+              }
+            )
+          );
+        }
+      )
+    );
+
+  return [
+    '<table>',
+
+    '  <thead style = "text-align: right;">',
+    '    ' + lstData[0].reduce(
+          function (a, s) {
+            return a + '<th>' + s + '</th>';
+          }, '<tr>'
+        ) + '</tr>',
+    '  </thead>',
+
+    '  <tbody style = "text-align: right;">',
+      lstData.slice(1).map(
+        function (row) {
+          return '    ' + row.reduce(
+            function (a, s) {
+              return a + '<td>' + s + '</td>';
+            }, '<tr>'
+          ) + '</tr>';
+        }
+      ).join('\n'),
+    '  </tbody>',
+
+    '</table>'
+  ].join('\n');
+
+})(3, 4); // (3 columns --> [X..Z]), (4 rows --> [1..4])
+</lang> 
+
+{{out}}
+<pre><table>
+  <thead style = "text-align: right;">
+    <tr><th></th><th>X</th><th>Y</th><th>Z</th></tr>
+  </thead>
+  <tbody style = "text-align: right;">
+    <tr><td>1</td><td>9930</td><td>1530</td><td>3070</td></tr>
+    <tr><td>2</td><td>5406</td><td>9285</td><td>311</td></tr>
+    <tr><td>3</td><td>647</td><td>6491</td><td>3684</td></tr>
+    <tr><td>4</td><td>2274</td><td>4709</td><td>1140</td></tr>
+  </tbody>
+</table></pre>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

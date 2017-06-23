@@ -1,0 +1,45 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Matrix arithmetic
+/// type: rosetta-code
+
+/// categories:
+/// Matrices
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <p class="rosetta__paragraph">For a given matrix, return the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Determinant" title="wp: Determinant">determinant</a> and the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Permanent" title="wp: Permanent">permanent</a> of the matrix.</p><br/><p class="rosetta__paragraph">The determinant is given by</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">: <big>$\det(A) = \sum_\sigma\sgn(\sigma)\prod_{i=1}^n M_{i,\sigma_i}$</big></span></p>
+/// <p class="rosetta__paragraph">while the permanent is given by</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">: <big>$ \operatorname{perm}(A)=\sum_\sigma\prod_{i=1}^n M_{i,\sigma_i}$</big></span></p>
+/// <p class="rosetta__paragraph">In both cases the sum is over the permutations $\sigma$ of the permutations of 1, 2, ..., <span class="rosetta__text--italic">n</span>. (A permutation's sign is 1 if there are an even number of inversions and -1 otherwise; see <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Parity of a permutation" title="wp: Parity of a permutation">parity of a permutation</a>.)</p><br/><p class="rosetta__paragraph">More efficient algorithms for the determinant are known: <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/LU decomposition" title="LU decomposition">LU decomposition</a>, see for example [[wp:LU decomposition#Computing the determinant]]. Efficient methods for calculating the permanent are not known.</p><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Cf.:</dt></dl>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Permutations by swapping" title="Permutations by swapping">Permutations by swapping</a></li></ul><br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

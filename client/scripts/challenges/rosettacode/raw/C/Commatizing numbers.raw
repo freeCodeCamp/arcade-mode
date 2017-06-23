@@ -1,0 +1,75 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Commatizing numbers
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><br/><p class="rosetta__paragraph"><span class="rosetta__text--italic">Commatizing</span>  numbers (as used here, a handy expedient made-up word) is the act of adding commas to a number (or string), or the numeric part of a larger string.</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Write a function that takes a string as an argument with optional arguments or parameters (the format of parameters/options is left to the programmer) that in general, adds commas (or some</p>
+/// <p class="rosetta__paragraph">other characters, including blanks or tabs) to the first numeric part of a string (if it's suitable for commatizing as per the rules below), and returns that newly commatized string.</p><br/><p class="rosetta__paragraph">Some of the commatizing rules (specified below) are arbitrary, but they'll be a part of this task requirements, if only to make the results consistent amongst national preferences and other disciplines.</p><br/><p class="rosetta__paragraph">The number may be part of a larger (non-numeric) string such as:</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">:::*  «US$1744 millions»    ──or──</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">:::*  ±25000 motes.</span></p><br/><br>
+/// <p class="rosetta__paragraph">The string may possibly <span class="rosetta__text--italic">not</span> have a number suitable for commatizing, so it should be untouched and <span class="rosetta__text--italic">no error generated</span>.</p><br/><p class="rosetta__paragraph">If any argument (option) is invalid, nothing is changed and no error <span class="rosetta__text--italic">need be</span> generated (quiet execution, no fail execution).  Error message generation is optional.</p><br/><p class="rosetta__paragraph">The exponent part of a number is never commatized.  The following string isn't suitable for commatizing:  9.7e+12000</p><br/><p class="rosetta__paragraph">Leading zeroes are never commatized.  The string  0000000005714.882  after commatization is:  0000000005,714.882</p><br/><p class="rosetta__paragraph">Any  <span class="rosetta__text--italic">period</span>  (<big><b>.</b></big>)  in a number is assumed to be a  <span class="rosetta__text--italic">decimal point</span>.</p><br/><p class="rosetta__paragraph">The original string is never changed  <span class="rosetta__text--italic">except</span>  by the addition of commas  [or whatever character(s) is/are used for insertion], if at all.</p><br/><p class="rosetta__paragraph">To wit, the following should be preserved:</p><br/><p class="rosetta__paragraph"><span class="rosetta__text--indented">:*  leading signs (<span class="rosetta__text--bold">+</span>, <span class="rosetta__text--bold">-</span>)    ── even superfluous signs</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">:*  leading/trailing/embedded blanks, tabs, and other whitespace </span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">:*  the case (upper/lower) of the exponent indicator, e.g.:  4.8903d-002</span></p><br/><br>
+/// <p class="rosetta__paragraph">Any exponent character(s) should be supported:</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">:::::*  1247e12</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">:::::*  57256.1D-4</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">:::::*  4444^60</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">:::::*  7500<b>∙</b>10**35</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">:::::*  8500x10**35</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">:::::*  +55000↑3</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">:::::*  1000**100</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">:::::*  2048²</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">:::::*  4096<sup>32</sup></span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">:::::*  10000pow(pi)</span></p><br/><br>Numbers may be terminated with any non-digit character, including subscripts and/or superscript:  4142135624<sup>3</sup>  or  7320509076<sub>(base 24)</sub>.<br/><p class="rosetta__paragraph">The character(s) to be used for the comma can be specified, and may contain blanks, tabs, and other whitespace characters, as well as multiple characters.  The default is the comma (<big><span class="rosetta__text--bold">,</span></big>) character.</p><br/><p class="rosetta__paragraph">The  <span class="rosetta__text--italic">period length</span>  can be specified  (sometimes referred to as "thousands" or "thousands separators").  The  <span class="rosetta__text--italic">period length</span>  can be defined as the length (or number) of the decimal digits between commas.  The default period length is  <big>3</big>.</p><br/><p class="rosetta__paragraph"><span class="rosetta__text--indented">:: E.G.:  in this example, the  <span class="rosetta__text--italic">period length</span>  is five:  56789,12340,14148</span></p><br/><p class="rosetta__paragraph">The location of where to start the scanning for the target field (the numeric part) should be able to be specified.  The default is  <big>1</big>.</p><br/><p class="rosetta__paragraph">The character strings below may be placed in a file (and read) or stored as simple strings within the program.</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Strings to be used as a minimum:</dt></dl>
+/// <p class="rosetta__paragraph">The value of  pi  (expressed in base 10)  should be separated with blanks every  <span class="rosetta__text--bold">5</span>  places past the decimal point,</p>
+/// <br>the Zimbabwe dollar amount should use a decimal point for the "comma" separator:<br/><p class="rosetta__paragraph"><span class="rosetta__text--indented">*  pi=3.14159265358979323846264338327950288419716939937510582097494459231</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">*  The author has two Z$100000000000000 Zimbabwe notes (100 trillion).</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">*  "-in Aus$+1411.8millions"</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">*  ===US$0017440 millions=== (in 2000 dollars)</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">*  123.e8000 is pretty big.</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">*  The land area of the earth is  57268900(29% of the surface) square miles.</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">*  Ain't no numbers in this here words, nohow, no way, Jose.</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">*  James was never known as  0000000007</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">*  Arthur Eddington wrote: I believe there are 15747724136275002577605653961181555468044717914527116709366231425076185631031296 protons in the universe.</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">*  ␢␢␢$-140000±100  millions.</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">*  6/9/1946 was a good year for some.</span></p>
+/// <br>where the penultimate string has three leading blanks  (real blanks are to be used).
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Also see:</dt></dl>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">The Wiki entry:  <a class="rosetta__link--wiki" href="http://en.wikipedia.org/wiki/Eddington_number" title="link: http://en.wikipedia.org/wiki/Eddington_number">Arthur Eddington's number of protons in the universe</a>. <br><br></li></ul>
+/// </div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

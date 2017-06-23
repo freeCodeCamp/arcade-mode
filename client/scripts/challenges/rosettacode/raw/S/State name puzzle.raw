@@ -1,0 +1,67 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: State name puzzle
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">Background</span></p><br/><p class="rosetta__paragraph">This task is inspired by <a class="rosetta__link--wiki" href="http://drdobbs.com/windows/198701685" title="link: http://drdobbs.com/windows/198701685">Mark Nelson's DDJ Column "Wordplay"</a> and one of the weekly puzzle challenges from Will Shortz on NPR Weekend Edition [http://www.npr.org/templates/story/story.php?storyId=9264290] and originally attributed to David Edelheit.</p><br/><p class="rosetta__paragraph">The challenge was to take the names of two U.S. States, mix them all together, then rearrange the letters to form the names of two <span class="rosetta__text--italic">different</span> U.S. States (so that all four state names differ from one another).</p><br/><p class="rosetta__paragraph">What states are these?</p>
+/// <br/><p class="rosetta__paragraph">The problem was reissued on  <a class="rosetta__link--wiki" href="https://tapestry.tucson.az.us/twiki/bin/view/Main/StateNamesPuzzle" title="link: https://tapestry.tucson.az.us/twiki/bin/view/Main/StateNamesPuzzle">the Unicon Discussion Web</a> which includes several solutions with analysis.  Several techniques may be helpful and you may wish to refer to <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Goedel_numbering" title="wp: Goedel_numbering">Gödel numbering</a>, <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Equivalence_relation" title="wp: Equivalence_relation">equivalence relations</a>, and <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Equivalence_classes" title="wp: Equivalence_classes">equivalence classes</a>.  The basic merits of these were discussed in the Unicon Discussion Web.</p><br/><p class="rosetta__paragraph">A second challenge in the form of a set of fictitious new states was also presented.</p><br/><p class="rosetta__paragraph"><span class="rosetta__text--bold">Task:</span><br></p>
+/// <p class="rosetta__paragraph">Write a program to solve the challenge using both the original list of states and the fictitious list.</p><br/><p class="rosetta__paragraph">Caveats:</p>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">case and spacing aren't significant - just letters (harmonize case)</li>
+/// <li class="rosetta__list-item--unordered">don't expect the names to be in any order - such as being sorted</li>
+/// <li class="rosetta__list-item--unordered">don't rely on names to be unique (eliminate duplicates - meaning if Iowa appears twice you can only use it once)</li></ul>
+/// <p class="rosetta__paragraph">Comma separated list of state names used in the original puzzle:</p>
+/// <div class="rosetta__pre-wrap"><pre class="rosetta__pre">
+///     "Alabama", "Alaska", "Arizona", "Arkansas",
+///     "California", "Colorado", "Connecticut",
+///     "Delaware",    
+///     "Florida", "Georgia", "Hawaii",
+///     "Idaho", "Illinois", "Indiana", "Iowa",
+///     "Kansas", "Kentucky", "Louisiana",
+///     "Maine", "Maryland", "Massachusetts", "Michigan",
+///     "Minnesota", "Mississippi", "Missouri", "Montana",
+///     "Nebraska", "Nevada", "New Hampshire", "New Jersey",
+///     "New Mexico", "New York", "North Carolina", "North Dakota",
+///     "Ohio", "Oklahoma", "Oregon",
+///     "Pennsylvania", "Rhode Island",
+///     "South Carolina", "South Dakota", "Tennessee", "Texas",
+///     "Utah", "Vermont", "Virginia",
+///     "Washington", "West Virginia", "Wisconsin", "Wyoming"
+/// </pre></div>
+/// <p class="rosetta__paragraph">Comma separated list of additional fictitious state names to be added to the original (Includes a duplicate):</p>
+/// <div class="rosetta__pre-wrap"><pre class="rosetta__pre">
+/// "New Kory", "Wen Kory", "York New", "Kory New", "New Kory"
+/// </pre></div><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

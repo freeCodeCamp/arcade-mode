@@ -1,0 +1,54 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Write float arrays to a text file
+/// type: rosetta-code
+
+/// categories:
+/// File_handling
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <br/>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Write two equal-sized numerical arrays 'x' and 'y' to</p>
+/// <p class="rosetta__paragraph">a two-column text file named 'filename'.</p><br/><p class="rosetta__paragraph">The first column of the file contains values from an 'x'-array with a</p>
+/// <p class="rosetta__paragraph">given 'xprecision', the second -- values from 'y'-array with 'yprecision'.</p><br/><p class="rosetta__paragraph">For example, considering:</p>
+/// <p class="rosetta__paragraph">x = {1, 2, 3, 1e11};</p>
+/// <p class="rosetta__paragraph">y = {1, 1.4142135623730951, 1.7320508075688772, 316227.76601683791};</p>
+/// <p class="rosetta__paragraph">/* sqrt(x) */</p>
+/// <p class="rosetta__paragraph">xprecision = 3;</p>
+/// <p class="rosetta__paragraph">yprecision = 5;</p><br/><p class="rosetta__paragraph">The file is:</p>
+/// <p class="rosetta__paragraph">1    1</p>
+/// <p class="rosetta__paragraph">2    1.4142</p>
+/// <p class="rosetta__paragraph">3    1.7321</p>
+/// <p class="rosetta__paragraph">1e+011   3.1623e+005</p><br/><p class="rosetta__paragraph">This task is intended as a subtask for <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Measure relative performance of sorting algorithms implementations" title="Measure relative performance of sorting algorithms implementations">Measure relative performance of sorting algorithms implementations</a>.</p>
+/// <br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

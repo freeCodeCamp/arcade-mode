@@ -1,0 +1,63 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Unicode variable names
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">Describe, and give a pointer to documentation on your languages use of characters <span class="rosetta__text--italic">beyond</span> those of the ASCII character set in the naming of variables.</li>
+/// <li class="rosetta__list-item--ordered">Show how to:</li></ol><span class="rosetta__text--indented">* Set a variable with a name including the 'Δ', (delta <span class="rosetta__text--italic">character</span>), to 1 </span>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">* Increment it</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">* Print its value.</span></p><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Cf.:</dt></dl>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Case-sensitivity of identifiers" title="Case-sensitivity of identifiers">Case-sensitivity of identifiers</a></li></ul><br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+var ᾩ = "something";
+var ĦĔĽĻŎ = "hello";
+var 〱〱〱〱 = "too less";
+var जावास्क्रिप्ट = "javascript"; // ok that's JavaScript in hindi
+var KingGeorgeⅦ = "Roman numerals.";
+
+console.log([ᾩ, ĦĔĽĻŎ, 〱〱〱〱, जावास्क्रिप्ट, KingGeorgeⅦ])
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+<lang javascript>var ᾩ = "something";
+var ĦĔĽĻŎ = "hello";
+var 〱〱〱〱 = "too less";
+var जावास्क्रिप्ट = "javascript"; // ok that's JavaScript in hindi
+var KingGeorgeⅦ = "Roman numerals.";
+
+console.log([ᾩ, ĦĔĽĻŎ, 〱〱〱〱, जावास्क्रिप्ट, KingGeorgeⅦ])</lang>
+{{out}}
+<pre>
+["something", "hello", "too less", "javascript", "Roman numerals."]
+</pre>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

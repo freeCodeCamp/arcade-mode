@@ -1,0 +1,53 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: System time
+/// type: rosetta-code
+
+/// categories:
+/// Date and time
+/// Simple
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <br/>
+/// <br/>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Output the system <span class="rosetta__text--bold">time</span>  (any units will do as long as they are noted) either by a <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Execute a System Command" title="Execute a System Command">system command</a> or one built into the language.</p><br/><p class="rosetta__paragraph">The system time can be used for debugging, network information, random number seeds, or something as simple as program performance.</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">See also:</dt></dl>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"> <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Date format" title="Date format">Date format</a></li>
+/// <li class="rosetta__list-item--unordered"> <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/System time#Retrieving system time" title="wp: System time#Retrieving system time">Retrieving system time (wiki)</a></li></ul><br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+console.log(new Date()) // => Sat, 28 May 2011 08:22:53 GMT
+console.log(Date.now()) // => 1306571005417 // Unix epoch
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+
+<lang javascript>console.log(new Date()) // => Sat, 28 May 2011 08:22:53 GMT
+console.log(Date.now()) // => 1306571005417 // Unix epoch</lang>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

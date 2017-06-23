@@ -1,0 +1,47 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: UTF-8 encode and decode
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><br/><p class="rosetta__paragraph">As described in <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/UTF-8" title="UTF-8">UTF-8</a> and in <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/UTF-8" title="wp: UTF-8">Wikipedia</a>, UTF-8 is a popular encoding of (multi-byte) <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Unicode" title="Unicode">Unicode</a> code-points into eight-bit octets.</p><br/><p class="rosetta__paragraph">The goal of this task is to write a encoder that takes a unicode code-point (an integer representing a unicode character) and returns a sequence of 1-4 bytes representing that character in the UTF-8 encoding.</p><br/><p class="rosetta__paragraph">Then you have to write the corresponding decoder that takes a sequence of 1-4 UTF-8 encoded bytes and return the corresponding unicode character.</p><br/><p class="rosetta__paragraph">Demonstrate the functionality of your encoder and decoder on the following five characters:</p><br/><div class="rosetta__pre-wrap"><pre class="rosetta__pre">
+/// Character   Name                                  Unicode    UTF-8 encoding (hex)
+/// ---------------------------------------------------------------------------------
+/// A           LATIN CAPITAL LETTER A                U+0041     41
+/// ö           LATIN SMALL LETTER O WITH DIAERESIS   U+00F6     C3 B6
+/// Ж           CYRILLIC CAPITAL LETTER ZHE           U+0416     D0 96
+/// €           EURO SIGN                             U+20AC     E2 82 AC
+/// 𝄞           MUSICAL SYMBOL G CLEF                 U+1D11E    F0 9D 84 9E
+/// </pre></div><br/><p class="rosetta__paragraph">Provided below is a reference implementation in Common Lisp.</p><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

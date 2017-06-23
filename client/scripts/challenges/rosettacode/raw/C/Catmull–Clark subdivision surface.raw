@@ -1,0 +1,70 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Catmull–Clark subdivision surface
+/// type: rosetta-code
+
+/// categories:
+/// Graphics algorithms
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <p class="rosetta__paragraph">Implement the Catmull-Clark surface subdivision (<a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Catmull–Clark_subdivision_surface" title="wp: Catmull–Clark_subdivision_surface">description on Wikipedia</a>), which is an algorithm that maps from a surface (described as a set of points and a set of polygons with vertices at those points) to another more refined surface. The resulting surface will always consist of a mesh of quadrilaterals.</p><br/><p class="rosetta__paragraph">The process for computing the new locations of the points works as follows when the surface is free of holes:</p>
+/// <p class="rosetta__paragraph"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Image:CatmullClark_subdiv_0.png" title="Image:CatmullClark_subdiv_0.png">thumb|Starting cubic mesh; the meshes below are derived from this.</a></p>
+/// <p class="rosetta__paragraph"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Image:CatmullClark_subdiv_1.png" title="Image:CatmullClark_subdiv_1.png">thumb|After one round of the Catmull-Clark algorithm applied to a cubic mesh.</a></p>
+/// <p class="rosetta__paragraph"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Image:CatmullClark_subdiv_2.png" title="Image:CatmullClark_subdiv_2.png">thumb|After two rounds of the Catmull-Clark algorithm. As can be seen, this is converging to a surface that looks nearly spherical.</a></p>
+/// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">for each face, a <span class="rosetta__text--italic">face point</span> is created which is the average of all the points of the face.</li>
+/// <li class="rosetta__list-item--ordered">for each edge, an <span class="rosetta__text--italic">edge point</span> is created which is the average between the center of the edge and the center of the segment made with the face points of the two adjacent faces.</li>
+/// <li class="rosetta__list-item--ordered">for each vertex point, its coordinates are updated from (<tt>new_coords</tt>):</li>
+/// <li class="rosetta__list-item--ordered"># the old coordinates (<tt>old_coords</tt>),</li>
+/// <li class="rosetta__list-item--ordered"># the average of the face points of the faces the point belongs to (<tt>avg_face_points</tt>),</li>
+/// <li class="rosetta__list-item--ordered"># the average of the centers of edges the point belongs to (<tt>avg_mid_edges</tt>),</li>
+/// <li class="rosetta__list-item--ordered"># how many faces a point belongs to (<tt>n</tt>), then use this formula:</li></ol>      m<sub>1</sub> = (n - 3) / n
+/// <p class="rosetta__paragraph">m<sub>2</sub> = 1 / n</p>
+/// <p class="rosetta__paragraph">m<sub>3</sub> = 2 / n</p>
+/// <p class="rosetta__paragraph">new_coords = (m<sub>1</sub> * old_coords)</p>
+/// <p class="rosetta__paragraph">+ (m<sub>2</sub> * avg_face_points)</p>
+/// <p class="rosetta__paragraph">+ (m<sub>3</sub> * avg_mid_edges)</p><br/><p class="rosetta__paragraph">Then each face is replaced by new faces made with the new points,</p>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">for a triangle face (a,b,c):</li></ul>    (a, edge_point<sub>ab</sub>, face_point<sub>abc</sub>, edge_point<sub>ca</sub>)
+/// <p class="rosetta__paragraph">(b, edge_point<sub>bc</sub>, face_point<sub>abc</sub>, edge_point<sub>ab</sub>)</p>
+/// <p class="rosetta__paragraph">(c, edge_point<sub>ca</sub>, face_point<sub>abc</sub>, edge_point<sub>bc</sub>)</p>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">for a quad face (a,b,c,d):</li></ul>    (a, edge_point<sub>ab</sub>, face_point<sub>abcd</sub>, edge_point<sub>da</sub>)
+/// <p class="rosetta__paragraph">(b, edge_point<sub>bc</sub>, face_point<sub>abcd</sub>, edge_point<sub>ab</sub>)</p>
+/// <p class="rosetta__paragraph">(c, edge_point<sub>cd</sub>, face_point<sub>abcd</sub>, edge_point<sub>bc</sub>)</p>
+/// <p class="rosetta__paragraph">(d, edge_point<sub>da</sub>, face_point<sub>abcd</sub>, edge_point<sub>cd</sub>)</p><br/><p class="rosetta__paragraph">When there is a hole, we can detect it as follows:</p>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">an edge is the border of a hole if it belongs to only one face,</li>
+/// <li class="rosetta__list-item--unordered">a point is on the border of a hole if <tt>n<sub>faces</sub> != n<sub>edges</sub></tt> with <tt>n<sub>faces</sub></tt> the number of faces the point belongs to, and <tt>n<sub>edges</sub></tt> the number of edges a point belongs to.</li></ul>
+/// <p class="rosetta__paragraph">On the border of a hole the subdivision occurs as follows:</p>
+/// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">for the edges that are on the border of a hole, the edge point is just the middle of the edge.</li>
+/// <li class="rosetta__list-item--ordered">for the vertex points that are on the border of a hole, the new coordinates are calculated as follows:</li>
+/// <li class="rosetta__list-item--ordered"># in all the edges the point belongs to, only take in account the middles of the edges that are on the border of the hole</li>
+/// <li class="rosetta__list-item--ordered"># calculate the average between these points (on the hole boundary) and the old coordinates (also on the hole boundary).</li></ol>
+/// <p class="rosetta__paragraph">For edges and vertices not next to a hole, the standard algorithm from above is used.</p><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

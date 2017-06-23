@@ -1,0 +1,139 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Fractran
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><br/><p class="rosetta__paragraph"><span class="rosetta__text--bold"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/FRACTRAN" title="wp: FRACTRAN">FRACTRAN</a></span> is a Turing-complete esoteric programming language invented by the mathematician <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/John Horton Conway" title="wp: John Horton Conway">John Horton Conway</a>.</p><br/><p class="rosetta__paragraph">A FRACTRAN program is an ordered list of positive fractions $P = (f_1, f_2, \ldots, f_m)$, together with an initial positive integer input $n$.</p>
+/// <br/><p class="rosetta__paragraph">The program is run by updating the integer $n$ as follows:</p><br/><ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">for the first fraction, $f_i$, in the list for which $nf_i$ is an integer, replace $n$ with $nf_i$ ;</li>
+/// <li class="rosetta__list-item--unordered">repeat this rule until no fraction in the list produces an integer when multiplied by $n$, then halt.</li></ul>
+/// <br>
+/// <p class="rosetta__paragraph">Conway gave a program for primes in FRACTRAN:</p><br/><p class="rosetta__paragraph"><span class="rosetta__text--indented"> $17/91$, $78/85$, $19/51$, $23/38$, $29/33$, $77/29$, $95/23$, $77/19$, $1/17$, $11/13$, $13/11$, $15/14$, $15/2$, $55/1$</span></p><br/><p class="rosetta__paragraph">Starting with $n=2$, this FRACTRAN program will change $n$ to $15=2\times (15/2)$, then $825=15\times (55/1)$, generating the following sequence of integers:</p><br/><p class="rosetta__paragraph"><span class="rosetta__text--indented"> $2$, $15$, $825$, $725$, $1925$, $2275$, $425$, $390$, $330$, $290$, $770$, $\ldots$</span></p><br/><p class="rosetta__paragraph">After 2, this sequence contains the following powers of 2:</p><br/><p class="rosetta__paragraph"><span class="rosetta__text--indented">$2^2=4$, $2^3=8$, $2^5=32$, $2^7=128$, $2^{11}=2048$, $2^{13}=8192$, $2^{17}=131072$, $2^{19}=524288$, $\ldots$</span></p><br/><p class="rosetta__paragraph">which are the prime powers of 2.</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Write a program that reads a list of fractions in a <span class="rosetta__text--italic">natural</span> format from the keyboard or from a string,</p>
+/// <p class="rosetta__paragraph">to parse it into a sequence of fractions (<span class="rosetta__text--italic">i.e.</span> two integers),</p>
+/// <p class="rosetta__paragraph">and runs the FRACTRAN starting from a provided integer, writing the result at each step.</p>
+/// <p class="rosetta__paragraph">It is also required that the number of step is limited (by a parameter easy to find).</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Extra credit:</dt></dl>
+/// <p class="rosetta__paragraph">Use this program to derive the first <span class="rosetta__text--bold">20</span> or so prime numbers.</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">See also:</dt></dl>
+/// <p class="rosetta__paragraph">For more on how to program FRACTRAN as a universal programming language, see:</p>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">J. H. Conway (1987). Fractran: A Simple Universal Programming Language for Arithmetic. In: Open Problems in Communication and Computation, pages 4–26. Springer.</li></ul>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">J. H. Conway (2010). "FRACTRAN: A simple universal programming language for arithmetic". In Jeffrey C. Lagarias. The Ultimate Challenge: the 3x+1 problem. American Mathematical Society. pp. 249–264. ISBN 978-0-8218-4940-8. Zbl 1216.68068.</li></ul>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"><a class="rosetta__link--wiki" href="http://scienceblogs.com/goodmath/2006/10/27/prime-number-pathology-fractra/Prime" title="link: http://scienceblogs.com/goodmath/2006/10/27/prime-number-pathology-fractra/Prime">Number Pathology: Fractran</a> by  Mark C. Chu-Carroll; October 27, 2006.</li></ul><br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+var num = new Array();
+var den = new Array();
+var val ;
+
+function compile(prog){
+  var regex = /\s*(\d*)\s*\/\s*(\d*)\s*(.*)/m;
+  while(regex.test(prog)){
+    num.push(regex.exec(prog)[1]);
+    den.push(regex.exec(prog)[2]);
+    prog = regex.exec(prog)[3];
+  }
+}
+
+function dump(prog){
+  for(var i=0; i<num.length; i++)
+    document.body.innerHTML += num[i]+"/"+den[i]+" ";
+  document.body.innerHTML += "<br>";
+}
+
+function step(val){
+  var i=0;
+  while(i<den.length && val%den[i] != 0) i++;
+  return num[i]*val/den[i];
+}
+
+function exec(val){
+  var i = 0;
+  while(val && i<limit){
+    document.body.innerHTML += i+": "+val+"<br>";
+    val = step(val);
+    i ++;
+  }
+}
+
+// Main
+compile("17/91 78/85 19/51 23/38 29/33 77/29 95/23 77/19 1/17 11/13 13/11 15/14 15/2 55/1");
+dump(); 
+var limit = 15;
+exec(2);
+
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+<lang javascript>
+var num = new Array();
+var den = new Array();
+var val ;
+
+function compile(prog){
+  var regex = /\s*(\d*)\s*\/\s*(\d*)\s*(.*)/m;
+  while(regex.test(prog)){
+    num.push(regex.exec(prog)[1]);
+    den.push(regex.exec(prog)[2]);
+    prog = regex.exec(prog)[3];
+  }
+}
+
+function dump(prog){
+  for(var i=0; i<num.length; i++)
+    document.body.innerHTML += num[i]+"/"+den[i]+" ";
+  document.body.innerHTML += "<br>";
+}
+
+function step(val){
+  var i=0;
+  while(i<den.length && val%den[i] != 0) i++;
+  return num[i]*val/den[i];
+}
+
+function exec(val){
+  var i = 0;
+  while(val && i<limit){
+    document.body.innerHTML += i+": "+val+"<br>";
+    val = step(val);
+    i ++;
+  }
+}
+
+// Main
+compile("17/91 78/85 19/51 23/38 29/33 77/29 95/23 77/19 1/17 11/13 13/11 15/14 15/2 55/1");
+dump(); 
+var limit = 15;
+exec(2);
+</lang>
+
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

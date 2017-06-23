@@ -1,0 +1,96 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Delegates
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><br/><p class="rosetta__paragraph">A delegate is a helper object used by another object. The delegator may send the delegate certain messages, and provide a default implementation when there is no delegate or the delegate does not respond to a message. This pattern is heavily used in <a class="rosetta__link--wiki" href="http://developer.apple.com/documentation/Cocoa/Conceptual/CocoaFundamentals/CocoaDesignPatterns/chapter_5_section_3.html#//apple_ref/doc/uid/TP40002974-CH6-DontLinkElementID_93" title="link: http://developer.apple.com/documentation/Cocoa/Conceptual/CocoaFundamentals/CocoaDesignPatterns/chapter_5_section_3.html#//apple_ref/doc/uid/TP40002974-CH6-DontLinkElementID_93">Cocoa framework on Mac OS X</a>. See also [[wp:Delegation pattern]].</p><br/><p class="rosetta__paragraph">Objects responsibilities:</p><br/><p class="rosetta__paragraph">Delegator:</p>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Keep an optional delegate instance.</li>
+/// <li class="rosetta__list-item--unordered">Implement "operation" method, returning the delegate "thing" if the delegate respond to "thing", or the string "default implementation".</li></ul>
+/// <p class="rosetta__paragraph">Delegate:</p>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Implement "thing" and return the string "delegate implementation"</li></ul>
+/// <p class="rosetta__paragraph">Show how objects are created and used. First, without a delegate, then with a delegate that does not implement "thing", and last with a delegate that implements "thing".</p><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+function Delegator() {
+  this.delegate = null ;
+  this.operation = function(){
+    if(this.delegate && typeof(this.delegate.thing) == 'function')
+      return this.delegate.thing() ;
+    return 'default implementation' ;
+  }
+}
+
+function Delegate() {
+  this.thing = function(){
+    return 'Delegate Implementation' ;
+  }
+}
+
+function testDelegator(){
+  var a = new Delegator() ;
+  document.write(a.operation() + "\n") ;
+  
+  a.delegate = 'A delegate may be any object' ; 
+  document.write(a.operation() + "\n") ;
+  
+  a.delegate = new Delegate() ;
+  document.write(a.operation() + "\n") ;
+}
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+{{trans|Python}}
+<lang javascript>function Delegator() {
+  this.delegate = null ;
+  this.operation = function(){
+    if(this.delegate && typeof(this.delegate.thing) == 'function')
+      return this.delegate.thing() ;
+    return 'default implementation' ;
+  }
+}
+
+function Delegate() {
+  this.thing = function(){
+    return 'Delegate Implementation' ;
+  }
+}
+
+function testDelegator(){
+  var a = new Delegator() ;
+  document.write(a.operation() + "\n") ;
+  
+  a.delegate = 'A delegate may be any object' ; 
+  document.write(a.operation() + "\n") ;
+  
+  a.delegate = new Delegate() ;
+  document.write(a.operation() + "\n") ;
+}</lang>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

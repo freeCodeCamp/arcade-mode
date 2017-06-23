@@ -1,0 +1,135 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Voronoi diagram
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <p class="rosetta__paragraph">A <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Voronoi diagram" title="wp: Voronoi diagram">Voronoi diagram</a> is a diagram consisting of a number of sites. Each Voronoi site <span class="rosetta__text--italic">s</span>  also has a Voronoi cell consisting of all points closest to <span class="rosetta__text--italic">s</span>.</p><br/><p class="rosetta__paragraph">The task is to demonstrate how to generate and display a Voroni diagram.</p>
+/// <p class="rosetta__paragraph">See algo <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/K-means++ clustering" title="K-means++ clustering">K-means++ clustering</a>.</p><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+null
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+===Version #1.===
+The obvious route to this in JavaScript would be to use Mike Bostock's D3.js library.
+
+There are various examples of Voronoi tesselations,
+
+some dynamic:
+
+https://bl.ocks.org/mbostock/d1d81455dc21e10f742f
+
+some interactive:
+
+https://bl.ocks.org/mbostock/4060366
+
+and all with source code, at https://bl.ocks.org/mbostock
+
+===Version #2.===
+I would agree: using D3.js library can be very helpful. But having stable and compact algorithm in Python (Sidef) made it possible to develop looking the same Voronoi diagram in "pure" JavaScript.
+A few custom helper functions simplified code, and they can be used for any other applications.
+{{Works with|Chrome}}
+[[File:VDjs1150.png|200px|right|thumb|Output VDjs1150.png]]
+[[File:VDjs210.png|200px|right|thumb|Output VDjs210.png]]
+[[File:VDjs310.png|200px|right|thumb|Output VDjs310.png]]
+
+<lang html>
+<!-- VoronoiD.html -->
+<html>
+<head><title>Voronoi diagram</title>
+<script>
+// HF#1 Like in PARI/GP: return random number 0..max-1
+function randgp(max) {return Math.floor(Math.random()*max)}
+// HF#2 Random hex color
+function randhclr() {
+  return "#"+
+  ("00"+randgp(256).toString(16)).slice(-2)+
+  ("00"+randgp(256).toString(16)).slice(-2)+
+  ("00"+randgp(256).toString(16)).slice(-2)
+}
+// HF#3 Metrics: Euclidean, Manhattan and Minkovski 3/20/17
+function Metric(x,y,mt) {
+  if(mt==1) {return Math.sqrt(x*x + y*y)}
+  if(mt==2) {return Math.abs(x) + Math.abs(y)}
+  if(mt==3) {return(Math.pow(Math.pow(Math.abs(x),3) + Math.pow(Math.abs(y),3),0.33333))}
+}
+// Plotting Voronoi diagram. aev 3/10/17
+function pVoronoiD() {
+  var cvs=document.getElementById("cvsId");
+  var ctx=cvs.getContext("2d");
+  var w=cvs.width, h=cvs.height;
+  var x=y=d=dm=j=0, w1=w-2, h1=h-2;
+  var n=document.getElementById("sites").value;
+  var mt=document.getElementById("mt").value;
+  var X=new Array(n), Y=new Array(n), C=new Array(n);
+  ctx.fillStyle="white"; ctx.fillRect(0,0,w,h);
+  for(var i=0; i<n; i++) {
+    X[i]=randgp(w1); Y[i]=randgp(h1); C[i]=randhclr();
+  }
+  for(y=0; y<h1; y++) {
+    for(x=0; x<w1; x++) {
+      dm=Metric(h1,w1,mt); j=-1;
+      for(var i=0; i<n; i++) {
+        d=Metric(X[i]-x,Y[i]-y,mt)
+        if(d<dm) {dm=d; j=i;}
+      }//fend i
+      ctx.fillStyle=C[j]; ctx.fillRect(x,y,1,1);
+    }//fend x
+  }//fend y
+  ctx.fillStyle="black";
+  for(var i=0; i<n; i++) {
+    ctx.fillRect(X[i],Y[i],3,3);
+  }
+}
+</script></head>
+<body style="font-family: arial, helvatica, sans-serif;">
+  <b>Please input number of sites: </b>
+  <input id="sites" value=100 type="number" min="10" max="150" size="3">&nbsp;&nbsp;
+  <b>Metric: </b>
+  <select id="mt">
+    <option value=1 selected>Euclidean</option>
+    <option value=2>Manhattan</option>
+    <option value=3>Minkovski</option>
+  </select>&nbsp;
+  <input type="button" value="Plot it!" onclick="pVoronoiD();">&nbsp;&nbsp;
+  <h3>Voronoi diagram</h3>
+  <canvas id="cvsId" width="640" height="640" style="border: 2px inset;"></canvas>
+</body>
+</html>
+</lang>
+{{Output}}
+<pre>
+Page demonstrating Voronoi diagram for any reasonable number of sites and selected metric.
+Right clicking on canvas with image allows you to save it as png-file, for example.
+</pre>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

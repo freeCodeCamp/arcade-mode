@@ -1,0 +1,95 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Text processing/Max licenses in use
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><br/><p class="rosetta__paragraph">A company currently pays a fixed sum for the use of a particular licensed software package.  In determining if it has a good deal it decides to calculate its maximum use of the software from its license management log file.</p><br/><p class="rosetta__paragraph">Assume the software's licensing daemon faithfully records a checkout event when a copy of the software starts and a checkin event when the software finishes to its log file.</p><br/><p class="rosetta__paragraph">An example of  checkout and  checkin events are:</p>
+/// <p class="rosetta__paragraph">License OUT @ 2008/10/03_23:51:05 for job 4974</p>
+/// <p class="rosetta__paragraph">...</p>
+/// <p class="rosetta__paragraph">License IN  @ 2008/10/04_00:18:22 for job 4974</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Save the 10,000 line log file from  <a class="rosetta__link--wiki" href="http://rosettacode.org/resources/mlijobs.txt" title="link: http://rosettacode.org/resources/mlijobs.txt"><big> here</big></a>  into a local file, then write a program to scan the file extracting both the maximum licenses that were out at any time, and the time(s) at which this occurs.</p>
+/// <br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+var file_system = new ActiveXObject("Scripting.FileSystemObject");
+var fh = file_system.openTextFile('mlijobs.txt', 1); // 1 == open for reading
+var in_use = 0, max_in_use = -1, max_in_use_at = [];
+
+while ( ! fh.atEndOfStream) {
+    var line = fh.readline();
+    if (line.substr(8,3) == "OUT") {
+        in_use++;
+        if (in_use > max_in_use) {
+            max_in_use = in_use;
+            max_in_use_at = [ line.split(' ')[3] ];
+        }
+        else if (in_use == max_in_use)
+            max_in_use_at.push( line.split(' ')[3] );
+    }
+    else if (line.substr(8,2) == "IN") 
+        in_use--;
+}
+
+fh.close();
+
+WScript.echo("Max licenses out: " + max_in_use + "\n  " + max_in_use_at.join('\n  '));
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+{{works with|JScript}} for the file i/o
+<lang javascript>var file_system = new ActiveXObject("Scripting.FileSystemObject");
+var fh = file_system.openTextFile('mlijobs.txt', 1); // 1 == open for reading
+var in_use = 0, max_in_use = -1, max_in_use_at = [];
+
+while ( ! fh.atEndOfStream) {
+    var line = fh.readline();
+    if (line.substr(8,3) == "OUT") {
+        in_use++;
+        if (in_use > max_in_use) {
+            max_in_use = in_use;
+            max_in_use_at = [ line.split(' ')[3] ];
+        }
+        else if (in_use == max_in_use)
+            max_in_use_at.push( line.split(' ')[3] );
+    }
+    else if (line.substr(8,2) == "IN") 
+        in_use--;
+}
+
+fh.close();
+
+WScript.echo("Max licenses out: " + max_in_use + "\n  " + max_in_use_at.join('\n  '));</lang>
+
+output: 
+<pre>Max licenses out: 99
+  2008/10/03_08:39:34
+  2008/10/03_08:40:40</pre>
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,0 +1,163 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Factorial
+/// type: rosetta-code
+
+/// categories:
+/// Recursion
+/// Memoization
+/// Classic CS problems and programs
+/// Arithmetic
+/// Simple
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <br/>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Definitions:</dt></dl>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">*  The  <span class="rosetta__text--bold">Factorial Function</span>  of a positive integer,  <big> <span class="rosetta__text--italic">n</span>, </big>  is defined as the product of the sequence:</span></p>
+/// <p class="rosetta__paragraph"><big><big> <span class="rosetta__text--italic">n</span>,  <span class="rosetta__text--italic">n</span>-1,  <span class="rosetta__text--italic">n</span>-2,  ...  1 </big></big></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">*  The factorial of  <span class="rosetta__text--bold">0</span>  (zero)  is <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Factorial#Definition" title="wp: Factorial#Definition">defined</a> as being  1  (unity).</span></p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Write a function to return the factorial of a number.</p><br/><p class="rosetta__paragraph">Solutions can be iterative or recursive.</p><br/><p class="rosetta__paragraph">Support for trapping negative  <big> <span class="rosetta__text--italic">n</span> </big>  errors is optional.</p>
+/// <br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+function factorial(n) {
+  //check our edge case
+  if (n < 0) { throw "Number must be non-negative"; }
+
+  var sum = 1;
+  //we skip zero and one since both are 1 and are identity
+  while (n > 1) {
+    sum *= n;
+    n -= 1;
+  }
+  return sum;
+}
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+
+===Iterative===
+
+<lang javascript>function factorial(n) {
+  //check our edge case
+  if (n < 0) { throw "Number must be non-negative"; }
+
+  var sum = 1;
+  //we skip zero and one since both are 1 and are identity
+  while (n > 1) {
+    sum *= n;
+    n -= 1;
+  }
+  return sum;
+}</lang>
+
+===Recursive===
+
+====ES5 (memoized )====
+
+<lang JavaScript>(function(x) {
+
+  var memo = {};
+
+  function factorial(n) {
+    return n < 2 ? 1 : memo[n] || (memo[n] = n * factorial(n - 1));
+  }
+  
+  return factorial(x);
+  
+})(18);</lang>
+
+{{Out}}
+
+<lang JavaScript>6402373705728000</lang>
+
+Or, assuming that we have some sort of integer range function, we can memoize using the accumulator of a fold/reduce:
+
+<lang JavaScript>(function () {
+    'use strict';
+
+    // factorial :: Int -> Int
+    function factorial(x) {
+
+        return range(1, x)
+            .reduce(function (a, b) {
+                return a * b;
+            }, 1);
+    }
+
+
+
+    // range :: Int -> Int -> [Int]
+    function range(m, n) {
+        var a = Array(n - m + 1),
+            i = n + 1;
+
+        while (i-- > m) a[i - m] = i;
+        return a;
+    }
+
+
+    return factorial(18);
+
+})();</lang>
+
+{{Out}}
+<lang JavaScript>6402373705728000</lang>
+
+
+====ES6==== 
+<lang javascript>var factorial = n => (n < 2) ? 1 : n * factorial(n - 1);</lang>
+
+
+Or, as an alternative to recursion, we can fold/reduce a product function over the range of integers 1..n
+
+<lang JavaScript>(function (n) {
+    'use strict';
+
+    // factorial :: Int -> Int
+    let factorial = (n) => range(1, n).reduce(product, 1);
+
+
+    // product :: Num -> Num -> Num
+    let product = (a, b) => a * b,
+
+        // range :: Int -> Int -> [Int]
+        range = (m, n) =>
+            Array.from({
+                length: (n - m) + 1
+            }, (_, i) => m + i)
+
+
+    return factorial(n);
+
+})(18);</lang>
+
+{{Out}}
+<pre>6402373705728000</pre>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

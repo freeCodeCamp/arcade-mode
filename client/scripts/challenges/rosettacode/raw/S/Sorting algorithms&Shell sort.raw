@@ -1,0 +1,80 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Sorting algorithms/Shell sort
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Sort an array of elements using the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Shell sort" title="wp: Shell sort">Shell sort</a> algorithm, a diminishing increment sort.</p><br/><p class="rosetta__paragraph">The Shell sort  (also known as Shellsort or Shell's method)  is named after its inventor, Donald Shell, who published the algorithm in 1959.</p><br/><p class="rosetta__paragraph">Shell sort is a sequence of interleaved insertion sorts based on an increment sequence.</p>
+/// <p class="rosetta__paragraph">The increment size is reduced after each pass until the increment size is 1.</p><br/><p class="rosetta__paragraph">With an increment size of 1, the sort is a basic insertion sort, but by this time the data is guaranteed to be almost sorted, which is insertion sort's "best case".</p><br/><p class="rosetta__paragraph">Any sequence will sort the data as long as it ends in 1, but some work better than others.</p><br/><p class="rosetta__paragraph">Empirical studies have shown a geometric increment sequence with a ratio of about 2.2 work well in practice.</p>
+/// <p class="rosetta__paragraph">[http://www.cs.princeton.edu/~rs/shell/]</p><br/><p class="rosetta__paragraph">Other good sequences are found at the <a class="rosetta__link--wiki" href="https://oeis.org/search?q=shell+sort" title="link: https://oeis.org/search?q=shell+sort">On-Line Encyclopedia of Integer Sequences</a>.</p>
+/// <br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+function shellSort (a) {
+    for (var h = a.length; h > 0; h = parseInt(h / 2)) {
+        for (var i = h; i < a.length; i++) {
+            var k = a[i];
+            for (var j = i; j >= h && k < a[j - h]; j -= h)
+                a[j] = a[j - h];
+            a[j] = k;
+        }
+    }
+    return a;
+}
+
+var a = [];
+var n = location.href.match(/\?(\d+)|$/)[1] || 10;
+for (var i = 0; i < n; i++)
+    a.push(parseInt(Math.random() * 100));
+shellSort(a);
+document.write(a.join(" "));
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+<lang Javascript>function shellSort (a) {
+    for (var h = a.length; h > 0; h = parseInt(h / 2)) {
+        for (var i = h; i < a.length; i++) {
+            var k = a[i];
+            for (var j = i; j >= h && k < a[j - h]; j -= h)
+                a[j] = a[j - h];
+            a[j] = k;
+        }
+    }
+    return a;
+}
+
+var a = [];
+var n = location.href.match(/\?(\d+)|$/)[1] || 10;
+for (var i = 0; i < n; i++)
+    a.push(parseInt(Math.random() * 100));
+shellSort(a);
+document.write(a.join(" "));</lang>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

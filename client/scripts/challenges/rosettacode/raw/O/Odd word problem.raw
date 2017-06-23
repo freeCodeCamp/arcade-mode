@@ -1,0 +1,57 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Odd word problem
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Write a program that solves the <a class="rosetta__link--wiki" href="http://c2.com/cgi/wiki?OddWordProblem" title="link: http://c2.com/cgi/wiki?OddWordProblem">odd word problem</a> with the restrictions given below.</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Description:</dt></dl>
+/// <p class="rosetta__paragraph">You are promised an input stream consisting of English letters and punctuations.</p><br/><p class="rosetta__paragraph">It is guaranteed that:</p>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">the words (sequence of consecutive letters) are delimited by one and only one punctuation,</li>
+/// <li class="rosetta__list-item--unordered">the stream will begin with a word,</li>
+/// <li class="rosetta__list-item--unordered">the words will be at least one letter long,  and </li>
+/// <li class="rosetta__list-item--unordered">a full stop (a period, [<b>.</b>]) appears after, and only after, the last word.</li></ul><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Example:</dt></dl>
+/// <p class="rosetta__paragraph">A stream with six words:</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">: <big><code>what,is,the;meaning,of:life.</code></big>   </span></p>
+/// <br/><p class="rosetta__paragraph">The task is to reverse the letters in every other word while leaving punctuations intact, producing:</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">: <big><code>what,si,the;gninaem,of:efil.</code></big> </span></p>
+/// <p class="rosetta__paragraph">while observing the following restrictions:</p>
+/// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">Only I/O allowed is reading or writing one character at a time, which means: no reading in a string, no peeking ahead, no pushing characters back into the stream, and no storing characters in a global variable for later use;</li>
+/// <li class="rosetta__list-item--ordered">You <span class="rosetta__text--bold">are not</span> to explicitly save characters in a collection data structure, such as arrays, strings, hash tables, etc, for later reversal;</li>
+/// <li class="rosetta__list-item--ordered">You <span class="rosetta__text--bold">are</span> allowed to use recursions, closures, continuations, threads, co-routines, etc., even if their use implies the storage of multiple characters.</li></ol><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Test cases:</dt></dl>
+/// <p class="rosetta__paragraph">Work on both the  "life"  example given above, and also the text:</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">: <big><code>we,are;not,in,kansas;any,more.</code></big></span></p>
+/// <br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,0 +1,176 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Sorting algorithms/Comb sort
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <br/>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Implement a  <span class="rosetta__text--italic">comb sort</span>.</p>
+/// <br/><p class="rosetta__paragraph">The <span class="rosetta__text--bold">Comb Sort</span> is a variant of the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Bubble Sort" title="Bubble Sort">Bubble Sort</a>.</p><br/><p class="rosetta__paragraph">Like the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Shell sort" title="Shell sort">Shell sort</a>, the Comb Sort increases the gap used in comparisons and exchanges.</p><br/><p class="rosetta__paragraph">Dividing the gap by  <big>$(1-e^{-\varphi})^{-1} \approx 1.247330950103979$ </big>  works best, but  <big> 1.3</big>  may be more practical.</p>
+/// <br/><p class="rosetta__paragraph">Some implementations use the insertion sort once the gap is less than a certain amount.</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Also see:</dt></dl>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"> the Wikipedia article:  <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Comb sort" title="wp: Comb sort">Comb sort</a>.</li></ul><br/><p class="rosetta__paragraph">Variants:</p>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Combsort11 makes sure the gap ends in (11, 8, 6, 4, 3, 2, 1), which is significantly faster than the other two possible endings.</li>
+/// <li class="rosetta__list-item--unordered">Combsort with different endings changes to a more efficient sort when the data is almost sorted (when the gap is small).  Comb sort with a low gap isn't much better than the Bubble Sort.</li></ul>
+/// <br>
+/// <p class="rosetta__paragraph">Pseudocode:</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">function</span> combsort(<span class="rosetta__text--bold">array</span> input)</p>
+/// <p class="rosetta__paragraph">gap := input<span class="rosetta__text--bold">.size</span> <span class="rosetta__text--italic">//initialize gap size</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">loop until</span> gap = 1 <span class="rosetta__text--bold">and</span> swaps = 0</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--italic">//update the gap value for a next comb. Below is an example</span></p>
+/// <p class="rosetta__paragraph">gap := int(gap / 1.25)</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">if</span> gap < 1</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--italic">//minimum gap is 1</span></p>
+/// <p class="rosetta__paragraph">gap := 1</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">end if</span></p>
+/// <p class="rosetta__paragraph">i := 0</p>
+/// <p class="rosetta__paragraph">swaps := 0 <span class="rosetta__text--italic">//see <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Bubble Sort" title="Bubble Sort">Bubble Sort</a> for an explanation</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--italic">//a single "comb" over the input list</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">loop until</span> i + gap >= input<span class="rosetta__text--bold">.size</span> <span class="rosetta__text--italic">//see <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Shell sort" title="Shell sort">Shell sort</a> for similar idea</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">if</span> input[i] > input[i+gap]</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">swap</span>(input[i], input[i+gap])</p>
+/// <p class="rosetta__paragraph">swaps := 1 <span class="rosetta__text--italic">// Flag a swap has occurred, so the</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--italic">// list is not guaranteed sorted</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">end if</span></p>
+/// <p class="rosetta__paragraph">i := i + 1</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">end loop</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">end loop</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">end function</span></p>
+/// <br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+  // Node 5.4.1 tested implementation (ES6)
+  function is_array_sorted(arr) {
+      var sorted = true;
+      for (var i = 0; i < arr.length - 1; i++) {
+          if (arr[i] > arr[i + 1]) {
+              sorted = false;
+              break;
+          }
+      }
+      return sorted;
+  }
+
+  // Array to sort
+  var arr = [4, 9, 0, 3, 1, 5];
+
+  var iteration_count = 0;
+  var gap = arr.length - 2;
+  var decrease_factor = 1.25;
+
+  // Until array is not sorted, repeat iterations
+  while (!is_array_sorted(arr)) {
+      // If not first gap
+      if (iteration_count > 0)
+      // Calculate gap
+          gap = (gap == 1) ? gap : Math.floor(gap / decrease_factor);
+
+      // Set front and back elements and increment to a gap
+      var front = 0;
+      var back = gap;
+      while (back <= arr.length - 1) {
+          // If elements are not ordered swap them
+          if (arr[front] > arr[back]) {
+              var temp = arr[front];
+              arr[front] = arr[back];
+              arr[back] = temp;
+          }
+
+          // Increment and re-run swapping
+          front += 1;
+          back += 1;
+      }
+      iteration_count += 1;
+  }
+
+  // Print the sorted array
+  console.log(arr);
+}
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+<lang javascript>
+  // Node 5.4.1 tested implementation (ES6)
+  function is_array_sorted(arr) {
+      var sorted = true;
+      for (var i = 0; i < arr.length - 1; i++) {
+          if (arr[i] > arr[i + 1]) {
+              sorted = false;
+              break;
+          }
+      }
+      return sorted;
+  }
+
+  // Array to sort
+  var arr = [4, 9, 0, 3, 1, 5];
+
+  var iteration_count = 0;
+  var gap = arr.length - 2;
+  var decrease_factor = 1.25;
+
+  // Until array is not sorted, repeat iterations
+  while (!is_array_sorted(arr)) {
+      // If not first gap
+      if (iteration_count > 0)
+      // Calculate gap
+          gap = (gap == 1) ? gap : Math.floor(gap / decrease_factor);
+
+      // Set front and back elements and increment to a gap
+      var front = 0;
+      var back = gap;
+      while (back <= arr.length - 1) {
+          // If elements are not ordered swap them
+          if (arr[front] > arr[back]) {
+              var temp = arr[front];
+              arr[front] = arr[back];
+              arr[back] = temp;
+          }
+
+          // Increment and re-run swapping
+          front += 1;
+          back += 1;
+      }
+      iteration_count += 1;
+  }
+
+  // Print the sorted array
+  console.log(arr);
+}</lang>
+
+
+{{out}}
+<pre>
+ [0, 1, 3, 4, 5, 9]
+</pre>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

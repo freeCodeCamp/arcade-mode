@@ -1,0 +1,76 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: The ISAAC Cipher
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <p class="rosetta__paragraph">ISAAC is a cryptographically secure pseudo-random number generator (CSPRNG) and stream cipher. It was developed by Bob Jenkins from 1993 (http://burtleburtle.net/bob/rand/isaac.html) and placed in the Public Domain. ISAAC is fast - especially when optimised - and portable to most architectures in nearly all programming and scripting languages.</p>
+/// <p class="rosetta__paragraph">It is also simple and succinct, using as it does just two 256-word arrays for its state.</p><br/><p class="rosetta__paragraph">ISAAC stands for "Indirection, Shift, Accumulate, Add, and Count" which are the principal bitwise operations employed.</p>
+/// <p class="rosetta__paragraph">To date - and that's after more than 20 years of existence - ISAAC has not been broken (unless GCHQ or NSA did it, but they wouldn't be telling).</p>
+/// <p class="rosetta__paragraph">ISAAC thus deserves a lot more attention than it has hitherto received and it would be salutary to see it more universally implemented.</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Translate ISAAC's reference C or Pascal code into your language of choice.</p><br/><p class="rosetta__paragraph">The RNG should then be seeded with the string "this is my secret key" and</p>
+/// <p class="rosetta__paragraph">finally the message "a Top Secret secret" should be encrypted on that key.</p>
+/// <p class="rosetta__paragraph">Your program's output cipher-text will be a string of hexadecimal digits.</p><br/><p class="rosetta__paragraph">Optional: Include a decryption check by re-initializing ISAAC and performing</p>
+/// <p class="rosetta__paragraph">the same encryption pass on the cipher-text.</p><br/><p class="rosetta__paragraph">Please use the C or Pascal as a reference guide to these operations.</p><br/><p class="rosetta__paragraph">Two encryption schemes are possible:</p>
+/// <p class="rosetta__paragraph">(1) XOR (Vernam) or</p>
+/// <p class="rosetta__paragraph">(2) Caesar-shift mod 95 (Vigenère).</p>
+/// <p class="rosetta__paragraph">XOR is the simplest; C-shifting offers greater security.</p><br/><p class="rosetta__paragraph">You may choose either scheme, or both, but please specify which you used.</p>
+/// <p class="rosetta__paragraph">Here are the alternative sample outputs for checking purposes:</p><br/><div class="rosetta__pre-wrap"><pre class="rosetta__pre">
+/// Message: a Top Secret secret
+/// Key    : this is my secret key
+/// XOR    : 1C0636190B1260233B35125F1E1D0E2F4C5422
+/// MOD    : 734270227D36772A783B4F2A5F206266236978
+/// XOR dcr: a Top Secret secret
+/// MOD dcr: a Top Secret secret
+/// </pre></div><br/><p class="rosetta__paragraph">No official seeding method for ISAAC has been published, but for this task</p>
+/// <p class="rosetta__paragraph">we may as well just inject the bytes of our key into the randrsl array,</p>
+/// <p class="rosetta__paragraph">padding with zeroes before mixing, like so:</p><br/><div class="rosetta__pre-wrap"><pre class="rosetta__pre">
+/// // zeroise mm array
+/// FOR i:= 0 TO 255 DO mm[i]:=0;
+/// // check seed's highest array element
+/// m := High(seed);
+/// // inject the seed
+/// FOR i:= 0 TO 255 DO BEGIN
+/// 	// in case seed[] has less than 256 elements.
+/// 	IF i>m THEN randrsl[i]:=0  
+/// 		ELSE randrsl[i]:=seed[i];
+/// END;
+/// // initialize ISAAC with seed
+/// RandInit(true);
+/// </pre></div><br/><p class="rosetta__paragraph">ISAAC can of course also be initialized with a single 32-bit unsigned integer in the manner of traditional RNGs, and indeed used as such for research and gaming purposes.</p>
+/// <p class="rosetta__paragraph">But building a strong and simple ISAAC-based stream cipher - replacing the irreparably broken RC4 - is our goal here: ISAAC's intended purpose.</p>
+/// <br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

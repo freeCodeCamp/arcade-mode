@@ -1,0 +1,65 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: GUI enabling/disabling of controls
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <br/>
+/// <br/>
+/// <br/>
+/// <br/>
+/// <br/>
+/// <br/><p class="rosetta__paragraph">In addition to fundamental <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/GUI component interaction" title="GUI component interaction">GUI component interaction</a>, an application should</p>
+/// <p class="rosetta__paragraph">dynamically enable and disable GUI components, to give some guidance to the</p>
+/// <p class="rosetta__paragraph">user, and prohibit (inter)actions which are inappropriate in the current state</p>
+/// <p class="rosetta__paragraph">of the application.</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Similar to the task <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/GUI component interaction" title="GUI component interaction">GUI component interaction</a>, write a program</p>
+/// <p class="rosetta__paragraph">that presents a form with three components to the user:</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">:#  a numeric input field ("Value") </span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">:#  a button  ("increment")</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">:#  a button  ("decrement")</span></p><br/><br>
+/// <p class="rosetta__paragraph">The field is initialized to zero.</p>
+/// <p class="rosetta__paragraph">The user may manually enter a new value into the field,</p>
+/// <p class="rosetta__paragraph">increment its value with the "increment" button,</p>
+/// <p class="rosetta__paragraph">or decrement the value with the "decrement" button.</p><br/><p class="rosetta__paragraph">The input field should be enabled only when its value is zero.</p>
+/// <p class="rosetta__paragraph">The "increment" button only as long as the field's value is less then 10:</p>
+/// <p class="rosetta__paragraph">When the value 10 is reached, the button should go into a disabled state.</p>
+/// <p class="rosetta__paragraph">Analogously, the "decrement" button should be enabled only as long as</p>
+/// <p class="rosetta__paragraph">the value is greater than zero.</p><br/><p class="rosetta__paragraph">Effectively, the user can now either increment up to 10, or down to zero.</p>
+/// <p class="rosetta__paragraph">Manually entering values outside that range is still legal,</p>
+/// <p class="rosetta__paragraph">but the buttons should reflect that and enable/disable accordingly.</p>
+/// <br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

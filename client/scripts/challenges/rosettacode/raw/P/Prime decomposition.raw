@@ -1,0 +1,249 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Prime decomposition
+/// type: rosetta-code
+
+/// categories:
+/// Arbitrary precision
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <br/><p class="rosetta__paragraph">The prime decomposition of a number is defined as a list of prime numbers</p>
+/// <p class="rosetta__paragraph">which when all multiplied together, are equal to that number.</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Example:</dt></dl>
+/// <p class="rosetta__paragraph">12 = 2 &times; 2 &times; 3,  so its prime decomposition is  {2, 2, 3}</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Write a function which returns an <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Arrays" title="Arrays">array</a> or <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Collections" title="Collections">collection</a> which contains the prime decomposition of a given number  <big><big>$n$</big></big>  greater than  <span class="rosetta__text--bold">1</span>.</p><br/><p class="rosetta__paragraph">If your language does not have an isPrime-like function available,</p>
+/// <p class="rosetta__paragraph">you may assume that you have a function which determines</p>
+/// <p class="rosetta__paragraph">whether a number is prime (note its name before your code).</p><br/><p class="rosetta__paragraph">If you would like to test code from this task, you may use code from <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Primality by trial division" title="Primality by trial division">trial division</a> or the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Sieve of Eratosthenes" title="Sieve of Eratosthenes">Sieve of Eratosthenes</a>.</p><br/><p class="rosetta__paragraph">Note: The program must not be limited by the word size of your computer or some other artificial limit; it should work for any number regardless of size (ignoring the physical limits of RAM etc).</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks:</dt></dl>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"> <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/count in factors" title="count in factors">count in factors</a></li>
+/// <li class="rosetta__list-item--unordered"> <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/factors of an integer" title="factors of an integer">factors of an integer</a></li>
+/// <li class="rosetta__list-item--unordered"> <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Sieve of Eratosthenes" title="Sieve of Eratosthenes">Sieve of Eratosthenes</a></li>
+/// <li class="rosetta__list-item--unordered"> <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/primality by trial division" title="primality by trial division">primality by trial division</a></li>
+/// <li class="rosetta__list-item--unordered"> <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/factors of a Mersenne number" title="factors of a Mersenne number">factors of a Mersenne number</a></li>
+/// <li class="rosetta__list-item--unordered"> <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/trial factoring of a Mersenne number" title="trial factoring of a Mersenne number">trial factoring of a Mersenne number</a></li>
+/// <li class="rosetta__list-item--unordered"> <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/partition an integer X into N primes" title="partition an integer X into N primes">partition an integer X into N primes</a></li>
+/// <li class="rosetta__list-item--unordered"> <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/sequence of primes by Trial Division" title="sequence of primes by Trial Division">sequence of primes by Trial Division</a></li></ul><br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+function run_factorize(input, output) {
+    var n = new BigInteger(input.value, 10);
+    var TWO = new BigInteger("2", 10);
+    var divisor = new BigInteger("3", 10);
+    var prod = false;
+
+    if (n.compareTo(TWO) < 0) 
+        return; 
+
+    output.value = "";
+
+    while (true) {
+        var qr = n.divideAndRemainder(TWO);
+        if (qr[1].equals(BigInteger.ZERO)) {
+            if (prod) 
+                output.value += "*"; 
+            else 
+                prod = true; 
+            output.value += "2";
+            n = qr[0];
+        }
+        else 
+            break; 
+    }
+
+    while (!n.equals(BigInteger.ONE)) {
+        var qr = n.divideAndRemainder(divisor);
+        if (qr[1].equals(BigInteger.ZERO)) {
+            if (prod) 
+                output.value += "*"; 
+            else 
+                prod = true; 
+            output.value += divisor;
+            n = qr[0];
+        }
+        else 
+            divisor = divisor.add(TWO); 
+    }
+}
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+This code uses the BigInteger Library [http://xenon.stanford.edu/~tjw/jsbn/jsbn.js jsbn] and [http://xenon.stanford.edu/~tjw/jsbn/jsbn2.js jsbn2]
+<lang javascript>function run_factorize(input, output) {
+    var n = new BigInteger(input.value, 10);
+    var TWO = new BigInteger("2", 10);
+    var divisor = new BigInteger("3", 10);
+    var prod = false;
+
+    if (n.compareTo(TWO) < 0) 
+        return; 
+
+    output.value = "";
+
+    while (true) {
+        var qr = n.divideAndRemainder(TWO);
+        if (qr[1].equals(BigInteger.ZERO)) {
+            if (prod) 
+                output.value += "*"; 
+            else 
+                prod = true; 
+            output.value += "2";
+            n = qr[0];
+        }
+        else 
+            break; 
+    }
+
+    while (!n.equals(BigInteger.ONE)) {
+        var qr = n.divideAndRemainder(divisor);
+        if (qr[1].equals(BigInteger.ZERO)) {
+            if (prod) 
+                output.value += "*"; 
+            else 
+                prod = true; 
+            output.value += divisor;
+            n = qr[0];
+        }
+        else 
+            divisor = divisor.add(TWO); 
+    }
+}</lang>
+
+Without any library.
+<lang javascript>function run_factorize(n) {
+	if (n <= 3)
+			return [n];
+
+	var ans = [];
+	var done = false;
+	while (!done)
+	{
+		if (n%2 === 0){
+				ans.push(2);
+				n /= 2;
+				continue;
+		}
+		if (n%3 === 0){
+				ans.push(3);
+				n /= 3;
+				continue;
+		}
+		if ( n === 1)
+			return ans;
+		var sr = Math.sqrt(n);
+		done = true;
+		// try to divide the checked number by all numbers till its square root.
+		for (var i=6; i<=sr; i+=6){
+				if (n%(i-1) === 0){ // is n divisible by i-1?
+						ans.push( (i-1) );
+						n /= (i-1);
+						done = false;
+						break;
+				}
+				if (n%(i+1) === 0){ // is n divisible by i+1?
+						ans.push( (i+1) );
+						n /= (i+1);
+						done = false;
+						break;
+				}
+		}
+	}
+	ans.push( n );
+	return ans;
+}</lang>
+
+TDD using Jasmine
+
+PrimeFactors.js
+<lang javascript>function factors(n) {
+  if (!n || n < 2)
+    return [];
+
+  var f = [];
+  for (var i = 2; i <= n; i++){
+    while (n % i === 0){
+      f.push(i);
+      n /= i;
+    }
+  }
+
+  return f;
+};
+</lang>
+
+SpecPrimeFactors.js (with tag for Chutzpah)
+<lang javascript>/// <reference path="PrimeFactors.js" />
+
+describe("Prime Factors", function() {
+  it("Given nothing, empty is returned", function() {
+    expect(factors()).toEqual([]);
+  });
+
+  it("Given 1, empty is returned", function() {
+    expect(factors(1)).toEqual([]);
+  });
+
+  it("Given 2, 2 is returned", function() {
+    expect(factors(2)).toEqual([2]);
+  });
+
+  it("Given 3, 3 is returned", function() {
+    expect(factors(3)).toEqual([3]);
+  });
+
+  it("Given 4, 2 and 2 is returned", function() {
+    expect(factors(4)).toEqual([2, 2]);
+  });
+
+  it("Given 5, 5 is returned", function() {
+    expect(factors(5)).toEqual([5]);
+  });
+
+  it("Given 6, 2 and 3 is returned", function() {
+    expect(factors(6)).toEqual([2, 3]);
+  });
+
+  it("Given 7, 7 is returned", function() {
+    expect(factors(7)).toEqual([7]);
+  });
+
+  it("Given 8; 2, 2, and 2 is returned", function() {
+    expect(factors(8)).toEqual([2, 2, 2]);
+  });
+
+  it("Given a large number, many primes factors are returned", function() {
+    expect(factors(2*2*2*3*3*7*11*17))
+      .toEqual([2, 2, 2, 3, 3, 7, 11, 17]);
+  });
+
+  it("Given a large prime number, that number is returned", function() {
+    expect(factors(997)).toEqual([997]);
+  });
+});
+</lang>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

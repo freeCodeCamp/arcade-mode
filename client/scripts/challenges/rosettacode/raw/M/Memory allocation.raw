@@ -1,0 +1,41 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Memory allocation
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Show how to explicitly allocate and deallocate blocks of memory in your language.</p><br/><p class="rosetta__paragraph">Show access to different types of memory (i.e., <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/heap" title="heap">heap</a>, <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/system stack" title="system stack">stack</a>, shared, foreign) if applicable.</p>
+/// <br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

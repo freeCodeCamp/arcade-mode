@@ -1,0 +1,47 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Rendezvous
+/// type: rosetta-code
+
+/// categories:
+/// Encyclopedia
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><br/><p class="rosetta__paragraph">Demonstrate the “rendezvous” communications technique by implementing a printer monitor.</p>
+/// <p class="rosetta__paragraph">==Detailed Description of Programming Task==</p>
+/// <p class="rosetta__paragraph">Rendezvous is a synchronization mechanism based on procedural decomposition. Rendezvous is similar to a procedure call with the difference that the caller and the callee belong to different <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/task" title="task">task</a>s. The called procedure is usually called an <span class="rosetta__text--bold">entry point</span> of the corresponding task. A call to an entry point is synchronous, i.e. the caller is blocked until completion. For the caller a call to the entry point is indivisible. Internally it consists of:</p><br/><ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Waiting for the callee ready to accept the rendezvous;</li>
+/// <li class="rosetta__list-item--unordered">Engaging the rendezvous (servicing the entry point).</li></ul>
+/// <p class="rosetta__paragraph">The caller may limit the waiting time to the callee to accept the rendezvous. I.e. a rendezvous request can be aborted if not yet accepted by the callee. When accepted the rendezvous is processed until its completion. During this time the caller and the callee tasks stay synchronized. Which context is used to process the rendezvous depends on the implementation which may wish to minimize context switching.</p><br/><p class="rosetta__paragraph">The callee task may accept several rendezvous requests:</p><br/><ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Rendezvous to the same entry point from different tasks;</li>
+/// <li class="rosetta__list-item--unordered">Rendezvous to different entry points.</li></ul>
+/// <p class="rosetta__paragraph">The callee accepts one rendezvous at a time.</p><br/><p class="rosetta__paragraph">Language mechanism of <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/exceptions" title="exceptions">exceptions</a> (if any) has to be consistent with the rendezvous. In particular when an exception is propagated out of a rendezvous it shall do in both tasks. The exception propagation is synchronous within the rendezvous and asynchronous outside it.</p><br/><p class="rosetta__paragraph">An engaged rendezvous can be requeued by the callee to another entry point of its task or to another task, transparently to the caller.</p><br/><p class="rosetta__paragraph">Differently to messages which are usually asynchronous, rendezvous are synchronous, as it was stated before. Therefore a rendezvous does not require marshaling the parameters and a buffer to keep them. Further, rendezvous can be implemented without context switch. This makes rendezvous a more efficient than messaging.</p><br/><p class="rosetta__paragraph">Rendezvous can be used to implement monitor synchronization objects. A monitor guards a shared resource. All users of the resource request a rendezvous to the monitor in order to get access to the resource. Access is granted by accepting the rendezvous for the time while the rendezvous is serviced.</p><br/><p class="rosetta__paragraph">===Language task===</p>
+/// <p class="rosetta__paragraph">Show how rendezvous are supported by the language. If the language does not have rendezvous, provide an implementation of them based on other primitives.</p><br/><p class="rosetta__paragraph">===Use case task===</p>
+/// <p class="rosetta__paragraph">Implement a printer monitor. The monitor guards a printer. There are two printers <span class="rosetta__text--italic">main</span> and <span class="rosetta__text--italic">reserve</span>. Each has a monitor that accepts a rendezvous Print with a text line to print of the printer. The standard output may serve for printing purpose. Each character of the line is printed separately in order to illustrate that lines are printed indivisibly. Each printer has ink for only 5 lines of text. When the <span class="rosetta__text--italic">main</span> printer runs out of ink it redirects its requests to the <span class="rosetta__text--italic">reserve</span> printer. When that runs out of ink too, Out_Of_Ink exception propagates back to the caller. Create two writer tasks which print their plagiarisms on the printer. One does <span class="rosetta__text--italic">Humpty Dumpty</span>, another <span class="rosetta__text--italic">Mother Goose</span>.</p><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

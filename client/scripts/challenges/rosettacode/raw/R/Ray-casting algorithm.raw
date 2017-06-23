@@ -1,0 +1,86 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Ray-casting algorithm
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <br/><br>
+/// <p class="rosetta__paragraph">Given a point and a polygon, check if the point is inside or outside the polygon using the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Point in polygon#Ray casting algorithm" title="wp: Point in polygon#Ray casting algorithm">ray-casting algorithm</a>.</p><br/><p class="rosetta__paragraph">A pseudocode can be simply:</p><br/><p class="rosetta__paragraph">count ← 0</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">foreach</span> side <span class="rosetta__text--bold">in</span> polygon:</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">if</span> ray_intersects_segment(P,side) <span class="rosetta__text--bold">then</span></p>
+/// <p class="rosetta__paragraph">count ← count + 1</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">if</span> <span class="rosetta__text--italic">is_odd</span>(count) <span class="rosetta__text--bold">then</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">return</span> inside</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">else</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">return</span> outside</p><br/><p class="rosetta__paragraph">Where the function <tt>ray_intersects_segment</tt> return true if the horizontal ray starting from the point P intersects the side (segment), false otherwise.</p><br/><p class="rosetta__paragraph">An intuitive explanation of why it works is that every time we cross</p>
+/// <p class="rosetta__paragraph">a border, we change "country" (inside-outside, or outside-inside), but</p>
+/// <p class="rosetta__paragraph">the last "country" we land on is surely <span class="rosetta__text--italic">outside</span> (since the inside of the polygon is finite, while the ray continues towards infinity). So, if we crossed an odd number of borders we were surely inside, otherwise we were outside; we can follow the ray backward to see it better: starting from outside, only an odd number of crossing can give an <span class="rosetta__text--italic">inside</span>: outside-inside, outside-inside-outside-inside, and so on (the - represents the crossing of a border).</p><br/><p class="rosetta__paragraph">So the main part of the algorithm is how we determine if a ray intersects a segment. The following text explain one of the possible ways.</p><br/><p class="rosetta__paragraph"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Image:intersect.png" title="Image:intersect.png">200px|thumb|right</a></p>
+/// <p class="rosetta__paragraph">Looking at the image on the right, we can easily be convinced of the fact that rays starting from points in the hatched area (like P<sub>1</sub> and P<sub>2</sub>) surely do not intersect the segment AB. We also can easily see that rays starting from points in the greenish area surely intersect the segment AB (like point P<sub>3</sub>).</p><br/><p class="rosetta__paragraph">So the problematic points are those inside the white area (the box delimited by the points A and B), like P<sub>4</sub>.</p><br/><p class="rosetta__paragraph"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Image:posslope.png" title="Image:posslope.png">128px|thumb|right</a></p>
+/// <p class="rosetta__paragraph"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Image:negslope.png" title="Image:negslope.png">128px|thumb|right</a></p><br/><p class="rosetta__paragraph">Let us take into account a segment AB (the point A having y coordinate always smaller than B's y coordinate, i.e. point A is always below point B) and a point P. Let us use the cumbersome notation PAX to denote the angle between segment AP and AX, where X is always a point on the horizontal line passing by A with x coordinate bigger than the maximum between the x coordinate of A and the x coordinate of B. As explained graphically by the figures on the right, if PAX is greater than the angle BAX, then the ray starting from P intersects the segment AB. (In the images, the ray starting from P<sub>A</sub> does not intersect the segment, while the ray starting from P<sub>B</sub> in the second picture, intersects the segment).</p><br/><p class="rosetta__paragraph">Points on the boundary or "on" a vertex are someway special and through this approach we do not obtain <span class="rosetta__text--italic">coherent</span> results. They could be treated apart, but it is not necessary to do so.</p><br/><p class="rosetta__paragraph">An algorithm for the previous speech could be (if P is a point, Px is its x coordinate):</p><br/><p class="rosetta__paragraph"><span class="rosetta__text--bold">ray_intersects_segment</span>:</p>
+/// <p class="rosetta__paragraph">P : the point from which the ray starts</p>
+/// <p class="rosetta__paragraph">A : the end-point of the segment with the smallest y coordinate</p>
+/// <p class="rosetta__paragraph">(A must be "below" B)</p>
+/// <p class="rosetta__paragraph">B : the end-point of the segment with the greatest y coordinate</p>
+/// <p class="rosetta__paragraph">(B must be "above" A)</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">if</span> Py = Ay <span class="rosetta__text--bold">or</span> Py = By <span class="rosetta__text--bold">then</span></p>
+/// <p class="rosetta__paragraph">Py ← Py + &epsilon;</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">end</span> <span class="rosetta__text--bold">if</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">if</span> Py < Ay <span class="rosetta__text--bold">or</span> Py > By <span class="rosetta__text--bold">then</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">return</span> false</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">else</span> <span class="rosetta__text--bold">if</span> Px > max(Ax, Bx) <span class="rosetta__text--bold">then</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">return</span> false</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">else</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">if</span> Px < min(Ax, Bx) <span class="rosetta__text--bold">then</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">return</span> true</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">else</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">if</span> Ax ≠ Bx <span class="rosetta__text--bold">then</span></p>
+/// <p class="rosetta__paragraph">m_red ← (By - Ay)/(Bx - Ax)</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">else</span></p>
+/// <p class="rosetta__paragraph">m_red ← ∞</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">end</span> <span class="rosetta__text--bold">if</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">if</span> Ax ≠ Px <span class="rosetta__text--bold">then</span></p>
+/// <p class="rosetta__paragraph">m_blue ← (Py - Ay)/(Px - Ax)</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">else</span></p>
+/// <p class="rosetta__paragraph">m_blue ← ∞</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">end</span> <span class="rosetta__text--bold">if</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">if</span> m_blue ≥ m_red <span class="rosetta__text--bold">then</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">return</span> true</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">else</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">return</span> false</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">end</span> <span class="rosetta__text--bold">if</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">end</span> <span class="rosetta__text--bold">if</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">end</span> <span class="rosetta__text--bold">if</span></p><br/><p class="rosetta__paragraph">(To avoid the "ray on vertex" problem, the point is moved upward of a small quantity  <big>&epsilon;</big>.)</p>
+/// <br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

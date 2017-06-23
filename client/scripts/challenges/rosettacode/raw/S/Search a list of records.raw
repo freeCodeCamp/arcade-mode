@@ -1,0 +1,225 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Search a list of records
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><br/><p class="rosetta__paragraph">Many programming languages provide convenient ways to look for a known value in a simple list of strings or numbers.<br></p>
+/// <p class="rosetta__paragraph">But what if the elements of the list are themselves compound records/objects/data-structures, and the search condition is more complex than a simple equality test?</p>
+/// <br/>
+/// <p class="rosetta__paragraph">Write a function/method/etc. that can find the first element in a given list matching a given condition.<br></p>
+/// <p class="rosetta__paragraph">It should be as generic and reusable as possible.<br></p>
+/// <p class="rosetta__paragraph">(Of course if your programming language already provides such a feature, you can use that instead of recreating it.)</p><br/><p class="rosetta__paragraph">Then to demonstrate its functionality, create the data structure specified under <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/#Data set" title="#Data set">#Data set</a>, and perform on it the searches specified under <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/#Test cases" title="#Test cases">#Test cases</a>.</p>
+/// <br/>
+/// <p class="rosetta__paragraph">The data structure to be used contains the names and populations (in millions) of the 10 largest metropolitan areas in Africa, and looks as follows when represented in JSON:</p><br/><p class="rosetta__paragraph"><lang JavaScript>[</p>
+/// <p class="rosetta__paragraph">{ "name": "Lagos",                "population": 21.0  },</p>
+/// <p class="rosetta__paragraph">{ "name": "Cairo",                "population": 15.2  },</p>
+/// <p class="rosetta__paragraph">{ "name": "Kinshasa-Brazzaville", "population": 11.3  },</p>
+/// <p class="rosetta__paragraph">{ "name": "Greater Johannesburg", "population":  7.55 },</p>
+/// <p class="rosetta__paragraph">{ "name": "Mogadishu",            "population":  5.85 },</p>
+/// <p class="rosetta__paragraph">{ "name": "Khartoum-Omdurman",    "population":  4.98 },</p>
+/// <p class="rosetta__paragraph">{ "name": "Dar Es Salaam",        "population":  4.7  },</p>
+/// <p class="rosetta__paragraph">{ "name": "Alexandria",           "population":  4.58 },</p>
+/// <p class="rosetta__paragraph">{ "name": "Abidjan",              "population":  4.4  },</p>
+/// <p class="rosetta__paragraph">{ "name": "Casablanca",           "population":  3.98 }</p>
+/// <p class="rosetta__paragraph">]</lang></p><br/><p class="rosetta__paragraph">However, you shouldn't parse it from JSON, but rather represent it natively in your programming language.</p><br/><ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">The top-level data structure should be an <span class="rosetta__text--bold">ordered</span> collection <span class="rosetta__text--italic">(i.e. a list, array, vector, or similar)</span>.</li>
+/// <li class="rosetta__list-item--unordered">Each element in this list should be an <span class="rosetta__text--bold">associative</span> collection that maps from keys to values <span class="rosetta__text--italic">(i.e. a struct, object, hash map, dictionary, or similar)</span>.</li>
+/// <li class="rosetta__list-item--unordered">Each of them has two entries: One string value with key "<tt>name</tt>", and one numeric value with key "<tt>population</tt>".</li>
+/// <li class="rosetta__list-item--unordered">You may rely on the list being sorted by population count, as long as you explain this to readers.</li></ul>
+/// <br>
+/// <p class="rosetta__paragraph">If any of that is impossible or unreasonable in your programming language, then feel free to deviate, as long as you explain your reasons in a comment above your solution.</p>
+/// <br/>
+/// <p class="rosetta__paragraph">{| class="wikitable"</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">! Search</p>
+/// <p class="rosetta__paragraph">! Expected result</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| Find the (zero-based) <span class="rosetta__text--bold">index</span> of the first city in the list whose <span class="rosetta__text--bold">name is "<tt>Dar Es Salaam</tt>"</span></p>
+/// <p class="rosetta__paragraph">| <tt>6</tt></p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| Find the <span class="rosetta__text--bold">name</span> of the first city in this list whose <span class="rosetta__text--bold">population is less than 5 million</span></p>
+/// <p class="rosetta__paragraph">| <tt>Khartoum-Omdurman</tt></p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| Find the <span class="rosetta__text--bold">population</span> of the first city in this list whose <span class="rosetta__text--bold">name starts with the letter "<tt>A</tt>"</span></p>
+/// <p class="rosetta__paragraph">| <tt>4.58</tt></p>
+/// <p class="rosetta__paragraph">|}</p>
+/// <br/>
+/// <p class="rosetta__paragraph">If your programming language supports <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Higher-order programming" title="wp: Higher-order programming">higher-order programming</a>, then the most elegant way to implement the requested functionality in a generic and reusable way, might be to write a function (maybe called "<tt>find_index</tt>" or similar), that takes two arguments:</p>
+/// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">The list to search through.</li>
+/// <li class="rosetta__list-item--ordered">A function/lambda/closure (the so-called "predicate"), which will be applied in turn to each element in the list, and whose boolean return value defines whether that element matches the search requirement.</li></ol>
+/// <p class="rosetta__paragraph">If this is not the approach which would be most natural or idiomatic in your language, explain why, and show what is.</p>
+/// <br/>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Search a list" title="Search a list">Search a list</a></li></ul>
+/// <p class="rosetta__paragraph"><hr></p><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+(function () {
+    'use strict';
+ 
+    // find :: (a -> Bool) -> [a] -> Maybe a
+    function find(f, xs) {
+        for (var i = 0, lng = xs.length; i < lng; i++) {
+            if (f(xs[i])) return xs[i];
+        }
+        return undefined;
+    }
+ 
+    // findIndex :: (a -> Bool) -> [a] -> Maybe Int
+    function findIndex(f, xs) {
+        for (var i = 0, lng = xs.length; i < lng; i++) {
+            if (f(xs[i])) return i;
+        }   
+        return undefined;
+    }
+ 
+ 
+    var lst = [
+      { "name": "Lagos",                "population": 21.0  },
+      { "name": "Cairo",                "population": 15.2  },
+      { "name": "Kinshasa-Brazzaville", "population": 11.3  },
+      { "name": "Greater Johannesburg", "population":  7.55 },
+      { "name": "Mogadishu",            "population":  5.85 },
+      { "name": "Khartoum-Omdurman",    "population":  4.98 },
+      { "name": "Dar Es Salaam",        "population":  4.7  },
+      { "name": "Alexandria",           "population":  4.58 },
+      { "name": "Abidjan",              "population":  4.4  },
+      { "name": "Casablanca",           "population":  3.98 }
+    ];
+ 
+    return {
+        darEsSalaamIndex: findIndex(function (x) {
+            return x.name === 'Dar Es Salaam';
+        }, lst),
+ 
+        firstBelow5M: find(function (x) {
+                return x.population < 5;
+            }, lst)
+            .name,
+ 
+        firstApop: find(function (x) {
+                return x.name.charAt(0) === 'A';
+            }, lst)
+            .population
+    };
+ 
+})();
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+
+===ES5===
+
+<lang JavaScript>(function () {
+    'use strict';
+ 
+    // find :: (a -> Bool) -> [a] -> Maybe a
+    function find(f, xs) {
+        for (var i = 0, lng = xs.length; i < lng; i++) {
+            if (f(xs[i])) return xs[i];
+        }
+        return undefined;
+    }
+ 
+    // findIndex :: (a -> Bool) -> [a] -> Maybe Int
+    function findIndex(f, xs) {
+        for (var i = 0, lng = xs.length; i < lng; i++) {
+            if (f(xs[i])) return i;
+        }   
+        return undefined;
+    }
+ 
+ 
+    var lst = [
+      { "name": "Lagos",                "population": 21.0  },
+      { "name": "Cairo",                "population": 15.2  },
+      { "name": "Kinshasa-Brazzaville", "population": 11.3  },
+      { "name": "Greater Johannesburg", "population":  7.55 },
+      { "name": "Mogadishu",            "population":  5.85 },
+      { "name": "Khartoum-Omdurman",    "population":  4.98 },
+      { "name": "Dar Es Salaam",        "population":  4.7  },
+      { "name": "Alexandria",           "population":  4.58 },
+      { "name": "Abidjan",              "population":  4.4  },
+      { "name": "Casablanca",           "population":  3.98 }
+    ];
+ 
+    return {
+        darEsSalaamIndex: findIndex(function (x) {
+            return x.name === 'Dar Es Salaam';
+        }, lst),
+ 
+        firstBelow5M: find(function (x) {
+                return x.population < 5;
+            }, lst)
+            .name,
+ 
+        firstApop: find(function (x) {
+                return x.name.charAt(0) === 'A';
+            }, lst)
+            .population
+    };
+ 
+})();</lang>
+
+
+{{Out}}
+<pre>{"darEsSalaamIndex":6, "firstBelow5M":"Khartoum-Omdurman", "firstApop":4.58}</pre>
+
+===ES6===
+
+<lang JavaScript>(() => {
+    'use strict';
+ 
+    let lst = [
+          { "name": "Lagos",                "population": 21.0  },
+          { "name": "Cairo",                "population": 15.2  },
+          { "name": "Kinshasa-Brazzaville", "population": 11.3  },
+          { "name": "Greater Johannesburg", "population":  7.55 },
+          { "name": "Mogadishu",            "population":  5.85 },
+          { "name": "Khartoum-Omdurman",    "population":  4.98 },
+          { "name": "Dar Es Salaam",        "population":  4.7  },
+          { "name": "Alexandria",           "population":  4.58 },
+          { "name": "Abidjan",              "population":  4.4  },
+          { "name": "Casablanca",           "population":  3.98 }
+        ];
+ 
+    return {
+        darEsSalaamIndex: lst.findIndex(x => x.name === 'Dar Es Salaam'),
+        firstBelow5M: lst.find(x => x.population < 5)
+            .name,
+        firstApop: lst.find(x => x.name[0] === 'A')
+            .population
+    };
+ 
+})();</lang>
+
+
+{{Out}}
+<pre>{"darEsSalaamIndex":6, "firstBelow5M":"Khartoum-Omdurman", "firstApop":4.58}</pre>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

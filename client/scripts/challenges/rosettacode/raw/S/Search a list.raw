@@ -1,0 +1,175 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Search a list
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <br/>
+/// <p class="rosetta__paragraph">Find the index of a string (needle) in an indexable, ordered collection of strings (haystack).</p><br/><p class="rosetta__paragraph">Raise an exception if the needle is missing.</p><br/><p class="rosetta__paragraph">If there is more than one occurrence then return the smallest index to the needle.</p>
+/// <br/>
+/// <p class="rosetta__paragraph">Return the largest index to a needle that has multiple occurrences in the haystack.</p>
+/// <br/>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Search a list of records" title="Search a list of records">Search a list of records</a></li></ul>
+/// <p class="rosetta__paragraph"><hr></p><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+var haystack = ['Zig', 'Zag', 'Wally', 'Ronald', 'Bush', 'Krusty', 'Charlie', 'Bush', 'Bozo']
+var needles = ['Bush', 'Washington']
+
+for (var i in needles) {
+    var found = false;
+    for (var j in haystack) {
+        if (haystack[j] == needles[i]) {
+            found = true;
+            break;
+        }
+    }
+    if (found)
+        print(needles[i] + " appears at index " + j + " in the haystack");
+    else
+        throw needles[i] + " does not appear in the haystack"
+}
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+<lang javascript>var haystack = ['Zig', 'Zag', 'Wally', 'Ronald', 'Bush', 'Krusty', 'Charlie', 'Bush', 'Bozo']
+var needles = ['Bush', 'Washington']
+
+for (var i in needles) {
+    var found = false;
+    for (var j in haystack) {
+        if (haystack[j] == needles[i]) {
+            found = true;
+            break;
+        }
+    }
+    if (found)
+        print(needles[i] + " appears at index " + j + " in the haystack");
+    else
+        throw needles[i] + " does not appear in the haystack"
+}</lang>
+
+The following {{works with|JavaScript|1.6}}:
+<lang javascript>for each (var needle in needles) {
+    var idx = haystack.indexOf(needle);
+    if (idx == -1)
+        throw needle + " does not appear in the haystack"
+    else
+        print(needle + " appears at index " + idx + " in the haystack");
+}
+
+// extra credit
+
+for each (var elem in haystack) {
+    var first_idx = haystack.indexOf(elem);
+    var last_idx  = haystack.lastIndexOf(elem);
+    if (last_idx > first_idx) {
+        print(elem + " last appears at index " + last_idx + " in the haystack");
+        break
+    }
+}</lang>
+
+
+Or, generalising enough (in ES5) to allow for varying definitions of the type of match we are looking for:
+
+<lang JavaScript>(function () {
+
+  function findIndex(fnPredicate, list) {
+    for (var i = 0, lng = list.length; i < lng; i++) {
+      if (fnPredicate(list[i])) {
+        return i;
+      }
+    }
+    return Error("not found");
+  };
+
+  // DEFINING A PARTICULAR TYPE OF SEARCH MATCH
+  
+  function matchCaseInsensitive(s, t) {
+    return s.toLowerCase() === t.toLowerCase();
+  }
+
+  var lstHaystack = [
+    'Zig', 'Zag', 'Wally', 'Ronald', 'Bush',
+    'Krusty', 'Charlie', 'Bush', 'Bozo'
+  ],
+    lstReversed = lstHaystack.slice(0).reverse(),
+    iLast = lstHaystack.length - 1,
+    lstNeedles = ['bush', 'washington'];
+
+  return {
+    'first': lstNeedles.map(function (s) {
+      return [s, findIndex(function (t) {
+          return matchCaseInsensitive(s, t);
+        },
+        lstHaystack)];
+    }),
+
+    'last': lstNeedles.map(function (s) {
+      var varIndex = findIndex(function (t) {
+          return matchCaseInsensitive(s, t);
+        },
+        lstReversed);
+
+      return [
+        s,
+        typeof varIndex === 'number' ?
+          iLast - varIndex : varIndex
+      ];
+    })
+  }
+})();</lang>
+
+Output:
+
+<lang JavaScript>{
+  "first": [
+    [
+      "bush",
+      4
+    ],
+    [
+      "washington",
+      "Error: not found"
+    ]
+  ],
+  "last": [
+    [
+      "bush",
+      7
+    ],
+    [
+      "washington",
+      "Error: not found"
+    ]
+  ]
+}</lang>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,0 +1,47 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Arena storage pool
+/// type: rosetta-code
+
+/// categories:
+/// Encyclopedia
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <p class="rosetta__paragraph">Dynamically allocated objects take their memory from a <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/heap" title="heap">heap</a>. The memory for an object is provided by an <span class="rosetta__text--bold">allocator</span> which maintains the storage pool used for the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/heap" title="heap">heap</a>. Often a call to allocator is denoted as</p>
+/// <p class="rosetta__paragraph"><lang ada>P := new T</lang></p>
+/// <p class="rosetta__paragraph">where T is the type of an allocated object and P is a <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/reference" title="reference">reference</a> to the object.</p><br/><p class="rosetta__paragraph">The storage pool chosen by the allocator can be determined by either:</p>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">the object type T;</li>
+/// <li class="rosetta__list-item--unordered">the type of pointer P.</li></ul>In the former case objects can be allocated only in one storage pool. In the latter case objects of the type can be allocated in any storage pool or on the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/stack" title="stack">stack</a>.<br/><p class="rosetta__paragraph"><span class="rosetta__text--bold">Task description</span><br></p>
+/// <p class="rosetta__paragraph">The task is to show how allocators and user-defined storage pools are supported by the language. In particular:</p>
+/// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">define an arena storage pool. An arena is a pool in which objects are allocated individually, but freed by groups.</li>
+/// <li class="rosetta__list-item--ordered">allocate some objects (e.g., integers) in the pool.</li></ol>Explain what controls the storage pool choice in the language.<br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

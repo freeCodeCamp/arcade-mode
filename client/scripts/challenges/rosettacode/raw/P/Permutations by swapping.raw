@@ -1,0 +1,47 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Permutations by swapping
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Generate permutations of n items in which successive permutations differ from each other by the swapping of any two items.</p><br/><p class="rosetta__paragraph">Also generate the sign of the permutation which is +1 when the permutation is generated from an even number of swaps from the initial state, and -1 for odd.</p><br/><p class="rosetta__paragraph">Show the permutations and signs of three items, in order of generation <span class="rosetta__text--italic">here</span>.</p><br/><p class="rosetta__paragraph">Such data are of use in generating the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Matrix arithmetic" title="Matrix arithmetic">determinant</a> of a square matrix and any functions created should bear this in mind.</p><br/><p class="rosetta__paragraph">Note: The Steinhaus–Johnson–Trotter algorithm generates successive permutations where <span class="rosetta__text--italic">adjacent</span> items are swapped, but from <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Parity_of_a_permutation#Example" title="wp: Parity_of_a_permutation#Example">this</a> discussion adjacency is not a requirement.</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">References:</dt></dl>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Steinhaus–Johnson–Trotter algorithm" title="wp: Steinhaus–Johnson–Trotter algorithm">Steinhaus–Johnson–Trotter algorithm</a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--wiki" href="http://www.cut-the-knot.org/Curriculum/Combinatorics/JohnsonTrotter.shtml" title="link: http://www.cut-the-knot.org/Curriculum/Combinatorics/JohnsonTrotter.shtml">Johnson-Trotter Algorithm Listing All Permutations</a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--wiki" href="http://stackoverflow.com/a/29044942/10562" title="link: http://stackoverflow.com/a/29044942/10562">Correction to</a> Heap's algorithm as presented in Wikipedia and widely distributed.</li>
+/// <li class="rosetta__list-item--unordered">[http://www.gutenberg.org/files/18567/18567-h/18567-h.htm#ch7] Tintinnalogia</li></ul><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Related task:</dt></dl>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"> <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Matrix arithmetic" title="Matrix arithmetic">Matrix arithmetic</a></li>
+/// <li class="rosetta__list-item--unordered"> <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Gray code" title="Gray code">Gray code</a></li></ul><br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

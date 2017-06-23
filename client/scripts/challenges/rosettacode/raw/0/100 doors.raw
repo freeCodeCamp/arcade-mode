@@ -1,0 +1,329 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: 100 doors
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><br/><p class="rosetta__paragraph">There are 100 doors in a row that are all initially closed.</p><br/><p class="rosetta__paragraph">You make 100 <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/task feature::Rosetta Code:multiple passes" title="task feature::Rosetta Code:multiple passes">passes</a> by the doors.</p><br/><p class="rosetta__paragraph">The first time through, visit every door and  <span class="rosetta__text--italic">toggle</span>  the door  (if the door is closed,  open it;  if it is open,  close it).</p><br/><p class="rosetta__paragraph">The second time, only visit every 2<sup>nd</sup> door  (door #2, #4, #6, ...),  and toggle it.</p><br/><p class="rosetta__paragraph">The third time, visit every 3<sup>rd</sup> door  (door #3, #6, #9, ...), etc,  until you only visit the 100<sup>th</sup> door.</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Answer the question:  what state are the doors in after the last pass?  Which are open, which are closed?</p>
+/// <br/><p class="rosetta__paragraph"><span class="rosetta__text--bold"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/task feature::Rosetta Code:extra credit" title="task feature::Rosetta Code:extra credit">Alternate</a>:</span></p>
+/// <p class="rosetta__paragraph">As noted in this page's  <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Talk:100 doors" title="Talk:100 doors">discussion page</a>,  the only doors that remain open are those whose numbers are perfect squares.</p><br/><p class="rosetta__paragraph">Opening only those doors is an  <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/task feature::Rosetta Code:optimization" title="task feature::Rosetta Code:optimization">optimization</a>  that may also be expressed;</p>
+/// <p class="rosetta__paragraph">however, as should be obvious, this defeats the intent of comparing implementations across programming languages.</p>
+/// <br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+var doors=[];
+for(var i=0;i<100;i++)
+ doors[i]=false;             //create doors
+for(var i=1;i<=100;i++)
+ for(var i2=i-1,g;i2<100;i2+=i)
+  doors[i2]=!doors[i2];      //toggle doors
+for(var i=1;i<=100;i++)      //read doors
+ console.log("Door %d is %s",i,doors[i-1]?"open":"closed")
+
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+=== ES5 ===
+==== Iterative ====
+<lang javascript>
+var doors=[];
+for(var i=0;i<100;i++)
+ doors[i]=false;             //create doors
+for(var i=1;i<=100;i++)
+ for(var i2=i-1,g;i2<100;i2+=i)
+  doors[i2]=!doors[i2];      //toggle doors
+for(var i=1;i<=100;i++)      //read doors
+ console.log("Door %d is %s",i,doors[i-1]?"open":"closed")
+</lang>
+
+====Functional Composition====
+
+Naive search
+<lang JavaScript>(function (n) {
+    'use strict';
+
+
+    // finalDoors :: Int -> [(Int, Bool)]
+    function finalDoors(n) {
+        var lstRange = range(1, n);
+
+        return lstRange
+            .reduce(function (a, _, k) {
+                var m = k + 1;
+
+                return a.map(function (x, i) {
+                    var j = i + 1;
+
+                    return [j, j % m ? x[1] : !x[1]];
+                });
+            }, zip(
+                lstRange,
+                replicate(n, false)
+            ));
+    };
+
+
+
+    // GENERIC FUNCTIONS
+
+    // zip :: [a] -> [b] -> [(a,b)]
+    function zip(xs, ys) {
+        return xs.length === ys.length ? (
+            xs.map(function (x, i) {
+                return [x, ys[i]];
+            })
+        ) : undefined;
+    }
+
+    // replicate :: Int -> a -> [a]
+    function replicate(n, a) {
+        var v = [a],
+            o = [];
+
+        if (n < 1) return o;
+        while (n > 1) {
+            if (n & 1) o = o.concat(v);
+            n >>= 1;
+            v = v.concat(v);
+        }
+        return o.concat(v);
+    }
+
+    // range(intFrom, intTo, optional intStep)
+    // Int -> Int -> Maybe Int -> [Int]
+    function range(m, n, delta) {
+        var d = delta || 1,
+            blnUp = n > m,
+            lng = Math.floor((blnUp ? n - m : m - n) / d) + 1,
+            a = Array(lng),
+            i = lng;
+
+        if (blnUp)
+            while (i--) a[i] = (d * i) + m;
+        else
+            while (i--) a[i] = m - (d * i);
+
+        return a;
+    }
+
+
+    return finalDoors(n)
+        .filter(function (tuple) {
+            return tuple[1];
+        })
+        .map(function (tuple) {
+            return {
+                door: tuple[0],
+                open: tuple[1]
+            };
+        });
+
+})(100);</lang>
+
+{{out}}
+<lang JavaScript>[{"door":1, "open":true}, {"door":4, "open":true}, {"door":9, "open":true}, {"door":16, "open":true}, {"door":25, "open":true}, {"door":36, "open":true}, {"door":49, "open":true}, {"door":64, "open":true}, {"door":81, "open":true}, {"door":100, "open":true}]</lang>
+
+==== Optimized ( iterative )====
+<lang javascript>for (var door = 1; door <= 100; door++) {
+  var sqrt = Math.sqrt(door);
+  if (sqrt === (sqrt | 0)) {
+    console.log("Door %d is open", door);
+  }
+}</lang>
+
+
+Simple for loop. Optimizing the optimized?
+<lang javascript>for(var door=1;i<10/*Math.sqrt(100)*/;i++){
+ console.log("Door %d is open",i*i);
+}</lang>
+
+==== Optimized ( functional ) ====
+
+The question of which doors are flipped an odd number of times reduces to the question of which numbers have an odd number of integer factors.
+
+We can simply search for these:
+
+<lang JavaScript>(function (n) {
+    'use strict';
+
+    return range(1, 100)
+        .filter(function (x) {
+            return integerFactors(x)
+                .length % 2;
+        });
+
+    function integerFactors(n) {
+        var rRoot = Math.sqrt(n),
+            intRoot = Math.floor(rRoot),
+
+            lows = range(1, intRoot)
+            .filter(function (x) {
+                return (n % x) === 0;
+            });
+
+        // for perfect squares, we can drop the head of the 'highs' list
+        return lows.concat(lows.map(function (x) {
+                return n / x;
+            })
+            .reverse()
+            .slice((rRoot === intRoot) | 0));
+    }
+
+    // range(intFrom, intTo, optional intStep)
+    // Int -> Int -> Maybe Int -> [Int]
+    function range(m, n, delta) {
+        var d = delta || 1,
+            blnUp = n > m,
+            lng = Math.floor((blnUp ? n - m : m - n) / d) + 1,
+            a = Array(lng),
+            i = lng;
+
+        if (blnUp)
+            while (i--) a[i] = (d * i) + m;
+        else
+            while (i--) a[i] = m - (d * i);
+
+        return a;
+    }
+
+})(100);</lang>
+
+Or we can note, on inspection and further reflection, that only perfect squares have odd numbers of integer factors - all other numbers have only matched pairs of factors - low factors below the non-integer square root, and the corresponding quotients above the square root. In the case of perfect squares, the additional integer square root (not paired with any other factor than itself) makes the total number of distinct factors odd.
+
+<lang JavaScript>(function (n) {
+    'use strict';
+
+    return perfectSquaresUpTo(100);
+
+    function perfectSquaresUpTo(n) {
+        return range(1, Math.floor(Math.sqrt(n)))
+            .map(function (x) {
+                return x * x;
+            });
+    }
+
+    // GENERIC
+
+    // range(intFrom, intTo, optional intStep)
+    // Int -> Int -> Maybe Int -> [Int]
+    function range(m, n, delta) {
+        var d = delta || 1,
+            blnUp = n > m,
+            lng = Math.floor((blnUp ? n - m : m - n) / d) + 1,
+            a = Array(lng),
+            i = lng;
+
+        if (blnUp)
+            while (i--) a[i] = (d * i) + m;
+        else
+            while (i--) a[i] = m - (d * i);
+        return a;
+    }
+
+})(100);</lang>
+
+{{Out}}
+<lang JavaScript>[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]</lang>
+
+=== ES6 ===
+
+<lang javascript>
+Array.apply(null, { length: 100 })
+  .map((v, i) => i + 1)
+    .forEach(door => { 
+      var sqrt = Math.sqrt(door); 
+
+      if (sqrt === (sqrt | 0)) {
+        console.log("Door %d is open", door);
+      } 
+    });</lang>
+
+
+<lang javascript>// Array comprehension style
+[ for (i of Array.apply(null, { length: 100 })) i ].forEach((_, i) => { 
+  var door = i + 1
+  var sqrt = Math.sqrt(door); 
+
+  if (sqrt === (sqrt | 0)) {
+    console.log("Door %d is open", door);
+  } 
+});</lang>
+
+The result is always: 
+<pre>Door 1 is open
+Door 4 is open
+Door 9 is open
+Door 16 is open
+Door 25 is open
+Door 36 is open
+Door 49 is open
+Door 64 is open
+Door 81 is open
+Door 100 is open</pre>
+
+Or using a more general function for listing perfect squares:
+
+<lang JavaScript>(function (n) {
+ 
+ 
+    // ONLY PERFECT SQUARES HAVE AN ODD NUMBER OF INTEGER FACTORS
+    // (Leaving the door open at the end of the process) 
+ 
+    return perfectSquaresUpTo(n);
+ 
+ 
+    // perfectSquaresUpTo :: Int -> [Int]
+    function perfectSquaresUpTo(n) {
+        return range(1, Math.floor(Math.sqrt(n)))
+            .map(x => x * x);
+    }
+ 
+ 
+    // GENERIC
+ 
+    // range(intFrom, intTo, optional intStep)
+    // Int -> Int -> Maybe Int -> [Int]
+    function range(m, n, step) {
+        let d = (step || 1) * (n >= m ? 1 : -1);
+ 
+        return Array.from({
+            length: Math.floor((n - m) / d) + 1
+        }, (_, i) => m + (i * d));
+    }
+ 
+})(100);</lang>
+
+{{Out}}
+
+<lang JavaScript>[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]</lang>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,0 +1,150 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Fibonacci n-step number sequences
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <p class="rosetta__paragraph">These number series are an expansion of the ordinary <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Fibonacci sequence" title="Fibonacci sequence">Fibonacci sequence</a> where:</p>
+/// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">For $n = 2$ we have the Fibonacci sequence; with initial values $[1, 1]$ and $F_k^2 = F_{k-1}^2 + F_{k-2}^2$</li>
+/// <li class="rosetta__list-item--ordered">For $n = 3$ we have the tribonacci sequence; with initial values $[1, 1, 2]$ and $F_k^3 = F_{k-1}^3 + F_{k-2}^3 + F_{k-3}^3$</li>
+/// <li class="rosetta__list-item--ordered">For $n = 4$ we have the tetranacci sequence; with initial values $[1, 1, 2, 4]$ and $F_k^4 = F_{k-1}^4 + F_{k-2}^4 + F_{k-3}^4 + F_{k-4}^4$<br>...</li>
+/// <li class="rosetta__list-item--ordered">For general $n>2$ we have the Fibonacci $n$-step sequence - $F_k^n$; with initial values of the first $n$ values of the $(n-1)$'th Fibonacci $n$-step sequence $F_k^{n-1}$; and $k$'th value of this $n$'th sequence being $F_k^n = \sum_{i=1}^{(n)} {F_{k-i}^{(n)}}$</li></ol>
+/// <p class="rosetta__paragraph">For small values of $n$, <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Number prefix#Greek_series" title="wp: Number prefix#Greek_series">Greek numeric prefixes</a> are sometimes used to individually name each series.</p><br/><p class="rosetta__paragraph"><span class="rosetta__text--indented">{| style="text-align: left;" border="4" cellpadding="2" cellspacing="2"</span></p>
+/// <p class="rosetta__paragraph">|+ Fibonacci $n$-step sequences</p>
+/// <p class="rosetta__paragraph">|- style="background-color: rgb(255, 204, 255);"</p>
+/// <p class="rosetta__paragraph">! $n$ !! Series name !! Values</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">|  2 ||  fibonacci || 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 ...</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">|  3 || tribonacci || 1 1 2 4 7 13 24 44 81 149 274 504 927 1705 3136 ...</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">|  4 || tetranacci || 1 1 2 4 8 15 29 56 108 208 401 773 1490 2872 5536 ...</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">|  5 || pentanacci || 1 1 2 4 8 16 31 61 120 236 464 912 1793 3525 6930 ...</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">|  6 ||  hexanacci || 1 1 2 4 8 16 32 63 125 248 492 976 1936 3840 7617 ...</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">|  7 || heptanacci || 1 1 2 4 8 16 32 64 127 253 504 1004 2000 3984 7936 ...</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">|  8 ||  octonacci || 1 1 2 4 8 16 32 64 128 255 509 1016 2028 4048 8080 ...</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">|  9 ||  nonanacci || 1 1 2 4 8 16 32 64 128 256 511 1021 2040 4076 8144 ...</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| 10 ||  decanacci || 1 1 2 4 8 16 32 64 128 256 512 1023 2045 4088 8172 ...</p>
+/// <p class="rosetta__paragraph">|}</p><br/><p class="rosetta__paragraph">Allied sequences can be generated where the initial values are changed:</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented"> <span class="rosetta__text--bold">The <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Lucas number" title="wp: Lucas number">Lucas series</a></span> sums the two preceding values like the fibonacci series for $n=2$ but uses $[2, 1]$ as its initial values.</span></p><br/><p class="rosetta__paragraph"><!-- Lucas numbers, Lucas number, Lucas series     [added to make searches easier.] --></p><br/><br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">Write a function to generate Fibonacci $n$-step number sequences given its initial values and assuming the number of initial values determines how many previous values are summed to make the next number of the series.</li>
+/// <li class="rosetta__list-item--ordered">Use this to print and show here at least the first ten members of the Fibo/tribo/tetra-nacci and Lucas sequences.</li></ol><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks:</dt></dl>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"> <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Fibonacci sequence" title="Fibonacci sequence">Fibonacci sequence</a></li>
+/// <li class="rosetta__list-item--unordered"> <a class="rosetta__link--wiki" href="http://mathworld.wolfram.com/Fibonaccin-StepNumber.html" title="link: http://mathworld.wolfram.com/Fibonaccin-StepNumber.html">Wolfram Mathworld</a></li>
+/// <li class="rosetta__list-item--unordered"> <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Hofstadter Q sequence‎" title="Hofstadter Q sequence‎">Hofstadter Q sequence‎</a></li>
+/// <li class="rosetta__list-item--unordered"> <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Leonardo numbers" title="Leonardo numbers">Leonardo numbers</a></li></ul><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Also see:</dt></dl>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"> <a class="rosetta__link--wiki" href="https://www.youtube.com/watch?v=PeUbRXnbmms" title="link: https://www.youtube.com/watch?v=PeUbRXnbmms">Lucas Numbers - Numberphile</a> (Video)</li></ul><br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+function fib(arity, len) {
+    return nacci(nacci([1,1], arity, arity), arity, len);
+}
+
+function lucas(arity, len) {
+    return nacci(nacci([2,1], arity, arity), arity, len);
+}
+
+function nacci(a, arity, len) {
+    while (a.length < len) {
+        var sum = 0;
+        for (var i = Math.max(0, a.length - arity); i < a.length; i++)
+            sum += a[i];
+        a.push(sum);
+    }
+    return a;
+}
+
+function main() {
+    for (var arity = 2; arity <= 10; arity++)
+        console.log("fib(" + arity + "): " + fib(arity, 15));
+    for (var arity = 2; arity <= 10; arity++)
+        console.log("lucas(" + arity + "): " + lucas(arity, 15));
+}
+
+main();
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+
+
+<lang JavaScript>function fib(arity, len) {
+    return nacci(nacci([1,1], arity, arity), arity, len);
+}
+
+function lucas(arity, len) {
+    return nacci(nacci([2,1], arity, arity), arity, len);
+}
+
+function nacci(a, arity, len) {
+    while (a.length < len) {
+        var sum = 0;
+        for (var i = Math.max(0, a.length - arity); i < a.length; i++)
+            sum += a[i];
+        a.push(sum);
+    }
+    return a;
+}
+
+function main() {
+    for (var arity = 2; arity <= 10; arity++)
+        console.log("fib(" + arity + "): " + fib(arity, 15));
+    for (var arity = 2; arity <= 10; arity++)
+        console.log("lucas(" + arity + "): " + lucas(arity, 15));
+}
+
+main();</lang>
+{{out}}
+<pre>fib(2): 1,1,2,3,5,8,13,21,34,55,89,144,233,377,610
+fib(3): 1,1,2,4,7,13,24,44,81,149,274,504,927,1705,3136
+fib(4): 1,1,2,4,8,15,29,56,108,208,401,773,1490,2872,5536
+fib(5): 1,1,2,4,8,16,31,61,120,236,464,912,1793,3525,6930
+fib(6): 1,1,2,4,8,16,32,63,125,248,492,976,1936,3840,7617
+fib(7): 1,1,2,4,8,16,32,64,127,253,504,1004,2000,3984,7936
+fib(8): 1,1,2,4,8,16,32,64,128,255,509,1016,2028,4048,8080
+fib(9): 1,1,2,4,8,16,32,64,128,256,511,1021,2040,4076,8144
+fib(10): 1,1,2,4,8,16,32,64,128,256,512,1023,2045,4088,8172
+lucas(2): 2,1,3,4,7,11,18,29,47,76,123,199,322,521,843
+lucas(3): 2,1,3,6,10,19,35,64,118,217,399,734,1350,2483,4567
+lucas(4): 2,1,3,6,12,22,43,83,160,308,594,1145,2207,4254,8200
+lucas(5): 2,1,3,6,12,24,46,91,179,352,692,1360,2674,5257,10335
+lucas(6): 2,1,3,6,12,24,48,94,187,371,736,1460,2896,5744,11394
+lucas(7): 2,1,3,6,12,24,48,96,190,379,755,1504,2996,5968,11888
+lucas(8): 2,1,3,6,12,24,48,96,192,382,763,1523,3040,6068,12112
+lucas(9): 2,1,3,6,12,24,48,96,192,384,766,1531,3059,6112,12212
+lucas(10): 2,1,3,6,12,24,48,96,192,384,768,1534,3067,6131,12256</pre>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

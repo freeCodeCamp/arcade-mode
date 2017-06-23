@@ -1,0 +1,385 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: ABC Problem
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><br/><p class="rosetta__paragraph">You are given a collection of ABC blocks  (maybe like the ones you had when you were a kid).</p><br/><p class="rosetta__paragraph">There are twenty blocks with two letters on each block.</p><br/><p class="rosetta__paragraph">A complete alphabet is guaranteed amongst all sides of the blocks.</p><br/><p class="rosetta__paragraph">The sample collection of blocks:</p>
+/// <p class="rosetta__paragraph">(B O)</p>
+/// <p class="rosetta__paragraph">(X K)</p>
+/// <p class="rosetta__paragraph">(D Q)</p>
+/// <p class="rosetta__paragraph">(C P)</p>
+/// <p class="rosetta__paragraph">(N A)</p>
+/// <p class="rosetta__paragraph">(G T)</p>
+/// <p class="rosetta__paragraph">(R E)</p>
+/// <p class="rosetta__paragraph">(T G)</p>
+/// <p class="rosetta__paragraph">(Q D)</p>
+/// <p class="rosetta__paragraph">(F S)</p>
+/// <p class="rosetta__paragraph">(J W)</p>
+/// <p class="rosetta__paragraph">(H U)</p>
+/// <p class="rosetta__paragraph">(V I)</p>
+/// <p class="rosetta__paragraph">(A N)</p>
+/// <p class="rosetta__paragraph">(O B)</p>
+/// <p class="rosetta__paragraph">(E R)</p>
+/// <p class="rosetta__paragraph">(F S)</p>
+/// <p class="rosetta__paragraph">(L Y)</p>
+/// <p class="rosetta__paragraph">(P C)</p>
+/// <p class="rosetta__paragraph">(Z M)</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Write a function that takes a string (word) and determines whether the word can be spelled with the given collection of blocks.</p>
+/// <br/><p class="rosetta__paragraph">The rules are simple:</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">:#  Once a letter on a block is used that block cannot be used again</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">:#  The function should be case-insensitive</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">:#  Show the output on this page for the following 7 words in the following example</span></p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Example:</dt></dl>
+/// <p class="rosetta__paragraph"><lang python>    >>> can_make_word("A")</p>
+/// <p class="rosetta__paragraph">True</p>
+/// <p class="rosetta__paragraph">>>> can_make_word("BARK")</p>
+/// <p class="rosetta__paragraph">True</p>
+/// <p class="rosetta__paragraph">>>> can_make_word("BOOK")</p>
+/// <p class="rosetta__paragraph">False</p>
+/// <p class="rosetta__paragraph">>>> can_make_word("TREAT")</p>
+/// <p class="rosetta__paragraph">True</p>
+/// <p class="rosetta__paragraph">>>> can_make_word("COMMON")</p>
+/// <p class="rosetta__paragraph">False</p>
+/// <p class="rosetta__paragraph">>>> can_make_word("SQUAD")</p>
+/// <p class="rosetta__paragraph">True</p>
+/// <p class="rosetta__paragraph">>>> can_make_word("CONFUSE")</p>
+/// <p class="rosetta__paragraph">True</lang></p>
+/// <br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+var blocks = "BO XK DQ CP NA GT RE TG QD FS JW HU VI AN OB ER FS LY PC ZM";
+
+function CheckWord(blocks, word) {
+   // Makes sure that word only contains letters.
+   if(word !== /([a-z]*)/i.exec(word)[1]) return false;
+   // Loops through each character to see if a block exists.
+   for(var i = 0; i < word.length; ++i)
+   {
+      // Gets the ith character.
+      var letter = word.charAt(i);
+      // Stores the length of the blocks to determine if a block was removed.
+      var length = blocks.length;
+      // The regexp gets constructed by eval to allow more browsers to use the function.
+      var reg = eval("/([a-z]"+letter+"|"+letter+"[a-z])/i");
+      // This does the same as above, but some browsers do not support...
+      //var reg = new RegExp("([a-z]"+letter+"|"+letter+"[a-z])", "i");
+      // Removes all occurrences of the match. 
+      blocks = blocks.replace(reg, "");
+      // If the length did not change then a block did not exist.
+      if(blocks.length === length) return false;
+   }
+   // If every character has passed then return true.
+   return true;
+};
+
+var words = [
+   "A",
+   "BARK", 
+   "BOOK", 
+   "TREAT", 
+   "COMMON", 
+   "SQUAD", 
+   "CONFUSE" 
+];
+
+for(var i = 0;i<words.length;++i)
+   console.log(words[i] + ": " + CheckWord(blocks, words[i]));
+
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+===ES5===
+====Imperative====
+The following method uses regular expressions and the string replace function to allow more support for older browsers.
+<lang javascript>var blocks = "BO XK DQ CP NA GT RE TG QD FS JW HU VI AN OB ER FS LY PC ZM";
+
+function CheckWord(blocks, word) {
+   // Makes sure that word only contains letters.
+   if(word !== /([a-z]*)/i.exec(word)[1]) return false;
+   // Loops through each character to see if a block exists.
+   for(var i = 0; i < word.length; ++i)
+   {
+      // Gets the ith character.
+      var letter = word.charAt(i);
+      // Stores the length of the blocks to determine if a block was removed.
+      var length = blocks.length;
+      // The regexp gets constructed by eval to allow more browsers to use the function.
+      var reg = eval("/([a-z]"+letter+"|"+letter+"[a-z])/i");
+      // This does the same as above, but some browsers do not support...
+      //var reg = new RegExp("([a-z]"+letter+"|"+letter+"[a-z])", "i");
+      // Removes all occurrences of the match. 
+      blocks = blocks.replace(reg, "");
+      // If the length did not change then a block did not exist.
+      if(blocks.length === length) return false;
+   }
+   // If every character has passed then return true.
+   return true;
+};
+
+var words = [
+   "A",
+   "BARK", 
+   "BOOK", 
+   "TREAT", 
+   "COMMON", 
+   "SQUAD", 
+   "CONFUSE" 
+];
+
+for(var i = 0;i<words.length;++i)
+   console.log(words[i] + ": " + CheckWord(blocks, words[i]));
+</lang>
+
+Result:
+<pre>
+A: true
+BARK: true
+BOOK: false
+TREAT: true
+COMMON: false
+SQUAD: true
+CONFUSE: true
+</pre>
+
+====Functional====
+<lang JavaScript>(function (strWords) {
+
+    var strBlocks =
+        'BO XK DQ CP NA GT RE TG QD FS JW HU VI AN OB ER FS LY PC ZM',
+        blocks = strBlocks.split(' ');
+
+    function abc(lstBlocks, strWord) {
+        var lngChars = strWord.length;
+
+        if (!lngChars) return [];
+
+        var b = lstBlocks[0],
+            c = strWord[0];
+
+        return chain(lstBlocks, function (b) {
+            return (b.indexOf(c.toUpperCase()) !== -1) ? [
+                (b + ' ').concat(
+                    abc(removed(b, lstBlocks), strWord.slice(1)))
+            ] : [];
+        })
+    }
+
+    // Monadic bind (chain) for lists
+    function chain(xs, f) {
+        return [].concat.apply([], xs.map(f));
+    }
+
+    // a -> [a] -> [a]
+    function removed(x, xs) {
+        var h = xs.length ? xs[0] : null,
+            t = h ? xs.slice(1) : [];
+
+        return h ? (
+            h === x ? t : [h].concat(removed(x, t))
+        ) : [];
+    }
+
+    function solution(strWord) {
+        var strAttempt = abc(blocks, strWord)[0].split(',')[0];
+
+        // two chars per block plus one space -> 3
+        return strWord + ((strAttempt.length === strWord.length * 3) ?
+            ' -> ' + strAttempt : ': [no solution]');
+    }
+
+    return strWords.split(' ').map(solution).join('\n');
+
+})('A bark BooK TReAT COMMON squAD conFUSE');</lang>
+{{Out}}
+<lang JavaScript>A -> NA 
+bark -> BO NA RE XK 
+BooK: [no solution]
+TReAT -> GT RE ER NA TG 
+COMMON: [no solution]
+squAD -> FS DQ HU NA QD 
+conFUSE -> CP BO NA FS HU FS RE</lang>
+
+===ES6===
+====Imperative====
+<lang javascript>let characters = "BO XK DQ CP NA GT RE TG QD FS JW HU VI AN OB ER FS LY PC ZM";
+let blocks = characters.split(" ").map(pair => pair.split(""));
+ 
+function isWordPossible(word) {
+  var letters = [...word.toUpperCase()];
+  var length = letters.length;
+  var copy = new Set(blocks);
+
+  for (let letter of letters) {
+    for (let block of copy) {
+      let index = block.indexOf(letter);
+ 
+      if (index !== -1) {
+        length--;
+        copy.delete(block);
+        break;  
+      }
+    }
+
+  }
+  return !length;
+}    
+ 
+[ 
+  "A", 
+  "BARK", 
+  "BOOK", 
+  "TREAT", 
+  "COMMON", 
+  "SQUAD", 
+  "CONFUSE" 
+].forEach(word => console.log(`${word}: ${isWordPossible(word)}`));
+</lang>
+
+Result: 
+<pre>A: true
+BARK: true
+BOOK: false
+TREAT: true
+COMMON: false
+SQUAD: true
+CONFUSE: true</pre>
+
+
+====Functional====
+{{Trans|Haskell}}
+<lang JavaScript>(() => {
+    'use strict';
+
+    // ABC BLOCKS -------------------------------------------------------------
+
+    // spellWith :: [(Char, Char)] -> [Char] -> [[(Char, Char)]]
+    const spellWith = (blocks, wordChars) =>
+        (isNull(wordChars)) ? [
+            []
+        ] :
+        (() => {
+            const [x, xs] = uncons(wordChars);
+            return concatMap(
+                b => elem(x, b) ? concatMap(
+                    bs => [cons(b, bs)],
+                    spellWith(
+                        deleteBy(
+                            (p, q) => (p[0] === q[0]) && (p[1] === q[1]),
+                            b, blocks
+                        ),
+                        xs
+                    )
+                ) : [],
+                blocks
+            );
+        })();
+
+    // GENERIC FUNCTIONS ------------------------------------------------------
+
+    // compose :: [(a -> a)] -> (a -> a)
+    const compose = fs => x => fs.reduceRight((a, f) => f(a), x);
+
+    // concatMap :: (a -> [b]) -> [a] -> [b]
+    const concatMap = (f, xs) => [].concat.apply([], xs.map(f));
+
+    // cons :: a -> [a] -> [a]
+    const cons = (x, xs) => [x].concat(xs);
+
+    // curry :: Function -> Function
+    const curry = (f, ...args) => {
+        const go = xs => xs.length >= f.length ? (f.apply(null, xs)) :
+            function () {
+                return go(xs.concat([].slice.apply(arguments)));
+            };
+        return go([].slice.call(args, 1));
+    };
+
+    // deleteBy :: (a -> a -> Bool) -> a -> [a] -> [a]
+    const deleteBy = (f, x, xs) =>
+        xs.length > 0 ? (
+            f(x, xs[0]) ? (
+                xs.slice(1)
+            ) : [xs[0]].concat(deleteBy(f, x, xs.slice(1)))
+        ) : [];
+
+    // elem :: Eq a => a -> [a] -> Bool
+    const elem = (x, xs) => xs.indexOf(x) !== -1;
+
+    // isNull :: [a] -> Bool
+    const isNull = xs => (xs instanceof Array) ? xs.length < 1 : undefined;
+
+    // map :: (a -> b) -> [a] -> [b]
+    const map = (f, xs) => xs.map(f);
+
+    // not :: Bool -> Bool
+    const not = b => !b;
+
+    // show :: a -> String
+    const show = x => JSON.stringify(x); //, null, 2);
+
+    // stringChars :: String -> [Char]
+    const stringChars = s => s.split('');
+
+    // toUpper :: Text -> Text
+    const toUpper = s => s.toUpperCase();
+
+    // uncons :: [a] -> Maybe (a, [a])
+    const uncons = xs => xs.length ? [xs[0], xs.slice(1)] : undefined;
+
+    // unlines :: [String] -> String
+    const unlines = xs => xs.join('\n');
+
+    // words :: String -> [String]
+    const words = s => s.split(/\s+/);
+
+    // TEST -------------------------------------------------------------------
+    // blocks :: [(Char, Char)]
+    const blocks = words(
+        "BO XK DQ CP NA GT RE TG QD FS JW HU VI AN OB ER FS LY PC ZM"
+    );
+
+    return unlines(map(
+        x => show([x, compose(
+            [not, isNull, curry(spellWith)(blocks), stringChars, toUpper]
+        )(x)]), ["", "A", "BARK", "BoOK", "TrEAT", "COmMoN", "SQUAD", "conFUsE"]
+    ));
+})();</lang>
+{{Out}}
+<pre>["",true]
+["A",true]
+["BARK",true]
+["BoOK",false]
+["TrEAT",true]
+["COmMoN",false]
+["SQUAD",true]
+["conFUsE",true]</pre>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

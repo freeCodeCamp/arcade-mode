@@ -1,0 +1,76 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Web scraping
+/// type: rosetta-code
+
+/// categories:
+/// Input_Output
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <br/>
+/// <br/>
+/// <br/>
+/// <br/><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Create a program that downloads the time from this URL:  <a class="rosetta__link--wiki" href="http://tycho.usno.navy.mil/cgi-bin/timer.pl" title="link: http://tycho.usno.navy.mil/cgi-bin/timer.pl">http://tycho.usno.navy.mil/cgi-bin/timer.pl</a>  and then prints the current UTC time by extracting just the UTC time from the web page's <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/HTML" title="HTML">HTML</a>.</p><br/><p class="rosetta__paragraph"><!-- As of March 2014, the page is available</p>
+/// <br/><p class="rosetta__paragraph">The page http://tycho.usno.navy.mil/cgi-bin/timer.pl is no longer available since July 2011.</p>
+/// <p class="rosetta__paragraph">The relevant part of that page source looked like this:</p>
+/// <div class="rosetta__pre-wrap"><pre class="rosetta__pre">
+/// ...<br/><TITLE>What time is it?</TITLE>
+/// <H2> US Naval Observatory Master Clock Time</H2> <H3><PRE>
+/// <BR>Jul. 27, 22:57:22 UTC		Universal Time
+/// <BR>Jul. 27, 06:57:22 PM EDT	Eastern Time
+/// <BR>Jul. 27, 05:57:22 PM CDT	Central Time
+/// <BR>Jul. 27, 04:57:22 PM MDT	Mountain Time
+/// <BR>Jul. 27, 03:57:22 PM PDT	Pacific Time
+/// <BR>Jul. 27, 02:57:22 PM AKDT	Alaska Time
+/// <BR>Jul. 27, 12:57:22 PM HAST	Hawaii-Aleutian Time<br/>...
+/// </pre></div>
+/// <p class="rosetta__paragraph">End of comment --></p><br/><p class="rosetta__paragraph">If possible, only use libraries that come at no <span class="rosetta__text--italic">extra</span> monetary cost with the programming language and that are widely available and popular such as <a class="rosetta__link--wiki" href="http://www.cpan.org/" title="link: http://www.cpan.org/">CPAN</a> for Perl or <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Boost" title="Boost">Boost</a> for C++.</p>
+/// <br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+var req = new XMLHttpRequest();
+req.onload = function () {
+  var re = /[JFMASOND].+ UTC/; //beginning of month name to 'UTC'
+  console.log(this.responseText.match(re)[0]);
+};
+req.open('GET', 'http://tycho.usno.navy.mil/cgi-bin/timer.pl', true);
+req.send();
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+Due to browser cross-origin restrictions, this script will probably not work in other domains.
+
+<lang javascript>var req = new XMLHttpRequest();
+req.onload = function () {
+  var re = /[JFMASOND].+ UTC/; //beginning of month name to 'UTC'
+  console.log(this.responseText.match(re)[0]);
+};
+req.open('GET', 'http://tycho.usno.navy.mil/cgi-bin/timer.pl', true);
+req.send();</lang>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

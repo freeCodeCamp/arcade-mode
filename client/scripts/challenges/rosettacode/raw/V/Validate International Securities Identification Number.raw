@@ -1,0 +1,79 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Validate International Securities Identification Number
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><br/><p class="rosetta__paragraph">An <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/International_Securities_Identification_Number" title="wp: International_Securities_Identification_Number">International Securities Identification Number</a> (ISIN) is a unique international identifier for a financial security such as a stock or bond.</p>
+/// <br/>
+/// <p class="rosetta__paragraph">Write a function or program that takes a string as input, and checks whether it is a valid ISIN.<br></p>
+/// <p class="rosetta__paragraph">It is only valid if it has the correct format, <span class="rosetta__text--italic">and</span> the embedded checksum is correct.</p><br/><p class="rosetta__paragraph">Demonstrate that your code passes the test-cases listed below.</p>
+/// <br/>
+/// <p class="rosetta__paragraph">The format of an ISIN is as follows:</p><br/><p class="rosetta__paragraph"><!-- BEGIN DIAGRAM --></p>
+/// <div style="margin:0.5em; white-space:nowrap; line-height:20px">
+/// <div><span style="font-size:20px; font-family:'Lucida Console',Monaco,monospace"><span style="color:green; margin:0 0 0 10px">┌───────────── </span></span><span style="color:green">a 2-character ISO country code (A-Z)</span></div>
+/// <div><span style="font-size:20px; font-family:'Lucida Console',Monaco,monospace"><span style="color:green; margin:0 -10px 0 10px">│</span><span style="color:blue; margin:0 0 0 10px">┌─────────── </span></span><span style="color:blue">a 9-character security code (A-Z, 0-9)</span></div>
+/// <div><span style="font-size:20px; font-family:'Lucida Console',Monaco,monospace"><span style="color:green; margin:0 -10px 0 10px">│</span><span style="color:blue; margin:0 -5px 0 10px">│</span><span style="color:red; margin:0 0 0 5px">┌── </span></span><span style="color:red">a checksum digit (0-9)</span></div>
+/// <div style="font-size:20px; font-family:'Lucida Console',Monaco,monospace"><span style="background: #d9ebd9; color:green; border:solid 1px green; margin:0 1px">AU</span><span style="background:#e0e0ff; color:blue; border:solid 1px blue; margin:0 1px">0000XVGZA</span><span style="background:#feefef; color:red; border:solid 1px red; margin:0 1px">3</span></div>
+/// </div>
+/// <p class="rosetta__paragraph"><!-- END DIAGRAM --></p>
+/// <p class="rosetta__paragraph">For this task, you may assume that any 2-character alphabetic sequence is a valid country code.</p><br/><p class="rosetta__paragraph">The checksum can be validated as follows:</p>
+/// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered"><span class="rosetta__text--bold">Replace letters with digits</span>, by converting each character from base 36 to base 10, e.g. <code>AU0000XVGZA3</code> &rarr;<code>1030000033311635103</code>.</li>
+/// <li class="rosetta__list-item--ordered"><span class="rosetta__text--bold">Perform the Luhn test on this base-10 number.</span><br>There is a separate task for this test: <span class="rosetta__text--italic"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Luhn test of credit card numbers" title="Luhn test of credit card numbers">Luhn test of credit card numbers</a></span>.<br>You don't have to replicate the implementation of this test here &ndash; you can just call the existing function from that task. (Add a comment stating if you did this.)</li></ol>
+/// <br/><p class="rosetta__paragraph">{| class="wikitable"</p>
+/// <p class="rosetta__paragraph">! ISIN</p>
+/// <p class="rosetta__paragraph">! Validity</p>
+/// <p class="rosetta__paragraph">! Comment</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| <tt>US0378331005</tt>  || valid ||</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| <tt>US0373831005</tt>  || not valid || The transposition typo is caught by the checksum constraint.</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| <tt>U50378331005</tt>  || not valid || The substitution typo is caught by the format constraint.</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| <tt>US03378331005</tt> || not valid || The duplication typo is caught by the format constraint.</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| <tt>AU0000XVGZA3</tt>  || valid ||</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| <tt>AU0000VXGZA3</tt>  || valid || Unfortunately, not <span class="rosetta__text--italic">all</span> transposition typos are caught by the checksum constraint.</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| <tt>FR0000988040</tt>  || valid ||</p>
+/// <p class="rosetta__paragraph">|}</p><br/><p class="rosetta__paragraph">(The comments are just informational. Your function should simply return a Boolean result. See <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/#Perl_6" title="#Perl_6">#Perl_6</a> for a reference solution.)</p>
+/// <br/>
+/// <p class="rosetta__paragraph">Useful resources:</p>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"><a class="rosetta__link--wiki" href="http://www.isincodes.net/validate-isin.php" title="link: http://www.isincodes.net/validate-isin.php">Interactive online ISIN validator</a></li>
+/// <li class="rosetta__list-item--unordered">Wikipedia article: <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/International_Securities_Identification_Number" title="wp: International_Securities_Identification_Number">International Securities Identification Number</a></li></ul><br><br/><p class="rosetta__paragraph">Related tasks:</p>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Luhn test of credit card numbers" title="Luhn test of credit card numbers">Luhn test of credit card numbers</a></li></ul><br>
+/// <p class="rosetta__paragraph"><hr></p><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,0 +1,49 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Chinese remainder theorem
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><br/><p class="rosetta__paragraph">Suppose  $n_1$,  $n_2$,  $\ldots$,  $n_k$  are positive <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/integer" title="integer">integer</a>s that are pairwise co-prime.</p><br/><p class="rosetta__paragraph">Then, for any given sequence of integers  $a_1$,  $a_2$,  $\dots$,  $a_k$,  there exists an integer  $x$  solving the following system of simultaneous congruences:</p><br/><p class="rosetta__paragraph"><span class="rosetta__text--indented">:: $\begin{align}</span></p>
+/// <p class="rosetta__paragraph">x &\equiv a_1 \pmod{n_1} \\</p>
+/// <p class="rosetta__paragraph">x &\equiv a_2 \pmod{n_2} \\</p>
+/// <p class="rosetta__paragraph">&{}\  \  \vdots \\</p>
+/// <p class="rosetta__paragraph">x &\equiv a_k \pmod{n_k}</p>
+/// <p class="rosetta__paragraph">\end{align}$</p><br/><p class="rosetta__paragraph">Furthermore, all solutions  $x$  of this system are congruent modulo the product,   $N=n_1n_2\ldots n_k$.</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Write a program to solve a system of linear congruences by applying the  <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Chinese Remainder Theorem" title="wp: Chinese Remainder Theorem">Chinese Remainder Theorem</a>.</p><br/><p class="rosetta__paragraph">If the system of equations cannot be solved, your program must somehow indicate this.</p><br/><p class="rosetta__paragraph">(It may throw an exception or return a special false value.)</p><br/><p class="rosetta__paragraph">Since there are infinitely many solutions, the program should return the unique solution  $s$  where  $0 \leq s \leq n_1n_2\ldots n_k$.</p>
+/// <br/><p class="rosetta__paragraph"><span class="rosetta__text--italic">Show the functionality of this program</span> by printing the result such that the  $n$'s  are  $[3,5,7]$  and the  $a$'s  are  $[2,3,2]$.</p>
+/// <br/><p class="rosetta__paragraph"><span class="rosetta__text--bold">Algorithm</span>:  The following algorithm only applies if the  $n_i$'s  are pairwise co-prime.</p><br/><p class="rosetta__paragraph">Suppose, as above, that a solution is required for the system of congruences:</p><br/><p class="rosetta__paragraph"><span class="rosetta__text--indented">:: $x \equiv a_i \pmod{n_i} \quad\mathrm{for}\; i = 1, \ldots, k$</span></p><br/><p class="rosetta__paragraph">Again, to begin, the product  $N = n_1n_2 \ldots n_k$  is defined.</p><br/><p class="rosetta__paragraph">Then a solution  $x$  can be found as follows:</p><br/><p class="rosetta__paragraph">For each  $i$,  the integers  $n_i$  and  $N/n_i$  are co-prime.</p><br/><p class="rosetta__paragraph">Using the  <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Extended Euclidean algorithm" title="wp: Extended Euclidean algorithm">Extended Euclidean algorithm</a>,  we can find integers  $r_i$  and  $s_i$  such that  $r_i n_i + s_i N/n_i = 1$.</p><br/><p class="rosetta__paragraph">Then, one solution to the system of simultaneous congruences is:</p><br/><p class="rosetta__paragraph"><span class="rosetta__text--indented">:: $x = \sum_{i=1}^k a_i s_i N/n_i$</span></p><br/><p class="rosetta__paragraph">and the minimal solution,</p><br/><p class="rosetta__paragraph"><span class="rosetta__text--indented">:: $x \pmod{N}$.</span></p>
+/// <br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,0 +1,121 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Towers of Hanoi
+/// type: rosetta-code
+
+/// categories:
+/// Recursion
+/// Games
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <br/>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Solve the  <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Towers_of_Hanoi" title="wp: Towers_of_Hanoi">Towers of Hanoi</a>  problem with recursion.</p>
+/// <br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+function move(n, a, b, c) {
+  if (n > 0) {
+    move(n-1, a, c, b);
+    console.log("Move disk from " + a + " to " + c);
+    move(n-1, b, a, c);
+  }
+}
+move(4, "A", "B", "C");
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+===ES5===
+<lang javascript>function move(n, a, b, c) {
+  if (n > 0) {
+    move(n-1, a, c, b);
+    console.log("Move disk from " + a + " to " + c);
+    move(n-1, b, a, c);
+  }
+}
+move(4, "A", "B", "C");</lang>
+
+
+Or, as a functional expression, rather than a statement with side effects:
+
+<lang JavaScript>(function () {
+
+    // hanoi :: Int -> String -> String -> String -> [[String, String]]
+    function hanoi(n, a, b, c) {
+        return n ? hanoi(n - 1, a, c, b)
+            .concat([
+                [a, b]
+            ])
+            .concat(hanoi(n - 1, c, b, a)) : [];
+    }
+
+    return hanoi(3, 'left', 'right', 'mid')
+        .map(function (d) {
+            return d[0] + ' -> ' + d[1];
+        });
+})();</lang>
+
+{{Out}}
+<lang JavaScript>["left -> right", "left -> mid",
+ "right -> mid", "left -> right", 
+ "mid -> left", "mid -> right", 
+ "left -> right"]</lang>
+
+===ES6===
+
+<lang JavaScript>(() => {
+    'use strict';
+
+    // hanoi :: Int -> String -> String -> String -> [[String, String]]
+    const hanoi = (n, a, b, c) =>
+        n ? hanoi(n - 1, a, c, b)
+        .concat([
+            [a, b]
+        ])
+        .concat(hanoi(n - 1, c, b, a)) : [];
+
+    // show :: a -> String
+    const show = x => JSON.stringify(x, null, 2);
+
+    return show(
+        hanoi(3, 'left', 'right', 'mid')
+        .map(d => d[0] + ' -> ' + d[1])
+    );
+})();</lang>
+
+{{Out}}
+<pre>[
+  "left -> right",
+  "left -> mid",
+  "right -> mid",
+  "left -> right",
+  "mid -> left",
+  "mid -> right",
+  "left -> right"
+]</pre>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

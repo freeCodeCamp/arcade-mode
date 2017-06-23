@@ -1,0 +1,208 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Long multiplication
+/// type: rosetta-code
+
+/// categories:
+/// Arbitrary precision
+/// Arithmetic operations
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <br/>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Explicitly implement  <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/long multiplication" title="wp: long multiplication">long multiplication</a>.</p><br/><p class="rosetta__paragraph">This is one possible approach to arbitrary-precision integer algebra.</p>
+/// <br/><p class="rosetta__paragraph">For output, display the result of  <big><big> 2<sup>64</sup> * 2<sup>64</sup>.</big></big></p>
+/// <br/><p class="rosetta__paragraph">The decimal representation of  <big><big> 2<sup>64</sup> </big></big>  is:</p>
+/// <p class="rosetta__paragraph">18,446,744,073,709,551,616</p><br/><p class="rosetta__paragraph">The output of  <big><big> 2<sup>64</sup> * 2<sup>64</sup> </big></big>  is  <big><big> 2<sup>128</sup>, </big></big>  and is:</p>
+/// <p class="rosetta__paragraph">340,282,366,920,938,463,463,374,607,431,768,211,456</p>
+/// <br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+function mult(strNum1,strNum2){
+
+    var a1 = strNum1.split("").reverse();
+    var a2 = strNum2.toString().split("").reverse();
+    var aResult = new Array;
+ 
+    for ( var iterNum1 = 0; iterNum1 < a1.length; iterNum1++ ) {
+        for ( var iterNum2 = 0; iterNum2 < a2.length; iterNum2++ ) {
+            var idxIter = iterNum1 + iterNum2;    // Get the current array position.
+            aResult[idxIter] = a1[iterNum1] * a2[iterNum2] + ( idxIter >= aResult.length ? 0 : aResult[idxIter] );
+ 
+            if ( aResult[idxIter] > 9 ) {    // Carrying
+                aResult[idxIter + 1] = Math.floor( aResult[idxIter] / 10 ) + ( idxIter + 1 >= aResult.length ? 0 : aResult[idxIter + 1] );
+                aResult[idxIter] -= Math.floor( aResult[idxIter] / 10 ) * 10;
+            }
+        }
+    }
+    return aResult.reverse().join("");
+}
+
+
+mult('18446744073709551616', '18446744073709551616')
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+
+===Iterative===
+
+With integer expression inputs at this scale, JavaScript still gives a slightly lossy result, despite the subsequent digit by digit string concatenation approach.
+
+The problem is that the JavaScript Math.pow expressions become lossy at around 2^54, and Math.pow(2, 64) evaluates to a rounded:
+
+18446744073709552000  rather than the full 18446744073709551616
+
+This means that to handle larger inputs, the multiplication function needs to have string parameters:
+
+<lang javascript>function mult(strNum1,strNum2){
+
+    var a1 = strNum1.split("").reverse();
+    var a2 = strNum2.toString().split("").reverse();
+    var aResult = new Array;
+ 
+    for ( var iterNum1 = 0; iterNum1 < a1.length; iterNum1++ ) {
+        for ( var iterNum2 = 0; iterNum2 < a2.length; iterNum2++ ) {
+            var idxIter = iterNum1 + iterNum2;    // Get the current array position.
+            aResult[idxIter] = a1[iterNum1] * a2[iterNum2] + ( idxIter >= aResult.length ? 0 : aResult[idxIter] );
+ 
+            if ( aResult[idxIter] > 9 ) {    // Carrying
+                aResult[idxIter + 1] = Math.floor( aResult[idxIter] / 10 ) + ( idxIter + 1 >= aResult.length ? 0 : aResult[idxIter + 1] );
+                aResult[idxIter] -= Math.floor( aResult[idxIter] / 10 ) * 10;
+            }
+        }
+    }
+    return aResult.reverse().join("");
+}
+
+
+mult('18446744073709551616', '18446744073709551616')</lang>
+
+{{Out}}
+<pre>340282366920938463463374607431768211456</pre>
+
+
+===Functional (ES 5)===
+
+The function below accepts integer string or native integer arguments, but as JavaScript (unlike Haskell and Python, for example), lacks an arbitrary precision integer type, larger inputs to this function (beyond  the scale of c. 2^54) need to take the form of integer strings, to avoid rounding. 
+
+For the same reason, the output always takes the form of an arbitrary precision integer string, rather than a native integer data type. (See the '''largeIntegerString()''' helper function below)
+
+<lang JavaScript>(function () {
+    'use strict';
+
+    // Javascript lacks an unbounded integer type
+    // so this multiplication function takes and returns
+    // long integer strings rather than any kind of native integer
+
+    // longMult :: (String | Integer) -> (String | Integer) -> String
+    function longMult(num1, num2) {
+        return largeIntegerString(
+            digitProducts(digits(num1), digits(num2))
+        );
+    }
+
+    // digitProducts :: [Int] -> [Int] -> [Int]
+    function digitProducts(xs, ys) {
+        return multTable(xs, ys)
+            .map(function (zs, i) {
+                return Array.apply(null, Array(i))
+                    .map(function () {
+                        return 0;
+                    })
+                    .concat(zs);
+            })
+            .reduce(function (a, x) {
+                if (a) {
+                    var lng = a.length;
+
+                    return x.map(function (y, i) {
+                        return y + (i < lng ? a[i] : 0);
+                    })
+
+                } else return x;
+            })
+    }
+
+    // largeIntegerString :: [Int] -> String
+    function largeIntegerString(lstColumnValues) {
+        var dctProduct = lstColumnValues
+            .reduceRight(function (a, x) {
+                var intSum = x + a.carried,
+                    intDigit = intSum % 10;
+
+                return {
+                    digits: intDigit
+                        .toString() + a.digits,
+                    carried: (intSum - intDigit) / 10
+                };
+            }, {
+                digits: '',
+                carried: 0
+            });
+
+        return (dctProduct.carried > 0 ? (
+            dctProduct.carried.toString()
+        ) : '') + dctProduct.digits;
+    }
+
+    // multTables :: [Int] -> [Int] -> [[Int]]
+    function multTable(xs, ys) {
+        return ys.map(function (y) {
+            return xs.map(function (x) {
+                return x * y;
+            })
+        });
+    }
+
+    // digits :: (Integer | String) -> [Integer]
+    function digits(n) {
+        return (typeof n === 'string' ? n : n.toString())
+            .split('')
+            .map(function (x) {
+                return parseInt(x, 10);
+            });
+    }
+
+    // TEST showing that larged bounded integer inputs give only rounded results
+    // whereas integer string inputs allow for full precision on this scale (2^128)
+
+    return {
+        fromIntegerStrings: longMult(
+            '18446744073709551616',
+            '18446744073709551616'
+        ),
+        fromBoundedIntegers: longMult(
+            18446744073709551616,
+            18446744073709551616
+        )
+    };
+})();</lang>
+{{Out}}
+<pre>{"fromIntegerStrings":"340282366920938463463374607431768211456", 
+"fromBoundedIntegers":"340282366920938477630474056040704000000"}</pre>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

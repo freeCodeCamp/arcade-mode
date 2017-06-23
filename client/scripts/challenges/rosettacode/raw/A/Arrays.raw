@@ -1,0 +1,98 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Arrays
+/// type: rosetta-code
+
+/// categories:
+/// Simple
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><br/><p class="rosetta__paragraph">This task is about arrays.</p><br/><p class="rosetta__paragraph">For hashes or associative arrays, please see <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Creating an Associative Array" title="Creating an Associative Array">Creating an Associative Array</a>.</p><br/><p class="rosetta__paragraph">For a definition and in-depth discussion of what an array is, see <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Array" title="Array">Array</a>.</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Show basic array syntax in your language.</p><br/><p class="rosetta__paragraph">Basically, create an array, assign a value to it, and retrieve an element  (if available, show both fixed-length arrays and</p>
+/// <p class="rosetta__paragraph">dynamic arrays, pushing a value into it).</p><br/><p class="rosetta__paragraph">Please discuss at Village Pump:  .</p><br/><p class="rosetta__paragraph">Please merge code in from these obsolete tasks:</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">::*  <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Creating an Array" title="Creating an Array">Creating an Array</a></span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">::*  <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Assigning Values to an Array" title="Assigning Values to an Array">Assigning Values to an Array</a></span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">::*  <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Retrieving an Element of an Array" title="Retrieving an Element of an Array">Retrieving an Element of an Array</a></span></p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks:</dt></dl>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"> <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Collections" title="Collections">Collections</a></li>
+/// <li class="rosetta__list-item--unordered"> <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Creating an Associative Array" title="Creating an Associative Array">Creating an Associative Array</a></li>
+/// <li class="rosetta__list-item--unordered"> <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Two-dimensional array (runtime)" title="Two-dimensional array (runtime)">Two-dimensional array (runtime)</a></li></ul><br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+// Create a new array with length 0
+var myArray = new Array();
+
+// Create a new array with length 5
+var myArray1 = new Array(5);
+
+// Create an array with 2 members (length is 2) 
+var myArray2 = new Array("Item1","Item2");
+
+// Create an array with 2 members using an array literal
+var myArray3 = ["Item1", "Item2"];
+
+// Assign a value to member [2] (length is now 3)
+myArray3[2] = 5;
+
+var x = myArray[2] + myArray.length;   // 8
+
+// You can also add a member to an array with the push function (length is now 4)
+myArray3.push('Test');
+
+// Elisions are supported, but are buggy in some implementations
+var y = [0,1,,];  // length 3, or 4 in buggy implementations 
+
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+JavaScript arrays are Objects that inherit from Array prototype and have a special length property that is always one higher than the highest non–negative integer index. Methods inherited from Array.prototype are mostly generic and can be applied to other objects with a suitable length property and numeric property names.
+Note that if the Array constructor is provided with one argument, it is treated as specifying the length of the new array, if more than one argument is supplied, they are treated as members of the new array.
+<lang javascript>// Create a new array with length 0
+var myArray = new Array();
+
+// Create a new array with length 5
+var myArray1 = new Array(5);
+
+// Create an array with 2 members (length is 2) 
+var myArray2 = new Array("Item1","Item2");
+
+// Create an array with 2 members using an array literal
+var myArray3 = ["Item1", "Item2"];
+
+// Assign a value to member [2] (length is now 3)
+myArray3[2] = 5;
+
+var x = myArray[2] + myArray.length;   // 8
+
+// You can also add a member to an array with the push function (length is now 4)
+myArray3.push('Test');
+
+// Elisions are supported, but are buggy in some implementations
+var y = [0,1,,];  // length 3, or 4 in buggy implementations 
+</lang>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

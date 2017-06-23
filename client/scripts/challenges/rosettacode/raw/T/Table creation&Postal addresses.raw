@@ -1,0 +1,41 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Table creation/Postal addresses
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Create a table to store addresses.</p><br/><p class="rosetta__paragraph">You may assume that all the addresses to be stored will be located in the USA.  As such, you will need (in addition to a field holding a unique identifier) a field holding the street address, a field holding the city, a field holding the state code, and a field holding the zipcode.  Choose appropriate types for each field.</p><br/><p class="rosetta__paragraph">For non-database languages, show how you would open a connection to a database (your choice of which) and create an address table in it. You should follow the existing models here for how you would structure the table.</p>
+/// <br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

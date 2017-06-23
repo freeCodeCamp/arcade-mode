@@ -1,0 +1,69 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Multisplit
+/// type: rosetta-code
+
+/// categories:
+/// String manipulation
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <p class="rosetta__paragraph">It is often necessary to split a string into pieces</p>
+/// <p class="rosetta__paragraph">based on several different (potentially multi-character) separator strings,</p>
+/// <p class="rosetta__paragraph">while still retaining the information about which separators were present in the input.</p><br/><p class="rosetta__paragraph">This is particularly useful when doing small parsing tasks. <br></p>
+/// <p class="rosetta__paragraph">The task is to write code to demonstrate this.</p><br/><p class="rosetta__paragraph">The function (or procedure or method, as appropriate) should</p>
+/// <p class="rosetta__paragraph">take an input string and an ordered collection of separators.</p><br/><p class="rosetta__paragraph">The order of the separators is significant: <br></p>
+/// <p class="rosetta__paragraph">The delimiter order represents priority in matching, with the first defined delimiter having the highest priority.</p>
+/// <p class="rosetta__paragraph">In cases where there would be an ambiguity as to</p>
+/// <p class="rosetta__paragraph">which separator to use at a particular point</p>
+/// <p class="rosetta__paragraph">(e.g., because one separator is a prefix of another)</p>
+/// <p class="rosetta__paragraph">the separator with the highest priority should be used.</p>
+/// <p class="rosetta__paragraph">Delimiters can be reused and the output from the function should be an ordered sequence of substrings.</p><br/><p class="rosetta__paragraph">Test your code using the input string “<code>a!===b=!=c</code>” and the separators “<code>==</code>”, “<code>!=</code>” and “<code>=</code>”.</p><br/><p class="rosetta__paragraph">For these inputs the string should be parsed as <code>"a" (!=) "" (==) "b" (=) "" (!=) "c"</code>, where matched delimiters are shown in parentheses, and separated strings are quoted, so our resulting output is <code>"a", empty string, "b", empty string, "c"</code>.</p>
+/// <p class="rosetta__paragraph">Note that the quotation marks are shown for clarity and do not form part of the output.</p><br/><p class="rosetta__paragraph"><span class="rosetta__text--bold">Extra Credit:</span> provide information that indicates which separator was matched at each separation point and where in the input string that separator was matched.</p><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+RegExp.escape = function(text) {
+    return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+}
+
+multisplit = function(string, seps) {
+    var sep_regex = RegExp(_.map(seps, function(sep) { return RegExp.escape(sep); }).join('|'));
+    return string.split(sep_regex);
+}
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+Based on Ruby example.
+{{libheader|Underscore.js}}
+<lang JavaScript>RegExp.escape = function(text) {
+    return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+}
+
+multisplit = function(string, seps) {
+    var sep_regex = RegExp(_.map(seps, function(sep) { return RegExp.escape(sep); }).join('|'));
+    return string.split(sep_regex);
+}</lang>
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,0 +1,41 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: OpenGL
+/// type: rosetta-code
+
+/// categories:
+/// GUI
+/// Temporal media
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <p class="rosetta__paragraph">In this task, the goal is to display a smooth shaded triangle with OpenGL.</p><br/><p class="rosetta__paragraph"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/image:Triangle.png" title="image:Triangle.png">right|thumb|150px|Triangle created using C example compiled with [[GCC</a> 4.1.2 and <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/freeglut3" title="freeglut3">freeglut3</a>.]]</p><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

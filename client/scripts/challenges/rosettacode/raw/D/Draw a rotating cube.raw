@@ -1,0 +1,42 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Draw a rotating cube
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task</dt></dl>
+/// <p class="rosetta__paragraph">Draw a rotating cube.</p><br/><p class="rosetta__paragraph">It should be oriented with one vertex pointing straight up, and its opposite vertex on the main diagonal (the one farthest away) straight down. It can be solid or wire-frame, and you can use ASCII art if your language doesn't have graphical capabilities. Perspective is optional.</p>
+/// <br><br><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks</dt></dl>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Draw_a_cuboid" title="Draw_a_cuboid">Draw a cuboid</a></li></ul><br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,0 +1,50 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Machine code
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <p class="rosetta__paragraph">The task requires poking machine code directly into memory and executing it. This is strictly for x86 (32 bit) architectures. The machine code is the opcodes of the following simple program:</p><br/><p class="rosetta__paragraph"><lang asm>mov EAX, [ESP+4]</p>
+/// <p class="rosetta__paragraph">add EAX, [ESP+8]</p>
+/// <p class="rosetta__paragraph">ret</lang></p><br/><p class="rosetta__paragraph">which translates into the following opcodes:</p>
+/// <p class="rosetta__paragraph">(139 68 36 4 3 68 36 8 195)</p>
+/// <p class="rosetta__paragraph">and in Hex this would correspond to the following:</p>
+/// <p class="rosetta__paragraph">("8B" "44" "24" "4" "3" "44" "24" "8" "C3")</p><br/><p class="rosetta__paragraph">Implement the following in your favorite programming language (take the common lisp code as an example if you wish):</p>
+/// <ol>
+/// <li> Poke the above opcodes into a memory pointer</li>
+/// <li>Excute it with the following arguments: [ESP+4] => unsigned-byte argument of value 7; [ESP+8] => unsigned-byte argument of value 12; The result would be 19.</li>
+/// <li>Free the Pointer</li>
+/// </ol><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

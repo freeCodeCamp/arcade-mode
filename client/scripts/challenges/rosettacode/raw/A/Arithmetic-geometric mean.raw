@@ -1,0 +1,119 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Arithmetic-geometric mean
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">task:</dt></dl><br/><p class="rosetta__paragraph">Write a function to compute the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Arithmetic-geometric mean" title="wp: Arithmetic-geometric mean">arithmetic-geometric mean</a> of two numbers.</p>
+/// <p class="rosetta__paragraph">[http://mathworld.wolfram.com/Arithmetic-GeometricMean.html]</p>
+/// <p class="rosetta__paragraph">The arithmetic-geometric mean of two numbers can be (usefully) denoted as $\mathrm{agm}(a,g)$, and is equal to the limit of the sequence:</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented"> $a_0 = a; \qquad g_0 = g$</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented"> $a_{n+1} = \tfrac{1}{2}(a_n + g_n); \quad g_{n+1} = \sqrt{a_n g_n}.$</span></p>
+/// <p class="rosetta__paragraph">Since the limit of $a_n-g_n$ tends (rapidly) to zero with iterations, this is an efficient method.</p><br/><p class="rosetta__paragraph">Demonstrate the function by calculating:</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">$\mathrm{agm}(1,1/\sqrt{2})$</span></p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Also see:</dt></dl>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"> <a class="rosetta__link--wiki" href="http://mathworld.wolfram.com/Arithmetic-GeometricMean.html" title="link: http://mathworld.wolfram.com/Arithmetic-GeometricMean.html">mathworld.wolfram.com/Arithmetic-Geometric Mean</a></li></ul><br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+function agm(a0, g0) {
+    var an = (a0 + g0) / 2,
+        gn = Math.sqrt(a0 * g0);
+    while (Math.abs(an - gn) > tolerance) {
+        an = (an + gn) / 2, gn = Math.sqrt(an * gn)
+    }
+    return an;
+}
+
+agm(1, 1 / Math.sqrt(2));
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+
+===ES5===
+<lang JavaScript>function agm(a0, g0) {
+    var an = (a0 + g0) / 2,
+        gn = Math.sqrt(a0 * g0);
+    while (Math.abs(an - gn) > tolerance) {
+        an = (an + gn) / 2, gn = Math.sqrt(an * gn)
+    }
+    return an;
+}
+
+agm(1, 1 / Math.sqrt(2));</lang>
+
+===ES6===
+<lang JavaScript>(() => {
+    'use strict';
+
+    // ARITHMETIC-GEOMETRIC MEAN
+
+    // agm :: Num a => a -> a -> a
+    let agm = (a, g) => {
+            let abs = Math.abs,
+                sqrt = Math.sqrt;
+
+            return until(
+                    m => abs(m.an - m.gn) < tolerance,
+                    m => {
+                        return {
+                            an: (m.an + m.gn) / 2,
+                            gn: sqrt(m.an * m.gn)
+                        };
+                    }, {
+                        an: (a + g) / 2,
+                        gn: sqrt(a * g)
+                    }
+                )
+                .an;
+        },
+
+        // GENERIC
+
+        // until :: (a -> Bool) -> (a -> a) -> a -> a
+        until = (p, f, x) => {
+            let v = x;
+            while (!p(v)) v = f(v);
+            return v;
+        };
+
+
+    // TEST
+
+    let tolerance = 0.000001;
+
+
+    return agm(1, 1 / Math.sqrt(2));
+
+})();</lang>
+
+{{Out}}
+<lang JavaScript>0.8472130848351929</lang>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

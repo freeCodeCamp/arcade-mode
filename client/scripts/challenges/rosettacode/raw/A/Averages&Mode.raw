@@ -1,0 +1,252 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Averages/Mode
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <br/>
+/// <p class="rosetta__paragraph">Write a program to find the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Mode (statistics)" title="wp: Mode (statistics)">mode</a> value of a collection.</p><br/><p class="rosetta__paragraph">The case where the collection is empty may be ignored. Care must be taken to handle the case where the mode is non-unique.</p><br/><p class="rosetta__paragraph">If it is not appropriate or possible to support a general collection, use a vector (array), if possible. If it is not appropriate or possible to support an unspecified value type, use integers.</p>
+/// <br/>
+/// <br/><p class="rosetta__paragraph"><hr></p><br/><p class="rosetta__paragraph">====</p>
+/// <p class="rosetta__paragraph">This implementation does not work with arbitrary collections. However, it works with arrays containing mixed data, including strings and other arrays.</p>
+/// <p class="rosetta__paragraph"><lang ActionScript>function Mode(arr:Array):Array {</p>
+/// <p class="rosetta__paragraph">//Create an associative array to count how many times each element occurs,</p>
+/// <p class="rosetta__paragraph">//an array to contain the modes, and a variable to store how many times each mode appears.</p>
+/// <p class="rosetta__paragraph">var count:Array = new Array();</p>
+/// <p class="rosetta__paragraph">var modeList:Array;</p>
+/// <p class="rosetta__paragraph">var maxCount:uint=0;</p>
+/// <p class="rosetta__paragraph">for (var i:String in arr) {</p>
+/// <p class="rosetta__paragraph">//Record how many times an element has occurred. Note that each element in the cuont array</p>
+/// <p class="rosetta__paragraph">//has to be initialized explicitly, since it is an associative array.</p>
+/// <p class="rosetta__paragraph">if (count[arr[i]]==undefined) {</p>
+/// <p class="rosetta__paragraph">count[arr[i]]=1;</p>
+/// <p class="rosetta__paragraph">} else {</p>
+/// <p class="rosetta__paragraph">count[arr[i]]++;</p>
+/// <p class="rosetta__paragraph">}</p>
+/// <p class="rosetta__paragraph">//If this is now the most common element, clear the list of modes, and add this element.</p>
+/// <p class="rosetta__paragraph">if(count[arr[i]] > maxCount)</p>
+/// <p class="rosetta__paragraph">{</p>
+/// <p class="rosetta__paragraph">maxCount=count[arr[i]];</p>
+/// <p class="rosetta__paragraph">modeList = new Array();</p>
+/// <p class="rosetta__paragraph">modeList.push(arr[i]);</p>
+/// <p class="rosetta__paragraph">}</p>
+/// <p class="rosetta__paragraph">//If this is a mode, add it to the list.</p>
+/// <p class="rosetta__paragraph">else if(count[arr[i]] == maxCount){</p>
+/// <p class="rosetta__paragraph">modeList.push(arr[i]);</p>
+/// <p class="rosetta__paragraph">}</p>
+/// <p class="rosetta__paragraph">}</p>
+/// <p class="rosetta__paragraph">return modeList;</p>
+/// <p class="rosetta__paragraph">}</lang></p><br/><p class="rosetta__paragraph">====</p><br/><p class="rosetta__paragraph">mode.ads:</p>
+/// <p class="rosetta__paragraph"><lang Ada>generic</p>
+/// <p class="rosetta__paragraph">type Element_Type is private;</p>
+/// <p class="rosetta__paragraph">type Element_Array is array (Positive range <>) of Element_Type;</p>
+/// <p class="rosetta__paragraph">package Mode is</p><br/><p class="rosetta__paragraph">function Get_Mode (Set : Element_Array) return Element_Array;</p><br/><p class="rosetta__paragraph">end Mode;</lang></p>
+/// <p class="rosetta__paragraph">mode.adb:</p>
+/// <p class="rosetta__paragraph"><lang Ada>with Ada.Containers.Indefinite_Vectors;</p><br/><p class="rosetta__paragraph">package body Mode is</p><br/><p class="rosetta__paragraph">-- map Count to Elements</p>
+/// <p class="rosetta__paragraph">package Count_Vectors is new Ada.Containers.Indefinite_Vectors</p>
+/// <p class="rosetta__paragraph">(Element_Type => Element_Array,</p>
+/// <p class="rosetta__paragraph">Index_Type => Positive);</p><br/><p class="rosetta__paragraph">procedure Add (To : in out Count_Vectors.Vector; Item : Element_Type) is</p>
+/// <p class="rosetta__paragraph">use type Count_Vectors.Cursor;</p>
+/// <p class="rosetta__paragraph">Position : Count_Vectors.Cursor := To.First;</p>
+/// <p class="rosetta__paragraph">Found    : Boolean              := False;</p>
+/// <p class="rosetta__paragraph">begin</p>
+/// <p class="rosetta__paragraph">while not Found and then Position /= Count_Vectors.No_Element loop</p>
+/// <p class="rosetta__paragraph">declare</p>
+/// <p class="rosetta__paragraph">Elements : Element_Array := Count_Vectors.Element (Position);</p>
+/// <p class="rosetta__paragraph">begin</p>
+/// <p class="rosetta__paragraph">for I in Elements'Range loop</p>
+/// <p class="rosetta__paragraph">if Elements (I) = Item then</p>
+/// <p class="rosetta__paragraph">Found := True;</p>
+/// <p class="rosetta__paragraph">end if;</p>
+/// <p class="rosetta__paragraph">end loop;</p>
+/// <p class="rosetta__paragraph">end;</p>
+/// <p class="rosetta__paragraph">if not Found then</p>
+/// <p class="rosetta__paragraph">Position := Count_Vectors.Next (Position);</p>
+/// <p class="rosetta__paragraph">end if;</p>
+/// <p class="rosetta__paragraph">end loop;</p>
+/// <p class="rosetta__paragraph">if Position /= Count_Vectors.No_Element then</p>
+/// <p class="rosetta__paragraph">-- element found, remove it and insert to next count</p>
+/// <p class="rosetta__paragraph">declare</p>
+/// <p class="rosetta__paragraph">New_Position : Count_Vectors.Cursor :=</p>
+/// <p class="rosetta__paragraph">Count_Vectors.Next (Position);</p>
+/// <p class="rosetta__paragraph">begin</p>
+/// <p class="rosetta__paragraph">-- remove from old position</p>
+/// <p class="rosetta__paragraph">declare</p>
+/// <p class="rosetta__paragraph">Old_Elements : Element_Array :=</p>
+/// <p class="rosetta__paragraph">Count_Vectors.Element (Position);</p>
+/// <p class="rosetta__paragraph">New_Elements : Element_Array (1 .. Old_Elements'Length - 1);</p>
+/// <p class="rosetta__paragraph">New_Index    : Positive      := New_Elements'First;</p>
+/// <p class="rosetta__paragraph">begin</p>
+/// <p class="rosetta__paragraph">for I in Old_Elements'Range loop</p>
+/// <p class="rosetta__paragraph">if Old_Elements (I) /= Item then</p>
+/// <p class="rosetta__paragraph">New_Elements (New_Index) := Old_Elements (I);</p>
+/// <p class="rosetta__paragraph">New_Index                := New_Index + 1;</p>
+/// <p class="rosetta__paragraph">end if;</p>
+/// <p class="rosetta__paragraph">end loop;</p>
+/// <p class="rosetta__paragraph">To.Replace_Element (Position, New_Elements);</p>
+/// <p class="rosetta__paragraph">end;</p>
+/// <p class="rosetta__paragraph">-- new position not already there?</p>
+/// <p class="rosetta__paragraph">if New_Position = Count_Vectors.No_Element then</p>
+/// <p class="rosetta__paragraph">declare</p>
+/// <p class="rosetta__paragraph">New_Array : Element_Array (1 .. 1) := (1 => Item);</p>
+/// <p class="rosetta__paragraph">begin</p>
+/// <p class="rosetta__paragraph">To.Append (New_Array);</p>
+/// <p class="rosetta__paragraph">end;</p>
+/// <p class="rosetta__paragraph">else</p>
+/// <p class="rosetta__paragraph">-- add to new position</p>
+/// <p class="rosetta__paragraph">declare</p>
+/// <p class="rosetta__paragraph">Old_Elements : Element_Array :=</p>
+/// <p class="rosetta__paragraph">Count_Vectors.Element (New_Position);</p>
+/// <p class="rosetta__paragraph">New_Elements : Element_Array (1 .. Old_Elements'Length + 1);</p>
+/// <p class="rosetta__paragraph">begin</p>
+/// <p class="rosetta__paragraph">New_Elements (1 .. Old_Elements'Length) := Old_Elements;</p>
+/// <p class="rosetta__paragraph">New_Elements (New_Elements'Last)        := Item;</p>
+/// <p class="rosetta__paragraph">To.Replace_Element (New_Position, New_Elements);</p>
+/// <p class="rosetta__paragraph">end;</p>
+/// <p class="rosetta__paragraph">end if;</p>
+/// <p class="rosetta__paragraph">end;</p>
+/// <p class="rosetta__paragraph">else</p>
+/// <p class="rosetta__paragraph">-- element not found, add to count 1</p>
+/// <p class="rosetta__paragraph">Position := To.First;</p>
+/// <p class="rosetta__paragraph">if Position = Count_Vectors.No_Element then</p>
+/// <p class="rosetta__paragraph">declare</p>
+/// <p class="rosetta__paragraph">New_Array : Element_Array (1 .. 1) := (1 => Item);</p>
+/// <p class="rosetta__paragraph">begin</p>
+/// <p class="rosetta__paragraph">To.Append (New_Array);</p>
+/// <p class="rosetta__paragraph">end;</p>
+/// <p class="rosetta__paragraph">else</p>
+/// <p class="rosetta__paragraph">declare</p>
+/// <p class="rosetta__paragraph">Old_Elements : Element_Array :=</p>
+/// <p class="rosetta__paragraph">Count_Vectors.Element (Position);</p>
+/// <p class="rosetta__paragraph">New_Elements : Element_Array (1 .. Old_Elements'Length + 1);</p>
+/// <p class="rosetta__paragraph">begin</p>
+/// <p class="rosetta__paragraph">New_Elements (1 .. Old_Elements'Length) := Old_Elements;</p>
+/// <p class="rosetta__paragraph">New_Elements (New_Elements'Last)        := Item;</p>
+/// <p class="rosetta__paragraph">To.Replace_Element (Position, New_Elements);</p>
+/// <p class="rosetta__paragraph">end;</p>
+/// <p class="rosetta__paragraph">end if;</p>
+/// <p class="rosetta__paragraph">end if;</p>
+/// <p class="rosetta__paragraph">end Add;</p><br/><p class="rosetta__paragraph">function Get_Mode (Set : Element_Array) return Element_Array is</p>
+/// <p class="rosetta__paragraph">Counts : Count_Vectors.Vector;</p>
+/// <p class="rosetta__paragraph">begin</p>
+/// <p class="rosetta__paragraph">for I in Set'Range loop</p>
+/// <p class="rosetta__paragraph">Add (Counts, Set (I));</p>
+/// <p class="rosetta__paragraph">end loop;</p>
+/// <p class="rosetta__paragraph">return Counts.Last_Element;</p>
+/// <p class="rosetta__paragraph">end Get_Mode;</p><br/><p class="rosetta__paragraph">end Mode;</lang></p>
+/// <p class="rosetta__paragraph">example use:</p>
+/// <p class="rosetta__paragraph"><lang Ada>with Ada.Text_IO;</p>
+/// <p class="rosetta__paragraph">with Mode;</p>
+/// <p class="rosetta__paragraph">procedure Main is</p>
+/// <p class="rosetta__paragraph">type Int_Array is array (Positive range <>) of Integer;</p>
+/// <p class="rosetta__paragraph">package Int_Mode is new Mode (Integer, Int_Array);</p><br/><p class="rosetta__paragraph">Test_1 : Int_Array := (1, 2, 3, 1, 2, 4, 2, 5, 2, 3, 3, 1, 3, 6);</p>
+/// <p class="rosetta__paragraph">Result : Int_Array := Int_Mode.Get_Mode (Test_1);</p>
+/// <p class="rosetta__paragraph">begin</p>
+/// <p class="rosetta__paragraph">Ada.Text_IO.Put ("Input: ");</p>
+/// <p class="rosetta__paragraph">for I in Test_1'Range loop</p>
+/// <p class="rosetta__paragraph">Ada.Text_IO.Put (Integer'Image (Test_1 (I)));</p>
+/// <p class="rosetta__paragraph">if I /= Test_1'Last then</p>
+/// <p class="rosetta__paragraph">Ada.Text_IO.Put (",");</p>
+/// <p class="rosetta__paragraph">end if;</p>
+/// <p class="rosetta__paragraph">end loop;</p>
+/// <p class="rosetta__paragraph">Ada.Text_IO.New_Line;</p>
+/// <p class="rosetta__paragraph">Ada.Text_IO.Put ("Result:");</p>
+/// <p class="rosetta__paragraph">for I in Result'Range loop</p>
+/// <p class="rosetta__paragraph">Ada.Text_IO.Put (Integer'Image (Result (I)));</p>
+/// <p class="rosetta__paragraph">if I /= Result'Last then</p>
+/// <p class="rosetta__paragraph">Ada.Text_IO.Put (",");</p>
+/// <p class="rosetta__paragraph">end if;</p>
+/// <p class="rosetta__paragraph">end loop;</p>
+/// <p class="rosetta__paragraph">Ada.Text_IO.New_Line;</p>
+/// <p class="rosetta__paragraph">end Main;</lang></p><br/><div class="rosetta__pre-wrap"><pre class="rosetta__pre">Input:  1, 2, 3, 1, 2, 4, 2, 5, 2, 3, 3, 1, 3, 6
+/// Result: 2, 3</pre></div><br/><p class="rosetta__paragraph">====</p>
+/// <p class="rosetta__paragraph"><lang APL>mode←{{s←⌈/⍵[;2]⋄⊃¨(↓⍵)∩{⍵,s}¨⍵[;1]}{⍺,≢⍵}⌸⍵}</lang></p><br/><p class="rosetta__paragraph">====</p><br/><p class="rosetta__paragraph">Source: <a class="rosetta__link--wiki" href="http://www.autohotkey.com/forum/post-276175.html#276175" title="link: http://www.autohotkey.com/forum/post-276175.html#276175">AutoHotkey forum</a> by Laszlo</p>
+/// <p class="rosetta__paragraph"><lang autohotkey>MsgBox % Mode("1 2 3")</p>
+/// <p class="rosetta__paragraph">MsgBox % Mode("1 2 0 3 0.0")</p>
+/// <p class="rosetta__paragraph">MsgBox % Mode("0.1 2.2 -0.1 0.22e1 2.20 0.1")</p><br/><p class="rosetta__paragraph">Mode(a, d=" ") { ; the number that occurs most frequently in a list delimited by d (space)</p>
+/// <p class="rosetta__paragraph">Sort a, ND%d%</p>
+/// <p class="rosetta__paragraph">Loop Parse, a, %d%</p>
+/// <p class="rosetta__paragraph">If (V != A_LoopField) {</p>
+/// <p class="rosetta__paragraph">If (Ct > MxCt)</p>
+/// <p class="rosetta__paragraph">MxV := V, MxCt := Ct</p>
+/// <p class="rosetta__paragraph">V := A_LoopField, Ct := 1</p>
+/// <p class="rosetta__paragraph">}</p>
+/// <p class="rosetta__paragraph">Else Ct++</p>
+/// <p class="rosetta__paragraph">Return Ct>MxCt ? V : MxV</p>
+/// <p class="rosetta__paragraph">}</lang></p><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+function mode(ary) {
+    var counter = {};
+    var mode = [];
+    var max = 0;
+    for (var i in ary) {
+        if (!(ary[i] in counter))
+            counter[ary[i]] = 0;
+        counter[ary[i]]++;
+
+        if (counter[ary[i]] == max) 
+            mode.push(ary[i]);
+        else if (counter[ary[i]] > max) {
+            max = counter[ary[i]];
+            mode = [ary[i]];
+        }
+    }
+    return mode; 
+}
+
+mode([1, 3, 6, 6, 6, 6, 7, 7, 12, 12, 17]);  // [6]
+mode([1, 2, 4, 4, 1]);  // [1,4]
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+<lang javascript>function mode(ary) {
+    var counter = {};
+    var mode = [];
+    var max = 0;
+    for (var i in ary) {
+        if (!(ary[i] in counter))
+            counter[ary[i]] = 0;
+        counter[ary[i]]++;
+
+        if (counter[ary[i]] == max) 
+            mode.push(ary[i]);
+        else if (counter[ary[i]] > max) {
+            max = counter[ary[i]];
+            mode = [ary[i]];
+        }
+    }
+    return mode; 
+}
+
+mode([1, 3, 6, 6, 6, 6, 7, 7, 12, 12, 17]);  // [6]
+mode([1, 2, 4, 4, 1]);  // [1,4]</lang>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

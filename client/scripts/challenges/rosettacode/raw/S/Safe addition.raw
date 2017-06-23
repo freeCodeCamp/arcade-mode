@@ -1,0 +1,42 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Safe addition
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><br/><p class="rosetta__paragraph">Implementation of  <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Interval_arithmetic" title="wp: Interval_arithmetic">interval arithmetic</a>  and more generally fuzzy number arithmetic require operations that yield safe upper and lower bounds of the exact result.</p><br/><p class="rosetta__paragraph">For example, for an addition, it is the operations  <big> +&uarr; </big>  and  <big> +&darr; </big>  defined as:  <big> <span class="rosetta__text--italic">a</span> +&darr; <span class="rosetta__text--italic">b</span> &le; <span class="rosetta__text--italic">a</span> + <span class="rosetta__text--italic">b</span> &le; <span class="rosetta__text--italic">a</span> +&uarr; <span class="rosetta__text--italic">b</span>. </big></p><br/><p class="rosetta__paragraph">Additionally it is desired that the width of the interval  <big> (<span class="rosetta__text--italic">a</span> +&uarr; <span class="rosetta__text--italic">b</span>) - (<span class="rosetta__text--italic">a</span> +&darr; <span class="rosetta__text--italic">b</span>) </big>   would be about the machine epsilon after removing the exponent part.</p><br/><p class="rosetta__paragraph">Differently to the standard floating-point arithmetic, safe interval arithmetic is <span class="rosetta__text--bold">accurate</span> (but still imprecise).</p><br/><p class="rosetta__paragraph">I.E.:  the result of each defined operation contains (though does not identify) the exact mathematical outcome.</p><br/><p class="rosetta__paragraph">Usually a  <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Floating_Point_Unit" title="wp: Floating_Point_Unit">FPU's</a>  have machine  <big> +,-,*,/ </big>  operations accurate within the machine precision.</p><br/><p class="rosetta__paragraph">To illustrate it, let us consider a machine with decimal floating-point arithmetic that has the precision is <span class="rosetta__text--bold">3</span> decimal points.</p><br/><p class="rosetta__paragraph">If the result of the machine addition is  <big> 1.23, </big>  then the exact mathematical result is within the interval  <big> ]1.22, 1.24[. </big></p><br/><p class="rosetta__paragraph">When the machine rounds towards zero, then the exact result is within  <big> [1.23,1.24[. </big>  This is the basis for an implementation of safe addition.</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task;</dt></dl>
+/// <p class="rosetta__paragraph">Show how  <big> +&darr; </big>  and  <big> +&uarr; </big>  can be implemented in your language using the standard floating-point type.</p><br/><p class="rosetta__paragraph">Define an interval type based on the standard floating-point one,  and implement an interval-valued addition of two floating-point numbers considering them exact, in short an operation that yields the interval  <big> [<span class="rosetta__text--italic">a</span> +&darr; <span class="rosetta__text--italic">b</span>, <span class="rosetta__text--italic">a</span> +&uarr; <span class="rosetta__text--italic">b</span>]. </big></p>
+/// <br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,0 +1,205 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Ternary logic
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <br/><br>
+/// <p class="rosetta__paragraph">In <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/logic" title="wp: logic">logic</a>, a <span class="rosetta__text--bold">three-valued logic</span> (also <span class="rosetta__text--bold">trivalent</span>, <span class="rosetta__text--bold">ternary</span>, or  <span class="rosetta__text--bold">trinary logic</span>, sometimes abbreviated <span class="rosetta__text--bold">3VL</span>) is any of several <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/many-valued logic" title="wp: many-valued logic">many-valued logic</a> systems in which there are three <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/truth value" title="wp: truth value">truth value</a>s indicating <span class="rosetta__text--italic">true</span>, <span class="rosetta__text--italic">false</span> and some indeterminate third value.</p><br/><p class="rosetta__paragraph">This is contrasted with the more commonly known <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Principle of bivalence" title="wp: Principle of bivalence">bivalent</a> logics (such as classical sentential or <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/boolean logic" title="wp: boolean logic">boolean logic</a>) which provide only for <span class="rosetta__text--italic">true</span> and <span class="rosetta__text--italic">false</span>.</p><br/><p class="rosetta__paragraph">Conceptual form and basic ideas were initially created by <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Jan Łukasiewicz" title="wp: Jan Łukasiewicz">Łukasiewicz</a>, <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/C. I. Lewis" title="wp: C. I. Lewis">Lewis</a>  and <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Sulski" title="wp: Sulski">Sulski</a>.</p><br/><p class="rosetta__paragraph">These were then re-formulated by <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Grigore Moisil" title="wp: Grigore Moisil">Grigore Moisil</a> in an axiomatic algebraic form, and also extended to <span class="rosetta__text--italic">n</span>-valued logics in 1945.</p>
+/// <p class="rosetta__paragraph">{|</p>
+/// <p class="rosetta__paragraph">|+<span class="rosetta__text--bold">Example <span class="rosetta__text--italic">Ternary Logic Operators</span> in <span class="rosetta__text--italic">Truth Tables</span>:</span></p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">|</p>
+/// <p class="rosetta__paragraph">{| class=wikitable</p>
+/// <p class="rosetta__paragraph">|+<span class="rosetta__text--italic">not</span> a</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">! colspan=2 | &not;</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| True || False</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| Maybe || Maybe</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| False || True</p>
+/// <p class="rosetta__paragraph">|}</p>
+/// <p class="rosetta__paragraph">||</p>
+/// <p class="rosetta__paragraph">{| class=wikitable</p>
+/// <p class="rosetta__paragraph">|+a <span class="rosetta__text--italic">and</span> b</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">! &and;</p>
+/// <p class="rosetta__paragraph">| True || Maybe || False</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| True || True || Maybe || False</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| Maybe || Maybe || Maybe || False</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| False || False || False || False</p>
+/// <p class="rosetta__paragraph">|}</p>
+/// <p class="rosetta__paragraph">||</p>
+/// <p class="rosetta__paragraph">{| class=wikitable</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">|+a <span class="rosetta__text--italic">or</span> b</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">! &or;</p>
+/// <p class="rosetta__paragraph">| True || Maybe || False</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| True || True || True || True</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| Maybe || True || Maybe || Maybe</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| False || True || Maybe || False</p>
+/// <p class="rosetta__paragraph">|}</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">||</p>
+/// <p class="rosetta__paragraph">{| class=wikitable</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">|+<span class="rosetta__text--italic">if</span> a <span class="rosetta__text--italic">then</span> b</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">! ⊃</p>
+/// <p class="rosetta__paragraph">| True || Maybe || False</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| True || True || Maybe || False</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| Maybe || True || Maybe || Maybe</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| False || True || True || True</p>
+/// <p class="rosetta__paragraph">|}</p>
+/// <p class="rosetta__paragraph">||</p>
+/// <p class="rosetta__paragraph">{| class=wikitable</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">|+a <span class="rosetta__text--italic">is equivalent to</span> b</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">! ≡</p>
+/// <p class="rosetta__paragraph">| True || Maybe || False</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| True || True || Maybe || False</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| Maybe || Maybe || Maybe || Maybe</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| False || False || Maybe || True</p>
+/// <p class="rosetta__paragraph">|}</p>
+/// <p class="rosetta__paragraph">|}</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Define a new type that emulates <span class="rosetta__text--italic">ternary logic</span> by storing data <span class="rosetta__text--bold">trits</span>.</li>
+/// <li class="rosetta__list-item--unordered">Given all the binary logic operators of the original programming language, reimplement these operators for the new <span class="rosetta__text--italic">Ternary logic</span> type <span class="rosetta__text--bold">trit</span>.</li>
+/// <li class="rosetta__list-item--unordered">Generate a sampling of results using <span class="rosetta__text--bold">trit</span> variables.</li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Kudos" title="wp: Kudos">Kudos</a> for actually thinking up a test case algorithm where <span class="rosetta__text--italic">ternary logic</span> is intrinsically useful, optimises the test case algorithm and is preferable to binary logic.</li></ul>
+/// <br>
+/// <p class="rosetta__paragraph">Note:  <span class="rosetta__text--bold"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Setun" title="wp: Setun">Setun</a></span>  (Сетунь) was a  <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/balanced ternary" title="wp: balanced ternary">balanced ternary</a>  computer developed in 1958 at  <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Moscow State University" title="wp: Moscow State University">Moscow State University</a>.  The device was built under the lead of  <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Sergei Sobolev" title="wp: Sergei Sobolev">Sergei Sobolev</a>  and  <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Nikolay Brusentsov" title="wp: Nikolay Brusentsov">Nikolay Brusentsov</a>.  It was the only modern  <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/ternary computer" title="wp: ternary computer">ternary computer</a>,  using three-valued <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/ternary logic" title="wp: ternary logic">ternary logic</a></p>
+/// <br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+var L3 = new Object();
+
+L3.not = function(a) {
+  if (typeof a == "boolean") return !a;
+  if (a == undefined) return undefined;
+  throw("Invalid Ternary Expression.");
+}
+
+L3.and = function(a, b) {
+  if (typeof a == "boolean" && typeof b == "boolean") return a && b;
+  if ((a == true && b == undefined) || (a == undefined && b == true)) return undefined;
+  if ((a == false && b == undefined) || (a == undefined && b == false)) return false;
+  if (a == undefined && b == undefined) return undefined;
+  throw("Invalid Ternary Expression.");
+}
+
+L3.or = function(a, b) {
+  if (typeof a == "boolean" && typeof b == "boolean") return a || b;
+  if ((a == true && b == undefined) || (a == undefined && b == true)) return true;
+  if ((a == false && b == undefined) || (a == undefined && b == false)) return undefined;
+  if (a == undefined && b == undefined) return undefined;
+  throw("Invalid Ternary Expression.");
+}
+
+// A -> B is equivalent to -A or B
+L3.ifThen = function(a, b) {
+  return L3.or(L3.not(a), b);
+}
+
+// A <=> B is equivalent to (A -> B) and (B -> A)
+L3.iff = function(a, b) {
+  return L3.and(L3.ifThen(a, b), L3.ifThen(b, a));
+}
+
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+Let's use the trit already available in JavaScript:
+true, false (both boolean) and undefined…
+<lang JavaScript>var L3 = new Object();
+
+L3.not = function(a) {
+  if (typeof a == "boolean") return !a;
+  if (a == undefined) return undefined;
+  throw("Invalid Ternary Expression.");
+}
+
+L3.and = function(a, b) {
+  if (typeof a == "boolean" && typeof b == "boolean") return a && b;
+  if ((a == true && b == undefined) || (a == undefined && b == true)) return undefined;
+  if ((a == false && b == undefined) || (a == undefined && b == false)) return false;
+  if (a == undefined && b == undefined) return undefined;
+  throw("Invalid Ternary Expression.");
+}
+
+L3.or = function(a, b) {
+  if (typeof a == "boolean" && typeof b == "boolean") return a || b;
+  if ((a == true && b == undefined) || (a == undefined && b == true)) return true;
+  if ((a == false && b == undefined) || (a == undefined && b == false)) return undefined;
+  if (a == undefined && b == undefined) return undefined;
+  throw("Invalid Ternary Expression.");
+}
+
+// A -> B is equivalent to -A or B
+L3.ifThen = function(a, b) {
+  return L3.or(L3.not(a), b);
+}
+
+// A <=> B is equivalent to (A -> B) and (B -> A)
+L3.iff = function(a, b) {
+  return L3.and(L3.ifThen(a, b), L3.ifThen(b, a));
+}
+</lang>
+… and try these:
+<lang>
+L3.not(true)         // false
+L3.not(var a)        // undefined
+
+L3.and(true, a)      // undefined
+
+L3.or(a, 2 == 3)     // false
+
+L3.ifThen(true, a)   // undefined
+
+L3.iff(a, 2 == 2)    // undefined     
+</lang>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

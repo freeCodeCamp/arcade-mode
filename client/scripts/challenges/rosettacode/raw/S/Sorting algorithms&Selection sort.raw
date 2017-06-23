@@ -1,0 +1,80 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Sorting algorithms/Selection sort
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Sort an <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/array" title="array">array</a> (or list) of elements using the Selection sort algorithm.</p>
+/// <br/><p class="rosetta__paragraph">It works as follows:</p><br/><p class="rosetta__paragraph">First find the smallest element in the array and exchange it with the element in the first position, then find the second smallest element and exchange it with the element in the second position, and continue in this way until the entire array is sorted.</p>
+/// <br/><p class="rosetta__paragraph">Its asymptotic complexity is  <big> <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/O" title="O">O</a>(n<sup>2</sup>) </big>  making it inefficient on large arrays.</p><br/><p class="rosetta__paragraph">Its primary purpose is for when writing data is very expensive (slow) when compared to reading, eg. writing to flash memory or EEPROM.</p><br/><p class="rosetta__paragraph">No other sorting algorithm has less data movement.</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Reference:</dt></dl>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Wikipedia:  <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Selection_sort" title="wp: Selection_sort">Selection sort</a></li></ul><br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+function selectionSort(nums) {
+  var len = nums.length;
+  for(var i = 0; i < len; i++) {
+    var minAt = i;
+    for(var j = i + 1; j < len; j++) {
+      if(nums[j] < nums[minAt])
+        minAt = j;
+    }
+
+    if(minAt != i) {
+      var temp = nums[i];
+      nums[i] = nums[minAt];
+      nums[minAt] = temp;
+    }
+  }
+  return nums;
+}
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+This algorithm sorts array of numbers.
+<lang javascript>function selectionSort(nums) {
+  var len = nums.length;
+  for(var i = 0; i < len; i++) {
+    var minAt = i;
+    for(var j = i + 1; j < len; j++) {
+      if(nums[j] < nums[minAt])
+        minAt = j;
+    }
+
+    if(minAt != i) {
+      var temp = nums[i];
+      nums[i] = nums[minAt];
+      nums[minAt] = temp;
+    }
+  }
+  return nums;
+}</lang>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

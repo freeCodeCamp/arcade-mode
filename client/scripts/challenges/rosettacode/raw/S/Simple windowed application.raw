@@ -1,0 +1,45 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Simple windowed application
+/// type: rosetta-code
+
+/// categories:
+/// Basic language learning
+/// Simple
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Create a window that has:</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">:#  a label that says  "There have been no clicks yet" </span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">:#  a button that says  "click me"</span></p>
+/// <br/><p class="rosetta__paragraph">Upon clicking the button with the mouse, the label should change and show the number of times the button has been clicked.</p>
+/// <br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

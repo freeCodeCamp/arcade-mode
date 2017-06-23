@@ -1,0 +1,126 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Integer overflow
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><br/><p class="rosetta__paragraph">Some languages support one or more integer types of the underlying processor.</p><br/><p class="rosetta__paragraph">This integer types have fixed size;  usually  <span class="rosetta__text--bold">8</span>-bit,  <span class="rosetta__text--bold">16</span>-bit,  <span class="rosetta__text--bold">32</span>-bit,  or  <span class="rosetta__text--bold">64</span>-bit.</p>
+/// <br>The integers supported by such a type can be  <span class="rosetta__text--italic">signed</span>  or  <span class="rosetta__text--italic">unsigned</span>.<br/><p class="rosetta__paragraph">Arithmetic for machine level integers can often be done by single CPU instructions.</p>
+/// <br>This allows high performance and is the main reason to support machine level integers.
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Definition:</dt></dl>
+/// <p class="rosetta__paragraph">An integer overflow happens when the result of a computation does not fit into the fixed size integer.</p>
+/// <p class="rosetta__paragraph">The result can be too small or too big to be representable in the fixed size integer.</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">When a language has fixed size integer types, create a program that</p>
+/// <p class="rosetta__paragraph">does arithmetic computations for the fixed size integers of the language.</p><br/><p class="rosetta__paragraph">These computations must be done such that the result would overflow.</p><br/><p class="rosetta__paragraph">The program should demonstrate what the following expressions do.</p>
+/// <br/><p class="rosetta__paragraph">For 32-bit signed integers:</p>
+/// <p class="rosetta__paragraph">{|class="wikitable"</p>
+/// <p class="rosetta__paragraph">!Expression</p>
+/// <p class="rosetta__paragraph">!Result that does not fit into a 32-bit signed integer</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| -(-2147483647-1)</p>
+/// <p class="rosetta__paragraph">| 2147483648</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| 2000000000 + 2000000000</p>
+/// <p class="rosetta__paragraph">| 4000000000</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| -2147483647 - 2147483647</p>
+/// <p class="rosetta__paragraph">| -4294967294</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| 46341 * 46341</p>
+/// <p class="rosetta__paragraph">| 2147488281</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| (-2147483647-1) / -1</p>
+/// <p class="rosetta__paragraph">| 2147483648</p>
+/// <p class="rosetta__paragraph">|}</p><br/><p class="rosetta__paragraph">For 64-bit signed integers:</p>
+/// <p class="rosetta__paragraph">{|class="wikitable"</p>
+/// <p class="rosetta__paragraph">!Expression</p>
+/// <p class="rosetta__paragraph">!Result that does not fit into a 64-bit signed integer</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| -(-9223372036854775807-1)</p>
+/// <p class="rosetta__paragraph">| 9223372036854775808</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| 5000000000000000000+5000000000000000000</p>
+/// <p class="rosetta__paragraph">| 10000000000000000000</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| -9223372036854775807 - 9223372036854775807</p>
+/// <p class="rosetta__paragraph">| -18446744073709551614</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| 3037000500 * 3037000500</p>
+/// <p class="rosetta__paragraph">| 9223372037000250000</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| (-9223372036854775807-1) / -1</p>
+/// <p class="rosetta__paragraph">| 9223372036854775808</p>
+/// <p class="rosetta__paragraph">|}</p><br/><p class="rosetta__paragraph">For 32-bit unsigned integers:</p>
+/// <p class="rosetta__paragraph">{|class="wikitable"</p>
+/// <p class="rosetta__paragraph">!Expression</p>
+/// <p class="rosetta__paragraph">!Result that does not fit into a 32-bit unsigned integer</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| -4294967295</p>
+/// <p class="rosetta__paragraph">| -4294967295</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| 3000000000 + 3000000000</p>
+/// <p class="rosetta__paragraph">| 6000000000</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| 2147483647 - 4294967295</p>
+/// <p class="rosetta__paragraph">| -2147483648</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| 65537 * 65537</p>
+/// <p class="rosetta__paragraph">| 4295098369</p>
+/// <p class="rosetta__paragraph">|}</p><br/><p class="rosetta__paragraph">For 64-bit unsigned integers:</p>
+/// <p class="rosetta__paragraph">{|class="wikitable"</p>
+/// <p class="rosetta__paragraph">!Expression</p>
+/// <p class="rosetta__paragraph">!Result that does not fit into a 64-bit unsigned integer</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| -18446744073709551615</p>
+/// <p class="rosetta__paragraph">| -18446744073709551615</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| 10000000000000000000 + 10000000000000000000</p>
+/// <p class="rosetta__paragraph">| 20000000000000000000</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| 9223372036854775807 - 18446744073709551615</p>
+/// <p class="rosetta__paragraph">| -9223372036854775808</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| 4294967296 * 4294967296</p>
+/// <p class="rosetta__paragraph">| 18446744073709551616</p>
+/// <p class="rosetta__paragraph">|}</p><br/><p class="rosetta__paragraph">When the integer overflow does trigger an exception show how the exception is catched.</p>
+/// <p class="rosetta__paragraph">When the integer overflow produces some value print it.</p>
+/// <p class="rosetta__paragraph">It should be explicitly noted when an integer overflow is not recognized and the program continues with wrong results.</p>
+/// <p class="rosetta__paragraph">This should be done for signed and unsigned integers of various sizes supported by the language.</p>
+/// <p class="rosetta__paragraph">When a language has no fixed size integer type or when no integer overflow can occur</p>
+/// <p class="rosetta__paragraph">for other reasons this should be noted.</p>
+/// <p class="rosetta__paragraph">It is okay to mention, when a language supports unlimited precision integers, but</p>
+/// <p class="rosetta__paragraph">this task is NOT the place to demonstrate the capabilities of unlimited precision integers.</p>
+/// <br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

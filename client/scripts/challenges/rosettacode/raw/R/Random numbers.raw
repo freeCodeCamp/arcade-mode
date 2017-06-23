@@ -1,0 +1,64 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Random numbers
+/// type: rosetta-code
+
+/// categories:
+/// Probability and statistics
+/// Randomness
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <br/>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Generate a collection filled with  <span class="rosetta__text--bold">1000</span>  normally distributed random (or pseudo-random) numbers</p>
+/// <p class="rosetta__paragraph">with a mean of  <span class="rosetta__text--bold">1.0</span>  and a  <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Standard_deviation" title="wp: Standard_deviation">standard deviation</a>  of  <span class="rosetta__text--bold">0.5</span></p>
+/// <br/><p class="rosetta__paragraph">Many libraries only generate uniformly distributed random numbers.</p><br/><p class="rosetta__paragraph">If so, use <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Normal_distribution#Generating_values_from_normal_distribution" title="wp: Normal_distribution#Generating_values_from_normal_distribution">this formula</a> to convert them to a normal distribution.</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Related task:</dt></dl>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"> <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Standard deviation" title="Standard deviation">Standard deviation</a></li></ul><br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+function randomNormal() {
+  return Math.cos(2 * Math.PI * Math.random()) * Math.sqrt(-2 * Math.log(Math.random()))
+}
+
+var a = []
+for (var i=0; i < 1000; i++){
+  a[i] = randomNormal() / 2 + 1
+}
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+<lang javascript>function randomNormal() {
+  return Math.cos(2 * Math.PI * Math.random()) * Math.sqrt(-2 * Math.log(Math.random()))
+}
+
+var a = []
+for (var i=0; i < 1000; i++){
+  a[i] = randomNormal() / 2 + 1
+}</lang>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,0 +1,72 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Multiple distinct objects
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><br/><p class="rosetta__paragraph">Create a <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/sequence" title="sequence">sequence</a> (array, list, whatever) consisting of <var>n</var> distinct, initialized items of the same type. <var>n</var> should be determined at runtime.</p><br/><p class="rosetta__paragraph">By <span class="rosetta__text--italic">distinct</span> we mean that if they are mutable, changes to one do not affect all others; if there is an appropriate equality operator they are considered unequal; etc. The code need not specify a particular kind of distinction, but do not use e.g. a numeric-range generator which does not generalize.</p><br/><p class="rosetta__paragraph">By <span class="rosetta__text--italic">initialized</span> we mean that each item must be in a well-defined state appropriate for its type, rather than e.g. arbitrary previous memory contents in an array allocation. Do not show only an initialization technique which initializes only to "zero" values (e.g. <tt>calloc()</tt> or <tt>int a[n] = {};</tt> in C), unless user-defined types can provide definitions of "zero" for that type.</p><br/><p class="rosetta__paragraph">This task was inspired by the common error of intending to do this, but instead creating a sequence of <var>n</var> references to the <span class="rosetta__text--italic">same</span> mutable object; it might be informative to show the way to do that as well, both as a negative example and as how to do it when that's all that's actually necessary.</p><br/><p class="rosetta__paragraph">This task is most relevant to languages operating in the pass-references-by-value style (most object-oriented, garbage-collected, and/or 'dynamic' languages).</p><br/><p class="rosetta__paragraph">See also: <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Closures/Value capture" title="Closures/Value capture">Closures/Value capture</a></p><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+var a = new Array(n);
+for (var i = 0; i < n; i++)
+  a[i] = new Foo();
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+
+===ES5===
+
+<lang javascript>var a = new Array(n);
+for (var i = 0; i < n; i++)
+  a[i] = new Foo();</lang>
+
+
+===ES6===
+
+<lang JavaScript>(n => {
+
+    let nObjects = n => Array.from({
+            length: n + 1
+        }, (_, i) => {
+            // optionally indexed object constructor
+            return {
+                index: i
+            };
+        });
+
+    return nObjects(6);
+
+})(6);</lang>
+
+
+{{Out}}
+<lang JavaScript>[{"index":0}, {"index":1}, {"index":2}, {"index":3}, 
+{"index":4}, {"index":5}, {"index":6}]</lang>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

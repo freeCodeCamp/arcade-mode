@@ -1,0 +1,123 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Cumulative standard deviation
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <br/>
+/// <p class="rosetta__paragraph">Write a stateful function, class, generator or co-routine that takes a series of floating point numbers, <span class="rosetta__text--italic">one at a time</span>, and returns the running <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Standard Deviation" title="wp: Standard Deviation">standard deviation</a> of the series.</p><br/><p class="rosetta__paragraph">The task implementation should use the most natural programming style of those listed for the function in the implementation language; the task <span class="rosetta__text--italic">must</span> state which is being used.</p><br/><p class="rosetta__paragraph">Do not apply <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Bessel's correction" title="wp: Bessel's correction">Bessel's correction</a>; the returned standard deviation should always be computed as if the sample seen so far is the entire population.</p><br/><p class="rosetta__paragraph">Use this to compute the standard deviation of this demonstration set, $\{2, 4, 4, 4, 5, 5, 7, 9\}$, which is $2$.</p>
+/// <br/>
+/// <p class="rosetta__paragraph">Related tasks:</p><br/><ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Random numbers" title="Random numbers">Random numbers</a></li></ul>
+/// <br/><p class="rosetta__paragraph"><hr></p><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+function running_stddev() {
+    var n = 0;
+    var sum = 0.0;
+    var sum_sq = 0.0;
+    return function(num) {
+        n++;
+        sum += num;
+        sum_sq += num*num;
+        return Math.sqrt( (sum_sq / n) - Math.pow(sum / n, 2) );
+    }
+}
+
+var sd = running_stddev();
+var nums = [2,4,4,4,5,5,7,9];
+var stddev = [];
+for (var i in nums) 
+    stddev.push( sd(nums[i]) );
+
+// using WSH
+WScript.Echo(stddev.join(', ');
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+
+===Imperative===
+
+Uses a closure.
+<lang javascript>function running_stddev() {
+    var n = 0;
+    var sum = 0.0;
+    var sum_sq = 0.0;
+    return function(num) {
+        n++;
+        sum += num;
+        sum_sq += num*num;
+        return Math.sqrt( (sum_sq / n) - Math.pow(sum / n, 2) );
+    }
+}
+
+var sd = running_stddev();
+var nums = [2,4,4,4,5,5,7,9];
+var stddev = [];
+for (var i in nums) 
+    stddev.push( sd(nums[i]) );
+
+// using WSH
+WScript.Echo(stddev.join(', ');</lang>
+
+{{out}}
+<pre>0, 1, 0.942809041582063, 0.866025403784439, 0.979795897113273, 1, 1.39970842444753, 2</pre>
+
+===Functional (ES 5)===
+
+Accumulating across a fold
+
+<lang JavaScript>(function (xs) {
+    
+    return xs.reduce(function (a, x, i) {
+        var n = i + 1,
+            sum_ = a.sum + x,
+            squaresSum_ = a.squaresSum + (x * x);
+
+        return {
+            sum: sum_,
+            squaresSum: squaresSum_,
+            stages: a.stages.concat(
+                Math.sqrt((squaresSum_ / n) - Math.pow((sum_ / n), 2))
+            )
+        };
+
+    }, {
+        sum: 0,
+        squaresSum: 0,
+        stages: []
+    }).stages
+
+})([2, 4, 4, 4, 5, 5, 7, 9]);</lang>
+
+{{Out}}
+<lang JavaScript>[0, 1, 0.9428090415820626, 0.8660254037844386, 
+0.9797958971132716, 1, 1.3997084244475297, 2]</lang>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

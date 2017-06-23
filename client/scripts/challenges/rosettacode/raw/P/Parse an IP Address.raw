@@ -1,0 +1,59 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Parse an IP Address
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><p class="rosetta__paragraph">The purpose of this task is to demonstrate parsing of text-format IP addresses, using IPv4 and IPv6.</p><br/><p class="rosetta__paragraph">Taking the following as inputs:</p>
+/// <p class="rosetta__paragraph">{| border="1" cellspacing="0" cellpadding=2</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">|127.0.0.1</p>
+/// <p class="rosetta__paragraph">|The "localhost" IPv4 address</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">|127.0.0.1:80</p>
+/// <p class="rosetta__paragraph">|The "localhost" IPv4 address, with a specified port (80)</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">|::1</p>
+/// <p class="rosetta__paragraph">|The "localhost" IPv6 address</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">|<nowiki>[::1]:80</nowiki></p>
+/// <p class="rosetta__paragraph">|The "localhost" IPv6 address, with a specified port (80)</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">|2605:2700:0:3::4713:93e3</p>
+/// <p class="rosetta__paragraph">|Rosetta Code's primary server's public IPv6 address</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">|<nowiki>[2605:2700:0:3::4713:93e3]:80</nowiki></p>
+/// <p class="rosetta__paragraph">|Rosetta Code's primary server's public IPv6 address, with a specified port (80)</p>
+/// <p class="rosetta__paragraph">|}</p><br/><p class="rosetta__paragraph">Emit each described IP address as a hexadecimal integer representing the address, the address space, and the port number specified, if any.  In languages where variant result types are clumsy, the result should be ipv4 or ipv6 address number, something which says which address space was represented, port number and something that says if the port was specified.</p><br/><p class="rosetta__paragraph">For example 127.0.0.1 has the address number 7F000001 (2130706433 decimal) in the ipv4 address space.  ::ffff:127.0.0.1 represents the same address in the ipv6 address space where it has the address number FFFF7F000001 (281472812449793 decimal).  Meanwhile ::1 has address number 1 and serves the same purpose in the ipv6 address space that 127.0.0.1 serves in the ipv4 address space.</p><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

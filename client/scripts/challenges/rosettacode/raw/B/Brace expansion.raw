@@ -1,0 +1,688 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Brace expansion
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><br/><p class="rosetta__paragraph">Brace expansion is a type of parameter expansion <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Bash_%28Unix_shell%29#Brace_expansion" title="wp: Bash_%28Unix_shell%29#Brace_expansion">made popular by Unix shells</a>, where it allows users to specify multiple similar string parameters without having to type them all out. E.g. the parameter <code>enable_{audio,video}</code> would be interpreted as if both <code>enable_audio</code> and <code>enable_video</code> had been specified.</p>
+/// <br/>
+/// <p class="rosetta__paragraph">Write a function that can perform brace expansion on any input string, according to the following specification.<br></p>
+/// <p class="rosetta__paragraph">Demonstrate how it would be used, and that it passes the four test cases given below.</p>
+/// <br/>
+/// <p class="rosetta__paragraph">In the input string, balanced pairs of braces containing comma-separated substrings <small>(details below)</small> represent <span class="rosetta__text--italic">alternations</span> that specify multiple alternatives which are to appear at that position in the output. In general, one can imagine the information conveyed by the input string as a tree of nested alternations interspersed with literal substrings, as shown in the middle part of the following diagram:</p><br/><p class="rosetta__paragraph"><!-- BEGINNING OF MAIN DIAGRAM --></p>
+/// <p class="rosetta__paragraph"><table align="center" style="margin-top:0.8em; margin-bottom:1em; border:double 3px #bbb; background:#F9F9F9; color:#111; line-height:1.5em"><tr><td></p>
+/// <div style="padding:0.4em 0.6em; margin:0 0 0 0.4em; background:#ddd; font-family:'DejaVu Sans Mono','Courier New',Consolas,Monaco,monospace"><nowiki>It{{em,alic}iz,erat}e{d,}</nowiki></div>
+/// </td><td>
+/// <div style="padding:0 0.6em; text-align:center; color:#665"><span class="rosetta__text--italic">parse</span><br>―――――▶<br>&zwnj;</div>
+/// </td><td>
+/// <p class="rosetta__paragraph"><table style="border-spacing:0; border-collapse:collapse; text-align:center; background:#D5B874; font-family:'DejaVu Sans Mono','Courier New',Consolas,Monaco,monospace"></p>
+/// <p class="rosetta__paragraph"><tr></p>
+/// <p class="rosetta__paragraph"><td style="padding:0 0 0 0.7em;">It</td></p>
+/// <p class="rosetta__paragraph"><td style="padding:0.1em 0 0.1em 0;"></p>
+/// <p class="rosetta__paragraph"><table style="border-spacing:0 0.3em;"></p>
+/// <p class="rosetta__paragraph"><tr></p>
+/// <p class="rosetta__paragraph"><td style="padding:0" rowspan="2"></p>
+/// <p class="rosetta__paragraph"><div style="font-size:155%; line-height:1.15em; position:relative; left:0.32em; color:#644709">⎧<br>⎨<br>⎩</div></p>
+/// <p class="rosetta__paragraph"></td></p>
+/// <p class="rosetta__paragraph"><td style="padding:0 0.4em; background:#E5CD94"></p>
+/// <p class="rosetta__paragraph"><table style="border-spacing:0 0.2em; position:relative; right:0.25em"></p>
+/// <p class="rosetta__paragraph"><tr></p>
+/// <p class="rosetta__paragraph"><td style="padding:0" rowspan="2"></p>
+/// <p class="rosetta__paragraph"><div style="font-size:100%;line-height:1em; position:relative; left:0.26em; color:#644709">⎧<br>⎨<br>⎩</div></p>
+/// <p class="rosetta__paragraph"></td></p>
+/// <p class="rosetta__paragraph"><td style="padding:0 0.4em; background:#F3E0B3">em</td></p>
+/// <p class="rosetta__paragraph"><td style="padding:0" rowspan="2"></p>
+/// <p class="rosetta__paragraph"><div style="font-size:100%; line-height:1em; position:relative; right:0.26em; color:#644709">⎫<br>⎬<br>⎭</div></p>
+/// <p class="rosetta__paragraph"></td></p>
+/// <p class="rosetta__paragraph"></tr></p>
+/// <p class="rosetta__paragraph"><tr><td style="padding:0 0.5em; background:#F3E0B3">alic</td></tr></p>
+/// <p class="rosetta__paragraph"></table></p>
+/// <p class="rosetta__paragraph"></td></p>
+/// <p class="rosetta__paragraph"><td style="padding:0 0 0 0; background:#E5CD94"></p>
+/// <p class="rosetta__paragraph"><div style="position:relative; right:0.5em">iz</div></p>
+/// <p class="rosetta__paragraph"></td></p>
+/// <p class="rosetta__paragraph"><td style="padding:0" rowspan="2"></p>
+/// <p class="rosetta__paragraph"><div style="font-size:155%; line-height:1.15em; position:relative; right:0.32em; color:#644709">⎫<br>⎬<br>⎭</div></p>
+/// <p class="rosetta__paragraph"></td></p>
+/// <p class="rosetta__paragraph"></tr></p>
+/// <p class="rosetta__paragraph"><tr><td style="padding:0; background:#E5CD94" colspan="2">erat</td></tr></p>
+/// <p class="rosetta__paragraph"></table></p>
+/// <p class="rosetta__paragraph"></td></p>
+/// <p class="rosetta__paragraph"><td style="padding:0">e</td></p>
+/// <p class="rosetta__paragraph"><td style="padding:0 0.32em 0 0.2em"></p>
+/// <p class="rosetta__paragraph"><table style="border-spacing:0 0.2em;"></p>
+/// <p class="rosetta__paragraph"><tr></p>
+/// <p class="rosetta__paragraph"><td style="padding:0" rowspan="2"></p>
+/// <p class="rosetta__paragraph"><div style="font-size:100%;line-height:1em; position:relative; left:0.28em; color:#644709">⎧<br>⎨<br>⎩</div></p>
+/// <p class="rosetta__paragraph"></td></p>
+/// <p class="rosetta__paragraph"><td style="padding:0 0.5em; background:#E5CD94">d</td></p>
+/// <p class="rosetta__paragraph"><td style="padding:0" rowspan="2"></p>
+/// <p class="rosetta__paragraph"><div style="font-size:100%;line-height:1em; position:relative; right:0.26em; color:#644709">⎫<br>⎬<br>⎭</div></p>
+/// <p class="rosetta__paragraph"></td></p>
+/// <p class="rosetta__paragraph"></tr></p>
+/// <p class="rosetta__paragraph"><tr><td style="padding:0; background-color:#E5CD94; background-image: linear-gradient(-45deg, #E5CD94 25%, #D5B874 25%, #D5B874 50%, #E5CD94 50%, #E5CD94 75%, #D5B874 75%, #D5B874); background-size: 0.5em 0.5em;">&zwnj;</td></tr></p>
+/// <p class="rosetta__paragraph"></table></p>
+/// <p class="rosetta__paragraph"></td></p>
+/// <p class="rosetta__paragraph"></tr></p>
+/// </table>
+/// </td><td>
+/// <div style="padding:0 0.6em; text-align:center; color:#665"><span class="rosetta__text--italic">expand</span><br>―――――▶<br>&zwnj;</div>
+/// </td><td style"padding:0"><div style="padding:0.5em 0.6em; margin:0.4em 0.4em 0.4em 0; background:#ddd; font-family:'DejaVu Sans Mono','Courier New',Consolas,Monaco,monospace; line-height:1.35em"><span style="padding:0.1em 0;background:#D5B874">It<span style="padding:0.1em 0;background:#F3E0B3">em</span><span style="padding:0.1em 0;background:#E5CD94">iz</span>e<span style="padding:0.1em 0;background:#E5CD94">d</span></span><br><span style="padding:0.1em 0;background:#D5B874">It<span style="padding:0.1em 0;background:#F3E0B3">em</span><span style="padding:0.1em 0;background:#E5CD94">iz</span>e</span><br><span style="padding:0.1em 0;background:#D5B874">It<span style="padding:0.1em 0;background:#F3E0B3">alic</span><span style="padding:0.1em 0;background:#E5CD94">iz</span>e<span style="padding:0.1em 0;background:#E5CD94">d</span></span><br><span style="padding:0.1em 0;background:#D5B874">It<span style="padding:0.1em 0;background:#F3E0B3">alic</span><span style="padding:0.1em 0;background:#E5CD94">iz</span>e</span><br>
+/// <p class="rosetta__paragraph"><span style="padding:0.1em 0;background:#D5B874">It<span style="padding:0.1em 0;background:#E5CD94">erat</span>e<span style="padding:0.1em 0;background:#E5CD94">d</span></span><br><span style="padding:0.1em 0;background:#D5B874">It<span style="padding:0.1em 0;background:#E5CD94">erat</span>e</span></div></p>
+/// </td></tr>
+/// <p class="rosetta__paragraph"><tr style="text-align:center; color:#665"></p>
+/// <p class="rosetta__paragraph"><td><small>input string</small></td></p>
+/// <p class="rosetta__paragraph"><td></td></p>
+/// <p class="rosetta__paragraph"><td><small>alternation tree</small></td></p>
+/// <p class="rosetta__paragraph"><td></td></p>
+/// <p class="rosetta__paragraph"><td><small>output <span class="rosetta__text--italic">(list of strings)</span></small></td></p>
+/// </tr></table>
+/// <p class="rosetta__paragraph"><!-- END OF MAIN DIAGRAM --></p><br/><p class="rosetta__paragraph">This tree can in turn be transformed into the intended list of output strings by, colloquially speaking, determining all the possible ways to walk through it from left to right while only descending into <span class="rosetta__text--italic">one</span> branch of each alternation one comes across <span class="rosetta__text--italic">(see the right part of the diagram)</span>. When implementing it, one can of course combine the parsing and expansion into a single algorithm, but this specification discusses them separately for the sake of clarity.</p><br/><p class="rosetta__paragraph"><span class="rosetta__text--bold">Expansion</span> of alternations can be more rigorously described by these rules:</p><br/><p class="rosetta__paragraph"><!-- BEGINNING OF "EXPANSION" SIDE-DIAGRAM --></p>
+/// <p class="rosetta__paragraph"><table style="margin:0.4em; float:right; position:relative; top:-0.8em; padding:0.22em 0.5em; background:#F9F9F9; border:solid 1px #ccc; color:#111; line-height:1.2em; font-family:'DejaVu Sans Mono', 'Courier New', Consolas, Monaco;"><tr></p>
+/// <p class="rosetta__paragraph"><td style="padding:0;"></p>
+/// <p class="rosetta__paragraph"><table style="border-spacing:0 0.2em; background:#D5B874"></p>
+/// <p class="rosetta__paragraph"><tr></p>
+/// <p class="rosetta__paragraph"><td style="padding:0 0.1em 0 0.6em; background:#E5CD94">a</td></p>
+/// <p class="rosetta__paragraph"><td style="padding:0; background:#E5CD94"></p>
+/// <p class="rosetta__paragraph"><table style="border-spacing:0 0.2em"></p>
+/// <p class="rosetta__paragraph"><tr></p>
+/// <p class="rosetta__paragraph"><td style="padding:0" rowspan="2"></p>
+/// <p class="rosetta__paragraph"><div style="font-size:100%; color:#644709; line-height:1em; position:relative; left:0.27em">⎧<br>⎨<br>⎩</div></p>
+/// <p class="rosetta__paragraph"></td></p>
+/// <p class="rosetta__paragraph"><td style="padding:0 0.35em; background:#F3E0B3">2</td></p>
+/// <p class="rosetta__paragraph"><td style="padding:0" rowspan="2"></p>
+/// <p class="rosetta__paragraph"><div style="font-size:100%; color:#644709; line-height:1em; position:relative; right:0.25em">⎫<br>⎬<br>⎭</div></p>
+/// <p class="rosetta__paragraph"></td></p>
+/// <p class="rosetta__paragraph"></tr></p>
+/// <p class="rosetta__paragraph"><tr><td style="padding:0 0.35em; background:#F3E0B3">1</td></tr></p>
+/// <p class="rosetta__paragraph"></table></p>
+/// <p class="rosetta__paragraph"></td></p>
+/// <p class="rosetta__paragraph"><td style="padding:0 0.06em 0 0.12em; background:#E5CD94">b</td></p>
+/// <p class="rosetta__paragraph"><td style="padding:0; background:#E5CD94"></p>
+/// <p class="rosetta__paragraph"><table style="border-spacing:0 0.2em"></p>
+/// <p class="rosetta__paragraph"><tr></p>
+/// <p class="rosetta__paragraph"><td style="padding:0" rowspan="3"></p>
+/// <p class="rosetta__paragraph"><div style="font-size:115%; color:#644709; line-height:1.19em; position:relative; left:0.25em">⎧<br>⎨<br>⎩</div></p>
+/// <p class="rosetta__paragraph"></td></p>
+/// <p class="rosetta__paragraph"><td style="padding:0 0.4em; background:#F3E0B3">X</td></p>
+/// <p class="rosetta__paragraph"><td style="padding:0" rowspan="3"></p>
+/// <p class="rosetta__paragraph"><div style="font-size:115%; color:#644709; line-height:1.19em; position:relative; right:0.25em">⎫<br>⎬<br>⎭</div></p>
+/// <p class="rosetta__paragraph"></td></p>
+/// <p class="rosetta__paragraph"></tr></p>
+/// <p class="rosetta__paragraph"><tr><td style="padding:0 0.4em; background:#F3E0B3">Y</td></tr></p>
+/// <p class="rosetta__paragraph"><tr><td style="padding:0 0.4em; background:#F3E0B3">X</td></tr></p>
+/// <p class="rosetta__paragraph"></table></p>
+/// <p class="rosetta__paragraph"></td></p>
+/// <p class="rosetta__paragraph"><td style="padding:0 0.6em 0 0.1em; background:#E5CD94">c</td></p>
+/// <p class="rosetta__paragraph"></tr></p>
+/// <p class="rosetta__paragraph"></table></p>
+/// </td>
+/// <p class="rosetta__paragraph"><td><div style="padding:0 0.6em;text-align:center; color:#665">&#10230;</div></td></p>
+/// <p class="rosetta__paragraph"><td style="padding:0; background:#D5B874"><table style="border-spacing:0 0.25em;"></p>
+/// <p class="rosetta__paragraph"><tr><td style="padding:0 0.4em; background:#E5CD94">a2bXc</td></tr></p>
+/// <p class="rosetta__paragraph"><tr><td style="padding:0 0.4em; background:#E5CD94">a2bYc</td></tr></p>
+/// <p class="rosetta__paragraph"><tr><td style="padding:0 0.4em; background:#E5CD94">a2bXc</td></tr></p>
+/// <p class="rosetta__paragraph"><tr><td style="padding:0 0.4em; background:#E5CD94">a1bXc</td></tr></p>
+/// <p class="rosetta__paragraph"><tr><td style="padding:0 0.4em; background:#E5CD94">a1bYc</td></tr></p>
+/// <p class="rosetta__paragraph"><tr><td style="padding:0 0.4em; background:#E5CD94">a1bXc</td></tr></p>
+/// </table></td>
+/// </tr></table>
+/// <p class="rosetta__paragraph"><!-- END OF "EXPANSION" SIDE-DIAGRAM --></p><br/><ul style="margin-bottom:0.9em">
+/// <li>
+/// <p class="rosetta__paragraph">An alternation causes the list of alternatives that will be produced by its parent branch to be increased &#119899;-fold, each copy featuring <u>one</u> of the &#119899; alternatives produced by the alternation's child branches, in turn, at that position.</p>
+/// </li>
+/// <li>
+/// <p class="rosetta__paragraph">This means that multiple alternations inside the same branch are cumulative <span class="rosetta__text--italic">(i.e. the complete list of alternatives produced by a branch is the string-concatenating "<a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Cartesian product" title="wp: Cartesian product">Cartesian product</a>" of its parts)</span>.</p>
+/// </li>
+/// <li>
+/// <p class="rosetta__paragraph">All alternatives (even duplicate and empty ones) are preserved, and they are ordered like the examples demonstrate <span class="rosetta__text--italic">(i.e. "<a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Lexicographical_order" title="wp: Lexicographical_order">lexicographically</a>" with regard to the alternations)</span>.</p>
+/// </li>
+/// <li>
+/// <p class="rosetta__paragraph">The alternatives produced by the root branch constitute the final output.</p>
+/// </li>
+/// </ul><br/><p class="rosetta__paragraph"><span class="rosetta__text--bold">Parsing</span> the input string involves some additional complexity to deal with escaped characters and "incomplete" brace pairs:</p><br/><p class="rosetta__paragraph"><!-- BEGINNING OF "PARSING" SIDE-DIAGRAM --></p>
+/// <p class="rosetta__paragraph"><table style="margin:0.4em; border-collapse:collapse; clear:both; float:right; position:relative; top:-0.8em; padding:0.22em 0.5em; background:#F9F9F9; border:solid 1px #ccc; color:#111; line-height:1.2em; text-align:center; font-family:'DejaVu Sans Mono','Courier New',Consolas,Monaco,monospace"><tr></p>
+/// <p class="rosetta__paragraph"><td style="padding:0 0 0 0.6em"><div style="padding:0.35em 0.5em; margin:0; background:#ddd">a\\{\\\{b,c\,d}</div></td></p>
+/// <p class="rosetta__paragraph"><td style="padding:0"><div style="padding:0 0.6em; color:#665">&#10230;</div></td></p><br/><p class="rosetta__paragraph"><td style="padding:0.4em 0.6em 0.4em 0"></p>
+/// <p class="rosetta__paragraph"><table style="border-spacing:0 0.2em; border-collapse:collapse; background:#D5B874"><tr></p>
+/// <p class="rosetta__paragraph"><td style="padding:0 0 0 0.6em">a\\</td></p>
+/// <p class="rosetta__paragraph"><td style="padding:0.2em 0.28em 0.2em 0.10em;"></p>
+/// <p class="rosetta__paragraph"><table style="border-spacing:0 0.2em"></p>
+/// <p class="rosetta__paragraph"><tr></p>
+/// <p class="rosetta__paragraph"><td style="padding:0" rowspan="2"></p>
+/// <p class="rosetta__paragraph"><div style="font-size:100%; color:#644709; line-height:1em; position:relative; left:0.25em">⎧<br>⎨<br>⎩</div></p>
+/// <p class="rosetta__paragraph"></td></p>
+/// <p class="rosetta__paragraph"><td style="padding:0 0.35em; background:#E5CD94">\\\{b</td></p>
+/// <p class="rosetta__paragraph"><td style="padding:0" rowspan="2"></p>
+/// <p class="rosetta__paragraph"><div style="font-size:100%; color:#644709; line-height:1em; position:relative; right:0.25em">⎫<br>⎬<br>⎭</div></p>
+/// <p class="rosetta__paragraph"></td></p>
+/// <p class="rosetta__paragraph"></tr></p>
+/// <p class="rosetta__paragraph"><tr><td style="padding:0 0.35em; background:#E5CD94">c\,d</td></tr></p>
+/// <p class="rosetta__paragraph"></table></p>
+/// <p class="rosetta__paragraph"></td></p>
+/// <p class="rosetta__paragraph"></tr></table></p>
+/// </td>
+/// </tr><tr>
+/// <p class="rosetta__paragraph"><td style="border-top:solid 1px #ccc; padding:0 0 0 0.6em"><div style="padding:0.35em 0.5em; margin:0; background:#ddd">{a,b{c{,{d}}e}f</div></td></p>
+/// <p class="rosetta__paragraph"><td style="border-top:solid 1px #ccc; padding:0"><div style="padding:0; color:#665">&#10230;</div></td></p>
+/// <p class="rosetta__paragraph"><td style="border-top:solid 1px #ccc; padding:0.4em 0.6em 0.4em 0"></p>
+/// <p class="rosetta__paragraph"><table style="border-spacing:0 0.2em; border-collapse:collapse; background:#D5B874"><tr></p>
+/// <p class="rosetta__paragraph"><td style="padding:0 0 0 0.6em">{a,b{c</td></p>
+/// <p class="rosetta__paragraph"><td style="padding:0.2em 0.1em 0.2em 0.1em;"></p>
+/// <p class="rosetta__paragraph"><table style="border-spacing:0 0.2em"></p>
+/// <p class="rosetta__paragraph"><tr></p>
+/// <p class="rosetta__paragraph"><td style="padding:0" rowspan="2"></p>
+/// <p class="rosetta__paragraph"><div style="font-size:100%; color:#644709; line-height:1em; position:relative; left:0.25em">⎧<br>⎨<br>⎩</div></p>
+/// <p class="rosetta__paragraph"></td></p>
+/// <p class="rosetta__paragraph"><td style="padding:0 0.35em; background-color:#E5CD94; background-image: linear-gradient(-45deg, #E5CD94 25%, #D5B874 25%, #D5B874 50%, #E5CD94 50%, #E5CD94 75%, #D5B874 75%, #D5B874); background-size: 0.5em 0.5em;">&zwnj;</td></p>
+/// <p class="rosetta__paragraph"><td style="padding:0" rowspan="2"></p>
+/// <p class="rosetta__paragraph"><div style="font-size:100%; color:#644709; line-height:1em; position:relative; right:0.25em">⎫<br>⎬<br>⎭</div></p>
+/// <p class="rosetta__paragraph"></td></p>
+/// <p class="rosetta__paragraph"></tr></p>
+/// <p class="rosetta__paragraph"><tr><td style="padding:0 0.35em; background:#E5CD94">{d}</td></tr></p>
+/// <p class="rosetta__paragraph"></table></p>
+/// <p class="rosetta__paragraph"></td></p>
+/// <p class="rosetta__paragraph"><td style="padding:0 0.28em 0 0">e}f</td></p>
+/// <p class="rosetta__paragraph"></tr></table></p>
+/// </td>
+/// </tr></table>
+/// <p class="rosetta__paragraph"><!-- END OF "PARSING" SIDE-DIAGRAM --></p><br/><ul style="margin-bottom:0.9em">
+/// <li>
+/// <p class="rosetta__paragraph">An unescaped <span class="rosetta__text--italic">backslash</span> which precedes another character, <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Escape_character" title="wp: Escape_character">escapes</a> that character (to force it to be treated as literal). The backslashes are passed along to the output unchanged.</p>
+/// </li>
+/// <li>
+/// <p class="rosetta__paragraph">Balanced <span class="rosetta__text--italic">brace pairs</span> are identified by, conceptually, going through the string from left to right and associating each unescaped closing brace that is encountered with the <u>nearest</u> still unassociated unescaped opening brace to its left (if any). Furthermore, each unescaped <span class="rosetta__text--italic">comma</span> is associated with the <u>innermost</u> brace pair that contains it (if any). With that in mind:</p>
+/// <ul>
+/// <li>
+/// <p class="rosetta__paragraph">Each brace pair that has <u>at least one comma</u> associated with it, forms an alternation (whose branches are the brace pair's contents split at its commas). The associated brace and comma characters themselves do not become part of the output.</p>
+/// </li>
+/// <li>
+/// <p class="rosetta__paragraph">Brace characters from pairs without any associated comma, as well as unassociated brace and comma characters, as well as all characters that are not covered by the preceding rules, are instead treated as literals.</p>
+/// </li>
+/// </ul>
+/// </li>
+/// </ul><br/><p class="rosetta__paragraph">For every possible input string, your implementation should produce exactly the output which this specification mandates. Please comply with this even when it's inconvenient, to ensure that all implementations are comparable. However, none of the above should be interpreted as instructions (or even recommendations) for <span class="rosetta__text--bold">how</span> to implement it. Try to come up with a solution that is idiomatic in your programming language. <span class="rosetta__text--italic">(See <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/#Perl" title="#Perl">#Perl</a> for a reference implementation.)</span></p>
+/// <br/>
+/// <p class="rosetta__paragraph">{| class="wikitable" style="white-space: nowrap;"</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">! Input<br><small style="font-weight:normal"><span class="rosetta__text--italic">(single string)</span></small></p>
+/// <p class="rosetta__paragraph">! Ouput<br><small style="font-weight:normal"><span class="rosetta__text--italic">(list/array of strings)</span></small></p>
+/// <p class="rosetta__paragraph">|- style="vertical-align:top"</p>
+/// <p class="rosetta__paragraph">|</p>
+/// <p class="rosetta__paragraph"><code>~/{Downloads,Pictures}/*.{jpg,gif,png}</code></p>
+/// <p class="rosetta__paragraph">|</p>
+/// <p class="rosetta__paragraph"><code>~/Downloads/*.jpg</code><br></p>
+/// <p class="rosetta__paragraph"><code>~/Downloads/*.gif</code><br></p>
+/// <p class="rosetta__paragraph"><code>~/Downloads/*.png</code><br></p>
+/// <p class="rosetta__paragraph"><code>~/Pictures/*.jpg</code><br></p>
+/// <p class="rosetta__paragraph"><code>~/Pictures/*.gif</code><br></p>
+/// <p class="rosetta__paragraph"><code>~/Pictures/*.png</code><br></p>
+/// <p class="rosetta__paragraph">|- style="vertical-align:top"</p>
+/// <p class="rosetta__paragraph">|</p>
+/// <p class="rosetta__paragraph"><code>It{{em,alic}iz,erat}e{d,}, please.</code></p>
+/// <p class="rosetta__paragraph">|</p>
+/// <p class="rosetta__paragraph"><code>Itemized, please.</code><br></p>
+/// <p class="rosetta__paragraph"><code>Itemize, please.</code><br></p>
+/// <p class="rosetta__paragraph"><code>Italicized, please.</code><br></p>
+/// <p class="rosetta__paragraph"><code>Italicize, please.</code><br></p>
+/// <p class="rosetta__paragraph"><code>Iterated, please.</code><br></p>
+/// <p class="rosetta__paragraph"><code>Iterate, please.</code><br></p>
+/// <p class="rosetta__paragraph">|- style="vertical-align:top"</p>
+/// <p class="rosetta__paragraph">|</p>
+/// <p class="rosetta__paragraph"><code>{,{,gotta have{ ,\, again\, }}more }cowbell!</code></p>
+/// <p class="rosetta__paragraph">|</p>
+/// <p class="rosetta__paragraph"><code>cowbell!</code><br></p>
+/// <p class="rosetta__paragraph"><code>more cowbell!</code><br></p>
+/// <p class="rosetta__paragraph"><code>gotta have more cowbell!</code><br></p>
+/// <p class="rosetta__paragraph"><code>gotta have\, again\, more cowbell!</code><br></p>
+/// <p class="rosetta__paragraph">|- style="vertical-align:top"</p>
+/// <p class="rosetta__paragraph">|</p>
+/// <p class="rosetta__paragraph"><code>{}} some }{,{\\{ edge, edge} \,}{ cases, {here} \\\\\}</code></p>
+/// <p class="rosetta__paragraph">|</p>
+/// <p class="rosetta__paragraph"><code>{}} some }{,{\\ edge \,}{ cases, {here} \\\\\}</code><br></p>
+/// <p class="rosetta__paragraph"><code>{}} some }{,{\\ edge \,}{ cases, {here} \\\\\}</code></p>
+/// <p class="rosetta__paragraph">|}</p>
+/// <p class="rosetta__paragraph"><hr style="clear:both; margin-bottom:1em;"/></p><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+(function () {
+  'use strict'
+
+  // Index of any closing brace matching the opening brace at iPosn
+  // with the indices of any immediately-enclosed commas
+  function bracePair(tkns, iPosn, iNest, lstCommas) {
+    if (iPosn >= tkns.length || iPosn < 0) return null;
+
+    var t = tkns[iPosn],
+      n = (t === '{') ? iNest + 1 : (t === '}' ? iNest - 1 : iNest),
+      lst = (t === ',' && iNest === 1) ? lstCommas.concat(iPosn) : lstCommas;
+
+    return n ? bracePair(tkns, iPosn + 1, n, lst) : {
+      close: iPosn,
+      commas: lst
+    };
+  }
+
+  // Parse of a SYNTAGM subtree
+  function andTree(dctSofar, tkns) {
+    if (!tkns.length) return [dctSofar, []];
+
+    var dctParse = dctSofar ? dctSofar : {
+        fn: and,
+        args: []
+      },
+
+      head = tkns[0],
+      tail = head ? tkns.slice(1) : [],
+
+      dctBrace = head === '{' ? bracePair(
+        tkns, 0, 0, []
+      ) : null,
+
+      lstOR = dctBrace && dctBrace.close && dctBrace.commas.length ? (
+        splitAt(dctBrace.close + 1, tkns)
+      ) : null;
+
+    return andTree({
+      fn: and,
+      args: dctParse.args.concat(
+        lstOR ? orTree(dctParse, lstOR[0], dctBrace.commas) : head
+      )
+    }, lstOR ? lstOR[1] : tail);
+  }
+
+  // Parse of a PARADIGM subtree
+  function orTree(dctSofar, tkns, lstCommas) {
+    if (!tkns.length) return [dctSofar, []];
+    var iLast = lstCommas.length;
+
+    return {
+      fn: or,
+      args: splitsAt(
+        lstCommas, tkns
+      ).map(function (x, i) {
+        var ts = x.slice(1, i === iLast ? -1 : void 0);
+
+        return ts.length ? ts : [''];
+      }).map(function (ts) {
+        return ts.length > 1 ? andTree(null, ts)[0] : ts[0];
+      })
+    };
+  }
+
+  // List of unescaped braces and commas, and remaining strings
+  function tokens(str) {
+    // Filter function excludes empty splitting artefacts
+    var toS = function (x) {
+      return x.toString();
+    };
+
+    return str.split(/(\\\\)/).filter(toS).reduce(function (a, s) {
+      return a.concat(s.charAt(0) === '\\' ? s : s.split(
+        /(\\*[{,}])/
+      ).filter(toS));
+    }, []);
+  }
+
+  // PARSE TREE OPERATOR (1 of 2)
+  // Each possible head * each possible tail
+  function and(args) {
+    var lng = args.length,
+      head = lng ? args[0] : null,
+      lstHead = "string" === typeof head ? [head] : head;
+
+    return lng ? (
+      1 < lng ? lstHead.reduce(function (a, h) {
+        return a.concat(and(args.slice(1)).map(function (t) {
+          return h + t;
+        }));
+      }, []) : lstHead
+    ) : [];
+  }
+
+  // PARSE TREE OPERATOR (2 of 2)
+  // Each option flattened
+  function or(args) {
+    return args.reduce(function (a, b) {
+      return a.concat(b);
+    }, []);
+  }
+
+  // One list split into two (first sublist length n)
+  function splitAt(n, lst) {
+    return n < lst.length + 1 ? [lst.slice(0, n), lst.slice(n)] : [lst, []];
+  }
+
+  // One list split into several (sublist lengths [n])
+  function splitsAt(lstN, lst) {
+    return lstN.reduceRight(function (a, x) {
+      return splitAt(x, a[0]).concat(a.slice(1));
+    }, [lst]);
+  }
+
+  // Value of the parse tree
+  function evaluated(e) {
+    return typeof e === 'string' ? e :
+      e.fn(e.args.map(evaluated));
+  }
+
+  // JSON prettyprint (for parse tree, token list etc)
+  function pp(e) {
+    return JSON.stringify(e, function (k, v) {
+      return typeof v === 'function' ? (
+        '[function ' + v.name + ']'
+      ) : v;
+    }, 2)
+  }
+
+
+  // MAIN
+
+  // s -> [s]
+  function expansions(s) {
+    // BRACE EXPRESSION PARSED
+    var dctParse = andTree(null, tokens(s))[0];
+
+    // ABSTRACT SYNTAX TREE LOGGED
+    console.log(pp(dctParse));
+
+    // AST EVALUATED TO LIST OF STRINGS
+    return evaluated(dctParse);
+  }
+
+
+  // Sample expressions, double-escaped for quotation in source code.
+  var lstTests = [
+    '~/{Downloads,Pictures}/*.{jpg,gif,png}',
+    'It{{em,alic}iz,erat}e{d,}, please.',
+    '{,{,gotta have{ ,\\, again\\, }}more }cowbell!',
+    '{}} some }{,{\\\\{ edge, edge} \\,}{ cases, {here} \\\\\\\\\\}'
+  ];
+
+
+  // 1. Return each expression with an indented list of its expansions, while
+  // 2. logging each parse tree to the console.log() stream
+
+  return lstTests.map(function (s) {
+    return s + '\n\n' + expansions(s).map(function (x) {
+      return '   ' + x;
+    }).join('\n');
+  }).join('\n\n');
+
+})();
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+
+===ES5 Functional===
+
+Without importing Node.js libraries, JavaScript doesn't immediately have access to anything like Haskell's Parsec, but using a functional idiom of JavaScript, and emphasising clarity more than optimisation, we can separate out the tokenizing from the parsing, and the parsing from the generation of strings, to build a function which:
+:#returns the set of expansions for each brace expression, and 
+:#logs a pretty-printed abstract syntax tree for each expression to the console (in a JSON format).
+
+Each node of the parse tree consists of one of two simple functions (AND: syntagmatic concatenation, OR: flattening of paradigms) with a set of arguments, each of which may be a plain string or an AND or OR subtree. The expansions are derived by evaluating the parse tree as an expression.
+
+<lang JavaScript>(function () {
+  'use strict'
+
+  // Index of any closing brace matching the opening brace at iPosn
+  // with the indices of any immediately-enclosed commas
+  function bracePair(tkns, iPosn, iNest, lstCommas) {
+    if (iPosn >= tkns.length || iPosn < 0) return null;
+
+    var t = tkns[iPosn],
+      n = (t === '{') ? iNest + 1 : (t === '}' ? iNest - 1 : iNest),
+      lst = (t === ',' && iNest === 1) ? lstCommas.concat(iPosn) : lstCommas;
+
+    return n ? bracePair(tkns, iPosn + 1, n, lst) : {
+      close: iPosn,
+      commas: lst
+    };
+  }
+
+  // Parse of a SYNTAGM subtree
+  function andTree(dctSofar, tkns) {
+    if (!tkns.length) return [dctSofar, []];
+
+    var dctParse = dctSofar ? dctSofar : {
+        fn: and,
+        args: []
+      },
+
+      head = tkns[0],
+      tail = head ? tkns.slice(1) : [],
+
+      dctBrace = head === '{' ? bracePair(
+        tkns, 0, 0, []
+      ) : null,
+
+      lstOR = dctBrace && dctBrace.close && dctBrace.commas.length ? (
+        splitAt(dctBrace.close + 1, tkns)
+      ) : null;
+
+    return andTree({
+      fn: and,
+      args: dctParse.args.concat(
+        lstOR ? orTree(dctParse, lstOR[0], dctBrace.commas) : head
+      )
+    }, lstOR ? lstOR[1] : tail);
+  }
+
+  // Parse of a PARADIGM subtree
+  function orTree(dctSofar, tkns, lstCommas) {
+    if (!tkns.length) return [dctSofar, []];
+    var iLast = lstCommas.length;
+
+    return {
+      fn: or,
+      args: splitsAt(
+        lstCommas, tkns
+      ).map(function (x, i) {
+        var ts = x.slice(1, i === iLast ? -1 : void 0);
+
+        return ts.length ? ts : [''];
+      }).map(function (ts) {
+        return ts.length > 1 ? andTree(null, ts)[0] : ts[0];
+      })
+    };
+  }
+
+  // List of unescaped braces and commas, and remaining strings
+  function tokens(str) {
+    // Filter function excludes empty splitting artefacts
+    var toS = function (x) {
+      return x.toString();
+    };
+
+    return str.split(/(\\\\)/).filter(toS).reduce(function (a, s) {
+      return a.concat(s.charAt(0) === '\\' ? s : s.split(
+        /(\\*[{,}])/
+      ).filter(toS));
+    }, []);
+  }
+
+  // PARSE TREE OPERATOR (1 of 2)
+  // Each possible head * each possible tail
+  function and(args) {
+    var lng = args.length,
+      head = lng ? args[0] : null,
+      lstHead = "string" === typeof head ? [head] : head;
+
+    return lng ? (
+      1 < lng ? lstHead.reduce(function (a, h) {
+        return a.concat(and(args.slice(1)).map(function (t) {
+          return h + t;
+        }));
+      }, []) : lstHead
+    ) : [];
+  }
+
+  // PARSE TREE OPERATOR (2 of 2)
+  // Each option flattened
+  function or(args) {
+    return args.reduce(function (a, b) {
+      return a.concat(b);
+    }, []);
+  }
+
+  // One list split into two (first sublist length n)
+  function splitAt(n, lst) {
+    return n < lst.length + 1 ? [lst.slice(0, n), lst.slice(n)] : [lst, []];
+  }
+
+  // One list split into several (sublist lengths [n])
+  function splitsAt(lstN, lst) {
+    return lstN.reduceRight(function (a, x) {
+      return splitAt(x, a[0]).concat(a.slice(1));
+    }, [lst]);
+  }
+
+  // Value of the parse tree
+  function evaluated(e) {
+    return typeof e === 'string' ? e :
+      e.fn(e.args.map(evaluated));
+  }
+
+  // JSON prettyprint (for parse tree, token list etc)
+  function pp(e) {
+    return JSON.stringify(e, function (k, v) {
+      return typeof v === 'function' ? (
+        '[function ' + v.name + ']'
+      ) : v;
+    }, 2)
+  }
+
+
+  // MAIN
+
+  // s -> [s]
+  function expansions(s) {
+    // BRACE EXPRESSION PARSED
+    var dctParse = andTree(null, tokens(s))[0];
+
+    // ABSTRACT SYNTAX TREE LOGGED
+    console.log(pp(dctParse));
+
+    // AST EVALUATED TO LIST OF STRINGS
+    return evaluated(dctParse);
+  }
+
+
+  // Sample expressions, double-escaped for quotation in source code.
+  var lstTests = [
+    '~/{Downloads,Pictures}/*.{jpg,gif,png}',
+    'It{{em,alic}iz,erat}e{d,}, please.',
+    '{,{,gotta have{ ,\\, again\\, }}more }cowbell!',
+    '{}} some }{,{\\\\{ edge, edge} \\,}{ cases, {here} \\\\\\\\\\}'
+  ];
+
+
+  // 1. Return each expression with an indented list of its expansions, while
+  // 2. logging each parse tree to the console.log() stream
+
+  return lstTests.map(function (s) {
+    return s + '\n\n' + expansions(s).map(function (x) {
+      return '   ' + x;
+    }).join('\n');
+  }).join('\n\n');
+
+})();</lang>
+
+Value returned by function:
+
+<pre>~/{Downloads,Pictures}/*.{jpg,gif,png}
+
+   ~/Downloads/*.jpg
+   ~/Downloads/*.gif
+   ~/Downloads/*.png
+   ~/Pictures/*.jpg
+   ~/Pictures/*.gif
+   ~/Pictures/*.png
+
+It{{em,alic}iz,erat}e{d,}, please.
+
+   Itemized, please.
+   Itemize, please.
+   Italicized, please.
+   Italicize, please.
+   Iterated, please.
+   Iterate, please.
+
+{,{,gotta have{ ,\, again\, }}more }cowbell!
+
+   cowbell!
+   more cowbell!
+   gotta have more cowbell!
+   gotta have\, again\, more cowbell!
+
+{}} some }{,{\\{ edge, edge} \,}{ cases, {here} \\\\\}
+
+   {}} some }{,{\\ edge \,}{ cases, {here} \\\\\}
+   {}} some }{,{\\ edge \,}{ cases, {here} \\\\\}</pre>
+
+Sample of parse trees logged to the console:
+
+<lang JavaScript>{
+  "fn": "[function and]",
+  "args": [
+    "It",
+    {
+      "fn": "[function or]",
+      "args": [
+        {
+          "fn": "[function and]",
+          "args": [
+            {
+              "fn": "[function or]",
+              "args": [
+                "em",
+                "alic"
+              ]
+            },
+            "iz"
+          ]
+        },
+        "erat"
+      ]
+    },
+    "e",
+    {
+      "fn": "[function or]",
+      "args": [
+        "d",
+        ""
+      ]
+    },
+    ",",
+    " please."
+  ]
+}</lang>
+
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,0 +1,46 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Call a foreign-language function
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Show how a <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Foreign function interface" title="Foreign function interface">foreign language function</a> can be called from the language.</p>
+/// <br/><p class="rosetta__paragraph">As an example, consider calling functions defined in the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/C" title="C">C</a> language. Create a string containing "Hello World!" of the string type typical to the language. Pass the string content to <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/C" title="C">C</a>'s <code>strdup</code>. The content can be copied if necessary. Get the result from <code>strdup</code> and print it using language means. Do not forget to free the result of <code>strdup</code> (allocated in the heap).</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Notes:</dt></dl>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">It is not mandated if the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/C" title="C">C</a> run-time library is to be loaded statically or dynamically. You are free to use either way.</li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/C++" title="C++">C++</a> and <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/C" title="C">C</a> solutions can take some other language to communicate with.</li>
+/// <li class="rosetta__list-item--unordered">It is <span class="rosetta__text--italic">not</span> mandatory to use <code>strdup</code>, especially if the foreign function interface being demonstrated makes that uninformative.</li></ul><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">See also:</dt></dl>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"> <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Use another language to call a function" title="Use another language to call a function">Use another language to call a function</a></li></ul><br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

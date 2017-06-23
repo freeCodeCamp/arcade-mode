@@ -1,0 +1,275 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Hamming numbers
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Hamming numbers" title="wp: Hamming numbers">Hamming numbers</a></span> are numbers of the form</p>
+/// <p class="rosetta__paragraph"><big><big> H  =  2<sup>i</sup> &times; 3<sup>j</sup> &times; 5<sup>k</sup> </big></big></p>
+/// <p class="rosetta__paragraph">where</p>
+/// <p class="rosetta__paragraph"><big>      i, j, k  ≥  0 </big></p><br/><p class="rosetta__paragraph"><span class="rosetta__text--italic">Hamming numbers</span>  are also known as  <span class="rosetta__text--italic">ugly numbers</span>  and also  <span class="rosetta__text--italic">5-smooth numbers</span>  (numbers whose prime divisors are less or equal to 5).</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Generate the sequence of Hamming numbers, <span class="rosetta__text--italic">in increasing order</span>.  In particular:</p>
+/// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">Show the  first twenty  Hamming numbers.</li>
+/// <li class="rosetta__list-item--ordered">Show the  1691<sup>st</sup>  Hamming number (the last one below  2<sup>31</sup>).</li>
+/// <li class="rosetta__list-item--ordered">Show the  one million<sup>th</sup>  Hamming number (if the language – or a convenient library – supports arbitrary-precision integers).</li></ol><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">References:</dt></dl>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Hamming numbers" title="wp: Hamming numbers">Hamming numbers</a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Smooth number" title="wp: Smooth number">Smooth number</a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--wiki" href="http://dobbscodetalk.com/index.php?option=com_content&task=view&id=913&Itemid=85" title="link: http://dobbscodetalk.com/index.php?option=com_content&task=view&id=913&Itemid=85">Hamming problem</a> from Dr. Dobb's CodeTalk (dead link as of Sep 2011; parts of the thread <a class="rosetta__link--wiki" href="http://drdobbs.com/blogs/architecture-and-design/228700538" title="link: http://drdobbs.com/blogs/architecture-and-design/228700538">here</a> and <a class="rosetta__link--wiki" href="http://www.jsoftware.com/jwiki/Essays/Hamming%20Number" title="link: http://www.jsoftware.com/jwiki/Essays/Hamming%20Number">here</a>).</li></ul><br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+function hamming() {
+    var queues = {2: [], 3: [], 5: []};
+    var base;
+    var next_ham = 1;
+    while (true) {
+        yield next_ham;
+
+        for (base in queues) {queues[base].push(next_ham * base)}
+
+        next_ham = [ queue[0] for each (queue in queues) ].reduce(function(min, val) {
+            return Math.min(min,val)
+        });
+
+        for (base in queues) {if (queues[base][0] == next_ham) queues[base].shift()}
+    }
+}
+
+var ham = hamming();
+var first20=[], i=1;
+
+for (; i <= 20; i++) 
+    first20.push(ham.next());
+print(first20.join(', '));
+print('...');
+for (; i <= 1690; i++) 
+    ham.next();
+print(i + " => " + ham.next());
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+{{works with|JavaScript|1.7}} {{works with|Firefox|2}}
+{{trans|Ruby}}
+This does not calculate the 1,000,000th Hamming number.
+
+Note the use of <code>'''for''' (x in obj)</code> to iterate over the ''properties'' of an object, versus <code>'''for each''' (y in obj)</code> to iterate over the ''values'' of the properties of an object.
+<lang javascript>function hamming() {
+    var queues = {2: [], 3: [], 5: []};
+    var base;
+    var next_ham = 1;
+    while (true) {
+        yield next_ham;
+
+        for (base in queues) {queues[base].push(next_ham * base)}
+
+        next_ham = [ queue[0] for each (queue in queues) ].reduce(function(min, val) {
+            return Math.min(min,val)
+        });
+
+        for (base in queues) {if (queues[base][0] == next_ham) queues[base].shift()}
+    }
+}
+
+var ham = hamming();
+var first20=[], i=1;
+
+for (; i <= 20; i++) 
+    first20.push(ham.next());
+print(first20.join(', '));
+print('...');
+for (; i <= 1690; i++) 
+    ham.next();
+print(i + " => " + ham.next());</lang>
+{{out}}
+<pre>1, 2, 3, 4, 5, 6, 8, 9, 10, 12, 15, 16, 18, 20, 24, 25, 27, 30, 32, 36
+...
+1691 => 2125764000 </pre>
+
+===Fast & complete version===
+
+{{trans|C#}}
+
+A translation of my fast C# version. I was curious to see how much slower JavaScript is. The result: it runs about 5x times slower than C#, though YMMV. You can try it yourself here: http://jsfiddle.net/N7AFN/
+
+--Mike Lorenz
+
+<lang javascript><html>
+<head></head>
+<body>
+    <div id="main"></div>
+</body>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="http://peterolson.github.com/BigInteger.js/BigInteger.min.js"></script>
+<script type="text/javascript">
+    var _primes = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37];
+
+    function log(text) {
+        $('#main').append(text + "\n");
+    }
+
+    function big(exponents) {
+        var i, e, val = bigInt.one;
+        for (i = 0; i < exponents.length; i++)
+            for (e = 0; e < exponents[i]; e++)
+                val = val.times(_primes[i]);
+        return val.toString();
+    }
+
+    function hamming(n, nprimes) {
+        var i, iter, p, q, min, equal, x;
+
+        var hammings = new Array(n);                            // array of hamming #s we generate
+        hammings[0] = new Array(nprimes);
+        for (p = 0; p < nprimes; p++) {
+            hammings[0][p] = 0;
+        }
+
+        var hammlogs = new Array(n);                            // log values for above
+        hammlogs[0] = 0;
+
+        var primelogs = new Array(nprimes);                     // pre-calculated prime log values
+        var listlogs  = new Array(nprimes);                     // log values of list heads
+        for (p = 0; p < nprimes; p++) {
+            primelogs[p] = listlogs[p] = Math.log(_primes[p]);
+        }
+
+        var indexes = new Array(nprimes);                       // intermediate hamming values as indexes into hammings
+        for (p = 0; p < nprimes; p++) {
+            indexes[p] = 0;
+        }
+
+        var listheads = new Array(nprimes);                     // intermediate hamming list heads
+        for (p = 0; p < nprimes; p++) {
+            listheads[p] = new Array(nprimes);
+            for (q = 0; q < nprimes; q++) {
+                listheads[p][q] = 0;
+            }
+            listheads[p][p] = 1;
+        }
+
+        for (iter = 1; iter < n; iter++) {
+            min = 0;
+            for (p = 1; p < nprimes; p++)
+                if (listlogs[p] < listlogs[min])
+                    min = p;
+            hammlogs[iter] = listlogs[min];                     // that's the next hamming number
+            hammings[iter] = listheads[min].slice();
+            for (p = 0; p < nprimes; p++) {                     // update each list head if it matches new value
+                equal = true;                                   // test each exponent to see if number matches
+                for (i = 0; i < nprimes; i++) {
+                    if (hammings[iter][i] != listheads[p][i]) {
+                        equal = false;
+                        break;
+                    }
+                }
+                if (equal) {                                    // if it matches...
+                    x = ++indexes[p];                           // set index to next hamming number
+                    listheads[p] = hammings[x].slice();         // copy hamming number
+                    listheads[p][p] += 1;                       // increment exponent = mult by prime
+                    listlogs[p] = hammlogs[x] + primelogs[p];   // add log(prime) to log(value) = mult by prime
+                }
+            }
+        }
+
+        return hammings[n - 1];
+    }
+
+    $(document).ready(function() {
+        var i, nprimes;
+        var t = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,1691,1000000];
+
+        for (nprimes = 3; nprimes <= 4; nprimes++) {
+            var start = new Date();
+            log('<h1>' + _primes[nprimes - 1] + '-Smooth:' + '</h1>');
+            log('<table>');
+            for (i = 0; i < t.length; i++)
+                log('<tr>' + '<td>' + t[i] + ':' + '</td><td>' + big(hamming(t[i], nprimes)) + '</td>');
+            var end = new Date();
+            log('<tr>' + '<td>' + 'Elapsed time:' + '</td><td>' + (end-start)/1000 + ' seconds' +  '</td>');
+            log('</table>');
+        }
+    });
+</script>
+</html></lang>
+
+{{out}}
+<pre>5-Smooth:
+
+1:		1
+2:		2
+3:		3
+4:		4
+5:		5
+6:		6
+7:		8
+8:		9
+9:		10
+10:		12
+11:		15
+12:		16
+13:		18
+14:		20
+15:		24
+16:		25
+17:		27
+18:		30
+19:		32
+20:		36
+1691:		2125764000
+1000000:	519312780448388736089589843750000000000000000000000000000000000000000000000000000000
+Elapsed time:	1.73 seconds
+
+7-Smooth:
+
+1:		1
+2:		2
+3:		3
+4:		4
+5:		5
+6:		6
+7:		7
+8:		8
+9:		9
+10:		10
+11:		12
+12:		14
+13:		15
+14:		16
+15:		18
+16:		20
+17:		21
+18:		24
+19:		25
+20:		27
+1691:		3317760
+1000000:	4157409948433216829957008507500000000
+Elapsed time:	1.989 seconds</pre>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

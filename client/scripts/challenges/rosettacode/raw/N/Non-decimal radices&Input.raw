@@ -1,0 +1,99 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Non-decimal radices/Input
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <p class="rosetta__paragraph">It is common to have a string containing a number written in some format, with the most common ones being decimal, hexadecimal, octal and binary. Such strings are found in many places (user interfaces, configuration files, XML data, network protocols, etc.)</p><br/><p class="rosetta__paragraph">This task requires parsing of such a string (which may be assumed to contain nothing else) using the language's built-in facilities if possible. Parsing of decimal strings is required, parsing of other formats is optional but should be shown (i.e., if the language can parse in base-19 then that should be illustrated).</p><br/><p class="rosetta__paragraph">The solutions may assume that the base of the number in the string is known. In particular, if your language has a facility to guess the base of a number by looking at a prefix (e.g. "0x" for hexadecimal) or other distinguishing syntax as it parses it, please show that.</p><br/><p class="rosetta__paragraph">The reverse operation is in task <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Non-decimal radices/Output" title="Non-decimal radices/Output">Non-decimal radices/Output</a></p><br/><p class="rosetta__paragraph">For general number base conversion, see <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Non-decimal radices/Convert" title="Non-decimal radices/Convert">Non-decimal radices/Convert</a>.</p><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
++"0123459"; // 123459
++"0xabcf123"; // 180154659
+
+// also supports negative numbers, but not for hex:
++"-0123459"; // -123459
++"-0xabcf123"; // NaN
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+For base 10 and 16 ("0x"-prefixed), (but not 8), it is fastest to parse strings using the unary plus (+) operator:
+<lang javascript>+"0123459"; // 123459
++"0xabcf123"; // 180154659
+
+// also supports negative numbers, but not for hex:
++"-0123459"; // -123459
++"-0xabcf123"; // NaN</lang>
+See http://www.jibbering.com/faq/notes/type-conversion/#tcNumber for more information.
+
+The <code>parseInt(''string'',''radix'')</code> core function is the reverse of the <code>''number''.toString(''radix'')</code> method.  The following is taken from [http://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Global_Functions/parseInt#Example.3a_Using_parseInt Mozilla's JavaScript 1.5 reference].
+
+<div style='height:40ex; overflow:scroll'>The following examples all return 15:
+
+<lang javascript>parseInt(" 0xF", 16);
+parseInt(" F", 16);
+parseInt("17", 8);
+parseInt(021, 8);
+parseInt("015", 10);
+parseInt(15.99, 10);
+parseInt("FXX123", 16);
+parseInt("1111", 2);
+parseInt("15*3", 10);
+parseInt("15e2", 10);
+parseInt("15px", 10);
+parseInt("12", 13);</lang>
+
+The following examples all return NaN:
+
+<lang javascript>parseInt("Hello", 8); // Not a number at all
+parseInt("546", 2);   // Digits are not valid for binary representations</lang>
+
+The following examples all return -15:
+
+<lang javascript>parseInt("-F", 16);
+parseInt("-0F", 16);
+parseInt("-0XF", 16);
+parseInt(-10, 16);
+parseInt(-15.1, 10)
+parseInt(" -17", 8);
+parseInt(" -15", 10);
+parseInt("-1111", 2);
+parseInt("-15e1", 10);
+parseInt("-12", 13);</lang>
+
+The following example returns 224:
+
+<lang javascript>parseInt("0e0", 16);</lang>
+
+Although it is optional, most implementations interpret a numeric string beginning with a leading '0' as octal. The following may have an octal result.
+
+<lang javascript>parseInt("0e0"); // 0
+parseInt("08"); // 0, '8' is not an octal digit.</lang></div>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

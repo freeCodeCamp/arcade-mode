@@ -1,0 +1,334 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Compiler/lexical analyzer
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><p class="rosetta__paragraph">Lexical Analyzer</p><br/><p class="rosetta__paragraph">Definition from <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Lexical_analysis" title="link: https://en.wikipedia.org/wiki/Lexical_analysis">Wikipedia</a>:</p><br/><p class="rosetta__paragraph"><span class="rosetta__text--indented"> <span class="rosetta__text--italic">Lexical analysis is the process of converting a sequence of characters (such as in a computer program or web page) into a sequence of tokens (strings with an identified "meaning"). A program that performs lexical analysis may be called a lexer, tokenizer, or scanner (though "scanner" is also used to refer to the first stage of a lexer).</span></span></p>
+/// <br/>
+/// <p class="rosetta__paragraph">Create a lexical analyzer for the simple programming language specified below.  The</p>
+/// <p class="rosetta__paragraph">program should read input from a file and/or stdin, and write output to a file and/or</p>
+/// <p class="rosetta__paragraph">stdout.  If the language being used has a lexer module/library/class, it would be great</p>
+/// <p class="rosetta__paragraph">if two versions of the solution are provided:  One without the lexer module, and one with.</p>
+/// <br/>
+/// <p class="rosetta__paragraph">The simple programming language to be analyzed is more or less a subset of <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/C" title="C">C</a>. It supports the following tokens:</p><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Operators</dt></dl><br/><p class="rosetta__paragraph">{| class="wikitable"</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">!  Name          !!  Common name         !!  Character sequence</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">|  <tt>Op_multiply</tt>     ||  multiply              ||  <tt>*</tt></p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">|  <tt>Op_divide</tt>       ||  divide                ||  <tt>/</tt></p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">|  <tt>Op_mod</tt>          ||  mod                   ||  <tt>%</tt></p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">|  <tt>Op_add</tt>          ||  plus                  ||  <tt>+</tt></p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">|  <tt>Op_subtract</tt>     ||  minus                 ||  <tt>-</tt></p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">|  <tt>Op_negate</tt>       ||  unary minus           ||  <tt>-</tt></p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">|  <tt>Op_less</tt>         ||  less than             ||  <tt><</tt></p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">|  <tt>Op_lessequal</tt>    ||  less than or equal    ||  <tt><=</tt></p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">|  <tt>Op_greater</tt>      ||  greater than          ||  <tt>&gt;</tt></p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">|  <tt>Op_greaterequal</tt> ||  greater than or equal ||  <tt>&gt;=</tt></p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">|  <tt>Op_equal</tt>        ||  equal                 ||  <tt>==</tt></p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">|  <tt>Op_notequal</tt>     ||  not equal             ||  <tt>&#33;=</tt></p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">|  <tt>Op_not</tt>          ||  unary not             ||  <tt>&#33;</tt></p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">|  <tt>Op_assign</tt>       ||  assignment            ||  <tt>=</tt></p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">|  <tt>Op_and</tt>          ||  logical and           ||  <tt>&amp;&amp;</tt></p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">|  <tt>Op_or</tt>           ||  logical or            ||  <tt>&brvbar;&brvbar;</tt></p>
+/// <p class="rosetta__paragraph">|}</p><br/><ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">The <code>-</code> token should always be interpreted as <tt>Op_subtract</tt> by the lexer. Turning some <tt>Op_subtract</tt> into <tt>Op_negate</tt> will be the job of the syntax analyzer, which is not part of this task.</li></ul>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Symbols</dt></dl><br/><p class="rosetta__paragraph">{| class="wikitable"</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">!  Name        !!  Common name        !!  Character</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">|  <tt>LeftParen</tt>   ||  left parenthesis   ||  <tt>(</tt></p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">|  <tt>RightParen</tt>  ||  right parenthesis  ||  <tt>)</tt></p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">|  <tt>LeftBrace</tt>   ||  left brace         ||  <tt>{</tt></p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">|  <tt>RightBrace</tt>  ||  right brace        ||  <tt>}</tt></p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">|  <tt>Semicolon</tt>   ||  semi-colon         ||  <tt>&#59;</tt></p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">|  <tt>Comma</tt>       ||  comma              ||  <tt>,</tt></p>
+/// <p class="rosetta__paragraph">|}</p><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Keywords</dt></dl><br/><p class="rosetta__paragraph">{| class="wikitable"</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">!  Name           ||  Character sequence</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">|  <tt>Keyword_if</tt>     ||  <tt>if</tt></p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">|  <tt>Keyword_else</tt>   ||  <tt>else</tt></p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">|  <tt>Keyword_while</tt>  ||  <tt>while</tt></p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">|  <tt>Keyword_print</tt>  ||  <tt>print</tt></p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">|  <tt>Keyword_putc</tt>   ||  <tt>putc</tt></p>
+/// <p class="rosetta__paragraph">|}</p><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Identifiers and literals</dt></dl><br/><p class="rosetta__paragraph">These differ from the the previous tokens, in that each occurrence of them has a value associated with it.</p><br/><p class="rosetta__paragraph">{| class="wikitable"</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">!  Name</p>
+/// <p class="rosetta__paragraph">!  Common name</p>
+/// <p class="rosetta__paragraph">!  Format description</p>
+/// <p class="rosetta__paragraph">!  Format regex</p>
+/// <p class="rosetta__paragraph">!  Value</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">|  <tt>Identifier</tt></p>
+/// <p class="rosetta__paragraph">|  identifier</p>
+/// <p class="rosetta__paragraph">|  one or more letter/number/underscore characters, but not starting with a number</p>
+/// <p class="rosetta__paragraph">|  <code style="white-space:nowrap">[_a-zA-Z][_a-zA-Z0-9]*</code></p>
+/// <p class="rosetta__paragraph">|  as is</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">|  <tt>Integer</tt></p>
+/// <p class="rosetta__paragraph">|  integer literal</p>
+/// <p class="rosetta__paragraph">|  one or more digits</p>
+/// <p class="rosetta__paragraph">|  <code>[0-9]+</code></p>
+/// <p class="rosetta__paragraph">|  as is, interpreted as a number</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">|  <tt>Integer</tt></p>
+/// <p class="rosetta__paragraph">|  char literal</p>
+/// <p class="rosetta__paragraph">|  exactly one character (anything except newline or single quote) or one of the allowed escape sequences, enclosed by single quotes</p>
+/// <p class="rosetta__paragraph">|  <code><nowiki>'([^'\n]|\\n|\\\\)'</nowiki></code></p>
+/// <p class="rosetta__paragraph">|  the ASCII code point number of the character, e.g. 65 for <code>'A'</code> and 10 for <code>'\n'</code></p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">|  <tt>String</tt></p>
+/// <p class="rosetta__paragraph">|  string literal</p>
+/// <p class="rosetta__paragraph">|  zero or more characters (anything except newline or double quote), enclosed by double quotes</p>
+/// <p class="rosetta__paragraph">|  <code>"[^"\n]*"</code></p>
+/// <p class="rosetta__paragraph">|  the characters without the double quotes and with escape sequences converted</p>
+/// <p class="rosetta__paragraph">|}</p><br/><ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">For char and string literals, the <code>\n</code> escape sequence is supported to represent a new-line character.</li>
+/// <li class="rosetta__list-item--unordered">For char and string literals, to represent a backslash, use <code>\\</code>.</li>
+/// <li class="rosetta__list-item--unordered">No other special sequences are supported. This means that:</li>
+/// <li class="rosetta__list-item--unordered">* Char literals cannot represent a single quote character (value 39).</li>
+/// <li class="rosetta__list-item--unordered">* String literals cannot represent strings containing double quote characters.</li></ul>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Zero-width tokens</dt></dl><br/><p class="rosetta__paragraph">{| class="wikitable"</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">!  Name           ||  Location</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">|  <tt>End_of_input</tt>     ||  when the end of the input stream is reached</p>
+/// <p class="rosetta__paragraph">|}</p><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">White space</dt></dl><br/><ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Zero or more whitespace characters, or comments enclosed in <code>/* ... */</code>, are allowed between any two tokens, with the exceptions noted below.</li>
+/// <li class="rosetta__list-item--unordered">"Longest token matching" is used to resolve conflicts (e.g., in order to match <span class="rosetta__text--bold"><=</span> as a single token rather than the two tokens <span class="rosetta__text--bold"><</span> and <span class="rosetta__text--bold">=</span>).</li>
+/// <li class="rosetta__list-item--unordered">Whitespace is <span class="rosetta__text--italic">required</span> between two tokens that have an alphanumeric character or underscore at the edge.</li>
+/// <li class="rosetta__list-item--unordered">* This means: keywords, identifiers, and integer literals.</li>
+/// <li class="rosetta__list-item--unordered">* e.g. <code>ifprint</code> is recognized as an identifier, instead of the keywords <tt>if</tt> and <tt>print</tt>.</li>
+/// <li class="rosetta__list-item--unordered">* e.g. <code>42fred</code> is invalid, and neither recognized as a number nor an identifier.</li>
+/// <li class="rosetta__list-item--unordered">Whitespace is <span class="rosetta__text--italic">not allowed</span> inside of tokens (except for chars and strings where they are part of the value).</li>
+/// <li class="rosetta__list-item--unordered">* e.g. <code>& &</code> is invalid, and not interpreted as the <tt>&&</tt> operator.</li></ul>
+/// <p class="rosetta__paragraph">For example, the following two program fragments are equivalent, and should produce the same token stream except for the line and column positions:</p><br/><ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"><lang c>if ( p /* meaning n is prime */ ) {</li></ul>    print ( n , " " ) ;
+/// <p class="rosetta__paragraph">count = count + 1 ; /* number of primes found so far */</p>
+/// <p class="rosetta__paragraph">}</lang></p>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"><lang c>if(p){print(n," ");count=count+1;}</lang></li></ul>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Complete list of token names</dt></dl><br/><div class="rosetta__pre-wrap"><pre class="rosetta__pre">
+/// End_of_input  Op_multiply   Op_divide     Op_mod       Op_add     Op_subtract
+/// Op_negate     Op_not        Op_less       Op_lessequal Op_greater Op_greaterequal
+/// Op_equal      Op_notequal   Op_assign     Op_and       Op_or      Keyword_if
+/// Keyword_else  Keyword_while Keyword_print Keyword_putc LeftParen  RightParen
+/// LeftBrace     RightBrace    Semicolon     Comma        Identifier Integer
+/// String
+/// </pre></div>
+/// <br/>
+/// <p class="rosetta__paragraph">The program output should be a sequence of lines, each consisting of the following whitespace-separated fields:</p><br/><ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">the line number where the token starts</li>
+/// <li class="rosetta__list-item--ordered">the column number where the token starts</li>
+/// <li class="rosetta__list-item--ordered">the token name</li>
+/// <li class="rosetta__list-item--ordered">the token value (only for <tt>Identifier</tt>, <tt>Integer</tt>, and <tt>String</tt> tokens)</li>
+/// <li class="rosetta__list-item--ordered">the number of spaces between fields is up to you.  Neatly aligned is nice, but not a requirement.</li></ol>
+/// <br/><p class="rosetta__paragraph">The following error conditions should be caught:</p><br/><p class="rosetta__paragraph">{| class="wikitable"</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">! Error</p>
+/// <p class="rosetta__paragraph">! Example</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| Empty character constant</p>
+/// <p class="rosetta__paragraph">| <code>&apos;&apos;</code></p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| Unknown escape sequence.</p>
+/// <p class="rosetta__paragraph">| <code>\r</code></p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| Multi-character constant.</p>
+/// <p class="rosetta__paragraph">| <code>&apos;xx&apos;</code></p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| End-of-file in comment.     Closing comment characters not found.</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| End-of-file while scanning string literal. Closing string character not found.</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| End-of-line while scanning string literal. Closing string character not found before end-of-line.</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| Unrecognized character.</p>
+/// <p class="rosetta__paragraph">| <code>&#124;</code></p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| Invalid number. Starts like a number, but ends in non-numeric characters.</p>
+/// <p class="rosetta__paragraph">| <code>123abc</code></p>
+/// <p class="rosetta__paragraph">|}</p>
+/// <br/>
+/// <p class="rosetta__paragraph">{| class="wikitable"</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">! Input</p>
+/// <p class="rosetta__paragraph">! Output</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| style="vertical-align:top" |</p>
+/// <p class="rosetta__paragraph">Test Case 1:</p>
+/// <p class="rosetta__paragraph"><lang c>/*</p>
+/// <p class="rosetta__paragraph">Hello world</p>
+/// <p class="rosetta__paragraph">*/</p>
+/// <p class="rosetta__paragraph">print("Hello, World!\n");</lang></p><br/><p class="rosetta__paragraph">| style="vertical-align:top" |</p>
+/// <p class="rosetta__paragraph"><b><div class="rosetta__pre-wrap"><pre class="rosetta__pre">
+///     4      1 Keyword_print
+///     4      6 LeftParen
+///     4      7 String         "Hello, World!\n"
+///     4     24 RightParen
+///     4     25 Semicolon
+///     5      1 End_of_input
+/// </pre></div></b></p><br/><p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| style="vertical-align:top" |</p>
+/// <p class="rosetta__paragraph">Test Case 2:</p>
+/// <p class="rosetta__paragraph"><lang c>/*</p>
+/// <p class="rosetta__paragraph">Show Ident and Integers</p>
+/// <p class="rosetta__paragraph">*/</p>
+/// <p class="rosetta__paragraph">phoenix_number = 142857;</p>
+/// <p class="rosetta__paragraph">print(phoenix_number, "\n");</lang></p><br/><p class="rosetta__paragraph">| style="vertical-align:top" |</p>
+/// <p class="rosetta__paragraph"><b><div class="rosetta__pre-wrap"><pre class="rosetta__pre">
+///     4      1 Identifier     phoenix_number
+///     4     16 Op_assign
+///     4     18 Integer         142857
+///     4     24 Semicolon
+///     5      1 Keyword_print
+///     5      6 LeftParen
+///     5      7 Identifier     phoenix_number
+///     5     21 Comma
+///     5     23 String         "\n"
+///     5     27 RightParen
+///     5     28 Semicolon
+///     6      1 End_of_input
+/// </pre></div></b></p><br/><p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| style="vertical-align:top" |</p>
+/// <p class="rosetta__paragraph">Test Case 3:</p>
+/// <p class="rosetta__paragraph"><lang c>/*</p>
+/// <p class="rosetta__paragraph">All lexical tokens - not syntactically correct, but that will</p>
+/// <p class="rosetta__paragraph">have to wait until syntax analysis</p>
+/// <p class="rosetta__paragraph">*/</p>
+/// <p class="rosetta__paragraph">/* Print   */  print    /* Sub     */  -</p>
+/// <p class="rosetta__paragraph">/* Putc    */  putc     /* Lss     */  <</p>
+/// <p class="rosetta__paragraph">/* If      */  if       /* Gtr     */  ></p>
+/// <p class="rosetta__paragraph">/* Else    */  else     /* Leq     */  <=</p>
+/// <p class="rosetta__paragraph">/* While   */  while    /* Geq     */  >=</p>
+/// <p class="rosetta__paragraph">/* Lbrace  */  {        /* Eq      */  ==</p>
+/// <p class="rosetta__paragraph">/* Rbrace  */  }        /* Neq     */  !=</p>
+/// <p class="rosetta__paragraph">/* Lparen  */  (        /* And     */  &&</p>
+/// <p class="rosetta__paragraph">/* Rparen  */  )        /* Or      */  ||</p>
+/// <p class="rosetta__paragraph">/* Uminus  */  -        /* Semi    */  ;</p>
+/// <p class="rosetta__paragraph">/* Not     */  !        /* Comma   */  ,</p>
+/// <p class="rosetta__paragraph">/* Mul     */  *        /* Assign  */  =</p>
+/// <p class="rosetta__paragraph">/* Div     */  /        /* Integer */  42</p>
+/// <p class="rosetta__paragraph">/* Mod     */  %        /* String  */  "String literal"</p>
+/// <p class="rosetta__paragraph">/* Add     */  +        /* Ident   */  variable_name</p>
+/// <p class="rosetta__paragraph">/* character literal */  '\n'</p>
+/// <p class="rosetta__paragraph">/* character literal */  '\\'</p>
+/// <p class="rosetta__paragraph">/* character literal */  ' '</lang></p><br/><p class="rosetta__paragraph">| style="vertical-align:top" |</p>
+/// <p class="rosetta__paragraph"><b><div class="rosetta__pre-wrap"><pre class="rosetta__pre">
+///     5     16   Keyword_print
+///     5     40   Op_subtract
+///     6     16   Keyword_putc
+///     6     40   Op_less
+///     7     16   Keyword_if
+///     7     40   Op_greater
+///     8     16   Keyword_else
+///     8     40   Op_lessequal
+///     9     16   Keyword_while
+///     9     40   Op_greaterequal
+///    10     16   LeftBrace
+///    10     40   Op_equal
+///    11     16   RightBrace
+///    11     40   Op_notequal
+///    12     16   LeftParen
+///    12     40   Op_and
+///    13     16   RightParen
+///    13     40   Op_or
+///    14     16   Op_subtract
+///    14     40   Semicolon
+///    15     16   Op_not
+///    15     40   Comma
+///    16     16   Op_multiply
+///    16     40   Op_assign
+///    17     16   Op_divide
+///    17     40   Integer             42
+///    18     16   Op_mod
+///    18     40   String          "String literal"
+///    19     16   Op_add
+///    19     40   Identifier      variable_name
+///    20     26   Integer             10
+///    21     26   Integer             92
+///    22     26   Integer             32
+///    23      1   End_of_input
+/// </pre></div></b></p><br/><p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| style="vertical-align:top" |</p>
+/// <p class="rosetta__paragraph">Test Case 4:</p>
+/// <p class="rosetta__paragraph"><lang c>/*** test printing, embedded \n and comments with lots of '*' ***/</p>
+/// <p class="rosetta__paragraph">print(42);</p>
+/// <p class="rosetta__paragraph">print("\nHello World\nGood Bye\nok\n");</p>
+/// <p class="rosetta__paragraph">print("Print a slash n - \\n.\n");</lang></p><br/><p class="rosetta__paragraph">| style="vertical-align:top" |</p>
+/// <p class="rosetta__paragraph"><b><div class="rosetta__pre-wrap"><pre class="rosetta__pre">
+///     2      1 Keyword_print
+///     2      6 LeftParen
+///     2      7 Integer            42
+///     2      9 RightParen
+///     2     10 Semicolon
+///     3      1 Keyword_print
+///     3      6 LeftParen
+///     3      7 String          "\nHello World\nGood Bye\nok\n"
+///     3     38 RightParen
+///     3     39 Semicolon
+///     4      1 Keyword_print
+///     4      6 LeftParen
+///     4      7 String          "Print a slash n - \\n.\n"
+///     4     33 RightParen
+///     4     34 Semicolon
+///     5      1 End_of_input
+/// </pre></div></b></p><br/><p class="rosetta__paragraph">|}</p><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title"> Additional examples</dt></dl><br/><p class="rosetta__paragraph">Your solution should pass all the test cases above and the additional tests found <span class="rosetta__text--bold"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/Sample_programs" title="Compiler/Sample_programs">Here</a></span>.</p>
+/// <br/>
+/// <p class="rosetta__paragraph">The C and Python versions can be considered reference implementations.</p><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Related Tasks</dt></dl><br/><ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/syntax_analyzer" title="Compiler/syntax_analyzer">Syntax Analyzer task</a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/code_generator" title="Compiler/code_generator">Code Generator task</a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/virtual_machine_interpreter" title="Compiler/virtual_machine_interpreter">Virtual Machine Interpreter task</a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/AST_interpreter" title="Compiler/AST_interpreter">AST Interpreter task</a></li></ul>
+/// <p class="rosetta__paragraph"><hr></p>
+/// <p class="rosetta__paragraph">__TOC__</p><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

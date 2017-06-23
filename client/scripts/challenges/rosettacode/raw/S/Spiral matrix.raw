@@ -1,0 +1,278 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Spiral matrix
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Produce a spiral array.</p>
+/// <br/><p class="rosetta__paragraph">A  <span class="rosetta__text--italic">spiral array</span>  is a square arrangement of the first  <big> N<sup>2</sup></big>  natural numbers,  where the</p>
+/// <br>numbers increase sequentially as you go around the edges of the array spiraling inwards.
+/// <br/><p class="rosetta__paragraph">For example, given  <span class="rosetta__text--bold">5</span>,  produce this array:</p>
+/// <div class="rosetta__pre-wrap"><pre class="rosetta__pre">
+///  0  1  2  3  4
+/// 15 16 17 18  5
+/// 14 23 24 19  6
+/// 13 22 21 20  7
+/// 12 11 10  9  8
+/// </pre></div>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks:</dt></dl>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"> <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Zig-zag matrix" title="Zig-zag matrix">Zig-zag matrix</a> </li>
+/// <li class="rosetta__list-item--unordered"> <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Identity_matrix" title="Identity_matrix">Identity_matrix</a></li>
+/// <li class="rosetta__list-item--unordered"> <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Ulam_spiral_(for_primes)" title="Ulam_spiral_(for_primes)">Ulam_spiral_(for_primes)</a></li></ul><br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+spiralArray = function (edge) {
+    var arr = Array(edge),
+        x = 0, y = edge,
+        total = edge * edge--,
+        dx = 1, dy = 0,
+        i = 0, j = 0;
+    while (y) arr[--y] = [];
+    while (i < total) {
+        arr[y][x] = i++;
+        x += dx; y += dy;
+        if (++j == edge) {
+            if (dy < 0) {x++; y++; edge -= 2}
+            j = dx; dx = -dy; dy = j; j = 0;
+       }
+    }
+    return arr;
+}
+
+// T E S T:
+arr = spiralArray(edge = 5);
+for (y= 0; y < edge; y++) console.log(arr[y].join(" "));
+
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+
+===Imperative===
+
+<lang javascript>spiralArray = function (edge) {
+    var arr = Array(edge),
+        x = 0, y = edge,
+        total = edge * edge--,
+        dx = 1, dy = 0,
+        i = 0, j = 0;
+    while (y) arr[--y] = [];
+    while (i < total) {
+        arr[y][x] = i++;
+        x += dx; y += dy;
+        if (++j == edge) {
+            if (dy < 0) {x++; y++; edge -= 2}
+            j = dx; dx = -dy; dy = j; j = 0;
+       }
+    }
+    return arr;
+}
+
+// T E S T:
+arr = spiralArray(edge = 5);
+for (y= 0; y < edge; y++) console.log(arr[y].join(" "));
+</lang>
+{{out}}
+<pre>
+0 1 2 3 4
+15 16 17 18 5
+14 23 24 19 6
+13 22 21 20 7
+12 11 10 9 8</pre>
+
+===Functional===
+
+====ES5====
+
+Translating one of the Haskell versions:
+
+<lang JavaScript>(function (n) {
+
+  // Spiral: the first row plus a smaller spiral rotated 90 degrees clockwise
+  function spiral(lngRows, lngCols, nStart) {
+    return lngRows ? [range(nStart, (nStart + lngCols) - 1)].concat(
+      transpose(
+        spiral(lngCols, lngRows - 1, nStart + lngCols)
+      ).map(reverse)
+    ) : [
+      []
+    ];
+  }
+
+  // rows and columns transposed (for 90 degree rotation)
+  function transpose(lst) {
+    return lst.length > 1 ? lst[0].map(function (_, col) {
+      return lst.map(function (row) {
+        return row[col];
+      });
+    }) : lst;
+  }
+
+  // elements in reverse order (for 90 degree rotation)
+  function reverse(lst) {
+    return lst.length > 1 ? lst.reduceRight(function (acc, x) {
+      return acc.concat(x);
+    }, []) : lst;
+  }
+
+  // [m..n]
+  function range(m, n) {
+    return Array.apply(null, Array(n - m + 1)).map(function (x, i) {
+      return m + i;
+    });
+  }
+
+  // TESTING
+  
+  var lstSpiral = spiral(n, n, 0);
+
+
+  // OUTPUT FORMATTING - JSON and wikiTable
+  function wikiTable(lstRows, blnHeaderRow, strStyle) {
+    return '{| class="wikitable" ' + (
+      strStyle ? 'style="' + strStyle + '"' : ''
+    ) + lstRows.map(function (lstRow, iRow) {
+      var strDelim = ((blnHeaderRow && !iRow) ? '!' : '|');
+
+      return '\n|-\n' + strDelim + ' ' + lstRow.map(function (v) {
+        return typeof v === 'undefined' ? ' ' : v;
+      }).join(' ' + strDelim + strDelim + ' ');
+    }).join('') + '\n|}';
+  }
+
+  return [
+    wikiTable(
+
+      lstSpiral,
+
+      false,
+      'text-align:center;width:12em;height:12em;table-layout:fixed;'
+    ),
+    
+    JSON.stringify(lstSpiral)
+  ].join('\n\n');
+
+})(5);</lang>
+
+Output:
+
+{| class="wikitable" style="text-align:center;width:12em;height:12em;table-layout:fixed;"
+|-
+| 0 || 1 || 2 || 3 || 4
+|-
+| 15 || 16 || 17 || 18 || 5
+|-
+| 14 || 23 || 24 || 19 || 6
+|-
+| 13 || 22 || 21 || 20 || 7
+|-
+| 12 || 11 || 10 || 9 || 8
+|}
+
+<lang JavaScript>[[0,1,2,3,4],[15,16,17,18,5],[14,23,24,19,6],[13,22,21,20,7],[12,11,10,9,8]]</lang>
+
+
+====ES6====
+
+<lang JavaScript>(n => {
+
+    // spiral :: the first row plus a smaller spiral rotated 90 degrees clockwise
+    // spiral :: Int -> Int -> Int -> [[Int]]
+    function spiral(lngRows, lngCols, nStart) {
+        return lngRows ? [range(nStart, (nStart + lngCols) - 1)]
+            .concat(
+                transpose(
+                    spiral(lngCols, lngRows - 1, nStart + lngCols)
+                )
+                .map(reverse)
+            ) : [[]];
+    }
+
+    // transpose :: [[a]] -> [[a]]
+    function transpose(xs) {
+        return xs[0]
+            .map((_, iCol) => xs
+                .map((row) => row[iCol]));
+    }
+
+    // reverse :: [a] -> [a]
+    function reverse(xs) {
+        return xs.slice(0)
+            .reverse();
+    }
+
+    // range(intFrom, intTo, optional intStep)
+    // Int -> Int -> Maybe Int -> [Int]
+    function range(m, n, step) {
+        let d = (step || 1) * (n >= m ? 1 : -1);
+
+        return Array.from({
+            length: Math.floor((n - m) / d) + 1
+        }, (_, i) => m + (i * d));
+    }
+
+
+
+    // TESTING
+
+    // replicate :: Int -> String -> String
+    function replicate(n, a) {
+        var v = [a],
+            o = '';
+
+        if (n < 1) return o;
+        while (n > 1) {
+            if (n & 1) o = o + v;
+            n >>= 1;
+            v = v + v;
+        }
+        return o + v;
+    }
+
+
+    return spiral(n, n, 0)
+        .map(
+            xs => xs.map(x => {
+                let s = `${x}`;
+                return replicate(4 - s.length, ' ') + s;
+            })
+            .join('')
+        )
+        .join('\n');
+
+})(5);</lang>
+
+
+<pre> 0   1   2   3   4
+15  16  17  18   5
+14  23  24  19   6
+13  22  21  20   7
+12  11  10   9   8</pre>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

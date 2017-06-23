@@ -1,0 +1,216 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Vector products
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><br/><p class="rosetta__paragraph">A vector is defined as having three dimensions as being represented by an ordered collection of three numbers:  (X, Y, Z).</p><br/><p class="rosetta__paragraph">If you imagine a graph with the  <span class="rosetta__text--bold">x</span>  and  <span class="rosetta__text--bold">y</span>  axis being at right angles to each other and having a third,  <span class="rosetta__text--bold">z</span>  axis coming out of the page, then a triplet of numbers,  (X, Y, Z)  would represent a point in the region,  and a vector from the origin to the point.</p><br/><p class="rosetta__paragraph">Given the vectors:</p>
+/// <p class="rosetta__paragraph"><big> A = (a<sub>1</sub>,  a<sub>2</sub>,  a<sub>3</sub>) </big></p>
+/// <p class="rosetta__paragraph"><big> B = (b<sub>1</sub>,  b<sub>2</sub>,  b<sub>3</sub>) </big></p>
+/// <p class="rosetta__paragraph"><big> C = (c<sub>1</sub>,  c<sub>2</sub>,  c<sub>3</sub>) </big></p>
+/// <p class="rosetta__paragraph">then the following common vector products are defined:</p>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"><span class="rosetta__text--bold">The dot product</span>    (a scalar quantity)</li></ul><span class="rosetta__text--indented">::: <big> A • B = a<sub>1</sub>b<sub>1</sub>  +  a<sub>2</sub>b<sub>2</sub>  +   a<sub>3</sub>b<sub>3</sub> </big> </span>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"><span class="rosetta__text--bold">The cross product</span>    (a vector quantity)</li></ul><span class="rosetta__text--indented">::: <big> A x B = (a<sub>2</sub>b<sub>3</sub>  -  a<sub>3</sub>b<sub>2</sub>,   a<sub>3</sub>b<sub>1</sub>  -  a<sub>1</sub>b<sub>3</sub>,   a<sub>1</sub>b<sub>2</sub>  -  a<sub>2</sub>b<sub>1</sub>) </big> </span>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"><span class="rosetta__text--bold">The scalar triple product</span>    (a scalar quantity)</li></ul><span class="rosetta__text--indented">::: <big> A • (B x C) </big></span>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"><span class="rosetta__text--bold">The vector triple product</span>    (a vector quantity)</li></ul><span class="rosetta__text--indented">::: <big> A x (B x C) </big></span>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Given the three vectors:</p>
+/// <p class="rosetta__paragraph">a = ( 3,    4,    5)</p>
+/// <p class="rosetta__paragraph">b = ( 4,    3,    5)</p>
+/// <p class="rosetta__paragraph">c = (-5,  -12,  -13)</p>
+/// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">Create a named function/subroutine/method to compute the dot product of two vectors.</li>
+/// <li class="rosetta__list-item--ordered">Create a function to compute the cross product of two vectors.</li>
+/// <li class="rosetta__list-item--ordered">Optionally create a function to compute the scalar triple product of three vectors.</li>
+/// <li class="rosetta__list-item--ordered">Optionally create a function to compute the vector triple product of three vectors.</li>
+/// <li class="rosetta__list-item--ordered">Compute and display: <code>a • b</code></li>
+/// <li class="rosetta__list-item--ordered">Compute and display: <code>a x b</code></li>
+/// <li class="rosetta__list-item--ordered">Compute and display: <code>a • b x c</code>, the scalar triple product.</li>
+/// <li class="rosetta__list-item--ordered">Compute and display: <code>a x b x c</code>, the vector triple product.</li></ol><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">References:</dt></dl>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"> A starting page on Wolfram MathWorld is  .</li>
+/// <li class="rosetta__list-item--unordered"> Wikipedia  <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Dot product" title="wp: Dot product">dot product</a>, </li></ul><span class="rosetta__text--indented">  Wikipedia  <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Cross product" title="wp: Cross product">cross product</a> </span>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">  Wikipedia  <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Triple product" title="wp: Triple product">triple product</a> entries.</span></p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks:</dt></dl>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"> <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Dot product" title="Dot product">Dot product</a></li>
+/// <li class="rosetta__list-item--unordered"> <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Quaternion type" title="Quaternion type">Quaternion type</a></li></ul><br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+function dotProduct() {
+  var len = arguments[0] && arguments[0].length;
+  var argsLen = arguments.length;
+  var i, j = len;
+  var prod, sum = 0;
+  
+  // If no arguments supplied, return undefined
+  if (!len) {
+    return;
+  }
+  
+  // If all vectors not same length, return undefined
+  i = argsLen;
+  while (i--) {
+  
+    if (arguments[i].length != len) {
+      return;  // return undefined
+    }
+  }
+  
+  // Sum terms
+  while (j--) {
+    i = argsLen;
+    prod = 1;
+    
+    while (i--) {
+      prod *= arguments[i][j];
+    }
+    sum += prod;
+  }
+  return sum;
+}
+
+function crossProduct(a, b) {
+
+  // Check lengths
+  if (a.length != 3 || b.length != 3) {
+     return;
+  }
+  
+  return [a[1]*b[2] - a[2]*b[1],
+          a[2]*b[0] - a[0]*b[2],
+          a[0]*b[1] - a[1]*b[0]];
+          
+}
+
+function scalarTripleProduct(a, b, c) {
+  return dotProduct(a, crossProduct(b, c));
+}
+
+function vectorTripleProduct(a, b, c) {
+  return crossProduct(a, crossProduct(b, c));
+}
+
+// Run tests
+(function () {
+  var a = [3, 4, 5];
+  var b = [4, 3, 5];
+  var c = [-5, -12, -13];
+  
+  alert(
+    'A . B: ' + dotProduct(a, b) +
+    '\n' +
+    'A x B: ' + crossProduct(a, b) +
+    '\n' +
+    'A . (B x C): ' + scalarTripleProduct(a, b, c) +
+    '\n' +
+    'A x (B x C): ' + vectorTripleProduct(a, b, c)
+  ); 
+}());
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+The <code>dotProduct()</code> function is generic and will create a dot product of any set of vectors provided they are all the same dimension.
+The <code>crossProduct()</code> function expects two 3D vectors.
+<lang javascript>function dotProduct() {
+  var len = arguments[0] && arguments[0].length;
+  var argsLen = arguments.length;
+  var i, j = len;
+  var prod, sum = 0;
+  
+  // If no arguments supplied, return undefined
+  if (!len) {
+    return;
+  }
+  
+  // If all vectors not same length, return undefined
+  i = argsLen;
+  while (i--) {
+  
+    if (arguments[i].length != len) {
+      return;  // return undefined
+    }
+  }
+  
+  // Sum terms
+  while (j--) {
+    i = argsLen;
+    prod = 1;
+    
+    while (i--) {
+      prod *= arguments[i][j];
+    }
+    sum += prod;
+  }
+  return sum;
+}
+
+function crossProduct(a, b) {
+
+  // Check lengths
+  if (a.length != 3 || b.length != 3) {
+     return;
+  }
+  
+  return [a[1]*b[2] - a[2]*b[1],
+          a[2]*b[0] - a[0]*b[2],
+          a[0]*b[1] - a[1]*b[0]];
+          
+}
+
+function scalarTripleProduct(a, b, c) {
+  return dotProduct(a, crossProduct(b, c));
+}
+
+function vectorTripleProduct(a, b, c) {
+  return crossProduct(a, crossProduct(b, c));
+}
+
+// Run tests
+(function () {
+  var a = [3, 4, 5];
+  var b = [4, 3, 5];
+  var c = [-5, -12, -13];
+  
+  alert(
+    'A . B: ' + dotProduct(a, b) +
+    '\n' +
+    'A x B: ' + crossProduct(a, b) +
+    '\n' +
+    'A . (B x C): ' + scalarTripleProduct(a, b, c) +
+    '\n' +
+    'A x (B x C): ' + vectorTripleProduct(a, b, c)
+  ); 
+}());</lang>
+Output:
+<pre>
+A . B: 49
+A x B: 5,5,-7
+A . (B x C): 6
+A x (B x C): -267,204,-3
+</pre>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,0 +1,63 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: HTTP
+/// type: rosetta-code
+
+/// categories:
+/// Networking and Web Interaction
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Access and print a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Uniform Resource Locator" title="wp: Uniform Resource Locator">URL's</a> content (the located resource) to the console.</p><br/><p class="rosetta__paragraph">There is a separate task for <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/HTTPS Request" title="HTTPS Request">HTTPS Request</a>s.</p>
+/// <br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+var req = new XMLHttpRequest();
+req.onload = function() {
+  console.log(this.responseText);
+};
+
+req.open('get', 'http://rosettacode.org', true);
+req.send()
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+<lang JavaScript>var req = new XMLHttpRequest();
+req.onload = function() {
+  console.log(this.responseText);
+};
+
+req.open('get', 'http://rosettacode.org', true);
+req.send()</lang>
+
+Using jQuery:
+
+<lang JavaScript>$.get('http://rosettacode.org', function(data) {
+  console.log(data);
+};</lang>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

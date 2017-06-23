@@ -1,0 +1,265 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Casting out nines
+/// type: rosetta-code
+
+/// categories:
+/// Checksums
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task  (in three parts):</dt></dl>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Part 1</dt></dl>
+/// <p class="rosetta__paragraph">Write a procedure (say $\mathit{co9}(x)$) which implements <a class="rosetta__link--wiki" href="http://mathforum.org/library/drmath/view/55926.html" title="link: http://mathforum.org/library/drmath/view/55926.html">Casting Out Nines</a> as described by returning the checksum for $x$. Demonstrate the procedure using the examples given there, or others you may consider lucky.</p><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Part 2</dt></dl>
+/// <p class="rosetta__paragraph">Notwithstanding past Intel microcode errors, checking computer calculations like this would not be sensible. To find a computer use for your procedure:</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented"> Consider the statement "318682 is 101558 + 217124 and squared is 101558217124" (see: <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Kaprekar numbers#Casting Out Nines (fast)" title="Kaprekar numbers#Casting Out Nines (fast)">Kaprekar numbers#Casting Out Nines (fast)</a>).</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented"> note that $318682$ has the same checksum as ($101558 + 217124$);</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented"> note that $101558217124$ has the same checksum as ($101558 + 217124$) because for a Kaprekar they are made up of the same digits (sometimes with extra zeroes);</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented"> note that this implies that for Kaprekar numbers the checksum of $k$ equals the checksum of $k^2$.</span></p><br/><p class="rosetta__paragraph">Demonstrate that your procedure can be used to generate or filter a range of numbers with the property $\mathit{co9}(k) = \mathit{co9}(k^2)$ and show that this subset is a small proportion of the range and contains all the Kaprekar in the range.</p><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Part 3</dt></dl>
+/// <p class="rosetta__paragraph">Considering <a class="rosetta__link--wiki" href="http://mathworld.wolfram.com/CastingOutNines.html" title="link: http://mathworld.wolfram.com/CastingOutNines.html">this MathWorld page</a>, produce a efficient algorithm based on the more mathematical treatment of Casting Out Nines, and realizing:</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented"> $\mathit{co9}(x)$ is the residual of $x$ mod $9$;</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented"> the procedure can be extended to bases other than 9.</span></p><br/><p class="rosetta__paragraph">Demonstrate your algorithm by generating or filtering a range of numbers with the property $k%(\mathit{Base}-1) == (k^2)%(\mathit{Base}-1)$ and show that this subset is a small proportion of the range and contains all the Kaprekar in the range.</p>
+/// <br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+function main(s, e, bs, pbs) {
+    bs = bs || 10;
+    pbs = pbs || 10
+    document.write('start:', toString(s), ' end:', toString(e),
+        ' base:', bs, ' printBase:', pbs)
+    document.write('<br>castOutNine: ');
+    castOutNine()
+    document.write('<br>kaprekar: ');
+    kaprekar()
+    document.write('<br><br>')
+
+    function castOutNine() {
+        for (var n = s, k = 0, bsm1 = bs - 1; n <= e; n += 1)
+            if (n % bsm1 == (n * n) % bsm1) k += 1,
+                document.write(toString(n), ' ')
+        document.write('<br>trying ', k, ' numbers instead of ', n = e - s + 1,
+            ' numbers saves ', (100 - k / n * 100)
+            .toFixed(3), '%')
+    }
+
+    function kaprekar() {
+        for (var n = s; n <= e; n += 1)
+            if (isKaprekar(n)) document.write(toString(n), ' ')
+
+        function isKaprekar(n) {
+            if (n < 1) return false
+            if (n == 1) return true
+            var s = (n * n)
+                .toString(bs)
+            for (var i = 1, e = s.length; i < e; i += 1) {
+                var a = parseInt(s.substr(0, i), bs)
+                var b = parseInt(s.substr(i), bs)
+                if (b && a + b == n) return true
+            }
+            return false
+        }
+    }
+
+    function toString(n) {
+        return n.toString(pbs)
+            .toUpperCase()
+    }
+}
+main(1, 10 * 10 - 1)
+main(1, 16 * 16 - 1, 16)
+main(1, 17 * 17 - 1, 17)
+main(parseInt('10', 17), parseInt('gg', 17), 17, 17)
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+===ES5===
+Assuming the context of a web page:
+<lang JavaScript>function main(s, e, bs, pbs) {
+    bs = bs || 10;
+    pbs = pbs || 10
+    document.write('start:', toString(s), ' end:', toString(e),
+        ' base:', bs, ' printBase:', pbs)
+    document.write('<br>castOutNine: ');
+    castOutNine()
+    document.write('<br>kaprekar: ');
+    kaprekar()
+    document.write('<br><br>')
+
+    function castOutNine() {
+        for (var n = s, k = 0, bsm1 = bs - 1; n <= e; n += 1)
+            if (n % bsm1 == (n * n) % bsm1) k += 1,
+                document.write(toString(n), ' ')
+        document.write('<br>trying ', k, ' numbers instead of ', n = e - s + 1,
+            ' numbers saves ', (100 - k / n * 100)
+            .toFixed(3), '%')
+    }
+
+    function kaprekar() {
+        for (var n = s; n <= e; n += 1)
+            if (isKaprekar(n)) document.write(toString(n), ' ')
+
+        function isKaprekar(n) {
+            if (n < 1) return false
+            if (n == 1) return true
+            var s = (n * n)
+                .toString(bs)
+            for (var i = 1, e = s.length; i < e; i += 1) {
+                var a = parseInt(s.substr(0, i), bs)
+                var b = parseInt(s.substr(i), bs)
+                if (b && a + b == n) return true
+            }
+            return false
+        }
+    }
+
+    function toString(n) {
+        return n.toString(pbs)
+            .toUpperCase()
+    }
+}
+main(1, 10 * 10 - 1)
+main(1, 16 * 16 - 1, 16)
+main(1, 17 * 17 - 1, 17)
+main(parseInt('10', 17), parseInt('gg', 17), 17, 17)</lang>
+{{Out}}
+<pre>start:1 end:99 base:10 printBase:10
+castOutNine: 1 9 10 18 19 27 28 36 37 45 46 54 55 63 64 72 73 81 82 90 91 99 
+trying 22 numbers instead of 99 numbers saves 77.778%
+kaprekar: 1 9 45 55 99 
+
+start:1 end:255 base:16 printBase:10
+castOutNine: 1 6 10 15 16 21 25 30 31 36 40 45 46 51 55 60 61 66 70 75 76 81 85 90 91 96 100 105 106 111 115 120 121 126 130 135 136
+141 145 150 151 156 160 165 166 171 175 180 181 186 190 195 196 201 205 210 211 216 220 225 226 231 235 240 241 246 250 255 
+trying 68 numbers instead of 255 numbers saves 73.333%
+kaprekar: 1 6 10 15 51 85 91 120 136 171 205 255 
+
+start:1 end:288 base:17 printBase:10
+castOutNine: 1 16 17 32 33 48 49 64 65 80 81 96 97 112 113 128 129 144 145 160 161 176 177 192 193 208 209 224 225 240 241 256 257 272 273 288 
+trying 36 numbers instead of 288 numbers saves 87.500%
+kaprekar: 1 16 64 225 288 
+
+start:10 end:GG base:17 printBase:17
+castOutNine: 10 1F 1G 2E 2F 3D 3E 4C 4D 5B 5C 6A 6B 79 7A 88 89 97 98 A6 A7 B5 B6 C4 C5 D3 D4 E2 E3 F1 F2 G0 G1 GG 
+trying 34 numbers instead of 272 numbers saves 87.500%
+kaprekar: 3D D4 GG </pre>
+
+===ES6===
+{{Trans|Haskell}}
+<lang JavaScript>(() => {
+    'use strict';
+
+    // co9 :: Int -> Int
+    const co9 = n =>
+        n <= 8 ? n : co9(
+            digits(10, n)
+            .reduce((a, x) => x !== 9 ? a + x : a, 0)
+        );
+
+    // GENERIC FUNCTIONS
+
+    // digits :: Int -> Int -> [Int]
+    const digits = (base, n) => {
+        if (n < base) return [n];
+        const [q, r] = quotRem(n, base);
+        return [r].concat(digits(base, q));
+    };
+
+    // quotRem :: Integral a => a -> a -> (a, a)
+    const quotRem = (m, n) => [Math.floor(m / n), m % n];
+
+    // range :: Int -> Int -> [Int]
+    const range = (m, n) =>
+        Array.from({
+            length: Math.floor(n - m) + 1
+        }, (_, i) => m + i);
+
+    // squared :: Num a => a -> a
+    const squared = n => Math.pow(n, 2);
+
+    // show :: a -> String
+    const show = x => JSON.stringify(x, null, 2);
+
+    // TESTS
+    return show({
+        test1: co9(232345), //-> 1
+        test2: co9(34234234), //-> 7
+        test3: co9(232345 + 34234234) === co9(232345) + co9(34234234), //-> true
+        test4: co9(232345 * 34234234) === co9(232345) * co9(34234234), //-> true,
+        task2: range(1, 100)
+            .filter(n => co9(n) === co9(squared(n))),
+        task3: (k => range(1, 100)
+            .filter(n => (n % k) === (squared(n) % k)))(16)
+    });
+})();</lang>
+{{Out}}
+<pre>{
+  "test1": 1,
+  "test2": 7,
+  "test3": true,
+  "test4": true,
+  "task2": [
+    1,
+    9,
+    10,
+    18,
+    19,
+    27,
+    28,
+    36,
+    37,
+    45,
+    46,
+    54,
+    55,
+    63,
+    64,
+    72,
+    73,
+    81,
+    82,
+    90,
+    91,
+    99,
+    100
+  ],
+  "task3": [
+    1,
+    16,
+    17,
+    32,
+    33,
+    48,
+    49,
+    64,
+    65,
+    80,
+    81,
+    96,
+    97
+  ]
+}</pre>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

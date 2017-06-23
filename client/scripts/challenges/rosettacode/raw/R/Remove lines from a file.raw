@@ -1,0 +1,41 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Remove lines from a file
+/// type: rosetta-code
+
+/// categories:
+/// File handling
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Remove a specific line or a number of lines from a file.</p><br/><p class="rosetta__paragraph">This should be implemented as a routine that takes three parameters (filename, starting line, and the number of lines to be removed).</p><br/><p class="rosetta__paragraph">For the purpose of this task, line numbers and the number of lines start at one, so to remove the first two lines from the file <tt>foobar.txt</tt>, the parameters should be: <tt>foobar.txt</tt>, <tt>1</tt>, <tt>2</tt></p><br/><p class="rosetta__paragraph">Empty lines are considered and should still be counted, and if the specified line is empty, it should still be removed.</p><br/><p class="rosetta__paragraph">An appropriate message should appear if an attempt is made to remove lines beyond the end of the file.</p>
+/// <br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

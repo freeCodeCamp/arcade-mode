@@ -1,0 +1,55 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Boolean values
+/// type: rosetta-code
+
+/// categories:
+/// Simple
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Show how to represent the boolean states "<span class="rosetta__text--bold">true</span>" and "<span class="rosetta__text--bold">false</span>" in a language.</p><br/><p class="rosetta__paragraph">If other objects represent "<span class="rosetta__text--bold">true</span>" or "<span class="rosetta__text--bold">false</span>" in conditionals, note it.</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks:</dt></dl>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"> <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Logical operations" title="Logical operations">Logical operations</a></li></ul><br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+null
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+The Boolean type has two values: <code>true</code> and <code>false</code>
+
+The following table shows the result of type conversions to boolean:
+* Undefined: any undefined value is converted to <code>false</code>
+* Null: <code>false</code>
+* Number: the numbers <code>0</code>, <code>-0</code>, <code>NaN</code> are <code>false</code>; otherwise <code>true</code>
+* String: the empty (zero-length) string is <code>false</code>; otherwise <code>true</code>
+* Object: any object is converted to <code>true</code>
+
+(source: [http://www.ecma-international.org/publications/standards/Ecma-262.htm ECMAScript Language Reference])
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

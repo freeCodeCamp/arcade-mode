@@ -1,0 +1,63 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Twelve statements
+/// type: rosetta-code
+
+/// categories:
+/// Constraint Handling Rules
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <br/>
+/// <br/>
+/// <p class="rosetta__paragraph">This puzzle is borrowed from  <a class="rosetta__link--wiki" href="http://math-frolic.blogspot.co.uk/2012/08/mind-wrenching.html" title="link: http://math-frolic.blogspot.co.uk/2012/08/mind-wrenching.html">math-frolic.blogspot</a>.</p>
+/// <br/><p class="rosetta__paragraph">Given the following twelve statements, which of them are true?</p>
+/// <div class="rosetta__pre-wrap"><pre class="rosetta__pre">
+///  1.  This is a numbered list of twelve statements.
+///  2.  Exactly 3 of the last 6 statements are true.
+///  3.  Exactly 2 of the even-numbered statements are true.
+///  4.  If statement 5 is true, then statements 6 and 7 are both true.
+///  5.  The 3 preceding statements are all false.
+///  6.  Exactly 4 of the odd-numbered statements are true.
+///  7.  Either statement 2 or 3 is true, but not both.
+///  8.  If statement 7 is true, then 5 and 6 are both true.
+///  9.  Exactly 3 of the first 6 statements are true.
+/// 10.  The next two statements are both true.
+/// 11.  Exactly 1 of statements 7, 8 and 9 are true.
+/// 12.  Exactly 4 of the preceding statements are true.
+/// </pre></div>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">When you get tired of trying to figure it out in your head,</p>
+/// <p class="rosetta__paragraph">write a program to solve it, and print the correct answer or answers.</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Extra credit:</dt></dl>
+/// <p class="rosetta__paragraph">Print out a table of near misses, that is, solutions that are contradicted by only a single statement.</p>
+/// <br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

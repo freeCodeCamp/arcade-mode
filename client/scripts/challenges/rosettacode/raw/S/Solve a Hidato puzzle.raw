@@ -1,0 +1,65 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Solve a Hidato puzzle
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <p class="rosetta__paragraph">The task is to write a program which solves <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Hidato" title="wp: Hidato">Hidato (aka Hidoku) puzzles</a>.</p><br/><p class="rosetta__paragraph">The rules are:</p>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">You are given a grid with some numbers placed in it. The other squares in the grid will be blank.</li>
+/// <li class="rosetta__list-item--unordered">* The grid is not necessarily rectangular.</li>
+/// <li class="rosetta__list-item--unordered">* The grid may have holes in it.</li>
+/// <li class="rosetta__list-item--unordered">* The grid is always connected.</li>
+/// <li class="rosetta__list-item--unordered">* The number “1” is always present, as is another number that is equal to the number of squares in the grid. Other numbers are present so as to force the solution to be unique.</li>
+/// <li class="rosetta__list-item--unordered">* It may be assumed that the difference between numbers present on the grid is not greater than lucky 13.</li>
+/// <li class="rosetta__list-item--unordered">The aim is to place a natural number in each blank square so that in the sequence of numbered squares from “1” upwards, each square is in the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Moore neighborhood]] of the squares immediately before and after it in the sequence (except for the first and last squares, of course, which only have one-sided constraints).</li>
+/// <li class="rosetta__list-item--unordered">* Thus, if the grid was overlaid on a chessboard, a king would be able to make legal moves along the path from first to last square in numerical order.</li>
+/// <li class="rosetta__list-item--unordered">* A square may only contain one number.</li>
+/// <li class="rosetta__list-item--unordered">In a proper Hidato puzzle, the solution is unique.</li></ul>
+/// <br>For example the following problem
+/// <p class="rosetta__paragraph"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:Hidato_Start.png" title="wp: Moore neighborhood" title="File:Hidato_Start.png" title="wp: Moore neighborhood">File:Hidato_Start.png" title="wp: Moore neighborhood</a> of the squares immediately before and after it in the sequence (except for the first and last squares, of course, which only have one-sided constraints).</p>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">* Thus, if the grid was overlaid on a chessboard, a king would be able to make legal moves along the path from first to last square in numerical order.</li>
+/// <li class="rosetta__list-item--unordered">* A square may only contain one number.</li>
+/// <li class="rosetta__list-item--unordered">In a proper Hidato puzzle, the solution is unique.</li></ul>
+/// <br>For example the following problem
+/// <p class="rosetta__paragraph">[[File:Hidato_Start.png">center|Sample Hidato problem, from Wikipedia</a></p><br/><p class="rosetta__paragraph">has the following solution, with path marked on it:</p><br/><p class="rosetta__paragraph"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:HEnd.png" title="File:HEnd.png">center|Solution to sample Hidato problem</a></p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks:</dt></dl>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/A* search algorithm" title="A* search algorithm">A* search algorithm</a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/N-queens problem" title="N-queens problem">N-queens problem</a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Solve a Holy Knight's tour" title="Solve a Holy Knight's tour">Solve a Holy Knight's tour</a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Solve a Knight's tour" title="Solve a Knight's tour">Solve a Knight's tour</a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Solve a Hopido puzzle" title="Solve a Hopido puzzle">Solve a Hopido puzzle</a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Solve a Numbrix puzzle" title="Solve a Numbrix puzzle">Solve a Numbrix puzzle</a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Solve the no connection puzzle" title="Solve the no connection puzzle">Solve the no connection puzzle</a>;</li></ul><br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

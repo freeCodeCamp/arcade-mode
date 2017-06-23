@@ -1,0 +1,63 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Execute a system command
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Run either the  <tt><span class="rosetta__text--bold">ls</span></tt>  system command  (<tt><span class="rosetta__text--bold">dir</span></tt>  on Windows),  or the  <tt><span class="rosetta__text--bold">pause</span></tt>   system command.</p>
+/// <br><br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks</dt></dl>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Get_system_command_output " title="Get_system_command_output "> Get system command output</a></li></ul><br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+var shell = new ActiveXObject("WScript.Shell");
+shell.run("cmd /c dir & pause");
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+JavaScript does not have any facilities to interact with the OS.  However, host environments can provide this ability.
+
+{{works with|JScript}}
+<lang javascript>var shell = new ActiveXObject("WScript.Shell");
+shell.run("cmd /c dir & pause");</lang>
+
+{{works with|Rhino}}
+<lang javascript>runCommand("cmd", "/c", "dir", "d:\\");
+print("===");
+var options = {
+    // can specify arguments here in the options object
+    args: ["/c", "dir", "d:\\"],
+    // capture stdout to the options.output property
+    output: ''
+};
+runCommand("cmd", options);
+print(options.output);</lang>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

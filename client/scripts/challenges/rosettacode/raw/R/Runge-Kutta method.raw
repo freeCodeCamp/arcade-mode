@@ -1,0 +1,148 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Runge-Kutta method
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <p class="rosetta__paragraph">Given the example Differential equation:</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">$y'(t) = t \times \sqrt {y(t)}$</span></p>
+/// <p class="rosetta__paragraph">With initial condition:</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">$t_0 = 0$ and $y_0 = y(t_0) = y(0) = 1$</span></p>
+/// <p class="rosetta__paragraph">This equation has an exact solution:</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">$y(t) = \tfrac{1}{16}(t^2 +4)^2$</span></p>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task</dt></dl>
+/// <p class="rosetta__paragraph">Demonstrate the commonly used explicit  <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Runge–Kutta_methods#Common_fourth-order_Runge.E2.80.93Kutta_method" title="wp: Runge–Kutta_methods#Common_fourth-order_Runge.E2.80.93Kutta_method">fourth-order Runge–Kutta method</a>  to solve the above differential equation.</p>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Solve the given differential equation over the range $t = 0 \ldots 10$ with a step value of $\delta t=0.1$ (101 total points, the first being given)</li>
+/// <li class="rosetta__list-item--unordered">Print the calculated values of $y$ at whole numbered $t$'s ($0.0, 1.0, \ldots 10.0$) along with error as compared to the exact solution.</li></ul><dl class="rosetta__description-list"><dt class="rosetta__description-title">Method summary</dt></dl>
+/// <p class="rosetta__paragraph">Starting with a given $y_n$ and $t_n$ calculate:</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">$\delta y_1 = \delta t\times y'(t_n, y_n)\quad$</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">$\delta y_2 = \delta t\times y'(t_n + \tfrac{1}{2}\delta t , y_n + \tfrac{1}{2}\delta y_1)$</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">$\delta y_3 = \delta t\times y'(t_n + \tfrac{1}{2}\delta t , y_n + \tfrac{1}{2}\delta y_2)$</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">$\delta y_4 = \delta t\times y'(t_n + \delta t , y_n + \delta y_3)\quad$</span></p>
+/// <p class="rosetta__paragraph">then:</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">$y_{n+1} = y_n + \tfrac{1}{6} (\delta y_1 + 2\delta y_2 + 2\delta y_3 + \delta y_4)$</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">$t_{n+1} = t_n + \delta t\quad$</span></p><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+function rk4(y, x, dx, f) {
+    var k1 = dx * f(x, y),
+        k2 = dx * f(x + dx / 2.0,   +y + k1 / 2.0),
+        k3 = dx * f(x + dx / 2.0,   +y + k2 / 2.0),
+        k4 = dx * f(x + dx,         +y + k3);
+
+    return y + (k1 + 2.0 * k2 + 2.0 * k3 + k4) / 6.0;
+}
+
+function f(x, y) {
+    return x * Math.sqrt(y);
+}
+
+function actual(x) {
+    return (1/16) * (x*x+4)*(x*x+4);
+}
+
+var y = 1.0,
+    x = 0.0,
+    step = 0.1,
+    steps = 0,
+    maxSteps = 101,
+    sampleEveryN = 10;
+
+while (steps < maxSteps) {
+    if (steps%sampleEveryN === 0) {
+        console.log("y(" + x + ") =  \t" + y + "\t ± " + (actual(x) - y).toExponential());
+    }
+
+    y = rk4(y, x, step, f);
+
+    // using integer math for the step addition
+    // to prevent floating point errors as 0.2 + 0.1 != 0.3
+    x = ((x * 10) + (step * 10)) / 10;
+    steps += 1;
+}
+
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+<lang JavaScript>
+function rk4(y, x, dx, f) {
+    var k1 = dx * f(x, y),
+        k2 = dx * f(x + dx / 2.0,   +y + k1 / 2.0),
+        k3 = dx * f(x + dx / 2.0,   +y + k2 / 2.0),
+        k4 = dx * f(x + dx,         +y + k3);
+
+    return y + (k1 + 2.0 * k2 + 2.0 * k3 + k4) / 6.0;
+}
+
+function f(x, y) {
+    return x * Math.sqrt(y);
+}
+
+function actual(x) {
+    return (1/16) * (x*x+4)*(x*x+4);
+}
+
+var y = 1.0,
+    x = 0.0,
+    step = 0.1,
+    steps = 0,
+    maxSteps = 101,
+    sampleEveryN = 10;
+
+while (steps < maxSteps) {
+    if (steps%sampleEveryN === 0) {
+        console.log("y(" + x + ") =  \t" + y + "\t ± " + (actual(x) - y).toExponential());
+    }
+
+    y = rk4(y, x, step, f);
+
+    // using integer math for the step addition
+    // to prevent floating point errors as 0.2 + 0.1 != 0.3
+    x = ((x * 10) + (step * 10)) / 10;
+    steps += 1;
+}
+</lang>
+{{out}}
+<pre>
+y(0) =  	1	                 ± 0e+0
+y(1) =  	1.562499854278108	 ± 1.4572189210859676e-7
+y(2) =  	3.999999080520799	 ± 9.194792007782837e-7
+y(3) =  	10.562497090437551	 ± 2.9095624487496252e-6
+y(4) =  	24.999993765090636	 ± 6.234909363911356e-6
+y(5) =  	52.562489180302585	 ± 1.0819697415342944e-5
+y(6) =  	99.99998340540358	 ± 1.659459641700778e-5
+y(7) =  	175.56247648227125	 ± 2.3517728749311573e-5
+y(8) =  	288.9999684347986	 ± 3.156520142510999e-5
+y(9) =  	451.56245927683966	 ± 4.07231603389846e-5
+y(10) =  	675.9999490167097	 ± 5.098329029351589e-5
+</pre>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,0 +1,101 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Respond to an unknown method call
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <p class="rosetta__paragraph">Demonstrate how to make the object respond (sensibly/usefully) to an invocation of a method on it that it does not support through its class definitions. Note that this is not the same as just invoking a defined method whose name is given dynamically; the method named at the point of invocation must not be defined.</p><br/><p class="rosetta__paragraph">This task is intended only for object systems that use a dynamic dispatch mechanism without static checking.</p><br/><p class="rosetta__paragraph">See also <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Send an unknown method call" title="Send an unknown method call">Send an unknown method call</a>.</p><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+obj  = new Proxy({}, 
+        { get : function(target, prop) 
+            { 
+                if(target[prop] === undefined) 
+                    return function()  {
+                        console.log('an otherwise undefined function!!');
+                    };
+                else 
+                    return target[prop];
+            }
+        });
+obj.f()        ///'an otherwise undefined function!!'
+obj.l = function() {console.log(45);};
+obj.l();       ///45
+
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+
+There is a way (a bit unconfortable if you compare it to php´s way), involves using Proxy interface defined on ES 6, it isn´t supported still on all vendors, but for updated info, view [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy MDN proxy] site
+{{works with|Firefox}}
+{{works with|IE}}
+<lang javascript>
+obj  = new Proxy({}, 
+        { get : function(target, prop) 
+            { 
+                if(target[prop] === undefined) 
+                    return function()  {
+                        console.log('an otherwise undefined function!!');
+                    };
+                else 
+                    return target[prop];
+            }
+        });
+obj.f()        ///'an otherwise undefined function!!'
+obj.l = function() {console.log(45);};
+obj.l();       ///45
+</lang>
+Where {} is the object to wrap in the proxy, but it could be a reference to another object, and the second argument to proxy´s constructor are the handlers that supersede the behavior of the target ({}), the 'get' function gets executed '''every time''' a property from target ({}) is needed, in this case, only if the property didn´t existed before, it returns the dynamically generated function.
+
+
+There are more handlers, that go from modify the way properties are added, to how to retrieve __proto__, just read the docs!.
+
+Before Proxy interface, firefox (only) supported a suitable trap:<br>
+<lang javascript>var example = new Object;
+example.foo = function () {
+  alert("this is foo");
+}
+example.bar = function () {
+  alert("this is bar");
+}
+example.__noSuchMethod__ = function (id, args) {
+  alert("tried to handle unknown method " + id);
+  if (args.length != 0)
+    alert("it had arguments: " + args);
+}
+
+example.foo();        // alerts "this is foo"
+example.bar();        // alerts "this is bar"
+example.grill();      // alerts "tried to handle unknown method grill"
+example.ding("dong"); // alerts "tried to handle unknown method ding"
+                      // alerts "it had arguments: dong</lang>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

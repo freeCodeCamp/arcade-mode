@@ -1,0 +1,85 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Sorting algorithms/Gnome sort
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <br/><p class="rosetta__paragraph">Gnome sort is a sorting algorithm which is similar to <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Insertion sort" title="Insertion sort">Insertion sort</a>, except that moving an element to its proper place is accomplished by a series of swaps, as in <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Bubble Sort" title="Bubble Sort">Bubble Sort</a>.</p><br/><p class="rosetta__paragraph">The pseudocode for the algorithm is:</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">function</span> <span class="rosetta__text--italic">gnomeSort</span>(a[0..size-1])</p>
+/// <p class="rosetta__paragraph">i := 1</p>
+/// <p class="rosetta__paragraph">j := 2</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">while</span> i < size <span class="rosetta__text--bold">do</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">if</span> a[i-1] <= a[i] <span class="rosetta__text--bold">then</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--italic">// for descending sort, use >= for comparison</span></p>
+/// <p class="rosetta__paragraph">i := j</p>
+/// <p class="rosetta__paragraph">j := j + 1</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">else</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">swap</span> a[i-1] <span class="rosetta__text--bold">and</span> a[i]</p>
+/// <p class="rosetta__paragraph">i := i - 1</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">if</span> i = 0 <span class="rosetta__text--bold">then</span></p>
+/// <p class="rosetta__paragraph">i := j</p>
+/// <p class="rosetta__paragraph">j := j + 1</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">endif</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">endif</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">done</span></p><br/><p class="rosetta__paragraph"><span class="rosetta__text--bold">Task</span>: implement the Gnome sort in your language to sort an array (or list) of numbers.</p>
+/// </div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+function gnomeSort(a) {
+    function moveBack(i) {
+        for( ; i > 0 && a[i-1] > a[i]; i--) {
+            var t = a[i];
+            a[i] = a[i-1];
+            a[i-1] = t;
+        }
+    }
+    for (var i = 1; i < a.length; i++) {
+        if (a[i-1] > a[i]) moveBack(i);
+    }
+    return a;
+}
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+<lang javascript>function gnomeSort(a) {
+    function moveBack(i) {
+        for( ; i > 0 && a[i-1] > a[i]; i--) {
+            var t = a[i];
+            a[i] = a[i-1];
+            a[i-1] = t;
+        }
+    }
+    for (var i = 1; i < a.length; i++) {
+        if (a[i-1] > a[i]) moveBack(i);
+    }
+    return a;
+}</lang>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

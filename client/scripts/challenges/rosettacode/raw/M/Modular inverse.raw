@@ -1,0 +1,62 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Modular inverse
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><br/><p class="rosetta__paragraph">From <a class="rosetta__link--wiki" href="http://en.wikipedia.org/wiki/Modular_multiplicative_inverse" title="link: http://en.wikipedia.org/wiki/Modular_multiplicative_inverse">Wikipedia</a>:</p><br/><p class="rosetta__paragraph">In <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/modular arithmetic" title="wp: modular arithmetic">modular arithmetic</a>,  the <span class="rosetta__text--bold">modular multiplicative inverse</span> of an <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/integer" title="integer">integer</a>  <big> <span class="rosetta__text--italic">a</span> </big>  <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/modular arithmetic" title="wp: modular arithmetic">modulo</a>  <big> <span class="rosetta__text--italic">m</span> </big>  is an integer  <big> <span class="rosetta__text--italic">x</span> </big>  such that</p><br/><p class="rosetta__paragraph"><span class="rosetta__text--indented">:$a\,x \equiv 1 \pmod{m}.$</span></p><br/><p class="rosetta__paragraph">Or in other words, such that:</p><br/><p class="rosetta__paragraph"><span class="rosetta__text--indented">:$\exists k \in\Z,\qquad a\, x = 1 + k\,m$</span></p><br/><p class="rosetta__paragraph">It can be shown that such an inverse exists  if and only if  <big> <span class="rosetta__text--italic">a</span> </big>  and  <big> <span class="rosetta__text--italic">m</span> </big>  are <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/coprime" title="wp: coprime">coprime</a>,  but we will ignore this for this task.</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Either by implementing the algorithm, by using a dedicated library or by using a built-in function in</p>
+/// <p class="rosetta__paragraph">your language,  compute the modular inverse of  42 modulo 2017.</p>
+/// <br/>
+/// </div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+var modInverse = function(a, b) {
+    a %= b;
+    for (var x = 1; x < b; x++) {
+        if ((a*x)%b == 1) {
+            return x;
+        }
+    }
+}
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+Using brute force.
+<lang javascript>var modInverse = function(a, b) {
+    a %= b;
+    for (var x = 1; x < b; x++) {
+        if ((a*x)%b == 1) {
+            return x;
+        }
+    }
+}</lang>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

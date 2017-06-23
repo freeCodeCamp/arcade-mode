@@ -1,0 +1,114 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Repeat a string
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><br/><p class="rosetta__paragraph">Take a string and repeat it some number of times.</p><br/><p class="rosetta__paragraph">Example: repeat("ha", 5)  =>  "hahahahaha"</p><br/><p class="rosetta__paragraph">If there is a simpler/more efficient way to repeat a single “character” (i.e. creating a string filled with a certain character), you might want to show that as well (i.e. repeat-char("*", 5) => "*****").</p>
+/// <br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+String.prototype.repeat = function(n) {
+    return new Array(1 + (n || 0)).join(this);
+}
+
+console.log("ha".repeat(5));  // hahahahaha
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+====Extending the String prototype====
+This solution creates an empty array of length n+1, then uses the array's join method to effectively concatenate the string n times. Note that extending the prototype of built-in objects is not a good idea if the code is to run in a shared workspace.
+<lang javascript>String.prototype.repeat = function(n) {
+    return new Array(1 + (n || 0)).join(this);
+}
+
+console.log("ha".repeat(5));  // hahahahaha</lang>
+
+As of ES6, `repeat` is built in, so this can be written as: 
+
+<lang javascript>
+console.log("ha".repeat(5));  // hahahahaha</lang>
+====Repetition by Egyptian multiplication====
+For larger numbers of repetitions, however, it proves significantly faster to progressively double a copy of the original string (concatenating it with itself). Intermediate stages of doubling are appended to an accumulator wherever required for binary composition of the target number. 
+
+See the technique of 'Egyptian Multiplication' described in the Rhind Mathematical Papyrus at the British Museum.
+
+<lang javascript>(() => {
+    'use strict';
+
+    // replicate :: Int -> String -> String
+    const replicate = (n, s) => {
+        let v = [s],
+            o = [];
+        if (n < 1) return o;
+        while (n > 1) {
+            if (n & 1) o = o + v;
+            n >>= 1;
+            v = v + v;
+        }
+        return o.concat(v);
+    };
+
+
+    return replicate(5000, "ha")
+})();</lang>
+
+====Concat . replicate====
+Or, more generically, we could derive '''repeat''' as the composition of '''concat''' and '''replicate'''
+<lang JavaScript>(() => {
+    'use strict';
+
+    // repeat :: Int -> String -> String
+    const repeat = (n, s) => 
+        concat(replicate(n, s));
+        
+
+    // GENERIC FUNCTIONS ------------------------------------------------------
+
+    // concat :: [[a]] -> [a] | [String] -> String
+    const concat = xs =>
+        xs.length > 0 ? (() => {
+            const unit = typeof xs[0] === 'string' ? '' : [];
+            return unit.concat.apply(unit, xs);
+        })() : [];
+
+    // replicate :: Int -> a -> [a]
+    const replicate = (n, x) =>
+        Array.from({
+            length: n
+        }, () => x);
+
+
+    // TEST -------------------------------------------------------------------
+    return repeat(5, 'ha');
+})();</lang>
+{{Out}}
+<pre>hahahahaha</pre>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

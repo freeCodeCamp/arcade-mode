@@ -1,0 +1,102 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Make directory path
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Create a directory and any missing parents.</p><br/><p class="rosetta__paragraph">This task is named after the posix <code><a class="rosetta__link--wiki" href="http://www.unix.com/man-page/POSIX/0/mkdir/" title="link: http://www.unix.com/man-page/POSIX/0/mkdir/">mkdir -p</a></code> command, and several libraries which implement the same behavior.</p><br/><p class="rosetta__paragraph">Please implement a function of a single path string (for example <code>./path/to/dir</code>) which has the above side-effect.</p>
+/// <p class="rosetta__paragraph">If the directory already exists, return successfully.</p>
+/// <p class="rosetta__paragraph">Ideally implementations will work equally well cross-platform (on windows, linux, and OS X).</p><br/><p class="rosetta__paragraph">It's likely that your language implements such a function as part of its standard library. If so, please also show how such a function would be implemented.</p>
+/// <br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+var path = require('path');
+var fs = require('fs');
+
+function mkdirp (p, cb) {
+    cb = cb || function () {};
+    p = path.resolve(p);
+
+    fs.mkdir(p, function (er) {
+        if (!er) {
+            return cb(null);
+        }
+        switch (er.code) {
+            case 'ENOENT':
+                // The directory doesn't exist. Make its parent and try again.
+                mkdirp(path.dirname(p), function (er) {
+                    if (er) cb(er);
+                    else mkdirp(p, cb);
+                });
+                break;
+
+                // In the case of any other error, something is borked.
+            default:
+                cb(er);
+                break;
+        }
+    });
+}
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+{{works with|Node.js}}
+
+Simplified version of the popular [https://www.npmjs.org/package/mkdirp mkdirp library]:
+
+<lang Javascript>var path = require('path');
+var fs = require('fs');
+
+function mkdirp (p, cb) {
+    cb = cb || function () {};
+    p = path.resolve(p);
+
+    fs.mkdir(p, function (er) {
+        if (!er) {
+            return cb(null);
+        }
+        switch (er.code) {
+            case 'ENOENT':
+                // The directory doesn't exist. Make its parent and try again.
+                mkdirp(path.dirname(p), function (er) {
+                    if (er) cb(er);
+                    else mkdirp(p, cb);
+                });
+                break;
+
+                // In the case of any other error, something is borked.
+            default:
+                cb(er);
+                break;
+        }
+    });
+}</lang>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

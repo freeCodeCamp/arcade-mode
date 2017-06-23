@@ -1,0 +1,60 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: String length
+/// type: rosetta-code
+
+/// categories:
+///  String manipulation
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <br/><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Find the <em>character</em> and <em>byte</em> length of a string.</p><br/><p class="rosetta__paragraph">This means encodings like <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/UTF-8" title="UTF-8">UTF-8</a> need to be handled properly, as there is not necessarily a one-to-one relationship between bytes and characters.</p><br/><p class="rosetta__paragraph">By <span class="rosetta__text--italic">character</span>, we mean an individual Unicode <span class="rosetta__text--italic">code point</span>, not a user-visible <span class="rosetta__text--italic">grapheme</span> containing combining characters.</p><br/><p class="rosetta__paragraph">For example, the character length of "møøse" is 5 but the byte length is 7 in UTF-8 and 10 in UTF-16.</p><br/><p class="rosetta__paragraph">Non-BMP code points (those between 0x10000 and 0x10FFFF) must also be handled correctly: answers should produce actual character counts in code points, not in code unit counts.</p><br/><p class="rosetta__paragraph">Therefore a string like "𝔘𝔫𝔦𝔠𝔬𝔡𝔢" (consisting of the 7 Unicode characters U+1D518  U+1D52B U+1D526 U+1D520 U+1D52C U+1D521 U+1D522) is 7 characters long, <span class="rosetta__text--bold">not</span> 14 UTF-16 code units; and it is 28 bytes long whether encoded in UTF-8 or in  UTF-16.</p><br/><p class="rosetta__paragraph">Please mark your examples with <nowiki>===Character Length=== or ===Byte Length===</nowiki>.</p><br/><p class="rosetta__paragraph">If your language is capable of providing the string length in graphemes, mark those examples with <nowiki>===Grapheme Length===</nowiki>.</p><br/><p class="rosetta__paragraph">For example, the string "J̲o̲s̲é̲" ("J\x{332}o\x{332}s\x{332}e\x{301}\x{332}") has 4 user-visible graphemes, 9 characters (code points), and 14 bytes when encoded in UTF-8.</p>
+/// <br><br>
+/// <br/><br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+var s = "Hello, world!";
+var byteCount = s.length * 2; //26
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+===Byte Length===
+JavaScript encodes strings in UTF-16, which represents each character with one or two 16-bit values. The length property of string objects gives the number of 16-bit values used to encode a string, so the number of bytes can be determined by doubling that number.
+
+<lang javascript>var s = "Hello, world!";
+var byteCount = s.length * 2; //26</lang>
+===Character Length===
+JavaScript encodes strings in UTF-16, which represents each character with one or two 16-bit values. The most commonly used characters are represented by one 16-bit value, while rarer ones like some mathematical symbols are represented by two.
+
+JavaScript has no built-in way to determine how many characters are in a string. However, if the string only contains commonly used characters, the number of characters will be equal to the number of 16-bit values used to represent the characters.
+<lang javascript>var str1 = "Hello, world!";
+var len1 = str1.length; //13
+
+var str2 = "\uD834\uDD2A"; //U+1D12A represented by a UTF-16 surrogate pair
+var len2 = str2.length; //2</lang>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

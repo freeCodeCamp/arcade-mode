@@ -1,0 +1,120 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Euler method
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><br/><p class="rosetta__paragraph">Euler's method numerically approximates solutions of first-order ordinary differential equations (ODEs) with a given initial value.  It is an explicit method for solving initial value problems (IVPs), as described in <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Euler method" title="wp: Euler method">the wikipedia page</a>.</p><br/><p class="rosetta__paragraph">The ODE has to be provided in the following form:</p><br/><p class="rosetta__paragraph"><span class="rosetta__text--indented">:: <big>$\frac{dy(t)}{dt} = f(t,y(t))$</big></span></p><br/><p class="rosetta__paragraph">with an initial value</p><br/><p class="rosetta__paragraph"><span class="rosetta__text--indented">:: <big>$y(t_0) = y_0$</big></span></p><br/><p class="rosetta__paragraph">To get a numeric solution, we replace the derivative on the  LHS  with a finite difference approximation:</p><br/><p class="rosetta__paragraph"><span class="rosetta__text--indented">:: <big>$\frac{dy(t)}{dt}  \approx \frac{y(t+h)-y(t)}{h}$</big></span></p><br/><p class="rosetta__paragraph">then solve for $y(t+h)$:</p><br/><p class="rosetta__paragraph"><span class="rosetta__text--indented">:: <big>$y(t+h) \approx y(t) + h \, \frac{dy(t)}{dt}$</big></span></p><br/><p class="rosetta__paragraph">which is the same as</p><br/><p class="rosetta__paragraph"><span class="rosetta__text--indented">:: <big>$y(t+h) \approx y(t) + h \, f(t,y(t))$</big></span></p><br/><p class="rosetta__paragraph">The iterative solution rule is then:</p><br/><p class="rosetta__paragraph"><span class="rosetta__text--indented">:: <big>$y_{n+1} = y_n + h \, f(t_n, y_n)$</big></span></p><br/><p class="rosetta__paragraph">where  <big>$h$</big>  is the step size, the most relevant parameter for accuracy of the solution.  A smaller step size increases accuracy but also the computation cost, so it has always has to be hand-picked according to the problem at hand.</p>
+/// <br/><p class="rosetta__paragraph"><span class="rosetta__text--bold">Example: Newton's Cooling Law</span></p><br/><p class="rosetta__paragraph">Newton's cooling law describes how an object of initial temperature  <big>$T(t_0) = T_0$</big>  cools down in an environment of temperature  <big>$T_R$</big>:</p><br/><p class="rosetta__paragraph"><span class="rosetta__text--indented">:: <big>$\frac{dT(t)}{dt} = -k \, \Delta T$</big></span></p>
+/// <p class="rosetta__paragraph">or</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">:: <big>$\frac{dT(t)}{dt} = -k \, (T(t) - T_R)$</big></span></p><br/><br>
+/// <p class="rosetta__paragraph">It says that the cooling rate  <big>$\frac{dT(t)}{dt}$</big>  of the object is proportional to the current temperature difference  <big>$\Delta T = (T(t) - T_R)$</big>  to the surrounding environment.</p><br/><p class="rosetta__paragraph">The analytical solution, which we will compare to the numerical approximation, is</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">:: <big>$T(t) = T_R + (T_0 - T_R) \; e^{-k t}$</big></span></p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Implement a routine of Euler's method and then to use it to solve the given example of Newton's cooling law with it for three different step sizes of:</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">::*  2 s</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">::*  5 s    and </span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">::*  10 s </span></p>
+/// <p class="rosetta__paragraph">and to compare with the analytical solution.</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Initial values:</dt></dl>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">::*  initial temperature  <big>$T_0$</big>  shall be  100 °C</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">::*  room temperature  <big>$T_R$</big>  shall be  20 °C</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">::*  cooling constant   <big>$k$</big>   shall be  0.07  </span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">::*  time interval to calculate shall be from  0 s  ──►  100 s</span></p><br/><br>
+/// <p class="rosetta__paragraph">A reference solution (<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/#Common Lisp" title="#Common Lisp">Common Lisp</a>) can be seen below.  We see that bigger step sizes lead to reduced approximation accuracy.</p>
+/// <p class="rosetta__paragraph"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Image:Euler_Method_Newton_Cooling.png" title="Image:Euler_Method_Newton_Cooling.png">center|750px</a></p><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+// Function that takes differential-equation, initial condition,
+// ending x, and step size as parameters
+function eulersMethod(f, x1, y1, x2, h) {
+	// Header
+	console.log("\tX\t|\tY\t");
+	console.log("------------------------------------");
+
+	// Initial Variables
+	var x=x1, y=y1;
+
+	// While we're not done yet
+	// Both sides of the OR let you do Euler's Method backwards
+	while ((x<x2 && x1<x2) || (x>x2 && x1>x2)) {
+		// Print what we have
+		console.log("\t" + x + "\t|\t" + y);
+
+		// Calculate the next values
+		y += h*f(x, y)
+		x += h;
+	}
+
+	return y;
+}
+
+function cooling(x, y) {
+	return -0.07 * (y-20);
+}
+
+eulersMethod(cooling, 0, 100, 100, 10);
+
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+{{trans|Python}}
+<lang javascript>
+// Function that takes differential-equation, initial condition,
+// ending x, and step size as parameters
+function eulersMethod(f, x1, y1, x2, h) {
+	// Header
+	console.log("\tX\t|\tY\t");
+	console.log("------------------------------------");
+
+	// Initial Variables
+	var x=x1, y=y1;
+
+	// While we're not done yet
+	// Both sides of the OR let you do Euler's Method backwards
+	while ((x<x2 && x1<x2) || (x>x2 && x1>x2)) {
+		// Print what we have
+		console.log("\t" + x + "\t|\t" + y);
+
+		// Calculate the next values
+		y += h*f(x, y)
+		x += h;
+	}
+
+	return y;
+}
+
+function cooling(x, y) {
+	return -0.07 * (y-20);
+}
+
+eulersMethod(cooling, 0, 100, 100, 10);
+</lang>
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

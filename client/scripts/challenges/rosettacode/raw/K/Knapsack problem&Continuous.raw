@@ -1,0 +1,73 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Knapsack problem/Continuous
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><br/><p class="rosetta__paragraph"><!-- a thief  (or burglar)  steals,  a robber robs  (confronts a person while stealing).      Not exactly a perfect definition,  but close enough.  -- Gerard Schildberger. --></p><br/><p class="rosetta__paragraph">A thief burgles a butcher's shop, where he can select from some items.</p><br/><p class="rosetta__paragraph">The thief knows the weights and prices of each items.  Because he has a knapsack with 15 kg maximal capacity, he wants to select the items such that he would have his profit maximized.  He may cut the items;  the item has a reduced price after cutting that is proportional to the original price by the ratio of masses.  That means:  half of an item has half the price of the original.</p>
+/// <br/><p class="rosetta__paragraph">This is the item list in the butcher's shop:</p><br/><p class="rosetta__paragraph">{| style="text-align: left; width: 50%;" border="4" cellpadding="2" cellspacing="2"</p>
+/// <p class="rosetta__paragraph">|+ Table of potential knapsack items</p>
+/// <p class="rosetta__paragraph">|- style="background-color: rgb(255, 204, 255);"</p>
+/// <p class="rosetta__paragraph">! Item !! Weight (kg) !! Price (Value)</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| beef || 3.8 || 36</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| pork || 5.4 || 43</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| ham || 3.6 || 90</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| greaves || 2.4 || 45</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| flitch || 4.0 || 30</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| brawn || 2.5 || 56</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| welt || 3.7 || 67</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| salami || 3.0 || 95</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| sausage || 5.9 || 98</p>
+/// <p class="rosetta__paragraph">|- style="background-color: rgb(255, 204, 255);"</p>
+/// <p class="rosetta__paragraph">| Knapsack || &lt;=15 kg || ?</p>
+/// <p class="rosetta__paragraph">|}</p>
+/// <br/><br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Show which items the thief carries in his knapsack so that their total weight does not exceed 15 kg, and their total value is maximized.</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks:</dt></dl>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"> <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Knapsack problem/Bounded" title="Knapsack problem/Bounded">Knapsack problem/Bounded</a></li>
+/// <li class="rosetta__list-item--unordered"> <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Knapsack problem/Unbounded" title="Knapsack problem/Unbounded">Knapsack problem/Unbounded</a></li>
+/// <li class="rosetta__list-item--unordered"> <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Knapsack problem/0-1" title="Knapsack problem/0-1">Knapsack problem/0-1</a></li></ul><br><br>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">See also:</dt></dl>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"> Wikipedia article:  <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Continuous_knapsack_problem" title="wp: Continuous_knapsack_problem">continuous knapsack</a>.</li></ul><br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

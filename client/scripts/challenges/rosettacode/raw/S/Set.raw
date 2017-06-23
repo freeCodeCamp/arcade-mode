@@ -1,0 +1,107 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Set
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><br/><p class="rosetta__paragraph">A  <span class="rosetta__text--bold">set</span> is a collection of elements, without duplicates and without order.</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Show each of these set operations:</p><br/><ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Set creation</li>
+/// <li class="rosetta__list-item--unordered">Test m &isin; S -- "m is an element in set S"</li>
+/// <li class="rosetta__list-item--unordered">A &cup; B -- <span class="rosetta__text--italic">union</span>; a set of all elements either in set A or in set B.</li>
+/// <li class="rosetta__list-item--unordered">A &cap; B -- <span class="rosetta__text--italic">intersection</span>; a set of all elements in <span class="rosetta__text--italic">both</span> set A and set B.</li>
+/// <li class="rosetta__list-item--unordered">A &#x2216; B -- <span class="rosetta__text--italic">difference</span>; a set of all elements in set A, except those in set B.</li>
+/// <li class="rosetta__list-item--unordered">A &sube; B -- <span class="rosetta__text--italic">subset</span>; true if every element in set A is also in set B.</li>
+/// <li class="rosetta__list-item--unordered">A = B -- <span class="rosetta__text--italic">equality</span>; true if every element of set A is in set B and vice versa.</li></ul>
+/// <br>
+/// <p class="rosetta__paragraph">As an option, show some other set operations.</p>
+/// <br>(If A &sube; B, but A &ne; B, then A is called a true or proper subset of B, written A &sub; B or A &#x228a; B.) <br/><p class="rosetta__paragraph">As another option, show how to modify a mutable set.</p>
+/// <br/><p class="rosetta__paragraph">One might implement a set using an <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/associative array" title="associative array">associative array</a> (with set elements as array keys and some dummy value as the values).</p><br/><p class="rosetta__paragraph">One might also implement a set with a binary search tree, or with a hash table, or with an ordered array of binary bits (operated on with bit-wise binary operators).</p><br/><p class="rosetta__paragraph">The basic test, m &isin; S, is <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/O" title="O">O</a>(n) with a sequential list of elements, O(<span class="rosetta__text--italic">log</span> n) with a balanced binary search tree, or (O(1) average-case, O(n) worst case) with a hash table.</p>
+/// <br/>
+/// <br><br>
+/// </div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+var set = new Set();
+
+set.add(0);
+set.add(1);
+set.add('two');
+set.add('three');
+
+set.has(0); //=> true
+set.has(3); //=> false
+set.has('two'); // true
+set.has(Math.sqrt(4)); //=> false
+set.has('TWO'.toLowerCase()); //=> true
+
+set.size; //=> 4
+
+set.delete('two');
+set.has('two'); //==> false
+set.size; //=> 3
+
+//iterating set using ES6 for..of
+//Set order is preserved in order items are added.
+for (var item of set) {
+  console.log('item is ' + item);
+}
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+JavaScript does not support native sets before ECMAScript 6. 
+
+<lang javascript>
+var set = new Set();
+
+set.add(0);
+set.add(1);
+set.add('two');
+set.add('three');
+
+set.has(0); //=> true
+set.has(3); //=> false
+set.has('two'); // true
+set.has(Math.sqrt(4)); //=> false
+set.has('TWO'.toLowerCase()); //=> true
+
+set.size; //=> 4
+
+set.delete('two');
+set.has('two'); //==> false
+set.size; //=> 3
+
+//iterating set using ES6 for..of
+//Set order is preserved in order items are added.
+for (var item of set) {
+  console.log('item is ' + item);
+}</lang>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

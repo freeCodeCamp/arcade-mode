@@ -1,0 +1,127 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Hofstadter-Conway $10,000 sequence
+/// type: rosetta-code
+
+/// categories:
+/// Memoization
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <p class="rosetta__paragraph">The definition of the sequence is colloquially described as:</p>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"> Starting with the list [1,1],</li>
+/// <li class="rosetta__list-item--unordered"> Take the last number in the list so far: 1, I'll call it x.</li>
+/// <li class="rosetta__list-item--unordered"> Count forward x places from the beginning of the list to find the first number to add (1)</li>
+/// <li class="rosetta__list-item--unordered"> Count backward x places from the end of the list to find the second number to add (1)</li>
+/// <li class="rosetta__list-item--unordered"> Add the two indexed numbers from the list and the result becomes the next number in the list (1+1)</li>
+/// <li class="rosetta__list-item--unordered"> This would then produce [1,1,2] where 2 is the third element of the sequence.</li></ul>
+/// <br>Note that indexing for the description above starts from alternately the left and right ends of the list and starts from an index of <span class="rosetta__text--italic">one</span>.<br/><p class="rosetta__paragraph">A less wordy description of the sequence is:</p>
+/// <p class="rosetta__paragraph">a(1)=a(2)=1</p>
+/// <p class="rosetta__paragraph">a(n)=a(a(n-1))+a(n-a(n-1))</p><br/><p class="rosetta__paragraph">The sequence begins:</p>
+/// <p class="rosetta__paragraph">1, 1, 2, 2, 3, 4, 4, 4, 5, ...</p><br/><p class="rosetta__paragraph">Interesting features of the sequence are that:</p>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"> a(n)/n  tends to  0.5  as  n  grows towards infinity.</li>
+/// <li class="rosetta__list-item--unordered"> a(n)/n  where  n  is a power of  2  is  0.5</li>
+/// <li class="rosetta__list-item--unordered"> For  n>4  the maximal value of  a(n)/n  between successive powers of 2 decreases.</li></ul>
+/// <p class="rosetta__paragraph"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:Hofstadter conway 10K.gif" title="File:Hofstadter conway 10K.gif">center|a(n) / n  for  n  in  1..256</a></p>
+/// <br/><p class="rosetta__paragraph">The sequence is so named because <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/John Horton Conway" title="wp: John Horton Conway">John Conway</a> <a class="rosetta__link--wiki" href="http://www.nytimes.com/1988/08/30/science/intellectual-duel-brash-challenge-swift-response.html" title="link: http://www.nytimes.com/1988/08/30/science/intellectual-duel-brash-challenge-swift-response.html">offered a prize</a> of $10,000 to the first person who could</p>
+/// <p class="rosetta__paragraph">find the first position,  p  in the sequence where</p>
+/// <p class="rosetta__paragraph">│a(n)/n│ < 0.55  for all  n > p</p>
+/// <p class="rosetta__paragraph">It was later found that <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Douglas Hofstadter" title="wp: Douglas Hofstadter">Hofstadter</a> had also done prior work on the sequence.</p><br/><p class="rosetta__paragraph">The 'prize' was won quite quickly by <a class="rosetta__link--wiki" href="http://www.research.avayalabs.com/gcm/usa/en-us/people/all/mallows.htm" title="link: http://www.research.avayalabs.com/gcm/usa/en-us/people/all/mallows.htm">Dr. Colin L. Mallows</a> who proved the properties of the sequence and allowed him to find the value of  n  (which is much smaller than the 3,173,375,556 quoted in the NYT article).</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered"> Create a routine to generate members of the Hofstadter-Conway $10,000 sequence.</li>
+/// <li class="rosetta__list-item--ordered"> Use it to show the maxima of  a(n)/n  between successive powers of two up to  2**20</li>
+/// <li class="rosetta__list-item--ordered"> As a stretch goal:  compute the value of  n  that would have won the prize and confirm it is true for  n  up to 2**20</li></ol><br/><br>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Also see:</dt></dl>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"> <a class="rosetta__link--wiki" href="http://www.jstor.org/stable/2324028" title="link: http://www.jstor.org/stable/2324028">Conways Challenge Sequence</a>, Mallows' own account.</li>
+/// <li class="rosetta__list-item--unordered"> <a class="rosetta__link--wiki" href="http://mathworld.wolfram.com/Hofstadter-Conway10000-DollarSequence.html" title="link: http://mathworld.wolfram.com/Hofstadter-Conway10000-DollarSequence.html">Mathworld Article</a>.</li></ul><br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+var hofst_10k = function(n) {
+	var memo = [1, 1];
+
+	var a = function(n) {
+		var result = memo[n-1];
+		if (typeof result !== 'number') {
+			result = a(a(n-1))+a(n-a(n-1));	
+			memo[n-1] = result;
+		}	
+		return result;
+	}
+	return a;
+}();
+
+var maxima_between_twos = function(exp) {
+	var current_max = 0;
+	for(var i = Math.pow(2,exp)+1; i < Math.pow(2,exp+1); i += 1) {
+		current_max = Math.max(current_max, hofst_10k(i)/i);
+	}
+	return current_max;
+}
+
+for(var i = 1; i <= 20; i += 1) {
+	console.log("Maxima between 2^"+i+"-2^"+(i+1)+" is: "+maxima_between_twos(i)+"\n");
+}
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+<lang JavaScript>var hofst_10k = function(n) {
+	var memo = [1, 1];
+
+	var a = function(n) {
+		var result = memo[n-1];
+		if (typeof result !== 'number') {
+			result = a(a(n-1))+a(n-a(n-1));	
+			memo[n-1] = result;
+		}	
+		return result;
+	}
+	return a;
+}();
+
+var maxima_between_twos = function(exp) {
+	var current_max = 0;
+	for(var i = Math.pow(2,exp)+1; i < Math.pow(2,exp+1); i += 1) {
+		current_max = Math.max(current_max, hofst_10k(i)/i);
+	}
+	return current_max;
+}
+
+for(var i = 1; i <= 20; i += 1) {
+	console.log("Maxima between 2^"+i+"-2^"+(i+1)+" is: "+maxima_between_twos(i)+"\n");
+}</lang>
+Output:
+<pre>Maxima between 2^1-2^2 is: 0.6666666666666666
+Maxima between 2^2-2^3 is: 0.6666666666666666
+Maxima between 2^3-2^4 is: 0.6363636363636364
+Maxima between 2^4-2^5 is: 0.6086956521739131
+Maxima between 2^5-2^6 is: 0.5909090909090909
+...
+Maxima between 2^18-2^19 is: 0.5346454310781124
+Maxima between 2^19-2^20 is: 0.5337792299633678
+Maxima between 2^20-2^21 is: 0.5326770563524978
+</pre>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

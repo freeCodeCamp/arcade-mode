@@ -1,0 +1,312 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Kronecker product
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Implement the  <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Kronecker_product" title="wp: Kronecker_product">Kronecker product</a>  of two matrices (arbitrary sized) resulting in a block matrix. <br /></p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Test cases:</dt></dl>
+/// <p class="rosetta__paragraph">Show results for each of the following two samples:<br></p><br/><p class="rosetta__paragraph">Sample 1 (from Wikipedia):</p>
+/// <div class="rosetta__pre-wrap"><pre class="rosetta__pre">
+/// │1 2│  x  │0 5│	= │ 0  5  0 10│
+/// │3 4│     │6 7│	  │ 6  7 12 14│
+/// 		  │ 0 15  0 20│
+/// 		  │18 21 24 28│
+/// </pre></div><br/><p class="rosetta__paragraph">Sample 2:</p>
+/// <div class="rosetta__pre-wrap"><pre class="rosetta__pre">
+/// │0 1 0│ x │1 1 1 1│ = │0 0 0 0 1 1 1 1 0 0 0 0│
+/// │1 1 1│   │1 0 0 1│   │0 0 0 0 1 0 0 1 0 0 0 0│
+/// │0 1 0│   │1 1 1 1│   │0 0 0 0 1 1 1 1 0 0 0 0│
+/// 	              │1 1 1 1 1 1 1 1 1 1 1 1│
+///                       │1 0 0 1 1 0 0 1 1 0 0 1│
+///                       │1 1 1 1 1 1 1 1 1 1 1 1│
+///                       │0 0 0 0 1 1 1 1 0 0 0 0│
+///                       │0 0 0 0 1 0 0 1 0 0 0 0│
+///                       │0 0 0 0 1 1 1 1 0 0 0 0│
+/// </pre></div>
+/// <p class="rosetta__paragraph">See implementations and results below in JavaScript and PARI/GP languages.</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Related task:</dt></dl>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Kronecker_product_based_fractals" title="Kronecker_product_based_fractals"> Kronecker product based fractals</a>. </li></ul><br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+// matkronprod.js
+// Prime function:
+// mkp arrow function: Return the Kronecker product of the a and b matrices.
+// Note: both a and b must be matrices, i.e., 2D rectangular arrays.
+mkp=(a,b)=>a.map(a=>b.map(b=>a.map(y=>b.map(x=>r.push(y*x)),t.push(r=[]))),t=[])&&t;
+// Helper functions:
+// Log title and matrix mat to console
+function matl2cons(title,mat) {console.log(title); console.log(mat.join`\n`)}
+// Print title to document
+function pttl2doc(title) {document.write('<b>'+title+'</b><br />')}
+// Print title and matrix mat to document
+function matp2doc(title,mat) {
+  document.write('<b>'+title+'</b>:<br />');
+  for (var i = 0; i < mat.length; i++) {
+    document.write('&nbsp;&nbsp;'+mat[i].join(' ')+'<br />');
+  }
+}
+
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+===Imperative===
+====Version #1.====
+{{Works with|Chrome}}
+<lang javascript>
+// matkronprod.js
+// Prime function:
+// mkp arrow function: Return the Kronecker product of the a and b matrices.
+// Note: both a and b must be matrices, i.e., 2D rectangular arrays.
+mkp=(a,b)=>a.map(a=>b.map(b=>a.map(y=>b.map(x=>r.push(y*x)),t.push(r=[]))),t=[])&&t;
+// Helper functions:
+// Log title and matrix mat to console
+function matl2cons(title,mat) {console.log(title); console.log(mat.join`\n`)}
+// Print title to document
+function pttl2doc(title) {document.write('<b>'+title+'</b><br />')}
+// Print title and matrix mat to document
+function matp2doc(title,mat) {
+  document.write('<b>'+title+'</b>:<br />');
+  for (var i = 0; i < mat.length; i++) {
+    document.write('&nbsp;&nbsp;'+mat[i].join(' ')+'<br />');
+  }
+}
+</lang> 
+
+;Required tests:
+<lang html>
+<!-- KronProdTest.html -->
+<html><head>
+  <title>Kronecker product: Sample 1 (from Wikipedia) and Sample 2</title>
+  <script src="matkronprod.js"></script>
+  <script>
+  var mr,ttl='Kronecker product of A and B matrices';
+  [ {a:[[1,2],[3,4]],b:[[0,5],[6,7]] },
+    {a:[[0,1,0],[1,1,1],[0,1,0]],b:[[1,1,1,1],[1,0,0,1],[1,1,1,1]] }
+  ].forEach(m=>{
+    console.log(ttl); pttl2doc(ttl);
+    matl2cons('A',m.a); matp2doc('A',m.a);
+    matl2cons('B',m.b); matp2doc('B',m.b);
+    mr=mkp(m.a,m.b);
+    matl2cons('A x B',mr); matp2doc('A x B',mr);
+    })
+  </script>
+</head><body></body>
+</html>
+</lang> 
+{{Output}} '''Console and page results'''
+<pre>
+Kronecker product of A and B matrices
+A
+1,2
+3,4
+B
+0,5
+6,7
+A x B
+0,5,0,10
+6,7,12,14
+0,15,0,20
+18,21,24,28
+Kronecker product of A and B matrices
+A
+0,1,0
+1,1,1
+0,1,0
+B
+1,1,1,1
+1,0,0,1
+1,1,1,1
+A x B
+0,0,0,0,1,1,1,1,0,0,0,0
+0,0,0,0,1,0,0,1,0,0,0,0
+0,0,0,0,1,1,1,1,0,0,0,0
+1,1,1,1,1,1,1,1,1,1,1,1
+1,0,0,1,1,0,0,1,1,0,0,1
+1,1,1,1,1,1,1,1,1,1,1,1
+0,0,0,0,1,1,1,1,0,0,0,0
+0,0,0,0,1,0,0,1,0,0,0,0
+0,0,0,0,1,1,1,1,0,0,0,0
+</pre>
+
+====Version #2.====
+This version is more understandable for sure.
+{{trans|PARI/GP}}
+{{Works with|Chrome}}
+<lang javascript>
+// matkronprod2.js
+// Prime function:
+// mkp2(): Return the Kronecker product of the a and b matrices
+// Note: both a and b must be matrices, i.e., 2D rectangular arrays.
+function mkp2(a,b) {
+  var m=a.length, n=a[0].length, p=b.length, q=b[0].length;
+  var rtn=m*p, ctn=n*q; var r=new Array(rtn);
+  for (var i=0; i<rtn; i++) {r[i]=new Array(ctn)
+    for (var j=0;j<ctn;j++) {r[i][j]=0}
+  }
+  for (var i=0; i<m; i++) {
+    for (var j=0; j<n; j++) {
+      for (var k=0; k<p; k++) {
+        for (var l=0; l<q; l++) {
+          r[p*i+k][q*j+l]=a[i][j]*b[k][l];
+        }}}}//all4forend
+  return(r);
+}
+// Helper functions:
+// Log title and matrix mat to console
+function matl2cons(title,mat) {console.log(title); console.log(mat.join`\n`)}
+// Print title to document
+function pttl2doc(title) {document.write('<b>'+title+'</b><br>')}
+// Print title and matrix mat to document
+function matp2doc(title,mat) {
+  document.write('<b>'+title+'</b>:<br>');
+  for (var i=0; i < mat.length; i++) {
+    document.write('&nbsp;&nbsp;'+mat[i].join(' ')+'<br>');
+  }
+}
+</lang> 
+;Required tests:
+<lang html>
+<!-- KronProdTest2.html -->
+<html><head>
+  <title>Kronecker product v.2: Sample 1 (from Wikipedia) and Sample 2</title>
+  <script src="matkronprod2.js"></script>
+  <script>
+  var mr,ttl='Kronecker product of A and B matrices';
+  [ {a:[[1,2],[3,4]],b:[[0,5],[6,7]] },
+    {a:[[0,1,0],[1,1,1],[0,1,0]],b:[[1,1,1,1],[1,0,0,1],[1,1,1,1]] }
+  ].forEach(m=>{
+    console.log(ttl); pttl2doc(ttl);
+    matl2cons('A',m.a); matp2doc('A',m.a);
+    matl2cons('B',m.b); matp2doc('B',m.b);
+    mr=mkp2(m.a,m.b);
+    matl2cons('A x B',mr); matp2doc('A x B',mr);
+    })
+  </script>
+</head><body></body>
+</html>
+</lang> 
+
+{{Output}} '''Console and page results'''
+<pre>
+Output is identical to Version #1 above.
+</pre>
+
+===Functional===
+====ES6====
+{{Trans|Haskell}}
+(As JavaScript is now widely embedded in non-browser contexts, a non-HTML string value is returned here, rather than invoking a DOM method, which will not always be available to a JavaScript interpreter)
+<lang javascript>(() => {
+    'use strict';
+
+    // GENERIC FUNCTIONS ------------------------------------------------------
+
+    // concat :: [[a]] -> [a]
+    const concat = xs => [].concat.apply([], xs);
+
+    // concatMap :: (a -> [b]) -> [a] -> [b]
+    const concatMap = (f, xs) => [].concat.apply([], xs.map(f));
+
+    // 2 or more arguments
+    // curry :: Function -> Function
+    const curry = (f, ...args) => {
+        const go = xs => xs.length >= f.length ? (f.apply(null, xs)) :
+            function () {
+                return go(xs.concat([].slice.apply(arguments)));
+            };
+        return go([].slice.call(args, 1));
+    };
+
+    // map :: (a -> b) -> [a] -> [b]
+    const map = curry((f, xs) => xs.map(f));
+
+    // show :: a -> String
+    const show = x => JSON.stringify(x); //, null, 2);
+
+    // transpose :: [[a]] -> [[a]]
+    const transpose = xs =>
+        xs[0].map((_, col) => xs.map(row => row[col]));
+
+    // unlines :: [String] -> String
+    const unlines = xs => xs.join('\n');
+
+
+    // KRONECKER PRODUCT OF TWO MATRICES --------------------------------------
+
+    // kprod :: [[Num]] -> [[Num]] -> [[Num]]
+    const kprod = (xs, ys) =>
+        concatMap(
+            m => map(concat, transpose(m)),
+            map(map(f(ys)), xs)
+        );
+
+    // (* n) mapped over each element in a matrix
+    // f :: [[Num]] -> Num -> [[Num]]
+    const f = curry((mx, n) => map(map(x => x * n), mx));
+
+    // TEST -------------------------------------------------------------------
+    return unlines(map(rows => unlines(map(show, rows)), [
+        kprod([
+            [1, 2],
+            [3, 4]
+        ], [
+            [0, 5],
+            [6, 7]
+        ]), [], // One empty output line
+        kprod([
+            [0, 1, 0],
+            [1, 1, 1],
+            [0, 1, 0]
+        ], [
+            [1, 1, 1, 1],
+            [1, 0, 0, 1],
+            [1, 1, 1, 1]
+        ])
+    ]));
+})();</lang>
+{{Out}}
+<pre>[0,5,0,10]
+[6,7,12,14]
+[0,15,0,20]
+[18,21,24,28]
+
+[0,0,0,0,1,1,1,1,0,0,0,0]
+[0,0,0,0,1,0,0,1,0,0,0,0]
+[0,0,0,0,1,1,1,1,0,0,0,0]
+[1,1,1,1,1,1,1,1,1,1,1,1]
+[1,0,0,1,1,0,0,1,1,0,0,1]
+[1,1,1,1,1,1,1,1,1,1,1,1]
+[0,0,0,0,1,1,1,1,0,0,0,0]
+[0,0,0,0,1,0,0,1,0,0,0,0]
+[0,0,0,0,1,1,1,1,0,0,0,0]</pre>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

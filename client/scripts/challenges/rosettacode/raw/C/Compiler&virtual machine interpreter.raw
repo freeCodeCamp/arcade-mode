@@ -1,0 +1,147 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Compiler/virtual machine interpreter
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><p class="rosetta__paragraph">Virtual Machine Interpreter</p><br/><p class="rosetta__paragraph">A virtual machine implements a computer in software.</p>
+/// <br/>
+/// <p class="rosetta__paragraph">Write a virtual machine interpreter.  This interpreter should be able to run virtual</p>
+/// <p class="rosetta__paragraph">assembly language programs created via the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/code_generator" title="Compiler/code_generator">task</a>. This is a</p>
+/// <p class="rosetta__paragraph">byte-coded, 32-bit word stack based virtual machine.</p><br/><p class="rosetta__paragraph">The program should read input from a file and/or stdin, and write output to a file and/or</p>
+/// <p class="rosetta__paragraph">stdout.</p><br/><p class="rosetta__paragraph">Input format:</p><br/><p class="rosetta__paragraph">Given the following program:</p><br/><p class="rosetta__paragraph">count = 1;</p>
+/// <p class="rosetta__paragraph">while (count < 10) {</p>
+/// <p class="rosetta__paragraph">print("count is: ", count, "\n");</p>
+/// <p class="rosetta__paragraph">count = count + 1;</p>
+/// <p class="rosetta__paragraph">}</p><br/><p class="rosetta__paragraph">The output from the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/code_generator" title="Compiler/code_generator">Code generator</a> is a virtual assembly code program:</p><br/><p class="rosetta__paragraph">{| class="wikitable"</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">! Output from gen, input to VM</p>
+/// <p class="rosetta__paragraph">|-</p><br/><p class="rosetta__paragraph">| style="vertical-align:top" |</p>
+/// <p class="rosetta__paragraph"><b><div class="rosetta__pre-wrap"><pre class="rosetta__pre">Datasize: 1 Strings: 2
+/// "count is: "
+/// "\n"
+///     0 push  1
+///     5 store [0]
+///    10 fetch [0]
+///    15 push  10
+///    20 lt
+///    21 jz     (43) 65
+///    26 push  0
+///    31 prts
+///    32 fetch [0]
+///    37 prti
+///    38 push  1
+///    43 prts
+///    44 fetch [0]
+///    49 push  1
+///    54 add
+///    55 store [0]
+///    60 jmp    (-51) 10
+///    65 halt</pre></div></b></p>
+/// <p class="rosetta__paragraph">|}</p><br/><p class="rosetta__paragraph">The first line of the input specifies the datasize required and the number of constant</p>
+/// <p class="rosetta__paragraph">strings, in the order that they are reference via the code.</p><br/><p class="rosetta__paragraph">The data can be stored in a separate array, or the data can be stored at the beginning of</p>
+/// <p class="rosetta__paragraph">the stack.  Data is addressed starting at 0.  If there are 3 variables, the 3rd one if</p>
+/// <p class="rosetta__paragraph">referenced at address 2.</p><br/><p class="rosetta__paragraph">If there are one or more constant strings, they come next.  The code refers to these</p>
+/// <p class="rosetta__paragraph">strings by their index.  The index starts at 0.  So if there are 3 strings, and the code</p>
+/// <p class="rosetta__paragraph">wants to reference the 3rd string, 2 will be used.</p><br/><p class="rosetta__paragraph">Next comes the actual virtual assembly code.  The first number is the code address of that</p>
+/// <p class="rosetta__paragraph">instruction.  After that is the instruction mnemonic, followed by optional operands,</p>
+/// <p class="rosetta__paragraph">depending on the instruction.</p><br/><p class="rosetta__paragraph">Registers:</p><br/><p class="rosetta__paragraph">sp:</p>
+/// <p class="rosetta__paragraph">the stack pointer - points to the next top of stack.  The stack is a 32-bit integer</p>
+/// <p class="rosetta__paragraph">array.</p><br/><p class="rosetta__paragraph">pc:</p>
+/// <p class="rosetta__paragraph">the program counter - points to the current instruction to be performed.  The code is an</p>
+/// <p class="rosetta__paragraph">array of bytes.</p><br/><p class="rosetta__paragraph">Data:</p>
+/// <p class="rosetta__paragraph">data</p>
+/// <p class="rosetta__paragraph">string pool</p><br/><p class="rosetta__paragraph">Instructions:</p><br/><p class="rosetta__paragraph">Each instruction is one byte.  The following instructions also have a 32-bit integer</p>
+/// <p class="rosetta__paragraph">operand:</p><br/><p class="rosetta__paragraph">fetch [index]</p><br/><p class="rosetta__paragraph">where index is an index into the data array.</p><br/><p class="rosetta__paragraph">store [index]</p><br/><p class="rosetta__paragraph">where index is an index into the data array.</p><br/><p class="rosetta__paragraph">push n</p><br/><p class="rosetta__paragraph">where value is a 32-bit integer that will be pushed onto the stack.</p><br/><p class="rosetta__paragraph">jmp (n) addr</p><br/><p class="rosetta__paragraph">where (n) is a 32-bit integer specifying the distance between the current location and the</p>
+/// <p class="rosetta__paragraph">desired location.  addr is an unsigned value of the actual code address.</p><br/><p class="rosetta__paragraph">jz (n) addr</p><br/><p class="rosetta__paragraph">where (n) is a 32-bit integer specifying the distance between the current location and the</p>
+/// <p class="rosetta__paragraph">desired location.  addr is an unsigned value of the actual code address.</p><br/><p class="rosetta__paragraph">The following instructions do not have an operand.  They perform their operation directly</p>
+/// <p class="rosetta__paragraph">against the stack:</p><br/><p class="rosetta__paragraph">For the following instructions, the operation is performed against the top two entries in</p>
+/// <p class="rosetta__paragraph">the stack:</p><br/><p class="rosetta__paragraph">add</p>
+/// <p class="rosetta__paragraph">sub</p>
+/// <p class="rosetta__paragraph">mul</p>
+/// <p class="rosetta__paragraph">div</p>
+/// <p class="rosetta__paragraph">mod</p>
+/// <p class="rosetta__paragraph">lt</p>
+/// <p class="rosetta__paragraph">gt</p>
+/// <p class="rosetta__paragraph">le</p>
+/// <p class="rosetta__paragraph">ge</p>
+/// <p class="rosetta__paragraph">eq</p>
+/// <p class="rosetta__paragraph">ne</p>
+/// <p class="rosetta__paragraph">and</p>
+/// <p class="rosetta__paragraph">or</p><br/><p class="rosetta__paragraph">For the following instructions, the operation is performed against the top entry in the</p>
+/// <p class="rosetta__paragraph">stack:</p><br/><p class="rosetta__paragraph">neg</p>
+/// <p class="rosetta__paragraph">not</p><br/><p class="rosetta__paragraph">Print the word at stack top as a character.</p><br/><p class="rosetta__paragraph">prtc</p><br/><p class="rosetta__paragraph">Print the word at stack top as an integer.</p><br/><p class="rosetta__paragraph">prti</p><br/><p class="rosetta__paragraph">Stack top points to an index into the string pool.  Print that entry.</p><br/><p class="rosetta__paragraph">prts</p><br/><p class="rosetta__paragraph">Unconditional stop.</p><br/><p class="rosetta__paragraph">halt</p><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title"> A simple example virtual machine:</dt></dl><br/><p class="rosetta__paragraph"><lang python>def run_vm(data_size)</p>
+/// <p class="rosetta__paragraph">int stack[data_size + 1000]</p>
+/// <p class="rosetta__paragraph">set stack[0..data_size - 1] to 0</p>
+/// <p class="rosetta__paragraph">int pc = 0</p>
+/// <p class="rosetta__paragraph">while True:</p>
+/// <p class="rosetta__paragraph">op = code[pc]</p>
+/// <p class="rosetta__paragraph">pc += 1</p><br/><p class="rosetta__paragraph">if op == FETCH:</p>
+/// <p class="rosetta__paragraph">stack.append(stack[bytes_to_int(code[pc:pc+word_size])[0]]);</p>
+/// <p class="rosetta__paragraph">pc += word_size</p>
+/// <p class="rosetta__paragraph">elif op == STORE:</p>
+/// <p class="rosetta__paragraph">stack[bytes_to_int(code[pc:pc+word_size])[0]] = stack.pop();</p>
+/// <p class="rosetta__paragraph">pc += word_size</p>
+/// <p class="rosetta__paragraph">elif op == PUSH:</p>
+/// <p class="rosetta__paragraph">stack.append(bytes_to_int(code[pc:pc+word_size])[0]);</p>
+/// <p class="rosetta__paragraph">pc += word_size</p>
+/// <p class="rosetta__paragraph">elif op == ADD:   stack[-2] += stack[-1]; stack.pop()</p>
+/// <p class="rosetta__paragraph">elif op == SUB:   stack[-2] -= stack[-1]; stack.pop()</p>
+/// <p class="rosetta__paragraph">elif op == MUL:   stack[-2] *= stack[-1]; stack.pop()</p>
+/// <p class="rosetta__paragraph">elif op == DIV:   stack[-2] /= stack[-1]; stack.pop()</p>
+/// <p class="rosetta__paragraph">elif op == MOD:   stack[-2] %= stack[-1]; stack.pop()</p>
+/// <p class="rosetta__paragraph">elif op == LT:    stack[-2] = stack[-2] <  stack[-1]; stack.pop()</p>
+/// <p class="rosetta__paragraph">elif op == GT:    stack[-2] = stack[-2] >  stack[-1]; stack.pop()</p>
+/// <p class="rosetta__paragraph">elif op == LE:    stack[-2] = stack[-2] <= stack[-1]; stack.pop()</p>
+/// <p class="rosetta__paragraph">elif op == GE:    stack[-2] = stack[-2] >= stack[-1]; stack.pop()</p>
+/// <p class="rosetta__paragraph">elif op == EQ:    stack[-2] = stack[-2] == stack[-1]; stack.pop()</p>
+/// <p class="rosetta__paragraph">elif op == NE:    stack[-2] = stack[-2] != stack[-1]; stack.pop()</p>
+/// <p class="rosetta__paragraph">elif op == AND:   stack[-2] = stack[-2] and stack[-1]; stack.pop()</p>
+/// <p class="rosetta__paragraph">elif op == OR:    stack[-2] = stack[-2] or  stack[-1]; stack.pop()</p>
+/// <p class="rosetta__paragraph">elif op == NEG:   stack[-1] = -stack[-1]</p>
+/// <p class="rosetta__paragraph">elif op == NOT:   stack[-1] = not stack[-1]</p>
+/// <p class="rosetta__paragraph">elif op == JMP:   pc += bytes_to_int(code[pc:pc+word_size])[0]</p>
+/// <p class="rosetta__paragraph">elif op == JZ:    if stack.pop() then pc += word_size else pc += bytes_to_int(code[pc:pc+word_size])[0]</p>
+/// <p class="rosetta__paragraph">elif op == PRTC:  print stack[-1] as a character; stack.pop()</p>
+/// <p class="rosetta__paragraph">elif op == PRTS:  print the constant string referred to by stack[-1]; stack.pop()</p>
+/// <p class="rosetta__paragraph">elif op == PRTI:  print stack[-1] as an integer; stack.pop()</p>
+/// <p class="rosetta__paragraph">elif op == HALT:  break</lang></p><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title"> Additional examples</dt></dl><br/><p class="rosetta__paragraph">Your solution should pass all the test cases above and the additional tests found <span class="rosetta__text--bold"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/Sample_programs" title="Compiler/Sample_programs">Here</a></span>.</p>
+/// <br/>
+/// <p class="rosetta__paragraph">The C and Python versions can be considered reference implementations.</p><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Related Tasks</dt></dl><br/><ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/lexical_analyzer" title="Compiler/lexical_analyzer">Lexical Analyzer task</a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/syntax_analyzer" title="Compiler/syntax_analyzer">Syntax Analyzer task</a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/code_generator" title="Compiler/code_generator">Code Generator task</a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/AST_interpreter" title="Compiler/AST_interpreter">AST Interpreter task</a></li></ul>
+/// <p class="rosetta__paragraph"><hr></p>
+/// <p class="rosetta__paragraph">__TOC__</p><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

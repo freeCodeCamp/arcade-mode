@@ -1,0 +1,58 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Multiplicative order
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><br/><p class="rosetta__paragraph">The <span class="rosetta__text--bold">multiplicative order</span> of <span class="rosetta__text--italic">a</span> relative to <span class="rosetta__text--italic">m</span> is the least positive integer <span class="rosetta__text--italic">n</span> such that <span class="rosetta__text--italic">a^n</span> is 1 (modulo <span class="rosetta__text--italic">m</span>).</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Example:</dt></dl>
+/// <p class="rosetta__paragraph">The multiplicative order of 37 relative to 1000 is 100 because 37^100 is 1 (modulo 1000), and no number smaller than 100 would do.</p>
+/// <br/><p class="rosetta__paragraph">One possible algorithm that is efficient also for large numbers is the following: By the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Chinese_Remainder_Theorem" title="wp: Chinese_Remainder_Theorem">Chinese Remainder Theorem</a>, it's enough to calculate the multiplicative order for each prime exponent <span class="rosetta__text--italic">p^k</span> of <span class="rosetta__text--italic">m</span>, and</p>
+/// <p class="rosetta__paragraph">combine the results with the <span class="rosetta__text--italic"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/least common multiple" title="least common multiple">least common multiple</a></span> operation.</p><br/><p class="rosetta__paragraph">Now the order of <span class="rosetta__text--italic">a</span> with regard to <span class="rosetta__text--italic">p^k</span> must divide <span class="rosetta__text--italic">&Phi;(p^k)</span>. Call this number <span class="rosetta__text--italic">t</span>, and determine it's factors <span class="rosetta__text--italic">q^e</span>. Since each multiple of the order will also yield 1 when used as exponent for <span class="rosetta__text--italic">a</span>, it's enough to find the least d such that <span class="rosetta__text--italic">(q^d)*(t/(q^e))</span> yields 1 when used as exponent.</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Implement a routine to calculate the multiplicative order along these lines. You may assume that routines to determine the factorization into prime powers are available in some library.</p><br/><p class="rosetta__paragraph">----</p><br/><p class="rosetta__paragraph">An algorithm for the multiplicative order can be found in Bach & Shallit, <i>Algorithmic Number Theory, Volume I: Efficient Algorithms</i>, The MIT Press, 1996:</p><br/><p class="rosetta__paragraph"><p>Exercise 5.8, page 115:</p></p><br/><p class="rosetta__paragraph"><p>Suppose you are given a prime<tt> p </tt>and a complete factorization</p>
+/// <p class="rosetta__paragraph">of<tt> p-1</tt>.  Show how to compute the order of an</p>
+/// <p class="rosetta__paragraph">element<tt> a </tt>in<tt> (Z/(p))<sup>*</sup> </tt>using<tt> O((lg p)<sup>4</sup>/(lg lg p)) </tt>bit</p>
+/// <p class="rosetta__paragraph">operations.</p></p><br/><p class="rosetta__paragraph"><p>Solution, page 337:</p></p><br/><p class="rosetta__paragraph"><p>Let the prime factorization of<tt> p-1 </tt> be<tt> q1<sup>e1</sup>q2<sup>e2</sup>...qk<sup>ek</sup></tt> .<tt> </tt>We use the following observation:</p>
+/// <p class="rosetta__paragraph">if<tt> x^((p-1)/qi<sup>fi</sup>) = 1 (mod p)</tt> ,<tt> </tt></p>
+/// <p class="rosetta__paragraph">and<tt> fi=ei </tt>or<tt> x^((p-1)/qi<sup>fi+1</sup>) != 1 (mod p)</tt> ,<tt> </tt>then<tt> qi<sup>ei-fi</sup>||ord<sub>p</sub> x</tt>.  (This follows by combining Exercises 5.1 and 2.10.)</p><br/><p class="rosetta__paragraph">Hence it suffices to find, for each<tt> i</tt> ,<tt> </tt>the exponent<tt> fi </tt> such that the condition above holds.</p></p><br/><p class="rosetta__paragraph"><p>This can be done as follows: first compute<tt> q1<sup>e1</sup>, q2<sup>e2</sup>, ... ,</p>
+/// <p class="rosetta__paragraph">qk<sup>ek</sup></tt> .<tt> </tt> This can be done using<tt> O((lg p)<sup>2</sup>) </tt>bit operations. Next, compute<tt> y1=(p-1)/q1<sup>e1</sup>, ... , yk=(p-1)/qk<sup>ek</sup></tt> .<tt> </tt></p>
+/// <p class="rosetta__paragraph">This can be done using<tt> O((lg p)<sup>2</sup>) </tt>bit operations. Now, using the binary method,</p>
+/// <p class="rosetta__paragraph">compute<tt> x1=a<sup>y1</sup>(mod p), ... ,  xk=a<sup>yk</sup>(mod p) </tt>.<tt> </tt></p>
+/// <p class="rosetta__paragraph">This can be done using<tt> O(k(lg p)<sup>3</sup>) </tt>bit operations, and<tt> k=O((lg p)/(lg lg p)) </tt>by Theorem 8.8.10.</p>
+/// <p class="rosetta__paragraph">Finally, for each<tt> i</tt> ,<tt> </tt>repeatedly raise<tt> xi </tt>to the<tt> qi</tt>-th power<tt> (mod p) </tt>(as many as<tt> ei-1 </tt> times), checking to see when 1 is obtained.</p>
+/// <p class="rosetta__paragraph">This can be done using<tt> O((lg p)<sup>3</sup>) </tt>steps.</p>
+/// <p class="rosetta__paragraph">The total cost is dominated by<tt> O(k(lg p)<sup>3</sup>)</tt> ,<tt> </tt>which is<tt> O((lg p)<sup>4</sup>/(lg lg p))</tt>.</p>
+/// <br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

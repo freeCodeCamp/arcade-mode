@@ -1,0 +1,182 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Compiler/code generator
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><p class="rosetta__paragraph">Code Generator</p><br/><p class="rosetta__paragraph">A code generator translates the output of the syntax analyzer and/or semantic analyzer</p>
+/// <p class="rosetta__paragraph">into lower level code, either assembly, object, or virtual.</p>
+/// <br/>
+/// <p class="rosetta__paragraph">Take the output of the Syntax analyzer <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/syntax_analyzer" title="Compiler/syntax_analyzer">task</a> - which is a <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Flatten_a_list" title="Flatten_a_list">flattened</a> Abstract Syntax Tree (AST) - and convert it to virtual machine code, that can be run by the</p>
+/// <p class="rosetta__paragraph"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/virtual_machine_interpreter" title="Compiler/virtual_machine_interpreter">Virtual machine interpreter</a>.  The output is in text format, and represents virtual assembly code.</p><br/><p class="rosetta__paragraph">The program should read input from a file and/or stdin, and write output to a file and/or</p>
+/// <p class="rosetta__paragraph">stdout.</p><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Example - given the simple program (below), stored in a file called while.t, create the list of tokens, using one of the Lexical analyzer <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/lexical_analyzer" title="Compiler/lexical_analyzer">solutions</a></dt></dl><br/><p class="rosetta__paragraph">lex < while.t > while.lex</p><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Run one of the Syntax analyzer <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/syntax_analyzer" title="Compiler/syntax_analyzer">solutions</a>:</dt></dl><br/><p class="rosetta__paragraph">parse < while.lex > while.ast</p><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">while.ast can be input into the code generator.</dt></dl><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">The following table shows the input to lex, lex output, the AST produced by the parser, and the generated virtual assembly code.</dt></dl><br/><p class="rosetta__paragraph">Run as:  lex < while.t | parse | gen</p><br/><p class="rosetta__paragraph">{| class="wikitable"</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">! Input to lex</p>
+/// <p class="rosetta__paragraph">! Output from lex, input to parse</p>
+/// <p class="rosetta__paragraph">! Output from parse</p>
+/// <p class="rosetta__paragraph">! Output from gen, input to VM</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| style="vertical-align:top" |</p>
+/// <p class="rosetta__paragraph"><lang c>count = 1;</p>
+/// <p class="rosetta__paragraph">while (count < 10) {</p>
+/// <p class="rosetta__paragraph">print("count is: ", count, "\n");</p>
+/// <p class="rosetta__paragraph">count = count + 1;</p>
+/// <p class="rosetta__paragraph">}</lang></p><br/><p class="rosetta__paragraph">| style="vertical-align:top" |</p>
+/// <p class="rosetta__paragraph"><b><div class="rosetta__pre-wrap"><pre class="rosetta__pre">
+///     1      1   Identifier      count
+///     1      7   Op_assign
+///     1      9   Integer              1
+///     1     10   Semicolon
+///     2      1   Keyword_while
+///     2      7   LeftParen
+///     2      8   Identifier      count
+///     2     14   Op_less
+///     2     16   Integer             10
+///     2     18   RightParen
+///     2     20   LeftBrace
+///     3      5   Keyword_print
+///     3     10   LeftParen
+///     3     11   String          "count is: "
+///     3     23   Comma
+///     3     25   Identifier      count
+///     3     30   Comma
+///     3     32   String          "\n"
+///     3     36   RightParen
+///     3     37   Semicolon
+///     4      5   Identifier      count
+///     4     11   Op_assign
+///     4     13   Identifier      count
+///     4     19   Op_add
+///     4     21   Integer              1
+///     4     22   Semicolon
+///     5      1   RightBrace
+///     6      1   End_of_input</pre></div></b></p><br/><p class="rosetta__paragraph">| style="vertical-align:top" |</p>
+/// <p class="rosetta__paragraph"><b><div class="rosetta__pre-wrap"><pre class="rosetta__pre">Sequence
+/// Sequence
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title"></dt></dl>
+/// Assign
+/// Identifier    count
+/// Integer       1
+/// While
+/// Less
+/// Identifier    count
+/// Integer       10
+/// Sequence
+/// Sequence
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title"></dt></dl>
+/// Sequence
+/// Sequence
+/// Sequence
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title"></dt></dl>
+/// Prts
+/// String        "count is: "
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title"></dt></dl>
+/// Prti
+/// Identifier    count
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title"></dt></dl>
+/// Prts
+/// String        "\n"
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title"></dt></dl>
+/// Assign
+/// Identifier    count
+/// Add
+/// Identifier    count
+/// Integer       1</pre></div></b></p><br/><p class="rosetta__paragraph">| style="vertical-align:top" |</p>
+/// <p class="rosetta__paragraph"><b><div class="rosetta__pre-wrap"><pre class="rosetta__pre">Datasize: 1 Strings: 2
+/// "count is: "
+/// "\n"
+///    0 push  1
+///    5 store [0]
+///   10 fetch [0]
+///   15 push  10
+///   20 lt
+///   21 jz     (43) 65
+///   26 push  0
+///   31 prts
+///   32 fetch [0]
+///   37 prti
+///   38 push  1
+///   43 prts
+///   44 fetch [0]
+///   49 push  1
+///   54 add
+///   55 store [0]
+///   60 jmp    (-51) 10
+///   65 halt</pre></div></b></p>
+/// <p class="rosetta__paragraph">|}</p><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title"> Input format:</dt></dl><br/><p class="rosetta__paragraph">As shown in the table, above, the output from the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/syntax_analyzer" title="Compiler/syntax_analyzer">syntax analyzer</a> is a flattened AST.</p><br/><p class="rosetta__paragraph">In the AST, Identifier, Integer, and String, are terminal nodes, e.g, they do not have child nodes.</p><br/><p class="rosetta__paragraph">Loading this data into an internal parse tree should be as simple as:</p><br/><p class="rosetta__paragraph"><lang python></p>
+/// <p class="rosetta__paragraph">def load_ast()</p>
+/// <p class="rosetta__paragraph">line = readline()</p>
+/// <p class="rosetta__paragraph"># Each line has at least one token</p>
+/// <p class="rosetta__paragraph">line_list = tokenize the line, respecting double quotes</p><br/><p class="rosetta__paragraph">text = line_list[0] # first token is always the node type</p><br/><p class="rosetta__paragraph">if text == ";"</p>
+/// <p class="rosetta__paragraph">return None</p><br/><p class="rosetta__paragraph">node_type = text # could convert to internal form if desired</p><br/><p class="rosetta__paragraph"># A line with two tokens is a leaf node</p>
+/// <p class="rosetta__paragraph"># Leaf nodes are: Identifier, Integer String</p>
+/// <p class="rosetta__paragraph"># The 2nd token is the value</p>
+/// <p class="rosetta__paragraph">if len(line_list) > 1</p>
+/// <p class="rosetta__paragraph">return make_leaf(node_type, line_list[1])</p><br/><p class="rosetta__paragraph">left = load_ast()</p>
+/// <p class="rosetta__paragraph">right = load_ast()</p>
+/// <p class="rosetta__paragraph">return make_node(node_type, left, right)</p>
+/// </lang><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title"> Output format - refer to the table above</dt></dl><br/><ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">The first line is the header: Size of data, and number of constant strings.</li>
+/// <li class="rosetta__list-item--unordered">* size of data is the number of 32-bit unique variables used.  In this example, one variable, <span class="rosetta__text--bold">count</span></li>
+/// <li class="rosetta__list-item--unordered">* number of constant strings is just that - how many there are</li>
+/// <li class="rosetta__list-item--unordered">After that, the constant strings</li>
+/// <li class="rosetta__list-item--unordered">Finally, the assembly code</li></ul>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Registers:</dt></dl><br/><ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">sp: the stack pointer - points to the next top of stack.  The stack is a 32-bit integer array.</li></ul>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">pc: the program counter - points to the current instruction to be performed.  The code is an array of bytes.</li></ul>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Data: </dt></dl><br/><p class="rosetta__paragraph">32-bit integers and strings</p><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Instructions:</dt></dl><br/><p class="rosetta__paragraph">Each instruction is one byte.  The following instructions also have a 32-bit integer operand:</p><br/><p class="rosetta__paragraph">fetch [index]</p><br/><p class="rosetta__paragraph">where index is an index into the data array.</p><br/><p class="rosetta__paragraph">store [index]</p><br/><p class="rosetta__paragraph">where index is an index into the data array.</p><br/><p class="rosetta__paragraph">push n</p><br/><p class="rosetta__paragraph">where value is a 32-bit integer that will be pushed onto the stack.</p><br/><p class="rosetta__paragraph">jmp (n) addr</p><br/><p class="rosetta__paragraph">where (n) is a 32-bit integer specifying the distance between the current location and the</p>
+/// <p class="rosetta__paragraph">desired location.  addr is an unsigned value of the actual code address.</p><br/><p class="rosetta__paragraph">jz (n) addr</p><br/><p class="rosetta__paragraph">where (n) is a 32-bit integer specifying the distance between the current location and the</p>
+/// <p class="rosetta__paragraph">desired location.  addr is an unsigned value of the actual code address.</p><br/><p class="rosetta__paragraph">The following instructions do not have an operand.  They perform their operation directly</p>
+/// <p class="rosetta__paragraph">against the stack:</p><br/><p class="rosetta__paragraph">For the following instructions, the operation is performed against the top two entries in</p>
+/// <p class="rosetta__paragraph">the stack:</p><br/><p class="rosetta__paragraph">add</p>
+/// <p class="rosetta__paragraph">sub</p>
+/// <p class="rosetta__paragraph">mul</p>
+/// <p class="rosetta__paragraph">div</p>
+/// <p class="rosetta__paragraph">mod</p>
+/// <p class="rosetta__paragraph">lt</p>
+/// <p class="rosetta__paragraph">gt</p>
+/// <p class="rosetta__paragraph">le</p>
+/// <p class="rosetta__paragraph">ge</p>
+/// <p class="rosetta__paragraph">eq</p>
+/// <p class="rosetta__paragraph">ne</p>
+/// <p class="rosetta__paragraph">and</p>
+/// <p class="rosetta__paragraph">or</p><br/><p class="rosetta__paragraph">For the following instructions, the operation is performed against the top entry in the</p>
+/// <p class="rosetta__paragraph">stack:</p><br/><p class="rosetta__paragraph">neg</p>
+/// <p class="rosetta__paragraph">not</p><br/><p class="rosetta__paragraph">prtc</p><br/><p class="rosetta__paragraph">Print the word at stack top as a character.</p><br/><p class="rosetta__paragraph">prti</p><br/><p class="rosetta__paragraph">Print the word at stack top as an integer.</p><br/><p class="rosetta__paragraph">prts</p><br/><p class="rosetta__paragraph">Stack top points to an index into the string pool.  Print that entry.</p><br/><p class="rosetta__paragraph">halt</p><br/><p class="rosetta__paragraph">Unconditional stop.</p><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title"> Additional examples</dt></dl><br/><p class="rosetta__paragraph">Your solution should pass all the test cases above and the additional tests found <span class="rosetta__text--bold"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/Sample_programs" title="Compiler/Sample_programs">Here</a></span>.</p>
+/// <br/>
+/// <p class="rosetta__paragraph">The C and Python versions can be considered reference implementations.</p><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Related Tasks</dt></dl><br/><ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/lexical_analyzer" title="Compiler/lexical_analyzer">Lexical Analyzer task</a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/syntax_analyzer" title="Compiler/syntax_analyzer">Syntax Analyzer task</a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/virtual_machine_interpreter" title="Compiler/virtual_machine_interpreter">Virtual Machine Interpreter task</a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compiler/AST_interpreter" title="Compiler/AST_interpreter">AST Interpreter task</a></li></ul>
+/// <p class="rosetta__paragraph"><hr></p>
+/// <p class="rosetta__paragraph">__TOC__</p><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

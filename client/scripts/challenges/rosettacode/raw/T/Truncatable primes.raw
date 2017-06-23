@@ -1,0 +1,49 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Truncatable primes
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <p class="rosetta__paragraph">A truncatable prime is a prime number that when you successively remove digits from one end of the prime, you are left with a new prime number; for example, the number 997 is called a <span class="rosetta__text--italic">left-truncatable prime</span> as the numbers 997, 97, and 7 are all prime. The number 7393 is a <span class="rosetta__text--italic">right-truncatable prime</span> as the numbers 7393, 739, 73, and 7 formed by removing digits from its right are also prime. No zeroes are allowed in truncatable primes.</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">The task is to find the largest left-truncatable and right-truncatable primes less than one million (base 10 is implied).</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">C.f: </dt></dl>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Find largest left truncatable prime in a given base" title="Find largest left truncatable prime in a given base">Find largest left truncatable prime in a given base</a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Sieve of Eratosthenes" title="Sieve of Eratosthenes">Sieve of Eratosthenes</a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--wiki" href="http://mathworld.wolfram.com/TruncatablePrime.html" title="link: http://mathworld.wolfram.com/TruncatablePrime.html">Truncatable Prime</a> from Mathworld.</li></ul>
+/// <br>
+/// <p class="rosetta__paragraph"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/:Category: Prime_Numbers" title=":Category: Prime_Numbers">:Category: Prime_Numbers</a></p>
+/// <br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

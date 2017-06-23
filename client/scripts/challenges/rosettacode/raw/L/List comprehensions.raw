@@ -1,0 +1,196 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: List comprehensions
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <br/>
+/// <br/>
+/// <p class="rosetta__paragraph">A <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/List_comprehension" title="wp: List_comprehension">list comprehension</a> is a special syntax in some programming languages to describe lists. It is similar to the way mathematicians describe sets, with a <span class="rosetta__text--italic">set comprehension</span>, hence the name.</p><br/><p class="rosetta__paragraph">Some attributes of a list comprehension are:</p>
+/// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">They should be distinct from (nested) for loops and the use of map and filter functions within the syntax of the language.</li>
+/// <li class="rosetta__list-item--ordered">They should return either a list or an iterator (something that returns successive members of a collection, in order).</li>
+/// <li class="rosetta__list-item--ordered">The syntax has parts corresponding to that of <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Set-builder_notation" title="wp: Set-builder_notation">set-builder notation</a>.  </li></ol><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Write a list comprehension that builds the list of all <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Pythagorean triples" title="Pythagorean triples">Pythagorean triples</a> with elements between  <span class="rosetta__text--bold">1</span>  and  <span class="rosetta__text--bold">n</span>.</p><br/><p class="rosetta__paragraph">If the language has multiple ways for expressing such a construct (for example, direct list comprehensions and generators), write one example for each.</p>
+/// <br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+// USING A LIST MONAD DIRECTLY, WITHOUT SPECIAL SYNTAX FOR LIST COMPREHENSIONS
+
+(function (n) {
+
+    return mb(r(1,     n), function (x) {  // x <- [1..n]
+    return mb(r(1 + x, n), function (y) {  // y <- [1+x..n]
+    return mb(r(1 + y, n), function (z) {  // z <- [1+y..n]
+       
+       return x * x + y * y === z * z ? [[x, y, z]] : [];
+       
+    })})});
+
+
+    // LIBRARY FUNCTIONS
+    
+    // Monadic bind for lists
+    function mb(xs, f) {
+        return [].concat.apply([], xs.map(f));
+    }
+    
+    // Monadic return for lists is simply lambda x -> [x]
+    // as in [[x, y, z]] : [] above
+
+    // Integer range [m..n]
+    function r(m, n) {
+        return Array.apply(null, Array(n - m + 1))
+            .map(function (n, x) {
+                return m + x;
+            });
+    }
+
+})(100);
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+
+===ES5===
+
+ES5 does not provide built-in notation for list comprehensions. The list monad pattern which underlies list comprehension notation can, however, be used in any language which supports the use of higher order functions. The following shows how we can achieve the same result by directly using a list monad in ES5, without the abbreviating convenience of any specific syntactic sugar. 
+
+<lang javascript>// USING A LIST MONAD DIRECTLY, WITHOUT SPECIAL SYNTAX FOR LIST COMPREHENSIONS
+
+(function (n) {
+
+    return mb(r(1,     n), function (x) {  // x <- [1..n]
+    return mb(r(1 + x, n), function (y) {  // y <- [1+x..n]
+    return mb(r(1 + y, n), function (z) {  // z <- [1+y..n]
+       
+       return x * x + y * y === z * z ? [[x, y, z]] : [];
+       
+    })})});
+
+
+    // LIBRARY FUNCTIONS
+    
+    // Monadic bind for lists
+    function mb(xs, f) {
+        return [].concat.apply([], xs.map(f));
+    }
+    
+    // Monadic return for lists is simply lambda x -> [x]
+    // as in [[x, y, z]] : [] above
+
+    // Integer range [m..n]
+    function r(m, n) {
+        return Array.apply(null, Array(n - m + 1))
+            .map(function (n, x) {
+                return m + x;
+            });
+    }
+
+})(100);</lang>
+
+Output:
+
+<pre>[[3, 4, 5], [5, 12, 13], [6, 8, 10], [7, 24, 25], [8, 15, 17], [9, 12, 15], [9, 40, 41], [10, 24, 26], [11, 60, 61], [12, 16, 20], [12, 35, 37], [13, 84, 85], [14, 48, 50], [15, 20, 25], [15, 36, 39], [16, 30, 34], [16, 63, 65], [18, 24, 30], [18, 80, 82], [20, 21, 29], [20, 48, 52], [21, 28, 35], [21, 72, 75], [24, 32, 40], [24, 45, 51], [24, 70, 74], [25, 60, 65], [27, 36, 45], [28, 45, 53], [28, 96, 100], [30, 40, 50], [30, 72, 78], [32, 60, 68], [33, 44, 55], [33, 56, 65], [35, 84, 91], [36, 48, 60], [36, 77, 85], [39, 52, 65], [39, 80, 89], [40, 42, 58], [40, 75, 85], [42, 56, 70], [45, 60, 75], [48, 55, 73], [48, 64, 80], [51, 68, 85], [54, 72, 90], [57, 76, 95], [60, 63, 87], [60, 80, 100], [65, 72, 97]]</pre>
+
+===ES6===
+{{trans|Python}}
+
+{{works with|JavaScript|1.7+ (Firefox 2+)}} {{works with|SpiderMonkey|1.7}}
+
+See [https://developer.mozilla.org/en/New_in_JavaScript_1.7#Array_comprehensions here] for more details
+
+<lang javascript>function range(begin, end) {
+    for (let i = begin; i < end; ++i)
+        yield i;
+}
+
+function triples(n) {
+    return [
+        [x, y, z]
+        for each(x in range(1, n + 1))
+        for each(y in range(x, n + 1))
+        for each(z in range(y, n + 1))
+        if (x * x + y * y == z * z)
+    ]
+}
+
+for each(var triple in triples(20))
+print(triple);</lang>
+
+outputs:
+<pre>3,4,5
+5,12,13
+6,8,10
+8,15,17
+9,12,15
+12,16,20</pre>
+
+
+List comprehension notation was not, in the end, included in the final ES6 standard, and the code above will not run in fully ES6-compliant browsers or interpreters, but we can still go straight to the underlying monadic logic of list comprehensions and obtain: 
+
+<code>[ (x, y, z)
+| x <- [1 .. n], y <- [x .. n], z <- [y .. n], x ^ 2 + y ^ 2 == z ^ 2 ]</code>
+
+by using <code>concatMap</code> (the monadic bind function for lists), and <code>x => [x]</code> (monadic pure/return for lists):
+
+<lang JavaScript>(n => {
+    'use strict';
+
+    // GENERIC FUNCTIONS ------------------------------------------------------
+
+    // concatMap :: (a -> [b]) -> [a] -> [b]
+    const concatMap = (f, xs) => [].concat.apply([], xs.map(f));
+
+    // enumFromTo :: Int -> Int -> [Int]
+    const enumFromTo = (m, n) =>
+        Array.from({
+            length: Math.floor(n - m) + 1
+        }, (_, i) => m + i);
+
+
+    // EXAMPLE ----------------------------------------------------------------
+
+    // [(x, y, z) | x <- [1..n], y <- [x..n], z <- [y..n], x ^ 2 + y ^ 2 == z ^ 2]
+
+    return concatMap(x =>
+           concatMap(y =>
+           concatMap(z =>
+
+                x * x + y * y === z * z ? [
+                    [x, y, z]
+                ] : [],
+
+           enumFromTo(y, n)),
+           enumFromTo(x, n)),
+           enumFromTo(1, n));
+})(20);</lang>
+{{Out}}
+<lang JavaScript>[[3, 4, 5], [5, 12, 13], [6, 8, 10], [8, 15, 17], [9, 12, 15], [12, 16, 20]]</lang>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

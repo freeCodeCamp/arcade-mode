@@ -1,0 +1,114 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Sorting algorithms/Pancake sort
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Sort an array of integers (of any convenient size) into ascending order using <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Pancake sorting" title="wp: Pancake sorting">Pancake sorting</a>.</p><br/><p class="rosetta__paragraph">In short, instead of individual elements being sorted, the only operation allowed is to "flip" one end of the list, like so:</p>
+/// <p class="rosetta__paragraph">Before:</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">6 7 8 9</span> 2 5 3 4 1</p>
+/// <p class="rosetta__paragraph">After:</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">9 8 7 6</span> 2 5 3 4 1</p><br/><p class="rosetta__paragraph">Only one end of the list can be flipped; this should be the low end, but the high end is okay if it's easier to code or works better, but it <span class="rosetta__text--bold">must</span> be the same end for the entire solution. (The end flipped can't be arbitrarily changed.)</p><br/><p class="rosetta__paragraph">Show both the initial, unsorted list and the final sorted list. (Intermediate steps during sorting are optional.) Optimizations are optional (but recommended).</p><br/><p class="rosetta__paragraph">For more information on pancake sorting, see <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Pancake sorting" title="wp: Pancake sorting">the Wikipedia entry</a>.</p><br/><p class="rosetta__paragraph">See also:</p>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Number reversal game" title="Number reversal game">Number reversal game</a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Topswops" title="Topswops">Topswops</a></li></ul><br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+Array.prototype.pancake_sort = function () {
+    for (var i = this.length - 1; i >= 1; i--) {
+        // find the index of the largest element not yet sorted
+        var max_idx = 0;
+        var max = this[0];
+        for (var j = 1; j <= i; j++) {
+            if (this[j] > max) {
+                max = this[j];
+                max_idx = j;
+            }
+        }
+
+        if (max_idx == i) 
+            continue; // element already in place
+
+        var new_slice;
+
+        // flip this max element to index 0
+        if (max_idx > 0) {
+            new_slice = this.slice(0, max_idx+1).reverse();
+            for (var j = 0; j <= max_idx; j++) 
+                this[j] = new_slice[j];
+        }
+
+        // then flip the max element to its place
+        new_slice = this.slice(0, i+1).reverse();
+        for (var j = 0; j <= i; j++) 
+            this[j] = new_slice[j];
+    }
+    return this;
+}
+ary = [7,6,5,9,8,4,3,1,2,0]
+sorted = ary.concat().pancake_sort();
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+<lang javascript>Array.prototype.pancake_sort = function () {
+    for (var i = this.length - 1; i >= 1; i--) {
+        // find the index of the largest element not yet sorted
+        var max_idx = 0;
+        var max = this[0];
+        for (var j = 1; j <= i; j++) {
+            if (this[j] > max) {
+                max = this[j];
+                max_idx = j;
+            }
+        }
+
+        if (max_idx == i) 
+            continue; // element already in place
+
+        var new_slice;
+
+        // flip this max element to index 0
+        if (max_idx > 0) {
+            new_slice = this.slice(0, max_idx+1).reverse();
+            for (var j = 0; j <= max_idx; j++) 
+                this[j] = new_slice[j];
+        }
+
+        // then flip the max element to its place
+        new_slice = this.slice(0, i+1).reverse();
+        for (var j = 0; j <= i; j++) 
+            this[j] = new_slice[j];
+    }
+    return this;
+}
+ary = [7,6,5,9,8,4,3,1,2,0]
+sorted = ary.concat().pancake_sort();</lang>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,0 +1,118 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Closures/Value capture
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Create a list of ten functions, in the simplest manner possible  (anonymous functions are encouraged),  such that the function at index<big> <span class="rosetta__text--italic"><b> i </b></span> </big>  (you may choose to start  <big> <span class="rosetta__text--italic"><b> i </b></span> </big>  from either  <big> <span class="rosetta__text--bold">0</span> </big>  or  <big> <span class="rosetta__text--bold">1</span>), </big>   when run, should return the square of the index,  that is,  <big> <span class="rosetta__text--italic"><b> i </b></span> <sup>2</sup>.</big></p><br/><p class="rosetta__paragraph">Display the result of running any but the last function, to demonstrate that the function indeed remembers its value.</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Goal:</dt></dl>
+/// <p class="rosetta__paragraph">Demonstrate how to create a series of independent closures based on the same template but maintain separate copies of the variable closed over.</p><br/><p class="rosetta__paragraph">In imperative languages, one would generally use a loop with a mutable counter variable.</p><br/><p class="rosetta__paragraph">For each function to maintain the correct number, it has to capture the <span class="rosetta__text--italic">value</span> of the variable at the time it was created, rather than just a reference to the variable, which would have a different value by the time the function was run.</p><br/><p class="rosetta__paragraph">See also: <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Multiple distinct objects" title="Multiple distinct objects">Multiple distinct objects</a></p><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+var funcs = [];
+for (var i = 0; i < 10; i++) {
+    funcs.push( (function(i) {
+                     return function() { return i * i; }
+                })(i) );
+}
+window.alert(funcs[3]()); // alerts "9"
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+
+===Imperative===
+
+<lang javascript>var funcs = [];
+for (var i = 0; i < 10; i++) {
+    funcs.push( (function(i) {
+                     return function() { return i * i; }
+                })(i) );
+}
+window.alert(funcs[3]()); // alerts "9"</lang>
+
+{{works with|JavaScript|1.7+}} (Firefox 2+)
+<lang javascript><script type="application/javascript;version=1.7">
+var funcs = [];
+for (var i = 0; i < 10; i++) {
+    let (i = i) {
+        funcs.push( function() { return i * i; } );
+    }
+}
+window.alert(funcs[3]()); // alerts "9"
+</script></lang>
+
+{{works with|JavaScript|ES6}}
+<lang javascript>"use strict";
+let funcs = [];
+for (let i = 0; i < 10; ++i) {
+    funcs.push((i => () => i*i)(i));
+}
+console.log(funcs[3]());</lang>
+
+===Functional ===
+
+{{works with|JavaScript|ES5}}
+
+<lang javascript>(function () {
+    'use strict';
+
+    // Int -> Int -> [Int]
+    function range(m, n) {
+        return Array.apply(null, Array(n - m + 1))
+            .map(function (x, i) {
+                return m + i;
+            });
+    }
+
+    var lstFns = range(0, 10)
+        .map(function (i) {
+            return function () {
+                return i * i;
+            };
+        })
+        
+    return lstFns[3]();
+
+})();</lang>
+
+{{out}}
+
+<pre>9</pre>
+
+
+{{works with|JavaScript|ES6}}
+<lang javascript>let funcs = [...Array(10).keys()].map(i => () => i*i);</lang>
+{{out}}
+<pre>
+console.log(funcs[3]());
+9
+</pre>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

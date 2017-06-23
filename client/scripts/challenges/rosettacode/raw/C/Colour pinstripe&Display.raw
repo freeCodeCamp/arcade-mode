@@ -1,0 +1,39 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Colour pinstripe/Display
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><br/><p class="rosetta__paragraph">The task is to create 1 pixel wide coloured vertical pinstripes with a sufficient number of pinstripes to span the entire width of the graphics display. The pinstripes should either follow the system palette sequence or a sequence that includes Black, Red, Green, Blue, Magenta, Cyan, Yellow, White.</p><br/><p class="rosetta__paragraph">After filling the top quarter of the display, we switch to a wider 2 pixel wide vertical pinstripe pattern. Halfway down the display we switch to 3 pixel wide vertical pinstripe and then finally to a 4 pixels wide vertical pinstripe for the last quarter of the display.</p><br/><p class="rosetta__paragraph">c.f. <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Pinstripe/Display" title="Pinstripe/Display">Pinstripe/Display</a></p><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

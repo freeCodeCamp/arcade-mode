@@ -1,0 +1,47 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: URL decoding
+/// type: rosetta-code
+
+/// categories:
+/// String manipulation
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <br/><p class="rosetta__paragraph">This task  (the reverse of  <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/URL encoding" title="URL encoding">URL encoding</a>  and distinct from  <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/URL parser" title="URL parser">URL parser</a>)  is to provide a function</p>
+/// <p class="rosetta__paragraph">or mechanism to convert an URL-encoded string into its original unencoded form.</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Test cases:</dt></dl>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"> The encoded string  "<code><nowiki>http%3A%2F%2Ffoo%20bar%2F</nowiki></code>"  should be reverted to the unencoded form  "<code><nowiki>http://foo bar/</nowiki></code>".</li></ul>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"> The encoded string  "<code><nowiki>google.com/search?q=%60Abdu%27l-Bah%C3%A1</nowiki></code>"  should revert to the unencoded form  "<code><nowiki>google.com/search?q=`Abdu'l-Bahá</nowiki></code>".</li></ul><br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+decodeURIComponent("http%3A%2F%2Ffoo%20bar%2F")
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+<lang javascript>decodeURIComponent("http%3A%2F%2Ffoo%20bar%2F")</lang>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

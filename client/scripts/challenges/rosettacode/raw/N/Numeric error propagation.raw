@@ -1,0 +1,60 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Numeric error propagation
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><br/><p class="rosetta__paragraph">If  <span class="rosetta__text--bold">f</span>,  <span class="rosetta__text--bold">a</span>,  and  <span class="rosetta__text--bold">b</span>  are values with uncertainties  σ<sub>f</sub>,  σ<sub>a</sub>,  and  σ<sub>b</sub>,  and  <span class="rosetta__text--bold">c</span>  is a constant;</p>
+/// <br>then if  <span class="rosetta__text--bold">f</span>  is derived from  <span class="rosetta__text--bold">a</span>,  <span class="rosetta__text--bold">b</span>,  and  <span class="rosetta__text--bold">c</span>  in the following ways, 
+/// <br>then  σ<sub>f</sub>  can be calculated as follows:<br/><p class="rosetta__paragraph"><span class="rosetta__text--indented">;Addition/Subtraction</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">* If  f = a &plusmn; c,  or  f = c &plusmn; a  then  <span class="rosetta__text--bold">σ<sub>f</sub> = σ<sub>a</sub></span></span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">* If  f = a &plusmn; b  then  <span class="rosetta__text--bold">σ<sub>f</sub><sup>2</sup> = σ<sub>a</sub><sup>2</sup> + σ<sub>b</sub><sup>2</sup></span></span></p><br/><p class="rosetta__paragraph"><span class="rosetta__text--indented">;Multiplication/Division</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">* If  f = ca  or  f = ac    then  <span class="rosetta__text--bold">σ<sub>f</sub> = |cσ<sub>a</sub>|</span></span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">* If  f = ab  or  f = a / b             then  <span class="rosetta__text--bold">σ<sub>f</sub><sup>2</sup> = f<sup>2</sup>( (σ<sub>a</sub> / a)<sup>2</sup> + (σ<sub>b</sub> / b)<sup>2</sup>)</span></span></p><br/><p class="rosetta__paragraph"><span class="rosetta__text--indented">;Exponentiation</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">* If  f = a<sup>c</sup>  then  <span class="rosetta__text--bold">σ<sub>f</sub> = |fc(σ<sub>a</sub> / a)|</span></span></p>
+/// <br/><p class="rosetta__paragraph">Caution:</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">:This implementation of error propagation does not address issues of dependent and independent values.  It is assumed that  <span class="rosetta__text--bold">a</span>  and  <span class="rosetta__text--bold">b</span>  are independent and so the formula for multiplication should not be applied to  <span class="rosetta__text--bold">a*a</span>  for example.  See  <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Talk:Numeric_error_propagation" title="Talk:Numeric_error_propagation">the talk page</a>  for some of the implications of this issue.</span></p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task details:</dt></dl>
+/// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">Add an uncertain number type to your language that can support addition, subtraction, multiplication, division, and exponentiation between numbers with an associated error term together with 'normal' floating point numbers without an associated error term. <br>Implement enough functionality to perform the following calculations.</li>
+/// <li class="rosetta__list-item--ordered">Given coordinates and their errors:<br>x1 = 100 &plusmn; 1.1<br>y1 =  50 &plusmn; 1.2<br>x2 = 200 &plusmn; 2.2<br>y2 = 100 &plusmn; 2.3<br> if point p1 is located at (x1, y1) and p2 is at (x2, y2); calculate the distance between the two points using the classic Pythagorean formula: <br> <big><big> d = &radic;<span style="text-decoration:overline">  (x1 - x2)²  +  (y1 - y2)²  </span> </big></big></li>
+/// <li class="rosetta__list-item--ordered">Print and display both  <big> <span class="rosetta__text--bold">d</span> </big>  and its error.</li></ol>
+/// <p class="rosetta__paragraph"><!-- the superscript</p>
+/// <p class="rosetta__paragraph">2 glyph  [²]</p>
+/// <p class="rosetta__paragraph">had to be used instead of the</p>
+/// <p class="rosetta__paragraph"><sup>2</sup></p>
+/// <p class="rosetta__paragraph">notation which causes the  overline  "text-decoration"  to either overlay the superscript or it causes a "break" in the continuous overline part of the radic.    Gerard Schildberger.  --></p><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">References:</dt></dl>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"><a class="rosetta__link--wiki" href="http://casa.colorado.edu/~benderan/teaching/astr3510/stats.pdf" title="link: http://casa.colorado.edu/~benderan/teaching/astr3510/stats.pdf">A Guide to Error Propagation</a> B. Keeney, 2005.</li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Propagation of uncertainty" title="wp: Propagation of uncertainty">Propagation of uncertainty</a> Wikipedia.</li></ul><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Related task:</dt></dl>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"> <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Quaternion type" title="Quaternion type">Quaternion type</a></li></ul><br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

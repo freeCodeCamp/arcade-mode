@@ -1,0 +1,57 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: GUI component interaction
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <br/>
+/// <br/>
+/// <br/>
+/// <br/>
+/// <br/>
+/// <br/><p class="rosetta__paragraph">Almost every application needs to communicate with the user in some way.</p>
+/// <p class="rosetta__paragraph">Therefore, a substantial part of the code deals with the interaction</p>
+/// <p class="rosetta__paragraph">of program logic with GUI components.</p><br/><p class="rosetta__paragraph">Typically, the following is needed:</p><br/><ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">put values into input fields under program control</li>
+/// <li class="rosetta__list-item--unordered">read and check input from the user</li>
+/// <li class="rosetta__list-item--unordered">pop up dialogs to query the user for further information</li></ul><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">For a minimal "application", write a program that presents a form with three components to the user:</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">:* a numeric input field ("Value") </span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">:* a button ("increment")</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">:* a button ("random")</span></p>
+/// <br/><p class="rosetta__paragraph">The field is initialized to zero.</p><br/><p class="rosetta__paragraph">The user may manually enter a new value into the field,</p>
+/// <p class="rosetta__paragraph">or increment its value with the "increment" button.</p><br/><p class="rosetta__paragraph">Entering a non-numeric value should be either impossible,</p>
+/// <p class="rosetta__paragraph">or issue an error message.</p><br/><p class="rosetta__paragraph">Pressing the "random" button presents a confirmation dialog,</p>
+/// <p class="rosetta__paragraph">and resets the field's value to a random value if the answer is "Yes".</p><br/><p class="rosetta__paragraph">(This task may be regarded as an extension of the task <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Simple windowed application" title="Simple windowed application">Simple windowed application</a>).<br><br></p><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

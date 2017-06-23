@@ -1,0 +1,107 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Short-circuit evaluation
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <br/><p class="rosetta__paragraph">Assume functions  <code>a</code>  and  <code>b</code>  return boolean values,  and further, the execution of function  <code>b</code>  takes considerable resources without side effects, <!--treating the printing as being for illustrative purposes only--> and is to be minimized.</p><br/><p class="rosetta__paragraph">If we needed to compute the conjunction  (<code>and</code>):</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">::: <code> x = a() and b() </code></span></p><br/><p class="rosetta__paragraph">Then it would be best to not compute the value of  <code>b()</code>  if the value of  <code>a()</code>   is computed as  <code>false</code>,  as the value of  <code>x</code>  can then only ever be  <code> false</code>.</p><br/><p class="rosetta__paragraph">Similarly, if we needed to compute the disjunction (<code>or</code>):</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">::: <code> y = a() or b() </code></span></p><br/><p class="rosetta__paragraph">Then it would be best to not compute the value of  <code>b()</code>  if the value of  <code>a()</code>  is computed as  <code>true</code>,  as the value of  <code>y</code>  can then only ever be  <code>true</code>.</p><br/><p class="rosetta__paragraph">Some languages will stop further computation of boolean equations as soon as the result is known, so-called  <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Short-circuit evaluation" title="wp: Short-circuit evaluation">short-circuit evaluation</a>  of boolean expressions</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Create two functions named  <code>a</code>  and  <code>b</code>,  that take and return the same boolean value.</p><br/><p class="rosetta__paragraph">The functions should also print their name whenever they are called.</p><br/><p class="rosetta__paragraph">Calculate and assign the values of the following equations to a variable in such a way that function  <code>b</code>  is only called when necessary:</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">::: <code> x = a(i) and b(j) </code></span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">::: <code> y = a(i) or  b(j) </code></span></p><br/><br>If the language does not have short-circuit evaluation, this might be achieved with nested   <span class="rosetta__text--bold">if</span>   statements.
+/// <br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+(function () {
+    'use strict';
+
+    function a(bool) {
+        console.log('a -->', bool);
+
+        return bool;
+    }
+
+    function b(bool) {
+        console.log('b -->', bool);
+
+        return bool;
+    }
+  
+  
+    var x = a(false) && b(true),
+        y = a(true) || b(false),
+        z = true ? a(true) : b(false);
+    
+  return [x, y, z];
+})();
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+
+Short-circuiting evaluation of boolean expressions has been the default since the first versions of JavaScript.
+
+<lang JavaScript>(function () {
+    'use strict';
+
+    function a(bool) {
+        console.log('a -->', bool);
+
+        return bool;
+    }
+
+    function b(bool) {
+        console.log('b -->', bool);
+
+        return bool;
+    }
+  
+  
+    var x = a(false) && b(true),
+        y = a(true) || b(false),
+        z = true ? a(true) : b(false);
+    
+  return [x, y, z];
+})();</lang>
+
+The console log shows that in each case (the binding of all three values), only the left-hand part of the expression (the application of ''a(expr)'') was evaluated – ''b(expr)'' was skipped by logical short-circuiting.
+
+{{Out}}
+
+Console:
+<pre>/* a --> false */
+/* a --> true */
+/* a --> true */</pre>
+
+Return value:
+<pre>[false, true, true]</pre>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

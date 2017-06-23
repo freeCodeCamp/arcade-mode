@@ -1,0 +1,85 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Sorting algorithms/Insertion sort
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <br/><br/><br>
+/// <p class="rosetta__paragraph">An <span style="font-family: serif"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/O" title="O">O</a>(<span class="rosetta__text--italic">n</span><sup>2</sup>)</span> sorting algorithm which moves elements one at a time into the correct position.</p>
+/// <p class="rosetta__paragraph">The algorithm consists of inserting one element at a time into the previously sorted part of the array, moving higher ranked elements up as necessary.</p>
+/// <p class="rosetta__paragraph">To start off, the first (or smallest, or any arbitrary) element of the unsorted array is considered to be the sorted part.</p><br/><p class="rosetta__paragraph">Although insertion sort is an <span style="font-family: serif"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/O" title="O">O</a>(<span class="rosetta__text--italic">n</span><sup>2</sup>)</span> algorithm, its simplicity, low overhead, good locality of reference and efficiency make it a good choice in two cases: <br></p>
+/// <p class="rosetta__paragraph">(i) small <span style="font-family: serif"><span class="rosetta__text--italic">n</span></span>, <br></p>
+/// <p class="rosetta__paragraph">(ii) as the final finishing-off algorithm for <span style="font-family: serif"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/O" title="O">O</a>(<span class="rosetta__text--italic">n</span> log<span class="rosetta__text--italic">n</span>)</span> algorithms such as <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Merge sort" title="Merge sort">mergesort</a> and <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/quicksort" title="quicksort">quicksort</a>.</p><br/><p class="rosetta__paragraph">The algorithm is as follows (from <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Insertion_sort#Algorithm" title="wp: Insertion_sort#Algorithm">wikipedia</a>):</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">function</span> <span class="rosetta__text--italic">insertionSort</span>(array A)</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">for</span> i <span class="rosetta__text--bold">from</span> 1 <span class="rosetta__text--bold">to</span> length[A]-1 <span class="rosetta__text--bold">do</span></p>
+/// <p class="rosetta__paragraph">value := A[i]</p>
+/// <p class="rosetta__paragraph">j := i-1</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">while</span> j >= 0 <span class="rosetta__text--bold">and</span> A[j] > value <span class="rosetta__text--bold">do</span></p>
+/// <p class="rosetta__paragraph">A[j+1] := A[j]</p>
+/// <p class="rosetta__paragraph">j := j-1</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">done</span></p>
+/// <p class="rosetta__paragraph">A[j+1] = value</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">done</span></p><br/><p class="rosetta__paragraph">Writing the algorithm for integers will suffice.</p>
+/// <br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+function insertionSort (a) {
+    for (var i = 0; i < a.length; i++) {
+        var k = a[i];
+        for (var j = i; j > 0 && k < a[j - 1]; j--)
+            a[j] = a[j - 1];
+        a[j] = k;
+    }
+    return a;
+}
+
+var a = [4, 65, 2, -31, 0, 99, 83, 782, 1];
+insertionSort(a);
+document.write(a.join(" "));
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+<lang javascript>
+function insertionSort (a) {
+    for (var i = 0; i < a.length; i++) {
+        var k = a[i];
+        for (var j = i; j > 0 && k < a[j - 1]; j--)
+            a[j] = a[j - 1];
+        a[j] = k;
+    }
+    return a;
+}
+
+var a = [4, 65, 2, -31, 0, 99, 83, 782, 1];
+insertionSort(a);
+document.write(a.join(" "));</lang>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

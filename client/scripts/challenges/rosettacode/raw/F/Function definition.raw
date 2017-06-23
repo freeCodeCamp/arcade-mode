@@ -1,0 +1,102 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Function definition
+/// type: rosetta-code
+
+/// categories:
+/// Functions and subroutines
+/// Simple
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <p class="rosetta__paragraph">A function is a body of code that returns a value.</p><br/><p class="rosetta__paragraph">The value returned may depend on arguments provided to the function.</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Write a definition of a function called "multiply" that takes two arguments and returns their product.</p><br/><p class="rosetta__paragraph">(Argument types should be chosen so as not to distract from showing how functions are created and values returned).</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Related task:</dt></dl>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"> <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Function prototype" title="Function prototype">Function prototype</a></li></ul><br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+function multiply(a, b) { 
+  return a*b; 
+}
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+===ES1-*===
+Function Declaration
+<lang javascript>function multiply(a, b) { 
+  return a*b; 
+}</lang>
+
+===ES3-*===
+Function Expression
+<lang javascript>var multiply = function(a, b) {
+    return a * b;
+};</lang>
+
+Named Function Expression
+<lang javascript>var multiply = function multiply(a, b) {
+    return a * b;
+};</lang>
+
+Method Definition
+<lang javascript>var o = {
+  multiply: function(a, b) {
+    return a * b;
+  }
+};</lang>
+
+===ES5-*===
+Accessors
+<lang javascript>var o = {
+  get foo() {
+    return 1;
+  }, 
+  set bar(value) {
+    // do things with value
+  }
+};</lang>
+
+
+===ES6-*===
+Arrow Function
+<lang javascript>var multiply = (a, b) => a * b;
+var multiply = (a, b) => { return a * b };
+</lang>
+
+Concise Body Method Definition
+<lang javascript>var o = {
+  multiply(a, b) {
+    return a * b;
+  }
+};</lang>
+
+Generator Functions
+<lang javascript>function * generator() {
+  yield 1;
+}</lang>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

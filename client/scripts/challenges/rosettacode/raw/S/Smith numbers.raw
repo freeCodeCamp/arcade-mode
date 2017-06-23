@@ -1,0 +1,252 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Smith numbers
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <p class="rosetta__paragraph"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Smith numbers" title="wp: Smith numbers">Smith numbers</a> are numbers such that the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Sum_digits_of_an_integer" title="Sum_digits_of_an_integer">sum of the decimal digits of the integers</a> that make up that number is the same as the sum of the decimal digits of its prime factors excluding 1.</p><br/><p class="rosetta__paragraph">By definition, all primes are <span class="rosetta__text--italic">excluded</span> as they (naturally) satisfy this condition!</p><br/><p class="rosetta__paragraph">Smith numbers are also known as joke numbers.</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Example</dt></dl>
+/// <p class="rosetta__paragraph">Using the number <span class="rosetta__text--bold">166</span><br></p>
+/// <p class="rosetta__paragraph">Find the prime factors of <span class="rosetta__text--bold">166</span> which are: <span class="rosetta__text--bold">2</span> x <span class="rosetta__text--bold">83</span><br></p>
+/// <p class="rosetta__paragraph">Then, take those two prime factors and sum all their decimal digits: <span class="rosetta__text--bold">2 + 8 + 3</span> which is <span class="rosetta__text--bold">13</span><br></p>
+/// <p class="rosetta__paragraph">Then, take the decimal digits of <span class="rosetta__text--bold">166</span> and add their decimal digits: <span class="rosetta__text--bold">1 + 6 + 6</span> which is <span class="rosetta__text--bold">13</span><br></p>
+/// <p class="rosetta__paragraph">Therefore, the number <span class="rosetta__text--bold">166</span> is a Smith number.</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task</dt></dl>
+/// <p class="rosetta__paragraph">Write a program to find all Smith numbers <span class="rosetta__text--italic">below</span> 10000.</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">See also</dt></dl>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">from Wikipedia:  <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/https://en.wikipedia.org/wiki/Smith_number Smith number" title="https://en.wikipedia.org/wiki/Smith_number Smith number">https://en.wikipedia.org/wiki/Smith_number Smith number</a>.</li>
+/// <li class="rosetta__list-item--unordered">from MathWorld:  <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/http://mathworld.wolfram.com/SmithNumber.html Smith number" title="http://mathworld.wolfram.com/SmithNumber.html Smith number">http://mathworld.wolfram.com/SmithNumber.html Smith number</a>. </li>
+/// <li class="rosetta__list-item--unordered">from OEIS A6753:  <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/https://oeis.org/A006753 OEIS sequence A6753" title="https://oeis.org/A006753 OEIS sequence A6753">https://oeis.org/A006753 OEIS sequence A6753</a>.</li>
+/// <li class="rosetta__list-item--unordered">from OEIS A104170:  <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/https://oeis.org/A104170 Number of Smith numbers below 10^n" title="https://oeis.org/A104170 Number of Smith numbers below 10^n">https://oeis.org/A104170 Number of Smith numbers below 10^n</a>. </li>
+/// <li class="rosetta__list-item--unordered">from The Prime pages:  <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/http://primes.utm.edu/glossary/xpage/SmithNumber.html Smith numbers" title="http://primes.utm.edu/glossary/xpage/SmithNumber.html Smith numbers">http://primes.utm.edu/glossary/xpage/SmithNumber.html Smith numbers</a>.</li></ul><br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+(() => {
+    'use strict';
+
+    // GENERIC FUNCTIONS -----------------------------------------------------
+
+    // concat :: [[a]] -> [a] | [String] -> String
+    const concat = xs => {
+        if (xs.length > 0) {
+            const unit = typeof xs[0] === 'string' ? '' : [];
+            return unit.concat.apply(unit, xs);
+        } else return [];
+    }
+
+    // range :: Int -> Int -> [Int]
+    const range = (m, n) =>
+        Array.from({
+            length: Math.floor(n - m) + 1
+        }, (_, i) => m + i);
+
+    // dropWhile :: (a -> Bool) -> [a] -> [a]
+    const dropWhile = (p, xs) => {
+        let i = 0;
+        for (let lng = xs.length;
+            (i < lng) && p(xs[i]); i++) {}
+        return xs.slice(i);
+    }
+
+    // head :: [a] -> a
+    const head = xs => xs.length ? xs[0] : undefined;
+
+    // Int -> [a] -> [a]
+    const take = (n, xs) => xs.slice(0, n);
+
+    // drop :: Int -> [a] -> [a]
+    const drop = (n, xs) => xs.slice(n);
+
+    // floor :: Num a => a -> Int
+    const floor = Math.floor;
+
+    // floor :: Num -> Num
+    const sqrt = Math.sqrt;
+
+    // show :: a -> String
+    const show = x => JSON.stringify(x, null, 2);
+
+    // unwords :: [String] -> String
+    const unwords = xs => xs.join(' ');
+
+
+    // MAIN -----------------------------------------------------------------
+
+    // primeFactors :: Int -> [Int]
+    const primeFactors = n => {
+        const fs = take(1, (dropWhile(x => n % x !== 0, range(2, floor(sqrt(n))))));
+        return fs.length === 0 ? (
+            [n]
+        ) : fs.concat(primeFactors(floor(n / head(fs))));
+    };
+
+    // digitSum :: [Char] -> Int
+    const digitSum = ds =>
+        ds
+        .reduce((a, b) => parseInt(a, 10) + parseInt(b, 10), 0);
+
+    // isSmith :: Int -> Bool
+    const isSmith = n => {
+        const pfs = primeFactors(n);
+        return (head(pfs) !== n) &&
+            digitSum(n.toString()
+                .split('')) == digitSum(
+                concat(pfs.map(x => x.toString()))
+                .split('')
+            );
+    }
+
+    // TEST ------------------------------------------------------------------
+
+    // lowSmiths :: [Int]
+    const lowSmiths = range(2, 9999)
+        .filter(isSmith);
+
+    // lowSmithCount :: Int
+    const lowSmithCount = lowSmiths.length;
+
+    return [
+        "Count of Smith Numbers below 10k:",
+            show(lowSmithCount),
+            "\nFirst 15 Smith Numbers:",
+            unwords(take(15, lowSmiths)),
+            "\nLast 12 Smith Numbers below 10000:",
+            unwords(drop(lowSmithCount - 12, lowSmiths))
+    ].join('\n');
+})();
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+===ES6===
+{{Trans|Haskell}}
+<lang JavaScript>(() => {
+    'use strict';
+
+    // GENERIC FUNCTIONS -----------------------------------------------------
+
+    // concat :: [[a]] -> [a] | [String] -> String
+    const concat = xs => {
+        if (xs.length > 0) {
+            const unit = typeof xs[0] === 'string' ? '' : [];
+            return unit.concat.apply(unit, xs);
+        } else return [];
+    }
+
+    // range :: Int -> Int -> [Int]
+    const range = (m, n) =>
+        Array.from({
+            length: Math.floor(n - m) + 1
+        }, (_, i) => m + i);
+
+    // dropWhile :: (a -> Bool) -> [a] -> [a]
+    const dropWhile = (p, xs) => {
+        let i = 0;
+        for (let lng = xs.length;
+            (i < lng) && p(xs[i]); i++) {}
+        return xs.slice(i);
+    }
+
+    // head :: [a] -> a
+    const head = xs => xs.length ? xs[0] : undefined;
+
+    // Int -> [a] -> [a]
+    const take = (n, xs) => xs.slice(0, n);
+
+    // drop :: Int -> [a] -> [a]
+    const drop = (n, xs) => xs.slice(n);
+
+    // floor :: Num a => a -> Int
+    const floor = Math.floor;
+
+    // floor :: Num -> Num
+    const sqrt = Math.sqrt;
+
+    // show :: a -> String
+    const show = x => JSON.stringify(x, null, 2);
+
+    // unwords :: [String] -> String
+    const unwords = xs => xs.join(' ');
+
+
+    // MAIN -----------------------------------------------------------------
+
+    // primeFactors :: Int -> [Int]
+    const primeFactors = n => {
+        const fs = take(1, (dropWhile(x => n % x !== 0, range(2, floor(sqrt(n))))));
+        return fs.length === 0 ? (
+            [n]
+        ) : fs.concat(primeFactors(floor(n / head(fs))));
+    };
+
+    // digitSum :: [Char] -> Int
+    const digitSum = ds =>
+        ds
+        .reduce((a, b) => parseInt(a, 10) + parseInt(b, 10), 0);
+
+    // isSmith :: Int -> Bool
+    const isSmith = n => {
+        const pfs = primeFactors(n);
+        return (head(pfs) !== n) &&
+            digitSum(n.toString()
+                .split('')) == digitSum(
+                concat(pfs.map(x => x.toString()))
+                .split('')
+            );
+    }
+
+    // TEST ------------------------------------------------------------------
+
+    // lowSmiths :: [Int]
+    const lowSmiths = range(2, 9999)
+        .filter(isSmith);
+
+    // lowSmithCount :: Int
+    const lowSmithCount = lowSmiths.length;
+
+    return [
+        "Count of Smith Numbers below 10k:",
+            show(lowSmithCount),
+            "\nFirst 15 Smith Numbers:",
+            unwords(take(15, lowSmiths)),
+            "\nLast 12 Smith Numbers below 10000:",
+            unwords(drop(lowSmithCount - 12, lowSmiths))
+    ].join('\n');
+})();</lang>
+{{Out}}
+<pre>Count of Smith Numbers below 10k:
+376
+
+First 15 Smith Numbers:
+4 22 27 58 85 94 121 166 202 265 274 319 346 355 378
+
+Last 12 Smith Numbers below 10000:
+9778 9840 9843 9849 9861 9880 9895 9924 9942 9968 9975 9985</pre>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

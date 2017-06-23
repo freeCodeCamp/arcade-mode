@@ -1,0 +1,88 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Price fraction
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><br/><p class="rosetta__paragraph">A friend of mine runs a pharmacy.  He has a specialized function in his Dispensary application which receives a decimal value of currency and replaces it to a standard value.  This value is regulated by a government department.</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Given a floating point value between  0.00  and  1.00,  rescale according to the following table:</p><br/><p class="rosetta__paragraph">>=  0.00  <  0.06  :=  0.10</p>
+/// <p class="rosetta__paragraph">>=  0.06  <  0.11  :=  0.18</p>
+/// <p class="rosetta__paragraph">>=  0.11  <  0.16  :=  0.26</p>
+/// <p class="rosetta__paragraph">>=  0.16  <  0.21  :=  0.32</p>
+/// <p class="rosetta__paragraph">>=  0.21  <  0.26  :=  0.38</p>
+/// <p class="rosetta__paragraph">>=  0.26  <  0.31  :=  0.44</p>
+/// <p class="rosetta__paragraph">>=  0.31  <  0.36  :=  0.50</p>
+/// <p class="rosetta__paragraph">>=  0.36  <  0.41  :=  0.54</p>
+/// <p class="rosetta__paragraph">>=  0.41  <  0.46  :=  0.58</p>
+/// <p class="rosetta__paragraph">>=  0.46  <  0.51  :=  0.62</p>
+/// <p class="rosetta__paragraph">>=  0.51  <  0.56  :=  0.66</p>
+/// <p class="rosetta__paragraph">>=  0.56  <  0.61  :=  0.70</p>
+/// <p class="rosetta__paragraph">>=  0.61  <  0.66  :=  0.74</p>
+/// <p class="rosetta__paragraph">>=  0.66  <  0.71  :=  0.78</p>
+/// <p class="rosetta__paragraph">>=  0.71  <  0.76  :=  0.82</p>
+/// <p class="rosetta__paragraph">>=  0.76  <  0.81  :=  0.86</p>
+/// <p class="rosetta__paragraph">>=  0.81  <  0.86  :=  0.90</p>
+/// <p class="rosetta__paragraph">>=  0.86  <  0.91  :=  0.94</p>
+/// <p class="rosetta__paragraph">>=  0.91  <  0.96  :=  0.98</p>
+/// <p class="rosetta__paragraph">>=  0.96  <  1.01  :=  1.00</p>
+/// <br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+function getScaleFactor(v) {
+
+  var values = ['0.10','0.18','0.26','0.32','0.38','0.44','0.50','0.54',
+                '0.58','0.62','0.66','0.70','0.74','0.78','0.82','0.86',
+                '0.90','0.94','0.98','1.00'];
+
+  return values[(v * 100 - 1) / 5 | 0];
+}
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+
+In the task definition, the first step is 0.06, the rest are 0.05 
+so a re-factoring can subtract 0.01 from the value and divide by 0.05 to get the step.
+
+Working with decimal numbers in JavaScript has issues, e.g. 0.06 - 0.01 = 0.049999999999999996 due to using IEEE 754 double precision numbers that can't accurately represent all decimals. So values are multiplied by 100 and integer arithmetic is used.
+
+Note that multiplying a string by a number produces a number, the bitwise OR (|) truncates floating point numbers to integer, making it a concise replacement for ''Math.floor''.
+
+Passing a value outside the range 0 <= x < 1.01 will return undefined.
+
+<lang javascript>function getScaleFactor(v) {
+
+  var values = ['0.10','0.18','0.26','0.32','0.38','0.44','0.50','0.54',
+                '0.58','0.62','0.66','0.70','0.74','0.78','0.82','0.86',
+                '0.90','0.94','0.98','1.00'];
+
+  return values[(v * 100 - 1) / 5 | 0];
+}</lang>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

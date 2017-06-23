@@ -1,0 +1,140 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Sorting algorithms/Merge sort
+/// type: rosetta-code
+
+/// categories:
+/// Recursion
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <br/>
+/// <p class="rosetta__paragraph">The  <span class="rosetta__text--bold">merge sort</span>  is a recursive sort of order  <big> n*log(n). </big></p><br/><p class="rosetta__paragraph">It is notable for having a worst case and average complexity of  <big> <span class="rosetta__text--italic">O(n*log(n))</span>, </big>  and a best case complexity of  <big> <span class="rosetta__text--italic">O(n)</span>  </big> (for pre-sorted input).</p><br/><p class="rosetta__paragraph">The basic idea is to split the collection into smaller groups by halving it until the groups only have one element or no elements  (which are both entirely sorted groups).</p><br/><p class="rosetta__paragraph">Then merge the groups back together so that their elements are in order.</p><br/><p class="rosetta__paragraph">This is how the algorithm gets its  <span class="rosetta__text--italic">divide and conquer</span>  description.</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Write a function to sort a collection of integers using the merge sort.</p>
+/// <br/><p class="rosetta__paragraph">The merge sort algorithm comes in two parts:</p>
+/// <p class="rosetta__paragraph">a sort function     and</p>
+/// <p class="rosetta__paragraph">a merge function</p><br/><p class="rosetta__paragraph">The functions in pseudocode look like this:</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">function</span> <span class="rosetta__text--italic">mergesort</span>(m)</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">var</span> list left, right, result</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">if</span> length(m) ≤ 1</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">return</span> m</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">else</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">var</span> middle = length(m) / 2</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">for each</span> x <span class="rosetta__text--bold">in</span> m <span class="rosetta__text--bold">up to</span> middle - 1</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">add</span> x <span class="rosetta__text--bold">to</span> left</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">for each</span> x <span class="rosetta__text--bold">in</span> m <span class="rosetta__text--bold">at and after</span> middle</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">add</span> x <span class="rosetta__text--bold">to</span> right</p>
+/// <p class="rosetta__paragraph">left = mergesort(left)</p>
+/// <p class="rosetta__paragraph">right = mergesort(right)</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">if</span> last(left) ≤ first(right)</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">append</span> right <span class="rosetta__text--bold">to</span> left</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">return</span> left</p>
+/// <p class="rosetta__paragraph">result = merge(left, right)</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">return</span> result</p><br/><p class="rosetta__paragraph"><span class="rosetta__text--bold">function</span> <span class="rosetta__text--italic">merge</span>(left,right)</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">var</span> list result</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">while</span> length(left) > 0 and length(right) > 0</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">if</span> first(left) ≤ first(right)</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">append</span> first(left) <span class="rosetta__text--bold">to</span> result</p>
+/// <p class="rosetta__paragraph">left = rest(left)</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">else</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">append</span> first(right) <span class="rosetta__text--bold">to</span> result</p>
+/// <p class="rosetta__paragraph">right = rest(right)</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">if</span> length(left) > 0</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">append</span> rest(left) <span class="rosetta__text--bold">to</span> result</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">if</span> length(right) > 0</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">append</span> rest(right) <span class="rosetta__text--bold">to</span> result</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">return</span> result</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">See also:</dt></dl>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"> the Wikipedia entry:  <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Merge_sort" title="wp: Merge_sort"> merge sort</a></li></ul><br/><p class="rosetta__paragraph">Note:  better performance can be expected if, rather than recursing until  <big> length(m) ≤ 1, </big>  an insertion sort is used for  <big> length(m) </big>  smaller than some threshold larger than  <span class="rosetta__text--bold">1</span>.  However, this complicates the example code, so it is not shown here.</p>
+/// <br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+function merge(left, right, arr) {
+  var a = 0;
+
+  while (left.length && right.length) {
+    arr[a++] = (right[0] < left[0]) ? right.shift() : left.shift();
+  }
+  while (left.length) {
+    arr[a++] = left.shift();
+  }
+  while (right.length) {
+    arr[a++] = right.shift();
+  }
+}
+
+function mergeSort(arr) {
+  var len = arr.length;
+
+  if (len === 1) { return; }
+
+  var mid = Math.floor(len / 2),
+      left = arr.slice(0, mid),
+      right = arr.slice(mid);
+
+  mergeSort(left);
+  mergeSort(right);
+  merge(left, right, arr);
+}
+
+var arr = [1, 5, 2, 7, 3, 9, 4, 6, 8];
+mergeSort(arr); // arr will now: 1, 2, 3, 4, 5, 6, 7, 8, 9
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+<lang javascript>function merge(left, right, arr) {
+  var a = 0;
+
+  while (left.length && right.length) {
+    arr[a++] = (right[0] < left[0]) ? right.shift() : left.shift();
+  }
+  while (left.length) {
+    arr[a++] = left.shift();
+  }
+  while (right.length) {
+    arr[a++] = right.shift();
+  }
+}
+
+function mergeSort(arr) {
+  var len = arr.length;
+
+  if (len === 1) { return; }
+
+  var mid = Math.floor(len / 2),
+      left = arr.slice(0, mid),
+      right = arr.slice(mid);
+
+  mergeSort(left);
+  mergeSort(right);
+  merge(left, right, arr);
+}
+
+var arr = [1, 5, 2, 7, 3, 9, 4, 6, 8];
+mergeSort(arr); // arr will now: 1, 2, 3, 4, 5, 6, 7, 8, 9</lang>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

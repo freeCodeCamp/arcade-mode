@@ -1,0 +1,126 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Test integerness
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><br/><p class="rosetta__paragraph">Mathematically,</p>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Integer" title="wp: Integer">integers</a> <span class="rosetta__text--bold">Z</span> are included in the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Rational number" title="wp: Rational number">rational numbers</a> <span class="rosetta__text--bold">Q</span>,</li>
+/// <li class="rosetta__list-item--unordered">which are included in the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Real number" title="wp: Real number">real numbers</a> <span class="rosetta__text--bold">R</span>,</li>
+/// <li class="rosetta__list-item--unordered">which can be generalized to the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Complex number" title="wp: Complex number">complex numbers</a> <span class="rosetta__text--bold">C</span>.</li></ul><br/><p class="rosetta__paragraph">This means that each of those larger sets, and the data types used to represent them, include some integers.</p>
+/// <br/>
+/// <p class="rosetta__paragraph">Given a rational, real, or complex number of any type, test whether it is mathematically an integer.</p><br/><p class="rosetta__paragraph">Your code should handle all numeric data types commonly used in your programming language.</p><br/><p class="rosetta__paragraph">Discuss any limitations of your code.</p>
+/// <br/>
+/// <p class="rosetta__paragraph">For the purposes of this task, integerness means that a number could theoretically be represented as an integer at no loss of precision <span class="rosetta__text--italic"><small>(given an infinitely wide integer type)</small></span>.<br></p>
+/// <p class="rosetta__paragraph">In other words:</p><br/><p class="rosetta__paragraph">{| class="wikitable"</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">! Set</p>
+/// <p class="rosetta__paragraph">! Common representation</p>
+/// <p class="rosetta__paragraph">! C++ type</p>
+/// <p class="rosetta__paragraph">! Considered an integer...</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| rational numbers <span class="rosetta__text--bold">Q</span></p>
+/// <p class="rosetta__paragraph">| <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Rational data type" title="wp: Rational data type">fraction</a></p>
+/// <p class="rosetta__paragraph">| <code>std::ratio</code></p>
+/// <p class="rosetta__paragraph">| ...if its denominator is 1 (in reduced form)</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| rowspan=2 | real numbers <span class="rosetta__text--bold">Z</span><br><small><span class="rosetta__text--italic">(approximated)</span></small></p>
+/// <p class="rosetta__paragraph">| <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Fixed-point arithmetic" title="wp: Fixed-point arithmetic">fixed-point</a></p>
+/// <p class="rosetta__paragraph">|</p>
+/// <p class="rosetta__paragraph">| ...if it has no non-zero digits after the decimal point</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Floating point" title="wp: Floating point">floating-point</a></p>
+/// <p class="rosetta__paragraph">| <code>float</code>, <code>double</code></p>
+/// <p class="rosetta__paragraph">| ...if the number of significant decimal places of its mantissa isn't greater than its exponent</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| complex numbers <span class="rosetta__text--bold">C</span></p>
+/// <p class="rosetta__paragraph">| <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Complex data type" title="wp: Complex data type">pair of real numbers</a></p>
+/// <p class="rosetta__paragraph">| <code>std::complex</code></p>
+/// <p class="rosetta__paragraph">| ...if its real part is considered an integer and its imaginary part is zero</p>
+/// <p class="rosetta__paragraph">|}</p>
+/// <br/>
+/// <p class="rosetta__paragraph">Optionally, make your code accept a <code>tolerance</code> parameter for fuzzy testing. The tolerance is the maximum amount by which the number may differ from the nearest integer, to still be considered an integer.</p><br/><p class="rosetta__paragraph">This is useful in practice, because when dealing with approximate numeric types (such as floating point), there may already be <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Round-off error" title="wp: Round-off error">round-off errors</a> from previous calculations. For example, a float value of <code>0.9999999998</code> might actually be intended to represent the integer <code>1</code>.</p>
+/// <br/>
+/// <p class="rosetta__paragraph">{| class="wikitable"</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">! colspan=2 | Input</p>
+/// <p class="rosetta__paragraph">! colspan=2 | Output</p>
+/// <p class="rosetta__paragraph">! rowspan=2 | Comment</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">! <small>Type</small></p>
+/// <p class="rosetta__paragraph">! <small>Value</small></p>
+/// <p class="rosetta__paragraph">! <small><tt>exact</tt></small></p>
+/// <p class="rosetta__paragraph">! <small><tt>tolerance = 0.00001</tt></small></p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| rowspan=3 | decimal</p>
+/// <p class="rosetta__paragraph">| <code>25.000000</code></p>
+/// <p class="rosetta__paragraph">| colspan=2 | true</p>
+/// <p class="rosetta__paragraph">|</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| <code>24.999999</code></p>
+/// <p class="rosetta__paragraph">| false</p>
+/// <p class="rosetta__paragraph">| true</p>
+/// <p class="rosetta__paragraph">|</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| <code>25.000100</code></p>
+/// <p class="rosetta__paragraph">| colspan=2 | false</p>
+/// <p class="rosetta__paragraph">|</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| rowspan=4 | floating-point</p>
+/// <p class="rosetta__paragraph">| <code>-2.1e120</code></p>
+/// <p class="rosetta__paragraph">| colspan=2 | true</p>
+/// <p class="rosetta__paragraph">| This one is tricky, because in most languages it is too large to fit into a native integer type.<br>It is, nonetheless, mathematically an integer, and your code should identify it as such.</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| <code>-5e-2</code></p>
+/// <p class="rosetta__paragraph">| colspan=2 | false</p>
+/// <p class="rosetta__paragraph">|</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| <code>NaN</code></p>
+/// <p class="rosetta__paragraph">| colspan=2 | false</p>
+/// <p class="rosetta__paragraph">|</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| <code>Inf</code></p>
+/// <p class="rosetta__paragraph">| colspan=2 | false</p>
+/// <p class="rosetta__paragraph">| This one is debatable. If your code considers it an integer, that's okay too.</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| rowspan=2 | complex</p>
+/// <p class="rosetta__paragraph">| <code>5.0+0.0i</code></p>
+/// <p class="rosetta__paragraph">| colspan=2 | true</p>
+/// <p class="rosetta__paragraph">|</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| <code>5-5i</code></p>
+/// <p class="rosetta__paragraph">| colspan=2 | false</p>
+/// <p class="rosetta__paragraph">|</p>
+/// <p class="rosetta__paragraph">|}</p><br/><p class="rosetta__paragraph">(The types and notations shown in these tables are merely examples &ndash; you should use the native data types and number literals of your programming language and standard library. Use a different set of test-cases, if this one doesn't demonstrate all relevant behavior.)</p><br/><p class="rosetta__paragraph"><hr></p><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

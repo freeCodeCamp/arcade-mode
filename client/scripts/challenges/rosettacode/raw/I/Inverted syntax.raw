@@ -1,0 +1,40 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Inverted syntax
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><br/><p class="rosetta__paragraph"><span class="rosetta__text--bold">Inverted syntax with conditional expressions</span></p><br/><p class="rosetta__paragraph">In traditional syntax conditional expressions are usually shown before the action within a statement or code block:</p><br/><p class="rosetta__paragraph"><lang pseudocode> IF raining=true THEN needumbrella=true </lang></p><br/><p class="rosetta__paragraph">In inverted syntax, the action is listed before the conditional expression in the statement or code block:</p><br/><p class="rosetta__paragraph"><lang pseudocode> needumbrella=true IF raining=true </lang></p><br/><p class="rosetta__paragraph"><span class="rosetta__text--bold">Inverted syntax with assignment</span></p><br/><p class="rosetta__paragraph">In traditional syntax, assignments are usually expressed with the variable appearing before the expression:</p><br/><p class="rosetta__paragraph"><lang pseudocode> a = 6</lang></p><br/><p class="rosetta__paragraph">In inverted syntax, the expression appears before the variable:</p>
+/// <p class="rosetta__paragraph"><lang pseudocode> 6 = a</lang></p><br/><p class="rosetta__paragraph"><span class="rosetta__text--bold">Task</span></p><br/><p class="rosetta__paragraph">The task is to demonstrate support for inverted syntax forms within the language by showing both the traditional and inverted forms.</p><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

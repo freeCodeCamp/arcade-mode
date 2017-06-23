@@ -1,0 +1,65 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Sort three variables
+/// type: rosetta-code
+
+/// categories:
+/// Sorting
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <br/>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task: </dt></dl>
+/// <p class="rosetta__paragraph">Sort  (the values of)  three variables  (<span class="rosetta__text--bold">X</span>,  <span class="rosetta__text--bold">Y</span>,  and  <span class="rosetta__text--bold">Z</span>)  that contain any value  (numbers and/or literals).</p><br/><p class="rosetta__paragraph">If that isn't possible in your language, then just sort numbers  (and note if they can be floating point, integer, or other).</p>
+/// <br/>
+/// <p class="rosetta__paragraph">I.E.:    (for the three variables  <span class="rosetta__text--bold">x</span>,  <span class="rosetta__text--bold">y</span>,  and  <span class="rosetta__text--bold">z</span>),  where:</p>
+/// <p class="rosetta__paragraph">x =  'lions, tigers, and'</p>
+/// <p class="rosetta__paragraph">y =  'bears, oh my!'</p>
+/// <p class="rosetta__paragraph">z =  '(from the "Wizard of OZ")'</p><br/><p class="rosetta__paragraph">After sorting,  the three variables would hold:</p>
+/// <p class="rosetta__paragraph">x =  '(from the "Wizard of OZ")'</p>
+/// <p class="rosetta__paragraph">y =  'bears, oh my!'</p>
+/// <p class="rosetta__paragraph">z =  'lions, tigers, and'</p><br/><p class="rosetta__paragraph"><!-- Care was taken to use a leading lowercase letter so that EBCDIC and ASCII machines sort the literals in the same order.   {Gerard Schildberger}   !--></p>
+/// <br/><p class="rosetta__paragraph">For numeric value sorting, use:</p><br/><p class="rosetta__paragraph">I.E.:    (for the three variables  <span class="rosetta__text--bold">x</span>,  <span class="rosetta__text--bold">y</span>,  and  <span class="rosetta__text--bold">z</span>),  where:</p>
+/// <p class="rosetta__paragraph">x =  77444</p>
+/// <p class="rosetta__paragraph">y =    -12</p>
+/// <p class="rosetta__paragraph">z =      0</p><br/><p class="rosetta__paragraph">After sorting,  the three variables would hold:</p>
+/// <p class="rosetta__paragraph">x =    -12</p>
+/// <p class="rosetta__paragraph">y =      0</p>
+/// <p class="rosetta__paragraph">z =  77444</p><br/><p class="rosetta__paragraph">The variables should contain some form of a number, but specify if the algorithm</p>
+/// <p class="rosetta__paragraph">used can be for floating point or integers.  Note any limitations.</p>
+/// <br/><p class="rosetta__paragraph">The values may or may not be unique.</p>
+/// <br/><p class="rosetta__paragraph">The method used for sorting can be any algorithm;  the goal is to use the most idiomatic in the computer programming language used.</p><br/><p class="rosetta__paragraph">More than one algorithm could be shown if one isn't clearly the better choice.</p>
+/// <br/><p class="rosetta__paragraph">One algorithm could be:</p>
+/// <p class="rosetta__paragraph">Θ  store the three variables  <span class="rosetta__text--bold">x</span>, <span class="rosetta__text--bold">y</span>, and <span class="rosetta__text--bold">z</span></p>
+/// <p class="rosetta__paragraph">into an array (or a list)  <span class="rosetta__text--bold">A</span></p><br/><p class="rosetta__paragraph">Θ  sort  (the three elements of)  the array  <span class="rosetta__text--bold">A</span></p><br/><p class="rosetta__paragraph">Θ  extract the three elements from the array and place them in the</p>
+/// <p class="rosetta__paragraph">variables <span class="rosetta__text--bold">x</span>, <span class="rosetta__text--bold">y</span>, and <span class="rosetta__text--bold">z</span>  in order of extraction</p><br/><p class="rosetta__paragraph">Show the results of the sort here on this page using at least the values of those shown above.</p>
+/// <br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

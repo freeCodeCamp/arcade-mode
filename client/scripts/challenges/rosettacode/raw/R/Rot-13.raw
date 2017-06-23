@@ -1,0 +1,127 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Rot-13
+/// type: rosetta-code
+
+/// categories:
+/// String_manipulation
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <br/>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Implement a  <span class="rosetta__text--bold">rot-13</span>  function  (or procedure, class, subroutine, or other "callable" object as appropriate to your programming environment).</p><br/><p class="rosetta__paragraph">Optionally wrap this function in a utility program  (like <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/:Category:Tr" title=":Category:Tr">tr</a>,  which acts like a common <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/UNIX" title="UNIX">UNIX</a> utility, performing a line-by-line rot-13 encoding of every line of input contained in each file listed on its command line,  or (if no filenames are passed thereon) acting as a filter on its  "standard input."</p>
+/// <br/><p class="rosetta__paragraph">(A number of UNIX scripting languages and utilities, such as  <span class="rosetta__text--italic">awk</span>  and  <span class="rosetta__text--italic">sed</span>  either default to processing files in this way or have command line switches or modules to easily implement these wrapper semantics, e.g.,  <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Perl" title="Perl">Perl</a>  and  <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Python" title="Python">Python</a>).</p><br/><p class="rosetta__paragraph">The  <span class="rosetta__text--bold">rot-13</span>  encoding is commonly known from the early days of Usenet "Netnews" as a way of obfuscating text to prevent casual reading of  <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Spoiler (media)" title="wp: Spoiler (media)">spoiler</a>  or potentially offensive material.</p><br/><p class="rosetta__paragraph">Many news reader and mail user agent programs have built-in <span class="rosetta__text--bold">rot-13</span> encoder/decoders or have the ability to feed a message through any external utility script for performing this (or other) actions.</p><br/><p class="rosetta__paragraph">The definition of the rot-13 function is to simply replace every letter of the ASCII alphabet with the letter which is "rotated" 13 characters "around" the 26 letter alphabet from its normal cardinal position  (wrapping around from  <span class="rosetta__text--bold">z</span>'  to  <span class="rosetta__text--bold">a</span>  as necessary).</p><br/><p class="rosetta__paragraph">Thus the letters  <span class="rosetta__text--bold">abc</span>  become  <span class="rosetta__text--bold">nop</span>  and so on.</p><br/><p class="rosetta__paragraph">Technically <span class="rosetta__text--bold">rot-13</span> is a  "mono-alphabetic substitution cipher"  with a trivial  "key".</p><br/><p class="rosetta__paragraph">A proper implementation should work on upper and lower case letters, preserve case, and pass all non-alphabetic characters</p>
+/// <p class="rosetta__paragraph">in the input stream through without alteration.</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks:</dt></dl>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"> <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Caesar cipher" title="Caesar cipher">Caesar cipher</a></li>
+/// <li class="rosetta__list-item--unordered"> <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Substitution Cipher" title="Substitution Cipher">Substitution Cipher</a></li>
+/// <li class="rosetta__list-item--unordered"> <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Vigenère Cipher/Cryptanalysis" title="Vigenère Cipher/Cryptanalysis">Vigenère Cipher/Cryptanalysis</a></li></ul><br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+function rot13(c) {
+    return c.replace(/([a-m])|([n-z])/ig, function($0,$1,$2) {
+        return String.fromCharCode($1 ? $1.charCodeAt(0) + 13 : $2 ? $2.charCodeAt(0) - 13 : 0) || $0;
+    });
+}
+rot13("ABJURER nowhere") // NOWHERE abjurer
+
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+<lang javascript>function rot13(c) {
+    return c.replace(/([a-m])|([n-z])/ig, function($0,$1,$2) {
+        return String.fromCharCode($1 ? $1.charCodeAt(0) + 13 : $2 ? $2.charCodeAt(0) - 13 : 0) || $0;
+    });
+}
+rot13("ABJURER nowhere") // NOWHERE abjurer
+</lang>
+
+TDD with Jasmine using Underscore.js
+
+<lang javascript>
+function rot13(value){
+  if (!value)
+    return "";
+
+  function singleChar(c) {
+    if (c.toUpperCase() < "A" || c.toUpperCase() > "Z")
+      return c;
+
+    if (c.toUpperCase() <= "M")
+      return String.fromCharCode(c.charCodeAt(0) + 13);
+
+    return String.fromCharCode(c.charCodeAt(0) - 13);  
+  }
+
+  return _.map(value.split(""), singleChar).join("");
+}
+
+describe("Rot-13", function() {
+  it("Given nothing will return nothing", function() {
+    expect(rot13()).toBe("");
+  });
+
+  it("Given empty string will return empty string", function() {
+    expect(rot13("")).toBe("");
+  });
+
+  it("Given A will return N", function() {
+    expect(rot13("A")).toBe("N");
+  });
+
+  it("Given B will return O", function() {
+    expect(rot13("B")).toBe("O");
+  });
+
+  it("Given N will return A", function() {
+    expect(rot13("N")).toBe("A");
+  });
+
+  it("Given Z will return M", function() {
+    expect(rot13("Z")).toBe("M");
+  });
+
+  it("Given ZA will return MN", function() {
+    expect(rot13("ZA")).toBe("MN");
+  });
+
+  it("Given HELLO will return URYYB", function() {
+    expect(rot13("HELLO")).toBe("URYYB");
+  });
+
+  it("Given hello will return uryyb", function() {
+    expect(rot13("hello")).toBe("uryyb");
+  });
+
+
+  it("Given hello1 will return uryyb1", function() {
+    expect(rot13("hello1")).toBe("uryyb1");
+  });
+});
+</lang>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

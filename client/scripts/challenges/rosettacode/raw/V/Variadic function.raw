@@ -1,0 +1,121 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Variadic function
+/// type: rosetta-code
+
+/// categories:
+/// Functions and subroutines
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Create a function which takes in a variable number of arguments and prints each one on its own line.</p><br/><p class="rosetta__paragraph">Also show, if possible in your language, how to call the function on a list of arguments constructed at runtime.</p>
+/// <br/><p class="rosetta__paragraph">Functions of this type are also known as  <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Variadic_function" title="wp: Variadic_function">Variadic Functions</a>.</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Related task:</dt></dl>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"> <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Call a function" title="Call a function">Call a function</a></li></ul><br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+function printAll() {
+  for (var i=0; i<arguments.length; i++)
+    print(arguments[i])
+}
+printAll(4, 3, 5, 6, 4, 3);
+printAll(4, 3, 5);
+printAll("Rosetta", "Code", "Is", "Awesome!");
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+===ES5===
+The [https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Functions/arguments <code>arguments</code>] special variable, when used inside a function, contains an array of all the arguments passed to that function.
+<lang javascript>function printAll() {
+  for (var i=0; i<arguments.length; i++)
+    print(arguments[i])
+}
+printAll(4, 3, 5, 6, 4, 3);
+printAll(4, 3, 5);
+printAll("Rosetta", "Code", "Is", "Awesome!");</lang>
+The <code><var>function</var>.arguments</code> property is equivalent to the <code>arguments</code> variable above, but is deprecated.
+
+You can use the <tt>apply</tt> method of a function to apply it to a list of arguments:
+<lang javascript>args = ["Rosetta", "Code", "Is", "Awesome!"]
+printAll.apply(null, args)</lang>
+
+===ECMAScript 2015 (ES6) variants===
+The newest version of ECMAScript added fat arrow function expression syntax, rest arguments and the spread operator. These make writing something like this easy. Of course, a better version might use Array.prototype.map, but here we have a variant that works on variadic arguments:
+<lang javascript>let
+  fix = // Variant of the applicative order Y combinator
+    f => (f => f(f))(g => f((...a) => g(g)(...a))),
+  forAll =
+    f => 
+      fix(
+        z => (a,...b) => (
+          (a === void 0)
+          ||(f(a), z(...b)))),
+  printAll = forAll(print);
+
+printAll(0,1,2,3,4,5);
+printAll(6,7,8);
+(f => a => f(...a))(printAll)([9,10,11,12,13,14]);
+//  0
+//  1
+//  2
+//  3
+//  4
+//  5
+//  6
+//  7
+//  8
+//  9
+//  10
+//  11
+//  12
+//  13
+//  14
+</lang>
+
+Or, less ambitiously:
+
+<lang javascript>(() => {
+    'use strict';
+
+    // show :: a -> String
+    const show = x => JSON.stringify(x, null, 2);
+
+    // printAll [any] -> String
+    const printAll = (...a) => a.map(show)
+        .join('\n');
+
+    return printAll(1, 2, 3, 2 + 2, "five", 6);
+})();</lang>
+
+{{Out}}
+<pre>1
+2
+3
+4
+"five"
+6</pre>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

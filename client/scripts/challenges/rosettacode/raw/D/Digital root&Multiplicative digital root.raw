@@ -1,0 +1,63 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Digital root/Multiplicative digital root
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><br/><p class="rosetta__paragraph">The <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Multiplicative digital root" title="wp: Multiplicative digital root">multiplicative digital root</a> (MDR) and multiplicative persistence (MP) of a number, $n$, is calculated rather like the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Digital root" title="Digital root">Digital root</a> except digits are multiplied instead of being added:</p>
+/// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">Set $m$ to $n$ and $i$ to $0$.</li>
+/// <li class="rosetta__list-item--ordered">While $m$ has more than one digit:</li>
+/// <li class="rosetta__list-item--ordered">* Find a replacement $m$ as the multiplication of the digits of the current value of $m$.</li>
+/// <li class="rosetta__list-item--ordered">* Increment $i$.</li>
+/// <li class="rosetta__list-item--ordered">Return $i$ (= MP) and $m$ (= MDR)</li></ol><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Tabulate the MP and MDR of the numbers 123321, 7739, 893, 899998</li>
+/// <li class="rosetta__list-item--unordered">Tabulate MDR versus the first five numbers having that MDR, something like:</li></ul><div class="rosetta__pre-wrap"><pre class="rosetta__pre">
+/// MDR: [n0..n4]
+/// ===  ========
+///   0: [0, 10, 20, 25, 30]
+///   1: [1, 11, 111, 1111, 11111]
+///   2: [2, 12, 21, 26, 34]
+///   3: [3, 13, 31, 113, 131]
+///   4: [4, 14, 22, 27, 39]
+///   5: [5, 15, 35, 51, 53]
+///   6: [6, 16, 23, 28, 32]
+///   7: [7, 17, 71, 117, 171]
+///   8: [8, 18, 24, 29, 36]
+///   9: [9, 19, 33, 91, 119]
+/// </pre></div>
+/// <p class="rosetta__paragraph">Show all output on this page.</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">References:</dt></dl>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"><a class="rosetta__link--wiki" href="http://mathworld.wolfram.com/MultiplicativeDigitalRoot.html" title="link: http://mathworld.wolfram.com/MultiplicativeDigitalRoot.html">Multiplicative Digital Root</a> on Wolfram Mathworld.</li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--wiki" href="http://oeis.org/A031347" title="link: http://oeis.org/A031347">Multiplicative digital root</a> on The On-Line Encyclopedia of Integer Sequences.</li></ul><br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

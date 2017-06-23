@@ -1,0 +1,45 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: AVL tree
+/// type: rosetta-code
+
+/// categories:
+/// Data Structures
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <br/>
+/// <br>
+/// <p class="rosetta__paragraph">In computer science, an <span class="rosetta__text--bold">AVL tree</span> is a self-balancing binary search tree. In an AVL tree, the heights of the two child subtrees of any node differ by at most one; at no time do they differ by more than one because rebalancing is done ensure this is the case. Lookup, insertion, and deletion all take O(log <span class="rosetta__text--italic">n</span>) time in both the average and worst cases, where n is the number of nodes in the tree prior to the operation. Insertions and deletions may require the tree to be rebalanced by one or more tree rotations.</p><br/><p class="rosetta__paragraph">AVL trees are often compared with <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Red_black_trees" title="Red_black_trees">red-black trees</a> because they support the same set of operations and because red-black trees also take O(log <span class="rosetta__text--italic">n</span>) time for the basic operations.  Because AVL trees are more rigidly balanced, they are faster than red-black trees for lookup-intensive applications. Similar to red-black trees, AVL trees are height-balanced, but in general not weight-balanced nor μ-balanced; that is, sibling nodes can have hugely differing numbers of descendants.</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Implement an AVL tree in the language of choice, and provide at least basic operations.</p>
+/// <br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

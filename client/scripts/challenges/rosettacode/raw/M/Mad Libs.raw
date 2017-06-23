@@ -1,0 +1,125 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Mad Libs
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <br/><br>
+/// <p class="rosetta__paragraph"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Mad Libs" title="wp: Mad Libs">Mad Libs</a> is a phrasal template word game where one player prompts another for a list of words to substitute for blanks in a story, usually with funny results.</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task;</dt></dl>
+/// <p class="rosetta__paragraph">Write a program to create a Mad Libs like story.</p><br/><p class="rosetta__paragraph">The program should read an arbitrary multiline story from input.</p><br/><p class="rosetta__paragraph">The story will be terminated with a blank line.</p><br/><p class="rosetta__paragraph">Then, find each replacement to be made within the story, ask the user for a word to replace it with, and make all the replacements.</p><br/><p class="rosetta__paragraph">Stop when there are none left and print the final story.</p>
+/// <br/><p class="rosetta__paragraph">The input should be an arbitrary story in the form:</p>
+/// <div class="rosetta__pre-wrap"><pre class="rosetta__pre">
+/// <name> went for a walk in the park. <he or she>
+/// found a <noun>. <name> decided to take it home.
+/// </pre></div>
+/// <p class="rosetta__paragraph">Given this example, it should then ask for a <tt>name</tt>, a <tt>he or she</tt> and a <tt>noun</tt> (<tt><nowiki><name></nowiki></tt> gets replaced both times with the same value).</p>
+/// <br><br><br/><p class="rosetta__paragraph">==  ==</p><br/><p class="rosetta__paragraph">The fun of Mad Libs is not knowing the story ahead of time, so the program reads the story template from a text file. The name of the text file is given as a command line argument.</p><br/><p class="rosetta__paragraph"><lang Ada>with Ada.Text_IO, Ada.Command_Line, String_Helper;</p><br/><p class="rosetta__paragraph">procedure Madlib is</p><br/><p class="rosetta__paragraph">use String_Helper;</p><br/><p class="rosetta__paragraph">Text: Vector := Get_Vector(Ada.Command_Line.Argument(1));</p>
+/// <p class="rosetta__paragraph">M, N: Natural;</p><br/><p class="rosetta__paragraph">begin</p>
+/// <p class="rosetta__paragraph">-- search for templates and modify the text accordingly</p>
+/// <p class="rosetta__paragraph">for I in Text.First_Index .. Text.Last_Index loop</p>
+/// <p class="rosetta__paragraph">loop</p>
+/// <p class="rosetta__paragraph">Search_Brackets(Text.Element(I), "<", ">", M, N);</p>
+/// <p class="rosetta__paragraph">exit when M=0; -- "M=0" means "not found"</p>
+/// <p class="rosetta__paragraph">Ada.Text_IO.Put_Line("Replacement for " & Text.Element(I)(M .. N) & "?");</p>
+/// <p class="rosetta__paragraph">declare</p>
+/// <p class="rosetta__paragraph">Old: String := Text.Element(I)(M .. N);</p>
+/// <p class="rosetta__paragraph">New_Word: String := Ada.Text_IO.Get_Line;</p>
+/// <p class="rosetta__paragraph">begin</p>
+/// <p class="rosetta__paragraph">for J in I .. Text.Last_Index loop</p>
+/// <p class="rosetta__paragraph">Text.Replace_Element(J, Replace(Text.Element(J), Old, New_Word));</p>
+/// <p class="rosetta__paragraph">end loop;</p>
+/// <p class="rosetta__paragraph">end;</p>
+/// <p class="rosetta__paragraph">end loop;</p>
+/// <p class="rosetta__paragraph">end loop;</p><br/><p class="rosetta__paragraph">-- write the text</p>
+/// <p class="rosetta__paragraph">for I in Text.First_Index .. Text.Last_Index loop</p>
+/// <p class="rosetta__paragraph">Ada.Text_IO.Put_Line(Text.Element(I));</p>
+/// <p class="rosetta__paragraph">end loop;</p>
+/// <p class="rosetta__paragraph">end Madlib;</lang></p><br/><p class="rosetta__paragraph">It uses an auxiliary package String_Helper for simple string functions;</p><br/><p class="rosetta__paragraph"><lang Ada>with Ada.Containers.Indefinite_Vectors;</p><br/><p class="rosetta__paragraph">package String_Helper is</p><br/><p class="rosetta__paragraph">function Index(Source: String; Pattern: String) return Natural;</p><br/><p class="rosetta__paragraph">procedure Search_Brackets(Source: String;</p>
+/// <p class="rosetta__paragraph">Left_Bracket: String;</p>
+/// <p class="rosetta__paragraph">Right_Bracket: String;</p>
+/// <p class="rosetta__paragraph">First, Last: out Natural);</p>
+/// <p class="rosetta__paragraph">-- returns indices of first pair of brackets in source</p>
+/// <p class="rosetta__paragraph">-- indices are zero if no such brackets are found</p><br/><p class="rosetta__paragraph">function Replace(Source: String; Old_Word: String; New_Word: String)</p>
+/// <p class="rosetta__paragraph">return String;</p><br/><p class="rosetta__paragraph">package String_Vec is new Ada.Containers.Indefinite_Vectors</p>
+/// <p class="rosetta__paragraph">(Index_Type   => Positive,</p>
+/// <p class="rosetta__paragraph">Element_Type => String);</p><br/><p class="rosetta__paragraph">type Vector is new String_Vec.Vector with null record;</p><br/><p class="rosetta__paragraph">function Get_Vector(Filename: String) return Vector;</p><br/><p class="rosetta__paragraph">end String_Helper;</lang></p><br/><p class="rosetta__paragraph">Here is the implementation of String_Helper:</p><br/><p class="rosetta__paragraph"><lang Ada>with Ada.Strings.Fixed, Ada.Text_IO;</p><br/><p class="rosetta__paragraph">package body String_Helper is</p><br/><p class="rosetta__paragraph">function Index(Source: String; Pattern: String) return Natural is</p>
+/// <p class="rosetta__paragraph">begin</p>
+/// <p class="rosetta__paragraph">return Ada.Strings.Fixed.Index(Source => Source, Pattern => Pattern);</p>
+/// <p class="rosetta__paragraph">end Index;</p><br/><p class="rosetta__paragraph">procedure Search_Brackets(Source: String;</p>
+/// <p class="rosetta__paragraph">Left_Bracket: String;</p>
+/// <p class="rosetta__paragraph">Right_Bracket: String;</p>
+/// <p class="rosetta__paragraph">First, Last: out Natural) is</p>
+/// <p class="rosetta__paragraph">begin</p>
+/// <p class="rosetta__paragraph">First := Index(Source, Left_Bracket);</p>
+/// <p class="rosetta__paragraph">if First = 0 then</p>
+/// <p class="rosetta__paragraph">Last := 0; -- not found</p>
+/// <p class="rosetta__paragraph">else</p>
+/// <p class="rosetta__paragraph">Last := Index(Source(First+1 .. Source'Last), Right_Bracket);</p>
+/// <p class="rosetta__paragraph">if Last = 0 then</p>
+/// <p class="rosetta__paragraph">First := 0; -- not found;</p>
+/// <p class="rosetta__paragraph">end if;</p>
+/// <p class="rosetta__paragraph">end if;</p>
+/// <p class="rosetta__paragraph">end Search_Brackets;</p><br/><p class="rosetta__paragraph">function Replace(Source: String; Old_Word: String; New_Word: String)</p>
+/// <p class="rosetta__paragraph">return String is</p>
+/// <p class="rosetta__paragraph">L: Positive := Old_Word'Length;</p>
+/// <p class="rosetta__paragraph">I: Natural := Index(Source, Old_Word);</p>
+/// <p class="rosetta__paragraph">begin</p>
+/// <p class="rosetta__paragraph">if I = 0 then</p>
+/// <p class="rosetta__paragraph">return Source;</p>
+/// <p class="rosetta__paragraph">else</p>
+/// <p class="rosetta__paragraph">return Source(Source'First .. I-1) & New_Word</p>
+/// <p class="rosetta__paragraph">& Replace(Source(I+L .. Source'Last), Old_Word, New_Word);</p>
+/// <p class="rosetta__paragraph">end if;</p>
+/// <p class="rosetta__paragraph">end Replace;</p><br/><p class="rosetta__paragraph">function Get_Vector(Filename: String) return Vector is</p>
+/// <p class="rosetta__paragraph">F: Ada.Text_IO.File_Type;</p>
+/// <p class="rosetta__paragraph">T: Vector;</p>
+/// <p class="rosetta__paragraph">begin</p>
+/// <p class="rosetta__paragraph">Ada.Text_IO.Open(F, Ada.Text_IO.In_File, Filename);</p>
+/// <p class="rosetta__paragraph">while not Ada.Text_IO.End_Of_File(F) loop</p>
+/// <p class="rosetta__paragraph">T.Append(Ada.Text_IO.Get_Line(F));</p>
+/// <p class="rosetta__paragraph">end loop;</p>
+/// <p class="rosetta__paragraph">Ada.Text_IO.Close(F);</p>
+/// <p class="rosetta__paragraph">return T;</p>
+/// <p class="rosetta__paragraph">end Get_Vector;</p><br/><p class="rosetta__paragraph">end String_Helper;</lang></p><br/><p class="rosetta__paragraph">A sample run (with the story template in t.txt):</p><br/><div class="rosetta__pre-wrap"><pre class="rosetta__pre">./madlib t.txt
+/// Replacement for <name>?
+/// Hilla, the hypohondraic,
+/// Replacement for <he or she>?
+/// She
+/// Replacement for <noun>?
+/// headache
+/// Hilla, the hypohondraic, went for a walk in the park. She
+/// found a headache. Hilla, the hypohondraic, decided to take it home.</pre></div><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

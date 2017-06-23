@@ -1,0 +1,39 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: HTTPS/Client-authenticated
+/// type: rosetta-code
+
+/// categories:
+/// Networking and Web Interaction
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><br/><p class="rosetta__paragraph">Demonstrate how to connect to a web server over HTTPS where that server requires that the client present a certificate to prove who (s)he is. Unlike with the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/HTTPS request with authentication" title="HTTPS request with authentication">HTTPS request with authentication</a> task, it is <span class="rosetta__text--italic">not</span> acceptable to perform the authentication by a username/password or a set cookie.</p><br/><p class="rosetta__paragraph">This task is in general useful for use with <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Creating a SOAP Client" title="Creating a SOAP Client">webservice client</a>s as it offers a high level of assurance that the client is an acceptable counterparty for the server. For example, <a class="rosetta__link--wiki" href="http://aws.amazon.com/" title="link: http://aws.amazon.com/">Amazon Web Services</a> uses this style of authentication.</p><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

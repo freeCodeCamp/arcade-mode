@@ -1,0 +1,45 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Special characters
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><br/><p class="rosetta__paragraph">Special characters are symbols (single characters or sequences of characters) that have a "special" built-in meaning in the language and typically cannot be used in identifiers.</p><br/><p class="rosetta__paragraph">Escape sequences are methods that the language uses to remove the special meaning from the symbol, enabling it to be used as a normal character, or sequence of characters when this can be done.</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">List the special characters and show escape sequences in the language.</p><br/><p class="rosetta__paragraph">See also: <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Quotes" title="Quotes">Quotes</a></p>
+/// <br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+null
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+See [[#Java|Java]]
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

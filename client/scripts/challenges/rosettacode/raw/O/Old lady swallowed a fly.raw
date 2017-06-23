@@ -1,0 +1,42 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Old lady swallowed a fly
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Present a program which emits the lyrics to the song  <span class="rosetta__text--italic"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/There Was an Old Lady Who Swallowed a Fly" title="wp: There Was an Old Lady Who Swallowed a Fly">I Knew an Old Lady Who Swallowed a Fly</a></span>,  taking advantage of the repetitive structure of the song's lyrics.</p><br/><p class="rosetta__paragraph">This song has multiple versions with slightly different lyrics, so all these programs might not emit identical output.</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Related task:</dt></dl>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"> <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/99 Bottles of Beer" title="99 Bottles of Beer">99 Bottles of Beer</a></li></ul><br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

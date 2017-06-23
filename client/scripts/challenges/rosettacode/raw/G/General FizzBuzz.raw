@@ -1,0 +1,211 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: General FizzBuzz
+/// type: rosetta-code
+
+/// categories:
+/// Iteration
+/// Recursion
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <br/>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Write a generalized version of <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/FizzBuzz" title="FizzBuzz">FizzBuzz</a> that works for any list of factors, along with their words.</p><br/><p class="rosetta__paragraph">This is basically a "fizzbuzz" implementation where the user supplies the parameters.</p><br/><p class="rosetta__paragraph">The user will enter the max number, then they will enter the factors to be calculated along with the corresponding word to be printed.</p><br/><p class="rosetta__paragraph">For simplicity's sake, assume the user will input an integer as the max number and 3 factors, each with a word associated with them.</p>
+/// <br/><p class="rosetta__paragraph">For example, given:</p>
+/// <div class="rosetta__pre-wrap"><pre class="rosetta__pre">
+/// >20      #This is the maximum number, supplied by the user
+/// >3 Fizz  #The user now enters the starting factor (3) and the word they want associated with it (Fizz)
+/// >5 Buzz  #The user now enters the next factor (5) and the word they want associated with it (Buzz)
+/// >7 Baxx  #The user now enters the next factor (7) and the word they want associated with it (Baxx)
+/// </pre></div><br/><p class="rosetta__paragraph">In other words: For this example, print the numbers <span class="rosetta__text--bold">1</span> through <span class="rosetta__text--bold">20</span>, replacing every multiple of <span class="rosetta__text--bold">3</span> with "Fizz", every multiple of <span class="rosetta__text--bold">5</span> with "Buzz", and every multiple of <span class="rosetta__text--bold">7</span> with "Baxx".</p><br/><p class="rosetta__paragraph">In the case where a number is a multiple of at least two factors, print each of the words associated with those factors in the order of least to greatest factor.</p><br/><p class="rosetta__paragraph">For instance, the number <span class="rosetta__text--bold">15</span> is a multiple of both <span class="rosetta__text--bold">3</span> and <span class="rosetta__text--bold">5</span>; print "FizzBuzz".</p><br/><p class="rosetta__paragraph">If the max number was <span class="rosetta__text--bold">105</span> instead of <span class="rosetta__text--bold">20</span>, you would print "FizzBuzzBaxx" because it's a multiple of <span class="rosetta__text--bold">3</span>, <span class="rosetta__text--bold">5</span>, and <span class="rosetta__text--bold">7</span>.</p>
+/// <br/><div class="rosetta__pre-wrap"><pre class="rosetta__pre">
+/// 1
+/// 2
+/// Fizz
+/// 4
+/// Buzz
+/// Fizz
+/// Baxx
+/// 8
+/// Fizz
+/// Buzz
+/// 11
+/// Fizz
+/// 13
+/// Baxx
+/// FizzBuzz
+/// 16
+/// 17
+/// Fizz
+/// 19
+/// Buzz
+/// </pre></div>
+/// <br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+function fizz(d, e) {
+  return function b(a) {
+    return a ? b(a - 1).concat(a) : [];
+  }(e).reduce(function (b, a) {
+    return b + (d.reduce(function (b, c) {
+      return b + (a % c[0] ? "" : c[1]);
+    }, "") || a.toString()) + "\n";
+  }, "");
+}
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+
+===ES5===
+
+In a functional style of JavaScript, with two nested ''reduce'' folds – one through the integer series,
+and one through the series of rules.
+
+First as compacted by Google's Closure compiler:
+<lang JavaScript>function fizz(d, e) {
+  return function b(a) {
+    return a ? b(a - 1).concat(a) : [];
+  }(e).reduce(function (b, a) {
+    return b + (d.reduce(function (b, c) {
+      return b + (a % c[0] ? "" : c[1]);
+    }, "") || a.toString()) + "\n";
+  }, "");
+}</lang>
+
+and then in the original expanded form,  for better legibility:
+
+<lang JavaScript>function fizz(lstRules, lngMax) {
+
+    return (
+        function rng(i) {
+            return i ? rng(i - 1).concat(i) : []
+        }
+    )(lngMax).reduce(
+        function (strSeries, n) {
+
+            // The next member of the series of lines:
+            // a word string or a number string
+            return strSeries + (
+                lstRules.reduce(
+                    function (str, tplNumWord) {
+                        return str + (
+                            n % tplNumWord[0] ? '' : tplNumWord[1]
+                        )
+                    }, ''
+                ) || n.toString()
+            ) + '\n';
+            
+        }, ''
+    );
+}
+
+fizz([[3, 'Fizz'], [5, 'Buzz'], [7, 'Baxx']], 20);</lang>
+
+{{out}}
+<pre>1
+2
+Fizz
+4
+Buzz
+Fizz
+Baxx
+8
+Fizz
+Buzz
+11
+Fizz
+13
+Baxx
+FizzBuzz
+16
+17
+Fizz
+19
+Buzz</pre>
+
+
+===ES6===
+
+<lang JavaScript>(() => {
+
+    // fizz :: [[Int, String]] -> Int -> String
+    const fizz = (lstRules, lngMax) => range(1, lngMax)
+        .reduce((strSeries, n) =>
+
+            // The next member of the series of lines:
+            // a word string or a number string
+            strSeries + (
+                lstRules
+                .reduce((str, tplNumWord) =>
+                    str + (
+                        n % tplNumWord[0] ? '' : tplNumWord[1]
+                    ),
+                    ''
+                ) || n.toString()
+            ) + '\n', ''
+        );
+
+    // range :: Int -> Int -> [Int]
+    const range = (m, n) =>
+        Array.from({
+            length: Math.floor(n - m) + 1
+        }, (_, i) => m + i);
+
+
+    return fizz([
+        [3, 'Fizz'],
+        [5, 'Buzz'],
+        [7, 'Baxx']
+    ], 20);
+
+})();</lang>
+
+
+{{Out}}
+<pre>1
+2
+Fizz
+4
+Buzz
+Fizz
+Baxx
+8
+Fizz
+Buzz
+11
+Fizz
+13
+Baxx
+FizzBuzz
+16
+17
+Fizz
+19
+Buzz
+</pre>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

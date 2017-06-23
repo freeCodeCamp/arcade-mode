@@ -1,0 +1,513 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Tree traversal
+/// type: rosetta-code
+
+/// categories:
+/// Recursion
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Implement a binary tree where each node carries an integer,  and implement:</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">::*  pre-order,</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">::*  in-order, </span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">::*  post-order,   and </span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">::*  level-order  <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Tree traversal" title="wp: Tree traversal">traversal</a>. </span></p>
+/// <br/><p class="rosetta__paragraph">Use those traversals to output the following tree:</p>
+/// <p class="rosetta__paragraph">1</p>
+/// <p class="rosetta__paragraph">/ \</p>
+/// <p class="rosetta__paragraph">/   \</p>
+/// <p class="rosetta__paragraph">/     \</p>
+/// <p class="rosetta__paragraph">2       3</p>
+/// <p class="rosetta__paragraph">/ \     /</p>
+/// <p class="rosetta__paragraph">4   5   6</p>
+/// <p class="rosetta__paragraph">/       / \</p>
+/// <p class="rosetta__paragraph">7       8   9</p><br/><p class="rosetta__paragraph">The correct output should look like this:</p>
+/// <p class="rosetta__paragraph">preorder:    1 2 4 7 5 3 6 8 9</p>
+/// <p class="rosetta__paragraph">inorder:     7 4 2 5 1 8 6 9 3</p>
+/// <p class="rosetta__paragraph">postorder:   7 4 5 2 8 9 6 3 1</p>
+/// <p class="rosetta__paragraph">level-order: 1 2 3 4 5 6 7 8 9</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">See also:</dt></dl>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"> Wikipedia article:  <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Tree traversal" title="wp: Tree traversal">Tree traversal</a>.</li></ul><br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+function BinaryTree(value, left, right) {
+    this.value = value;
+    this.left = left;
+    this.right = right;
+}
+BinaryTree.prototype.preorder  = function(f) {this.walk(f,['this','left','right'])}
+BinaryTree.prototype.inorder   = function(f) {this.walk(f,['left','this','right'])}
+BinaryTree.prototype.postorder = function(f) {this.walk(f,['left','right','this'])}
+BinaryTree.prototype.walk = function(func, order) {
+    for (var i in order) 
+        switch (order[i]) {
+            case "this": func(this.value); break;
+            case "left": if (this.left) this.left.walk(func, order); break;
+            case "right": if (this.right) this.right.walk(func, order); break;
+        }
+}
+BinaryTree.prototype.levelorder = function(func) {
+    var queue = [this];
+    while (queue.length != 0) {
+        var node = queue.shift();
+        func(node.value);
+        if (node.left) queue.push(node.left);
+        if (node.right) queue.push(node.right);
+    }
+}
+
+// convenience function for creating a binary tree
+function createBinaryTreeFromArray(ary) {
+    var left = null, right = null;
+    if (ary[1]) left = createBinaryTreeFromArray(ary[1]);
+    if (ary[2]) right = createBinaryTreeFromArray(ary[2]);
+    return new BinaryTree(ary[0], left, right);
+}
+
+var tree = createBinaryTreeFromArray([1, [2, [4, [7]], [5]], [3, [6, [8],[9]]]]);
+
+print("*** preorder ***");   tree.preorder(print); 
+print("*** inorder ***");    tree.inorder(print); 
+print("*** postorder ***");  tree.postorder(print);
+print("*** levelorder ***"); tree.levelorder(print);
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+===ES5===
+====Iteration====
+inspired by [[#Ruby|Ruby]]
+<lang javascript>function BinaryTree(value, left, right) {
+    this.value = value;
+    this.left = left;
+    this.right = right;
+}
+BinaryTree.prototype.preorder  = function(f) {this.walk(f,['this','left','right'])}
+BinaryTree.prototype.inorder   = function(f) {this.walk(f,['left','this','right'])}
+BinaryTree.prototype.postorder = function(f) {this.walk(f,['left','right','this'])}
+BinaryTree.prototype.walk = function(func, order) {
+    for (var i in order) 
+        switch (order[i]) {
+            case "this": func(this.value); break;
+            case "left": if (this.left) this.left.walk(func, order); break;
+            case "right": if (this.right) this.right.walk(func, order); break;
+        }
+}
+BinaryTree.prototype.levelorder = function(func) {
+    var queue = [this];
+    while (queue.length != 0) {
+        var node = queue.shift();
+        func(node.value);
+        if (node.left) queue.push(node.left);
+        if (node.right) queue.push(node.right);
+    }
+}
+
+// convenience function for creating a binary tree
+function createBinaryTreeFromArray(ary) {
+    var left = null, right = null;
+    if (ary[1]) left = createBinaryTreeFromArray(ary[1]);
+    if (ary[2]) right = createBinaryTreeFromArray(ary[2]);
+    return new BinaryTree(ary[0], left, right);
+}
+
+var tree = createBinaryTreeFromArray([1, [2, [4, [7]], [5]], [3, [6, [8],[9]]]]);
+
+print("*** preorder ***");   tree.preorder(print); 
+print("*** inorder ***");    tree.inorder(print); 
+print("*** postorder ***");  tree.postorder(print);
+print("*** levelorder ***"); tree.levelorder(print);</lang>
+
+====Functional composition====
+{{Trans|Haskell}}
+(for binary trees consisting of nested lists)
+
+<lang javascript>(function () {
+
+    function preorder(n) {
+        return [n[v]].concat(
+            n[l] ? preorder(n[l]) : []
+        ).concat(
+            n[r] ? preorder(n[r]) : []
+        );
+    }
+
+    function inorder(n) {
+        return (
+            n[l] ? inorder(n[l]) : []
+        ).concat(
+            n[v]
+        ).concat(
+            n[r] ? inorder(n[r]) : []
+        );
+    }
+
+    function postorder(n) {
+        return (
+            n[l] ? postorder(n[l]) : []
+        ).concat(
+            n[r] ? postorder(n[r]) : []
+        ).concat(
+            n[v]
+        );
+    }
+
+    function levelorder(n) {
+        return (function loop(x) {
+            return x.length ? (
+                x[0] ? (
+                [x[0][v]].concat(
+                        loop(
+                            x.slice(1).concat(
+                                [x[0][l], x[0][r]]
+                            )
+                        )
+                    )
+                ) : loop(x.slice(1))
+            ) : [];
+        })([n]);
+    }
+
+    var v = 0,
+        l = 1,
+        r = 2,
+
+        tree = [1,
+                [2,
+                    [4,
+                        [7]
+                    ],
+                    [5]
+                ],
+                [3,
+                    [6,
+                        [8],
+                        [9]
+                    ]
+                ]
+            ],
+
+        lstTest = [["Traversal", "Nodes visited"]].concat(
+            [preorder, inorder, postorder, levelorder].map(
+                function (f) {
+                    return [f.name, f(tree)];
+                }
+            )
+        );
+
+    // [[a]] -> bool -> s -> s
+    function wikiTable(lstRows, blnHeaderRow, strStyle) {
+        return '{| class="wikitable" ' + (
+            strStyle ? 'style="' + strStyle + '"' : ''
+        ) + lstRows.map(function (lstRow, iRow) {
+            var strDelim = ((blnHeaderRow && !iRow) ? '!' : '|');
+
+            return '\n|-\n' + strDelim + ' ' + lstRow.map(function (v) {
+                return typeof v === 'undefined' ? ' ' : v;
+            }).join(' ' + strDelim + strDelim + ' ');
+        }).join('') + '\n|}';
+    }
+
+    return wikiTable(lstTest, true) + '\n\n' + JSON.stringify(lstTest);
+
+})();</lang>
+
+Output:
+
+{| class="wikitable" 
+|-
+! Traversal !! Nodes visited
+|-
+| preorder || 1,2,4,7,5,3,6,8,9
+|-
+| inorder || 7,4,2,5,1,8,6,9,3
+|-
+| postorder || 7,4,5,2,8,9,6,3,1
+|-
+| levelorder || 1,2,3,4,5,6,7,8,9
+|}
+
+<lang JavaScript>[["Traversal","Nodes visited"],
+["preorder",[1,2,4,7,5,3,6,8,9]],["inorder",[7,4,2,5,1,8,6,9,3]],
+["postorder",[7,4,5,2,8,9,6,3,1]],["levelorder",[1,2,3,4,5,6,7,8,9]]]</lang>
+
+
+or, again functionally, but:
+
+# for a tree of nested dictionaries (rather than a simple nested list),
+# defining a single '''traverse()''' function
+# checking that the tree is indeed binary, and returning ''undefined'' for the ''in-order'' traversal if any node in the tree has more than two children. (The other 3 traversals are still defined for rose trees).
+
+
+<lang JavaScript>(function () {
+    'use strict';
+
+    // 'preorder' | 'inorder' | 'postorder' | 'level-order'
+
+    // traverse :: String -> Tree {value: a, nest: [Tree]} -> [a]
+    function traverse(strOrderName, dctTree) {
+        var strName = strOrderName.toLowerCase();
+
+        if (strName.startsWith('level')) {
+
+            // LEVEL-ORDER
+            return levelOrder([dctTree]);
+
+        } else if (strName.startsWith('in')) {
+            var lstNest = dctTree.nest;
+
+            if ((lstNest ? lstNest.length : 0) < 3) {
+                var left = lstNest[0] || [],
+                    right = lstNest[1] || [],
+
+                    lstLeft = left.nest ? (
+                        traverse(strName, left)
+                    ) : (left.value || []),
+                    lstRight = right.nest ? (
+                        traverse(strName, right)
+                    ) : (right.value || []);
+
+                return (lstLeft !== undefined && lstRight !== undefined) ?
+
+                    // IN-ORDER
+                    (lstLeft instanceof Array ? lstLeft : [lstLeft])
+                    .concat(dctTree.value)
+                    .concat(lstRight) : undefined;
+
+            } else { // in-order only defined here for binary trees
+                return undefined;
+            }
+
+        } else {
+            var lstTraversed = concatMap(function (x) {
+                return traverse(strName, x);
+            }, (dctTree.nest || []));
+
+            return (
+                strName.startsWith('pre') ? (
+
+                    // PRE-ORDER
+                    [dctTree.value].concat(lstTraversed)
+
+                ) : strName.startsWith('post') ? (
+
+                    // POST-ORDER
+                    lstTraversed.concat(dctTree.value)
+
+                ) : []
+            );
+        }
+    }
+
+    // levelOrder :: [Tree {value: a, nest: [Tree]}] -> [a]
+    function levelOrder(lstTree) {
+        var lngTree = lstTree.length,
+            head = lngTree ? lstTree[0] : undefined,
+            tail = lstTree.slice(1);
+
+        // Recursively take any value found in the head node
+        // of the remaining tail, deferring any child nodes
+        // of that head to the end of the tail
+        return lngTree ? (
+            head ? (
+                [head.value].concat(
+                    levelOrder(
+                        tail
+                        .concat(head.nest || [])
+                    )
+                )
+            ) : levelOrder(tail)
+        ) : [];
+    }
+
+    // concatMap :: (a -> [b]) -> [a] -> [b]
+    function concatMap(f, xs) {
+        return [].concat.apply([], xs.map(f));
+    }
+
+    var dctTree = {
+        value: 1,
+        nest: [{
+            value: 2,
+            nest: [{
+                value: 4,
+                nest: [{
+                    value: 7
+                }]
+            }, {
+                value: 5
+            }]
+        }, {
+            value: 3,
+            nest: [{
+                value: 6,
+                nest: [{
+                    value: 8
+                }, {
+                    value: 9
+                }]
+            }]
+        }]
+    };
+
+
+    return ['preorder', 'inorder', 'postorder', 'level-order']
+        .reduce(function (a, k) {
+            return (
+                a[k] = traverse(k, dctTree),
+                a
+            );
+        }, {});
+
+})();</lang>
+{{Out}}
+<lang JavaScript>{"preorder":[1, 2, 4, 7, 5, 3, 6, 8, 9], 
+"inorder":[7, 4, 2, 5, 1, 8, 6, 9, 3], 
+"postorder":[7, 4, 5, 2, 8, 9, 6, 3, 1], 
+"level-order":[1, 2, 3, 4, 5, 6, 7, 8, 9]}</lang>
+
+===ES6===
+{{Trans|Haskell}}
+<lang JavaScript>(() => {
+    // TRAVERSALS -------------------------------------------------------------
+
+    // preorder Tree a -> [a]
+    const preorder = a => [a[v]]
+        .concat(a[l] ? preorder(a[l]) : [])
+        .concat(a[r] ? preorder(a[r]) : []);
+
+    // inorder Tree a -> [a]
+    const inorder = a =>
+        (a[l] ? inorder(a[l]) : [])
+        .concat(a[v])
+        .concat(a[r] ? inorder(a[r]) : []);
+
+    // postorder Tree a -> [a]
+    const postorder = a =>
+        (a[l] ? postorder(a[l]) : [])
+        .concat(a[r] ? postorder(a[r]) : [])
+        .concat(a[v]);
+
+    // levelorder Tree a -> [a]
+    const levelorder = a => (function go(x) {
+        return x.length ? (
+            x[0] ? (
+                [x[0][v]].concat(
+                    go(x.slice(1)
+                        .concat([x[0][l], x[0][r]])
+                    )
+                )
+            ) : go(x.slice(1))
+        ) : [];
+    })([a]);
+
+
+    // GENERIC FUNCTIONS  -----------------------------------------------------
+
+    // A list of functions applied to a list of arguments
+    // <*> :: [(a -> b)] -> [a] -> [b]
+    const ap = (fs, xs) => //
+        [].concat.apply([], fs.map(f => //
+            [].concat.apply([], xs.map(x => [f(x)]))));
+
+    // intercalate :: String -> [a] -> String
+    const intercalate = (s, xs) => xs.join(s);
+
+    // justifyLeft :: Int -> Char -> Text -> Text
+    const justifyLeft = (n, cFiller, strText) =>
+        n > strText.length ? (
+            (strText + cFiller.repeat(n))
+            .substr(0, n)
+        ) : strText;
+
+    // min :: Ord a => a -> a -> a
+    const min = (a, b) => b < a ? b : a;
+
+    // unlines :: [String] -> String
+    const unlines = xs => xs.join('\n');
+
+    // unwords :: [String] -> String
+    const unwords = xs => xs.join(' ');
+
+    // zipWith :: (a -> b -> c) -> [a] -> [b] -> [c]
+    const zipWith = (f, xs, ys) =>
+        Array.from({
+            length: min(xs.length, ys.length)
+        }, (_, i) => f(xs[i], ys[i]));
+
+    // TEST -------------------------------------------------------------------
+    // asciiTree :: String
+    const asciiTree = unlines([
+        '         1',
+        '        / \\',
+        '       /   \\',
+        '      /     \\',
+        '     2       3',
+        '    / \\     /',
+        '   4   5   6',
+        '  /       / \\',
+        ' 7       8   9'
+    ]);
+
+    const [v, l, r] = [0, 1, 2],
+    tree = [1, [2, [4, [7]],
+                [5]
+            ],
+            [3, [6, [8],
+                [9]
+            ]]
+        ],
+
+        // fs :: [(Tree a -> [a])]
+        fs = [preorder, inorder, postorder, levelorder];
+
+    return asciiTree + '\n\n' +
+        intercalate('\n',
+            zipWith(
+                (f, xs) => justifyLeft(12, ' ', f.name + ':') + unwords(xs),
+                fs,
+                ap(fs, [tree])
+            )
+        );
+})();</lang>
+{{Out}}
+<lang JavaScript>         1
+        / \
+       /   \
+      /     \
+     2       3
+    / \     /
+   4   5   6
+  /       / \
+ 7       8   9
+
+preorder:   1 2 4 7 5 3 6 8 9
+inorder:    7 4 2 5 1 8 6 9 3
+postorder:  7 4 5 2 8 9 6 3 1
+levelorder: 1 2 3 4 5 6 7 8 9</lang>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

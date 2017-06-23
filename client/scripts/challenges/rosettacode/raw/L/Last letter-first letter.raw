@@ -1,0 +1,60 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Last letter-first letter
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><br/><p class="rosetta__paragraph">A certain children's game involves starting with a word in a particular category.  Each participant in turn says a word, but that word must begin with the final letter of the previous word.  Once a word has been given, it cannot be repeated.  If an opponent cannot give a word in the category, they fall out of the game.</p>
+/// <br/><p class="rosetta__paragraph">For example, with  "animals"  as the category,</p>
+/// <div class="rosetta__pre-wrap"><pre class="rosetta__pre">
+/// Child 1: dog 
+/// Child 2: goldfish
+/// Child 1: hippopotamus
+/// Child 2: snake
+/// ...
+/// </pre></div>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Take the following selection of 70 English Pokemon names  (extracted from  <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/List of Pokémon" title="wp: List of Pokémon">Wikipedia's list of Pokemon</a>)  and generate the/a sequence with the highest possible number of Pokemon names where the subsequent name starts with the final letter of the preceding name.</p><br/><p class="rosetta__paragraph">No Pokemon name is to be repeated.</p><br/><div class="rosetta__pre-wrap"><pre class="rosetta__pre">
+/// audino bagon baltoy banette bidoof braviary bronzor carracosta charmeleon
+/// cresselia croagunk darmanitan deino emboar emolga exeggcute gabite
+/// girafarig gulpin haxorus heatmor heatran ivysaur jellicent jumpluff kangaskhan
+/// kricketune landorus ledyba loudred lumineon lunatone machamp magnezone mamoswine
+/// nosepass petilil pidgeotto pikachu pinsir poliwrath poochyena porygon2
+/// porygonz registeel relicanth remoraid rufflet sableye scolipede scrafty seaking
+/// sealeo silcoon simisear snivy snorlax spoink starly tirtouga trapinch treecko
+/// tyrogue vigoroth vulpix wailord wartortle whismur wingull yamask
+/// </pre></div>
+/// <br/><p class="rosetta__paragraph">Extra brownie points for dealing with the full list of  646  names.</p>
+/// <br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

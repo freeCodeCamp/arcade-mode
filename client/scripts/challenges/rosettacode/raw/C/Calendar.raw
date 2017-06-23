@@ -1,0 +1,47 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Calendar
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <p class="rosetta__paragraph">Create a routine that will generate a text calendar for any year.</p>
+/// <p class="rosetta__paragraph">Test the calendar by generating a calendar for the year 1969, on a device of the time.</p>
+/// <p class="rosetta__paragraph">Choose one of the following devices:</p><br/><ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">A line printer with a width of 132 characters.</li>
+/// <li class="rosetta__list-item--unordered">An <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/IBM_3270#Displays" title="wp: IBM_3270#Displays">IBM 3278 model 4 terminal</a> (80×43 display with accented characters). Target formatting the months of the year to fit nicely across the 80 character width screen. Restrict number of lines in test output to 43.</li></ul>
+/// <p class="rosetta__paragraph">(Ideally, the program will generate well-formatted calendars for any page width from 20 characters up.)</p><br/><p class="rosetta__paragraph">Kudos (κῦδος) for routines that also transition from <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Julian_calendar" title="link: https://en.wikipedia.org/wiki/Julian_calendar">Julian</a> to <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Gregorian_calendar" title="link: https://en.wikipedia.org/wiki/Gregorian_calendar">Gregorian calendar</a>.</p><br/><p class="rosetta__paragraph">This task is inspired by <a class="rosetta__link--wiki" href="http://www.ee.ryerson.ca/~elf/hack/realmen.html" title="link: http://www.ee.ryerson.ca/~elf/hack/realmen.html">Real Programmers Don't Use PASCAL</a> by Ed Post, Datamation, volume 29 number 7, July 1983.</p>
+/// <p class="rosetta__paragraph">THE REAL PROGRAMMER'S NATURAL HABITAT</p>
+/// <p class="rosetta__paragraph">"Taped to the wall is a line-printer Snoopy calender for the year 1969."</p>
+/// <p class="rosetta__paragraph">For further Kudos see task <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Calendar - for "real" programmers" title="Calendar - for "real" programmers">CALENDAR</a>, where all code is to be in UPPERCASE.</p><br/><p class="rosetta__paragraph">For economy of size, do not actually include Snoopy generation in either the code or the output, instead just output a place-holder.</p><br/><p class="rosetta__paragraph">For other calendar-related tasks, see <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Five weekends" title="Five weekends">Five weekends</a>.</p><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,0 +1,194 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Ordered Partitions
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <p class="rosetta__paragraph">In this task we want to find the ordered partitions into fixed-size blocks. This task is related to <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Combinations" title="Combinations">Combinations</a> in that it has to do with discrete mathematics and moreover a helper function to compute combinations is (probably) needed to solve this task.</p><br/><p class="rosetta__paragraph">$partitions(\mathit{arg}_1,\mathit{arg}_2,...,\mathit{arg}_n)$ should generate all distributions of the elements in $\{1,...,\Sigma_{i=1}^n\mathit{arg}_i\}$ into $n$ blocks of respective size $\mathit{arg}_1,\mathit{arg}_2,...,\mathit{arg}_n$.</p><br/><p class="rosetta__paragraph">Example 1: $partitions(2,0,2)$ would create:</p><br/><div class="rosetta__pre-wrap"><pre class="rosetta__pre">
+/// {({1, 2}, {}, {3, 4}), 
+///  ({1, 3}, {}, {2, 4}), 
+///  ({1, 4}, {}, {2, 3}), 
+///  ({2, 3}, {}, {1, 4}), 
+///  ({2, 4}, {}, {1, 3}), 
+///  ({3, 4}, {}, {1, 2})}
+/// </pre></div><br/><p class="rosetta__paragraph">Example 2: $partitions(1,1,1)$ would create:</p><br/><div class="rosetta__pre-wrap"><pre class="rosetta__pre">
+/// {({1}, {2}, {3}), 
+///  ({1}, {3}, {2}), 
+///  ({2}, {1}, {3}), 
+///  ({2}, {3}, {1}), 
+///  ({3}, {1}, {2}), 
+///  ({3}, {2}, {1})}
+/// </pre></div><br/><p class="rosetta__paragraph">Note that the number of elements in the list is</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">${\mathit{arg}_1+\mathit{arg}_2+...+\mathit{arg}_n \choose \mathit{arg}_1} \cdot {\mathit{arg}_2+\mathit{arg}_3+...+\mathit{arg}_n \choose \mathit{arg}_2} \cdot \ldots \cdot {\mathit{arg}_n \choose \mathit{arg}_n}$</span></p>
+/// <p class="rosetta__paragraph">(see <a class="rosetta__link--wiki" href="http://en.wikipedia.org/wiki/Binomial_coefficient" title="link: http://en.wikipedia.org/wiki/Binomial_coefficient">the definition of the binomial coefficient</a> if you are not familiar with this notation) and the number of elements remains the same regardless of how the argument is permuted</p>
+/// <p class="rosetta__paragraph">(i.e. the <a class="rosetta__link--wiki" href="http://en.wikipedia.org/wiki/Multinomial_coefficient" title="link: http://en.wikipedia.org/wiki/Multinomial_coefficient">multinomial coefficient</a>). Also, $partitions(1,1,1)$ creates the permutations of $\{1,2,3\}$ and thus there would be $3! = 6$ elements in the list.</p><br/><p class="rosetta__paragraph">Note: Do not use functions that are not in the standard library of the programming language you use. Your file should be written so that it can be executed on the command line and by default outputs the result of $partitions(2,0,2)$. If the programming language does not support polyvariadic functions pass a list as an argument.</p><br/><p class="rosetta__paragraph"><span class="rosetta__text--bold">Notation</span></p><br/><p class="rosetta__paragraph">Here are some explanatory remarks on the notation used in the task description:</p><br/><p class="rosetta__paragraph">$\{1, \ldots, n\}$ denotes the set of consecutive numbers from $1$ to $n$, e.g. $\{1,2,3\}$ if $n = 3$. $\Sigma$ is the mathematical notation for summation, e.g. $\Sigma_{i=1}^3 i = 6$ (see also [http://en.wikipedia.org/wiki/Summation#Capital-sigma_notation]). $\mathit{arg}_1,\mathit{arg}_2,...,\mathit{arg}_n$ are the arguments — natural numbers — that the sought function receives.</p><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+(function () {
+  'use strict';
+
+  // [n] -> [[[n]]]
+  function partitions(a1, a2, a3) {
+    var n = a1 + a2 + a3;
+
+    return combos(range(1, n), n, [a1, a2, a3]);
+  }
+
+  function combos(s, n, xxs) {
+    if (!xxs.length) return [[]];
+
+    var x = xxs[0],
+        xs = xxs.slice(1);
+
+    return mb( choose(s, n, x),                 function (l_rest) {
+    return mb( combos(l_rest[1], (n - x), xs),  function (r) {
+      // monadic return/injection requires 1 additional
+      // layer of list nesting:
+      return [ [l_rest[0]].concat(r) ];
+      
+    })});
+  }
+
+  function choose(aa, n, m) {
+    if (!m) return [[[], aa]];
+
+    var a = aa[0],
+        as = aa.slice(1);
+
+    return n === m ? (
+      [[aa, []]]
+    ) : (
+      choose(as, n - 1, m - 1).map(function (xy) {
+        return [[a].concat(xy[0]), xy[1]];
+      }).concat(choose(as, n - 1, m).map(function (xy) {
+        return [xy[0], [a].concat(xy[1])];
+      }))
+    );
+  }
+  
+  // GENERIC
+
+  // Monadic bind (chain) for lists
+  function mb(xs, f) {
+    return [].concat.apply([], xs.map(f));
+  }
+
+  // [m..n]
+  function range(m, n) {
+    return Array.apply(null, Array(n - m + 1)).map(function (x, i) {
+      return m + i;
+    });
+  }
+  
+  // EXAMPLE
+
+  return partitions(2, 0, 2);
+
+})();
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+
+===Functional (ES 5)===
+
+{{trans|Haskell}}
+
+<lang JavaScript>(function () {
+  'use strict';
+
+  // [n] -> [[[n]]]
+  function partitions(a1, a2, a3) {
+    var n = a1 + a2 + a3;
+
+    return combos(range(1, n), n, [a1, a2, a3]);
+  }
+
+  function combos(s, n, xxs) {
+    if (!xxs.length) return [[]];
+
+    var x = xxs[0],
+        xs = xxs.slice(1);
+
+    return mb( choose(s, n, x),                 function (l_rest) {
+    return mb( combos(l_rest[1], (n - x), xs),  function (r) {
+      // monadic return/injection requires 1 additional
+      // layer of list nesting:
+      return [ [l_rest[0]].concat(r) ];
+      
+    })});
+  }
+
+  function choose(aa, n, m) {
+    if (!m) return [[[], aa]];
+
+    var a = aa[0],
+        as = aa.slice(1);
+
+    return n === m ? (
+      [[aa, []]]
+    ) : (
+      choose(as, n - 1, m - 1).map(function (xy) {
+        return [[a].concat(xy[0]), xy[1]];
+      }).concat(choose(as, n - 1, m).map(function (xy) {
+        return [xy[0], [a].concat(xy[1])];
+      }))
+    );
+  }
+  
+  // GENERIC
+
+  // Monadic bind (chain) for lists
+  function mb(xs, f) {
+    return [].concat.apply([], xs.map(f));
+  }
+
+  // [m..n]
+  function range(m, n) {
+    return Array.apply(null, Array(n - m + 1)).map(function (x, i) {
+      return m + i;
+    });
+  }
+  
+  // EXAMPLE
+
+  return partitions(2, 0, 2);
+
+})();</lang>
+
+{{Out}}
+
+<lang JavaScript>[[[1, 2], [], [3, 4]], 
+ [[1, 3], [], [2, 4]],
+ [[1, 4], [], [2, 3]],
+ [[2, 3], [], [1, 4]],
+ [[2, 4], [], [1, 3]],
+ [[3, 4], [], [1, 2]]]</lang>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

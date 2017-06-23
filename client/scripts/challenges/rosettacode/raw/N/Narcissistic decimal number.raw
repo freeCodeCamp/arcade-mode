@@ -1,0 +1,267 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Narcissistic decimal number
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><br/><p class="rosetta__paragraph">A  <a class="rosetta__link--wiki" href="http://mathworld.wolfram.com/NarcissisticNumber.html" title="link: http://mathworld.wolfram.com/NarcissisticNumber.html">Narcissistic decimal number</a>  is a non-negative integer,  $n$,  that is equal to the sum of the  $m$-th  powers of each of the digits in the decimal representation of  $n$,  where  $m$  is the number of digits in the decimal representation of  $n$.</p><br/><p class="rosetta__paragraph">Narcissistic (decimal) numbers are sometimes called  <span class="rosetta__text--bold">Armstrong</span>  numbers, named after Michael F. Armstrong.</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">An example:</dt></dl>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">:::*  if  $n$  is  <span class="rosetta__text--bold">153</span> </span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">:::*  then  $m$,  (the number of decimal digits)  is  <span class="rosetta__text--bold">3</span> </span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">:::*  we have  <big> 1<sup>3</sup> + 5<sup>3</sup> + 3<sup>3</sup>  =  1 + 125 + 27  =  <span class="rosetta__text--bold">153</span> </big> </span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">:::*  and so  <span class="rosetta__text--bold">153</span>  is a narcissistic decimal number</span></p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Generate and show here the first  <span class="rosetta__text--bold">25</span>  narcissistic decimal numbers.</p>
+/// <br/>
+/// <p class="rosetta__paragraph">Note:  $0^1 = 0$,  the first in the series.</p>
+/// <br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+function isNarc(x) {
+    var str = x.toString(),
+        i,
+        sum = 0,
+        l = str.length;
+    if (x < 0) {
+        return false;
+    } else {
+        for (i = 0; i < l; i++) {
+            sum += Math.pow(str.charAt(i), l);
+        }
+    }
+    return sum == x;
+}
+function main(){
+    var n = []; 
+    for (var x = 0, count = 0; count < 25; x++){
+        if (isNarc(x)){
+            n.push(x);
+            count++;
+        }
+    }
+    return n.join(' '); 
+}
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+===ES5===
+{{trans|Java}}
+<lang javascript>function isNarc(x) {
+    var str = x.toString(),
+        i,
+        sum = 0,
+        l = str.length;
+    if (x < 0) {
+        return false;
+    } else {
+        for (i = 0; i < l; i++) {
+            sum += Math.pow(str.charAt(i), l);
+        }
+    }
+    return sum == x;
+}
+function main(){
+    var n = []; 
+    for (var x = 0, count = 0; count < 25; x++){
+        if (isNarc(x)){
+            n.push(x);
+            count++;
+        }
+    }
+    return n.join(' '); 
+}</lang>
+{{out}}
+<pre>"0 1 2 3 4 5 6 7 8 9 153 370 371 407 1634 8208 9474 54748 92727 93084 548834 1741725 4210818 9800817 9926315"</pre>
+
+===ES6===
+====Exhaustive search (integer series)====
+<lang JavaScript>(() => {
+    'use strict';
+ 
+    // digits :: Int -> [Int]
+    const digits = n => n.toString()
+        .split('')
+        .map(x => parseInt(x, 10));
+ 
+    // pow :: Int -> Int -> Int
+    const pow = Math.pow;
+ 
+    // isNarc :: Int -> Bool
+    const isNarc = n => {
+        const
+            ds = digits(n),
+            len = ds.length;
+ 
+        return ds.reduce((a, x) =>
+            a + pow(x, len), 0) === n;
+    };
+ 
+    // until :: (a -> Bool) -> (a -> a) -> a -> a
+    const until = (p, f, x) => {
+        let v = x;
+        while (!p(v)) v = f(v);
+        return v;
+    };
+ 
+    return until(
+            x => x.narc.length > 24,
+            x => ({
+                n: x.n + 1,
+                narc: (isNarc(x.n) ? x.narc.concat(x.n) : x.narc)
+            }), {
+                n: 0,
+                narc: []
+            }
+        )
+        .narc
+})();</lang>
+{{Out}}
+<lang JavaScript>[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 153, 370, 371, 407, 1634, 8208, 9474, 54748, 92727, 93084, 548834, 1741725, 4210818, 9800817, 9926315]</lang>
+
+
+====Reduced search (unordered digit combinations)====
+{{Trans|Haskell}}
+As summing the nth power of the digits is unaffected by digit order, we can reduce the search space by filtering digit combinations of given length and arbitrary order, rather than filtering a full integer sequence.
+
+In this way we can find the 25th narcissistic number after '''length(concatMap(digitPowerSums, enumFromTo(0, 7))) === 19447''' tests – an improvement on the exhaustive trawl through '''9926315''' integers.
+
+(Generating the unordered digit combinations directly as power sums allows faster testing later, and needs less space)
+<lang JavaScript>(() => {
+    'use strict';
+
+    // DAFFODILS --------------------------------------------------------------
+
+    // narcissiOfLength :: Int -> [Int]
+    const narcissiOfLength = n =>
+        n > 0 ? filter(curry(isDaffodil)(n), digitPowerSums(n)) : [0];
+
+    // Do the decimal digits of N, each raised to the power E, sum to N itself ?
+
+// isDaffodil :: Int -> Int -> Bool
+const isDaffodil = (e, n) => {
+    const
+        powerSum = (n, xs) => xs.reduce((a, x) => a + Math.pow(x, n), 0),
+        digitList = n => (n > 0) ? (
+            cons((n % 10), digitList(Math.floor(n / 10)))
+        ) : [],
+        ds = digitList(n);
+    return e === ds.length && n === powerSum(e, ds);
+};
+
+    // The subset of integers of n digits that actually need daffodil checking:
+
+    // (Flattened leaves of a tree of unique digit combinations, in which
+    // order is not significant. Digit sequence doesn't affect power summing)
+
+    // digitPowerSums :: Int -> [Int]
+    const digitPowerSums = nDigits => {
+        const
+            digitPowers = map(x => [x, pow(x, nDigits)], enumFromTo(0, 9)),
+            treeGrowth = (n, parentPairs) => (n > 0) ? (
+                treeGrowth(n - 1,
+                    isNull(parentPairs) ? (
+                        digitPowers
+                    ) : concatMap(([parentDigit, parentSum]) =>
+                        map(([leafDigit, leafSum]) => //
+                            [leafDigit, parentSum + leafSum],
+                            take(parentDigit + 1, digitPowers)
+                        ),
+                        parentPairs
+                    ))
+            ) : parentPairs;
+        return map(snd, treeGrowth(nDigits, []));
+    };
+
+    // GENERIC FUNCTIONS ------------------------------------------------------
+
+    // enumFromTo :: Int -> Int -> Maybe Int -> [Int]
+    const enumFromTo = (m, n, step) => {
+        const d = (step || 1) * (n >= m ? 1 : -1);
+        return Array.from({
+            length: Math.floor((n - m) / d) + 1
+        }, (_, i) => m + (i * d));
+    };
+    // concatMap :: (a -> [b]) -> [a] -> [b]
+    const concatMap = (f, xs) => [].concat.apply([], xs.map(f));
+
+    // cons :: a -> [a] -> [a]
+    const cons = (x, xs) => [x].concat(xs);
+
+    // 2 or more arguments
+    // curry :: Function -> Function
+    const curry = (f, ...args) => {
+        const go = xs => xs.length >= f.length ? (f.apply(null, xs)) :
+            function () {
+                return go(xs.concat([].slice.apply(arguments)));
+            };
+        return go([].slice.call(args, 1));
+    };
+
+    // filter :: (a -> Bool) -> [a] -> [a]
+    const filter = (f, xs) => xs.filter(f);
+
+    // map :: (a -> b) -> [a] -> [b]
+    const map = curry((f, xs) => xs.map(f));
+
+    // isNull :: [a] -> Bool
+    const isNull = xs => (xs instanceof Array) ? xs.length < 1 : undefined;
+
+    // length :: [a] -> Int
+    const length = xs => xs.length;
+
+    // pow :: Int -> Int -> Int
+    const pow = Math.pow
+
+    // take :: Int -> [a] -> [a]
+    const take = (n, xs) => xs.slice(0, n);
+
+    // show ::
+    // (a -> String) f,  Num n =>
+    // a -> maybe f -> maybe n -> String
+    const show = JSON.stringify;
+
+    // snd :: (a, b) -> b
+    const snd = tpl => Array.isArray(tpl) ? tpl[1] : undefined;
+
+
+    // TEST -------------------------------------------------------------------
+
+    // return length(concatMap(digitPowerSums, enumFromTo(0, 7)));
+
+    return show(
+        //digitPowerSums(3)
+        concatMap(narcissiOfLength, enumFromTo(0, 7))
+    );
+})();</lang>
+{{Out}}
+(Tested in Atom editor, using Script package)
+<pre>[0,1,2,3,4,5,6,7,8,9,153,370,371,407,1634,8208,9474,54748,92727,93084,548834,1741725,4210818,9800817,9926315]
+[Finished in 0.118s]</pre>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

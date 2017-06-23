@@ -1,0 +1,578 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Conway's Game of Life
+/// type: rosetta-code
+
+/// categories:
+/// Cellular automata
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <br/><p class="rosetta__paragraph">The <span class="rosetta__text--bold">Game of Life</span> is a  <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/cellular automaton" title="wp: cellular automaton">cellular automaton</a>  devised by the British mathematician  <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/John Horton Conway" title="wp: John Horton Conway">John Horton Conway</a>  in 1970.  It is the best-known example of a cellular automaton.</p><br/><p class="rosetta__paragraph">Conway's game of life is described  <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life" title="wp: Conway%27s_Game_of_Life">here</a>:</p><br/><p class="rosetta__paragraph">A cell  <span class="rosetta__text--bold">C</span>  is represented by a  <span class="rosetta__text--bold">1</span>  when alive,  or  <span class="rosetta__text--bold">0</span>  when dead,  in an  m-by-m  (or <big>m</big>&times;<big>m</big>)  square array of cells.</p><br/><p class="rosetta__paragraph">We calculate  <span class="rosetta__text--bold">N</span>  - the sum of live cells in C's  <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Moore neighborhood" title="wp: Moore neighborhood">eight-location neighbourhood</a>,  then cell  C  is alive or dead in the next generation based on the following table:</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">C   N                 new C</span></p>
+/// <p class="rosetta__paragraph">1   0,1             ->  0  # Lonely</p>
+/// <p class="rosetta__paragraph">1   4,5,6,7,8       ->  0  # Overcrowded</p>
+/// <p class="rosetta__paragraph">1   2,3             ->  1  # Lives</p>
+/// <p class="rosetta__paragraph">0   3               ->  1  # It takes three to give birth!</p>
+/// <p class="rosetta__paragraph">0   0,1,2,4,5,6,7,8 ->  0  # Barren</p><br/><p class="rosetta__paragraph">Assume cells beyond the boundary are always dead.</p><br/><p class="rosetta__paragraph">The "game" is actually a zero-player game, meaning that its evolution is determined by its initial state, needing no input from human players.  One interacts with the Game of Life by creating an initial configuration and observing how it evolves.</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Although you should test your implementation on more complex examples such as the  <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life#Examples_of_patterns" title="wp: Conway%27s_Game_of_Life#Examples_of_patterns">glider</a>  in a larger universe,  show the action of the blinker  (three adjoining cells in a row all alive),  over three generations, in a 3 by 3 grid.</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">References:</dt></dl>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"> Its creator John Conway, explains  <a class="rosetta__link--wiki" href="http://www.youtube.com/watch?v=E8kUJL04ELA" title="link: http://www.youtube.com/watch?v=E8kUJL04ELA">the game of life</a>.   Video from numberphile on youtube.</li>
+/// <li class="rosetta__list-item--unordered"> John Conway  <a class="rosetta__link--wiki" href="http://www.youtube.com/watch?v=R9Plq-D1gEk" title="link: http://www.youtube.com/watch?v=R9Plq-D1gEk">Inventing Game of Life</a>  - Numberphile video.</li></ul><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">See also:</dt></dl>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"> <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Langton's ant" title="Langton's ant">Langton's ant</a>  - another well known cellular automaton.</li></ul><br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+function GameOfLife () {
+
+	this.init = function (turns,width,height) {
+		this.board = new Array(height);
+		for (var x = 0; x < height; x++) {
+			this.board[x] = new Array(width);
+			for (var y = 0; y < width; y++) {
+				this.board[x][y] = Math.round(Math.random());
+			}
+		}
+		this.turns = turns;
+	}
+
+	this.nextGen = function() {
+		this.boardNext = new Array(this.board.length);
+		for (var i = 0; i < this.board.length; i++) {
+			this.boardNext[i] = new Array(this.board[i].length);
+		}
+		for (var x = 0; x < this.board.length; x++) {
+			for (var y = 0; y < this.board[x].length; y++) {
+				var n = 0;
+				for (var dx = -1; dx <= 1; dx++) {
+					for (var dy = -1; dy <= 1; dy++) {
+						if ( dx == 0 && dy == 0){}
+						else if (typeof this.board[x+dx] !== 'undefined'
+								&& typeof this.board[x+dx][y+dy] !== 'undefined'
+								&& this.board[x+dx][y+dy]) {
+							n++;
+						}
+					}	
+				}
+				var c = this.board[x][y];
+				switch (n) {
+					case 0:
+					case 1:
+						c = 0;
+						break;
+					case 2:
+						break; 
+					case 3:
+						c = 1;
+						break;
+					default:
+						c = 0;
+				}
+				this.boardNext[x][y] = c;
+			}
+		}
+		this.board = this.boardNext.slice();
+	}
+
+	this.print = function() {
+		for (var x = 0; x < this.board.length; x++) {
+			var l = "";
+			for (var y = 0; y < this.board[x].length; y++) {
+				if (this.board[x][y])
+					l += "X";
+				else
+					l += " ";
+			}
+			print(l);
+		}
+	}
+
+	this.start = function() {
+		for (var t = 0; t < this.turns; t++) {
+			print("---\nTurn "+(t+1));
+			this.print();
+			this.nextGen()
+		}
+	}
+
+}
+
+
+var game = new GameOfLife();
+
+print("---\n3x3 Blinker over three turns.");
+game.init(3);
+game.board = [
+	[0,0,0],
+	[1,1,1],
+	[0,0,0]];
+game.start();
+
+print("---\n10x6 Glider over five turns.");
+game.init(5);
+game.board = [
+	[0,0,0,0,0,0,0,0,0,0],
+	[0,0,1,0,0,0,0,0,0,0],
+	[0,0,0,1,0,0,0,0,0,0],
+	[0,1,1,1,0,0,0,0,0,0],
+	[0,0,0,0,0,0,0,0,0,0],
+	[0,0,0,0,0,0,0,0,0,0]];
+game.start();
+
+print("---\nRandom 5x10");
+game.init(5,5,10);
+game.start();
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+{{works with|SpiderMonkey}}
+{{works with|V8}}
+<lang javascript>function GameOfLife () {
+
+	this.init = function (turns,width,height) {
+		this.board = new Array(height);
+		for (var x = 0; x < height; x++) {
+			this.board[x] = new Array(width);
+			for (var y = 0; y < width; y++) {
+				this.board[x][y] = Math.round(Math.random());
+			}
+		}
+		this.turns = turns;
+	}
+
+	this.nextGen = function() {
+		this.boardNext = new Array(this.board.length);
+		for (var i = 0; i < this.board.length; i++) {
+			this.boardNext[i] = new Array(this.board[i].length);
+		}
+		for (var x = 0; x < this.board.length; x++) {
+			for (var y = 0; y < this.board[x].length; y++) {
+				var n = 0;
+				for (var dx = -1; dx <= 1; dx++) {
+					for (var dy = -1; dy <= 1; dy++) {
+						if ( dx == 0 && dy == 0){}
+						else if (typeof this.board[x+dx] !== 'undefined'
+								&& typeof this.board[x+dx][y+dy] !== 'undefined'
+								&& this.board[x+dx][y+dy]) {
+							n++;
+						}
+					}	
+				}
+				var c = this.board[x][y];
+				switch (n) {
+					case 0:
+					case 1:
+						c = 0;
+						break;
+					case 2:
+						break; 
+					case 3:
+						c = 1;
+						break;
+					default:
+						c = 0;
+				}
+				this.boardNext[x][y] = c;
+			}
+		}
+		this.board = this.boardNext.slice();
+	}
+
+	this.print = function() {
+		for (var x = 0; x < this.board.length; x++) {
+			var l = "";
+			for (var y = 0; y < this.board[x].length; y++) {
+				if (this.board[x][y])
+					l += "X";
+				else
+					l += " ";
+			}
+			print(l);
+		}
+	}
+
+	this.start = function() {
+		for (var t = 0; t < this.turns; t++) {
+			print("---\nTurn "+(t+1));
+			this.print();
+			this.nextGen()
+		}
+	}
+
+}
+
+
+var game = new GameOfLife();
+
+print("---\n3x3 Blinker over three turns.");
+game.init(3);
+game.board = [
+	[0,0,0],
+	[1,1,1],
+	[0,0,0]];
+game.start();
+
+print("---\n10x6 Glider over five turns.");
+game.init(5);
+game.board = [
+	[0,0,0,0,0,0,0,0,0,0],
+	[0,0,1,0,0,0,0,0,0,0],
+	[0,0,0,1,0,0,0,0,0,0],
+	[0,1,1,1,0,0,0,0,0,0],
+	[0,0,0,0,0,0,0,0,0,0],
+	[0,0,0,0,0,0,0,0,0,0]];
+game.start();
+
+print("---\nRandom 5x10");
+game.init(5,5,10);
+game.start();</lang>
+{{out}}
+<pre style="height:30ex;overflow:scroll">---
+3x3 Blinker over three turns.
+---
+Turn 1
+   
+XXX
+   
+---
+Turn 2
+ X 
+ X 
+ X 
+---
+Turn 3
+   
+XXX
+   
+---
+10x6 Glider over five turns.
+---
+Turn 1
+          
+  X       
+   X      
+ XXX      
+          
+          
+---
+Turn 2
+          
+          
+ X X      
+  XX      
+  X       
+          
+---
+Turn 3
+          
+          
+   X      
+ X X      
+  XX      
+          
+---
+Turn 4
+          
+          
+  X       
+   XX     
+  XX      
+          
+---
+Turn 5
+          
+          
+   X      
+    X     
+  XXX     
+          
+---
+Random 5x10
+---
+Turn 1
+XXXX 
+   XX
+X    
+ XX X
+  XX 
+X   X
+X    
+X   X
+ X   
+X  XX
+---
+Turn 2
+ XXXX
+X  XX
+ XX X
+ XX  
+  X X
+ X X 
+XX   
+XX   
+XX XX
+     
+---
+Turn 3
+ XX X
+X    
+X   X
+     
+     
+XX X 
+     
+     
+XXX  
+     
+---
+Turn 4
+ X   
+X  X 
+     
+     
+     
+     
+     
+ X   
+ X   
+ X   
+---
+Turn 5
+     
+     
+     
+     
+     
+     
+     
+     
+XXX  
+     </pre>
+{{libheader|HTML5}}
+Essentially the same as the above straight [[JavaScript]] but displayed in an [[HTML5]] Canvas.
+<lang javascript>
+<html> 
+	<head> 
+		<title></title> 
+		<script type="text/javascript"> 
+ 
+function GameOfLife () {
+ 
+	this.init = function (turns,width,height) {
+		this.board = new Array(height);
+		for (var x = 0; x < height; x++) {
+			this.board[x] = new Array(width);
+			for (var y = 0; y < width; y++) {
+				this.board[x][y] = Math.round(Math.random());
+			}
+		}
+		this.turns = turns;
+	}
+ 
+	this.nextGen = function() {
+		this.boardNext = new Array(this.board.length);
+		for (var i = 0; i < this.board.length; i++) {
+			this.boardNext[i] = new Array(this.board[i].length);
+		}
+		for (var x = 0; x < this.board.length; x++) {
+			for (var y = 0; y < this.board[x].length; y++) {
+				var n = 0;
+				for (var dx = -1; dx <= 1; dx++) {
+					for (var dy = -1; dy <= 1; dy++) {
+						if ( dx == 0 && dy == 0){}
+						else if (typeof this.board[x+dx] !== 'undefined'
+								&& typeof this.board[x+dx][y+dy] !== 'undefined'
+								&& this.board[x+dx][y+dy]) {
+							n++;
+						}
+					}	
+				}
+				var c = this.board[x][y];
+				switch (n) {
+					case 0:
+					case 1:
+						c = 0;
+						break;
+					case 2:
+						break; 
+					case 3:
+						c = 1;
+						break;
+					default:
+						c = 0;
+				}
+				this.boardNext[x][y] = c;
+			}
+		}
+		this.board = this.boardNext.slice();
+	}
+ 
+	this.print = function(ctx,w,h) {
+		if (!w)
+			w = 8;
+		if (!h)
+			h = 8;
+		for (var x = 0; x < this.board.length; x++) {
+			var l = "";
+			for (var y = 0; y < this.board[x].length; y++) {
+				if (this.board[x][y])
+				// x and y reversed to draw matrix like it looks in source
+				// rather than the "actual" positions
+					ctx.fillStyle = "orange";
+				else
+					ctx.fillStyle = "black";
+				ctx.fillRect(y*h,x*w,h,w);
+			}
+		}
+	}
+ 
+	this.start = function(ctx,w,h) {
+		for (var t = 0; t < this.turns; t++) {
+			this.print(ctx,w,h);
+			this.nextGen()
+		}
+	}
+ 
+}
+ 
+function init() {
+	// Change document title and text under canvas
+	document.title = "Conway's Game of Life";
+ 
+	// Setup game boards for Conway's Game of Life
+	var blinker = new GameOfLife();
+	blinker.board = [
+		[0,1,0],
+		[0,1,0],
+		[0,1,0]];
+ 
+	var glider = new GameOfLife();
+	glider.board = [
+		[0,0,0,0,0,0],
+		[0,0,1,0,0,0],
+		[0,0,0,1,0,0],
+		[0,1,1,1,0,0],
+		[0,0,0,0,0,0],
+		[0,0,0,0,0,0]];
+ 
+	var random = new GameOfLife();
+	random.init(null,8,8);
+ 
+	// Get canvas contexts or return 1
+	blinker.canvas = document.getElementById('blinker');
+	glider.canvas = document.getElementById('glider');
+	random.canvas = document.getElementById('random');
+	if (blinker.canvas.getContext && glider.canvas.getContext && random.canvas.getContext) {
+		blinker.ctx = blinker.canvas.getContext('2d');
+		glider.ctx = glider.canvas.getContext('2d');
+		random.ctx = random.canvas.getContext('2d');
+	} else {
+		return 1;
+	}
+ 
+ 
+	// Run main() at set interval
+	setInterval(function(){run(glider,glider.ctx,25,25)},250);
+	setInterval(function(){run(blinker,blinker.ctx,25,25)},250);
+	setInterval(function(){run(random,random.ctx,25,25)},250);
+	return 0;
+}
+ 
+function run(game,ctx,w,h) {
+	game.print(ctx,w,h);
+	game.nextGen()
+ 
+	return 0;
+}
+ 
+		</script> 
+	</head> 
+	<body onLoad="init();"> 
+		3x3 Blinker<br> 
+		<canvas id="blinker" width="75" height="75"> 
+			No canvas support found!
+		</canvas><br><br> 
+		6x6 Glider<br> 
+		<canvas id="glider" width="150" height="150"> 
+			No canvas support found!
+		</canvas><br><br> 
+		8x8 Random<br> 
+		<canvas id="random" width="200" height="200"> 
+			No canvas support found!
+		</canvas><br> 
+	</body> 
+</html></lang>
+{{out}} for 3x3 Blinker:
+
+[[File:Blinker.gif]]
+
+
+'''More functional style''':
+<lang javascript>
+const _ = require('lodash');
+
+///////////////////
+// LODASH IMPORT //
+///////////////////
+
+// import all lodash functions to the main namespace, but isNaN not to cause conflicts
+_.each(_.keys(_), k => global[k === 'isNaN' ? '_isNaN' : k] = _[k]);
+
+///////////////
+// FUNCTIONS //
+///////////////
+const WORLD_WIDTH  = 3,
+      WORLD_HEIGHT = 3,
+      displayWorld = (world) => console.log(map(world, x => x.join(' ')).join('\n') + '\n'),
+
+      aliveNeighbours = (world, x, y) => chain(range(-1, 2))
+                                          .reduce((acc, i) => acc.concat(map(range(-1, 2), ii => [i, ii])), [])
+                                          .reject(partial(isEqual, [0, 0]))
+                                          .map(i => {
+                                            try {
+                                              return world[x + i[0]][y + i[1]];
+                                            } catch (err) {
+                                              return null;
+                                            }
+                                          })
+                                          .compact()
+                                          .value()
+                                          .length,
+
+      isAlive = (cell, numAliveNeighbours) => (cell === 1 && inRange(numAliveNeighbours, 2, 4)) || (cell === 0 && numAliveNeighbours === 3) ? 1 : 0,
+      updateWorld = (world) => map(world, (row, rowidx) => map(row, (cell, colidx) => isAlive(cell, aliveNeighbours(world, rowidx, colidx))));
+
+
+// let world = map(range(WORLD_WIDTH), partial(ary(map, 2), range(WORLD_HEIGHT), partial(random, 0, 1, false)));
+let world = [[0, 0, 0], [1, 1, 1], [0, 0, 0]];
+
+setInterval(() => {
+  world = updateWorld(world)
+  displayWorld(world);
+}, 1000);
+</lang>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

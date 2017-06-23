@@ -1,0 +1,43 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Operator precedence
+/// type: rosetta-code
+
+/// categories:
+/// Simple
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <br/>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Provide a list of  <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/order of operations" title="wp: order of operations">precedence</a>  and  <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/operator associativity" title="wp: operator associativity">associativity</a>  of all the operators and constructs that the language utilizes in descending order of precedence such that an operator which is listed on some row will be evaluated prior to any operator that is listed on a row further below it.</p><br/><p class="rosetta__paragraph">Operators that are in the same cell (there may be several rows of operators listed in a cell) are evaluated with the same level of precedence, in the given direction.</p><br/><p class="rosetta__paragraph">State whether arguments are passed by value or by reference.</p>
+/// <br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

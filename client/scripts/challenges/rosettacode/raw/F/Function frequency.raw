@@ -1,0 +1,41 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Function frequency
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <p class="rosetta__paragraph">Display - for a program or runtime environment (whatever suits the style of your language) - the top ten most frequently occurring functions (or also identifiers or tokens, if preferred).</p><br/><p class="rosetta__paragraph">This is a static analysis: The question is not how often each function is</p>
+/// <p class="rosetta__paragraph">actually executed at runtime, but how often it is used by the programmer.</p><br/><p class="rosetta__paragraph">Besides its practical usefulness, the intent of this task is to show how to do self-inspection within the language.</p><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

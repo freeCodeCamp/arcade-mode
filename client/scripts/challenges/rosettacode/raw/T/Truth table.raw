@@ -1,0 +1,185 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Truth table
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><br/><p class="rosetta__paragraph">A <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Truth table" title="wp: Truth table">truth table</a> is a display of the inputs to, and the output of a Boolean equation organised as a table where each row gives one combination of input values and the corresponding value of the equation.</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">Input a Boolean equation from the user as a string then calculate and print a formatted truth table for the given equation.<br> (One can assume that the user input is correct).</li>
+/// <li class="rosetta__list-item--ordered">Print and show output for Boolean equations of two and three input variables, but any program should not be limited to that many variables in the equation. </li>
+/// <li class="rosetta__list-item--ordered">Either reverse-polish or infix notation expressions are allowed.</li></ol><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks:</dt></dl>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"> <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Boolean values" title="Boolean values">Boolean values</a></li>
+/// <li class="rosetta__list-item--unordered"> <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Ternary logic" title="Ternary logic">Ternary logic</a></li></ul><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">See also:</dt></dl>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"> <a class="rosetta__link--wiki" href="http://mathworld.wolfram.com/TruthTable.html" title="link: http://mathworld.wolfram.com/TruthTable.html">Wolfram MathWorld entry on truth tables</a>.</li>
+/// <li class="rosetta__list-item--unordered"> <a class="rosetta__link--wiki" href="http://www.google.co.uk/search?q=truth+table&hl=en&client=firefox-a&hs=Om7&rls=org.mozilla:en-GB:official&prmd=imvns&tbm=isch&tbo=u&source=univ&sa=X&ei=C0uuTtjuH4Wt8gOF4dmYCw&ved=0CDUQsAQ&biw=941&bih=931&sei=%20Jk-uTuKKD4Sg8QOFkPGcCw" title="link: http://www.google.co.uk/search?q=truth+table&hl=en&client=firefox-a&hs=Om7&rls=org.mozilla:en-GB:official&prmd=imvns&tbm=isch&tbo=u&source=univ&sa=X&ei=C0uuTtjuH4Wt8gOF4dmYCw&ved=0CDUQsAQ&biw=941&bih=931&sei=%20Jk-uTuKKD4Sg8QOFkPGcCw">some "truth table" examples from Google</a>.</li></ul><br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+<!DOCTYPE html><html><head><title>Truth table</title><script>
+var elem,expr,vars;
+function isboolop(chr){return "&|!^".indexOf(chr)!=-1;}
+function varsindexof(chr){
+	var i;
+	for(i=0;i<vars.length;i++){if(vars[i][0]==chr)return i;}
+	return -1;
+}
+function printtruthtable(){
+	var i,str;
+	elem=document.createElement("pre");
+	expr=prompt("Boolean expression:\nAccepts single-character variables (except for \"T\" and \"F\", which specify explicit true or false values), postfix, with \"&|!^\" for and, or, not, xor, respectively; optionally seperated by whitespace.").replace(/\s/g,"");
+	vars=[];
+	for(i=0;i<expr.length;i++)if(!isboolop(expr[i])&&expr[i]!="T"&&expr[i]!="F"&&varsindexof(expr[i])==-1)vars.push([expr[i],-1]);
+	if(vars.length==0)return;
+	str="";
+	for(i=0;i<vars.length;i++)str+=vars[i][0]+" ";
+	elem.innerHTML="<b>"+str+expr+"</b>\n";
+	vars[0][1]=false;
+	truthpartfor(1);
+	vars[0][1]=true;
+	truthpartfor(1);
+	vars[0][1]=-1;
+	document.body.appendChild(elem);
+}
+function truthpartfor(index){
+	if(index==vars.length){
+		var str,i;
+		str="";
+		for(i=0;i<index;i++)str+=(vars[i][1]?"<b>T</b>":"F")+" ";
+		elem.innerHTML+=str+(parsebool()?"<b>T</b>":"F")+"\n";
+		return;
+	}
+	vars[index][1]=false;
+	truthpartfor(index+1);
+	vars[index][1]=true;
+	truthpartfor(index+1);
+	vars[index][1]=-1;
+}
+function parsebool(){
+	var stack,i,idx;
+	console.log(vars);
+	stack=[];
+	for(i=0;i<expr.length;i++){
+		if(expr[i]=="T")stack.push(true);
+		else if(expr[i]=="F")stack.push(false);
+		else if((idx=varsindexof(expr[i]))!=-1)stack.push(vars[idx][1]);
+		else if(isboolop(expr[i])){
+			switch(expr[i]){
+				case "&":stack.push(stack.pop()&stack.pop());break;
+				case "|":stack.push(stack.pop()|stack.pop());break;
+				case "!":stack.push(!stack.pop());break;
+				case "^":stack.push(stack.pop()^stack.pop());break;
+			}
+		} else alert("Non-conformant character "+expr[i]+" in expression. Should not be possible.");
+		console.log(stack);
+	}
+	return stack[0];
+}
+</script></head><body onload="printtruthtable()"></body></html>
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+Actually a HTML document. Save as a .html document and double-click it. You should be fine.
+<lang javascript><!DOCTYPE html><html><head><title>Truth table</title><script>
+var elem,expr,vars;
+function isboolop(chr){return "&|!^".indexOf(chr)!=-1;}
+function varsindexof(chr){
+	var i;
+	for(i=0;i<vars.length;i++){if(vars[i][0]==chr)return i;}
+	return -1;
+}
+function printtruthtable(){
+	var i,str;
+	elem=document.createElement("pre");
+	expr=prompt("Boolean expression:\nAccepts single-character variables (except for \"T\" and \"F\", which specify explicit true or false values), postfix, with \"&|!^\" for and, or, not, xor, respectively; optionally seperated by whitespace.").replace(/\s/g,"");
+	vars=[];
+	for(i=0;i<expr.length;i++)if(!isboolop(expr[i])&&expr[i]!="T"&&expr[i]!="F"&&varsindexof(expr[i])==-1)vars.push([expr[i],-1]);
+	if(vars.length==0)return;
+	str="";
+	for(i=0;i<vars.length;i++)str+=vars[i][0]+" ";
+	elem.innerHTML="<b>"+str+expr+"</b>\n";
+	vars[0][1]=false;
+	truthpartfor(1);
+	vars[0][1]=true;
+	truthpartfor(1);
+	vars[0][1]=-1;
+	document.body.appendChild(elem);
+}
+function truthpartfor(index){
+	if(index==vars.length){
+		var str,i;
+		str="";
+		for(i=0;i<index;i++)str+=(vars[i][1]?"<b>T</b>":"F")+" ";
+		elem.innerHTML+=str+(parsebool()?"<b>T</b>":"F")+"\n";
+		return;
+	}
+	vars[index][1]=false;
+	truthpartfor(index+1);
+	vars[index][1]=true;
+	truthpartfor(index+1);
+	vars[index][1]=-1;
+}
+function parsebool(){
+	var stack,i,idx;
+	console.log(vars);
+	stack=[];
+	for(i=0;i<expr.length;i++){
+		if(expr[i]=="T")stack.push(true);
+		else if(expr[i]=="F")stack.push(false);
+		else if((idx=varsindexof(expr[i]))!=-1)stack.push(vars[idx][1]);
+		else if(isboolop(expr[i])){
+			switch(expr[i]){
+				case "&":stack.push(stack.pop()&stack.pop());break;
+				case "|":stack.push(stack.pop()|stack.pop());break;
+				case "!":stack.push(!stack.pop());break;
+				case "^":stack.push(stack.pop()^stack.pop());break;
+			}
+		} else alert("Non-conformant character "+expr[i]+" in expression. Should not be possible.");
+		console.log(stack);
+	}
+	return stack[0];
+}
+</script></head><body onload="printtruthtable()"></body></html></lang>
+{{Out|Output in browser window after entering "AB^"}}
+<pre>A B AB^
+F F F
+F T T
+T F T
+T T F</pre>
+{{Out|Output in browser window after entering "ABC^{{!}}"}}
+<pre>A B C ABC^|
+F F F F
+F F T T
+F T F T
+F T T F
+T F F T
+T F T T
+T T F T
+T T T T</pre>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

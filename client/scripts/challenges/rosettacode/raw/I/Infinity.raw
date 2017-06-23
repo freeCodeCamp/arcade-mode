@@ -1,0 +1,53 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Infinity
+/// type: rosetta-code
+
+/// categories:
+/// Discrete math
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Write a function which tests if infinity is supported for floating point numbers (this step should be omitted for languages where the language specification already demands the existence of infinity, e.g. by demanding <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/IEEE" title="IEEE">IEEE</a> numbers), and if so, returns positive infinity.  Otherwise, return the largest possible positive floating point number.</p><br/><p class="rosetta__paragraph">For languages with several floating point types, use the type of the literal constant  <span class="rosetta__text--bold">1.5</span>  as floating point type.</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Related task:</dt></dl>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"> <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Extreme floating point values" title="Extreme floating point values">Extreme floating point values</a></li></ul><br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+Infinity
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+JavaScript has a special global property called "Infinity":
+<lang javascript>Infinity</lang>
+as well as constants in the Number class:
+<lang javascript>Number.POSITIVE_INFINITY
+Number.NEGATIVE_INFINITY</lang>
+
+The global isFinite() function tests for finiteness:
+<lang javascript>isFinite(x)</lang>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,0 +1,203 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Classes
+/// type: rosetta-code
+
+/// categories:
+/// Object oriented
+/// Type System
+/// Encyclopedia
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <br/><br/><p class="rosetta__paragraph">In <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/object-oriented programming" title="object-oriented programming">object-oriented programming</a> <span class="rosetta__text--bold">class</span> is a set (a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Transitive_closure" title="wp: Transitive_closure">transitive closure</a>) of types bound by the relation of <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/inheritance" title="inheritance">inheritance</a>. It is said that all types derived from some base type T and the type T itself form a class T.</p><br/><p class="rosetta__paragraph">The first type T from the class T sometimes is called the <span class="rosetta__text--bold">root type</span> of the class.</p><br/><p class="rosetta__paragraph">A class of types itself, as a type, has the values and operations of its own.</p>
+/// <p class="rosetta__paragraph">The operations of are usually called <span class="rosetta__text--bold">methods</span> of the root type.</p>
+/// <p class="rosetta__paragraph">Both operations and values are called <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/polymorphism " title="polymorphism "> polymorphic</a>.</p><br/><p class="rosetta__paragraph">A polymorphic operation (method) selects an implementation depending on the actual specific type of the polymorphic argument.</p><br/><p class="rosetta__paragraph">The action of choice the type-specific implementation of a polymorphic operation is called <span class="rosetta__text--bold">dispatch</span>. Correspondingly, polymorphic operations are often called <span class="rosetta__text--bold">dispatching</span> or <span class="rosetta__text--bold">virtual</span>.</p>
+/// <p class="rosetta__paragraph">Operations with multiple arguments and/or the results of the class are called <span class="rosetta__text--bold">multi-methods</span>.</p>
+/// <p class="rosetta__paragraph">A further generalization of is the operation with arguments and/or results from different classes.</p><br/><ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">single-dispatch languages are those that allow only one argument or result to control the dispatch. Usually it is the first parameter, often hidden, so that a prefix notation <span class="rosetta__text--italic">x</span>.<span class="rosetta__text--italic">f</span>() is used instead of mathematical <span class="rosetta__text--italic">f</span>(<span class="rosetta__text--italic">x</span>).</li>
+/// <li class="rosetta__list-item--unordered">multiple-dispatch languages allow many arguments and/or results to control the dispatch.</li></ul>
+/// <br>
+/// <p class="rosetta__paragraph">A polymorphic value has a type tag indicating its specific type from the class and the corresponding specific value of that type.</p>
+/// <p class="rosetta__paragraph">This type is sometimes called <span class="rosetta__text--bold">the most specific type</span> of a [polymorphic] value.</p>
+/// <p class="rosetta__paragraph">The type tag of the value is used in order to resolve the dispatch.</p>
+/// <p class="rosetta__paragraph">The set of polymorphic values of a class is a transitive closure of the sets of values of all types from that class.</p><br/><p class="rosetta__paragraph">In many <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/object-oriented programming " title="object-oriented programming "> OO</a> languages</p>
+/// <p class="rosetta__paragraph">the type of the class of T and T itself are considered equivalent.</p>
+/// <p class="rosetta__paragraph">In some languages they are distinct (like in <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Ada" title="Ada">Ada</a>).</p>
+/// <p class="rosetta__paragraph">When class T and T are equivalent, there is no way to distinguish</p>
+/// <p class="rosetta__paragraph">polymorphic and specific values.</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Create a basic class with a method, a constructor, an instance variable and how to instantiate it.</p>
+/// <br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+//Constructor function.
+function Car(brand, weight) {
+  this.brand = brand;
+  this.weight = weight || 1000; // Resort to default value (with 'or' notation).
+}
+Car.prototype.getPrice = function() { // Method of Car.
+  return this.price;
+}
+
+function Truck(brand, size) {
+  this.car = Car;
+  this.car(brand, 2000); // Call another function, modifying the "this" object (e.g. "superconstructor".)
+  this.size = size; // Custom property for just this object.
+}
+Truck.prototype = Car.prototype; // Also "import" the prototype from Car.
+
+var cars = [ // Some example car objects.
+  new Car("Mazda"),
+  new Truck("Volvo", 2)
+];
+for (var i=0; i<cars.length; i++) {
+  alert(cars[i].brand + " " + cars[i].weight + " " + cars[i].size + ", " +
+      (cars[i] instanceof Car) + " " + (cars[i] instanceof Truck));
+}
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+===ES5===
+JavaScript is [[wp:Prototype-based programming|prototype-based]], so it doesn't have classes per se. Thinking in classes when coding JavaScript will only hinder you in the long run, but here's an example of JavaScript OO:
+
+<lang javascript>//Constructor function.
+function Car(brand, weight) {
+  this.brand = brand;
+  this.weight = weight || 1000; // Resort to default value (with 'or' notation).
+}
+Car.prototype.getPrice = function() { // Method of Car.
+  return this.price;
+}
+
+function Truck(brand, size) {
+  this.car = Car;
+  this.car(brand, 2000); // Call another function, modifying the "this" object (e.g. "superconstructor".)
+  this.size = size; // Custom property for just this object.
+}
+Truck.prototype = Car.prototype; // Also "import" the prototype from Car.
+
+var cars = [ // Some example car objects.
+  new Car("Mazda"),
+  new Truck("Volvo", 2)
+];
+for (var i=0; i<cars.length; i++) {
+  alert(cars[i].brand + " " + cars[i].weight + " " + cars[i].size + ", " +
+      (cars[i] instanceof Car) + " " + (cars[i] instanceof Truck));
+}</lang>
+The alerts shows us:
+<pre>
+Mazda 1000 undefined, true true
+Volvo 2000 2, true true
+</pre>
+The reason Car shows as instanceof Truck is because we've overwritten Truck.prototype with Car.prototype. It's probably not the best way to do it, but it suffices for most cases.
+
+===ES6===
+<lang javascript>class Car {
+  /**
+   * A few brands of cars
+   * @type {string[]}
+   */
+  static brands = ['Mazda', 'Volvo'];
+
+  /**
+   * Weight of car
+   * @type {number}
+   */
+  weight = 1000;
+
+  /**
+   * Brand of car
+   * @type {string}
+   */
+  brand;
+
+  /**
+   * Price of car
+   * @type {number}
+   */
+  price;
+
+  /**
+   * @param {string} brand - car brand
+   * @param {number} weight - mass of car
+   */
+  constructor(brand, weight) {
+    if (brand) this.brand = brand;
+    if (weight) this.weight = weight
+  }
+
+  /**
+   * Drive
+   * @param distance - distance to drive
+   */
+  drive(distance = 10) {
+    console.log(`A ${this.brand} ${this.constructor.name} drove ${distance}cm`);
+  }
+
+  /**
+   * Formatted stats string
+   */
+  get formattedStats() {
+    let out =
+      `Type: ${this.constructor.name.toLowerCase()}`
+      + `\nBrand: ${this.brand}`
+      + `\nWeight: ${this.weight}`;
+
+    if (this.size) out += `\nSize: ${this.size}`;
+
+    return out
+  }
+}
+
+class Truck extends Car {
+  /**
+   * Size of truck
+   * @type {number}
+   */
+  size;
+
+  /**
+   * @param {string} brand - car brand
+   * @param {number} size - size of car
+   */
+  constructor(brand, size) {
+    super(brand, 2000);
+    if (size) this.size = size;
+  }
+}
+
+let myTruck = new Truck('Volvo', 2);
+console.log(myTruck.formattedStats);
+myTruck.drive(40);</lang>
+
+Output:
+<pre>Type: truck
+Brand: Volvo
+Weight: 2000
+Size: 2
+A Volvo Truck drove 40cm</pre>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

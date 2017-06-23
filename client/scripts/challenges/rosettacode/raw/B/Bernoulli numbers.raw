@@ -1,0 +1,56 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Bernoulli numbers
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <p class="rosetta__paragraph"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Bernoulli number" title="wp: Bernoulli number">Bernoulli numbers</a> are used in some series expansions of several functions (trigonometric, hyperbolic, gamma, etc.), and are extremely important in number theory and analysis.</p><br/><p class="rosetta__paragraph">Note that there are two definitions of Bernoulli numbers; this task will be using the modern usage (as per the National Institute of Standards and Technology convention).</p><br/><p class="rosetta__paragraph">The n<sup>th</sup> Bernoulli number is expressed as <span class="rosetta__text--bold">B</span><sub>n</sub>.</p>
+/// <br><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task</dt></dl><br/><p class="rosetta__paragraph"><span class="rosetta__text--indented">*  show the Bernoulli numbers  <span class="rosetta__text--bold">B</span><sub>0</sub>  through  <span class="rosetta__text--bold">B</span><sub>60</sub>.</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">*  suppress the output of values which are equal to zero. (Other than  <span class="rosetta__text--bold">B</span><sub>1</sub>, all <span class="rosetta__text--italic">odd</span>  Bernoulli numbers have a value of zero.)</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">*  express the Bernoulli numbers as fractions (most are improper fractions).</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">*  the fractions should be reduced.</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">*  index each number in some way so that it can be discerned which Bernoulli number is being displayed.</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">*  align the solidi  (<big><b>/</b></big>)  if used (extra credit).</span></p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">An algorithm</dt></dl>
+/// <p class="rosetta__paragraph">The Akiyama–Tanigawa algorithm for the "second Bernoulli numbers" as taken from <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Bernoulli_number#Algorithmic_description" title="wp: Bernoulli_number#Algorithmic_description">wikipedia</a> is as follows:</p><br/><p class="rosetta__paragraph"><span class="rosetta__text--bold">for</span> <span class="rosetta__text--italic">m</span> <span class="rosetta__text--bold">from</span> 0 <span class="rosetta__text--bold">by</span> 1 <span class="rosetta__text--bold">to</span> <span class="rosetta__text--italic">n</span> <span class="rosetta__text--bold">do</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--italic">A</span>[<span class="rosetta__text--italic">m</span>] ← 1/(<span class="rosetta__text--italic">m</span>+1)</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">for</span> <span class="rosetta__text--italic">j</span> <span class="rosetta__text--bold">from</span> <span class="rosetta__text--italic">m</span> <span class="rosetta__text--bold">by</span> -1 <span class="rosetta__text--bold">to</span> 1 <span class="rosetta__text--bold">do</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--italic">A</span>[<span class="rosetta__text--italic">j</span>-1] ← <span class="rosetta__text--italic">j</span>×(<span class="rosetta__text--italic">A</span>[<span class="rosetta__text--italic">j</span>-1] - <span class="rosetta__text--italic">A</span>[<span class="rosetta__text--italic">j</span>])</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">return</span> <span class="rosetta__text--italic">A</span>[0] (which is <span class="rosetta__text--italic">B</span><sub><span class="rosetta__text--italic">n</span></sub>)</p><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">See also</dt></dl>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Sequence <a class="rosetta__link--wiki" href="http://oeis.org/A027641" title="link: http://oeis.org/A027641">A027641 Numerator of Bernoulli number B_n</a> on The On-Line Encyclopedia of Integer Sequences.</li>
+/// <li class="rosetta__list-item--unordered">Sequence <a class="rosetta__link--wiki" href="http://oeis.org/A027642" title="link: http://oeis.org/A027642">A027642 Denominator of Bernoulli number B_n</a> on The On-Line Encyclopedia of Integer Sequences.</li>
+/// <li class="rosetta__list-item--unordered">Entry <a class="rosetta__link--wiki" href="http://mathworld.wolfram.com/BernoulliNumber.html" title="link: http://mathworld.wolfram.com/BernoulliNumber.html">Bernoulli number</a> on The Eric Weisstein's World of Mathematics (TM).</li>
+/// <li class="rosetta__list-item--unordered">Luschny's <a class="rosetta__link--wiki" href="http://luschny.de/math/zeta/The-Bernoulli-Manifesto.html" title="link: http://luschny.de/math/zeta/The-Bernoulli-Manifesto.html">The Bernoulli Manifesto</a> for a discussion on $B_1$ = -&frac12; vs. +&frac12;.</li></ul><br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

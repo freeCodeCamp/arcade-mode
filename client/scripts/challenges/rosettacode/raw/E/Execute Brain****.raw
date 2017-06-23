@@ -1,0 +1,66 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Execute Brain****
+/// type: rosetta-code
+
+/// categories:
+/// Compilers and Interpreters
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><br/><p class="rosetta__paragraph">RCBF is a set of <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Brainf***" title="Brainf***">Brainf***</a> compilers and interpreters written for Rosetta Code in a variety of languages.</p><br/><p class="rosetta__paragraph">Below are links to each of the versions of RCBF.</p><br/><p class="rosetta__paragraph">An implementation need only properly implement the following instructions:</p>
+/// <p class="rosetta__paragraph">{| class="wikitable"</p>
+/// <p class="rosetta__paragraph">!Command</p>
+/// <p class="rosetta__paragraph">!Description</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| style="text-align:center"| <code>&gt;</code> || Move the pointer to the right</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| style="text-align:center"| <code>&lt;</code> || Move the pointer to the left</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| style="text-align:center"| <code>+</code> || Increment the memory cell under the pointer</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| style="text-align:center"| <code>-</code> || Decrement the memory cell under the pointer</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| style="text-align:center"| <code>.</code> || Output the character signified by the cell at the pointer</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| style="text-align:center"| <code>,</code> || Input a character and store it in the cell at the pointer</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| style="text-align:center"| <code>[</code> || Jump past the matching <code>]</code> if the cell under the pointer is 0</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| style="text-align:center"| <code>]</code> || Jump back to the matching <code>[</code> if the cell under the pointer is nonzero</p>
+/// <p class="rosetta__paragraph">|}</p>
+/// <p class="rosetta__paragraph">Any cell size is allowed,  EOF   (<u>E</u>nd-<u>O</u>-<u>F</u>ile)  support is optional, as is whether you have bounded or unbounded memory.</p>
+/// <br><br> <br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+null
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+
+[[/JavaScript|Implementation in JavaScript]].
+
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

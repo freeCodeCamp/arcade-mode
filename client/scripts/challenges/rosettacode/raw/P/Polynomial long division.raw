@@ -1,0 +1,77 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Polynomial long division
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented"><cite>In algebra, <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Polynomial long division" title="wp: Polynomial long division">polynomial long division</a> is an algorithm for dividing a polynomial by another polynomial of the same or lower degree.</cite></span></p><br/><p class="rosetta__paragraph">Let us suppose a polynomial is represented by a vector, $x$ (i.e., an ordered collection of <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Coefficient" title="wp: Coefficient">coefficients</a>) so that the $i$<sup>th</sup> element keeps the coefficient of $x^i$, and the multiplication by a monomial is a <span class="rosetta__text--italic">shift</span>  of the vector's elements "towards right" (injecting ones from left) followed by a multiplication of each element by the coefficient of the monomial.</p><br/><p class="rosetta__paragraph">Then a pseudocode for the polynomial long division using the conventions described above could be:</p><br/><p class="rosetta__paragraph">degree(<span class="rosetta__text--bold">P</span>):</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">return</span> the index of the last non-zero element of <span class="rosetta__text--bold">P</span>;</p>
+/// <p class="rosetta__paragraph">if all elements are 0, return -∞</p><br/><p class="rosetta__paragraph">polynomial_long_division(<span class="rosetta__text--bold">N</span>, <span class="rosetta__text--bold">D</span>) <span class="rosetta__text--italic">returns</span> (<span class="rosetta__text--bold">q</span>, <span class="rosetta__text--bold">r</span>):</p>
+/// <p class="rosetta__paragraph"><span class="co1">// <span class="rosetta__text--bold">N</span>, <span class="rosetta__text--bold">D</span>, <span class="rosetta__text--bold">q</span>, <span class="rosetta__text--bold">r</span> are vectors</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">if</span> degree(<span class="rosetta__text--bold">D</span>) < 0 <span class="rosetta__text--bold">then</span> <span class="rosetta__text--italic">error</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">q</span> ← <span class="rosetta__text--bold">0</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">while</span> degree(<span class="rosetta__text--bold">N</span>) ≥ degree(<span class="rosetta__text--bold">D</span>)</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">d</span> ← <span class="rosetta__text--bold">D</span> <span class="rosetta__text--italic">shifted right</span> <span class="rosetta__text--italic">by</span> (degree(<span class="rosetta__text--bold">N</span>) - degree(<span class="rosetta__text--bold">D</span>))</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">q</span>(degree(<span class="rosetta__text--bold">N</span>) - degree(<span class="rosetta__text--bold">D</span>)) ← <span class="rosetta__text--bold">N</span>(degree(<span class="rosetta__text--bold">N</span>)) / <span class="rosetta__text--bold">d</span>(degree(<span class="rosetta__text--bold">d</span>))</p>
+/// <p class="rosetta__paragraph"><span class="co1">// by construction, degree(<span class="rosetta__text--bold">d</span>) = degree(<span class="rosetta__text--bold">N</span>) of course</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">d</span> ← <span class="rosetta__text--bold">d</span> * <span class="rosetta__text--bold">q</span>(degree(<span class="rosetta__text--bold">N</span>) - degree(<span class="rosetta__text--bold">D</span>))</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">N</span> ← <span class="rosetta__text--bold">N</span> - <span class="rosetta__text--bold">d</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">endwhile</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">r</span> ← <span class="rosetta__text--bold">N</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">return</span> (<span class="rosetta__text--bold">q</span>, <span class="rosetta__text--bold">r</span>)</p><br/><p class="rosetta__paragraph"><span class="rosetta__text--bold">Note</span>: <code>vector * scalar</code> multiplies each element of the vector by the scalar; <code>vectorA - vectorB</code> subtracts each element of the vectorB from the element of the vectorA with "the same index". The vectors in the pseudocode are zero-based.</p><br/><ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Error handling (for allocations or for wrong inputs) is not mandatory.</li>
+/// <li class="rosetta__list-item--unordered">Conventions can be different; in particular, note that if the first coefficient in the vector is the highest power of x for the polynomial represented by the vector, then the algorithm becomes simpler.</li></ul>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">Example for clarification</span></p>
+/// <br>
+/// <p class="rosetta__paragraph">This example is from Wikipedia, but changed to show how the given pseudocode works.</p><br/><p class="rosetta__paragraph">0    1    2    3</p>
+/// <p class="rosetta__paragraph">----------------------</p>
+/// <p class="rosetta__paragraph">N:  -42    0  -12    1        degree = 3</p>
+/// <p class="rosetta__paragraph">D:   -3    1    0    0        degree = 1</p><br/><p class="rosetta__paragraph"><span class="co1">d(N) - d(D) = 2, so let's shift D towards right by 2:</span></p><br/><p class="rosetta__paragraph">N:  -42    0  -12    1</p>
+/// <p class="rosetta__paragraph">d:    0    0   -3    1</p><br/><p class="rosetta__paragraph"><span class="co1">N(3)/d(3) = 1, so d is unchanged. Now remember that "shifting by 2"</p>
+/// <p class="rosetta__paragraph">is like multiplying by x<sup>2</sup>, and the final multiplication</p>
+/// <p class="rosetta__paragraph">(here by 1) is the coefficient of this monomial. Let's store this</p>
+/// <p class="rosetta__paragraph">into q:</span></p>
+/// <p class="rosetta__paragraph">0     1     2</p>
+/// <p class="rosetta__paragraph">---------------</p>
+/// <p class="rosetta__paragraph">q:   0     0     1</p><br/><p class="rosetta__paragraph"><span class="co1">now compute N - d, and let it be the "new" N, and let's loop</span></p><br/><p class="rosetta__paragraph">N:  -42    0   -9    0        degree = 2</p>
+/// <p class="rosetta__paragraph">D:   -3    1    0    0        degree = 1</p><br/><p class="rosetta__paragraph"><span class="co1">d(N) - d(D) = 1, right shift D by 1 and let it be d</span></p><br/><p class="rosetta__paragraph">N:  -42    0   -9    0</p>
+/// <p class="rosetta__paragraph">d:    0   -3    1    0        * -9/1 = -9</p><br/><p class="rosetta__paragraph">q:   0    -9     1</p><br/><p class="rosetta__paragraph">d:    0   27   -9    0</p><br/><p class="rosetta__paragraph">N ← N - d</p><br/><p class="rosetta__paragraph">N:  -42  -27    0    0        degree = 1</p>
+/// <p class="rosetta__paragraph">D:   -3    1    0    0        degree = 1</p><br/><p class="rosetta__paragraph"><span class="co1">looping again... d(N)-d(D)=0, so no shift is needed; we</p>
+/// <p class="rosetta__paragraph">multiply D by -27 (= -27/1) storing the result in d, then</span></p><br/><p class="rosetta__paragraph">q:  -27   -9     1</p><br/><p class="rosetta__paragraph"><span class="co1">and</span></p><br/><p class="rosetta__paragraph">N:  -42  -27    0    0        -</p>
+/// <p class="rosetta__paragraph">d:   81  -27    0    0        =</p>
+/// <p class="rosetta__paragraph">N: -123    0    0    0        (last N)</p><br/><p class="rosetta__paragraph"><span class="co1">d(N) &lt; d(D), so now r ← N, and the result is:</span></p><br/><p class="rosetta__paragraph">0   1  2</p>
+/// <p class="rosetta__paragraph">-------------</p>
+/// <p class="rosetta__paragraph">q:   -27  -9  1   →  x<sup>2</sup> - 9x - 27</p>
+/// <p class="rosetta__paragraph">r:  -123   0  0   →          -123</p><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,0 +1,254 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Currying
+/// type: rosetta-code
+
+/// categories:
+/// Functions and subroutines
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <p class="rosetta__paragraph">Create a simple demonstrative example of <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Currying" title="wp: Currying">Currying</a> in the specific language.</p><br/><p class="rosetta__paragraph">Add any historic details as to how the feature made its way into the language.</p>
+/// <p class="rosetta__paragraph"><!-- from: http://en.wikipedia.org/w/index.php?title=Currying&direction=prev&oldid=142127294 --></p>
+/// <br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+ function addN(n) {
+    var curry = function(x) {
+        return x + n;
+    };
+    return curry;
+ }
+
+ add2 = addN(2);
+ alert(add2);
+ alert(add2(7));
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+
+===ES5===
+
+====Partial application====
+<lang javascript> function addN(n) {
+    var curry = function(x) {
+        return x + n;
+    };
+    return curry;
+ }
+
+ add2 = addN(2);
+ alert(add2);
+ alert(add2(7));</lang>
+
+====Generic currying====
+
+Basic case - returning a curried version of a function of two arguments
+
+<lang JavaScript>(function () {
+
+    // curry :: ((a, b) -> c) -> a -> b -> c
+    function curry(f) {
+        return function (a) {
+            return function (b) {
+                return f(a, b);
+            };
+        };
+    }
+
+
+    // TESTS
+
+    // product :: Num -> Num -> Num
+    function product(a, b) {
+        return a * b;
+    }
+
+    // return typeof curry(product);
+    // --> function
+
+    // return typeof curry(product)(7)
+    // --> function
+
+    //return typeof curry(product)(7)(9)
+    // --> number
+
+    return [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        .map(curry(product)(7))
+
+    // [7, 14, 21, 28, 35, 42, 49, 56, 63, 70]
+
+})();
+</lang>
+
+{{Out}}
+<lang JavaScript>[7, 14, 21, 28, 35, 42, 49, 56, 63, 70]</lang>
+
+
+Functions of arbitrary arity can also be curried:
+
+<lang JavaScript>(function () {
+
+    // (arbitrary arity to fully curried)
+    // extraCurry :: Function -> Function
+    function extraCurry(f) {
+
+        // Recursive currying
+        function _curry(xs) {
+            return xs.length >= intArgs ? (
+                f.apply(null, xs)
+            ) : function () {
+                return _curry(xs.concat([].slice.apply(arguments)));
+            };
+        }
+
+        var intArgs = f.length;
+
+        return _curry([].slice.call(arguments, 1));
+    }
+
+
+    // TEST
+
+    // product3:: Num -> Num -> Num -> Num
+    function product3(a, b, c) {
+        return a * b * c;
+    }
+
+    return [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        .map(extraCurry(product3)(7)(2))
+
+    // [14, 28, 42, 56, 70, 84, 98, 112, 126, 140]
+
+})();</lang>
+
+{{Out}}
+<lang JavaScript>[14, 28, 42, 56, 70, 84, 98, 112, 126, 140]</lang>
+
+===ES6===
+
+====Y combinator====
+Using a definition of currying that does not imply partial application, only conversion of a function of multiple arguments, e.g.: <lang javascript>(a,b) => expr_using_a_and_b</lang>into a function that takes a series of as many function applications as that function took arguments, e.g.:<lang javascript>a => b => expr_using_a_and_b</lang>
+
+One version for functions of a set amount of arguments that takes no rest arguments, and one version for functions with rest argument. The caveat being that if the rest argument would be empty, it still requires a separate application, and multiple rest arguments cannot be curried into multiple applications, since we have to figure out the number of applications from the function signature, not the amount of arguments the user might want to send it.
+<lang javascript>let
+  fix = // This is a variant of the Applicative order Y combinator
+    f => (f => f(f))(g => f((...a) => g(g)(...a))),
+  curry =
+    f => (
+      fix(
+        z => (n,...a) => (
+          n>0
+          ?b => z(n-1,...a,b)
+          :f(...a)))
+      (f.length)),
+  curryrest =
+    f => (
+      fix(
+        z => (n,...a) => (
+          n>0
+          ?b => z(n-1,...a,b)
+          :(...b) => f(...a,...b)))
+      (f.length)),
+  curriedmax=curry(Math.max),
+  curryrestedmax=curryrest(Math.max);
+print(curriedmax(8)(4),curryrestedmax(8)(4)(),curryrestedmax(8)(4)(9,7,2));
+// 8,8,9
+</lang>
+Neither of these handle propagation of the this value for methods, as ECMAScript 2015 (ES6) fat arrow syntax doesn't allow for this value propagation. Versions could easily be written for those cases using an outer regular function expression and use of Function.prototype.call or Function.prototype.apply. Use of Y combinator could also be removed through use of an inner named function expression instead of the anonymous fat arrow function syntax.
+
+====Simple 2 and N argument versions====
+
+In the most rudimentary form, for example for mapping a two-argument function over an array:
+
+<lang JavaScript>(() => {
+
+    // curry :: ((a, b) -> c) -> a -> b -> c
+    let curry = f => a => b => f(a, b);
+
+
+    // TEST
+
+    // product :: Num -> Num -> Num
+    let product = (a, b) => a * b,
+
+        // Int -> Int -> Maybe Int -> [Int]
+        range = (m, n, step) => {
+            let d = (step || 1) * (n >= m ? 1 : -1);
+
+            return Array.from({
+                length: Math.floor((n - m) / d) + 1
+            }, (_, i) => m + (i * d));
+        }
+
+
+    return range(1, 10)
+        .map(curry(product)(7))
+
+    // [7, 14, 21, 28, 35, 42, 49, 56, 63, 70]
+
+})();</lang>
+
+{{Out}}
+<lang JavaScript>[7, 14, 21, 28, 35, 42, 49, 56, 63, 70]</lang>
+
+
+Or, recursively currying functions of arbitrary arity:
+
+<lang JavaScript>(() => {
+
+    // (arbitrary arity to fully curried)
+    // extraCurry :: Function -> Function
+    let extraCurry = (f, ...args) => {
+        let intArgs = f.length;
+
+        // Recursive currying
+        let _curry = (xs, ...arguments) =>
+            xs.length >= intArgs ? (
+                f.apply(null, xs)
+            ) : function () {
+                return _curry(xs.concat([].slice.apply(arguments)));
+            };
+
+        return _curry([].slice.call(args, 1));
+    };
+
+    // TEST
+
+    // product3:: Num -> Num -> Num -> Num
+    let product3 = (a, b, c) => a * b * c;
+
+    return [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        .map(extraCurry(product3)(7)(2))
+
+    // [14, 28, 42, 56, 70, 84, 98, 112, 126, 140]
+
+})();</lang>
+
+{{Out}}
+<lang JavaScript>[14, 28, 42, 56, 70, 84, 98, 112, 126, 140]</lang>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

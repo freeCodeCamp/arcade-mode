@@ -1,0 +1,44 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Draw a cuboid
+/// type: rosetta-code
+
+/// categories:
+/// 3D
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <br/>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Draw a <a class="rosetta__link--wiki" href="http://en.wikipedia.org/wiki/Cuboid" title="link: http://en.wikipedia.org/wiki/Cuboid">cuboid</a> with relative dimensions of <big> 2x3x4. </big> The cuboid can be represented graphically, or in ASCII art, depending on the language capabilities. To fulfill the criteria of being a cuboid, three faces must be visible.</p><br/><p class="rosetta__paragraph">Either static or rotational projection is acceptable for this task.</p>
+/// <br><br><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks</dt></dl>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Draw_a_rotating_cube" title="Draw_a_rotating_cube">Draw a rotating cube</a></li></ul><br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,0 +1,75 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Numerical integration/Gauss-Legendre Quadrature
+/// type: rosetta-code
+
+/// categories:
+/// Arithmetic
+/// Mathematics
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <br/>
+/// <p class="rosetta__paragraph">{|border=1 cellspacing=0 cellpadding=3</p>
+/// <p class="rosetta__paragraph">|In a general <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Gaussian quadrature" title="wp: Gaussian quadrature">Gaussian quadrature</a> rule, an definite integral of $f(x)$ is first approximated over the interval $[-1,1]$ by a polynomial approximable function $g(x)$ and a known weighting function $W(x)$.</p>
+/// <p class="rosetta__paragraph">|$\int_{-1}^1 f(x) \, dx = \int_{-1}^1 W(x) g(x) \, dx$</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">|Those are then approximated by a sum of function values at specified points $x_i$ multiplied by some weights $w_i$:</p>
+/// <p class="rosetta__paragraph">|$\int_{-1}^1 W(x) g(x) \, dx \approx \sum_{i=1}^n w_i g(x_i)$</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">|In the case of Gauss-Legendre quadrature, the weighting function $W(x) = 1$, so we can approximate an integral of $f(x)$ with:</p>
+/// <p class="rosetta__paragraph">|$\int_{-1}^1 f(x)\,dx \approx \sum_{i=1}^n w_i f(x_i)$</p>
+/// <p class="rosetta__paragraph">|}</p>
+/// <br/><p class="rosetta__paragraph">For this, we first need to calculate the nodes and the weights, but after we have them, we can reuse them for numerious integral evaluations, which greatly speeds up the calculation compared to more <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Numerical Integration" title="Numerical Integration">simple numerical integration methods</a>.</p><br/><p class="rosetta__paragraph">{|border=1 cellspacing=0 cellpadding=3</p>
+/// <p class="rosetta__paragraph">|The $n$ evaluation points $x_i$ for a n-point rule, also called "nodes", are roots of n-th order <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Legendre Polynomials" title="wp: Legendre Polynomials">Legendre Polynomials</a> $P_n(x)$. Legendre polynomials are defined by the following recursive rule:</p>
+/// <p class="rosetta__paragraph">|$P_0(x) = 1$<br/></p>
+/// <p class="rosetta__paragraph">$P_1(x) = x$<br/></p>
+/// <p class="rosetta__paragraph">$nP_{n}(x) = (2n-1)xP_{n-1}(x)-(n-1)P_{n-2}(x)$</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">|There is also a recursive equation for their derivative:</p>
+/// <p class="rosetta__paragraph">|$P_{n}'(x) = \frac{n}{x^2-1} \left( x P_n(x) - P_{n-1}(x) \right)$</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">|The roots of those polynomials are in general not analytically solvable, so they have to be approximated numerically, for example by <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Newton's method" title="wp: Newton's method">Newton-Raphson iteration</a>:</p>
+/// <p class="rosetta__paragraph">|$x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}$</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">|The first guess $x_0$ for the $i$-th root of a $n$-order polynomial $P_n$ can be given by</p>
+/// <p class="rosetta__paragraph">|$x_0 = \cos \left( \pi \, \frac{i - \frac{1}{4}}{n+\frac{1}{2}} \right)$</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">|After we get the nodes $x_i$, we compute the appropriate weights by:</p>
+/// <p class="rosetta__paragraph">|$w_i = \frac{2}{\left( 1-x_i^2 \right) [P'_n(x_i)]^2}$</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">|After we have the nodes and the weights for a n-point quadrature rule, we can approximate an integral over any interval $[a,b]$ by</p>
+/// <p class="rosetta__paragraph">|$\int_a^b f(x)\,dx \approx \frac{b-a}{2} \sum_{i=1}^n w_i f\left(\frac{b-a}{2}x_i + \frac{a+b}{2}\right)$</p>
+/// <p class="rosetta__paragraph">|}</p>
+/// <br/><p class="rosetta__paragraph"><span class="rosetta__text--bold">Task description</span></p><br/><p class="rosetta__paragraph">Similar to the task <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Numerical Integration" title="Numerical Integration">Numerical Integration</a>, the task here is to calculate the definite integral of a function $f(x)$, but by applying an n-point Gauss-Legendre quadrature rule, as described <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Gaussian Quadrature" title="wp: Gaussian Quadrature">here</a>, for example. The input values should be an function f to integrate, the bounds of the integration interval a and b, and the number of gaussian evaluation points n. An reference implementation in Common Lisp is provided for comparison.</p><br/><p class="rosetta__paragraph">To demonstrate the calculation, compute the weights and nodes for an 5-point quadrature rule and then use them to compute:</p>
+/// <p class="rosetta__paragraph"><big><big>$\int_{-3}^{3} \exp(x) \, dx \approx \sum_{i=1}^5 w_i \; \exp(x_i) \approx 20.036$</big></big></p>
+/// <br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

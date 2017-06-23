@@ -1,0 +1,151 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Phrase reversals
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Given a string of space separated words containing the following phrase:</p>
+/// <p class="rosetta__paragraph">rosetta code phrase reversal</p><br/><p class="rosetta__paragraph"><span class="rosetta__text--indented"># Reverse the string.</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented"># Reverse each individual word in the string, maintaining original string order.</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented"># Reverse the order of each word of the phrase, maintaining the order of characters in each word.</span></p>
+/// <br>
+/// <p class="rosetta__paragraph">Show your output here.</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">See also: </dt></dl>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Reverse a string" title="Reverse a string">Reverse a string</a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Reverse words in a string" title="Reverse words in a string">Reverse words in a string</a></li></ul><br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+(function (p) {
+  return [
+    p.split('').reverse().join(''),
+
+    p.split(' ').map(function (x) {
+        return x.split('').reverse().join('');
+    }).join(' '),
+
+    p.split(' ').reverse().join(' ')
+
+  ].join('\n');
+
+})('rosetta code phrase reversal');
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+===ES5===
+<lang JavaScript>(function (p) {
+  return [
+    p.split('').reverse().join(''),
+
+    p.split(' ').map(function (x) {
+        return x.split('').reverse().join('');
+    }).join(' '),
+
+    p.split(' ').reverse().join(' ')
+
+  ].join('\n');
+
+})('rosetta code phrase reversal');</lang>
+{{out}}
+<pre>lasrever esarhp edoc attesor
+attesor edoc esarhp lasrever
+reversal phrase code rosetta</pre>
+
+===ES6===
+<lang JavaScript>(() => {
+    'use strict'
+
+    // reverseString, reverseEachWord, reverseWordOrder :: String -> String
+    const
+        reverseString = s => reverse(s),
+
+        reverseEachWord = s => wordLevel(map(reverse))(s),
+
+        reverseWordOrder = s => wordLevel(reverse)(s);
+
+    // wordLevel :: ([String] -> [String]) -> String -> String
+    const wordLevel = f =>
+        x => unwords(f(words(x)));
+
+
+    // GENERIC FUNCTIONS -----------------------------------------------------
+
+    // A list of functions applied to a list of arguments
+    // <*> :: [(a -> b)] -> [a] -> [b]
+    const ap = (fs, xs) => //
+        [].concat.apply([], fs.map(f => //
+            [].concat.apply([], xs.map(x => [f(x)]))));
+
+    // 2 or more arguments
+    // curry :: Function -> Function
+    const curry = (f, ...args) => {
+        const go = xs => xs.length >= f.length ? (f.apply(null, xs)) :
+            function () {
+                return go(xs.concat(Array.from(arguments)));
+            };
+        return go([].slice.call(args, 1));
+    };
+
+    // map :: (a -> b) -> [a] -> [b]
+    const map = curry((f, xs) => xs.map(f));
+
+    // reverse :: [a] -> [a]
+    const reverse = curry(xs =>
+        typeof xs === 'string' ? (
+            xs.split('')
+            .reverse()
+            .join('')
+        ) : xs.slice(0)
+        .reverse());
+
+    // unlines :: [String] -> String
+    const unlines = xs => xs.join('\n');
+
+    // unwords :: [String] -> String
+    const unwords = xs => xs.join(' ');
+
+    // words :: String -> [String]
+    const words = s => s.split(/\s+/);
+
+
+    // TEST ------------------------------------------------------------------
+    return unlines(
+        ap([
+            reverseString,
+            reverseEachWord,
+            reverseWordOrder
+        ], ["rosetta code phrase reversal"])
+    );
+})();</lang>
+{{Out}}
+<pre>lasrever esarhp edoc attesor
+attesor edoc esarhp lasrever
+reversal phrase code rosetta</pre>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

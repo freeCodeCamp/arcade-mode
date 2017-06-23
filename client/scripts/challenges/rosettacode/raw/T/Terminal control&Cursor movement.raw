@@ -1,0 +1,52 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Terminal control/Cursor movement
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Demonstrate how to achieve movement of the terminal cursor:</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">* how to move the cursor one position to the left</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">* how to move the cursor one position to the right</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">* how to move the cursor up one line (without affecting its horizontal position)</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">* how to move the cursor down one line (without affecting its horizontal position)</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">* how to move the cursor to the beginning of the line</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">* how to move the cursor to the end of the line</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">* how to move the cursor to the top left corner of the screen</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">* how to move the cursor to the bottom right corner of the screen</span></p><br/><br>
+/// <p class="rosetta__paragraph">For the purpose of this task, it is not permitted to overwrite any characters or attributes on any part of the screen (so outputting a space is not a suitable solution to achieve a movement to the right).</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Handling of out of bounds locomotion</dt></dl>
+/// <p class="rosetta__paragraph">This task has no specific requirements to trap or correct cursor movement beyond the terminal boundaries, so the implementer should decide what behavior fits best in terms of the chosen language.  Explanatory notes may be added to clarify how an out of bounds action would behave and the generation of error messages relating to an out of bounds cursor position is permitted.</p>
+/// <br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

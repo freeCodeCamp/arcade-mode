@@ -1,0 +1,105 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Integer comparison
+/// type: rosetta-code
+
+/// categories:
+/// Arithmetic operations
+/// Simple
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <br/><br/><p class="rosetta__paragraph">Get two integers from the user.</p><br/><p class="rosetta__paragraph">Then,  display a message if the first integer is:</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">:::*  less than, </span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">:::*  equal to,  or </span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">:::*  greater than</span></p>
+/// <p class="rosetta__paragraph">the second integer.</p>
+/// <br/><p class="rosetta__paragraph">Test the condition  <span class="rosetta__text--italic">for each case separately</span>,  so that  <span class="rosetta__text--italic">all three comparison operators are used</span>  in the code.</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Related task:</dt></dl>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"> <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/String comparison" title="String comparison">String comparison</a></li></ul><br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+// Using type coercion
+function compare(a, b) {
+  if (a==b) print(a + " equals " + b);
+  if (a < b) print(a + " is less than " + b);
+  if (a > b) print(a + " is greater than " + b);
+}
+
+// Without using type coercion and using standards
+// Written for browsers
+// assumption of a and b are both integers if typeof test passes
+function compare (a, b) {
+  if (typeof a === typeof b) {
+    if (a === b) {
+      document.writeln(a + " equals " + b);
+    }
+    if (a < b) {
+      document.writeln(a + " is less than " + b);
+    }
+    if (a > b) {
+      document.writeln(a + " is greater than " + b);
+    }
+  } else {
+    // "1" and 1 are an example of this as the first is type string and the second is type number
+    print(a + "{" + (typeof a) + "} and " + b + "{" + (typeof b) + "} are not of the same type and cannot be compared.");
+  }
+}
+
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+<lang javascript>
+// Using type coercion
+function compare(a, b) {
+  if (a==b) print(a + " equals " + b);
+  if (a < b) print(a + " is less than " + b);
+  if (a > b) print(a + " is greater than " + b);
+}
+
+// Without using type coercion and using standards
+// Written for browsers
+// assumption of a and b are both integers if typeof test passes
+function compare (a, b) {
+  if (typeof a === typeof b) {
+    if (a === b) {
+      document.writeln(a + " equals " + b);
+    }
+    if (a < b) {
+      document.writeln(a + " is less than " + b);
+    }
+    if (a > b) {
+      document.writeln(a + " is greater than " + b);
+    }
+  } else {
+    // "1" and 1 are an example of this as the first is type string and the second is type number
+    print(a + "{" + (typeof a) + "} and " + b + "{" + (typeof b) + "} are not of the same type and cannot be compared.");
+  }
+}
+</lang>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

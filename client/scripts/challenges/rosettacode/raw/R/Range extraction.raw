@@ -1,0 +1,253 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Range extraction
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Create a function that takes a list of integers in increasing order and returns a correctly formatted string in the range format. </li>
+/// <li class="rosetta__list-item--unordered">Use the function to compute and print the range formatted version of the following ordered list of integers. (The correct answer is: <code>0-2,4,6-8,11,12,14-25,27-33,35-39</code>.)</li></ul><br>
+/// <p class="rosetta__paragraph">0,  1,  2,  4,  6,  7,  8, 11, 12, 14,</p>
+/// <p class="rosetta__paragraph">15, 16, 17, 18, 19, 20, 21, 22, 23, 24,</p>
+/// <p class="rosetta__paragraph">25, 27, 28, 29, 30, 31, 32, 33, 35, 36,</p>
+/// <p class="rosetta__paragraph">37, 38, 39</p>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Show the output of your program.</li></ul><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Related task:</dt></dl>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"> <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Range expansion" title="Range expansion">Range expansion</a></li></ul><br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+function rangeExtraction(list) {
+  var len = list.length;
+  var out = [];
+  var i, j;
+
+  for (i = 0; i < len; i = j + 1) {
+    // beginning of range or single
+    out.push(list[i]);
+    
+    // find end of range
+    for (var j = i + 1; j < len && list[j] == list[j-1] + 1; j++);
+    j--;
+    
+    if (i == j) {
+      // single number
+      out.push(",");
+    } else if (i + 1 == j) {
+      // two numbers
+      out.push(",", list[j], ",");
+    } else { 
+      // range
+      out.push("-", list[j], ",");
+    }
+  }
+  out.pop(); // remove trailing comma
+  return out.join("");
+}
+
+// using print function as supplied by Rhino standalone
+print(rangeExtraction([
+  0,  1,  2,  4,  6,  7,  8, 11, 12, 14,
+  15, 16, 17, 18, 19, 20, 21, 22, 23, 24,
+  25, 27, 28, 29, 30, 31, 32, 33, 35, 36,
+  37, 38, 39
+]));
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+===ES5===
+====Imperative====
+<lang javascript>function rangeExtraction(list) {
+  var len = list.length;
+  var out = [];
+  var i, j;
+
+  for (i = 0; i < len; i = j + 1) {
+    // beginning of range or single
+    out.push(list[i]);
+    
+    // find end of range
+    for (var j = i + 1; j < len && list[j] == list[j-1] + 1; j++);
+    j--;
+    
+    if (i == j) {
+      // single number
+      out.push(",");
+    } else if (i + 1 == j) {
+      // two numbers
+      out.push(",", list[j], ",");
+    } else { 
+      // range
+      out.push("-", list[j], ",");
+    }
+  }
+  out.pop(); // remove trailing comma
+  return out.join("");
+}
+
+// using print function as supplied by Rhino standalone
+print(rangeExtraction([
+  0,  1,  2,  4,  6,  7,  8, 11, 12, 14,
+  15, 16, 17, 18, 19, 20, 21, 22, 23, 24,
+  25, 27, 28, 29, 30, 31, 32, 33, 35, 36,
+  37, 38, 39
+]));</lang>
+
+====Functional====
+{{Trans|ES6}}
+{{Trans|Haskell}}
+<lang JavaScript>(function () {
+    'use strict';
+
+    // rangeFormat :: [Int] -> String
+    var rangeFormat = function (xs) {
+        return splitBy(function (a, b) {
+                return b - a > 1;
+            }, xs)
+            .map(rangeString)
+            .join(',');
+    };
+
+    // rangeString :: [Int] -> String
+    var rangeString = function (xs) {
+        return xs.length > 2 ? [head(xs), last(xs)].map(show)
+            .join('-') : xs.join(',');
+    };
+
+    // GENERIC FUNCTIONS
+
+    // Splitting not on a delimiter, but whenever the relationship between
+    // two consecutive items matches a supplied predicate function
+
+    // splitBy :: (a -> a -> Bool) -> [a] -> [[a]]
+    var splitBy = function (f, xs) {
+        if (xs.length < 2) return [xs];
+        var h = head(xs),
+            lstParts = xs.slice(1)
+            .reduce(function (a, x) {
+                var acc = a[0],
+                    active = a[1],
+                    prev = a[2];
+
+                return f(prev, x) ? (
+                    [acc.concat([active]), [x], x]
+                ) : [acc, active.concat(x), x];
+            }, [
+                [],
+                [h], h
+            ]);
+        return lstParts[0].concat([lstParts[1]]);
+    };
+
+    // head :: [a] -> a
+    var head = function (xs) {
+        return xs.length ? xs[0] : undefined;
+    };
+
+    // last :: [a] -> a
+    var last = function (xs) {
+        return xs.length ? xs.slice(-1)[0] : undefined;
+    };
+
+    // show :: a -> String
+    var show = function (x) {
+        return JSON.stringify(x);
+    };
+
+    // TEST
+    return rangeFormat([0, 1, 2, 4, 6, 7, 8, 11, 12, 14, 15, 16,
+        17, 18, 19, 20, 21, 22, 23, 24, 25, 27, 28, 29, 30, 31, 32,
+        33, 35, 36, 37, 38, 39
+    ]);
+})();</lang>
+
+{{Out}}
+<pre>"0-2,4,6-8,11,12,14-25,27-33,35-39"</pre>
+
+===ES6===
+{{Trans|Haskell}}
+Defining the range format in terms of a reusable '''splitBy''' function:
+<lang JavaScript>(() => {
+    'use strict';
+
+    // rangeFormat :: [Int] -> String
+    const rangeFormat = xs =>
+        splitBy((a, b) => b - a > 1, xs)
+        .map(rangeString)
+        .join(',');
+
+    // rangeString :: [Int] -> String
+    const rangeString = xs =>
+        xs.length > 2 ? (
+            [head(xs), last(xs)].map(show)
+            .join('-')
+        ) : xs.join(',')
+
+
+    // GENERIC FUNCTIONS
+
+    // Splitting not on a delimiter, but whenever the relationship between
+    // two consecutive items matches a supplied predicate function
+
+    // splitBy :: (a -> a -> Bool) -> [a] -> [[a]]
+    const splitBy = (f, xs) => {
+        if (xs.length < 2) return [xs];
+        const
+            h = head(xs),
+            lstParts = xs.slice(1)
+            .reduce(([acc, active, prev], x) =>
+                f(prev, x) ? (
+                    [acc.concat([active]), [x], x]
+                ) : [acc, active.concat(x), x], [
+                    [],
+                    [h],
+                    h
+                ]);
+        return lstParts[0].concat([lstParts[1]]);
+    };
+
+    // head :: [a] -> a
+    const head = xs => xs.length ? xs[0] : undefined;
+
+    // last :: [a] -> a
+    const last = xs => xs.length ? xs.slice(-1)[0] : undefined;
+
+    // show :: a -> String
+    const show = x => JSON.stringify(x);
+
+    // TEST
+    return rangeFormat([0, 1, 2, 4, 6, 7, 8, 11, 12, 14,
+        15, 16, 17, 18, 19, 20, 21, 22, 23, 24,
+        25, 27, 28, 29, 30, 31, 32, 33, 35, 36,
+        37, 38, 39
+    ]);
+})();</lang>
+{{Out}}
+<pre>0-2,4,6-8,11,12,14-25,27-33,35-39</pre>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,0 +1,127 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Kaprekar numbers
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><br/><p class="rosetta__paragraph">A positive integer is a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Kaprekar number" title="wp: Kaprekar number">Kaprekar number</a> if:</p>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">It is 1</li>
+/// <li class="rosetta__list-item--unordered">The decimal representation of its square may be split once into two parts consisting of positive integers which sum to the original number. </li></ul><br>Note that a split resulting in a part consisting purely of 0s is not valid, 
+/// <p class="rosetta__paragraph">as 0 is not considered positive.</p><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Example Kaprekar numbers:</dt></dl>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">$2223$ is a Kaprekar number, as $2223 * 2223 = 4941729$, $4941729$ may be split to $494$ and $1729$, and $494 + 1729 = 2223$.</li>
+/// <li class="rosetta__list-item--unordered">The series of Kaprekar numbers is known as <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/oeis:A006886" title="oeis:A006886">A006886</a>, and begins as $1, 9, 45, 55, ...$.</li></ul>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Example process:</dt></dl>
+/// <p class="rosetta__paragraph">10000 (100<sup>2</sup>) splitting from left to right:</p>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">The first split is [1, 0000], and is invalid; the 0000 element consists entirely of 0s, and 0 is not considered positive.</li>
+/// <li class="rosetta__list-item--unordered">Slight optimization opportunity: When splitting from left to right, once the right part consists entirely of 0s, no further testing is needed; all further splits would also be invalid.</li></ul>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task description:</dt></dl>
+/// <p class="rosetta__paragraph">Generate and show all Kaprekar numbers less than 10,000.</p><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Extra credit:</dt></dl>
+/// <p class="rosetta__paragraph">Optionally, count (and report the count of) how many Kaprekar numbers are less than 1,000,000.</p><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Extra extra credit:</dt></dl>
+/// <p class="rosetta__paragraph">The concept of Kaprekar numbers is not limited to base 10 (i.e. decimal numbers);</p>
+/// <p class="rosetta__paragraph">if you can, show that Kaprekar numbers exist in other bases too.</p><br/><p class="rosetta__paragraph">For this purpose, do the following:</p>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Find all Kaprekar numbers for base 17 between 1 and 1,000,000 (one million);</li>
+/// <li class="rosetta__list-item--unordered">Display each of them in base 10 representation;</li>
+/// <li class="rosetta__list-item--unordered">Optionally, using base 17 representation (use letters 'a' to 'g' for digits 10(10) to 16(10)), display each of the numbers, its square, and where to split the square. </li></ul> 
+/// <br>For example, 225(10) is "d4" in base 17, its square "a52g", and a5(17) + 2g(17) = d4(17), so the display would be something like:<div class="rosetta__pre-wrap"><pre class="rosetta__pre">225   d4  a52g  a5 + 2g</pre></div><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Reference:</dt></dl>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"><a class="rosetta__link--wiki" href="http://www.cs.uwaterloo.ca/journals/JIS/VOL3/iann2a.html" title="link: http://www.cs.uwaterloo.ca/journals/JIS/VOL3/iann2a.html">The Kaprekar Numbers</a> by Douglas E. Iannucci (2000). <a class="rosetta__link--wiki" href="http://pictor.math.uqam.ca/~plouffe/OEIS/jis/The%20Kaprekar%20Numbers.pdf" title="link: http://pictor.math.uqam.ca/~plouffe/OEIS/jis/The%20Kaprekar%20Numbers.pdf">PDF version</a></li></ul><br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+function isKaprekar( n, bs ) {
+	if ( n < 1 ) return false
+	if ( n == 1 ) return true
+	bs = bs || 10
+	var s = (n * n).toString(bs)
+	for (var i=1, e=s.length; i<e; i+=1) {
+		var a = parseInt(s.substr(0, i), bs)
+		var b = parseInt(s.substr(i), bs)
+		if (b && a + b == n) return true
+	}
+	return false
+}
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+'''This string version'''
+<lang JavaScript>function isKaprekar( n, bs ) {
+	if ( n < 1 ) return false
+	if ( n == 1 ) return true
+	bs = bs || 10
+	var s = (n * n).toString(bs)
+	for (var i=1, e=s.length; i<e; i+=1) {
+		var a = parseInt(s.substr(0, i), bs)
+		var b = parseInt(s.substr(i), bs)
+		if (b && a + b == n) return true
+	}
+	return false
+}</lang>
+'''or this numeric version'''
+<lang JavaScript>function isKaprekar( n, bs ) {
+	if ( n < 1 ) return false
+	if ( n == 1 ) return true
+	bs = bs || 10
+	for (var a=n*n, b=0, s=1; a; s*=bs) {
+		b += a%bs*s
+		a = Math.floor(a/bs)
+		if (b && a + b == n) return true
+	}
+	return false
+}</lang>
+'''with'''
+<lang JavaScript>function kaprekar( s, e, bs, pbs ) {
+	bs = bs || 10; pbs = pbs || 10
+	const toString = n => n.toString(pbs).toUpperCase()
+	document.write('start:',toString(s), ' end:',toString(e), ' base:',bs, ' printBase:',pbs, '<br>' )
+	for (var k=0, n=s; n<=e; n+=1) if (isKaprekar(n, bs)) k+=1, document.write(toString(n), ' ') 
+	document.write('<br>found ', k, ' numbers<br><br>')
+}
+
+kaprekar( 1, 99 )
+kaprekar( 1, 255, 16)
+kaprekar( 1, 255, 16, 16)
+kaprekar( 1, 288, 17, 17)</lang>
+{{out}}
+<pre>
+start:1 end:99 base:10 printBase:10
+1 9 45 55 99
+found 5 numbers
+
+start:1 end:255 base:16 printBase:10
+1 6 10 15 51 85 91 120 136 171 205 255
+found 12 numbers
+
+start:1 end:FF base:16 printBase:16
+1 6 A F 33 55 5B 78 88 AB CD FF
+found 12 numbers
+
+start:1 end:GG base:17 printBase:17
+1 G 3D D4 GG
+found 5 numbers
+</pre>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

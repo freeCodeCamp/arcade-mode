@@ -1,0 +1,48 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Break OO privacy
+/// type: rosetta-code
+
+/// categories:
+/// Object oriented
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <br/>
+/// <br/>
+/// <br/>
+/// <br/>
+/// <p class="rosetta__paragraph">Show how to access private or protected members of a class in an object-oriented language from outside an instance of the class, without calling non-private or non-protected members of the class as a proxy.</p>
+/// <p class="rosetta__paragraph">The intent is to show how a debugger, serializer, or other meta-programming tool might access information that is barred by normal access methods to the object  but can nevertheless be accessed from within the language by some provided escape hatch or reflection mechanism.</p>
+/// <p class="rosetta__paragraph">The intent is specifically not to demonstrate heroic measures such as peeking and poking raw memory.</p><br/><p class="rosetta__paragraph">Note that cheating on your type system is almost universally regarded</p>
+/// <p class="rosetta__paragraph">as unidiomatic at best, and poor programming practice at worst.</p>
+/// <p class="rosetta__paragraph">Nonetheless, if your language intentionally maintains a double-standard for OO privacy, here's where you can show it off.</p><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

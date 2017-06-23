@@ -1,0 +1,264 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Convert seconds to compound duration
+/// type: rosetta-code
+
+/// categories:
+/// Date and time
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Write a function or program which:</p>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">takes a positive integer representing a duration in seconds as input (e.g., <code>100</code>), and</li>
+/// <li class="rosetta__list-item--unordered">returns a string which shows the same duration decomposed into weeks, days, hours, minutes, and seconds as detailed below (e.g., "<code>1 min, 40 sec</code>").</li></ul>
+/// <br>
+/// <p class="rosetta__paragraph">Demonstrate that it passes the following three test-cases:</p><br/><p class="rosetta__paragraph"><p style="font-size:115%; margin:1em 0 0.5em 0"><span class="rosetta__text--bold"><span class="rosetta__text--italic">Test Cases</span></span></p></p><br/><p class="rosetta__paragraph">{| class="wikitable"</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">! input number</p>
+/// <p class="rosetta__paragraph">! output string</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| 7259</p>
+/// <p class="rosetta__paragraph">| <code style="background:#eee">2 hr, 59 sec</code></p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| 86400</p>
+/// <p class="rosetta__paragraph">| <code style="background:#eee">1 d</code></p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| 6000000</p>
+/// <p class="rosetta__paragraph">| <code style="background:#eee">9 wk, 6 d, 10 hr, 40 min</code></p>
+/// <p class="rosetta__paragraph">|}</p><br/><p class="rosetta__paragraph"><p style="font-size:115%; margin:1em 0 0.5em 0"><span class="rosetta__text--bold"><span class="rosetta__text--italic">Details</span></span></p></p><br/><ul>
+/// <li>The following five units should be used:
+/// <p class="rosetta__paragraph">{| class="wikitable"</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">! unit</p>
+/// <p class="rosetta__paragraph">! suffix used in output</p>
+/// <p class="rosetta__paragraph">! conversion</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| week</p>
+/// <p class="rosetta__paragraph">| <code style="background:#eee">wk</code></p>
+/// <p class="rosetta__paragraph">| 1 week = 7 days</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| day</p>
+/// <p class="rosetta__paragraph">| <code style="background:#eee">d</code></p>
+/// <p class="rosetta__paragraph">| 1 day = 24 hours</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| hour</p>
+/// <p class="rosetta__paragraph">| <code style="background:#eee">hr</code></p>
+/// <p class="rosetta__paragraph">| 1 hour = 60 minutes</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| minute</p>
+/// <p class="rosetta__paragraph">| <code style="background:#eee">min</code></p>
+/// <p class="rosetta__paragraph">| 1 minutes = 60 seconds</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| second</p>
+/// <p class="rosetta__paragraph">| <code style="background:#eee">sec</code></p>
+/// <p class="rosetta__paragraph">|</p>
+/// <p class="rosetta__paragraph">|}</p>
+/// </li><br/><li>However, <span class="rosetta__text--bold">only</span> include quantities with non-zero values in the output (e.g., return "<code>1 d</code>" and not "<code>0 wk, 1 d, 0 hr, 0 min, 0 sec</code>").</li><br/><li>Give larger units precedence over smaller ones as much as possible (e.g., return <code>2 min, 10 sec</code> and not <code>1 min, 70 sec</code> or <code>130 sec</code>)</li><br/><li>Mimic the formatting shown in the test-cases (quantities sorted from largest unit to smallest and separated by comma+space; value and unit of each quantity separated by space).</li>
+/// </ul><br/><p class="rosetta__paragraph"><hr style="margin:1em 0;"/></p>
+/// <br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+(function () {
+    'use strict';
+
+    // angloDuration :: Int -> String
+    function angloDuration(intSeconds) {
+        return zip(
+                weekParts(intSeconds), 
+                ['wk', 'd', 'hr', 'min','sec']
+            )
+            .reduce(function (a, x) {
+                return a.concat(x[0] ? (
+                    [(x[0].toString() + ' ' + x[1])]
+                ) : []);
+            }, [])
+            .join(', ');
+    }
+    
+    
+
+    // weekParts :: Int -> [Int]
+    function weekParts(intSeconds) {
+
+        return [undefined, 7, 24, 60, 60]
+            .reduceRight(function (a, x) {
+                var intRest = a.remaining,
+                    intMod = isNaN(x) ? intRest : intRest % x;
+
+                return {
+                    remaining:(intRest - intMod) / (x || 1),
+                    parts: [intMod].concat(a.parts)
+                };
+            }, {
+                remaining: intSeconds,
+                parts: []
+            })
+            .parts
+    }
+    
+    // GENERIC ZIP
+
+    // zip :: [a] -> [b] -> [(a,b)]
+    function zip(xs, ys) {
+        return xs.length === ys.length ? (
+            xs.map(function (x, i) {
+                return [x, ys[i]];
+            })
+        ) : undefined;
+    }
+    
+    // TEST
+
+    return [7259, 86400, 6000000]
+        .map(function (intSeconds) {
+            return intSeconds.toString() +
+                '    ->    ' + angloDuration(intSeconds);
+        })
+        .join('\n');
+
+})();
+
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+
+===Functional===
+
+====ES5====
+
+<lang JavaScript>(function () {
+    'use strict';
+
+    // angloDuration :: Int -> String
+    function angloDuration(intSeconds) {
+        return zip(
+                weekParts(intSeconds), 
+                ['wk', 'd', 'hr', 'min','sec']
+            )
+            .reduce(function (a, x) {
+                return a.concat(x[0] ? (
+                    [(x[0].toString() + ' ' + x[1])]
+                ) : []);
+            }, [])
+            .join(', ');
+    }
+    
+    
+
+    // weekParts :: Int -> [Int]
+    function weekParts(intSeconds) {
+
+        return [undefined, 7, 24, 60, 60]
+            .reduceRight(function (a, x) {
+                var intRest = a.remaining,
+                    intMod = isNaN(x) ? intRest : intRest % x;
+
+                return {
+                    remaining:(intRest - intMod) / (x || 1),
+                    parts: [intMod].concat(a.parts)
+                };
+            }, {
+                remaining: intSeconds,
+                parts: []
+            })
+            .parts
+    }
+    
+    // GENERIC ZIP
+
+    // zip :: [a] -> [b] -> [(a,b)]
+    function zip(xs, ys) {
+        return xs.length === ys.length ? (
+            xs.map(function (x, i) {
+                return [x, ys[i]];
+            })
+        ) : undefined;
+    }
+    
+    // TEST
+
+    return [7259, 86400, 6000000]
+        .map(function (intSeconds) {
+            return intSeconds.toString() +
+                '    ->    ' + angloDuration(intSeconds);
+        })
+        .join('\n');
+
+})();
+</lang>
+
+{{Out}}
+<pre>7259     ->    2 hr, 59 sec
+86400     ->    1 d
+6000000     ->    9 wk, 6 d, 10 hr, 40 min</pre>
+
+
+====ES6====
+
+<lang JavaScript>((localNames) => {
+
+    // compoundDuration :: [String] -> Int -> String
+    const compoundDuration = (labels, intSeconds) =>
+        weekParts(intSeconds)
+        .map((v, i) => [v, labels[i]])
+        .reduce((a, x) =>
+            a.concat(x[0] ? [`${x[0]} ${x[1] || '?'}`] : []), []
+        )
+        .join(', '),
+
+        // weekParts :: Int -> [Int]
+        weekParts = intSeconds => [0, 7, 24, 60, 60]
+        .reduceRight((a, x) => {
+            let r = a.rem,
+                mod = x !== 0 ? r % x : r;
+
+            return {
+                rem: (r - mod) / (x || 1),
+                parts: [mod].concat(a.parts)
+            };
+        }, {
+            rem: intSeconds,
+            parts: []
+        })
+        .parts;
+
+
+    // TEST
+    return [7259, 86400, 6E6]
+        .map(intSeconds =>
+            `${intSeconds} -> ${compoundDuration(localNames, intSeconds)}`
+        )
+        .join("\n");
+
+})(["wk", "d", "hr", "min", "sec"]);</lang>
+
+{{Out}}
+<pre>7259 -> 2 hr, 59 sec
+86400 -> 1 d
+6000000 -> 9 wk, 6 d, 10 hr, 40 min</pre>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

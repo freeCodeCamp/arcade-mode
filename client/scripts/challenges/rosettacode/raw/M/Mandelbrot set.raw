@@ -1,0 +1,193 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Mandelbrot set
+/// type: rosetta-code
+
+/// categories:
+/// Graphics
+/// Raster graphics operations
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <br/>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Generate and draw the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Mandelbrot set" title="wp: Mandelbrot set">Mandelbrot set</a>.</p>
+/// <br/><p class="rosetta__paragraph">Note that there are <a class="rosetta__link--wiki" href="http://en.wikibooks.org/wiki/Fractals/Iterations_in_the_complex_plane/Mandelbrot_set" title="link: http://en.wikibooks.org/wiki/Fractals/Iterations_in_the_complex_plane/Mandelbrot_set">many algorithms</a> to draw Mandelbrot set and there are <a class="rosetta__link--wiki" href="http://en.wikibooks.org/wiki/Pictures_of_Julia_and_Mandelbrot_sets" title="link: http://en.wikibooks.org/wiki/Pictures_of_Julia_and_Mandelbrot_sets">many functions</a> which generate it .</p>
+/// <br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+function mandelIter(cx, cy, maxIter) {
+  var x = 0.0;
+  var y = 0.0;
+  var xx = 0;
+  var yy = 0;
+  var xy = 0;
+
+  var i = maxIter;
+  while (i-- && xx + yy <= 4) {
+    xy = x * y;
+    xx = x * x;
+    yy = y * y;
+    x = xx - yy + cx;
+    y = xy + xy + cy;
+  }
+  return maxIter - i;
+}
+ 
+function mandelbrot(canvas, xmin, xmax, ymin, ymax, iterations) {
+  var width = canvas.width;
+  var height = canvas.height;
+
+  var ctx = canvas.getContext('2d');
+  var img = ctx.getImageData(0, 0, width, height);
+  var pix = img.data;
+  
+  for (var ix = 0; ix < width; ++ix) {
+    for (var iy = 0; iy < height; ++iy) {
+      var x = xmin + (xmax - xmin) * ix / (width - 1);
+      var y = ymin + (ymax - ymin) * iy / (height - 1);
+      var i = mandelIter(x, y, iterations);
+      var ppos = 4 * (width * iy + ix);
+      
+      if (i > iterations) {
+        pix[ppos] = 0;
+        pix[ppos + 1] = 0;
+        pix[ppos + 2] = 0;
+      } else {
+        var c = 3 * Math.log(i) / Math.log(iterations - 1.0);
+        
+        if (c < 1) {
+          pix[ppos] = 255 * c;
+          pix[ppos + 1] = 0;
+          pix[ppos + 2] = 0;
+        }
+        else if ( c < 2 ) {
+          pix[ppos] = 255;
+          pix[ppos + 1] = 255 * (c - 1);
+          pix[ppos + 2] = 0;
+        } else {
+          pix[ppos] = 255;
+          pix[ppos + 1] = 255;
+          pix[ppos + 2] = 255 * (c - 2);
+        }
+      }
+      pix[ppos + 3] = 255;
+    }
+  }
+  
+  ctx.putImageData(img, 0, 0);
+}
+
+var canvas = document.createElement('canvas');
+canvas.width = 900;
+canvas.height = 600;
+
+document.body.insertBefore(canvas, document.body.childNodes[0]);
+
+mandelbrot(canvas, -2, 1, -1, 1, 1000);
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+{{works with|Firefox|3.5.11}}
+
+This needs the canvas tag of HTML 5 (it will not run on IE8 and lower or old browsers).
+
+The code can be run directly from the Javascript console in modern browsers by copying and pasting it.
+
+<lang javascript>function mandelIter(cx, cy, maxIter) {
+  var x = 0.0;
+  var y = 0.0;
+  var xx = 0;
+  var yy = 0;
+  var xy = 0;
+
+  var i = maxIter;
+  while (i-- && xx + yy <= 4) {
+    xy = x * y;
+    xx = x * x;
+    yy = y * y;
+    x = xx - yy + cx;
+    y = xy + xy + cy;
+  }
+  return maxIter - i;
+}
+ 
+function mandelbrot(canvas, xmin, xmax, ymin, ymax, iterations) {
+  var width = canvas.width;
+  var height = canvas.height;
+
+  var ctx = canvas.getContext('2d');
+  var img = ctx.getImageData(0, 0, width, height);
+  var pix = img.data;
+  
+  for (var ix = 0; ix < width; ++ix) {
+    for (var iy = 0; iy < height; ++iy) {
+      var x = xmin + (xmax - xmin) * ix / (width - 1);
+      var y = ymin + (ymax - ymin) * iy / (height - 1);
+      var i = mandelIter(x, y, iterations);
+      var ppos = 4 * (width * iy + ix);
+      
+      if (i > iterations) {
+        pix[ppos] = 0;
+        pix[ppos + 1] = 0;
+        pix[ppos + 2] = 0;
+      } else {
+        var c = 3 * Math.log(i) / Math.log(iterations - 1.0);
+        
+        if (c < 1) {
+          pix[ppos] = 255 * c;
+          pix[ppos + 1] = 0;
+          pix[ppos + 2] = 0;
+        }
+        else if ( c < 2 ) {
+          pix[ppos] = 255;
+          pix[ppos + 1] = 255 * (c - 1);
+          pix[ppos + 2] = 0;
+        } else {
+          pix[ppos] = 255;
+          pix[ppos + 1] = 255;
+          pix[ppos + 2] = 255 * (c - 2);
+        }
+      }
+      pix[ppos + 3] = 255;
+    }
+  }
+  
+  ctx.putImageData(img, 0, 0);
+}
+
+var canvas = document.createElement('canvas');
+canvas.width = 900;
+canvas.height = 600;
+
+document.body.insertBefore(canvas, document.body.childNodes[0]);
+
+mandelbrot(canvas, -2, 1, -1, 1, 1000);</lang>
+
+{{out}} with default parameters:
+[[File:Mandelbrot-Javascript.png]]
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

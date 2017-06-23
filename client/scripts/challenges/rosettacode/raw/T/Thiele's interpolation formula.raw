@@ -1,0 +1,50 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Thiele's interpolation formula
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <br/><br>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Thiele's_interpolation_formula" title="wp: Thiele's_interpolation_formula">Thiele's interpolation formula</a></span> is an interpolation formula for a function <span class="rosetta__text--italic">f</span>(•) of a single variable.  It is expressed as a <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/continued fraction" title="continued fraction">continued fraction</a>:</p><br/><p class="rosetta__paragraph"><span class="rosetta__text--indented">: <big><big>$ f(x) = f(x_1) + \cfrac{x-x_1}{\rho_1(x_1,x_2) + \cfrac{x-x_2}{\rho_2(x_1,x_2,x_3) - f(x_1) + \cfrac{x-x_3}{\rho_3(x_1,x_2,x_3,x_4) - \rho_1(x_1,x_2) + \cdots}}} $</big></big></span></p><br/><p class="rosetta__paragraph"><big><big>$\rho$</big></big>  represents the  <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/reciprocal difference" title="wp: reciprocal difference">reciprocal difference</a>,  demonstrated here for reference:</p><br/><p class="rosetta__paragraph"><span class="rosetta__text--indented">: <big><big>$\rho_1(x_0, x_1) = \frac{x_0 - x_1}{f(x_0) - f(x_1)}$</big></big></span></p><br/><p class="rosetta__paragraph"><span class="rosetta__text--indented">: <big><big>$\rho_2(x_0, x_1, x_2) = \frac{x_0 - x_2}{\rho_1(x_0, x_1) - \rho_1(x_1, x_2)} + f(x_1)$</big></big></span></p><br/><p class="rosetta__paragraph"><span class="rosetta__text--indented">: <big><big>$\rho_n(x_0,x_1,\ldots,x_n)=\frac{x_0-x_n}{\rho_{n-1}(x_0,x_1,\ldots,x_{n-1})-\rho_{n-1}(x_1,x_2,\ldots,x_n)}+\rho_{n-2}(x_1,\ldots,x_{n-1})$</big></big></span></p><br/><p class="rosetta__paragraph">Demonstrate Thiele's interpolation function by:</p>
+/// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">Building a  <span class="rosetta__text--bold">32</span>  row <span class="rosetta__text--italic">trig table</span> of values  for  <big><big>$ x $</big></big>  from  <span class="rosetta__text--bold">0</span>  by  <span class="rosetta__text--bold">0.05</span>  to  <span class="rosetta__text--bold">1.55</span>  of the trig functions: </li>
+/// <li class="rosetta__list-item--ordered">*  <span class="rosetta__text--bold">sin</span></li>
+/// <li class="rosetta__list-item--ordered">*  <span class="rosetta__text--bold">cos</span></li>
+/// <li class="rosetta__list-item--ordered">*  <span class="rosetta__text--bold">tan</span></li>
+/// <li class="rosetta__list-item--ordered">Using columns from this table define an inverse - using Thiele's interpolation - for each trig function;</li>
+/// <li class="rosetta__list-item--ordered">Finally: demonstrate the following well known trigonometric identities:</li>
+/// <li class="rosetta__list-item--ordered">*  <big><big> 6 &times; sin<sup>-1</sup> &frac12; = $\pi$</big></big></li>
+/// <li class="rosetta__list-item--ordered">*  <big><big> 3 &times; cos<sup>-1</sup> &frac12; = $\pi$</big></big></li>
+/// <li class="rosetta__list-item--ordered">*  <big><big> 4 &times; tan<sup>-1</sup> 1        = $\pi$</big></big> </li></ol><br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

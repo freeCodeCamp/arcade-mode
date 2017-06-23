@@ -1,0 +1,56 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Compare sorting algorithms' performance
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <p class="rosetta__paragraph">Measure a relative performance of sorting algorithms implementations.</p><br/><p class="rosetta__paragraph">Plot <span class="rosetta__text--bold">execution time vs. input sequence length</span> dependencies for various implementation of sorting algorithm and different input sequence types (<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/#Figures: log2( time in microseconds ) vs. log2( sequence length )" title="#Figures: log2( time in microseconds ) vs. log2( sequence length )">example figures</a>).</p><br/><p class="rosetta__paragraph">Consider three type of input sequences:</p>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">ones: sequence of all <span class="rosetta__text--italic">1</span>'s. Example: {1, 1, 1, 1, 1}</li>
+/// <li class="rosetta__list-item--unordered">range: ascending sequence, i.e. already sorted. Example: {1, 2, 3, 10, 15}</li>
+/// <li class="rosetta__list-item--unordered">shuffled range: sequence with elements randomly distributed. Example: {5, 3, 9, 6, 8}</li></ul>
+/// <p class="rosetta__paragraph">Consider at least two different sorting functions (different algorithms or/and different implementation of the same algorithm).</p>
+/// <p class="rosetta__paragraph">For example, consider <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Bubble Sort" title="Bubble Sort">Bubble Sort</a>, <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Insertion sort" title="Insertion sort">Insertion sort</a>, <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Quicksort" title="Quicksort">Quicksort</a> or/and implementations of Quicksort with different pivot selection mechanisms. Where possible, use existing implementations.</p><br/><p class="rosetta__paragraph">Preliminary subtask:</p>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Bubble Sort" title="Bubble Sort">Bubble Sort</a>, <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Insertion sort" title="Insertion sort">Insertion sort</a>, <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Quicksort" title="Quicksort">Quicksort</a>, <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Radix sort" title="Radix sort">Radix sort</a>, <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Shell sort" title="Shell sort">Shell sort</a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Query Performance" title="Query Performance">Query Performance</a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Write float arrays to a text file" title="Write float arrays to a text file">Write float arrays to a text file</a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Plot x, y arrays" title="Plot x, y arrays">Plot x, y arrays</a></li>
+/// <li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Polynomial Fitting" title="Polynomial Fitting">Polynomial Fitting</a></li></ul>
+/// <p class="rosetta__paragraph">General steps:</p>
+/// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">Define sorting routines to be considered.</li>
+/// <li class="rosetta__list-item--ordered">Define appropriate sequence generators and write timings.</li>
+/// <li class="rosetta__list-item--ordered">Plot timings.</li>
+/// <li class="rosetta__list-item--ordered">What conclusions about relative performance of the sorting routines could be made based on the plots?</li></ol>
+/// </div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

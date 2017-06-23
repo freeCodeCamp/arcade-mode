@@ -1,0 +1,102 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Look-and-say sequence
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><br/><p class="rosetta__paragraph">The  <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Look and say sequence" title="wp: Look and say sequence">Look and say sequence</a>  is a recursively defined sequence of numbers studied most notably by  <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/John Horton Conway" title="wp: John Horton Conway">John Conway</a>.</p>
+/// <br/><p class="rosetta__paragraph"><span class="rosetta__text--bold">Sequence Definition</span></p>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Take a decimal number</li>
+/// <li class="rosetta__list-item--unordered"><span class="rosetta__text--italic">Look</span> at the number, visually grouping consecutive runs of the same digit.</li>
+/// <li class="rosetta__list-item--unordered"><span class="rosetta__text--italic">Say</span> the number, from left to right, group by group; as how many of that digit there are - followed by the digit grouped.</li></ul><span class="rosetta__text--indented"> This becomes the next number of the sequence.</span>
+/// <br/><p class="rosetta__paragraph"><span class="rosetta__text--bold">An example:</span></p>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Starting with the number 1,  you have <span class="rosetta__text--italic">one</span> 1 which produces 11</li>
+/// <li class="rosetta__list-item--unordered">Starting with 11,  you have <span class="rosetta__text--italic">two</span> 1's.  I.E.:  21</li>
+/// <li class="rosetta__list-item--unordered">Starting with 21,  you have <span class="rosetta__text--italic">one</span> 2, then <span class="rosetta__text--italic">one</span> 1.  I.E.:  (12)(11) which becomes 1211</li>
+/// <li class="rosetta__list-item--unordered">Starting with 1211,  you have <span class="rosetta__text--italic">one</span> 1, <span class="rosetta__text--italic">one</span> 2, then <span class="rosetta__text--italic">two</span> 1's.  I.E.:  (11)(12)(21) which becomes 111221</li></ul><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Write a program to generate successive members of the look-and-say sequence.</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">See also:</dt></dl>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"> <a class="rosetta__link--wiki" href="https://www.youtube.com/watch?v=ea7lJkEhytA" title="link: https://www.youtube.com/watch?v=ea7lJkEhytA">Look-and-Say Numbers (feat John Conway)</a>, A Numberphile Video.</li>
+/// <li class="rosetta__list-item--unordered"> This task is related to, and an application of, the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Run-length encoding" title="Run-length encoding">Run-length encoding</a> task.</li>
+/// <li class="rosetta__list-item--unordered"> Sequence <a class="rosetta__link--wiki" href="https://oeis.org/A005150" title="link: https://oeis.org/A005150">A005150</a> on  The On-Line Encyclopedia of Integer Sequences.</li></ul><br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+function lookandsay(str) {
+    return str.replace(/(.)\1*/g, function(seq, p1){return seq.length.toString() + p1})
+}
+
+var num = "1";
+for (var i = 10; i > 0; i--) {
+    alert(num);
+    num = lookandsay(num);
+}
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+{{trans|Perl}}
+<lang javascript>function lookandsay(str) {
+    return str.replace(/(.)\1*/g, function(seq, p1){return seq.length.toString() + p1})
+}
+
+var num = "1";
+for (var i = 10; i > 0; i--) {
+    alert(num);
+    num = lookandsay(num);
+}</lang>
+
+Without RegExp
+
+<lang javascript>function lookSay(digits) {
+    var result = '',
+        chars = (digits + ' ').split(''),
+        lastChar = chars[0],
+        times = 0;
+    
+    chars.forEach(function(nextChar) {
+        if (nextChar === lastChar) {
+            times++;
+        }
+        else {
+            result += (times + '') + lastChar;
+            lastChar = nextChar;
+            times = 1;
+        }
+    });
+    
+    return result;
+}
+
+(function output(seed, iterations) {
+    for (var i = 0; i < iterations; i++) {
+        console.log(seed);
+        seed = lookSay(seed);
+    }
+})("1", 10);</lang>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,0 +1,72 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Queue/Definition
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><br/><p class="rosetta__paragraph"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:Fifo.gif" title="File:Fifo.gif">frame|right|Illustration of FIFO behavior</a></p><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Implement a FIFO queue.</p><br/><p class="rosetta__paragraph">Elements are added at one side and popped from the other in the order of insertion.</p>
+/// <br/><p class="rosetta__paragraph">Operations:</p>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"> push    (aka <span class="rosetta__text--italic">enqueue</span>)  - add element</li>
+/// <li class="rosetta__list-item--unordered"> pop      (aka <span class="rosetta__text--italic">dequeue</span>)  - pop first element</li>
+/// <li class="rosetta__list-item--unordered"> empty   - return truth value when empty</li></ul><br/><p class="rosetta__paragraph">Errors:</p>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"> handle the error of trying to pop from an empty queue (behavior depends on the language and platform)</li></ul><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">See:</dt></dl>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"> <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Queue/Usage" title="Queue/Usage">Queue/Usage</a>  for the built-in FIFO or queue of your language or standard library.</li></ul>
+/// <br/><br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+var fifo = [];
+fifo.push(42); // Enqueue.
+fifo.push(43);
+var x = fifo.shift(); // Dequeue.
+alert(x); // 42
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+Most of the time, the built-in Array suffices. However, if you explicitly want to limit the usage to FIFO operations, it's easy to implement such a constructor.
+
+=== Using built-in Array ===
+<lang javascript>var fifo = [];
+fifo.push(42); // Enqueue.
+fifo.push(43);
+var x = fifo.shift(); // Dequeue.
+alert(x); // 42</lang>
+
+=== Custom constructor function ===
+<lang javascript>function FIFO() {
+    this.data = new Array();
+
+    this.push  = function(element) {this.data.push(element)}
+    this.pop   = function() {return this.data.shift()}
+    this.empty = function() {return this.data.length == 0}
+
+    this.enqueue = this.push;
+    this.dequeue = this.pop;
+}</lang>
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

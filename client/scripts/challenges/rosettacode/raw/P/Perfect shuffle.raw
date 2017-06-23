@@ -1,0 +1,362 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Perfect shuffle
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <p class="rosetta__paragraph">A perfect shuffle (or <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Faro_shuffle" title="link: https://en.wikipedia.org/wiki/Faro_shuffle">faro/weave shuffle</a>) means splitting a deck of cards into equal halves, and perfectly interleaving them - so that you end up with the first card from the left half, followed by the first card from the right half, and so on:</p><br/><p class="rosetta__paragraph"><!-- START OF DIAGRAM --></p>
+/// <div style="display:inline-block;margin:0.5em 1.5em"><tt><span style="background:#8DF">7♠</span> <span style="background:#8DF">8♠</span> <span style="background:#8DF">9♠</span> <span style="background:#FB5">J♠</span> <span style="background:#FB5">Q♠</span> <span style="background:#FB5">K♠</span></tt></div><div style="display:inline-block">&rarr;<div style="display:inline-block;vertical-align:middle;margin:0.5em 1.5em"><tt><span style="background:#8DF">7♠</span> <span style="background:#8DF">8♠</span> <span style="background:#8DF">9♠</span></tt><br><tt><span style="background:#FB5">J♠</span> <span style="background:#FB5">Q♠</span> <span style="background:#FB5">K♠</span></tt></div></div><div style="display:inline-block">&rarr;<div style="display:inline-block;vertical-align:middle;margin:0.5em 1.5em"><tt><span style="background:#8DF">7♠</span> <span style="background:#FB5">J♠</span> <span style="background:#8DF">8♠</span> <span style="background:#FB5">Q♠</span> <span style="background:#8DF">9♠</span> <span style="background:#Fb5">K♠</span></tt></div></div>
+/// <p class="rosetta__paragraph"><!-- END OF DIAGRAM --></p><br/><p class="rosetta__paragraph">When you repeatedly perform perfect shuffles on an even-sized deck of unique cards, it will at some point arrive back at its original order. How many shuffles this takes, depends solely on the number of cards in the deck - for example for a deck of eight cards it takes three shuffles:</p><br/><p class="rosetta__paragraph"><!-- START OF DIAGRAM --></p>
+/// <p class="rosetta__paragraph">{| style="border-spacing:0.5em 0;border-collapse:separate;margin:0 1em;text-align:right"</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| <small><span class="rosetta__text--italic">original:</span></small> ||</p>
+/// <p class="rosetta__paragraph"><tt style="background:#122CF8;color:#B8C0FD;padding:0 0.3em">1</tt></p>
+/// <p class="rosetta__paragraph"><tt style="background:#332AD7;color:#C2C0F3;padding:0 0.3em">2</tt></p>
+/// <p class="rosetta__paragraph"><tt style="background:#5428B7;color:#CCBFEA;padding:0 0.3em">3</tt></p>
+/// <p class="rosetta__paragraph"><tt style="background:#752696;color:#D6BEE0;padding:0 0.3em">4</tt></p>
+/// <p class="rosetta__paragraph"><tt style="background:#962576;color:#E0BED6;padding:0 0.3em">5</tt></p>
+/// <p class="rosetta__paragraph"><tt style="background:#B72355;color:#EABDCC;padding:0 0.3em">6</tt></p>
+/// <p class="rosetta__paragraph"><tt style="background:#D82135;color:#F3BDC3;padding:0 0.3em">7</tt></p>
+/// <p class="rosetta__paragraph"><tt style="background:#F92015;color:#FDBDB9;padding:0 0.3em">8</tt></p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| <small><span class="rosetta__text--italic">after 1st shuffle:</span></small> ||</p>
+/// <p class="rosetta__paragraph"><tt style="background:#122CF8;color:#B8C0FD;padding:0 0.3em">1</tt></p>
+/// <p class="rosetta__paragraph"><tt style="background:#962576;color:#E0BED6;padding:0 0.3em">5</tt></p>
+/// <p class="rosetta__paragraph"><tt style="background:#332AD7;color:#C2C0F3;padding:0 0.3em">2</tt></p>
+/// <p class="rosetta__paragraph"><tt style="background:#B72355;color:#EABDCC;padding:0 0.3em">6</tt></p>
+/// <p class="rosetta__paragraph"><tt style="background:#5428B7;color:#CCBFEA;padding:0 0.3em">3</tt></p>
+/// <p class="rosetta__paragraph"><tt style="background:#D82135;color:#F3BDC3;padding:0 0.3em">7</tt></p>
+/// <p class="rosetta__paragraph"><tt style="background:#752696;color:#D6BEE0;padding:0 0.3em">4</tt></p>
+/// <p class="rosetta__paragraph"><tt style="background:#F92015;color:#FDBDB9;padding:0 0.3em">8</tt></p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| <small><span class="rosetta__text--italic">after 2nd shuffle:</span></small> ||</p>
+/// <p class="rosetta__paragraph"><tt style="background:#122CF8;color:#B8C0FD;padding:0 0.3em">1</tt></p>
+/// <p class="rosetta__paragraph"><tt style="background:#5428B7;color:#CCBFEA;padding:0 0.3em">3</tt></p>
+/// <p class="rosetta__paragraph"><tt style="background:#962576;color:#E0BED6;padding:0 0.3em">5</tt></p>
+/// <p class="rosetta__paragraph"><tt style="background:#D82135;color:#F3BDC3;padding:0 0.3em">7</tt></p>
+/// <p class="rosetta__paragraph"><tt style="background:#332AD7;color:#C2C0F3;padding:0 0.3em">2</tt></p>
+/// <p class="rosetta__paragraph"><tt style="background:#752696;color:#D6BEE0;padding:0 0.3em">4</tt></p>
+/// <p class="rosetta__paragraph"><tt style="background:#B72355;color:#EABDCC;padding:0 0.3em">6</tt></p>
+/// <p class="rosetta__paragraph"><tt style="background:#F92015;color:#FDBDB9;padding:0 0.3em">8</tt></p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| <small><span class="rosetta__text--italic">after 3rd shuffle:</span></small> ||</p>
+/// <p class="rosetta__paragraph"><tt style="background:#122CF8;color:#B8C0FD;padding:0 0.3em">1</tt></p>
+/// <p class="rosetta__paragraph"><tt style="background:#332AD7;color:#C2C0F3;padding:0 0.3em">2</tt></p>
+/// <p class="rosetta__paragraph"><tt style="background:#5428B7;color:#CCBFEA;padding:0 0.3em">3</tt></p>
+/// <p class="rosetta__paragraph"><tt style="background:#752696;color:#D6BEE0;padding:0 0.3em">4</tt></p>
+/// <p class="rosetta__paragraph"><tt style="background:#962576;color:#E0BED6;padding:0 0.3em">5</tt></p>
+/// <p class="rosetta__paragraph"><tt style="background:#B72355;color:#EABDCC;padding:0 0.3em">6</tt></p>
+/// <p class="rosetta__paragraph"><tt style="background:#D82135;color:#F3BDC3;padding:0 0.3em">7</tt></p>
+/// <p class="rosetta__paragraph"><tt style="background:#F92015;color:#FDBDB9;padding:0 0.3em">8</tt></p>
+/// <p class="rosetta__paragraph">|}</p>
+/// <p class="rosetta__paragraph"><!-- END OF DIAGRAM --></p><br/><p class="rosetta__paragraph"><p style="font-size:115%; margin:1em 0 0.5em 0"><span class="rosetta__text--bold"><span class="rosetta__text--italic">The Task</span></span></p></p><br/><ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">Write a function that can perform a perfect shuffle on an even-sized list of values.</li>
+/// <li class="rosetta__list-item--ordered">Call this function repeatedly to count how many shuffles are needed to get a deck back to its original order, for each of the deck sizes listed under "Test Cases" below.</li>
+/// <li class="rosetta__list-item--ordered">* <small>You can use a list of numbers (or anything else that's convenient) to represent a deck; just make sure that all "cards" are unique within each deck.</small></li>
+/// <li class="rosetta__list-item--ordered">* <small>Print out the resulting shuffle counts, to demonstrate that your program passes the test-cases.</small></li></ol>
+/// <p class="rosetta__paragraph"><p style="font-size:115%; margin:1em 0 0.5em 0"><span class="rosetta__text--bold"><span class="rosetta__text--italic">Test Cases</span></span></p></p><br/><p class="rosetta__paragraph">{| class="wikitable"</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">! input <span class="rosetta__text--italic">(deck size)</span> !! output <span class="rosetta__text--italic">(number of shuffles required)</span></p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| 8 || 3</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| 24 || 11</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| 52 || 8</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| 100 || 30</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| 1020 || 1018</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| 1024 || 10</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">| 10000 || 300</p>
+/// <p class="rosetta__paragraph">|}</p><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+(() => {
+    'use strict';
+
+    // shuffleCycleLength :: Int -> Int
+    const shuffleCycleLength = deckSize =>
+        firstCycle(shuffle, range(1, deckSize))
+        .all.length;
+
+    // shuffle :: [a] -> [a]
+    const shuffle = xs =>
+        concat(zip.apply(null, splitAt(div(length(xs), 2), xs)));
+
+    // firstycle :: Eq a => (a -> a) -> a -> [a]
+    const firstCycle = (f, x) =>
+        until(
+            m => EqArray(x, m.current),
+            m => {
+                const fx = f(m.current);
+                return {
+                    current: fx,
+                    all: m.all.concat([fx])
+                };
+            }, {
+                current: f(x),
+                all: [x]
+            }
+        );
+
+    // Two arrays equal ?
+    // EqArray :: [a] -> [b] -> Bool
+    const EqArray = (xs, ys) => {
+        const [nx, ny] = [xs.length, ys.length];
+        return nx === ny ? (
+            nx > 0 ? (
+                xs[0] === ys[0] && EqArray(xs.slice(1), ys.slice(1))
+            ) : true
+        ) : false;
+    };
+
+    // GENERIC FUNCTIONS
+
+    // zip :: [a] -> [b] -> [(a,b)]
+    const zip = (xs, ys) =>
+        xs.slice(0, Math.min(xs.length, ys.length))
+        .map((x, i) => [x, ys[i]]);
+
+    // concat :: [[a]] -> [a]
+    const concat = xs => [].concat.apply([], xs);
+
+    // splitAt :: Int -> [a] -> ([a],[a])
+    const splitAt = (n, xs) => [xs.slice(0, n), xs.slice(n)];
+
+    // div :: Num -> Num -> Int
+    const div = (x, y) => Math.floor(x / y);
+
+    // until :: (a -> Bool) -> (a -> a) -> a -> a
+    const until = (p, f, x) => {
+        const go = x => p(x) ? x : go(f(x));
+        return go(x);
+    }
+
+    // range :: Int -> Int -> [Int]
+    const range = (m, n) =>
+        Array.from({
+            length: Math.floor(n - m) + 1
+        }, (_, i) => m + i);
+
+    // length :: [a] -> Int
+    // length :: Text -> Int
+    const length = xs => xs.length;
+
+    // maximumBy :: (a -> a -> Ordering) -> [a] -> a
+    const maximumBy = (f, xs) =>
+        xs.reduce((a, x) => a === undefined ? x : (
+            f(x, a) > 0 ? x : a
+        ), undefined);
+
+    // transpose :: [[a]] -> [[a]]
+    const transpose = xs =>
+        xs[0].map((_, iCol) => xs.map((row) => row[iCol]));
+
+    // show :: a -> String
+    const show = x => JSON.stringify(x, null, 2);
+
+    // replicateS :: Int -> String -> String
+    const replicateS = (n, s) => {
+        let v = s,
+            o = '';
+        if (n < 1) return o;
+        while (n > 1) {
+            if (n & 1) o = o.concat(v);
+            n >>= 1;
+            v = v.concat(v);
+        }
+        return o.concat(v);
+    };
+
+    // justifyRight :: Int -> Char -> Text -> Text
+    const justifyRight = (n, cFiller, strText) =>
+        n > strText.length ? (
+            (replicateS(n, cFiller) + strText)
+            .slice(-n)
+        ) : strText;
+
+    // TEST
+    return transpose(transpose([
+                ['Deck', 'Shuffles']
+            ].concat(
+                [8, 24, 52, 100, 1020, 1024, 10000]
+                .map(n => [n.toString(), shuffleCycleLength(n)
+                    .toString()
+                ])))
+            .map(col => { // Right-justified number columns
+                const width = length(
+                    maximumBy((a, b) => length(a) - length(b), col)
+                ) + 2;
+
+                return col.map(x => justifyRight(width, ' ', x));
+            }))
+        .map(row => row.join(''))
+        .join('\n');
+})();
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+===ES6===
+<lang JavaScript>(() => {
+    'use strict';
+
+    // shuffleCycleLength :: Int -> Int
+    const shuffleCycleLength = deckSize =>
+        firstCycle(shuffle, range(1, deckSize))
+        .all.length;
+
+    // shuffle :: [a] -> [a]
+    const shuffle = xs =>
+        concat(zip.apply(null, splitAt(div(length(xs), 2), xs)));
+
+    // firstycle :: Eq a => (a -> a) -> a -> [a]
+    const firstCycle = (f, x) =>
+        until(
+            m => EqArray(x, m.current),
+            m => {
+                const fx = f(m.current);
+                return {
+                    current: fx,
+                    all: m.all.concat([fx])
+                };
+            }, {
+                current: f(x),
+                all: [x]
+            }
+        );
+
+    // Two arrays equal ?
+    // EqArray :: [a] -> [b] -> Bool
+    const EqArray = (xs, ys) => {
+        const [nx, ny] = [xs.length, ys.length];
+        return nx === ny ? (
+            nx > 0 ? (
+                xs[0] === ys[0] && EqArray(xs.slice(1), ys.slice(1))
+            ) : true
+        ) : false;
+    };
+
+    // GENERIC FUNCTIONS
+
+    // zip :: [a] -> [b] -> [(a,b)]
+    const zip = (xs, ys) =>
+        xs.slice(0, Math.min(xs.length, ys.length))
+        .map((x, i) => [x, ys[i]]);
+
+    // concat :: [[a]] -> [a]
+    const concat = xs => [].concat.apply([], xs);
+
+    // splitAt :: Int -> [a] -> ([a],[a])
+    const splitAt = (n, xs) => [xs.slice(0, n), xs.slice(n)];
+
+    // div :: Num -> Num -> Int
+    const div = (x, y) => Math.floor(x / y);
+
+    // until :: (a -> Bool) -> (a -> a) -> a -> a
+    const until = (p, f, x) => {
+        const go = x => p(x) ? x : go(f(x));
+        return go(x);
+    }
+
+    // range :: Int -> Int -> [Int]
+    const range = (m, n) =>
+        Array.from({
+            length: Math.floor(n - m) + 1
+        }, (_, i) => m + i);
+
+    // length :: [a] -> Int
+    // length :: Text -> Int
+    const length = xs => xs.length;
+
+    // maximumBy :: (a -> a -> Ordering) -> [a] -> a
+    const maximumBy = (f, xs) =>
+        xs.reduce((a, x) => a === undefined ? x : (
+            f(x, a) > 0 ? x : a
+        ), undefined);
+
+    // transpose :: [[a]] -> [[a]]
+    const transpose = xs =>
+        xs[0].map((_, iCol) => xs.map((row) => row[iCol]));
+
+    // show :: a -> String
+    const show = x => JSON.stringify(x, null, 2);
+
+    // replicateS :: Int -> String -> String
+    const replicateS = (n, s) => {
+        let v = s,
+            o = '';
+        if (n < 1) return o;
+        while (n > 1) {
+            if (n & 1) o = o.concat(v);
+            n >>= 1;
+            v = v.concat(v);
+        }
+        return o.concat(v);
+    };
+
+    // justifyRight :: Int -> Char -> Text -> Text
+    const justifyRight = (n, cFiller, strText) =>
+        n > strText.length ? (
+            (replicateS(n, cFiller) + strText)
+            .slice(-n)
+        ) : strText;
+
+    // TEST
+    return transpose(transpose([
+                ['Deck', 'Shuffles']
+            ].concat(
+                [8, 24, 52, 100, 1020, 1024, 10000]
+                .map(n => [n.toString(), shuffleCycleLength(n)
+                    .toString()
+                ])))
+            .map(col => { // Right-justified number columns
+                const width = length(
+                    maximumBy((a, b) => length(a) - length(b), col)
+                ) + 2;
+
+                return col.map(x => justifyRight(width, ' ', x));
+            }))
+        .map(row => row.join(''))
+        .join('\n');
+})();</lang>
+
+{{Out}}
+<pre>   Deck  Shuffles
+      8         3
+     24        11
+     52         8
+    100        30
+   1020      1018
+   1024        10
+  10000       300</pre>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

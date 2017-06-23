@@ -1,0 +1,158 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Trabb Pardo–Knuth algorithm
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <p class="rosetta__paragraph">The TPK algorithm is an early example of a programming chrestomathy.</p>
+/// <p class="rosetta__paragraph">It was used in Donald Knuth and Luis Trabb Pardo's Stanford tech report <a class="rosetta__link--wiki" href="http://bitsavers.org/pdf/stanford/cs_techReports/STAN-CS-76-562_EarlyDevelPgmgLang_Aug76.pdf" title="link: http://bitsavers.org/pdf/stanford/cs_techReports/STAN-CS-76-562_EarlyDevelPgmgLang_Aug76.pdf">The Early Development of Programming Languages</a>.</p>
+/// <p class="rosetta__paragraph">The report traces the early history of work in developing computer languages in the 1940s and 1950s, giving several translations of the algorithm.</p><br/><p class="rosetta__paragraph">From the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Trabb Pardo–Knuth algorithm" title="wp: Trabb Pardo–Knuth algorithm">wikipedia entry</a>:</p><br/><p class="rosetta__paragraph"><span class="rosetta__text--bold">ask</span> for 11 numbers to be read into a sequence <span class="rosetta__text--italic">S</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">reverse</span> sequence <span class="rosetta__text--italic">S</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">for each</span> <span class="rosetta__text--italic">item</span> <span class="rosetta__text--bold">in</span> sequence <span class="rosetta__text--italic">S</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--italic">result</span> <span class="rosetta__text--bold">:=</span> <span class="rosetta__text--bold">call</span> a function to do an <span class="rosetta__text--italic">operation</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">if</span> <span class="rosetta__text--italic">result</span> overflows</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">alert</span> user</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">else</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">print</span> <span class="rosetta__text--italic">result</span></p><br/><p class="rosetta__paragraph">The task is to implement the algorithm:</p>
+/// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">Use the function:   <big>$f(x) = |x|^{0.5} + 5x^3$</big></li>
+/// <li class="rosetta__list-item--ordered">The overflow condition is an answer of greater than 400.</li>
+/// <li class="rosetta__list-item--ordered">The 'user alert' should not stop processing of other items of the sequence.</li>
+/// <li class="rosetta__list-item--ordered">Print a prompt before accepting <span class="rosetta__text--bold">eleven</span>, textual, numeric inputs.</li>
+/// <li class="rosetta__list-item--ordered">You may optionally print the item as well as its associated result, but the results must be in reverse order of input.</li>
+/// <li class="rosetta__list-item--ordered">The sequence S may be 'implied' and so not shown explicitly.</li>
+/// <li class="rosetta__list-item--ordered"><span class="rosetta__text--italic">Print and show the program in action from a typical run here</span>. (If the output is graphical rather than text then either add a screendump or describe textually what is displayed).</li></ol><br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+#!/usr/bin/env js
+
+function main() {
+    var nums = getNumbers(11);
+    nums.reverse();
+    for (var i in  nums) {
+        pardoKnuth(nums[i], fn, 400);
+    }
+}
+
+function pardoKnuth(n, f, max) {
+    var res = f(n);
+    putstr('f(' + String(n) + ')');
+    if (res > max) {
+        print(' is too large');
+    } else {
+        print(' = ' + String(res));
+    } 
+}
+
+function fn(x) {
+    return Math.pow(Math.abs(x), 0.5) + 5 * Math.pow(x, 3);
+}
+
+function getNumbers(n) {
+    var nums = [];
+    print('Enter', n, 'numbers.');
+    for (var i = 1; i <= n; i++) {
+        putstr('   ' + i + ': ');
+        var num = readline();
+        nums.push(Number(num));        
+    }
+    return nums;
+}
+
+main();
+
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+
+=== Spidermonkey ===
+<lang javascript>#!/usr/bin/env js
+
+function main() {
+    var nums = getNumbers(11);
+    nums.reverse();
+    for (var i in  nums) {
+        pardoKnuth(nums[i], fn, 400);
+    }
+}
+
+function pardoKnuth(n, f, max) {
+    var res = f(n);
+    putstr('f(' + String(n) + ')');
+    if (res > max) {
+        print(' is too large');
+    } else {
+        print(' = ' + String(res));
+    } 
+}
+
+function fn(x) {
+    return Math.pow(Math.abs(x), 0.5) + 5 * Math.pow(x, 3);
+}
+
+function getNumbers(n) {
+    var nums = [];
+    print('Enter', n, 'numbers.');
+    for (var i = 1; i <= n; i++) {
+        putstr('   ' + i + ': ');
+        var num = readline();
+        nums.push(Number(num));        
+    }
+    return nums;
+}
+
+main();
+</lang>
+
+Results:
+ Enter 11 numbers.
+    1: 1
+    2: 2
+    3: 3
+    4: 4
+    5: 5
+    6: 6
+    7: 7
+    8: 8
+    9: 9
+    10: 10
+    11: 11
+ f(11)  is too large
+ f(10)  is too large
+ f(9)  is too large
+ f(8)  is too large
+ f(7)  is too large
+ f(6)  is too large
+ f(5)  is too large
+ f(4) = 322
+ f(3) = 136.73205080756887
+ f(2) = 41.41421356237309
+ f(1) = 6
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

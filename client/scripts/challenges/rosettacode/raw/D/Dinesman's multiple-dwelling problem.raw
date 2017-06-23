@@ -1,0 +1,241 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Dinesman's multiple-dwelling problem
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task</dt></dl>
+/// <p class="rosetta__paragraph">Solve Dinesman's multiple dwelling <a class="rosetta__link--wiki" href="http://mitpress.mit.edu/sicp/full-text/book/book-Z-H-28.html#%_sec_4.3.2" title="link: http://mitpress.mit.edu/sicp/full-text/book/book-Z-H-28.html#%_sec_4.3.2">problem</a> but in a way that most naturally follows the problem statement given below.</p><br/><p class="rosetta__paragraph">Solutions are allowed (but not required) to parse and interpret the problem text, but should remain flexible and should state what changes to the problem text are allowed. Flexibility and ease of expression are valued.</p><br/><p class="rosetta__paragraph">Examples may be be split into "setup", "problem statement", and "output" sections where the ease and naturalness of stating the problem and getting an answer, as well as the ease and flexibility of modifying the problem are the primary concerns.</p><br/><p class="rosetta__paragraph">Example output should be shown here, as well as any comments on the examples flexibility.</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">The problem</dt></dl>
+/// <p class="rosetta__paragraph">Baker, Cooper, Fletcher, Miller, and Smith live on different floors of an apartment house that contains only five floors.<br></p>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Baker does not live on the top floor.</li>
+/// <li class="rosetta__list-item--unordered">Cooper does not live on the bottom floor. </li>
+/// <li class="rosetta__list-item--unordered">Fletcher does not live on either the top or the bottom floor.</li>
+/// <li class="rosetta__list-item--unordered">Miller lives on a higher floor than does Cooper.</li>
+/// <li class="rosetta__list-item--unordered">Smith does not live on a floor adjacent to Fletcher's. </li>
+/// <li class="rosetta__list-item--unordered">Fletcher does not live on a floor adjacent to Cooper's.<br><br></li></ul><span class="rosetta__text--italic">Where does everyone live?</span><br>
+/// <br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+(() => {
+    'use strict';
+
+    // concatMap :: (a -> [b]) -> [a] -> [b]
+    const concatMap = (f, xs) => [].concat.apply([], xs.map(f));
+
+    // range :: Int -> Int -> [Int]
+    const range = (m, n) =>
+        Array.from({
+            length: Math.floor(n - m) + 1
+        }, (_, i) => m + i);
+
+    // and :: [Bool] -> Bool
+    const and = xs => {
+        let i = xs.length;
+        while (i--)
+            if (!xs[i]) return false;
+        return true;
+    }
+
+    // nubBy :: (a -> a -> Bool) -> [a] -> [a]
+    const nubBy = (p, xs) => {
+        const x = xs.length ? xs[0] : undefined;
+        return x !== undefined ? [x].concat(
+            nubBy(p, xs.slice(1)
+                .filter(y => !p(x, y)))
+        ) : [];
+    }
+
+    // PROBLEM DECLARATION
+
+    const floors = range(1, 5);
+
+    return  concatMap(b =>
+            concatMap(c =>
+            concatMap(f =>
+            concatMap(m =>
+            concatMap(s =>
+                and([ // CONDITIONS
+                    nubBy((a, b) => a === b, [b, c, f, m, s]) // all floors singly occupied
+                    .length === 5,
+                    b !== 5, c !== 1, f !== 1, f !== 5,
+                    m > c, Math.abs(s - f) > 1, Math.abs(c - f) > 1
+                ]) ? [{
+                    Baker: b,
+                    Cooper: c,
+                    Fletcher: f,
+                    Miller: m,
+                    Smith: s
+                }] : [],
+                floors), floors), floors), floors), floors);
+
+    // --> [{"Baker":3, "Cooper":2, "Fletcher":4, "Miller":5, "Smith":1}]
+})();
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+
+===ES6===
+
+====More flexibility====
+
+(Full occupancy and no cohabitation included in the predicate)
+
+The generality of nesting '''concatMap''', and returning values enclosed in a list (empty where the test fails, populated otherwise), is the same as that of a using a list comprehension, to which it is formally equivalent. (concatMap is the bind operator for the list monad, and '''(a -> [a])''' is the type of the 'return' function for a list monad. The effect is to define a cartesian product, and apply a predicate to each member of that product. Any empty lists returned where a predicate yields ''false'' are eliminated by the concatenation component of concatMap.
+
+The predicates here can be varied, and the depth of concatMap nestings can be adjusted to match the number of unknowns in play, with each concatMap binding one name, and defining the list of its possible values.
+
+<lang JavaScript>(() => {
+    'use strict';
+
+    // concatMap :: (a -> [b]) -> [a] -> [b]
+    const concatMap = (f, xs) => [].concat.apply([], xs.map(f));
+
+    // range :: Int -> Int -> [Int]
+    const range = (m, n) =>
+        Array.from({
+            length: Math.floor(n - m) + 1
+        }, (_, i) => m + i);
+
+    // and :: [Bool] -> Bool
+    const and = xs => {
+        let i = xs.length;
+        while (i--)
+            if (!xs[i]) return false;
+        return true;
+    }
+
+    // nubBy :: (a -> a -> Bool) -> [a] -> [a]
+    const nubBy = (p, xs) => {
+        const x = xs.length ? xs[0] : undefined;
+        return x !== undefined ? [x].concat(
+            nubBy(p, xs.slice(1)
+                .filter(y => !p(x, y)))
+        ) : [];
+    }
+
+    // PROBLEM DECLARATION
+
+    const floors = range(1, 5);
+
+    return  concatMap(b =>
+            concatMap(c =>
+            concatMap(f =>
+            concatMap(m =>
+            concatMap(s =>
+                and([ // CONDITIONS
+                    nubBy((a, b) => a === b, [b, c, f, m, s]) // all floors singly occupied
+                    .length === 5,
+                    b !== 5, c !== 1, f !== 1, f !== 5,
+                    m > c, Math.abs(s - f) > 1, Math.abs(c - f) > 1
+                ]) ? [{
+                    Baker: b,
+                    Cooper: c,
+                    Fletcher: f,
+                    Miller: m,
+                    Smith: s
+                }] : [],
+                floors), floors), floors), floors), floors);
+
+    // --> [{"Baker":3, "Cooper":2, "Fletcher":4, "Miller":5, "Smith":1}]
+})();</lang>
+
+{{Out}}
+<lang JavaScript>[{"Baker":3, "Cooper":2, "Fletcher":4, "Miller":5, "Smith":1}]</lang>
+
+====Less flexibility====
+
+For a different trade-off between efficiency and generality, we can take full occupancy and no cohabitation out of the predicate, and assume them in the shape of the search space.
+
+In the version above, with nested applications of concatMap, the requirement that all apartments are occupied by one person only is included in the test conditions. 
+Alternatively, we can remove any flexibility about such civic virtues from the predicate, and restrict the universe of conceivable living arrangements, by using concatMap just once, and applying it only to the various permutations of full and distinct occupancy. 
+
+ES6 splat assignment allows us to bind all five names in a single application of concatMap. We now also need a '''permutations''' function of some kind.
+
+<lang JavaScript>(() => {
+    'use strict';
+
+    // concatMap :: (a -> [b]) -> [a] -> [b]
+    const concatMap = (f, xs) => [].concat.apply([], xs.map(f));
+
+    // range :: Int -> Int -> [Int]
+    const range = (m, n) =>
+        Array.from({
+            length: Math.floor(n - m) + 1
+        }, (_, i) => m + i);
+
+    // and :: [Bool] -> Bool
+    const and = xs => {
+        let i = xs.length;
+        while (i--)
+            if (!xs[i]) return false;
+        return true;
+    }
+
+    // permutations :: [a] -> [[a]]
+    const permutations = xs =>
+        xs.length ? concatMap(x => concatMap(ys => [
+                [x].concat(ys)
+            ],
+            permutations(delete_(x, xs))), xs) : [
+            []
+        ];
+
+    // delete :: a -> [a] -> [a]
+    const delete_ = (x, xs) =>
+        deleteBy((a, b) => a === b, x, xs);
+
+    // deleteBy :: (a -> a -> Bool) -> a -> [a] -> [a]
+    const deleteBy = (f, x, xs) =>
+        xs.reduce((a, y) => f(x, y) ? a : a.concat(y), []);
+
+    // PROBLEM DECLARATION
+
+    const floors = range(1, 5);
+
+    return concatMap(([c, b, f, m, s]) =>
+        and([ // CONDITIONS (assuming full occupancy, no cohabitation)
+            b !== 5, c !== 1, f !== 1, f !== 5,
+            m > c, Math.abs(s - f) > 1, Math.abs(c - f) > 1
+        ]) ? [{
+            Baker: b,
+            Cooper: c,
+            Fletcher: f,
+            Miller: m,
+            Smith: s
+        }] : [], permutations(floors));
+
+    // --> [{"Baker":3, "Cooper":2, "Fletcher":4, "Miller":5, "Smith":1}]
+})();
+</lang>
+
+<lang JavaScript>[{"Baker":3, "Cooper":2, "Fletcher":4, "Miller":5, "Smith":1}]</lang>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

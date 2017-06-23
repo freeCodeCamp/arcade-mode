@@ -1,0 +1,95 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Create an object at a given address
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><br/><p class="rosetta__paragraph">In systems programing it is sometimes required to place language objects at specific memory locations, like I/O registers, hardware interrupt vectors etc.</p><br/><p class="rosetta__paragraph"><span class="rosetta__text--bold">Task</span></p><br/><p class="rosetta__paragraph">Show how language objects can be allocated at a specific machine addresses.</p><br/><p class="rosetta__paragraph">Since most <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/OS" title="OS">OS</a>es prohibit access to the physical memory if it is not mapped by the application, as an example, rather than a physical address, take the address of some existing object (using suitable <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Address Operations" title="Address Operations">address operations</a> if necessary). For example, create an integer object. Print the machine address of the object. Take the address of the object and create another integer object at this address. Print the value of this object to verify that it is same as one of the origin. Change the value of the origin and verify it again.</p>
+/// <br/><br/><p class="rosetta__paragraph">====</p>
+/// <p class="rosetta__paragraph">In <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/6502 Assembly" title="6502 Assembly">6502 Assembly</a> memory is represented by either an 8-bit or a 16-bit address (i.e. $0000 - $FFFF). 8-bit address are reserved for the memory from $00 to $FF - known as zero page; access to this memory takes one less byte in the opcode and one less cycle to execute.</p><br/><p class="rosetta__paragraph">Data can be stored, one byte at a time, through the store instructions, for example to store data at $1900:</p>
+/// <p class="rosetta__paragraph"><lang 6502asm>        sta $1900</p>
+/// <p class="rosetta__paragraph">stx $1901</p>
+/// <p class="rosetta__paragraph">sty $1902</lang></p><br/><p class="rosetta__paragraph">Storage can be indexed through the use of the X or Y registers:</p>
+/// <p class="rosetta__paragraph"><lang 6502asm>        ldx #54</p>
+/// <p class="rosetta__paragraph">.loop   sta $1900,X</p>
+/// <p class="rosetta__paragraph">dex</p>
+/// <p class="rosetta__paragraph">bne loop</lang></p><br/><p class="rosetta__paragraph">It can also be stored via indirect indexed addressing (i.e. memory points to an address), using the Y register:</p>
+/// <p class="rosetta__paragraph"><lang 6502asm>        lda #0</p>
+/// <p class="rosetta__paragraph">sta $70</p>
+/// <p class="rosetta__paragraph">lda #$20</p>
+/// <p class="rosetta__paragraph">sta $71</p>
+/// <p class="rosetta__paragraph">ldy #0</p>
+/// <p class="rosetta__paragraph">sta ($70),Y</lang></p><br/><p class="rosetta__paragraph">Finally, it can be stored via indexed indirect addressing (i.e. read the address of memory from the table stored at the parameter), using the X register:</p>
+/// <p class="rosetta__paragraph"><lang 6502asm>        lda #0</p>
+/// <p class="rosetta__paragraph">sta $70</p>
+/// <p class="rosetta__paragraph">lda #$20</p>
+/// <p class="rosetta__paragraph">sta $71</p>
+/// <p class="rosetta__paragraph">ldx #0</p>
+/// <p class="rosetta__paragraph">sta ($70,X)</lang></p><br/><p class="rosetta__paragraph">It should be noted that on the 6502 processor hardware is normally memory mapped, so this is often used for manipulating hardware.</p><br/><p class="rosetta__paragraph">====</p>
+/// <p class="rosetta__paragraph">In <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Ada" title="Ada">Ada</a> object address can be specified using the address representation clause <a class="rosetta__link--wiki" href="http://www.adaic.org/standards/05rm/html/RM-13-3.html" title="link: http://www.adaic.org/standards/05rm/html/RM-13-3.html">RM 13.3</a>:</p>
+/// <p class="rosetta__paragraph"><lang ada></p>
+/// <p class="rosetta__paragraph">type IO_Port is mod 2**8; -- One byte</p>
+/// <p class="rosetta__paragraph">Device_Port : type IO_Port;</p>
+/// <p class="rosetta__paragraph">for Device_Port'Address use 16#FFFF_F000#;</p>
+/// </lang>
+/// <p class="rosetta__paragraph">In the example above the address is specified constant. It is also possible to specify address dynamically as the following solution of the task does:</p>
+/// <p class="rosetta__paragraph"><lang ada></p>
+/// <p class="rosetta__paragraph">with Ada.Text_IO;              use Ada.Text_IO;</p>
+/// <p class="rosetta__paragraph">with System.Storage_Elements;  use System.Storage_Elements;</p><br/><p class="rosetta__paragraph">procedure Test_Address is</p>
+/// <p class="rosetta__paragraph">X : Integer := 123;</p>
+/// <p class="rosetta__paragraph">Y : Integer;</p>
+/// <p class="rosetta__paragraph">for Y'Address use X'Address;</p>
+/// <p class="rosetta__paragraph">begin</p>
+/// <p class="rosetta__paragraph">Put_Line ("At address:" & Integer_Address'Image (To_Integer (Y'Address)));</p>
+/// <p class="rosetta__paragraph">Put_Line (Integer'Image (Y));</p>
+/// <p class="rosetta__paragraph">X := 456;</p>
+/// <p class="rosetta__paragraph">Put_Line (Integer'Image (Y));</p>
+/// <p class="rosetta__paragraph">end Test_Address;</p>
+/// </lang>
+/// <p class="rosetta__paragraph">Sample output:</p>
+/// <div class="rosetta__pre-wrap"><pre class="rosetta__pre">
+/// At address: 38207236
+///  123
+///  456
+/// </pre></div>
+/// <p class="rosetta__paragraph">====</p>
+/// <p class="rosetta__paragraph">Aikido doesn't support getting the address of a variable.  However, in the spirit of this task, it does support raw memory access using <code>peek</code> and <code>poke</code>.  These can be used on both an integer representing an address (64 bit) or a value obtained from calling <code>malloc</code>.</p>
+/// <p class="rosetta__paragraph"><lang aikido></p><br/><p class="rosetta__paragraph">var portaddr = 0x80</p>
+/// <p class="rosetta__paragraph">var v = peek (portaddr, 1)   // 1 byte</p>
+/// <p class="rosetta__paragraph">v |= 0x40</p>
+/// <p class="rosetta__paragraph">poke (portaddr, v, 1) // 1 byte back again</p><br/><p class="rosetta__paragraph">var addr = malloc (16)</p>
+/// <p class="rosetta__paragraph">poke (addr, 1234, 4)</p>
+/// <p class="rosetta__paragraph">poke (addr+4, 0, 2)</p>
+/// <p class="rosetta__paragraph">poke (addr+6, 12, 2)</p><br/></lang><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

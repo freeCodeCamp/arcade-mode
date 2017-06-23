@@ -1,0 +1,87 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Averages/Root mean square
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <br/>
+/// <p class="rosetta__paragraph">Compute the  <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Root mean square" title="wp: Root mean square">Root mean square</a>  of the numbers 1..10.</p>
+/// <br/><p class="rosetta__paragraph">The  <span class="rosetta__text--italic">root mean square</span>  is also known by its initials RMS (or rms), and as the <span class="rosetta__text--bold">quadratic mean</span>.</p><br/><p class="rosetta__paragraph">The RMS is calculated as the mean of the squares of the numbers, square-rooted:</p>
+/// <br/><p class="rosetta__paragraph"><span class="rosetta__text--indented">:: <big>$x_{\mathrm{rms}} = \sqrt {{{x_1}^2 + {x_2}^2 + \cdots + {x_n}^2} \over n}. $</big></span></p>
+/// <br/>
+/// <br/>
+/// <br><hr><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+function root_mean_square(ary) {
+    var sum_of_squares = ary.reduce(function(s,x) {return (s + x*x)}, 0);
+    return Math.sqrt(sum_of_squares / ary.length);
+}
+
+print( root_mean_square([1,2,3,4,5,6,7,8,9,10]) ); // ==> 6.2048368229954285
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+===ES5===
+{{works with|JavaScript|1.8}}
+{{works with|Firefox|3.0}}
+<lang javascript>function root_mean_square(ary) {
+    var sum_of_squares = ary.reduce(function(s,x) {return (s + x*x)}, 0);
+    return Math.sqrt(sum_of_squares / ary.length);
+}
+
+print( root_mean_square([1,2,3,4,5,6,7,8,9,10]) ); // ==> 6.2048368229954285</lang>
+
+
+===ES6===
+
+<lang JavaScript>(() => {
+    'use strict';
+ 
+ 
+    // rootMeanSquare :: [Num] -> Real
+    const rootMeanSquare = xs => 
+       Math.sqrt(
+            xs.reduce(
+                (a, x) => (a + x * x),
+                0
+           ) / xs.length
+        );
+ 
+     
+    return rootMeanSquare([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+    
+     // -> 6.2048368229954285
+})();</lang>
+
+{{Out}}
+<pre>6.2048368229954285</pre>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,0 +1,213 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Partial function application
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><br/><p class="rosetta__paragraph"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Partial application" title="wp: Partial application">Partial function application</a>  is the ability to take a function of many</p>
+/// <p class="rosetta__paragraph">parameters and apply arguments to some of the parameters to create a new</p>
+/// <p class="rosetta__paragraph">function that needs only the application of the remaining arguments to</p>
+/// <p class="rosetta__paragraph">produce the equivalent of applying all arguments to the original function.</p><br/><p class="rosetta__paragraph">E.g:</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented"> Given values <code>v1, v2</code></span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented"> Given <code>f(param1, param2)</code></span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented"> Then  <code>partial(f, param1=v1)</code> returns <code>f'(param2)</code></span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented"> And   <code>f(param1=v1, param2=v2) == f'(param2=v2)</code> (for any value v2)</span></p>
+/// <br/><p class="rosetta__paragraph">Note that in the partial application of a parameter, (in the above case param1), other parameters are not explicitly mentioned. This is a recurring feature of partial function application.</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task </dt></dl>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Create a function fs( f, s ) that takes a function, f( n ), of one value and a sequence of values s.<br> Function fs should return an ordered sequence of the result of applying function f to every value of s in turn.</li></ul>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Create function f1 that takes a value and returns it multiplied by 2.</li>
+/// <li class="rosetta__list-item--unordered">Create function f2 that takes a value and returns it squared.</li></ul>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Partially apply f1 to fs to form function fsf1( s )</li>
+/// <li class="rosetta__list-item--unordered">Partially apply f2 to fs to form function fsf2( s )</li></ul>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Test fsf1 and fsf2 by evaluating them with s being the sequence of integers from 0 to 3 inclusive and then the sequence of even integers from 2 to 8 inclusive.</li></ul><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Notes</dt></dl>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">In partially applying the functions f1 or f2 to fs, there should be no <span class="rosetta__text--italic">explicit</span> mention of any other parameters to fs, although introspection of fs within the partial applicator to find its parameters <span class="rosetta__text--italic">is</span> allowed.</li>
+/// <li class="rosetta__list-item--unordered">This task is more about <span class="rosetta__text--italic">how</span> results are generated rather than just getting results.</li></ul><br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+var f1 = function (x) { return x * 2; },
+    f2 = function (x) { return x * x; },
+
+    fs = function (f, s) {
+        return function (s) {
+            return s.map(f);
+        }
+    },
+
+    fsf1 = fs(f1),
+    fsf2 = fs(f2);
+
+// Test
+    [
+        fsf1([0, 1, 2, 3]),
+        fsf2([0, 1, 2, 3]),
+		
+        fsf1([2, 4, 6, 8]),
+        fsf2([2, 4, 6, 8])
+    ]
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+===ES5===
+Higher order functions are part of the core architecture of JavaScript.
+
+(No special libraries are required for the creation or application of partial functions)
+
+<lang JavaScript>var f1 = function (x) { return x * 2; },
+    f2 = function (x) { return x * x; },
+
+    fs = function (f, s) {
+        return function (s) {
+            return s.map(f);
+        }
+    },
+
+    fsf1 = fs(f1),
+    fsf2 = fs(f2);
+
+// Test
+    [
+        fsf1([0, 1, 2, 3]),
+        fsf2([0, 1, 2, 3]),
+		
+        fsf1([2, 4, 6, 8]),
+        fsf2([2, 4, 6, 8])
+    ]</lang>
+
+Output:
+
+<pre>[[0, 2, 4, 6], [0, 1, 4, 9], [4, 8, 12, 16], [4, 16, 36, 64]]</pre>
+
+For additional flexibility ( allowing for an arbitrary number of arguments in applications of a partially applied function, and dropping the square brackets from the function calls in the tests above ) we can make use of the array-like ''arguments'' object, which is a property of any JavaScript function.
+
+<lang JavaScript>var f1 = function (x) { return x * 2; },
+    f2 = function (x) { return x * x; },
+
+    fs = function (f) {
+        return function () {
+            return Array.prototype.slice.call(
+                arguments
+            ).map(f);
+        }
+    },
+
+    fsf1 = fs(f1),
+    fsf2 = fs(f2);
+
+// Test alternative approach, with arbitrary numbers of arguments
+    [
+        fsf1(0, 1, 2, 3, 4),
+        fsf2(0, 1, 2),
+        fsf1(2, 4, 6, 8, 10, 12),
+        fsf2(2, 4, 6, 8)
+    ]</lang>
+
+Output:
+
+<pre>[[0, 2, 4, 6, 8], [0, 1, 4], [4, 8, 12, 16, 20, 24], [4, 16, 36, 64]]</pre>
+
+===ES6===
+====Simple curry====
+<lang JavaScript>(() => {
+    'use strict';
+
+    // GENERIC FUNCTIONS ------------------------------------------------------
+
+    // curry :: ((a, b) -> c) -> a -> b -> c
+    const curry = f => a => b => f(a, b);
+
+    // map :: (a -> b) -> [a] -> [b]
+    const map = curry((f, xs) => xs.map(f));
+
+
+    // PARTIAL APPLICATION ----------------------------------------------------
+
+    const
+        f1 = x => x * 2,
+        f2 = x => x * x,
+
+        fs = map,
+
+        fsf1 = fs(f1),
+        fsf2 = fs(f2);
+
+    // TEST -------------------------------------------------------------------
+    return [
+        fsf1([0, 1, 2, 3]),
+        fsf2([0, 1, 2, 3]),
+
+        fsf1([2, 4, 6, 8]),
+        fsf2([2, 4, 6, 8])
+    ];
+})();</lang>
+{{Out}}
+<pre>[[0, 2, 4, 6], [0, 1, 4, 9], [4, 8, 12, 16], [4, 16, 36, 64]]</pre>
+====Generic curry====
+The simple version of the higher-order '''curry''' function above works only on functions with two arguments. For more flexibility, we can generalise it to a form which curries functions with an arbitrary number of arguments:
+
+<lang JavaScript>(() => {
+    'use strict';
+
+    // GENERIC FUNCTIONS ------------------------------------------------------
+
+    // 2 or more arguments
+    // curry :: Function -> Function
+    const curry = (f, ...args) => {
+        const go = xs => xs.length >= f.length ? (f.apply(null, xs)) :
+            function () {
+                return go(xs.concat(Array.from(arguments)));
+            };
+        return go([].slice.call(args, 1));
+    };
+
+    // map :: (a -> b) -> [a] -> [b]
+    const map = curry((f, xs) => xs.map(f));
+
+    // PARTIAL APPLICATION ----------------------------------------------------
+    const
+        f1 = x => x * 2,
+        f2 = x => x * x,
+
+        fs = map,
+
+        fsf1 = fs(f1),
+        fsf2 = fs(f2);
+
+    // TEST -------------------------------------------------------------------
+    return [
+        fsf1([0, 1, 2, 3]),
+        fsf2([0, 1, 2, 3]),
+
+        fsf1([2, 4, 6, 8]),
+        fsf2([2, 4, 6, 8])
+    ];
+})();</lang>
+{{Out}}
+<pre>[[0, 2, 4, 6], [0, 1, 4, 9], [4, 8, 12, 16], [4, 16, 36, 64]]</pre>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

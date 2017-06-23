@@ -1,0 +1,161 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Babbage problem
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <p class="rosetta__paragraph"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:Babbage.jpg" title="File:Babbage.jpg">300px||right|Charles Babbage</a></p>
+/// <p class="rosetta__paragraph"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:Babbage engine.jpg" title="File:Babbage engine.jpg">300px||right|Charles Babbage's analytical engine.</a></p><br/><p class="rosetta__paragraph"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Charles_Babbage" title="wp: Charles_Babbage">Charles Babbage</a>, looking ahead to the sorts of problems his Analytical Engine would be able to solve, gave this example:</p>
+/// <p class="rosetta__paragraph">{{quote</p>
+/// <p class="rosetta__paragraph">| What is the smallest positive integer whose square ends in the digits 269,696?</p>
+/// <p class="rosetta__paragraph">| Babbage, letter to Lord Bowden, 1837; see Hollingdale and Tootill, <i>Electronic Computers</i>, second edition, 1970, p. 125.</p>
+/// <p class="rosetta__paragraph">}}</p>
+/// <p class="rosetta__paragraph">He thought the answer might be 99,736, whose square is 9,947,269,696; but he couldn't be certain.</p>
+/// <br/><br/><p class="rosetta__paragraph">The task is to find out if Babbage had the right answer — and to do so, as far as your language allows it, in code that Babbage himself would have been able to read and understand.</p><br/><p class="rosetta__paragraph">For these purposes, Charles Babbage may be taken to be an intelligent person, familiar with mathematics and with the idea of a computer, who has never programmed—in fact, who has never so much as seen a single line of code.</p>
+/// <br/><br/><p class="rosetta__paragraph">The aim of the task is to write a program that is sufficiently clear and well-documented for such a person to be able to read it and be confident that it does indeed solve the specified problem.</p>
+/// <br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+// Every line starting with a double slash will be ignored by the processing machine,
+// just like these two.
+//
+// Since the square root of 269,696 is approximately 519, we create a variable named "n"
+// and give it this value.
+  n = 519
+
+// The while-condition is in parentheses
+// * is for multiplication
+// % is for modulo operation
+// != is for "not equal"
+  while ( ((n * n) % 1000000) != 269696 )
+    n = n + 1
+
+// n is incremented until the while-condition is met, so n should finally be the
+// smallest positive integer whose square ends in the digits 269,696. To see n, we
+// need to send it to the monitoring device (named console).
+  console.log(n)
+
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+====Iteration====
+<lang javascript>// Every line starting with a double slash will be ignored by the processing machine,
+// just like these two.
+//
+// Since the square root of 269,696 is approximately 519, we create a variable named "n"
+// and give it this value.
+  n = 519
+
+// The while-condition is in parentheses
+// * is for multiplication
+// % is for modulo operation
+// != is for "not equal"
+  while ( ((n * n) % 1000000) != 269696 )
+    n = n + 1
+
+// n is incremented until the while-condition is met, so n should finally be the
+// smallest positive integer whose square ends in the digits 269,696. To see n, we
+// need to send it to the monitoring device (named console).
+  console.log(n)
+</lang>
+====Array constructor====
+
+JavaScript's Array constructor lets us filter an array automatically populated with a function of the element index. This proves faster than setting up and running a while loop test, and we can make it particularly efficient by testing the potential squares rather than the potential roots. 
+
+Starting with numbers which end in 269696, and filtering for those which have integer roots, so that we reach '''25264 ^2 -> 638269696''' after only 638 tests.
+
+{{works with|ES6}}
+<lang JavaScript>(() => {
+    // BABBAGE ---------------------------------------------------------------
+
+    // babbageNumbers :: Int -> [(Int, Int)]
+    const babbageNumbers = intTests => {
+        return map(x => [Math.sqrt(x), x], filter(
+            hasIntegerRoot,
+            takeNfromSeries(intTests, x => (x * 1000000) + 269696)
+        ));
+    };
+
+    // hasIntegerRoot :: Int -> Bool
+    const hasIntegerRoot = n => {
+        const r = Math.sqrt(n);
+        return Math.floor(r) === r;
+    };
+
+    // takeNFromSeries :: Int -> (Int -> a) -> [a]
+    const takeNfromSeries = (n, f) =>
+        Array.from({
+            length: n
+        }, (_, i) => f(i));
+
+    // GENERIC FUNCTIONS -----------------------------------------------------
+
+    // curry :: ((a, b) -> c) -> a -> b -> c
+    const curry = f => a => b => f(a, b);
+
+    // filter :: (a -> Bool) -> [a] -> [a]
+    const filter = (f, xs) => xs.filter(f);
+
+    // intercalate :: String -> [a] -> String
+    const intercalate = (s, xs) => xs.join(s);
+
+    // map :: (a -> b) -> [a] -> [b]
+    const map = (f, xs) => xs.map(f);
+
+    // unlines :: [String] -> String
+    const unlines = xs => xs.join('\n');
+
+    // TEST ------------------------------------------------------------------
+    return unlines(
+        map(
+            curry(intercalate)(' ^2 -> '),
+            babbageNumbers(1000000) // Testing 10^6 numbers ending in 269696
+        )
+    );
+})();</lang>
+{{Out}}
+<pre>25264 ^2 -> 638269696
+99736 ^2 -> 9947269696
+150264 ^2 -> 22579269696
+224736 ^2 -> 50506269696
+275264 ^2 -> 75770269696
+349736 ^2 -> 122315269696
+400264 ^2 -> 160211269696
+474736 ^2 -> 225374269696
+525264 ^2 -> 275902269696
+599736 ^2 -> 359683269696
+650264 ^2 -> 422843269696
+724736 ^2 -> 525242269696
+775264 ^2 -> 601034269696
+849736 ^2 -> 722051269696
+900264 ^2 -> 810475269696
+974736 ^2 -> 950110269696</pre>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

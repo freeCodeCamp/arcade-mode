@@ -1,0 +1,931 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Sum to 100
+/// type: rosetta-code
+
+/// categories:
+/// Puzzles
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Find solutions to the  <span class="rosetta__text--italic">sum to one hundred</span>  puzzle.</p>
+/// <br/><p class="rosetta__paragraph">Add (insert) the mathematical</p>
+/// <p class="rosetta__paragraph">operators   <big> <span class="rosetta__text--bold">+</span> </big>  or  <big> <span class="rosetta__text--bold">─</span> </big>   (plus</p>
+/// <p class="rosetta__paragraph">or minus)  before any of the digits in the</p>
+/// <br>decimal numeric string  <big> <span class="rosetta__text--bold">123456789</span> </big>  such that the
+/// <p class="rosetta__paragraph">resulting mathematical expression adds up to a</p>
+/// <br>particular sum   (in this iconic case,  <span class="rosetta__text--bold">100</span>).
+/// <br/><p class="rosetta__paragraph">Example:</p>
+/// <p class="rosetta__paragraph"><b> <big>  123 + 4 - 5 + 67 - 89   =   100  </big> </b></p><br/><p class="rosetta__paragraph">Show all output here.</p>
+/// <br/><p class="rosetta__paragraph"><span class="rosetta__text--indented">*  Show all solutions that sum to  <big> <span class="rosetta__text--bold">100</span> </big></span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">*  Show the sum that has the maximum  <span class="rosetta__text--italic">number</span>  of solutions  (from zero to infinity<sup>*</sup>)</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">*  Show the lowest positive sum that  <span class="rosetta__text--italic">can't</span>  be expressed  (has no solutions), using the rules for this task</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">*  Show the ten highest numbers that can be expressed using the rules for this task  (extra credit)</span></p>
+/// <br/><p class="rosetta__paragraph">An example of a sum that can't be expressed (within the rules of this task) is:  <span class="rosetta__text--bold">5074</span></p>
+/// <br>which, of course, is not the lowest positive sum that can't be expressed.
+/// <br/><p class="rosetta__paragraph"><sup>*</sup>  (where  <span class="rosetta__text--italic">infinity</span>  would be a relatively small  123,456,789)</p>
+/// <br><br>
+/// </div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+(function () {
+    'use strict';
+
+    // GENERIC FUNCTIONS ----------------------------------------------------
+
+    // permutationsWithRepetition :: Int -> [a] -> [[a]]
+    var permutationsWithRepetition = function (n, as) {
+        return as.length > 0 ?
+            foldl1(curry(cartesianProduct)(as), replicate(n, as)) : [];
+    };
+
+    // cartesianProduct :: [a] -> [b] -> [[a, b]]
+    var cartesianProduct = function (xs, ys) {
+        return [].concat.apply([], xs.map(function (x) {
+            return [].concat.apply([], ys.map(function (y) {
+                return [
+                    [x].concat(y)
+                ];
+            }));
+        }));
+    };
+
+    // curry :: ((a, b) -> c) -> a -> b -> c
+    var curry = function (f) {
+        return function (a) {
+            return function (b) {
+                return f(a, b);
+            };
+        };
+    };
+
+    // flip :: (a -> b -> c) -> b -> a -> c
+    var flip = function (f) {
+        return function (a, b) {
+            return f.apply(null, [b, a]);
+        };
+    };
+
+    // foldl1 :: (a -> a -> a) -> [a] -> a
+    var foldl1 = function (f, xs) {
+        return xs.length > 0 ? xs.slice(1)
+            .reduce(f, xs[0]) : [];
+    };
+
+    // replicate :: Int -> a -> [a]
+    var replicate = function (n, a) {
+        var v = [a],
+            o = [];
+        if (n < 1) return o;
+        while (n > 1) {
+            if (n & 1) o = o.concat(v);
+            n >>= 1;
+            v = v.concat(v);
+        }
+        return o.concat(v);
+    };
+
+    // group :: Eq a => [a] -> [[a]]
+    var group = function (xs) {
+        return groupBy(function (a, b) {
+            return a === b;
+        }, xs);
+    };
+
+    // groupBy :: (a -> a -> Bool) -> [a] -> [[a]]
+    var groupBy = function (f, xs) {
+        var dct = xs.slice(1)
+            .reduce(function (a, x) {
+                var h = a.active.length > 0 ? a.active[0] : undefined,
+                    blnGroup = h !== undefined && f(h, x);
+
+                return {
+                    active: blnGroup ? a.active.concat(x) : [x],
+                    sofar: blnGroup ? a.sofar : a.sofar.concat([a.active])
+                };
+            }, {
+                active: xs.length > 0 ? [xs[0]] : [],
+                sofar: []
+            });
+        return dct.sofar.concat(dct.active.length > 0 ? [dct.active] : []);
+    };
+
+    // compare :: a -> a -> Ordering
+    var compare = function (a, b) {
+        return a < b ? -1 : a > b ? 1 : 0;
+    };
+
+    // on :: (b -> b -> c) -> (a -> b) -> a -> a -> c
+    var on = function (f, g) {
+        return function (a, b) {
+            return f(g(a), g(b));
+        };
+    };
+
+    // nub :: [a] -> [a]
+    var nub = function (xs) {
+        return nubBy(function (a, b) {
+            return a === b;
+        }, xs);
+    };
+
+    // nubBy :: (a -> a -> Bool) -> [a] -> [a]
+    var nubBy = function (p, xs) {
+        var x = xs.length ? xs[0] : undefined;
+
+        return x !== undefined ? [x].concat(nubBy(p, xs.slice(1)
+            .filter(function (y) {
+                return !p(x, y);
+            }))) : [];
+    };
+
+    // find :: (a -> Bool) -> [a] -> Maybe a
+    var find = function (f, xs) {
+        for (var i = 0, lng = xs.length; i < lng; i++) {
+            if (f(xs[i], i)) return xs[i];
+        }
+        return undefined;
+    };
+
+    // Int -> [a] -> [a]
+    var take = function (n, xs) {
+        return xs.slice(0, n);
+    };
+
+    // unlines :: [String] -> String
+    var unlines = function (xs) {
+        return xs.join('\n');
+    };
+
+    // show :: a -> String
+    var show = function (x) {
+        return JSON.stringify(x);
+    }; //, null, 2);
+
+    // head :: [a] -> a
+    var head = function (xs) {
+        return xs.length ? xs[0] : undefined;
+    };
+
+    // tail :: [a] -> [a]
+    var tail = function (xs) {
+        return xs.length ? xs.slice(1) : undefined;
+    };
+
+    // length :: [a] -> Int
+    var length = function (xs) {
+        return xs.length;
+    };
+
+    // SIGNED DIGIT SEQUENCES  (mapped to sums and to strings)
+
+    // data Sign :: [ 0 | 1 | -1 ] = ( Unsigned | Plus | Minus )
+    // asSum :: [Sign] -> Int
+    var asSum = function (xs) {
+        var dct = xs.reduceRight(function (a, sign, i) {
+            var d = i + 1; //  zero-based index to [1-9] positions
+            if (sign !== 0) {
+                // Sum increased, digits cleared
+                return {
+                    digits: [],
+                    n: a.n + sign * parseInt([d].concat(a.digits)
+                        .join(''), 10)
+                };
+            } else return { // Digits extended, sum unchanged
+                digits: [d].concat(a.digits),
+                n: a.n
+            };
+        }, {
+            digits: [],
+            n: 0
+        });
+        return dct.n + (
+            dct.digits.length > 0 ? parseInt(dct.digits.join(''), 10) : 0
+        );
+    };
+
+    // data Sign :: [ 0 | 1 | -1 ] = ( Unsigned | Plus | Minus )
+    // asString :: [Sign] -> String
+    var asString = function (xs) {
+        var ns = xs.reduce(function (a, sign, i) {
+            var d = (i + 1)
+                .toString();
+            return sign === 0 ? a + d : a + (sign > 0 ? ' +' : ' -') + d;
+        }, '');
+
+        return ns[0] === '+' ? tail(ns) : ns;
+    };
+
+    // SUM T0 100 ------------------------------------------------------------
+
+    // universe :: [[Sign]]
+    var universe = permutationsWithRepetition(9, [0, 1, -1])
+        .filter(function (x) {
+            return x[0] !== 1;
+        });
+
+    // allNonNegativeSums :: [Int]
+    var allNonNegativeSums = universe.map(asSum)
+        .filter(function (x) {
+            return x >= 0;
+        })
+        .sort();
+
+    // uniqueNonNegativeSums :: [Int]
+    var uniqueNonNegativeSums = nub(allNonNegativeSums);
+
+    return ["Sums to 100:\n", unlines(universe.filter(function (x) {
+                return asSum(x) === 100;
+            })
+            .map(asString)),
+
+        "\n\n10 commonest sums (sum, followed by number of routes to it):\n",
+        show(take(10, group(allNonNegativeSums)
+            .sort(on(flip(compare), length))
+            .map(function (xs) {
+                return [xs[0], xs.length];
+            }))),
+
+        "\n\nFirst positive integer not expressible as a sum of this kind:\n",
+        show(find(function (x, i) {
+            return x !== i;
+        }, uniqueNonNegativeSums.sort(compare)) - 1), // zero-based index
+
+        "\n10 largest sums:\n",
+        show(take(10, uniqueNonNegativeSums.sort(flip(compare))))
+    ].join('\n') + '\n';
+})();
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+===ES5===
+{{Trans|Haskell}}
+<lang JavaScript>(function () {
+    'use strict';
+
+    // GENERIC FUNCTIONS ----------------------------------------------------
+
+    // permutationsWithRepetition :: Int -> [a] -> [[a]]
+    var permutationsWithRepetition = function (n, as) {
+        return as.length > 0 ?
+            foldl1(curry(cartesianProduct)(as), replicate(n, as)) : [];
+    };
+
+    // cartesianProduct :: [a] -> [b] -> [[a, b]]
+    var cartesianProduct = function (xs, ys) {
+        return [].concat.apply([], xs.map(function (x) {
+            return [].concat.apply([], ys.map(function (y) {
+                return [
+                    [x].concat(y)
+                ];
+            }));
+        }));
+    };
+
+    // curry :: ((a, b) -> c) -> a -> b -> c
+    var curry = function (f) {
+        return function (a) {
+            return function (b) {
+                return f(a, b);
+            };
+        };
+    };
+
+    // flip :: (a -> b -> c) -> b -> a -> c
+    var flip = function (f) {
+        return function (a, b) {
+            return f.apply(null, [b, a]);
+        };
+    };
+
+    // foldl1 :: (a -> a -> a) -> [a] -> a
+    var foldl1 = function (f, xs) {
+        return xs.length > 0 ? xs.slice(1)
+            .reduce(f, xs[0]) : [];
+    };
+
+    // replicate :: Int -> a -> [a]
+    var replicate = function (n, a) {
+        var v = [a],
+            o = [];
+        if (n < 1) return o;
+        while (n > 1) {
+            if (n & 1) o = o.concat(v);
+            n >>= 1;
+            v = v.concat(v);
+        }
+        return o.concat(v);
+    };
+
+    // group :: Eq a => [a] -> [[a]]
+    var group = function (xs) {
+        return groupBy(function (a, b) {
+            return a === b;
+        }, xs);
+    };
+
+    // groupBy :: (a -> a -> Bool) -> [a] -> [[a]]
+    var groupBy = function (f, xs) {
+        var dct = xs.slice(1)
+            .reduce(function (a, x) {
+                var h = a.active.length > 0 ? a.active[0] : undefined,
+                    blnGroup = h !== undefined && f(h, x);
+
+                return {
+                    active: blnGroup ? a.active.concat(x) : [x],
+                    sofar: blnGroup ? a.sofar : a.sofar.concat([a.active])
+                };
+            }, {
+                active: xs.length > 0 ? [xs[0]] : [],
+                sofar: []
+            });
+        return dct.sofar.concat(dct.active.length > 0 ? [dct.active] : []);
+    };
+
+    // compare :: a -> a -> Ordering
+    var compare = function (a, b) {
+        return a < b ? -1 : a > b ? 1 : 0;
+    };
+
+    // on :: (b -> b -> c) -> (a -> b) -> a -> a -> c
+    var on = function (f, g) {
+        return function (a, b) {
+            return f(g(a), g(b));
+        };
+    };
+
+    // nub :: [a] -> [a]
+    var nub = function (xs) {
+        return nubBy(function (a, b) {
+            return a === b;
+        }, xs);
+    };
+
+    // nubBy :: (a -> a -> Bool) -> [a] -> [a]
+    var nubBy = function (p, xs) {
+        var x = xs.length ? xs[0] : undefined;
+
+        return x !== undefined ? [x].concat(nubBy(p, xs.slice(1)
+            .filter(function (y) {
+                return !p(x, y);
+            }))) : [];
+    };
+
+    // find :: (a -> Bool) -> [a] -> Maybe a
+    var find = function (f, xs) {
+        for (var i = 0, lng = xs.length; i < lng; i++) {
+            if (f(xs[i], i)) return xs[i];
+        }
+        return undefined;
+    };
+
+    // Int -> [a] -> [a]
+    var take = function (n, xs) {
+        return xs.slice(0, n);
+    };
+
+    // unlines :: [String] -> String
+    var unlines = function (xs) {
+        return xs.join('\n');
+    };
+
+    // show :: a -> String
+    var show = function (x) {
+        return JSON.stringify(x);
+    }; //, null, 2);
+
+    // head :: [a] -> a
+    var head = function (xs) {
+        return xs.length ? xs[0] : undefined;
+    };
+
+    // tail :: [a] -> [a]
+    var tail = function (xs) {
+        return xs.length ? xs.slice(1) : undefined;
+    };
+
+    // length :: [a] -> Int
+    var length = function (xs) {
+        return xs.length;
+    };
+
+    // SIGNED DIGIT SEQUENCES  (mapped to sums and to strings)
+
+    // data Sign :: [ 0 | 1 | -1 ] = ( Unsigned | Plus | Minus )
+    // asSum :: [Sign] -> Int
+    var asSum = function (xs) {
+        var dct = xs.reduceRight(function (a, sign, i) {
+            var d = i + 1; //  zero-based index to [1-9] positions
+            if (sign !== 0) {
+                // Sum increased, digits cleared
+                return {
+                    digits: [],
+                    n: a.n + sign * parseInt([d].concat(a.digits)
+                        .join(''), 10)
+                };
+            } else return { // Digits extended, sum unchanged
+                digits: [d].concat(a.digits),
+                n: a.n
+            };
+        }, {
+            digits: [],
+            n: 0
+        });
+        return dct.n + (
+            dct.digits.length > 0 ? parseInt(dct.digits.join(''), 10) : 0
+        );
+    };
+
+    // data Sign :: [ 0 | 1 | -1 ] = ( Unsigned | Plus | Minus )
+    // asString :: [Sign] -> String
+    var asString = function (xs) {
+        var ns = xs.reduce(function (a, sign, i) {
+            var d = (i + 1)
+                .toString();
+            return sign === 0 ? a + d : a + (sign > 0 ? ' +' : ' -') + d;
+        }, '');
+
+        return ns[0] === '+' ? tail(ns) : ns;
+    };
+
+    // SUM T0 100 ------------------------------------------------------------
+
+    // universe :: [[Sign]]
+    var universe = permutationsWithRepetition(9, [0, 1, -1])
+        .filter(function (x) {
+            return x[0] !== 1;
+        });
+
+    // allNonNegativeSums :: [Int]
+    var allNonNegativeSums = universe.map(asSum)
+        .filter(function (x) {
+            return x >= 0;
+        })
+        .sort();
+
+    // uniqueNonNegativeSums :: [Int]
+    var uniqueNonNegativeSums = nub(allNonNegativeSums);
+
+    return ["Sums to 100:\n", unlines(universe.filter(function (x) {
+                return asSum(x) === 100;
+            })
+            .map(asString)),
+
+        "\n\n10 commonest sums (sum, followed by number of routes to it):\n",
+        show(take(10, group(allNonNegativeSums)
+            .sort(on(flip(compare), length))
+            .map(function (xs) {
+                return [xs[0], xs.length];
+            }))),
+
+        "\n\nFirst positive integer not expressible as a sum of this kind:\n",
+        show(find(function (x, i) {
+            return x !== i;
+        }, uniqueNonNegativeSums.sort(compare)) - 1), // zero-based index
+
+        "\n10 largest sums:\n",
+        show(take(10, uniqueNonNegativeSums.sort(flip(compare))))
+    ].join('\n') + '\n';
+})();</lang>
+
+{{Out}}
+(Run in Atom editor, through Script package)
+<pre>Sums to 100:
+
+123 +45 -67 +8 -9
+123 +4 -5 +67 -89
+123 -45 -67 +89
+123 -4 -5 -6 -7 +8 -9
+12 +3 +4 +5 -6 -7 +89
+12 +3 -4 +5 +67 +8 +9
+12 -3 -4 +5 -6 +7 +89
+1 +23 -4 +56 +7 +8 +9
+1 +23 -4 +5 +6 +78 -9
+1 +2 +34 -5 +67 -8 +9
+1 +2 +3 -4 +5 +6 +78 +9
+ -1 +2 -3 +4 +5 +6 +78 +9
+
+
+10 commonest sums (sum, followed by number of routes to it):
+
+[[9,46],[27,44],[1,43],[15,43],[21,43],[45,42],[3,41],[5,40],[17,39],[7,39]]
+
+
+First positive integer not expressible as a sum of this kind:
+
+211
+
+10 largest sums:
+
+[123456789,23456790,23456788,12345687,12345669,3456801,3456792,3456790,3456788,3456786]
+
+[Finished in 0.381s]</pre>
+
+===ES6===
+{{Trans|Haskell}}
+<lang JavaScript>(() => {
+    'use strict';
+
+    // GENERIC FUNCTIONS ----------------------------------------------------
+
+    // permutationsWithRepetition :: Int -> [a] -> [[a]]
+    const permutationsWithRepetition = (n, as) =>
+        as.length > 0 ? (
+            foldl1(curry(cartesianProduct)(as), replicate(n, as))
+        ) : [];
+
+    // cartesianProduct :: [a] -> [b] -> [[a, b]]
+    const cartesianProduct = (xs, ys) =>
+        [].concat.apply([], xs.map(x =>
+        [].concat.apply([], ys.map(y => [[x].concat(y)]))));
+
+    // curry :: ((a, b) -> c) -> a -> b -> c
+    const curry = f => a => b => f(a, b);
+
+    // flip :: (a -> b -> c) -> b -> a -> c
+    const flip = f => (a, b) => f.apply(null, [b, a]);
+
+    // foldl1 :: (a -> a -> a) -> [a] -> a
+    const foldl1 = (f, xs) =>
+        xs.length > 0 ? xs.slice(1)
+        .reduce(f, xs[0]) : [];
+
+    // replicate :: Int -> a -> [a]
+    const replicate = (n, a) => {
+        let v = [a],
+            o = [];
+        if (n < 1) return o;
+        while (n > 1) {
+            if (n & 1) o = o.concat(v);
+            n >>= 1;
+            v = v.concat(v);
+        }
+        return o.concat(v);
+    };
+
+    // group :: Eq a => [a] -> [[a]]
+    const group = xs => groupBy((a, b) => a === b, xs);
+
+    // groupBy :: (a -> a -> Bool) -> [a] -> [[a]]
+    const groupBy = (f, xs) => {
+        const dct = xs.slice(1)
+            .reduce((a, x) => {
+                const
+                    h = a.active.length > 0 ? a.active[0] : undefined,
+                    blnGroup = h !== undefined && f(h, x);
+
+                return {
+                    active: blnGroup ? a.active.concat(x) : [x],
+                    sofar: blnGroup ? a.sofar : a.sofar.concat([a.active])
+                };
+            }, {
+                active: xs.length > 0 ? [xs[0]] : [],
+                sofar: []
+            });
+        return dct.sofar.concat(dct.active.length > 0 ? [dct.active] : []);
+    };
+
+    // compare :: a -> a -> Ordering
+    const compare = (a, b) => a < b ? -1 : (a > b ? 1 : 0);
+
+    // on :: (b -> b -> c) -> (a -> b) -> a -> a -> c
+    const on = (f, g) => (a, b) => f(g(a), g(b));
+
+    // nub :: [a] -> [a]
+    const nub = xs => nubBy((a, b) => a === b, xs);
+
+    // nubBy :: (a -> a -> Bool) -> [a] -> [a]
+    const nubBy = (p, xs) => {
+        const x = xs.length ? xs[0] : undefined;
+
+        return x !== undefined ? [x].concat(
+            nubBy(p, xs.slice(1)
+                .filter(y => !p(x, y)))
+        ) : [];
+    };
+
+    // find :: (a -> Bool) -> [a] -> Maybe a
+    const find = (f, xs) => {
+        for (var i = 0, lng = xs.length; i < lng; i++) {
+            if (f(xs[i], i)) return xs[i];
+        }
+        return undefined;
+    }
+
+    // Int -> [a] -> [a]
+    const take = (n, xs) => xs.slice(0, n);
+
+    // unlines :: [String] -> String
+    const unlines = xs => xs.join('\n');
+
+    // show :: a -> String
+    const show = x => JSON.stringify(x); //, null, 2);
+
+    // head :: [a] -> a
+    const head = xs => xs.length ? xs[0] : undefined;
+
+    // tail :: [a] -> [a]
+    const tail = xs => xs.length ? xs.slice(1) : undefined;
+
+    // length :: [a] -> Int
+    const length = xs => xs.length;
+
+
+    // SIGNED DIGIT SEQUENCES  (mapped to sums and to strings)
+
+    // data Sign :: [ 0 | 1 | -1 ] = ( Unsigned | Plus | Minus )
+    // asSum :: [Sign] -> Int
+    const asSum = xs => {
+        const dct = xs.reduceRight((a, sign, i) => {
+            const d = i + 1; //  zero-based index to [1-9] positions
+            if (sign !== 0) { // Sum increased, digits cleared
+                return {
+                    digits: [],
+                    n: a.n + (sign * parseInt([d].concat(a.digits)
+                        .join(''), 10))
+                };
+            } else return { // Digits extended, sum unchanged
+                digits: [d].concat(a.digits),
+                n: a.n
+            };
+        }, {
+            digits: [],
+            n: 0
+        });
+        return dct.n + (dct.digits.length > 0 ? (
+            parseInt(dct.digits.join(''), 10)
+        ) : 0);
+    };
+
+    // data Sign :: [ 0 | 1 | -1 ] = ( Unsigned | Plus | Minus )
+    // asString :: [Sign] -> String
+    const asString = xs => {
+        const ns = xs.reduce((a, sign, i) => {
+            const d = (i + 1)
+                .toString();
+            return (sign === 0 ? (
+                a + d
+            ) : (a + (sign > 0 ? ' +' : ' -') + d));
+        }, '');
+
+        return ns[0] === '+' ? tail(ns) : ns;
+    };
+
+
+    // SUM T0 100 ------------------------------------------------------------
+
+    // universe :: [[Sign]]
+    const universe = permutationsWithRepetition(9, [0, 1, -1])
+        .filter(x => x[0] !== 1);
+
+    // allNonNegativeSums :: [Int]
+    const allNonNegativeSums = universe.map(asSum)
+        .filter(x => x >= 0)
+        .sort();
+
+    // uniqueNonNegativeSums :: [Int]
+    const uniqueNonNegativeSums = nub(allNonNegativeSums);
+
+
+    return [
+        "Sums to 100:\n",
+        unlines(universe.filter(x => asSum(x) === 100)
+            .map(asString)),
+
+        "\n\n10 commonest sums (sum, followed by number of routes to it):\n",
+        show(take(10, group(allNonNegativeSums)
+            .sort(on(flip(compare), length))
+            .map(xs => [xs[0], xs.length]))),
+
+        "\n\nFirst positive integer not expressible as a sum of this kind:\n",
+        show(find(
+            (x, i) => x !== i,
+            uniqueNonNegativeSums.sort(compare)
+        ) - 1), // i is the the zero-based Array index.
+
+        "\n10 largest sums:\n",
+        show(take(10, uniqueNonNegativeSums.sort(flip(compare))))
+    ].join('\n') + '\n';
+})();</lang>
+
+{{Out}}
+(Run in Atom editor, through Script package)
+<pre>Sums to 100:
+
+123 +45 -67 +8 -9
+123 +4 -5 +67 -89
+123 -45 -67 +89
+123 -4 -5 -6 -7 +8 -9
+12 +3 +4 +5 -6 -7 +89
+12 +3 -4 +5 +67 +8 +9
+12 -3 -4 +5 -6 +7 +89
+1 +23 -4 +56 +7 +8 +9
+1 +23 -4 +5 +6 +78 -9
+1 +2 +34 -5 +67 -8 +9
+1 +2 +3 -4 +5 +6 +78 +9
+ -1 +2 -3 +4 +5 +6 +78 +9
+
+
+10 commonest sums (sum, followed by number of routes to it):
+
+[[9,46],[27,44],[1,43],[15,43],[21,43],[45,42],[3,41],[5,40],[17,39],[7,39]]
+
+
+First positive integer not expressible as a sum of this kind:
+
+211
+
+10 largest sums:
+
+[123456789,23456790,23456788,12345687,12345669,3456801,3456792,3456790,3456788,3456786]
+
+[Finished in 0.382s]</pre>
+
+===ES3 (JScript)===
+{{Works with|Microsoft Windows Script Host}}
+{{Trans|AWK}}
+<lang javascript>SumTo100();
+
+function SumTo100()
+{           
+    var 
+        ADD  = 0, 
+        SUB  = 1, 
+        JOIN = 2;
+        
+    var 
+        nexpr = 13122; 
+
+    function out(something)  
+    { 
+        WScript.Echo(something); 
+    }
+
+    function evaluate(code)
+    {
+        var 
+            value  = 0, 
+            number = 0, 
+            power  = 1;
+
+        for ( var k = 9; k >= 1; k-- )
+        {
+            number = power*k + number;
+            switch( code % 3 )
+            {
+                case ADD:  value = value + number; number = 0; power = 1; break;
+                case SUB:  value = value - number; number = 0; power = 1; break;
+                case JOIN: power = power * 10                           ; break;
+            }
+            code = Math.floor(code/3);
+        }
+        return value;    
+    }
+
+    function print(code)
+    {
+        var 
+            s = "";
+        var 
+            a = 19683,
+            b = 6561;        
+            
+        for ( var k = 1; k <= 9; k++ )
+        {
+            switch( Math.floor(  (code % a) / b  ) ){
+                case ADD: if ( k > 1 ) s = s + '+'; break;
+                case SUB:              s = s + '-'; break;
+            }
+            a = b;
+            b = Math.floor(b/3);
+            s = s + String.fromCharCode(0x30+k);
+        }  
+        out(evaluate(code) + " = " + s);
+    }
+    
+    function comment(commentString)
+    {
+        out("");
+        out(commentString);
+        out("");        
+    }
+    
+    comment("Show all solutions that sum to 100");
+    for ( var i = 0; i < nexpr; i++)     
+        if ( evaluate(i) == 100 ) 
+            print(i);        
+        
+    comment("Show the sum that has the maximum number of solutions"); 
+    var stat = {};
+    for ( var i = 0; i < nexpr; i++ )
+    {
+        var sum = evaluate(i);
+        if (stat[sum])
+            stat[sum]++;
+        else
+            stat[sum] = 1;
+    }
+    
+    var best = 0;
+    var nbest = -1;
+    for ( var i = 0; i < nexpr; i++ )
+    {
+        var sum = evaluate(i);
+        if ( sum > 0 )
+            if ( stat[sum] > nbest )
+            {
+                best = i;            
+                nbest = stat[sum];
+            }
+    }
+    out("" + evaluate(best) + " has " + nbest + " solutions");
+    
+    comment("Show the lowest positive number that can't be expressed");
+    for ( var i = 0; i <= 123456789; i++ )
+    {
+        for ( var j = 0; j < nexpr; j++) 
+            if ( i == evaluate(j) ) break; 
+        if ( i != evaluate(j) ) break;
+    }
+    out(i);
+    
+    comment("Show the ten highest numbers that can be expressed");
+    var limit = 123456789 + 1;
+    for ( i = 1; i <= 10; i++ ) 
+    {
+        var best = 0;
+        for ( var j = 0; j < nexpr; j++)
+        {
+            var test = evaluate(j);
+            if ( test < limit && test > best ) 
+                best = test;
+        }
+        for ( var j = 0; j < nexpr; j++)
+            if ( evaluate(j) == best ) print(j);
+        limit = best;
+    }
+    
+}
+</lang>
+{{Out}}
+<pre>Show all solutions that sum to 100
+
+100 = 1+2+3-4+5+6+78+9
+100 = 1+2+34-5+67-8+9
+100 = 1+23-4+5+6+78-9
+100 = 1+23-4+56+7+8+9
+100 = 12+3+4+5-6-7+89
+100 = 12+3-4+5+67+8+9
+100 = 12-3-4+5-6+7+89
+100 = 123+4-5+67-89
+100 = 123+45-67+8-9
+100 = 123-4-5-6-7+8-9
+100 = 123-45-67+89
+100 = -1+2-3+4+5+6+78+9
+
+Show the sum that has the maximum number of solutions
+
+9 has 46 solutions
+
+Show the lowest positive number that can't be expressed
+
+211
+
+Show the ten highest numbers that can be expressed
+
+123456789 = 123456789
+23456790 = 1+23456789
+23456788 = -1+23456789
+12345687 = 12345678+9
+12345669 = 12345678-9
+3456801 = 12+3456789
+3456792 = 1+2+3456789
+3456790 = -1+2+3456789
+3456788 = 1-2+3456789
+3456786 = -1-2+3456789</pre>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

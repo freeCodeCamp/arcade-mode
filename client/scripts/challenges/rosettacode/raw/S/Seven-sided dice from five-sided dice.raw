@@ -1,0 +1,100 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Seven-sided dice from five-sided dice
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">(Given an equal-probability generator of one of the integers 1 to 5</p>
+/// <p class="rosetta__paragraph">as <code>dice5</code>),  create <code>dice7</code> that generates a pseudo-random integer from</p>
+/// <p class="rosetta__paragraph">1 to 7 in equal probability using only <code>dice5</code> as a source of random</p>
+/// <p class="rosetta__paragraph">numbers,  and check the distribution for at least one million calls using the function created in  <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Verify distribution uniformity/Naive" title="Verify distribution uniformity/Naive">Simple Random Distribution Checker</a>.</p>
+/// <br/><p class="rosetta__paragraph"><span class="rosetta__text--bold">Implementation suggestion:</span></p>
+/// <p class="rosetta__paragraph"><code>dice7</code> might call <code>dice5</code> twice, re-call if four of the 25</p>
+/// <p class="rosetta__paragraph">combinations are given, otherwise split the other 21 combinations</p>
+/// <p class="rosetta__paragraph">into 7 groups of three, and return the group index from the rolls.</p><br/><p class="rosetta__paragraph"><small>(Task adapted from an answer <a class="rosetta__link--wiki" href="http://stackoverflow.com/questions/90715/what-are-the-best-programming-puzzles-you-came-across" title="link: http://stackoverflow.com/questions/90715/what-are-the-best-programming-puzzles-you-came-across">here</a>)</small></p>
+/// <br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+function dice5()
+{
+ return 1 + Math.floor(5 * Math.random());
+}
+
+function dice7()
+{
+ while (true)
+ {
+  var dice55 = 5 * dice5() + dice5() - 6;
+  if (dice55 < 21)
+   return dice55 % 7 + 1;
+ }
+}
+
+distcheck(dice5, 1000000);
+print();
+distcheck(dice7, 1000000);
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+{{trans|Ruby}}
+<lang javascript>function dice5()
+{
+ return 1 + Math.floor(5 * Math.random());
+}
+
+function dice7()
+{
+ while (true)
+ {
+  var dice55 = 5 * dice5() + dice5() - 6;
+  if (dice55 < 21)
+   return dice55 % 7 + 1;
+ }
+}
+
+distcheck(dice5, 1000000);
+print();
+distcheck(dice7, 1000000);</lang>
+{{out}}
+<pre>1       199792
+2       200425
+3       199243
+4       200407
+5       200133
+
+1       143617
+2       142209
+3       143023
+4       142990
+5       142894
+6       142648
+7       142619 </pre>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

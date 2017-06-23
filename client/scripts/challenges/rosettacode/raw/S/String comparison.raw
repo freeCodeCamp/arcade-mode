@@ -1,0 +1,54 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: String comparison
+/// type: rosetta-code
+
+/// categories:
+/// Basic language learning
+/// Simple
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <p class="rosetta__paragraph">The task is to demonstrate how to compare two strings from within the language and how to achieve a lexical comparison.</p><br/><p class="rosetta__paragraph">The task should demonstrate:</p>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Comparing two strings for exact equality</li>
+/// <li class="rosetta__list-item--unordered">Comparing two strings for inequality (i.e., the inverse of exact equality)</li>
+/// <li class="rosetta__list-item--unordered">Comparing two strings to see if one is lexically ordered before than the other</li>
+/// <li class="rosetta__list-item--unordered">Comparing two strings to see if one is lexically ordered after than the other</li>
+/// <li class="rosetta__list-item--unordered">How to achieve both case sensitive comparisons and case insensitive comparisons within the language</li>
+/// <li class="rosetta__list-item--unordered">How the language handles comparison of numeric strings if these are not treated lexically</li>
+/// <li class="rosetta__list-item--unordered">Demonstrate any other kinds of string comparisons that the language provides, particularly as it relates to your type system.  For example, you might demonstrate the difference between generic/polymorphic comparison and coercive/allomorphic comparison if your language supports such a distinction. </li></ul>
+/// <br>
+/// <p class="rosetta__paragraph">Here "generic/polymorphic" comparison means that the function or operator you're using doesn't always do string comparison, but bends the actual semantics of the comparison depending on the types one or both arguments; with such an operator, you achieve string comparison only if the arguments are sufficiently string-like in type or appearance.</p><br/><p class="rosetta__paragraph">In contrast, a "coercive/allomorphic" comparison function or operator has fixed string-comparison semantics regardless of the argument type;  instead of the operator bending, it's the arguments that are forced to bend instead and behave like strings if they can,  and the operator simply fails if the arguments cannot be viewed somehow as strings.  A language may have one or both of these kinds of operators;  see the Perl 6 entry for an example of a language with both kinds of operators.</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks:</dt></dl>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"> <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Integer comparison" title="Integer comparison">Integer comparison</a></li>
+/// <li class="rosetta__list-item--unordered"> <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/String matching" title="String matching">String matching</a></li>
+/// <li class="rosetta__list-item--unordered"> <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Compare a list of strings" title="Compare a list of strings">Compare a list of strings</a></li></ul><br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

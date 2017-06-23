@@ -1,0 +1,95 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Loops/While
+/// type: rosetta-code
+
+/// categories:
+/// Conditional loops
+/// Simple
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <br/><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Start an integer value at  <span class="rosetta__text--bold">1024</span>.</p><br/><p class="rosetta__paragraph">Loop while it is greater than zero.</p><br/><p class="rosetta__paragraph">Print the value (with a newline) and divide it by two each time through the loop.</p>
+/// <br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+var n = 1024;
+while (n > 0) {
+  print(n);
+  n /= 2;
+}
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+<lang javascript>var n = 1024;
+while (n > 0) {
+  print(n);
+  n /= 2;
+}</lang>
+
+In a functional idiom of JavaScript, however, we can not use a While '''statement''' to achieve this task, as statements return no value, mutate state, and can not be composed within other functional expressions.
+
+Instead, we can define a composable loopWhile() '''function''' which has no side effects, and takes 3 arguments:
+:#An initial value
+:#A function which returns some derived value, corresponding to the body of the While loop
+:#A conditional function, corresponding to the While test
+
+<lang JavaScript>function loopWhile(varValue, fnDelta, fnTest) {
+  'use strict';
+  var d = fnDelta(varValue);
+
+  return fnTest(d) ? [d].concat(
+    loopWhile(d, fnDelta, fnTest)
+  ) : [];
+}
+
+console.log(
+  loopWhile(
+    1024,
+    function (x) {
+      return Math.floor(x/2);
+    },
+    function (x) {
+      return x > 0;
+    }
+  ).join('\n')
+);</lang>
+
+If we assume integer division here (Math.floor(x/2)) rather than the floating point division (x/2) used in the imperative example, we obtain the output:
+
+<lang JavaScript>512
+256
+128
+64
+32
+16
+8
+4
+2
+1</lang>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

@@ -1,0 +1,70 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Polymorphic copy
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <p class="rosetta__paragraph">An object is <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/polymorphism" title="polymorphism">polymorphic</a> when its specific type may vary.</p>
+/// <p class="rosetta__paragraph">The types a specific value may take, is called <span class="rosetta__text--italic">class</span>.</p><br/><p class="rosetta__paragraph">It is trivial to copy an object if its type is known:</p>
+/// <p class="rosetta__paragraph"><lang c>int x;</p>
+/// <p class="rosetta__paragraph">int y = x;</lang></p>
+/// <p class="rosetta__paragraph">Here x is not polymorphic, so y is declared of same type (<span class="rosetta__text--italic">int</span>) as x.</p>
+/// <p class="rosetta__paragraph">But if the specific type of x were unknown, then y could not be declared of any specific type.</p><br/><p class="rosetta__paragraph">The task: let a polymorphic object contain an instance of some specific type S derived from a type T.</p>
+/// <p class="rosetta__paragraph">The type T is known.</p>
+/// <p class="rosetta__paragraph">The type S is possibly unknown until <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/run time" title="run time">run time</a>.</p>
+/// <p class="rosetta__paragraph">The objective is to create an exact copy of such polymorphic object (not to create a <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/reference" title="reference">reference</a>, nor a pointer to).</p>
+/// <p class="rosetta__paragraph">Let further the type T have a method overridden by S.</p>
+/// <p class="rosetta__paragraph">This method is to be called on the copy to demonstrate that the specific type of the copy is indeed S.</p><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+function clone(obj){
+    if (obj == null || typeof(obj) != 'object')
+        return obj;
+
+    var temp = {};
+    for (var key in obj)
+        temp[key] = clone(obj[key]);
+    return temp;
+}
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+Copied from [http://keithdevens.com/weblog/archive/2007/Jun/07/javascript.clone here]:
+<lang javascript>function clone(obj){
+    if (obj == null || typeof(obj) != 'object')
+        return obj;
+
+    var temp = {};
+    for (var key in obj)
+        temp[key] = clone(obj[key]);
+    return temp;
+}</lang>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

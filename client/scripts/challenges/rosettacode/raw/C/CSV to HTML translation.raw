@@ -1,0 +1,122 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: CSV to HTML translation
+/// type: rosetta-code
+
+/// categories:
+
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><br/><p class="rosetta__paragraph">Consider a simplified CSV format where all rows are separated by a newline</p>
+/// <p class="rosetta__paragraph">and all columns are separated by commas.</p><br/><p class="rosetta__paragraph">No commas are allowed as field data, but the data may contain</p>
+/// <p class="rosetta__paragraph">other characters and character sequences that would</p>
+/// <p class="rosetta__paragraph">normally be  <span class="rosetta__text--italic">escaped</span>  when converted to HTML</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Create a function that takes a string representation of the CSV data</p>
+/// <p class="rosetta__paragraph">and returns a text string of an HTML table representing the CSV data.</p><br/><p class="rosetta__paragraph">Use the following  data as the CSV text to convert, and show your output.</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented"> Character,Speech</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented"> The multitude,The messiah! Show us the messiah!</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented"> Brians mother,<nowiki><angry>Now you listen here! He's not the messiah; he's a very naughty boy! Now go away!</angry></nowiki></span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented"> The multitude,Who are you?</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented"> Brians mother,I'm his mother; that's who!</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented"> The multitude,Behold his mother! Behold his mother!</span></p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Extra credit:</dt></dl>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--italic">Optionally</span> allow special formatting for the first row of the table as if it is the tables header row</p>
+/// <p class="rosetta__paragraph">(via <nowiki><thead></nowiki> preferably; CSS if you must).</p>
+/// <br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+var csv = "Character,Speech\n" +
+	   "The multitude,The messiah! Show us the messiah!\n" +
+	   "Brians mother,<angry>Now you listen here! He's not the messiah; he's a very naughty boy! Now go away!</angry>\n" +
+	   "The multitude,Who are you?\n" +
+	   "Brians mother,I'm his mother; that's who!\n" +
+	   "The multitude,Behold his mother! Behold his mother!";
+
+var lines = csv.replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .split(/[\n\r]/)
+    .map(function(line) { return line.split(',')})
+    .map(function(row) {return '\t\t<tr><td>' + row[0] + '</td><td>' + row[1] + '</td></tr>';});
+
+console.log('<table>\n\t<thead>\n'      + lines[0] +
+            '\n\t</thead>\n\t<tbody>\n' + lines.slice(1).join('\n') +
+            '\t</tbody>\n</table>');
+
+
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+<lang JavaScript>var csv = "Character,Speech\n" +
+	   "The multitude,The messiah! Show us the messiah!\n" +
+	   "Brians mother,<angry>Now you listen here! He's not the messiah; he's a very naughty boy! Now go away!</angry>\n" +
+	   "The multitude,Who are you?\n" +
+	   "Brians mother,I'm his mother; that's who!\n" +
+	   "The multitude,Behold his mother! Behold his mother!";
+
+var lines = csv.replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .split(/[\n\r]/)
+    .map(function(line) { return line.split(',')})
+    .map(function(row) {return '\t\t<tr><td>' + row[0] + '</td><td>' + row[1] + '</td></tr>';});
+
+console.log('<table>\n\t<thead>\n'      + lines[0] +
+            '\n\t</thead>\n\t<tbody>\n' + lines.slice(1).join('\n') +
+            '\t</tbody>\n</table>');
+
+</lang>
+
+<lang html5><table>
+  <thead>
+    <tr><td>Character</td><td>Speech</td></tr>
+  </thead>
+  <tbody>
+    <tr><td>The multitude</td><td>The messiah! Show us the messiah!</td></tr>
+    <tr><td>Brians mother</td><td>&lt;angry&gt;Now you listen here! He's not the messiah; he's a very naughty boy! Now go away!&lt;/angry&gt;</td></tr>
+    <tr><td>The multitude</td><td>Who are you?</td></tr>
+    <tr><td>Brians mother</td><td>I'm his mother; that's who!</td></tr>
+    <tr><td>The multitude</td><td>Behold his mother! Behold his mother!</td></tr>
+  </tbody>
+</table></lang>
+
+{{out}}
+<lang html5><table>
+	<thead>
+		<tr><td>Character</td><td>Speech</td></tr>
+	</thead>
+	<tbody>
+		<tr><td>The multitude</td><td>The messiah! Show us the messiah!</td></tr>
+		<tr><td>Brians mother</td><td>&lt;angry&gt;Now you listen here! He's not the messiah; he's a very naughty boy! Now go away!&lt;/angry&gt;</td></tr>
+		<tr><td>The multitude</td><td>Who are you?</td></tr>
+		<tr><td>Brians mother</td><td>I'm his mother; that's who!</td></tr>
+		<tr><td>The multitude</td><td>Behold his mother! Behold his mother!</td></tr>	</tbody>
+</table></lang>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

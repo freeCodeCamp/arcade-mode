@@ -1,0 +1,78 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Array length
+/// type: rosetta-code
+
+/// categories:
+/// Simple
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Determine the amount of elements in an array.</p>
+/// <br/><p class="rosetta__paragraph">As an example use an array holding the strings 'apple' and 'orange'.</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Related task:</dt></dl>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"> <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/String length" title="String length">String length</a></li></ul><br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+console.log(['apple', 'orange'].length);
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+
+<lang javascript>console.log(['apple', 'orange'].length);</lang>
+
+However, determining the length of a list, array, or collection may simply be the wrong thing to do.
+
+If, for example, the actual task (undefined here, unfortunately) requires retrieving the final item, while it is perfectly possible to write '''last''' in terms of '''length'''
+
+<lang JavaScript>function last(lst) {
+    return lst[lst.length - 1];
+}</lang>
+
+using length has the disadvantage that it leaves ''last'' simply undefined for an empty list.
+
+We might do better to drop the narrow focus on length, and instead use a fold (''reduce'', in JS terms) which can return a default value of some kind.
+
+<lang JavaScript>function last(lst) {
+    return lst.reduce(function (a, x) {
+        return x;
+    }, null);
+}</lang>
+
+Alternatively, rather than scanning the entire list to simply get the final value, it might sometimes be better to test the length:
+
+<lang JavaScript>function last(list, defaultValue) {
+   return list.length ?list[list.length-1] :defaultValue;
+}</lang>
+
+Or use other built-in functions – this, for example, seems fairly clear, and is already 100+ times faster than unoptimised tail recursion in ES5 (testing with a list of 1000 elements):
+
+<lang JavaScript>function last(list, defaultValue) {
+    return list.slice(-1)[0] || defaultValue;
+}</lang>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

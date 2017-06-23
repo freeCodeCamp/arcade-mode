@@ -1,0 +1,194 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Four bit adder
+/// type: rosetta-code
+
+/// categories:
+/// Electronics
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta"><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">"<span class="rosetta__text--italic">Simulate</span>" a four-bit adder "chip".</p><br/><p class="rosetta__paragraph">This "chip" can be realized using four <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Adder_(electronics)#Full_adder" title="wp: Adder_(electronics)#Full_adder">1-bit full adder</a>s.</p>
+/// <p class="rosetta__paragraph">Each of these 1-bit full adders can be built with two <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Adder_(electronics)#Half_adder" title="wp: Adder_(electronics)#Half_adder">half adder</a>s and an <span class="rosetta__text--italic">or</span> <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Logic gate" title="wp: Logic gate">gate</a>. Finally a half adder can be made using a <span class="rosetta__text--italic">xor</span> gate and an <span class="rosetta__text--italic">and</span> gate.</p>
+/// <p class="rosetta__paragraph">The <span class="rosetta__text--italic">xor</span> gate can be made using two <span class="rosetta__text--italic">not</span>s, two <span class="rosetta__text--italic">and</span>s and one <span class="rosetta__text--italic">or</span>.</p><br/><p class="rosetta__paragraph"><span class="rosetta__text--bold">Not</span>, <span class="rosetta__text--bold">or</span> and <span class="rosetta__text--bold">and</span>, the only allowed "gates" for the task, can be "imitated" by using the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Bitwise operations" title="Bitwise operations">bitwise operators</a> of your language.</p>
+/// <p class="rosetta__paragraph">If there is not a <span class="rosetta__text--italic">bit type</span> in your language, to be sure that the <span class="rosetta__text--italic">not</span> does not "invert" all the other bits of the basic type (e.g. a byte) we are not interested in, you can use an extra <span class="rosetta__text--italic">nand</span> (<span class="rosetta__text--italic">and</span> then <span class="rosetta__text--italic">not</span>) with the constant 1 on one input.</p><br/><p class="rosetta__paragraph">Instead of optimizing and reducing the number of gates used for the final 4-bit adder, build it in the most straightforward way, <span class="rosetta__text--italic">connecting</span> the other "constructive blocks", in turn made of "simpler" and "smaller" ones.</p><br/><p class="rosetta__paragraph">{|</p>
+/// <p class="rosetta__paragraph">|+Schematics of the "constructive blocks"</p>
+/// <p class="rosetta__paragraph">!Xor gate done with ands, ors and nots</p>
+/// <p class="rosetta__paragraph">!A half adder</p>
+/// <p class="rosetta__paragraph">!A full adder</p>
+/// <p class="rosetta__paragraph">!A 4-bit adder</p>
+/// <p class="rosetta__paragraph">|-</p>
+/// <p class="rosetta__paragraph">|<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:xor.png" title="File:xor.png">frameless|Xor gate done with ands, ors and nots</a></p>
+/// <p class="rosetta__paragraph">|<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:halfadder.png" title="File:halfadder.png">frameless|A half adder</a></p>
+/// <p class="rosetta__paragraph">|<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:fulladder.png" title="File:fulladder.png">frameless|A full adder</a></p>
+/// <p class="rosetta__paragraph">|<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:4bitsadder.png" title="File:4bitsadder.png">frameless|A 4-bit adder</a></p>
+/// <p class="rosetta__paragraph">|}</p><br/><p class="rosetta__paragraph">Solutions should try to be as descriptive as possible, making it as easy as possible to identify "connections" between higher-order "blocks".</p>
+/// <p class="rosetta__paragraph">It is not mandatory to replicate the syntax of higher-order blocks in the atomic "gate" blocks, i.e. basic "gate" operations can be performed as usual bitwise operations, or they can be "wrapped" in a <span class="rosetta__text--italic">block</span> in order to expose the same syntax of higher-order blocks, at implementers' choice.</p><br/><p class="rosetta__paragraph">To test the implementation, show the sum of two four-bit numbers (in binary).</p>
+/// <div style="clear:both"></div>
+/// <br><br><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+function acceptedBinFormat(bin) {
+    if (bin == 1 || bin === 0 || bin === '0')
+        return true;
+    else
+        return bin;
+}
+
+function arePseudoBin() {
+    var args = [].slice.call(arguments), len = args.length;
+    while(len--)
+        if (acceptedBinFormat(args[len]) !== true)
+            throw new Error('argument must be 0, \'0\', 1, or \'1\', argument ' + len + ' was ' + args[len]);
+    return true;
+}
+
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+
+===Error Handling===
+In order to keep the binary-ness obvious, all operations will occur on 
+0s and 1s. To enforce this, we'll first create a couple of helper functions.
+
+<lang JavaScript>
+function acceptedBinFormat(bin) {
+    if (bin == 1 || bin === 0 || bin === '0')
+        return true;
+    else
+        return bin;
+}
+
+function arePseudoBin() {
+    var args = [].slice.call(arguments), len = args.length;
+    while(len--)
+        if (acceptedBinFormat(args[len]) !== true)
+            throw new Error('argument must be 0, \'0\', 1, or \'1\', argument ' + len + ' was ' + args[len]);
+    return true;
+}
+</lang>
+
+===Implementation===
+Now we build up the gates, starting with 'not' and 'and' as building blocks.
+Those allow us to construct 'nand', 'or', and 'xor' then a half and full adders
+and, finally, the four bit adder.
+
+<lang JavaScript>
+// basic building blocks allowed by the rules are ~, &, and |, we'll fake these
+// in a way that makes what they do (at least when you use them) more obvious 
+// than the other available options do.
+
+function not(a) {
+    if (arePseudoBin(a))
+        return a == 1 ? 0 : 1;
+}
+
+function and(a, b) {
+    if (arePseudoBin(a, b))
+        return a + b < 2 ? 0 : 1;
+}
+
+function nand(a, b) {
+    if (arePseudoBin(a, b))
+        return not(and(a, b));
+}
+
+function or(a, b) {
+    if (arePseudoBin(a, b))
+        return nand(nand(a,a), nand(b,b));
+}
+
+function xor(a, b) {
+    if (arePseudoBin(a, b))
+        return nand(nand(nand(a,b), a), nand(nand(a,b), b));
+}
+
+function halfAdder(a, b) {
+    if (arePseudoBin(a, b))
+        return { carry: and(a, b), sum: xor(a, b) };
+}
+
+function fullAdder(a, b, c) {
+    if (arePseudoBin(a, b, c)) {
+        var h0 = halfAdder(a, b), 
+            h1 = halfAdder(h0.sum, c);
+        return {carry: or(h0.carry, h1.carry), sum: h1.sum };
+    }
+}
+
+function fourBitAdder(a, b) {
+    if (typeof a.length == 'undefined' || typeof b.length == 'undefined')
+        throw new Error('bad values');
+    // not sure if the rules allow this, but we need to pad the values 
+    // if they're too short and trim them if they're too long
+    var inA = Array(4), 
+        inB = Array(4), 
+        out = Array(4), 
+        i = 4, 
+        pass;
+    
+    while (i--) {
+        inA[i] = a[i] != 1 ? 0 : 1;
+        inB[i] = b[i] != 1 ? 0 : 1;
+    }
+
+    // now we can start adding... I'd prefer to do this in a loop, 
+    // but that wouldn't be "connecting the other 'constructive blocks', 
+    // in turn made of 'simpler' and 'smaller' ones"
+    
+    pass = halfAdder(inA[3], inB[3]);
+    out[3] = pass.sum;
+    pass = fullAdder(inA[2], inB[2], pass.carry);
+    out[2] = pass.sum;
+    pass = fullAdder(inA[1], inB[1], pass.carry);
+    out[1] = pass.sum;
+    pass = fullAdder(inA[0], inB[0], pass.carry);
+    out[0] = pass.sum;
+    return out.join('');
+}
+</lang>
+===Example Use===
+<lang JavaScript>fourBitAdder('1010', '0101'); // 1111 (15)</lang>
+
+all results:
+
+<lang JavaScript>
+// run this in your browsers console
+var outer = inner = 16, a, b;
+
+while(outer--) {
+    a = (8|outer).toString(2);
+    while(inner--) {
+        b = (8|inner).toString(2);
+        console.log(a + ' + ' + b + ' = ' + fourBitAdder(a, b));
+    }
+    inner = outer;
+}
+</lang>
+
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

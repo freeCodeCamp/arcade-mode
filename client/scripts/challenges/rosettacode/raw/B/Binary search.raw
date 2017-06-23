@@ -1,0 +1,186 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Binary search
+/// type: rosetta-code
+
+/// categories:
+/// Recursion
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <p class="rosetta__paragraph">A binary search divides a range of values into halves, and continues to narrow down the field of search until the unknown value is found. It is the classic example of a "divide and conquer" algorithm.</p><br/><p class="rosetta__paragraph">As an analogy, consider the children's game "<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Guess the number/With feedback" title="Guess the number/With feedback">guess a number</a>."  The scorer has a secret number, and will only tell the player if their guessed number is higher than, lower than, or equal to the secret number. The player then uses this information to guess a new number.</p><br/><p class="rosetta__paragraph">As the player, an optimal strategy for the general case is to start by choosing the range's midpoint as the guess, and then asking whether the guess was higher, lower, or equal to the secret number. If the guess was too high, one would select the point exactly between the range midpoint and the beginning of the range. If the original guess was too low, one would ask about the point exactly between the range midpoint and the end of the range. This process repeats until one has reached the secret number.</p><br/><p class="rosetta__paragraph"><span class="rosetta__text--bold">The Task</span></p><br/><p class="rosetta__paragraph">Given the starting point of a range, the ending point of a range, and the "secret value", implement a binary search through a sorted integer array for a certain number. Implementations can be recursive or iterative (both if you can). Print out whether or not the number was in the array afterwards. If it was, print the index also.</p><br/><p class="rosetta__paragraph">There are several binary search algorithms commonly seen. They differ by how they treat multiple values equal to the given value, and whether they indicate whether the element was found or not. For completeness we will present pseudocode for all of them.</p><br/><p class="rosetta__paragraph">All of the following code examples use an "inclusive" upper bound (i.e. <code>high = N-1</code> initially). Any of the examples can be converted into an equivalent example using "exclusive" upper bound (i.e. <code>high = N</code> initially) by making the following simple changes (which simply increase <code>high</code> by 1):</p>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">change <code>high = N-1</code> to <code>high = N</code></li>
+/// <li class="rosetta__list-item--unordered">change <code>high = mid-1</code> to <code>high = mid</code></li>
+/// <li class="rosetta__list-item--unordered">(for recursive algorithm) change <code>if (high < low)</code> to <code>if (high <= low)</code></li>
+/// <li class="rosetta__list-item--unordered">(for iterative algorithm) change <code>while (low <= high)</code> to <code>while (low < high)</code></li></ul>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title"> Traditional algorithm</dt></dl>
+/// <p class="rosetta__paragraph">The algorithms are as follows (from <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Binary search" title="wp: Binary search">Wikipedia</a>). The algorithms return the index of some element that equals the given value (if there are multiple such elements, it returns some arbitrary one). It is also possible, when the element is not found, to return the "insertion point" for it (the index that the value would have if it were inserted into the array).</p><br/><p class="rosetta__paragraph"><span class="rosetta__text--bold">Recursive Pseudocode</span>:</p>
+/// <p class="rosetta__paragraph">// initially called with low = 0, high = N-1</p>
+/// <p class="rosetta__paragraph">BinarySearch(A[0..N-1], value, low, high) {</p>
+/// <p class="rosetta__paragraph">// invariants: value > A[i] for all i < low</p>
+/// <p class="rosetta__paragraph">value < A[i] for all i > high</p>
+/// <p class="rosetta__paragraph">if (high < low)</p>
+/// <p class="rosetta__paragraph">return not_found // value would be inserted at index "low"</p>
+/// <p class="rosetta__paragraph">mid = (low + high) / 2</p>
+/// <p class="rosetta__paragraph">if (A[mid] > value)</p>
+/// <p class="rosetta__paragraph">return BinarySearch(A, value, low, mid-1)</p>
+/// <p class="rosetta__paragraph">else if (A[mid] < value)</p>
+/// <p class="rosetta__paragraph">return BinarySearch(A, value, mid+1, high)</p>
+/// <p class="rosetta__paragraph">else</p>
+/// <p class="rosetta__paragraph">return mid</p>
+/// <p class="rosetta__paragraph">}</p><br/><p class="rosetta__paragraph"><span class="rosetta__text--bold">Iterative Pseudocode</span>:</p>
+/// <p class="rosetta__paragraph">BinarySearch(A[0..N-1], value) {</p>
+/// <p class="rosetta__paragraph">low = 0</p>
+/// <p class="rosetta__paragraph">high = N - 1</p>
+/// <p class="rosetta__paragraph">while (low <= high) {</p>
+/// <p class="rosetta__paragraph">// invariants: value > A[i] for all i < low</p>
+/// <p class="rosetta__paragraph">value < A[i] for all i > high</p>
+/// <p class="rosetta__paragraph">mid = (low + high) / 2</p>
+/// <p class="rosetta__paragraph">if (A[mid] > value)</p>
+/// <p class="rosetta__paragraph">high = mid - 1</p>
+/// <p class="rosetta__paragraph">else if (A[mid] < value)</p>
+/// <p class="rosetta__paragraph">low = mid + 1</p>
+/// <p class="rosetta__paragraph">else</p>
+/// <p class="rosetta__paragraph">return mid</p>
+/// <p class="rosetta__paragraph">}</p>
+/// <p class="rosetta__paragraph">return not_found // value would be inserted at index "low"</p>
+/// <p class="rosetta__paragraph">}</p><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title"> Leftmost insertion point</dt></dl>
+/// <p class="rosetta__paragraph">The following algorithms return the leftmost place where the given element can be correctly inserted (and still maintain the sorted order). This is the lower (inclusive) bound of the range of elements that are equal to the given value (if any). Equivalently, this is the lowest index where the element is greater than or equal to the given value (since if it were any lower, it would violate the ordering), or 1 past the last index if such an element does not exist. This algorithm does not determine if the element is actually found. This algorithm only requires one comparison per level.</p><br/><p class="rosetta__paragraph"><span class="rosetta__text--bold">Recursive Pseudocode</span>:</p>
+/// <p class="rosetta__paragraph">// initially called with low = 0, high = N - 1</p>
+/// <p class="rosetta__paragraph">BinarySearch_Left(A[0..N-1], value, low, high) {</p>
+/// <p class="rosetta__paragraph">// invariants: value > A[i] for all i < low</p>
+/// <p class="rosetta__paragraph">value <= A[i] for all i > high</p>
+/// <p class="rosetta__paragraph">if (high < low)</p>
+/// <p class="rosetta__paragraph">return low</p>
+/// <p class="rosetta__paragraph">mid = (low + high) / 2</p>
+/// <p class="rosetta__paragraph">if (A[mid] >= value)</p>
+/// <p class="rosetta__paragraph">return BinarySearch_Left(A, value, low, mid-1)</p>
+/// <p class="rosetta__paragraph">else</p>
+/// <p class="rosetta__paragraph">return BinarySearch_Left(A, value, mid+1, high)</p>
+/// <p class="rosetta__paragraph">}</p><br/><p class="rosetta__paragraph"><span class="rosetta__text--bold">Iterative Pseudocode</span>:</p>
+/// <p class="rosetta__paragraph">BinarySearch_Left(A[0..N-1], value) {</p>
+/// <p class="rosetta__paragraph">low = 0</p>
+/// <p class="rosetta__paragraph">high = N - 1</p>
+/// <p class="rosetta__paragraph">while (low <= high) {</p>
+/// <p class="rosetta__paragraph">// invariants: value > A[i] for all i < low</p>
+/// <p class="rosetta__paragraph">value <= A[i] for all i > high</p>
+/// <p class="rosetta__paragraph">mid = (low + high) / 2</p>
+/// <p class="rosetta__paragraph">if (A[mid] >= value)</p>
+/// <p class="rosetta__paragraph">high = mid - 1</p>
+/// <p class="rosetta__paragraph">else</p>
+/// <p class="rosetta__paragraph">low = mid + 1</p>
+/// <p class="rosetta__paragraph">}</p>
+/// <p class="rosetta__paragraph">return low</p>
+/// <p class="rosetta__paragraph">}</p><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title"> Rightmost insertion point</dt></dl>
+/// <p class="rosetta__paragraph">The following algorithms return the rightmost place where the given element can be correctly inserted (and still maintain the sorted order). This is the upper (exclusive) bound of the range of elements that are equal to the given value (if any). Equivalently, this is the lowest index where the element is greater than the given value, or 1 past the last index if such an element does not exist. This algorithm does not determine if the element is actually found. This algorithm only requires one comparison per level. Note that these algorithms are almost exactly the same as the leftmost-insertion-point algorithms, except for how the inequality treats equal values.</p><br/><p class="rosetta__paragraph"><span class="rosetta__text--bold">Recursive Pseudocode</span>:</p>
+/// <p class="rosetta__paragraph">// initially called with low = 0, high = N - 1</p>
+/// <p class="rosetta__paragraph">BinarySearch_Right(A[0..N-1], value, low, high) {</p>
+/// <p class="rosetta__paragraph">// invariants: value >= A[i] for all i < low</p>
+/// <p class="rosetta__paragraph">value < A[i] for all i > high</p>
+/// <p class="rosetta__paragraph">if (high < low)</p>
+/// <p class="rosetta__paragraph">return low</p>
+/// <p class="rosetta__paragraph">mid = (low + high) / 2</p>
+/// <p class="rosetta__paragraph">if (A[mid] > value)</p>
+/// <p class="rosetta__paragraph">return BinarySearch_Right(A, value, low, mid-1)</p>
+/// <p class="rosetta__paragraph">else</p>
+/// <p class="rosetta__paragraph">return BinarySearch_Right(A, value, mid+1, high)</p>
+/// <p class="rosetta__paragraph">}</p><br/><p class="rosetta__paragraph"><span class="rosetta__text--bold">Iterative Pseudocode</span>:</p>
+/// <p class="rosetta__paragraph">BinarySearch_Right(A[0..N-1], value) {</p>
+/// <p class="rosetta__paragraph">low = 0</p>
+/// <p class="rosetta__paragraph">high = N - 1</p>
+/// <p class="rosetta__paragraph">while (low <= high) {</p>
+/// <p class="rosetta__paragraph">// invariants: value >= A[i] for all i < low</p>
+/// <p class="rosetta__paragraph">value < A[i] for all i > high</p>
+/// <p class="rosetta__paragraph">mid = (low + high) / 2</p>
+/// <p class="rosetta__paragraph">if (A[mid] > value)</p>
+/// <p class="rosetta__paragraph">high = mid - 1</p>
+/// <p class="rosetta__paragraph">else</p>
+/// <p class="rosetta__paragraph">low = mid + 1</p>
+/// <p class="rosetta__paragraph">}</p>
+/// <p class="rosetta__paragraph">return low</p>
+/// <p class="rosetta__paragraph">}</p><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Extra credit</dt></dl>
+/// <p class="rosetta__paragraph">Make sure it does not have overflow bugs.</p><br/><p class="rosetta__paragraph">The line in the pseudocode above to calculate the mean of two integers:</p>
+/// <div class="rosetta__pre-wrap"><pre class="rosetta__pre">mid = (low + high) / 2</pre></div>
+/// <p class="rosetta__paragraph">could produce the wrong result in some programming languages when used with a bounded integer type, if the addition causes an overflow. (This can occur if the array size is greater than half the maximum integer value.) If signed integers are used, and <code>low + high</code> overflows, it becomes a negative number, and dividing by 2 will still result in a negative number. Indexing an array with a negative number could produce an out-of-bounds exception, or other undefined behavior. If unsigned integers are used, an overflow will result in losing the largest bit, which will produce the wrong result.</p><br/><p class="rosetta__paragraph">One way to fix it is to manually add half the range to the low number:</p>
+/// <div class="rosetta__pre-wrap"><pre class="rosetta__pre">mid = low + (high - low) / 2</pre></div>
+/// <p class="rosetta__paragraph">Even though this is mathematically equivalent to the above, it is not susceptible to overflow.</p><br/><p class="rosetta__paragraph">Another way for signed integers, possibly faster, is the following:</p>
+/// <div class="rosetta__pre-wrap"><pre class="rosetta__pre">mid = (low + high) >>> 1</pre></div>
+/// <p class="rosetta__paragraph">where <code> >>> </code> is the logical right shift operator. The reason why this works is that, for signed integers, even though it overflows, when viewed as an unsigned number, the value is still the correct sum. To divide an unsigned number by 2, simply do a logical right shift.</p><br/><p class="rosetta__paragraph"><span class="rosetta__text--bold">References:</span><br></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">* C.f: <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Guess the number/With Feedback (Player)" title="Guess the number/With Feedback (Player)">Guess the number/With Feedback (Player)</a></span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">* [[wp:Binary search algorithm]]</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">* <a class="rosetta__link--wiki" href="http://googleresearch.blogspot.com/2006/06/extra-extra-read-all-about-it-nearly.html" title="link: http://googleresearch.blogspot.com/2006/06/extra-extra-read-all-about-it-nearly.html">Extra, Extra - Read All About It: Nearly All Binary Searches and Mergesorts are Broken</a>.</span></p><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+function binary_search_recursive(a, value, lo, hi) {
+  if (hi < lo) { return null; }
+
+  var mid = Math.floor((lo + hi) / 2);
+
+  if (a[mid] > value) {
+    return binary_search_recursive(a, value, lo, mid - 1);
+  }
+  if (a[mid] < value) {
+    return binary_search_recursive(a, value, mid + 1, hi);
+  }
+  return mid;
+}
+
+/// rawSolutions:
+=={{header|JavaScript}}==
+Recursive binary search implementation
+<lang javascript>function binary_search_recursive(a, value, lo, hi) {
+  if (hi < lo) { return null; }
+
+  var mid = Math.floor((lo + hi) / 2);
+
+  if (a[mid] > value) {
+    return binary_search_recursive(a, value, lo, mid - 1);
+  }
+  if (a[mid] < value) {
+    return binary_search_recursive(a, value, mid + 1, hi);
+  }
+  return mid;
+}</lang>
+Iterative binary search implementation
+<lang javascript>function binary_search_iterative(a, value) {
+  var mid, lo = 0,
+      hi = a.length - 1;
+
+  while (lo <= hi) {
+    mid = Math.floor((lo + hi) / 2);
+
+    if (a[mid] > value) {
+      hi = mid - 1;
+    } else if (a[mid] < value) {
+      lo = mid + 1;
+    } else {
+      return mid;
+    }
+  }
+  return null;
+}</lang>
+
+
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');

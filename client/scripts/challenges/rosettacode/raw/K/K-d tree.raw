@@ -1,0 +1,52 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: K-d tree
+/// type: rosetta-code
+
+/// categories:
+/// Data Structures
+
+/// difficulty: ?
+
+/// benchmark:
+replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="rosetta">
+/// <br/><p class="rosetta__paragraph">A k-d tree (short for <span class="rosetta__text--italic">k</span>-dimensional tree) is a space-partitioning data structure for organizing points in a k-dimensional space. k-d trees are a useful data structure for several applications, such as searches involving a multidimensional search key (e.g. range searches and nearest neighbor searches).</p>
+/// <p class="rosetta__paragraph">k-d trees are a special case of binary space partitioning trees.</p><br/><p class="rosetta__paragraph">k-d trees are not suitable, however, for efficiently finding the nearest neighbor in high dimensional spaces. As a general rule, if the dimensionality is <span class="rosetta__text--italic">k</span>, the number of points in the data, <span class="rosetta__text--italic">N</span>, should be <span class="rosetta__text--italic">N</span> ≫ 2<sup><span class="rosetta__text--italic">k</span></sup>.</p>
+/// <p class="rosetta__paragraph">Otherwise, when k-d trees are used with high-dimensional data, most of the points in the tree will be evaluated and the efficiency is no better than exhaustive search, and other methods such as approximate nearest-neighbor are used instead.</p><br/><p class="rosetta__paragraph"><span class="rosetta__text--bold">Task:</span> Construct a k-d tree and perform a nearest neighbor search for two example data sets:</p><br/><ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">The Wikipedia example data of [(2,3), (5,4), (9,6), (4,7), (8,1), (7,2)].</li>
+/// <li class="rosetta__list-item--ordered">1000 3-d points uniformly distributed in a 3-d cube.</li></ol>
+/// <p class="rosetta__paragraph">For the Wikipedia example, find the nearest neighbor to point (9, 2)</p>
+/// <p class="rosetta__paragraph">For the random data, pick a random location and find the nearest neighbor.</p><br/><p class="rosetta__paragraph">In addition, instrument your code to count the number of nodes visited in the nearest neighbor search.  Count a node as visited if any field of it is accessed.</p><br/><p class="rosetta__paragraph">Output should show the point searched for, the point found,</p>
+/// <p class="rosetta__paragraph">the distance to the point, and the number of nodes visited.</p><br/><p class="rosetta__paragraph">There are variant algorithms for constructing the tree.</p>
+/// <p class="rosetta__paragraph">You can use a simple median strategy or implement something more efficient.</p>
+/// <p class="rosetta__paragraph">Variants of the nearest neighbor search include nearest N neighbors, approximate nearest neighbor, and range searches.</p>
+/// <p class="rosetta__paragraph">You do not have to implement these.</p>
+/// <p class="rosetta__paragraph">The requirement for this task is specifically the nearest single neighbor.</p>
+/// <p class="rosetta__paragraph">Also there are algorithms for inserting, deleting, and balancing k-d trees.</p>
+/// <p class="rosetta__paragraph">These are also not required for the task.</p><br/></div>
+
+/// challengeSeed:
+function replaceMe (foo) {
+  // Good luck!
+  return true;
+}
+
+/// solutions:
+
+
+/// rawSolutions:
+null
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof replaceMe === 'function', 'message: <code>replaceMe</code> is a function.');
