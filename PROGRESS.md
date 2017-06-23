@@ -1,4 +1,10 @@
 # PROGRESS for Arcade Mode
+## Thursday 6/22/17:
+### Tim:
+  - Progress:
+    1. Finalize RosettaCode task extraction/processing script.
+    1. Add raw files back to version control due to unknown API rate limiting.
+
 ## Wednesday 6/21/17:
 ### Tim:
   - Progress:
