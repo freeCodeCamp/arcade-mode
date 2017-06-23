@@ -11,7 +11,7 @@ export const DELETE_SESSION = 'DELETE_SESSION';
 export const TOGGLE_CHALLENGE_VIEW = 'TOGGLE_CHALLENGE_VIEW';
 export const TOGGLE_SESSION_VIEW = 'TOGGLE_SESSION_VIEW';
 
-const persist = new Persist();
+const persist = new Persist('userData');
 
 export function saveUserData(session) {
   return dispatch => {

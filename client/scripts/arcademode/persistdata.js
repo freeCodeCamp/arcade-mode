@@ -7,14 +7,14 @@ import { fromJS } from 'immutable';
 
 const debug = require('debug')('am:persistdata');
 
-const USER_DATA_KEY = 'userData';
+// const USER_DATA_KEY = 'userData';
 const IDB_VERSION = 1;
 
 function connectToIDB (name, version) {
   return new Promise((resolve, reject) => {
     const request = window.indexedDB.open(name, version);
     request.onupgradeneeded = () => {
-      request.result.createObjectStore('userData', { keyPath: 'id', autoIncrement: true });
+      request.result.createObjectStore(name, { keyPath: 'id', autoIncrement: true });
     };
     request.onsuccess = () => resolve(request.result);
     request.onerror = () => reject(request.error);
@@ -22,10 +22,10 @@ function connectToIDB (name, version) {
   });
 }
 
-function operateOnIDB (IDB, operation, data) {
+function operateOnIDB (name, IDB, operation, data) {
   return new Promise((resolve, reject) => {
-    const transaction = IDB.transaction('userData', 'readwrite');
-    const store = transaction.objectStore('userData');
+    const transaction = IDB.transaction(name, 'readwrite');
+    const store = transaction.objectStore(name);
     let request;
     switch (operation) {
       case 'GET':
@@ -48,11 +48,11 @@ function operateOnIDB (IDB, operation, data) {
   });
 }
 
-async function operateWithIDB (operation, data) {
+async function operateWithIDB (store, operation, data) {
   let IDB;
   try {
-    IDB = await connectToIDB(USER_DATA_KEY, IDB_VERSION);
-    return await operateOnIDB(IDB, operation, data);
+    IDB = await connectToIDB(store, IDB_VERSION);
+    return await operateOnIDB(store, IDB, operation, data);
   }
   catch (exception) {
     debug(exception);
@@ -64,8 +64,8 @@ async function operateWithIDB (operation, data) {
   }
 }
 
-export default function Persist () {
-  this.fromStorage = () => operateWithIDB('GET', null);
-  this.toStorage = data => operateWithIDB('PUT', data);
-  this.deleteFromStorage = data => operateWithIDB('DELETE', data);
+export default function Persist (storeName) {
+  this.fromStorage = () => operateWithIDB(storeName, 'GET', null);
+  this.toStorage = data => operateWithIDB(storeName, 'PUT', data);
+  this.deleteFromStorage = data => operateWithIDB(storeName, 'DELETE', data);
 }
