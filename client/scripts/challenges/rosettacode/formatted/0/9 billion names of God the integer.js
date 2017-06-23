@@ -20,16 +20,15 @@ const assert = require('chai').assert;
 
 /// description:
 /// <div class="rosetta">
-/// <p class="rosetta__paragraph">This task is a variation of the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/The Nine Billion Names of God#Plot_summary" title="wp: The Nine Billion Names of God#Plot_summary">short story by Arthur C. Clarke</a>.</p>
-/// <p class="rosetta__paragraph">(Solvers should be aware of the consequences of completing this task.)</p>
+/// <p class="rosetta__paragraph">This task is a variation of the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/The Nine Billion Names of God#Plot_summary" title="wp: The Nine Billion Names of God#Plot_summary">short story by Arthur C. Clarke</a>.</p><br/>
+/// <p class="rosetta__paragraph">(Solvers should be aware of the consequences of completing this task.)</p><br/>
 /// <p class="rosetta__paragraph">In detail, to specify what is meant by a  “name”:</p>
 /// <p class="rosetta__paragraph"><span class="rosetta__text--indented">The integer 1 has 1 name “1”.</span></p>
 /// <p class="rosetta__paragraph"><span class="rosetta__text--indented">The integer 2 has 2 names “1+1”, and “2”.</span></p>
 /// <p class="rosetta__paragraph"><span class="rosetta__text--indented">The integer 3 has 3 names “1+1+1”, “2+1”,  and “3”.</span></p>
 /// <p class="rosetta__paragraph"><span class="rosetta__text--indented">The integer 4 has 5 names “1+1+1+1”, “2+1+1”, “2+2”, “3+1”, “4”.</span></p>
-/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">The integer 5 has 7 names “1+1+1+1+1”, “2+1+1+1”, “2+2+1”, “3+1+1”, “3+2”, “4+1”, “5”.</span></p>
-/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task</dt></dl>
-/// <p class="rosetta__paragraph">Display the first 25 rows of a number triangle which begins:</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">The integer 5 has 7 names “1+1+1+1+1”, “2+1+1+1”, “2+2+1”, “3+1+1”, “3+2”, “4+1”, “5”.</span></p><br/>
+/// <p class="rosetta__paragraph">This can be visualized in the following form:</p>
 /// <div class="rosetta__pre-wrap"><pre class="rosetta__pre">
 ///           1
 ///         1   1
@@ -39,8 +38,9 @@ const assert = require('chai').assert;
 /// 1   3   3   2   1   1
 /// </pre></div>
 /// <p class="rosetta__paragraph">Where row  $n$  corresponds to integer  $n$,  and each column  $C$  in row  $m$  from left to right corresponds to the number of names beginning with $C$.</p>
-/// <p class="rosetta__paragraph">A function  $G(n)$  should return the sum of the  $n$-th  row.</p>
 /// <p class="rosetta__paragraph">Optionally note that the sum of the  $n$-th  row  $P(n)$  is the   <a class="rosetta__link--wiki" href="http://mathworld.wolfram.com/PartitionFunctionP.html" title="link: http://mathworld.wolfram.com/PartitionFunctionP.html">integer partition function</a>.</p>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task</dt></dl>
+/// <p class="rosetta__paragraph">Implement a function that returns the sum of the  $n$-th  row.</p>
 /// </div>
 
 /// challengeSeed:

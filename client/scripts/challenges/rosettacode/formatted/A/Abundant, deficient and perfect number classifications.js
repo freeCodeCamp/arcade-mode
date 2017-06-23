@@ -19,15 +19,15 @@ getDPA(20000);
 
 /// description:
 /// <div class="rosetta">
-/// <p class="rosetta__paragraph">These define three classifications of positive integers based on their <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Proper divisors" title="Proper divisors">proper divisors</a>.</p>
+/// <p class="rosetta__paragraph">These define three classifications of positive integers based on their <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Proper divisors" title="Proper divisors">proper divisors</a>.</p><br/>
 /// <p class="rosetta__paragraph">Let $P(n)$ be the sum of the proper divisors of n where proper divisors are all positive integers n other than n itself.</p>
-/// <p class="rosetta__paragraph">if <code>P(n) < n</code> then n is classed as "deficient"</p>
-/// <p class="rosetta__paragraph">if <code>P(n) === n</code> then n is classed as "perfect"</p>
-/// <p class="rosetta__paragraph">if <code>P(n) > n</code> then n is classed as "abundant"</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">If <code>P(n) < n</code> then n is classed as "deficient"</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">If <code>P(n) === n</code> then n is classed as "perfect"</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--indented">If <code>P(n) > n</code> then n is classed as "abundant"</span></p><br/>
 /// <p class="rosetta__paragraph">Example:</p>
 /// <p class="rosetta__paragraph">6 has proper divisors of 1, 2, and 3.</p>
-/// <p class="rosetta__paragraph">1 + 2 + 3 = 6, so 6 is classed as a perfect number.</p>
-/// <p class="rosetta__paragraph">Implement a function that calculates how many of the integers from 1 to 20,000 (inclusive) are in each of the three classes. Output the result as an array in the following format [deficient, perfect, abundant].</p>
+/// <p class="rosetta__paragraph">1 + 2 + 3 = 6, so 6 is classed as a perfect number.</p><br/>
+/// <p class="rosetta__paragraph">Implement a function that calculates how many of the integers from 1 to 20,000 (inclusive) are in each of the three classes. Output the result as an array in the following format <code>[deficient, perfect, abundant]</code>.</p>
 /// </div>
 
 /// challengeSeed:

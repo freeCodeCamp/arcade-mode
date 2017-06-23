@@ -17,7 +17,7 @@ const assert = require('chai').assert;
 
 /// description:
 /// <div class="rosetta">
-/// <p class="rosetta__paragraph">Given a text file of many lines, where fields within a line are delineated by a single $ character, write a program that aligns each column of fields by ensuring that words in each column are separated by at least one space. Further, allow for each word in a column to be either left justified, right justified, or center justified within its column.</p>
+/// <p class="rosetta__paragraph">Given a text file of many lines, where fields within a line are delineated by a single <code>$</code> character, write a program that aligns each column of fields by ensuring that words in each column are separated by at least one space. Further, allow for each word in a column to be either left justified, right justified, or center justified within its column.</p><br/>
 /// <p class="rosetta__paragraph">Use the following text to test your programs:</p>
 /// <div class="rosetta__pre-wrap">
 /// <pre class="rosetta__pre">
