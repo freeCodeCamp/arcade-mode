@@ -18,7 +18,7 @@ const assert = require('chai').assert;
 
 /// description:
 /// <div class="rosetta">
-/// <p class="rosetta__paragraph">Create a function that takes a single (numeric) argument and returns another function that is an accumulator. The returned accumulator function in turn also takes a single numeric argument, and returns the sum of all the numeric values passed in so far to that accumulator (including the initial value passed when the accumulator was created).</p>
+/// <p class="rosetta__paragraph">Create a function that takes a single (numeric) argument and returns another function that is an accumulator. The returned accumulator function in turn also takes a single numeric argument, and returns the sum of all the numeric values passed in so far to that accumulator (including the initial value passed when the accumulator was created).</p><br/>
 /// <p class="rosetta__paragraph">Rules:</p>
 /// <p class="rosetta__paragraph">Do not use global variables.</p>
 /// <p class="rosetta__paragraph">Hint:</p>
