@@ -1,4 +1,12 @@
 # PROGRESS for Arcade Mode
+## Friday 6/23/17:
+### Tim:
+  - Progress:
+    1. Add challenges:
+      - Averages--Mode
+      - Averages--Pythagorean means
+      - Averages--Root mean squares
+
 ## Thursday 6/22/17:
 ### Tim:
   - Progress:
