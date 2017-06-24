@@ -13,7 +13,7 @@ const assert = require('chai').assert;
 /// categories:
 
 
-/// difficulty: ?
+/// difficulty: 2
 
 /// benchmark:
 
