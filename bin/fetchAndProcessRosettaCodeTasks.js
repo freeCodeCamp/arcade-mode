@@ -130,8 +130,9 @@ function processRawRosettaCodeTask (taskName, content) {
   // 1. Regexes for transforming RosettaCode specific syntax to in-house/regular.
   const stripAllNBSPRegex = /&nbsp;/g;
   const categoriesRegex = /\[\[Category:([^\]]*)\]\]/g;
+  const imagesRegex = /\[\[File:([^\]]*)\]\]/g;
   const wikipediaTemplateRegex = /\[\[(?:wp:)([^|]*?)\|(.*?)\]\]/g;
-  const rosettaTemplateRegex = /\[\[(?!wp:)(?!Category:)(.*?)(?:\|(.*?))?\]\]/g;
+  const rosettaTemplateRegex = /\[\[(?!wp:)(?!Category:)(?!File:)(.*?)(?:\|(.*?))?\]\]/g;
   const otherLinkTemplateRegex = /\[(https?:\/\/(?:[\S]*)) (.*?)\]/g;
   const tripleSingleQuotesRegex = /'''(.*?)'''/g; // convert to bold
   const doubleSingleQuotesRegex = /''(.*?)''/g; // convert to italics
@@ -165,6 +166,7 @@ function processRawRosettaCodeTask (taskName, content) {
       categories.push(`/// ${first}`);
       return '';
     })
+    .replace(imagesRegex, '')
     .replace(wikipediaTemplateRegex,
       '<a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/$1" title="wp: $1">$2</a>')
     .replace(rosettaTemplateRegex, (match, m1, m2) => {
