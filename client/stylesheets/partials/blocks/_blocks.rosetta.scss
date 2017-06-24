@@ -6,6 +6,10 @@
   // the entire element itself:
   white-space: normal;
 
+  &__blockquote {
+    margin: 0;
+  }
+
   &__paragraph {
     margin: 0;
   }
