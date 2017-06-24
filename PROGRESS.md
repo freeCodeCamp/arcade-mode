@@ -6,6 +6,8 @@
       - Averages--Mode
       - Averages--Pythagorean means
       - Averages--Root mean squares
+      - Babbage problem
+      - Balanced brackets
 
 ## Thursday 6/22/17:
 ### Tim:
