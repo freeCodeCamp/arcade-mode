@@ -19,7 +19,7 @@ replaceWithActualFunctionHere;
 
 /// description:
 /// <div class="rosetta">
-/// <p class="rosetta__paragraph"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:Fifo.gif" title="File:Fifo.gif">frame|right|Illustration of FIFO behavior</a></p><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
 /// <p class="rosetta__paragraph">Create a queue data structure and demonstrate its operations.</p><br/><p class="rosetta__paragraph">(For implementations of queues, see the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/FIFO" title="FIFO">FIFO</a> task.)</p>
 /// <br/><p class="rosetta__paragraph">Operations:</p>
 /// <p class="rosetta__paragraph"><span class="rosetta__text--indented">:*  push             (aka <span class="rosetta__text--italic">enqueue</span>) - add element</span></p>

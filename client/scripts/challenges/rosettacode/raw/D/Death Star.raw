@@ -20,7 +20,9 @@ replaceWithActualFunctionHere;
 /// description:
 /// <div class="rosetta">
 /// <br/>
-/// <br/><br/><p class="rosetta__paragraph"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:Deathstar-tcl.gif" title="File:Deathstar-tcl.gif">400px|thumb</a></p><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <br/>
+/// <br/>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
 /// <p class="rosetta__paragraph">Display a region that consists of a large sphere with part of a smaller sphere removed from it as a result of geometric subtraction.</p><br/><p class="rosetta__paragraph">(This will basically produce a shape like a "death star".)</p>
 /// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Related task:</dt></dl>
 /// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"> <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Draw a sphere" title="Draw a sphere">Draw a sphere</a></li></ul><br><br><br/></div>

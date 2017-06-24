@@ -18,7 +18,9 @@ const assert = require('chai').assert;
 replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="rosetta"><br/><p class="rosetta__paragraph"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:Tic_tac_toe.jpg" title="File:Tic_tac_toe.jpg">500px||right</a></p><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <div class="rosetta">
+/// <br/>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
 /// <p class="rosetta__paragraph">Play a game of <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Tic-tac-toe" title="wp: Tic-tac-toe">tic-tac-toe</a>. Ensure that legal moves are played and that a winning position is notified.</p>
 /// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">See also</dt></dl>
 /// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"><a class="rosetta__link--wiki" href="http://mathworld.wolfram.com/Tic-Tac-Toe.html" title="link: http://mathworld.wolfram.com/Tic-Tac-Toe.html">Mathworld&trade;, Tic-Tac-Toe game</a>.</li></ul><br><br><br/></div>

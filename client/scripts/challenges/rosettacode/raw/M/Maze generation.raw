@@ -19,7 +19,7 @@ replaceWithActualFunctionHere;
 
 /// description:
 /// <div class="rosetta">
-/// <p class="rosetta__paragraph"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:a maze.png" title="File:a maze.png">300px||right|a maze</a></p><br/><br>
+/// <br/><br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
 /// <p class="rosetta__paragraph">Generate and show a maze, using the simple <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Maze_generation_algorithm#Depth-first_search" title="wp: Maze_generation_algorithm#Depth-first_search">Depth-first search</a> algorithm.</p><br/><p class="rosetta__paragraph"><!-- BEGIN TEXT FROM WIKIPEDIA --></p>
 /// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">Start at a random cell.</li>

@@ -19,7 +19,7 @@ replaceWithActualFunctionHere;
 
 /// description:
 /// <div class="rosetta">
-/// <p class="rosetta__paragraph"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:dragon_curve_steps.png" title="File:dragon_curve_steps.png">400px||right</a></p><br/><p class="rosetta__paragraph"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:dragon_curve.png" title="File:dragon_curve.png">400px||right</a></p><br/><p class="rosetta__paragraph">Create and display a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/dragon curve" title="wp: dragon curve">dragon curve</a> fractal.</p><br/><p class="rosetta__paragraph">(You may either display the curve directly or write it to an image file.)</p>
+/// <br/><br/><p class="rosetta__paragraph">Create and display a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/dragon curve" title="wp: dragon curve">dragon curve</a> fractal.</p><br/><p class="rosetta__paragraph">(You may either display the curve directly or write it to an image file.)</p>
 /// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Algorithms</dt></dl><br/><p class="rosetta__paragraph">Here are some brief notes the algorithms used and how they might suit various languages.</p><br/><ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Recursively a right curling dragon is a right dragon followed by a left dragon, at 90-degree angle.  And a left dragon is a left followed by a right.</li></ul>
 /// <div class="rosetta__pre-wrap"><pre class="rosetta__pre">*---R----*     expands to     *       *
 ///                                \     /

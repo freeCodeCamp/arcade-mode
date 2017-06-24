@@ -19,7 +19,7 @@ replaceWithActualFunctionHere;
 
 /// description:
 /// <div class="rosetta">
-/// <p class="rosetta__paragraph"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:chess_queen.jpg" title="File:chess_queen.jpg">400px||right</a></p><br/><p class="rosetta__paragraph"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:N_queens_problem.png" title="File:N_queens_problem.png">400px||right</a></p><br/><p class="rosetta__paragraph">Solve the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/WP:Eight_queens_puzzle" title="WP:Eight_queens_puzzle">eight queens puzzle</a>.</p>
+/// <br/><br/><p class="rosetta__paragraph">Solve the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/WP:Eight_queens_puzzle" title="WP:Eight_queens_puzzle">eight queens puzzle</a>.</p>
 /// <br/><p class="rosetta__paragraph">You can extend the problem to solve the puzzle with a board of size  <big><span class="rosetta__text--bold">N</span>x<span class="rosetta__text--bold">N</span></big>.</p><br/><p class="rosetta__paragraph">For the number of solutions for small values of  <span class="rosetta__text--bold">N</span>,  see  <a class="rosetta__link--wiki" href="http://oeis.org/A000170" title="link: http://oeis.org/A000170">oeis.org sequence A170</a>.</p>
 /// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Related tasks:</dt></dl>
 /// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/A* search algorithm" title="A* search algorithm">A* search algorithm</a></li>

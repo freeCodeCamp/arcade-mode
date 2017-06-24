@@ -129,8 +129,8 @@ function processRawRosettaCodeTask (taskName, content) {
 
   // 1. Regexes for transforming RosettaCode specific syntax to in-house/regular.
   const stripAllNBSPRegex = /&nbsp;/g;
-  const categoriesRegex = /\[\[Category:([^\]]*)\]\]/g;
-  const imagesRegex = /\[\[File:([^\]]*)\]\]/g;
+  const categoriesRegex = /\[\[Category:([^\]]*)\]\]/g; // save rosetta categories
+  const imagesRegex = /\[\[File:([^\]]*)\]\]/g; // strip all rosetta images
   const wikipediaTemplateRegex = /\[\[(?:wp:)([^|]*?)\|(.*?)\]\]/g;
   const rosettaTemplateRegex = /\[\[(?!wp:)(?!Category:)(?!File:)(.*?)(?:\|(.*?))?\]\]/g;
   const otherLinkTemplateRegex = /\[(https?:\/\/(?:[\S]*)) (.*?)\]/g;

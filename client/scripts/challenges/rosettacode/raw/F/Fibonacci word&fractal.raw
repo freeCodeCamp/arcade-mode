@@ -19,7 +19,7 @@ replaceWithActualFunctionHere;
 
 /// description:
 /// <div class="rosetta">
-/// <p class="rosetta__paragraph"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:Fib_word_fractal.gif" title="File:Fib_word_fractal.gif">613px||right</a></p><br/><p class="rosetta__paragraph">The <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Fibonacci word" title="Fibonacci word">Fibonacci word</a> may be represented as a fractal as described <a class="rosetta__link--wiki" href="http://hal.archives-ouvertes.fr/docs/00/36/79/72/PDF/The_Fibonacci_word_fractal.pdf" title="link: http://hal.archives-ouvertes.fr/docs/00/36/79/72/PDF/The_Fibonacci_word_fractal.pdf">here</a>:</p><br/><p class="rosetta__paragraph"><span class="rosetta__text--indented">For F_word<sub>m</sub> start with F_wordChar<sub>n=1</sub></span></p>
+/// <br/><p class="rosetta__paragraph">The <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Fibonacci word" title="Fibonacci word">Fibonacci word</a> may be represented as a fractal as described <a class="rosetta__link--wiki" href="http://hal.archives-ouvertes.fr/docs/00/36/79/72/PDF/The_Fibonacci_word_fractal.pdf" title="link: http://hal.archives-ouvertes.fr/docs/00/36/79/72/PDF/The_Fibonacci_word_fractal.pdf">here</a>:</p><br/><p class="rosetta__paragraph"><span class="rosetta__text--indented">For F_word<sub>m</sub> start with F_wordChar<sub>n=1</sub></span></p>
 /// <p class="rosetta__paragraph"><span class="rosetta__text--indented">Draw a segment forward</span></p>
 /// <p class="rosetta__paragraph"><span class="rosetta__text--indented">If current F_wordChar is 0</span></p>
 /// <p class="rosetta__paragraph"><span class="rosetta__text--indented">:Turn left if n is even</span></p>

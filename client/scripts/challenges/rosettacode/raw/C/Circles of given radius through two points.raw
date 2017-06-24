@@ -19,7 +19,7 @@ replaceWithActualFunctionHere;
 
 /// description:
 /// <div class="rosetta">
-/// <p class="rosetta__paragraph"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:2 circles through 2 points.jpg" title="File:2 circles through 2 points.jpg">500px||right|2 circles with a given radius through 2 points in 2D space.</a></p><br/><p class="rosetta__paragraph">Given two points on a plane and a radius, usually two circles of given radius can be drawn through the points.</p>
+/// <br/><p class="rosetta__paragraph">Given two points on a plane and a radius, usually two circles of given radius can be drawn through the points.</p>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Exceptions:</dt></dl>
 /// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">r==0.0 should be treated as never describing circles (except in the case where the points are coincident).</li>
 /// <li class="rosetta__list-item--ordered">If the points are coincident then an infinite number of circles with the point on their circumference can be drawn, unless r==0.0 as well which then collapses the circles to a point.</li>

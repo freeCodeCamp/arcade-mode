@@ -19,7 +19,7 @@ replaceWithActualFunctionHere;
 
 /// description:
 /// <div class="rosetta">
-/// <br/><p class="rosetta__paragraph"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:Brownian_tree.jpg" title="File:Brownian_tree.jpg">240px||right</a></p>
+/// <br/>
 /// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
 /// <p class="rosetta__paragraph">Generate and draw a  <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Brownian tree" title="wp: Brownian tree">Brownian Tree</a>.</p>
 /// <br/><p class="rosetta__paragraph">A Brownian Tree is generated as a result of an initial seed, followed by the interaction of two processes.</p><br/><ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">The initial "seed" is placed somewhere within the field. Where is not particularly important; it could be randomized, or it could be a fixed point.</li>

@@ -20,8 +20,8 @@ replaceWithActualFunctionHere;
 
 /// description:
 /// <div class="rosetta">
-/// <p class="rosetta__paragraph"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:15_puzzle.png" title="File:15_puzzle.png">300px|thumb|right</a></p>
-/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <br/>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
 /// <p class="rosetta__paragraph">Implement the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/15_puzzle" title="wp: 15_puzzle">Fifteen Puzzle Game</a>.</p><br/><br><br><br/></div>
 
 /// challengeSeed:

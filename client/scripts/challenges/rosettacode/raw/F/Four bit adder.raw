@@ -29,10 +29,10 @@ replaceWithActualFunctionHere;
 /// <p class="rosetta__paragraph">!A full adder</p>
 /// <p class="rosetta__paragraph">!A 4-bit adder</p>
 /// <p class="rosetta__paragraph">|-</p>
-/// <p class="rosetta__paragraph">|<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:xor.png" title="File:xor.png">frameless|Xor gate done with ands, ors and nots</a></p>
-/// <p class="rosetta__paragraph">|<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:halfadder.png" title="File:halfadder.png">frameless|A half adder</a></p>
-/// <p class="rosetta__paragraph">|<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:fulladder.png" title="File:fulladder.png">frameless|A full adder</a></p>
-/// <p class="rosetta__paragraph">|<a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:4bitsadder.png" title="File:4bitsadder.png">frameless|A 4-bit adder</a></p>
+/// <p class="rosetta__paragraph">|</p>
+/// <p class="rosetta__paragraph">|</p>
+/// <p class="rosetta__paragraph">|</p>
+/// <p class="rosetta__paragraph">|</p>
 /// <p class="rosetta__paragraph">|}</p><br/><p class="rosetta__paragraph">Solutions should try to be as descriptive as possible, making it as easy as possible to identify "connections" between higher-order "blocks".</p>
 /// <p class="rosetta__paragraph">It is not mandatory to replicate the syntax of higher-order blocks in the atomic "gate" blocks, i.e. basic "gate" operations can be performed as usual bitwise operations, or they can be "wrapped" in a <span class="rosetta__text--italic">block</span> in order to expose the same syntax of higher-order blocks, at implementers' choice.</p><br/><p class="rosetta__paragraph">To test the implementation, show the sum of two four-bit numbers (in binary).</p>
 /// <div style="clear:both"></div>

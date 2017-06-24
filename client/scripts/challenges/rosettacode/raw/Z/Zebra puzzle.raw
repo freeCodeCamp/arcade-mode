@@ -20,7 +20,7 @@ replaceWithActualFunctionHere;
 
 /// description:
 /// <div class="rosetta">
-/// <br/><p class="rosetta__paragraph"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:zebra.png" title="File:zebra.png">550px||right</a></p><br/><p class="rosetta__paragraph">The <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Zebra puzzle" title="wp: Zebra puzzle">Zebra puzzle</a>, a.k.a. Einstein's Riddle,</p>
+/// <br/><br/><p class="rosetta__paragraph">The <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Zebra puzzle" title="wp: Zebra puzzle">Zebra puzzle</a>, a.k.a. Einstein's Riddle,</p>
 /// <p class="rosetta__paragraph">is a logic puzzle which is to be solved programmatically. <br></p>
 /// <p class="rosetta__paragraph">It has several variants, one of them this:</p><br/><ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">There are five houses.</li>
 /// <li class="rosetta__list-item--ordered">The English man lives in the red house.</li>

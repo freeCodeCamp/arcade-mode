@@ -21,7 +21,7 @@ replaceWithActualFunctionHere;
 /// <div class="rosetta">
 /// <br/>
 /// <p class="rosetta__paragraph">Generate an animated simulation of <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Bean_machine" title="wp: Bean_machine">Sir Francis Galton's device</a>.</p>
-/// <p class="rosetta__paragraph">An example can be found to the right. <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:Galtonbox-Unicon.PNG" title="File:Galtonbox-Unicon.PNG">thumb|Example of a Galton Box at the end of animation.</a></p><br/><p class="rosetta__paragraph">In a Galton box, there are a set of pins arranged in a triangular pattern.</p>
+/// <p class="rosetta__paragraph">An example can be found to the right.</p><br/><p class="rosetta__paragraph">In a Galton box, there are a set of pins arranged in a triangular pattern.</p>
 /// <p class="rosetta__paragraph">A number of balls are dropped so that they fall in line with the top pin, deflecting to the left or the right of the pin. The ball continues to fall to the left or right of subsequent pins before arriving at one of the collection points between and to the sides of the bottom row of pins.</p><br/><p class="rosetta__paragraph">For the purpose of this task the box should have at least 5 pins on the bottom row.</p>
 /// <p class="rosetta__paragraph">Your solution can use graphics or ASCII animation.</p>
 /// <p class="rosetta__paragraph">Provide a sample of the output/display such as a screenshot.</p><br/><p class="rosetta__paragraph">Your solution can have either one or more balls in flight at the same time.</p>

@@ -19,7 +19,7 @@ replaceWithActualFunctionHere;
 
 /// description:
 /// <div class="rosetta">
-/// <p class="rosetta__paragraph"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:Dutch_flag_3.jpg" title="File:Dutch_flag_3.jpg">200px||right</a></p><br/><p class="rosetta__paragraph">The Dutch national flag is composed of three coloured bands in the order red then white and lastly blue. The problem posed by <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Edsger Dijkstra" title="wp: Edsger Dijkstra">Edsger Dijkstra</a> is:</p>
+/// <br/><p class="rosetta__paragraph">The Dutch national flag is composed of three coloured bands in the order red then white and lastly blue. The problem posed by <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Edsger Dijkstra" title="wp: Edsger Dijkstra">Edsger Dijkstra</a> is:</p>
 /// <p class="rosetta__paragraph"><span class="rosetta__text--indented">Given a number of red, blue and white balls in random order, arrange them in the order of the colours Dutch national flag.</span></p>
 /// <p class="rosetta__paragraph">When the problem was first posed, Dijkstra then went on to successively refine a solution, minimising the number of swaps and the number of times the colour of a ball needed to determined and restricting the balls to end in an array, ...</p><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task</dt></dl>
 /// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">Generate a randomized order of balls <span class="rosetta__text--italic">ensuring that they are not in the order of the Dutch national flag</span>.</li>

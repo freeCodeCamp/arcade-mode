@@ -19,8 +19,8 @@ replaceWithActualFunctionHere;
 
 /// description:
 /// <div class="rosetta">
-/// <p class="rosetta__paragraph"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:Babbage.jpg" title="File:Babbage.jpg">300px||right|Charles Babbage</a></p>
-/// <p class="rosetta__paragraph"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:Babbage engine.jpg" title="File:Babbage engine.jpg">300px||right|Charles Babbage's analytical engine.</a></p><br/><p class="rosetta__paragraph"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Charles_Babbage" title="wp: Charles_Babbage">Charles Babbage</a>, looking ahead to the sorts of problems his Analytical Engine would be able to solve, gave this example:</p>
+/// <br/>
+/// <p class="rosetta__paragraph"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Charles_Babbage" title="wp: Charles_Babbage">Charles Babbage</a>, looking ahead to the sorts of problems his Analytical Engine would be able to solve, gave this example:</p>
 /// <p class="rosetta__paragraph">{{quote</p>
 /// <p class="rosetta__paragraph">| What is the smallest positive integer whose square ends in the digits 269,696?</p>
 /// <p class="rosetta__paragraph">| Babbage, letter to Lord Bowden, 1837; see Hollingdale and Tootill, <i>Electronic Computers</i>, second edition, 1970, p. 125.</p>

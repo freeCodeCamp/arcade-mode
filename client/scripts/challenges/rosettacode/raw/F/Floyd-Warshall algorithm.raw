@@ -22,7 +22,9 @@ replaceWithActualFunctionHere;
 /// <p class="rosetta__paragraph">The <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Floyd–Warshall_algorithm" title="wp: Floyd–Warshall_algorithm">Floyd–Warshall algorithm</a> is an algorithm for finding shortest paths in a weighted graph with positive or negative edge weights.</p>
 /// <br><br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task</dt></dl>
-/// <p class="rosetta__paragraph">Find the lengths of the shortest paths between all pairs of vertices of the given directed graph. Your code may assume that the input has already been checked for loops, parallel edges and negative cycles.</p><br/><p class="rosetta__paragraph"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:Floyd_warshall_graph.gif" title="File:Floyd_warshall_graph.gif">File:Floyd_warshall_graph.gif</a></p><br/><p class="rosetta__paragraph">Print the pair, the distance and (optionally) the path.</p>
+/// <p class="rosetta__paragraph">Find the lengths of the shortest paths between all pairs of vertices of the given directed graph. Your code may assume that the input has already been checked for loops, parallel edges and negative cycles.</p>
+/// <br/>
+/// <p class="rosetta__paragraph">Print the pair, the distance and (optionally) the path.</p>
 /// <br><br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Example</dt></dl>
 /// <div class="rosetta__pre-wrap"><pre class="rosetta__pre">pair     dist    path

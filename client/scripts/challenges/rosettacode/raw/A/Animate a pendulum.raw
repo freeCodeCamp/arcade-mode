@@ -18,8 +18,8 @@ const assert = require('chai').assert;
 replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="rosetta"><br/><p class="rosetta__paragraph"><a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/File:pendulum.gif" title="File:pendulum.gif">160px|thumb|right|Capture of the Oz version.</a></p>
-/// <br/><p class="rosetta__paragraph">One good way of making an animation is by simulating a physical system and illustrating the variables in that system using a dynamically changing graphical display.</p>
+/// <div class="rosetta">
+/// <br/><br/><p class="rosetta__paragraph">One good way of making an animation is by simulating a physical system and illustrating the variables in that system using a dynamically changing graphical display.</p>
 /// <p class="rosetta__paragraph">The classic such physical system is a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Pendulum" title="wp: Pendulum">simple gravity pendulum</a>.</p><br/><p class="rosetta__paragraph">For this task, create a simple physical model of a pendulum and animate it.</p><br/></div>
 
 /// challengeSeed:
