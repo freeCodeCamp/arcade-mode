@@ -63,27 +63,49 @@ function taxicabNumbers(nNumbers) {
     cubeN[n] = n * n * n;
   }
 
-  let a = 1;
-  for (let numbersFound = 0; numbersFound < nNumbers;) {
+  for (let a = 1; a < e - 1; a += 1) {
     const a3 = cubeN[a];
     for (let b = a; b < e; b += 1) {
       const b3 = cubeN[b];
       const s3 = a3 + b3;
+
       let abs = s3s[s3];
       if (!abs) {
         s3s[s3] = abs = [];
       }
       abs.push([a, b]);
-      ++numbersFound;
     }
-    a += 1;
   }
 
+  let i = 0;
+  const res = [];
+  for (const s3 in s3s) {
+    const abs = s3s[s3];
+    if (abs.length < 2) { // No two cube pairs found
+      continue;
+    }
+    i += 1;
+    if (i > nNumbers) {
+      break;
+    }
+    res.push(s3);
+    /*
+    document.write(i, ': ', s3)
+    for (const ab of abs) {
+      document.write(' = ', ab[0], '<sup>3</sup>+', ab[1], '<sup>3</sup>');
+    }
+    document.write('<br>');
+    */
+  }
+  return res.map(item => parseInt(item, 10));
+
+  /*
   const res = [];
   Object.keys(s3s).sort().forEach(s3 => {
-    res.push(s3);
+    res.push([s3, s3s[s3][0], s3s[s3][1]]);
   });
   return res;
+  */
   /*
   for (const s3 in s3s) {
     const abs = s3s[s3];
@@ -155,7 +177,6 @@ function taxicabNumbers(nNumbers) {
 /// tail:
 const replaceThis = 3;
 
-
 const res4 = [1729, 4104, 13832, 20683];
 const res25 = [
   1729, 4104, 13832, 20683, 32832, 39312, 40033, 46683, 64232, 65728, 110656,
@@ -167,7 +188,7 @@ const res25 = [
 assert(typeof taxicabNumbers === 'function', 'message: <code>taxicabNumbers </code> is a function.');
 assert(typeof taxicabNumbers(2) === 'object', 'message: <code>taxicabNumbers </code> should return an array.');
 assert(typeof taxicabNumbers(100)[0] === 'number', 'message: <code>taxicabNumbers </code> should return an array of numbers.');
-assert.deepEqual(taxicabNumbers(4), res4, 'message: <code>taxicabNumbers </code> must return is a function.');
+assert.deepEqual(taxicabNumbers(4), res4, 'message: <code>taxicabNumbers(4) </code> must return [1729, 4104, 13832, 20683].');
 assert.deepEqual(taxicabNumbers(25), res25,
     `message: taxicabNumbers(25) should return [1729, 4104, 13832, 20683, 32832, 39312, 40033, 46683, 64232, 65728, 110656,
     110808, 134379, 149389, 165464, 171288, 195841, 216027, 216125, 262656, 314496, 320264, 327763,
