@@ -37,7 +37,6 @@ const assert = require('chai').assert;
 /// challengeSeed:
 function pythagoreanMeans (rangeArr) {
   // Good luck!
-  return true;
 }
 
 /// solutions:
@@ -93,7 +92,7 @@ function pythagoreanMeans (rangeArr) {
   const mean = mapFromList(zip(
     ['Arithmetic', 'Geometric', 'Harmonic'],
     ap([arithmeticMean, geometricMean, harmonicMean], [
-      range
+      rangeArr
     ])
   ));
 

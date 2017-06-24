@@ -28,7 +28,6 @@ const assert = require('chai').assert;
 /// challengeSeed:
 function rms (arr) {
   // Good luck!
-  return true;
 }
 
 /// solutions:
@@ -43,5 +42,5 @@ const answer1 = 6.2048368229954285;
 
 /// tests:
 assert(typeof rms === 'function', 'message: <code>rms</code> is a function.');
-assert.equal(rms(arr1), answer1, `message: <code>rms(${arr1})</code> should equal <code>${answer1}</code>.`);
+assert.equal(rms(arr1), answer1, 'message: <code>rms([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])</code> should equal <code>6.2048368229954285</code>.');
 /// id: 594da033de4190850b893874
