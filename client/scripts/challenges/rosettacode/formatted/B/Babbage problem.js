@@ -42,7 +42,7 @@ function babbage (babbageAns, endDigits) {
 
   // count down from this answer and save any sqrt int result. return lowest one
   for (let i = babbageStartDigits; i >= 0; i--) {
-    const num = parseInt(babbageStartDigits.toString().concat('269696'));
+    const num = parseInt(i.toString().concat('269696'));
     const result = Math.sqrt(num);
     if (result === Math.floor(Math.sqrt(num))) {
       answer = result;
