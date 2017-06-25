@@ -57,7 +57,7 @@ function taxicabNumbers(nNumbers) {
   const cubeN = [];
   const s3s = {};
 
-  const e = 1200;
+  const e = 100;
   for (let n = 1; n < e; n += 1) {
     cubeN[n] = n * n * n;
   }
@@ -106,3 +106,4 @@ assert(typeof taxicabNumbers(2) === 'object', 'message: <code>taxicabNumbers </c
 assert(typeof taxicabNumbers(100)[0] === 'number', 'message: <code>taxicabNumbers </code> should return an array of numbers.');
 assert.deepEqual(taxicabNumbers(4), res4, 'message: <code>taxicabNumbers(4) </code> must return [1729, 4104, 13832, 20683].');
 assert.deepEqual(taxicabNumbers(25), res25, 'message: taxicabNumbers(25) should return [1729, 4104, 13832, 20683, 32832, 39312, 40033, 46683, 64232, 65728, 110656, 110808, 134379, 149389, 165464, 171288, 195841, 216027, 216125, 262656, 314496, 320264, 327763, 373464, 402597]');
+/// id: 594ecc0d9a8cf816e3340187
