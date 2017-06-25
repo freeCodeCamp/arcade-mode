@@ -16,7 +16,7 @@ const assert = require('chai').assert;
 
 /// description:
 /// <div class="rosetta">
-/// <br/><p class="rosetta__paragraph">Write a function or program that can split a string at each non-escaped occurrence of a separator character.</p><br/><p class="rosetta__paragraph">It should accept three input parameters:</p>
+/// <p class="rosetta__paragraph">Write a function or program that can split a string at each non-escaped occurrence of a separator character.</p><br/><p class="rosetta__paragraph">It should accept three input parameters:</p>
 /// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">The <b>string</b></li>
 /// <li class="rosetta__list-item--unordered">The <b>separator character</b></li>
 /// <li class="rosetta__list-item--unordered">The <b>escape character</b></li></ul>

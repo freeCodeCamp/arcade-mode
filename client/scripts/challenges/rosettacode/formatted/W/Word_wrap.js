@@ -13,23 +13,30 @@ const assert = require('chai').assert;
 /// strings
 
 /// description:
+/// <div class="rosetta">
+/// <p class="rosetta__paragraph">
 /// Even today, with proportional fonts and complex layouts, there are still
-/// [[Template:Lines_too_long|cases]] where you need to wrap text at a specified
+/// cases where you need to wrap text at a specified
 /// column.  The basic task is to wrap a paragraph of text in a simple way.
 /// Example text:
+/// </p>
 /// <pre>
 /// Wrap text using a more sophisticated algorithm such as the Knuth and Plass TeX algorithm.
 /// If your language provides this, you get easy extra credit,
 /// but you ''must reference documentation'' indicating that the algorithm
 /// is something better than a simple minimimum length algorithm.
 /// </pre>
-/// can be wrapped to 80 characters as such:
+/// <p class="rosetta__paragraph">
+/// Write a function that can wrap this text to any number of characters. As an
+/// example, the text wrapped to 80 characters should look like the following:
+/// </p>
 /// <pre>
 /// Wrap text using a more sophisticated algorithm such as the Knuth and Plass TeX
 /// algorithm. If your language provides this, you get easy extra credit, but you
 /// must reference documentation indicating that the algorithm is something better
 /// than a simple minimimum length algorithm.
 /// </pre>
+/// </div>
 
 /// challengeSeed:
 function wrap (text, limit) {

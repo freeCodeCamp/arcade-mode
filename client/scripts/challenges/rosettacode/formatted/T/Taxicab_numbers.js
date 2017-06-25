@@ -19,32 +19,33 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <br>
+/// <div class="rosetta">
 /// A &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Hardy–Ramanujan number" title="wp: Hardy–Ramanujan number">taxicab number</a> &nbsp; (the definition that is being used here) &nbsp; is a positive integer that can be expressed as the sum of two positive cubes in more than one way.
 /// <br>
 /// The first taxicab number is &nbsp; <span class="rosetta__text--bold">1729</span>, &nbsp; which is:
-/// <span class="rosetta__text--indented">:: 1<sup>3</sup> &nbsp; + &nbsp; 12<sup>3</sup> &nbsp; &nbsp; &nbsp; and</span>
-/// <span class="rosetta__text--indented">:: 9<sup>3</sup> &nbsp; + &nbsp; 10<sup>3</sup>.</span>
+/// <span class="rosetta__text--indented">1<sup>3</sup> &nbsp; + &nbsp; 12<sup>3</sup> &nbsp; &nbsp; &nbsp; and</span>
+/// <span class="rosetta__text--indented">9<sup>3</sup> &nbsp; + &nbsp; 10<sup>3</sup>.</span>
 /// <br>
 /// Taxicab numbers are also known as:
-/// <span class="rosetta__text--indented">:* &nbsp; taxi numbers</span>
-/// <span class="rosetta__text--indented">:* &nbsp; taxi-cab numbers</span>
-/// <span class="rosetta__text--indented">:* &nbsp; taxi cab numbers</span>
-/// <span class="rosetta__text--indented">:* &nbsp; Hardy-Ramanujan numbers</span>
+/// <span class="rosetta__text--indented">* &nbsp; taxi numbers</span>
+/// <span class="rosetta__text--indented">* &nbsp; taxi-cab numbers</span>
+/// <span class="rosetta__text--indented">* &nbsp; taxi cab numbers</span>
+/// <span class="rosetta__text--indented">* &nbsp; Hardy-Ramanujan numbers</span>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
-/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Compute and display the lowest 25 taxicab numbers (in numeric order, and in a human-readable format).</li>
-/// <li class="rosetta__list-item--unordered">For each of the taxicab numbers, show the number as well as it's constituent cubes.</li></ul>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Write a function that returns the lowest N taxicab numbers.</li>
+/// <li class="rosetta__list-item--unordered">For each of the taxicab numbers, show the number as well as it's constituent cubes.</li>
+/// </ul>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Extra credit</dt></dl>
 /// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Show the 2,000<sup>th</sup> taxicab number, and a half dozen more</li></ul>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">See also:</dt></dl>
 /// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">[http://oeis.org/A001235 A001235 taxicab numbers] on The On-Line Encyclopedia of Integer Sequences.</li>
-/// <li class="rosetta__list-item--unordered">[http://mathworld.wolfram.com/Hardy-RamanujanNumber.html Hardy-Ramanujan Number] on MathWorld.</li>
-/// <li class="rosetta__list-item--unordered">[http://mathworld.wolfram.com/TaxicabNumber.html taxicab number] on MathWorld.</li>
-/// <li class="rosetta__list-item--unordered">[https://en.wikipedia.org/wiki/Taxicab_number taxicab number] on Wikipedia.</li></ul><br><br>
-/// <br>
+/// <li class="rosetta__list-item--unordered"><a href="http://mathworld.wolfram.com/Hardy-RamanujanNumber.html">Hardy-Ramanujan Number</a> on MathWorld.</li>
+/// <li class="rosetta__list-item--unordered"><a href="http://mathworld.wolfram.com/TaxicabNumber.html">taxicab number</a> on MathWorld.</li>
+/// <li class="rosetta__list-item--unordered"><a href="https://en.wikipedia.org/wiki/Taxicab_number">taxicab number</a> on Wikipedia.</li></ul><br><br>
+/// </div>
 
 /// challengeSeed:
 function taxicabNumbers (n) {
