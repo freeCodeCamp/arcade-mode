@@ -171,9 +171,12 @@ const testStr1 = 'one^|uno||three^^^^|four^^^|^cuatro|';
 const res1 = ['one|uno', '', 'three^^', 'four^|cuatro', ''];
 
 // TODO add more tests
+const testStr2 = 'a@&bcd&ef&&@@hi';
+const res2 = ['a&bcd', 'ef', '', '@hi'];
 
 /// tests:
 assert(typeof tokenize === 'function', 'message: <code>tokenize</code> is a function.');
 assert(typeof tokenize('a', 'b', 'c') === 'object', 'message: <code>tokenize</code> should return an array.');
 assert.deepEqual(tokenize(testStr1, '|', '^'), res1, "message: <code>tokenize('one^|uno||three^^^^|four^^^|^cuatro|', '|', '^') </code> should return ['one|uno', '', 'three^^', 'four^|cuatro', '']");
+assert.deepEqual(tokenize(testStr2, '&', '@'), res2, "message: <code>tokenize('a@&bcd&ef&&@@hi', '&', '@')</code> should return ['a&bcd', 'ef', '', '@hi']");
 /// id: 594faaab4e2a8626833e9c3d
