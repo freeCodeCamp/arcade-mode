@@ -16,18 +16,28 @@ json/challenges-arcade.json
 json/challenges-combined.json
 json/challenges-data-structures.json
 json/challenges-rosetta.json
-img/challenges/conventurist.png
-img/challenges/petch.png
-img/challenges/pexels-photo-127556.jpeg
-img/challenges/pexels-photo-358717.jpeg
 font/Kalam/Kalam-Regular.ttf
 font/Lato/Lato-Black.ttf
 font/Roboto/Roboto-Bold.ttf
 font/Roboto/Roboto-Medium.ttf
 font/Roboto/Roboto-Regular.ttf
-css/vendor/bootswatch/bootstrap.min.css
+img/challenges/conventurist.png
+img/challenges/petch.png
+img/challenges/pexels-photo-127556.jpeg
+img/challenges/pexels-photo-358717.jpeg
+json/IDB/challenges-algorithms.json
+json/IDB/challenges-data-structures.json
 css/vendor/codemirror/codemirror.min.css
 css/vendor/codemirror/monokai.min.css
+css/vendor/bootswatch/bootstrap.min.css
+img/IDB/challenges/conventurist.png
+img/IDB/challenges/petch.png
+img/IDB/challenges/pexels-photo-127556.jpeg
+img/IDB/challenges/pexels-photo-358717.jpeg
+IDB/img/IDB/challenges/conventurist.png
+IDB/img/IDB/challenges/petch.png
+IDB/img/IDB/challenges/pexels-photo-127556.jpeg
+IDB/img/IDB/challenges/pexels-photo-358717.jpeg
 
 NETWORK:
 *
@@ -35,4 +45,4 @@ NETWORK:
 SETTINGS:
 prefer-online
 
-# hash: fd0f7f8df87247bcc8d0a7d374f99bb6556532bee359676cc64694d83ecf81ea
+# hash: 2f62c54bbc8afe960d67b33f4ce394675e296ef4f9387c70876b1297d86bf993

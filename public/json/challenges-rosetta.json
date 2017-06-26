@@ -9,10 +9,15 @@
       "type": "rosetta-code",
       "categories": "?",
       "difficulty": "2",
-      "benchmark": "getFinalOpenedDoors(10000);",
+      "null": [
+        "benchmark:",
+        []
+      ],
       "description": [
-        "There are 100 doors in a row that are all initially closed. You make 100 passes by the doors. The first time through, visit every door and 'toggle' the door (if the door is closed, open it; if it is open, close it). The second time, only visit every 2nd door (i.e., door #2, #4, #6, ...) and toggle it. The third time, visit every 3rd door (i.e., door #3, #6, #9, ...), etc., until you only visit the 100th door.",
-        "Implement an algorithm to determine the state of the doors after the last pass. Return the final result in an array, with only the door number included in the array if it is open."
+        "<div class=\"rosetta\">",
+        "<p class=\"rosetta__paragraph\">There are 100 doors in a row that are all initially closed. You make 100 passes by the doors. The first time through, visit every door and 'toggle' the door (if the door is closed, open it; if it is open, close it). The second time, only visit every 2nd door (i.e., door #2, #4, #6, ...) and toggle it. The third time, visit every 3rd door (i.e., door #3, #6, #9, ...), etc., until you only visit the 100th door.</p><br/>",
+        "<p class=\"rosetta__paragraph\">Implement a function to determine the state of the doors after the last pass. Return the final result in an array, with only the door number included in the array if it is open.</p>",
+        "</div>"
       ],
       "challengeSeed": [
         "function getFinalOpenedDoors (numDoors) {",
@@ -20,16 +25,70 @@
         "}"
       ],
       "solutions": [
-        "function getFinalOpenedDoors (numDoors) {\n  // this is the final pattern (always squares).\n  // thus, the most efficient solution simply returns an array of squares up to numDoors).\n  const finalState = [];\n  let i = 1;\n  while (i ** 2 <= numDoors) {\n    finalState.push(i ** 2);\n    i++;\n  }\n /*\n  Array.apply(null, { length: numDoors })\n    .map((v, i) => i + 1)\n    .forEach(door => {\n      const sqrt = Math.sqrt(door);\n      if (sqrt === Math.floor(sqrt)) { // check if equal to floored value\n        finalState.push(door);\n      }\n    });\n   */\n  return finalState;\n}\n"
+        "function getFinalOpenedDoors (numDoors) {\n  // this is the final pattern (always squares).\n  // thus, the most efficient solution simply returns an array of squares up to numDoors).\n  const finalState = [];\n  let i = 1;\n  while (i ** 2 <= numDoors) {\n    finalState.push(i ** 2);\n    i++;\n  }\n  return finalState;\n}\n"
       ],
-      "naive": "function getFinalOpenedDoors (numDoors) {\n  const doors = [];\n  const openedDoors = [];\n  for (let i = 0; i < numDoors; i++) {\n    doors[i] = false; // create doors\n  }\n  for (let i = 1; i <= numDoors; i++) {\n    for (let i2 = i - 1; i2 < numDoors; i2+=i) {\n      doors[i2] = !doors[i2]; // toggle doors\n    }\n  }\n  for (let i = 0; i < numDoors; i++) {\n    if (doors[i]) {\n      openedDoors.push(i + 1);\n    }\n  }\n\n  return openedDoors;\n}\n",
+      "naive": "function getFinalOpenedDoors (numDoors) {\n  const doors = [];\n  const openedDoors = [];\n  for (let i = 0; i < numDoors; i++) {\n    doors[i] = false; // create doors\n  }\n  for (let i = 1; i <= numDoors; i++) {\n    for (let i2 = i - 1; i2 < numDoors; i2 += i) {\n      doors[i2] = !doors[i2]; // toggle doors\n    }\n  }\n  for (let i = 0; i < numDoors; i++) {\n    if (doors[i]) {\n      openedDoors.push(i + 1);\n    }\n  }\n\n  return openedDoors;\n}\n",
       "tail": "const solution = [1, 4, 9, 16, 25, 36, 49, 64, 81, 100];",
       "tests": [
         "assert(typeof getFinalOpenedDoors === 'function', 'message: <code>getFinalOpenedDoors</code> is a function.');",
         "assert(Array.isArray(getFinalOpenedDoors(100)), 'message: <code>getFinalOpenedDoors</code> should return an array.');",
         "assert.deepEqual(getFinalOpenedDoors(100), solution, 'message: <code>getFinalOpenedDoors</code> did not produce the correct results.');"
       ],
-      "id": 0
+      "id": "594810f028c0303b75339acb"
+    },
+    {
+      "title": "9 billion names of God the integer",
+      "type": "rosetta-code",
+      "categories": [
+        "math",
+        "integer partition"
+      ],
+      "difficulty": "8",
+      "null": "benchmark:",
+      "description": [
+        "<div class=\"rosetta\">",
+        "<p class=\"rosetta__paragraph\">This task is a variation of the <a class=\"rosetta__link--wiki\" href=\"https://en.wikipedia.org/wiki/The Nine Billion Names of God#Plot_summary\" title=\"wp: The Nine Billion Names of God#Plot_summary\">short story by Arthur C. Clarke</a>.</p><br/>",
+        "<p class=\"rosetta__paragraph\">(Solvers should be aware of the consequences of completing this task.)</p><br/>",
+        "<p class=\"rosetta__paragraph\">In detail, to specify what is meant by a  “name”:</p>",
+        "<p class=\"rosetta__paragraph\"><span class=\"rosetta__text--indented\">The integer 1 has 1 name “1”.</span></p>",
+        "<p class=\"rosetta__paragraph\"><span class=\"rosetta__text--indented\">The integer 2 has 2 names “1+1”, and “2”.</span></p>",
+        "<p class=\"rosetta__paragraph\"><span class=\"rosetta__text--indented\">The integer 3 has 3 names “1+1+1”, “2+1”,  and “3”.</span></p>",
+        "<p class=\"rosetta__paragraph\"><span class=\"rosetta__text--indented\">The integer 4 has 5 names “1+1+1+1”, “2+1+1”, “2+2”, “3+1”, “4”.</span></p>",
+        "<p class=\"rosetta__paragraph\"><span class=\"rosetta__text--indented\">The integer 5 has 7 names “1+1+1+1+1”, “2+1+1+1”, “2+2+1”, “3+1+1”, “3+2”, “4+1”, “5”.</span></p><br/>",
+        "<p class=\"rosetta__paragraph\">This can be visualized in the following form:</p>",
+        "<div class=\"rosetta__pre-wrap\"><pre class=\"rosetta__pre\">",
+        "          1",
+        "        1   1",
+        "      1   1   1",
+        "    1   2   1   1",
+        "  1   2   2   1   1",
+        "1   3   3   2   1   1",
+        "</pre></div>",
+        "<p class=\"rosetta__paragraph\">Where row  $n$  corresponds to integer  $n$,  and each column  $C$  in row  $m$  from left to right corresponds to the number of names beginning with $C$.</p>",
+        "<p class=\"rosetta__paragraph\">Optionally note that the sum of the  $n$-th  row  $P(n)$  is the   <a class=\"rosetta__link--wiki\" href=\"http://mathworld.wolfram.com/PartitionFunctionP.html\" title=\"link: http://mathworld.wolfram.com/PartitionFunctionP.html\">integer partition function</a>.</p>",
+        "<dl class=\"rosetta__description-list\"><dt class=\"rosetta__description-title\">Task</dt></dl>",
+        "<p class=\"rosetta__paragraph\">Implement a function that returns the sum of the  $n$-th  row.</p>",
+        "</div>"
+      ],
+      "challengeSeed": [
+        "function numberOfNames (num) {",
+        "  // Good luck!",
+        "  return true;",
+        "}"
+      ],
+      "solutions": [
+        "function numberOfNames (num) {\n  const cache = [\n    [1]\n  ];\n  for (let l = cache.length; l < num + 1; l++) {\n    let Aa;\n    let Mi;\n    const r = [0];\n    for (let x = 1; x < l + 1; x++) {\n      r.push(r[r.length - 1] + (Aa = cache[l - x < 0 ? cache.length - (l - x) : l - x])[(Mi = Math.min(x, l - x)) < 0 ? Aa.length - Mi : Mi]);\n    }\n    cache.push(r);\n  }\n  return cache[num][cache[num].length - 1];\n}\n"
+      ],
+      "tests": [
+        "assert(typeof numberOfNames === 'function', 'message: <code>numberOfNames</code> is a function.');",
+        "assert.equal(numberOfNames(5), 7, 'message: <code>numberOfNames(5)</code> should equal 7.');",
+        "assert.equal(numberOfNames(12), 77, 'message: <code>numberOfNames(12)</code> should equal 77.');",
+        "assert.equal(numberOfNames(18), 385, 'message: <code>numberOfNames(18)</code> should equal 385.');",
+        "assert.equal(numberOfNames(23), 1255, 'message: <code>numberOfNames(23)</code> should equal 1255.');",
+        "assert.equal(numberOfNames(42), 53174, 'message: <code>numberOfNames(42)</code> should equal 53174.');",
+        "assert.equal(numberOfNames(123), 2552338241, 'message: <code>numberOfNames(123)</code> should equal 2552338241.');"
+      ],
+      "id": "5949b579404977fbaefcd736"
     },
     {
       "title": "ABC Problem",
@@ -37,31 +96,35 @@
       "categories": "?",
       "difficulty": "3",
       "description": [
-        "You are given a collection of ABC blocks (e.g., childhood alphabet blocks). There are 20 blocks with two letters on each block. A complete alphabet is guaranteed amongst all sides of the blocks. The sample collection of blocks,",
-        "(B O)",
-        "(X K)",
-        "(D Q)",
-        "(C P)",
-        "(N A)",
-        "(G T)",
-        "(R E)",
-        "(T G)",
-        "(Q D)",
-        "(F S)",
-        "(J W)",
-        "(H U)",
-        "(V I)",
-        "(A N)",
-        "(O B)",
-        "(E R)",
-        "(F S)",
-        "(L Y)",
-        "(P C)",
-        "(Z M)",
-        "Some rules to keep in mind,",
-        "1. Once a letter on a block is used, that block cannot be used again",
-        "2. the function should be case-insensitive",
-        "Implement a function that takes a string (word) and determines whether the word can be spelled with the given collection of blocks."
+        "<div class=\"rosetta\">",
+        "<p class=\"rosetta__paragraph\">You are given a collection of ABC blocks (e.g., childhood alphabet blocks). There are 20 blocks with two letters on each block. A complete alphabet is guaranteed amongst all sides of the blocks. The sample collection of blocks:</p>",
+        "<p class=\"rosetta__paragraph\">(B O)</p>",
+        "<p class=\"rosetta__paragraph\">(X K)</p>",
+        "<p class=\"rosetta__paragraph\">(D Q)</p>",
+        "<p class=\"rosetta__paragraph\">(C P)</p>",
+        "<p class=\"rosetta__paragraph\">(N A)</p>",
+        "<p class=\"rosetta__paragraph\">(G T)</p>",
+        "<p class=\"rosetta__paragraph\">(R E)</p>",
+        "<p class=\"rosetta__paragraph\">(T G)</p>",
+        "<p class=\"rosetta__paragraph\">(Q D)</p>",
+        "<p class=\"rosetta__paragraph\">(F S)</p>",
+        "<p class=\"rosetta__paragraph\">(J W)</p>",
+        "<p class=\"rosetta__paragraph\">(H U)</p>",
+        "<p class=\"rosetta__paragraph\">(V I)</p>",
+        "<p class=\"rosetta__paragraph\">(A N)</p>",
+        "<p class=\"rosetta__paragraph\">(O B)</p>",
+        "<p class=\"rosetta__paragraph\">(E R)</p>",
+        "<p class=\"rosetta__paragraph\">(F S)</p>",
+        "<p class=\"rosetta__paragraph\">(L Y)</p>",
+        "<p class=\"rosetta__paragraph\">(P C)</p>",
+        "<p class=\"rosetta__paragraph\">(Z M)</p><br/>",
+        "<p class=\"rosetta__paragraph\">Some rules to keep in mind:</p>",
+        "<ol class='rosetta__ordered-list'>",
+        "<li class='rosetta__list-item--ordered'>Once a letter on a block is used, that block cannot be used again.</li>",
+        "<li class='rosetta__list-item--ordered'>The function should be case-insensitive.</li>",
+        "</ol>",
+        "<p class=\"rosetta__paragraph\">Implement a function that takes a string (word) and determines whether the word can be spelled with the given collection of blocks.</p>",
+        "</div>"
       ],
       "challengeSeed": [
         "function canMakeWord (word) {",
@@ -82,24 +145,29 @@
         "assert.isTrue(canMakeWord(words[4]), 'message: <code>canMakeWord(\"squAD\")</code> should return true.');",
         "assert.isTrue(canMakeWord(words[5]), 'message: <code>canMakeWord(\"conFUSE\")</code> should return true.');"
       ],
-      "id": 0
+      "id": "594810f028c0303b75339acc"
     },
     {
       "title": "Abundant, deficient and perfect number classifications",
       "type": "rosetta-code",
       "categories": "?",
       "difficulty": "4",
-      "benchmark": "getDPA(20000);",
+      "null": [
+        "benchmark:",
+        []
+      ],
       "description": [
-        "These define three classifications of positive integers based on their Proper Divisors.",
-        "Let P(n) be the sum of the proper divisors of n where proper divisors are all positive integers n other than n itself.",
-        "if <code>P(n) < n</code> then n is classed as \"deficient\"",
-        "if <code>P(n) === n</code> then n is classed as \"perfect\"",
-        "if <code>P(n) > n</code> then n is classed as \"abundant\"",
-        "Example",
-        "6 has proper divisors of 1, 2, and 3.",
-        "1 + 2 + 3 = 6, so 6 is classed as a perfect number.",
-        "Implement an function that calculates how many of hte integers from 1 to 20,000 (inclusive) are in each of the three classes. Output the result as an array in the following format [deficient, perfect, abundant]."
+        "<div class=\"rosetta\">",
+        "<p class=\"rosetta__paragraph\">These define three classifications of positive integers based on their <a class=\"rosetta__link--rosetta\" href=\"http://rosettacode.org/wiki/Proper divisors\" title=\"Proper divisors\">proper divisors</a>.</p><br/>",
+        "<p class=\"rosetta__paragraph\">Let $P(n)$ be the sum of the proper divisors of n where proper divisors are all positive integers n other than n itself.</p>",
+        "<p class=\"rosetta__paragraph\"><span class=\"rosetta__text--indented\">If <code>P(n) < n</code> then n is classed as \"deficient\"</span></p>",
+        "<p class=\"rosetta__paragraph\"><span class=\"rosetta__text--indented\">If <code>P(n) === n</code> then n is classed as \"perfect\"</span></p>",
+        "<p class=\"rosetta__paragraph\"><span class=\"rosetta__text--indented\">If <code>P(n) > n</code> then n is classed as \"abundant\"</span></p><br/>",
+        "<p class=\"rosetta__paragraph\">Example:</p>",
+        "<p class=\"rosetta__paragraph\">6 has proper divisors of 1, 2, and 3.</p>",
+        "<p class=\"rosetta__paragraph\">1 + 2 + 3 = 6, so 6 is classed as a perfect number.</p><br/>",
+        "<p class=\"rosetta__paragraph\">Implement a function that calculates how many of the integers from 1 to 20,000 (inclusive) are in each of the three classes. Output the result as an array in the following format <code>[deficient, perfect, abundant]</code>.</p>",
+        "</div>"
       ],
       "challengeSeed": [
         "function getDPA (num) {",
@@ -116,7 +184,7 @@
         "assert(getDPA(100).length === 3, 'message: <code>getDPA</code> return value should have a length of 3.');",
         "assert.deepEqual(getDPA(20000), solution, 'message: <code>getDPA(20000)</code> should equal [15043, 4, 4953]');"
       ],
-      "id": 0
+      "id": "594810f028c0303b75339acd"
     },
     {
       "title": "Accumulator factory",
@@ -124,11 +192,13 @@
       "categories": "closures",
       "difficulty": "1",
       "description": [
-        "Create a function that takes a single (numeric) argument and returns another function that is an accumulator. The returned accumulator function in turn also takes a single numeric argument, and returns the sum of all the numeric values passed in so far to that accumulator (including the initial value passed when the accumulator was created).",
-        "Rules",
-        "Do not use global variables.",
-        "Hint",
-        "Closures save outer state."
+        "<div class=\"rosetta\">",
+        "<p class=\"rosetta__paragraph\">Create a function that takes a single (numeric) argument and returns another function that is an accumulator. The returned accumulator function in turn also takes a single numeric argument, and returns the sum of all the numeric values passed in so far to that accumulator (including the initial value passed when the accumulator was created).</p><br/>",
+        "<p class=\"rosetta__paragraph\">Rules:</p>",
+        "<p class=\"rosetta__paragraph\">Do not use global variables.</p>",
+        "<p class=\"rosetta__paragraph\">Hint:</p>",
+        "<p class=\"rosetta__paragraph\">Closures save outer state.</p>",
+        "</div>"
       ],
       "challengeSeed": [
         "function accumulator (sum) {",
@@ -151,7 +221,7 @@
         "assert(typeof accumulator(0)(2) === 'number', 'message: <code>accumulator(0)(2)</code> should return a number.');",
         "assert(testFn(5) === 5.5, 'message: Passing in the values 3, -4, 1.5, and 5 should return 5.5.');"
       ],
-      "id": 0
+      "id": "594810f028c0303b75339ace"
     },
     {
       "title": "Ackermann function",
@@ -159,15 +229,17 @@
       "categories": "recursion",
       "difficulty": "2",
       "description": [
-        "The Ackermann function is a classic example of a recursive function, notable especially because it is not a primitive recursive function. It grows very quickly in value, as does the size of its call tree.",
-        "The Ackermann function is usually defined as follows",
+        "<div class=\"rosetta\">",
+        "<p class=\"rosetta__paragraph\">The Ackermann function is a classic example of a recursive function, notable especially because it is not a primitive recursive function. It grows very quickly in value, as does the size of its call tree.</p>",
+        "<p class=\"rosetta__paragraph\">The Ackermann function is usually defined as follows:</p>",
         "$$A(m, n) =",
         " \\begin{cases}",
         " n+1 & \\mbox{if } m = 0 \\\\",
         " A(m-1, 1) & \\mbox{if } m > 0 \\mbox{ and } n = 0 \\\\",
         " A(m-1, A(m, n-1)) & \\mbox{if } m > 0 \\mbox{ and } n > 0.",
         " \\end{cases}$$",
-        "Its arguments are never negative and it always terminates. Write a function which returns the value of A(m, n). Arbitrary precision is preferred (since the function grows so quickly), but not required."
+        "<p class=\"rosetta__paragraph\">Its arguments are never negative and it always terminates. Write a function which returns the value of $A(m, n)$. Arbitrary precision is preferred (since the function grows so quickly), but not required.</p>",
+        "</div>"
       ],
       "challengeSeed": [
         "function ack (m, n) {",
@@ -184,7 +256,7 @@
         "assert(ack(2, 5) === 13, 'message: <code>ack(2, 5)</code> should return 13.');",
         "assert(ack(3, 3) === 61, 'message: <code>ack(3, 3)</code> should return 61.');"
       ],
-      "id": 0
+      "id": "594810f028c0303b75339acf"
     },
     {
       "title": "Align columns",
@@ -192,21 +264,33 @@
       "categories": "closures",
       "difficulty": "3",
       "description": [
-        "Given a text file of many lines, where fields within a line are delineated by a single $ character, write a program that aligns each column of fields by ensuring that words in each column are separated by at least one space. Further, allow for each word in a column to be either left justified, right justified, or center justified within its column.",
-        "<br clear=all>Use the following text to test your programs,",
-        "<pre>Given$a$text$file$of$many$lines,$where$fields$within$a$line$",
-        "are$delineated$by$a$single$'dollar'$character,$write$a$program",
-        "that$aligns$each$column$of$fields$by$ensuring$that$words$in$each$",
+        "<div class=\"rosetta\">",
+        "<p class=\"rosetta__paragraph\">Given a text file of many lines, where fields within a line are delineated by a single <code>$</code> character, write a program that aligns each column of fields by ensuring that words in each column are separated by at least one space. Further, allow for each word in a column to be either left justified, right justified, or center justified within its column.</p><br/>",
+        "<p class=\"rosetta__paragraph\">Use the following text to test your programs:</p>",
+        "<div class=\"rosetta__pre-wrap\">",
+        "<pre class=\"rosetta__pre\">",
+        "Given$a$text$file$of$many$lines",
+        "where$fields$within$a$line$",
+        "are$delineated$by$a$single$'dollar'$character",
+        "write$a$program",
+        "that$aligns$each$column$of$fields",
+        "by$ensuring$that$words$in$each$",
         "column$are$separated$by$at$least$one$space.",
         "Further,$allow$for$each$word$in$a$column$to$be$either$left$",
-        "justified,$right$justified,$or$center$justified$within$its$column.</pre>",
-        "Note that,",
-        "1. The example input texts lines may, or may not, have trailing dollar characters.",
-        "2. All columns should share the same alignment.",
-        "3. Consecutive space characters produced adjacent to the end of lines are insignificant for the purposes of the task.",
-        "4. Output text will be viewed in a mono-spaced font on a plain text editor or basic terminal.",
-        "5. The minimum space between columns should be computed from the text and not hard-coded.",
-        "6. It is not a requirement to add separating characters between or around columns."
+        "justified,$right$justified",
+        "or$center$justified$within$its$column.",
+        "</pre>",
+        "</div>",
+        "<p class=\"rosetta__paragraph\">Note that:</p>",
+        "<ol class=\"rosetta__ordered-list\">",
+        "<li class=\"rosetta__list-item--ordered\">The example input texts lines may, or may not, have trailing dollar characters.</li>",
+        "<li class=\"rosetta__list-item--ordered\">All columns should share the same alignment.</li>",
+        "<li class=\"rosetta__list-item--ordered\">Consecutive space characters produced adjacent to the end of lines are insignificant for the purposes of the task.</li>",
+        "<li class=\"rosetta__list-item--ordered\">Output text will be viewed in a mono-spaced font on a plain text editor or basic terminal.</li>",
+        "<li class=\"rosetta__list-item--ordered\">The minimum space between columns should be computed from the text and not hard-coded.</li>",
+        "<li class=\"rosetta__list-item--ordered\">It is not a requirement to add separating characters between or around columns.</li>",
+        "</ol>",
+        "</div>"
       ],
       "challengeSeed": [
         "const testArr = [",
@@ -282,7 +366,311 @@
         "assert.strictEqual(formatText(testInput, 'left'), leftAligned, 'message: <code>formatText</code> with the above input and \"left\" justification should produce the following: ');",
         "assert.strictEqual(formatText(testInput, 'center'), centerAligned, 'message: <code>formatText</code> with the above input and \"center\" justification should produce the following: ');"
       ],
-      "id": 0
+      "id": "594810f028c0303b75339ad0"
+    },
+    {
+      "title": "Amicable pairs",
+      "type": "rosetta-code",
+      "categories": [
+        ""
+      ],
+      "difficulty": "4",
+      "null": "benchmark:",
+      "description": [
+        "<div class=\"rosetta\">",
+        "Two integers $N$ and $M$ are said to be <a class=\"rosetta__link--wiki\" href=\"https://en.wikipedia.org/wiki/Amicable numbers\" title=\"wp: Amicable numbers\">amicable pairs</a> if $N \\neq M$ and the sum of the <a class=\"rosetta__link--rosetta\" href=\"http://rosettacode.org/wiki/Proper divisors\" title=\"Proper divisors\">proper divisors</a> of $N$ ($\\mathrm{sum}(\\mathrm{propDivs}(N))$) $= M$ as well as $\\mathrm{sum}(\\mathrm{propDivs}(M)) = N$.",
+        "<dl class=\"rosetta__description-list\"><dt class=\"rosetta__description-title\">Example:</dt></dl>",
+        "<span class=\"rosetta__text--bold\">1184</span> and <span class=\"rosetta__text--bold\">1210</span> are an amicable pair, with proper divisors:",
+        "<ul class=\"rosetta__unordered-list\">",
+        "<li class=\"rosetta__list-item--unordered\"> 1, 2, 4, 8, 16, 32, 37, 74, 148, 296, 592  and </li>",
+        "<li class=\"rosetta__list-item--unordered\"> 1, 2, 5, 10, 11, 22, 55, 110, 121, 242, 605   respectively.</li>",
+        "</ul>",
+        "<dl class=\"rosetta__description-list\"><dt class=\"rosetta__description-title\">Task:</dt></dl>",
+        "Calculate and show here the Amicable pairs below 20,000 (there are eight).",
+        "<dl class=\"rosetta__description-list\"><dt class=\"rosetta__description-title\">Related tasks</dt></dl>",
+        "<ul class=\"rosetta__unordered-list\"><li class=\"rosetta__list-item--unordered\"><a class=\"rosetta__link--rosetta\" href=\"http://rosettacode.org/wiki/Proper divisors\" title=\"Proper divisors\">Proper divisors</a></li>",
+        "<li class=\"rosetta__list-item--unordered\"><a class=\"rosetta__link--rosetta\" href=\"http://rosettacode.org/wiki/Abundant, deficient and perfect number classifications\" title=\"Abundant, deficient and perfect number classifications\">Abundant, deficient and perfect number classifications</a></li>",
+        "<li class=\"rosetta__list-item--unordered\"><a class=\"rosetta__link--rosetta\" href=\"http://rosettacode.org/wiki/Aliquot sequence classifications\" title=\"Aliquot sequence classifications\">Aliquot sequence classifications</a> and its amicable <span class=\"rosetta__text--italic\">classification</span>.</li></ul>",
+        "</div>"
+      ],
+      "challengeSeed": [
+        "function amicablePairsUpTo (maxNum) {",
+        "  // Good luck!",
+        "  return true;",
+        "}"
+      ],
+      "solutions": [
+        "// amicablePairsUpTo :: Int -> [(Int, Int)]\nfunction amicablePairsUpTo (maxNum) {\n  return range(1, maxNum)\n    .map(x => properDivisors(x)\n      .reduce((a, b) => a + b, 0))\n    .reduce((a, m, i, lst) => {\n      const n = i + 1;\n\n      return (m > n) && lst[m - 1] === n ?\n        a.concat([\n          [n, m]\n        ]) : a;\n    }, []);\n}\n\n// properDivisors :: Int -> [Int]\nfunction properDivisors (n) {\n  if (n < 2) return [];\n\n  const rRoot = Math.sqrt(n);\n  const intRoot = Math.floor(rRoot);\n  const blnPerfectSquare = rRoot === intRoot;\n  const lows = range(1, intRoot)\n  .filter(x => (n % x) === 0);\n\n  return lows.concat(lows.slice(1)\n    .map(x => n / x)\n    .reverse()\n    .slice(blnPerfectSquare | 0));\n}\n\n// Int -> Int -> Maybe Int -> [Int]\nfunction range (m, n, step) {\n  const d = (step || 1) * (n >= m ? 1 : -1);\n\n  return Array.from({\n    length: Math.floor((n - m) / d) + 1\n  }, (_, i) => m + (i * d));\n}\n"
+      ],
+      "tail": [
+        "const answer300 = [[220, 284]];",
+        "const answer3000 = [",
+        "  [220, 284],",
+        "  [1184, 1210],",
+        "  [2620, 2924]",
+        "];",
+        "const answer20000 = [",
+        "  [220, 284],",
+        "  [1184, 1210],",
+        "  [2620, 2924],",
+        "  [5020, 5564],",
+        "  [6232, 6368],",
+        "  [10744, 10856],",
+        "  [12285, 14595],",
+        "  [17296, 18416]",
+        "];"
+      ],
+      "tests": [
+        "assert(typeof amicablePairsUpTo === 'function', 'message: <code>amicablePairsUpTo</code> is a function.');",
+        "assert.deepEqual(amicablePairsUpTo(300), answer300, 'message: <code>amicablePairsUpTo(300)</code> should return <code>[[220,284]]</code>.');",
+        "assert.deepEqual(amicablePairsUpTo(3000), answer3000, 'message: <code>amicablePairsUpTo(3000)</code> should return <code>[[220,284],[1184,1210],[2620,2924]]</code>.');",
+        "assert.deepEqual(amicablePairsUpTo(20000), answer20000, 'message: <code>amicablePairsUpTo(20000)</code> should return <code>[[220,284],[1184,1210],[2620,2924],[5020,5564],[6232,6368],[10744,10856],[12285,14595],[17296,18416]]</code>.');"
+      ],
+      "id": "5949b579404977fbaefcd737"
+    },
+    {
+      "title": "Averages/Mode",
+      "type": "rosetta-code",
+      "categories": [
+        ""
+      ],
+      "difficulty": "1",
+      "null": [
+        "benchmark:",
+        []
+      ],
+      "description": [
+        "<div class=\"rosetta\">",
+        "<p class=\"rosetta__paragraph\">Write a program to find the <a class=\"rosetta__link--wiki\" href=\"https://en.wikipedia.org/wiki/Mode (statistics)\" title=\"wp: Mode (statistics)\">mode</a> value of a collection.</p><br/><p class=\"rosetta__paragraph\">The case where the collection is empty may be ignored. Care must be taken to handle the case where the mode is non-unique.</p><br/><p class=\"rosetta__paragraph\">If it is not appropriate or possible to support a general collection, use a vector (array), if possible. If it is not appropriate or possible to support an unspecified value type, use integers.</p>"
+      ],
+      "challengeSeed": [
+        "function mode (arr) {",
+        "  // Good luck!",
+        "  return true;",
+        "}"
+      ],
+      "solutions": [
+        "function mode(arr) {\n  const counter = {};\n  let result = [];\n  let max = 0;\n  // for (const i in arr) {\n  arr.forEach(el => {\n    if (!(el in counter)) {\n      counter[el] = 0;\n    }\n    counter[el]++;\n\n    if (counter[el] === max) {\n      result.push(el);\n    }\n    else if (counter[el] > max) {\n      max = counter[el];\n      result = [el];\n    }\n  });\n  return result;\n}\n"
+      ],
+      "tail": [
+        "const arr1 = [1, 3, 6, 6, 6, 6, 7, 7, 12, 12, 17];",
+        "const arr2 = [1, 2, 4, 4, 1];"
+      ],
+      "tests": [
+        "assert(typeof mode === 'function', 'message: <code>mode</code> is a function.');",
+        "assert.deepEqual(mode(arr1), [6], 'message: <code>mode([1, 3, 6, 6, 6, 6, 7, 7, 12, 12, 17])</code> should equal <code>[6]</code>');",
+        "assert.sameMembers(mode(arr2), [1, 4], 'message <code>mode([1, 2, 4, 4, 1])</code> should equal <code>[1, 4]</code>.');"
+      ],
+      "id": "594d8d0ab97724821379b1e6"
+    },
+    {
+      "title": "Averages/Pythagorean means",
+      "type": "rosetta-code",
+      "categories": [
+        ""
+      ],
+      "difficulty": "4",
+      "null": [
+        "benchmark:",
+        []
+      ],
+      "description": [
+        "<div class='rosetta'>",
+        "<p class='rosetta__paragraph'>Compute all three of the <a class='rosetta__link--wiki' href='https://en.wikipedia.org/wiki/Pythagorean means' title='wp: Pythagorean means'>Pythagorean means</a> of the set of integers <big>1</big> through <big>10</big> (inclusive).</p><br/><p class='rosetta__paragraph'>Show that <big>$A(x_1,\\ldots,x_n) \\geq G(x_1,\\ldots,x_n) \\geq H(x_1,\\ldots,x_n)$</big> for this set of positive integers.</p><br/><ul class='rosetta__unordered-list'><li class='rosetta__list-item--unordered'> The most common of the three means, the <a class='rosetta__link--rosetta' href='http://rosettacode.org/wiki/Averages/Arithmetic mean' title='Averages/Arithmetic mean'>arithmetic mean</a>, is the sum of the list divided by its length:</li></ul><span class='rosetta__text--indented'> <big>$ A(x_1, \\ldots, x_n) = \\frac{x_1 + \\cdots + x_n}{n}$</big></span><br/><ul class='rosetta__unordered-list'><li class='rosetta__list-item--unordered'>The <a class='rosetta__link--wiki' href='https://en.wikipedia.org/wiki/Geometric mean' title='wp: Geometric mean'>geometric mean</a> is the $n$th root of the product of the list:</li></ul><span class='rosetta__text--indented'> <big>$ G(x_1, \\ldots, x_n) = \\sqrt[n]{x_1 \\cdots x_n} $</big></span><br/><ul class='rosetta__unordered-list'><li class='rosetta__list-item--unordered'>The <a class='rosetta__link--wiki' href='https://en.wikipedia.org/wiki/Harmonic mean' title='wp: Harmonic mean'>harmonic mean</a> is $n$ divided by the sum of the reciprocal of each item in the list:</li></ul><span class='rosetta__text--indented'> <big>$ H(x_1, \\ldots, x_n) = \\frac{n}{\\frac{1}{x_1} + \\cdots + \\frac{1}{x_n}} $</big></span>",
+        "<br/><br/><p class='rosetta__paragraph'>Assume the input is an ordered array of all inclusive numbers.</p>",
+        "<p class='rosetta__paragraph'>For the answer, please output an object in the following format:</p>",
+        "<div class='rosetta__pre-wrap'><pre class='rosetta__pre'>",
+        "{",
+        "  values: {",
+        "    Arithmetic: 5.5,",
+        "    Geometric: 4.528728688116765,",
+        "    Harmonic: 3.414171521474055",
+        "  },",
+        "  test: 'is A >= G >= H ? yes'",
+        "}",
+        "</pre></div>",
+        "</div>"
+      ],
+      "challengeSeed": [
+        "function pythagoreanMeans (rangeArr) {",
+        "  // Good luck!",
+        "}"
+      ],
+      "solutions": [
+        "function pythagoreanMeans (rangeArr) {\n  // arithmeticMean :: [Number] -> Number\n  const arithmeticMean = xs =>\n    foldl((sum, n) => sum + n, 0, xs) / length(xs);\n\n  // geometricMean :: [Number] -> Number\n  const geometricMean = xs =>\n    raise(foldl((product, x) => product * x, 1, xs), 1 / length(xs));\n\n  // harmonicMean :: [Number] -> Number\n  const harmonicMean = xs =>\n    length(xs) / foldl((invSum, n) => invSum + (1 / n), 0, xs);\n\n  // GENERIC FUNCTIONS ------------------------------------------------------\n\n  // A list of functions applied to a list of arguments\n  // <*> :: [(a -> b)] -> [a] -> [b]\n  const ap = (fs, xs) => //\n    Array.prototype.concat(...fs.map(f => //\n      Array.prototype.concat(...xs.map(x => [f(x)]))));\n\n  // foldl :: (b -> a -> b) -> b -> [a] -> b\n  const foldl = (f, a, xs) => xs.reduce(f, a);\n\n  // length :: [a] -> Int\n  const length = xs => xs.length;\n\n  // mapFromList :: [(k, v)] -> Dictionary\n  const mapFromList = kvs =>\n    foldl((a, [k, v]) =>\n      (a[(typeof k === 'string' && k)] = v, a), {}, kvs);\n\n  // raise :: Num -> Int -> Num\n  const raise = (n, e) => n ** e;\n/*\n  // show :: a -> String\n  // show :: a -> Int -> String\n  const show = (...x) =>\n    JSON.stringify.apply(\n      null, x.length > 1 ? [x[0], null, x[1]] : x\n    );\n*/\n  // zip :: [a] -> [b] -> [(a,b)]\n  const zip = (xs, ys) =>\n    xs.slice(0, Math.min(xs.length, ys.length))\n      .map((x, i) => [x, ys[i]]);\n\n  // TEST -------------------------------------------------------------------\n  // mean :: Dictionary\n  const mean = mapFromList(zip(\n    ['Arithmetic', 'Geometric', 'Harmonic'],\n    ap([arithmeticMean, geometricMean, harmonicMean], [\n      rangeArr\n    ])\n  ));\n\n  return {\n    values: mean,\n    test: `is A >= G >= H ? ${mean.Arithmetic >= mean.Geometric &&\n      mean.Geometric >= mean.Harmonic ? 'yes' : 'no'}`\n  };\n}\n"
+      ],
+      "tail": [
+        "const range1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];",
+        "const answer1 = {",
+        "  values: {",
+        "    Arithmetic: 5.5,",
+        "    Geometric: 4.528728688116765,",
+        "    Harmonic: 3.414171521474055",
+        "  },",
+        "  test: 'is A >= G >= H ? yes'",
+        "};",
+        ""
+      ],
+      "tests": [
+        "assert(typeof pythagoreanMeans === 'function', 'message: <code>pythagoreanMeans</code> is a function.');",
+        "assert.deepEqual(pythagoreanMeans(range1), answer1, 'message: <code>pythagoreanMeans([1, 2, ..., 10])</code> should equal the same output above.');"
+      ],
+      "id": "594d966a1467eb84194f0086"
+    },
+    {
+      "title": "Averages/Root mean square",
+      "type": "rosetta-code",
+      "categories": [
+        ""
+      ],
+      "difficulty": "2",
+      "null": [
+        "benchmark:",
+        []
+      ],
+      "description": [
+        "<div class=\"rosetta\">",
+        "<p class=\"rosetta__paragraph\">Compute the  <a class=\"rosetta__link--wiki\" href=\"https://en.wikipedia.org/wiki/Root mean square\" title=\"wp: Root mean square\">Root mean square</a>  of the numbers 1 through 10 inclusive.</p>",
+        "<br/><p class=\"rosetta__paragraph\">The  <span class=\"rosetta__text--italic\">root mean square</span>  is also known by its initials RMS (or rms), and as the <span class=\"rosetta__text--bold\">quadratic mean</span>.</p><br/><p class=\"rosetta__paragraph\">The RMS is calculated as the mean of the squares of the numbers, square-rooted:</p>",
+        "<p class=\"rosetta__paragraph\"><big>$$x_{\\mathrm{rms}} = \\sqrt {{{x_1}^2 + {x_2}^2 + \\cdots + {x_n}^2} \\over n}. $$</big></p>",
+        "</div>"
+      ],
+      "challengeSeed": [
+        "function rms (arr) {",
+        "  // Good luck!",
+        "}"
+      ],
+      "solutions": [
+        "function rms (arr) {\n  const sumOfSquares = arr.reduce((s, x) => s + x * x, 0);\n  return Math.sqrt(sumOfSquares / arr.length);\n}\n"
+      ],
+      "tail": [
+        "const arr1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];",
+        "const answer1 = 6.2048368229954285;"
+      ],
+      "tests": [
+        "assert(typeof rms === 'function', 'message: <code>rms</code> is a function.');",
+        "assert.equal(rms(arr1), answer1, 'message: <code>rms([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])</code> should equal <code>6.2048368229954285</code>.');"
+      ],
+      "id": "594da033de4190850b893874"
+    },
+    {
+      "title": "Babbage problem",
+      "type": "rosetta-code",
+      "categories": [
+        ""
+      ],
+      "difficulty": "2",
+      "null": [
+        "benchmark:",
+        []
+      ],
+      "description": [
+        "<div class=\"rosetta\">",
+        "<p class=\"rosetta__paragraph\"><a class=\"rosetta__link--wiki\" href=\"https://en.wikipedia.org/wiki/Charles_Babbage\" title=\"wp: Charles_Babbage\">Charles Babbage</a>, looking ahead to the sorts of problems his Analytical Engine would be able to solve, gave this example:</p><br/>",
+        "<blockquote class=\"rosetta__blockquote\">What is the smallest positive integer whose square ends in the digits 269,696?</blockquote>",
+        " <p class=\"rosetta__paragraph\"><span class=\"rosetta__text--indented\"> - Babbage, letter to Lord Bowden, 1837; see Hollingdale and Tootill, <i>Electronic Computers</i>, second edition, 1970, p. 125.</span></p><br/>",
+        "<p class=\"rosetta__paragraph\">He thought the answer might be 99,736, whose square is 9,947,269,696; but he couldn't be certain.</p><br/>",
+        "<p class=\"rosetta__paragraph\">The task is to find out if Babbage had the right answer.</p><br/>",
+        "<p class=\"rosetta__paragraph\">Implement a function to return the lowest integer that satisfies the Babbage problem. If Babbage was right, return Babbage's number.</p>",
+        "</div>"
+      ],
+      "challengeSeed": [
+        "function babbage (babbageNum, endDigits) {",
+        "  // Good luck!",
+        "  return true;",
+        "}"
+      ],
+      "solutions": [
+        "function babbage (babbageAns, endDigits) {\n  const babbageNum = babbageAns ** 2;\n  const babbageStartDigits = parseInt(babbageNum.toString().replace('269696', ''));\n  let answer = 99736;\n\n  // count down from this answer and save any sqrt int result. return lowest one\n  for (let i = babbageStartDigits; i >= 0; i--) {\n    const num = parseInt(i.toString().concat('269696'));\n    const result = Math.sqrt(num);\n    if (result === Math.floor(Math.sqrt(num))) {\n      answer = result;\n    }\n  }\n\n  return answer;\n}\n"
+      ],
+      "tail": [
+        "const babbageAns = 99736;",
+        "const endDigits = 269696;",
+        "const answer = 25264;"
+      ],
+      "tests": [
+        "assert(typeof babbage === 'function', 'message: <code>babbage</code> is a function.');",
+        "assert.equal(babbage(babbageAns, endDigits), answer, 'message: <code>babbage(99736, 269696)</code> should not return 99736 (there is a smaller answer).');"
+      ],
+      "id": "594db4d0dedb4c06a2a4cefd"
+    },
+    {
+      "title": "Balanced brackets",
+      "type": "rosetta-code",
+      "categories": [
+        ""
+      ],
+      "difficulty": "2",
+      "null": [
+        "benchmark:",
+        []
+      ],
+      "description": [
+        "<div class='rosetta'>",
+        "<p class=\"rosetta__paragraph\">Determine whether a generated string of brackets is <span class='rosetta__text--italic'>balanced</span>; that is, whether it consists entirely of pairs of opening/closing brackets (in that order), none of which mis-nest.</p><br/>",
+        "<dl class='rosetta__description-list'><dt class='rosetta__description-title'>Examples:</dt></dl>",
+        "<p class='rosetta__paragraph'>(empty) true</p>",
+        "<p class='rosetta__paragraph'><code>[]</code> true</p>",
+        "<p class='rosetta__paragraph'><code>][</code> false</p>",
+        "<p class='rosetta__paragraph'><code>[][]</code> true</p>",
+        "<p class='rosetta__paragraph'><code>][][</code> false</p>",
+        "<p class='rosetta__paragraph'><code>[]][[]</code> false</p>",
+        "<p class='rosetta__paragraph'><code>[[[[]]]]</code> true</p>",
+        "</div>"
+      ],
+      "challengeSeed": [
+        "function isBalanced (str) {",
+        "  // Good luck!",
+        "  return true;",
+        "}"
+      ],
+      "solutions": [
+        "function isBalanced (str) {\n  if (str === '') return true;\n  let a = str;\n  let b;\n  do {\n    b = a;\n    a = a.replace(/\\[\\]/g, '');\n  } while (a !== b);\n  return !a;\n}\n"
+      ],
+      "tail": [
+        "const testCases = [",
+        "  '[]',",
+        "  ']][[[][][][]][',",
+        "  '[][[[[][][[[]]]]]]',",
+        "  '][',",
+        "  '[[[]]]][[]',",
+        "  '][[]',",
+        "  '][[][]][[[]]',",
+        "  '[[][]]][',",
+        "  '[[[]]][[]]]][][[',",
+        "  '[]][[]]][[[[][]]',",
+        "  '][]][[][',",
+        "  '[[]][[][]]',",
+        "  '[[]]',",
+        "  ']][]][[]][[[',",
+        "  '][]][][[',",
+        "  '][][',",
+        "  '[[]]][][][[]][',",
+        "  ''",
+        "];"
+      ],
+      "tests": [
+        "assert(typeof isBalanced === 'function', 'message: <code>isBalanced</code> is a function.');",
+        "assert.isTrue(isBalanced(testCases[0]), 'message: <code>isBalanced(\"[]\")</code> should return true.');",
+        "assert.isFalse(isBalanced(testCases[1]), 'message: <code>isBalanced(\"]][[[][][][]][\")</code> should return false.');",
+        "assert.isTrue(isBalanced(testCases[2]), 'message: <code>isBalanced(\"[][[[[][][[[]]]]]]\")</code> should return true.');",
+        "assert.isFalse(isBalanced(testCases[3]), 'message: <code>isBalanced(\"][\")</code> should return true.');",
+        "assert.isFalse(isBalanced(testCases[4]), 'message: <code>isBalanced(\"[[[]]]][[]\")</code> should return true.');",
+        "assert.isFalse(isBalanced(testCases[5]), 'message: <code>isBalanced(\"][[]\")</code> should return true.');",
+        "assert.isFalse(isBalanced(testCases[6]), 'message: <code>isBalanced(\"][[][]][[[]]\")</code> should return true.');",
+        "assert.isFalse(isBalanced(testCases[7]), 'message: <code>isBalanced(\"[[][]]][\")</code> should return true.');",
+        "assert.isFalse(isBalanced(testCases[8]), 'message: <code>isBalanced(\"[[[]]][[]]]][][[\")</code> should return true.');",
+        "assert.isFalse(isBalanced(testCases[9]), 'message: <code>isBalanced(\"[]][[]]][[[[][]]\")</code> should return true.');",
+        "assert.isFalse(isBalanced(testCases[10]), 'message: <code>isBalanced(\"][]][[][\")</code> should return true.');",
+        "assert.isTrue(isBalanced(testCases[11]), 'message: <code>isBalanced(\"[[]][[][]]\")</code> should return true.');",
+        "assert.isTrue(isBalanced(testCases[12]), 'message: <code>isBalanced(\"[[]]\")</code> should return true.');",
+        "assert.isFalse(isBalanced(testCases[13]), 'message: <code>isBalanced(\"]][]][[]][[[\")</code> should return true.');",
+        "assert.isFalse(isBalanced(testCases[14]), 'message: <code>isBalanced(\"][]][][[\")</code> should return true.');",
+        "assert.isFalse(isBalanced(testCases[15]), 'message: <code>isBalanced(\"][][\")</code> should return true.');",
+        "assert.isFalse(isBalanced(testCases[16]), 'message: <code>isBalanced(\"[[]]][][][[]][\")</code> should return true.');",
+        "assert.isTrue(isBalanced(testCases[17]), 'message: <code>isBalanced(\"\")</code> should return true.');"
+      ],
+      "id": "594dc6c729e5700999302b45"
     },
     {
       "title": "Happy numbers",
@@ -290,9 +678,11 @@
       "categories": "?",
       "difficulty": "2",
       "description": [
-        ";A happy number is defined by the following process:",
-        "Starting with any positive integer, replace the number by the sum of the squares of its digits, and repeat the process until the number equals 1 (where it will stay), or it loops endlessly in a cycle which does not include 1. Those numbers for which this process ends in 1 are happy numbers, while those that do not end in 1 are unhappy numbers.",
-        "Implement a function that returns true if the number is happy, or false if not."
+        "<div class=\"rosetta\">",
+        "<p class=\"rosetta__paragraph\">A happy number is defined by the following process:</p><br/>",
+        "<p class=\"rosetta__paragraph\">Starting with any positive integer, replace the number by the sum of the squares of its digits, and repeat the process until the number equals 1 (where it will stay), or it loops endlessly in a cycle which does not include 1. Those numbers for which this process ends in 1 are happy numbers, while those that do not end in 1 are unhappy numbers.</p><br/>",
+        "<p class=\"rosetta__paragraph\">Implement a function that returns true if the number is happy, or false if not.</p>",
+        "</div>"
       ],
       "challengeSeed": [
         "function happy (number) {",
@@ -317,7 +707,457 @@
         "assert.isTrue(happy(32), 'message: <code>happy(32)</code> should return true:.');",
         "assert.isFalse(happy(33), 'message: <code>happy(33)</code> should return false.');"
       ],
-      "id": 0
+      "id": "594810f028c0303b75339ad1"
+    },
+    {
+      "title": "Taxicab numbers",
+      "type": "rosetta-code",
+      "categories": [
+        ""
+      ],
+      "difficulty": "?",
+      "null": [
+        "benchmark:",
+        []
+      ],
+      "description": [
+        "<div class=\"rosetta\">",
+        "A &nbsp; <a class=\"rosetta__link--wiki\" href=\"https://en.wikipedia.org/wiki/Hardy–Ramanujan number\" title=\"wp: Hardy–Ramanujan number\">taxicab number</a> &nbsp; (the definition that is being used here) &nbsp; is a positive integer that can be expressed as the sum of two positive cubes in more than one way.",
+        "<br>",
+        "The first taxicab number is &nbsp; <span class=\"rosetta__text--bold\">1729</span>, &nbsp; which is:",
+        "<span class=\"rosetta__text--indented\">1<sup>3</sup> &nbsp; + &nbsp; 12<sup>3</sup> &nbsp; &nbsp; &nbsp; and</span>",
+        "<span class=\"rosetta__text--indented\">9<sup>3</sup> &nbsp; + &nbsp; 10<sup>3</sup>.</span>",
+        "<br>",
+        "Taxicab numbers are also known as:",
+        "<span class=\"rosetta__text--indented\">* &nbsp; taxi numbers</span>",
+        "<span class=\"rosetta__text--indented\">* &nbsp; taxi-cab numbers</span>",
+        "<span class=\"rosetta__text--indented\">* &nbsp; taxi cab numbers</span>",
+        "<span class=\"rosetta__text--indented\">* &nbsp; Hardy-Ramanujan numbers</span>",
+        "<br>",
+        "<dl class=\"rosetta__description-list\"><dt class=\"rosetta__description-title\">Task:</dt></dl>",
+        "<ul class=\"rosetta__unordered-list\"><li class=\"rosetta__list-item--unordered\">Write a function that returns the lowest N taxicab numbers.</li>",
+        "<li class=\"rosetta__list-item--unordered\">For each of the taxicab numbers, show the number as well as it's constituent cubes.</li>",
+        "</ul>",
+        "<br>",
+        "<dl class=\"rosetta__description-list\"><dt class=\"rosetta__description-title\">Extra credit</dt></dl>",
+        "<ul class=\"rosetta__unordered-list\"><li class=\"rosetta__list-item--unordered\">Show the 2,000<sup>th</sup> taxicab number, and a half dozen more</li></ul>",
+        "<br>",
+        "<dl class=\"rosetta__description-list\"><dt class=\"rosetta__description-title\">See also:</dt></dl>",
+        "<ul class=\"rosetta__unordered-list\"><li class=\"rosetta__list-item--unordered\">[http://oeis.org/A001235 A001235 taxicab numbers] on The On-Line Encyclopedia of Integer Sequences.</li>",
+        "<li class=\"rosetta__list-item--unordered\"><a href=\"http://mathworld.wolfram.com/Hardy-RamanujanNumber.html\">Hardy-Ramanujan Number</a> on MathWorld.</li>",
+        "<li class=\"rosetta__list-item--unordered\"><a href=\"http://mathworld.wolfram.com/TaxicabNumber.html\">taxicab number</a> on MathWorld.</li>",
+        "<li class=\"rosetta__list-item--unordered\"><a href=\"https://en.wikipedia.org/wiki/Taxicab_number\">taxicab number</a> on Wikipedia.</li></ul><br><br>",
+        "</div>"
+      ],
+      "challengeSeed": [
+        "function taxicabNumbers (n) {",
+        "  // Good luck!",
+        "  return true;",
+        "}"
+      ],
+      "solutions": [
+        "function taxicabNumbers(nNumbers) {\n  const cubeN = [];\n  const s3s = {};\n\n  const e = 100;\n  for (let n = 1; n < e; n += 1) {\n    cubeN[n] = n * n * n;\n  }\n\n  for (let a = 1; a < e - 1; a += 1) {\n    const a3 = cubeN[a];\n    for (let b = a; b < e; b += 1) {\n      const b3 = cubeN[b];\n      const s3 = a3 + b3;\n\n      let abs = s3s[s3];\n      if (!abs) {\n        s3s[s3] = abs = [];\n      }\n      abs.push([a, b]);\n    }\n  }\n\n  let i = 0;\n  const res = [];\n  for (const s3 in s3s) {\n    const abs = s3s[s3];\n    if (abs.length < 2) { // No two cube pairs found\n      continue;\n    }\n    i += 1;\n    if (i > nNumbers) {\n      break;\n    }\n    res.push(s3);\n  }\n  return res.map(item => parseInt(item, 10));\n}\n"
+      ],
+      "tail": [
+        "const res4 = [1729, 4104, 13832, 20683];",
+        "const res25 = [",
+        "  1729, 4104, 13832, 20683, 32832, 39312, 40033, 46683, 64232, 65728, 110656,",
+        "  110808, 134379, 149389, 165464, 171288, 195841, 216027, 216125, 262656, 314496, 320264, 327763,",
+        "  373464, 402597",
+        "];"
+      ],
+      "tests": [
+        "assert(typeof taxicabNumbers === 'function', 'message: <code>taxicabNumbers </code> is a function.');",
+        "assert(typeof taxicabNumbers(2) === 'object', 'message: <code>taxicabNumbers </code> should return an array.');",
+        "assert(typeof taxicabNumbers(100)[0] === 'number', 'message: <code>taxicabNumbers </code> should return an array of numbers.');",
+        "assert.deepEqual(taxicabNumbers(4), res4, 'message: <code>taxicabNumbers(4) </code> must return [1729, 4104, 13832, 20683].');",
+        "assert.deepEqual(taxicabNumbers(25), res25, 'message: taxicabNumbers(25) should return [1729, 4104, 13832, 20683, 32832, 39312, 40033, 46683, 64232, 65728, 110656, 110808, 134379, 149389, 165464, 171288, 195841, 216027, 216125, 262656, 314496, 320264, 327763, 373464, 402597]');"
+      ],
+      "id": "594ecc0d9a8cf816e3340187"
+    },
+    {
+      "title": "Tokenize a string with escaping",
+      "type": "rosetta-code",
+      "categories": [
+        "strings",
+        "text processing"
+      ],
+      "difficulty": "4",
+      "description": [
+        "<div class=\"rosetta\">",
+        "<p class=\"rosetta__paragraph\">Write a function or program that can split a string at each non-escaped occurrence of a separator character.</p><br/><p class=\"rosetta__paragraph\">It should accept three input parameters:</p>",
+        "<ul class=\"rosetta__unordered-list\"><li class=\"rosetta__list-item--unordered\">The <b>string</b></li>",
+        "<li class=\"rosetta__list-item--unordered\">The <b>separator character</b></li>",
+        "<li class=\"rosetta__list-item--unordered\">The <b>escape character</b></li></ul>",
+        "<br>",
+        "<p class=\"rosetta__paragraph\">It should output a list of strings.</p>",
+        "<br/>",
+        "<p class=\"rosetta__paragraph\">Rules for splitting:</p>",
+        "<ul class=\"rosetta__unordered-list\"><li class=\"rosetta__list-item--unordered\">The fields that were separated by the separators, become the elements of the output list.</li>",
+        "<li class=\"rosetta__list-item--unordered\">Empty fields should be preserved, even at the start and end.</li></ul>",
+        "<br>",
+        "<p class=\"rosetta__paragraph\">Rules for escaping:</p>",
+        "<ul class=\"rosetta__unordered-list\"><li class=\"rosetta__list-item--unordered\">\"Escaped\" means preceded by an occurrence of the escape character that is not already escaped itself.</li>",
+        "<li class=\"rosetta__list-item--unordered\">When the escape character precedes a character that has no special meaning, it still counts as an escape (but does not do anything special).</li>",
+        "<li class=\"rosetta__list-item--unordered\">Each occurrences of the escape character that was used to escape something, should <span class=\"rosetta__text--bold\">not</span> become part of the output.</li></ul>",
+        "<br/><p class=\"rosetta__paragraph\">Demonstrate that your function satisfies the following test-case:</p>",
+        "<p class=\"rosetta__paragraph\">{| class=\"wikitable\"</p>",
+        "<p class=\"rosetta__paragraph\">|-</p>",
+        "<p class=\"rosetta__paragraph\">! Input</p>",
+        "<p class=\"rosetta__paragraph\">! Output</p>",
+        "<p class=\"rosetta__paragraph\">|-</p>",
+        "<p class=\"rosetta__paragraph\">| style=\"vertical-align:top\" |</p>",
+        "<p class=\"rosetta__paragraph\">{| style=\"border-collapse:collapse; border:none\" border=\"0\"</p>",
+        "<p class=\"rosetta__paragraph\">|-</p>",
+        "<p class=\"rosetta__paragraph\">| style=\"border:none; text-align:right\" | string:</p>",
+        "<p class=\"rosetta__paragraph\">| style=\"border:none\" | <pre style=\"display:inline;padding:0.1em;margin:0.3em;\">one^|uno||three^^^^|four^^^|^cuatro|</pre></p>",
+        "<p class=\"rosetta__paragraph\">|-</p>",
+        "<p class=\"rosetta__paragraph\">| style=\"border:none; text-align:right\" | separator character:</p>",
+        "<p class=\"rosetta__paragraph\">| style=\"border:none\" | <pre style=\"display:inline;padding:0.1em;margin:0.3em;\">|</pre></p>",
+        "<p class=\"rosetta__paragraph\">|-</p>",
+        "<p class=\"rosetta__paragraph\">| style=\"border:none; text-align:right\" | escape character:</p>",
+        "<p class=\"rosetta__paragraph\">| style=\"border:none\" | <pre style=\"display:inline;padding:0.1em;margin:0.3em;\">^</pre></p>",
+        "<p class=\"rosetta__paragraph\">|}</p>",
+        "<p class=\"rosetta__paragraph\">|</p>",
+        "<p class=\"rosetta__paragraph\">{| style=\"border-collapse:collapse; border:none\" border=\"0\"</p>",
+        "<p class=\"rosetta__paragraph\">|-</p>",
+        "<p class=\"rosetta__paragraph\">| style=\"border:none\" | <pre style=\"display:inline;padding:0.1em;margin:0.3em;\">one|uno</pre></p>",
+        "<p class=\"rosetta__paragraph\">|-</p>",
+        "<p class=\"rosetta__paragraph\">| style=\"border:none\" | <pre style=\"display:inline;padding:0.1em;margin:0.3em;\"></pre></p>",
+        "<p class=\"rosetta__paragraph\">|-</p>",
+        "<p class=\"rosetta__paragraph\">| style=\"border:none\" | <pre style=\"display:inline;padding:0.1em;margin:0.3em;\">three^^</pre></p>",
+        "<p class=\"rosetta__paragraph\">|-</p>",
+        "<p class=\"rosetta__paragraph\">| style=\"border:none\" | <pre style=\"display:inline;padding:0.1em;margin:0.3em;\">four^|cuatro</pre></p>",
+        "<p class=\"rosetta__paragraph\">|-</p>",
+        "<p class=\"rosetta__paragraph\">| style=\"border:none\" | <pre style=\"display:inline;padding:0.1em;margin:0.3em;\"></pre></p>",
+        "<p class=\"rosetta__paragraph\">|}</p>",
+        "<p class=\"rosetta__paragraph\">|}</p>",
+        "<p class=\"rosetta__paragraph\">(Print the output list in any format you like, as long as it is it easy to see what the fields are.)</p>",
+        "<br/>",
+        "<ul class=\"rosetta__unordered-list\"><li class=\"rosetta__list-item--unordered\"><a class=\"rosetta__link--rosetta\" href=\"http://rosettacode.org/wiki/Tokenize a string\" title=\"Tokenize a string\">Tokenize a string</a></li>",
+        "<li class=\"rosetta__list-item--unordered\"><a class=\"rosetta__link--rosetta\" href=\"http://rosettacode.org/wiki/Brace expansion\" title=\"Brace expansion\">Brace expansion</a></li></ul><br><br><br/><p class=\"rosetta__paragraph\">====</p>",
+        "<br/><p class=\"rosetta__paragraph\"><lang AppleScript>-- tokenize :: String -> Character -> Character -> [String]</p>",
+        "<p class=\"rosetta__paragraph\">on tokenize(str, chrDelim, chrEsc)</p><br/><p class=\"rosetta__paragraph\">script charParse</p>",
+        "<p class=\"rosetta__paragraph\">-- Record: {esc:Bool, token:String, tokens:[String]}</p>",
+        "<p class=\"rosetta__paragraph\">-- charParse :: Record -> Character -> Record</p>",
+        "<p class=\"rosetta__paragraph\">on lambda(a, x)</p>",
+        "<p class=\"rosetta__paragraph\">set blnEsc to esc of a</p>",
+        "<p class=\"rosetta__paragraph\">set blnEscChar to ((not blnEsc) and (x = chrEsc))</p><br/><p class=\"rosetta__paragraph\">if ((not blnEsc) and (x = chrDelim)) then</p>",
+        "<p class=\"rosetta__paragraph\">set strToken to \"\"</p>",
+        "<p class=\"rosetta__paragraph\">set lstTokens to (tokens of a) & token of a</p>",
+        "<p class=\"rosetta__paragraph\">else</p>",
+        "<p class=\"rosetta__paragraph\">set strToken to (token of a) & cond(blnEscChar, \"\", x)</p>",
+        "<p class=\"rosetta__paragraph\">set lstTokens to tokens of (a)</p>",
+        "<p class=\"rosetta__paragraph\">end if</p><br/><p class=\"rosetta__paragraph\">{esc:blnEscChar, token:strToken, tokens:lstTokens}</p>",
+        "<p class=\"rosetta__paragraph\">end lambda</p>",
+        "<p class=\"rosetta__paragraph\">end script</p><br/><p class=\"rosetta__paragraph\">set recParse to foldl(charParse, ¬</p>",
+        "<p class=\"rosetta__paragraph\">{esc:false, token:\"\", tokens:[]}, splitOn(\"\", str))</p><br/><p class=\"rosetta__paragraph\">tokens of recParse & token of recParse</p>",
+        "<p class=\"rosetta__paragraph\">end tokenize</p>",
+        "<br/><p class=\"rosetta__paragraph\">-- TEST</p>",
+        "<p class=\"rosetta__paragraph\">on run</p><br/><p class=\"rosetta__paragraph\">script numberedLine</p>",
+        "<p class=\"rosetta__paragraph\">on lambda(a, s)</p>",
+        "<p class=\"rosetta__paragraph\">set iLine to lineNum of a</p>",
+        "<p class=\"rosetta__paragraph\">{lineNum:iLine + 1, report:report of a & iLine & \":\" & tab & s & linefeed}</p>",
+        "<p class=\"rosetta__paragraph\">end lambda</p>",
+        "<p class=\"rosetta__paragraph\">end script</p><br/><p class=\"rosetta__paragraph\">report of foldl(numberedLine, {lineNum:1, report:\"\"}, ¬</p>",
+        "<p class=\"rosetta__paragraph\">tokenize(\"one^|uno||three^^^^|four^^^|^cuatro|\", \"|\", \"^\"))</p>",
+        "<p class=\"rosetta__paragraph\">end run</p>",
+        "<br/><p class=\"rosetta__paragraph\">-- GENERIC FUNCTIONS</p><br/><p class=\"rosetta__paragraph\">-- foldl :: (a -> b -> a) -> a -> [b] -> a</p>",
+        "<p class=\"rosetta__paragraph\">on foldl(f, startValue, xs)</p>",
+        "<p class=\"rosetta__paragraph\">tell mReturn(f)</p>",
+        "<p class=\"rosetta__paragraph\">set v to startValue</p>",
+        "<p class=\"rosetta__paragraph\">set lng to length of xs</p>",
+        "<p class=\"rosetta__paragraph\">repeat with i from 1 to lng</p>",
+        "<p class=\"rosetta__paragraph\">set v to lambda(v, item i of xs, i, xs)</p>",
+        "<p class=\"rosetta__paragraph\">end repeat</p>",
+        "<p class=\"rosetta__paragraph\">return v</p>",
+        "<p class=\"rosetta__paragraph\">end tell</p>",
+        "<p class=\"rosetta__paragraph\">end foldl</p><br/><p class=\"rosetta__paragraph\">-- Lift 2nd class handler function into 1st class script wrapper</p>",
+        "<p class=\"rosetta__paragraph\">-- mReturn :: Handler -> Script</p>",
+        "<p class=\"rosetta__paragraph\">on mReturn(f)</p>",
+        "<p class=\"rosetta__paragraph\">if class of f is script then</p>",
+        "<p class=\"rosetta__paragraph\">f</p>",
+        "<p class=\"rosetta__paragraph\">else</p>",
+        "<p class=\"rosetta__paragraph\">script</p>",
+        "<p class=\"rosetta__paragraph\">property lambda : f</p>",
+        "<p class=\"rosetta__paragraph\">end script</p>",
+        "<p class=\"rosetta__paragraph\">end if</p>",
+        "<p class=\"rosetta__paragraph\">end mReturn</p><br/><p class=\"rosetta__paragraph\">-- splitOn :: Text -> Text -> [Text]</p>",
+        "<p class=\"rosetta__paragraph\">on splitOn(strDelim, strMain)</p>",
+        "<p class=\"rosetta__paragraph\">set {dlm, my text item delimiters} to {my text item delimiters, strDelim}</p>",
+        "<p class=\"rosetta__paragraph\">set xs to text items of strMain</p>",
+        "<p class=\"rosetta__paragraph\">set my text item delimiters to dlm</p>",
+        "<p class=\"rosetta__paragraph\">return xs</p>",
+        "<p class=\"rosetta__paragraph\">end splitOn</p><br/><p class=\"rosetta__paragraph\">-- cond :: Bool -> a -> a -> a</p>",
+        "<p class=\"rosetta__paragraph\">on cond(bool, f, g)</p>",
+        "<p class=\"rosetta__paragraph\">if bool then</p>",
+        "<p class=\"rosetta__paragraph\">f</p>",
+        "<p class=\"rosetta__paragraph\">else</p>",
+        "<p class=\"rosetta__paragraph\">g</p>",
+        "<p class=\"rosetta__paragraph\">end if</p>",
+        "<p class=\"rosetta__paragraph\">end cond</lang></p>",
+        "<br/><div class=\"rosetta__pre-wrap\"><pre class=\"rosetta__pre\">1:    one|uno",
+        "2:",
+        "3:    three^^",
+        "4:    four^|cuatro",
+        "5:",
+        "</pre></div><br/></div>"
+      ],
+      "challengeSeed": [
+        "function tokenize(str, esc, sep) {",
+        "  return true;",
+        "}"
+      ],
+      "solutions": [
+        "// tokenize :: String -> Character -> Character -> [String]\nfunction tokenize(str, charDelim, charEsc) {\n  const dctParse = str.split('')\n    .reduce((a, x) => {\n      const blnEsc = a.esc;\n      const blnBreak = !blnEsc && x === charDelim;\n      const blnEscChar = !blnEsc && x === charEsc;\n\n      return {\n        esc: blnEscChar,\n        token: blnBreak ? '' : (\n          a.token + (blnEscChar ? '' : x)\n        ),\n        list: a.list.concat(blnBreak ? a.token : [])\n      };\n    }, {\n      esc: false,\n      token: '',\n      list: []\n    });\n\n  return dctParse.list.concat(\n    dctParse.token\n  );\n}\n"
+      ],
+      "tail": [
+        "const testStr1 = 'one^|uno||three^^^^|four^^^|^cuatro|';",
+        "const res1 = ['one|uno', '', 'three^^', 'four^|cuatro', ''];",
+        "",
+        "// TODO add more tests",
+        "const testStr2 = 'a@&bcd&ef&&@@hi';",
+        "const res2 = ['a&bcd', 'ef', '', '@hi'];"
+      ],
+      "tests": [
+        "assert(typeof tokenize === 'function', 'message: <code>tokenize</code> is a function.');",
+        "assert(typeof tokenize('a', 'b', 'c') === 'object', 'message: <code>tokenize</code> should return an array.');",
+        "assert.deepEqual(tokenize(testStr1, '|', '^'), res1, \"message: <code>tokenize('one^|uno||three^^^^|four^^^|^cuatro|', '|', '^') </code> should return ['one|uno', '', 'three^^', 'four^|cuatro', '']\");",
+        "assert.deepEqual(tokenize(testStr2, '&', '@'), res2, \"message: <code>tokenize('a@&bcd&ef&&@@hi', '&', '@')</code> should return ['a&bcd', 'ef', '', '@hi']\");"
+      ],
+      "id": "594faaab4e2a8626833e9c3d"
+    },
+    {
+      "title": "Top rank per group",
+      "type": "rosetta-code",
+      "categories": "ranking",
+      "difficulty": "7",
+      "description": [
+        "<div class=\"rosetta\">",
+        "<br/><dl class=\"rosetta__description-list\"><dt class=\"rosetta__description-title\">Task:</dt></dl>",
+        "<p class=\"rosetta__paragraph\">Find the top <span class=\"rosetta__text--italic\">N</span> ranked data in each group, where <span class=\"rosetta__text--italic\">N</span>  is provided as a parameter. Name of the rank and the group are also provided as parameter.</p><br/>",
+        "Given the following data:",
+        "<div class=\"rosetta__pre-wrap\"><pre class=\"rosetta__pre\">",
+        "[",
+        "  { name: 'Tyler Bennett', id: 'E10297', salary: 32000, dept: 'D101' },",
+        "  { name: 'John Rappl', id: 'E21437', salary: 47000, dept: 'D050' },",
+        "  { name: 'George Woltman', id: 'E00127', salary: 53500, dept: 'D101' },",
+        "  { name: 'Adam Smith', id: 'E63535', salary: 18000, dept: 'D202' },",
+        "  { name: 'Claire Buckman', id: 'E39876', salary: 27800, dept: 'D202' },",
+        "  { name: 'David McClellan', id: 'E04242', salary: 41500, dept: 'D101' },",
+        "  { name: 'Rich Holcomb', id: 'E01234', salary: 49500, dept: 'D202' },",
+        "  { name: 'Nathan Adams', id: 'E41298', salary: 21900, dept: 'D050' },",
+        "  { name: 'Richard Potter', id: 'E43128', salary: 15900, dept: 'D101' },",
+        "  { name: 'David Motsinger', id: 'E27002', salary: 19250, dept: 'D202' },",
+        "  { name: 'Tim Sampair', id: 'E03033', salary: 27000, dept: 'D101' },",
+        "  { name: 'Kim Arlich', id: 'E10001', salary: 57000, dept: 'D190' },",
+        "  { name: 'Timothy Grove', id: 'E16398', salary: 29900, dept: 'D190' }",
+        "];",
+        "</pre></div>",
+        "one could rank top 10 employees in each department by calling",
+        "<code>topRankPerGroup(10, data, 'dept', 'salary')</code>",
+        "<br>",
+        "Given the following data:",
+        "<div class=\"rosetta__pre-wrap\"><pre class=\"rosetta__pre\">",
+        "[",
+        "  { name: 'Friday 13th', genre: 'horror', rating: 9.9 },",
+        "  { name: \"Nightmare on Elm's Street\", genre: 'horror', rating: 5.7 },",
+        "  { name: 'Titanic', genre: 'drama', rating: 7.3 },",
+        "  { name: 'Maze Runner', genre: 'scifi', rating: 7.1 },",
+        "  { name: 'Blade runner', genre: 'scifi', rating: 8.9 }",
+        "];",
+        "</pre></div>",
+        "one could rank the top-rated movie in each genre by calling",
+        "<code>topRankPerGroup(1, data, 'genre', 'rating')</code>",
+        "</div>"
+      ],
+      "challengeSeed": [
+        "function topRankPerGroup(n, data, groupName, rankName) {",
+        "  // Good luck!",
+        "  return true;",
+        "}"
+      ],
+      "solutions": [
+        "\nconst collectDept = function (arrOfObj, groupName) {\n  const collect = arrOfObj.reduce((rtnObj, obj) => {\n    if (rtnObj[obj[groupName]] === undefined) {\n      rtnObj[obj[groupName]] = [];\n    }\n    rtnObj[obj[groupName]].push(obj);\n    return rtnObj;\n  }, {} // initial value to reduce\n  );\n\n  return Object.keys(collect).sort().map(key => collect[key]);\n};\n\nconst sortRank = function (arrOfRankArrs, rankName) {\n  return arrOfRankArrs.map(item => item.sort((a, b) => {\n    if (a[rankName] > b[rankName]) { return -1; }\n    if (a[rankName] < b[rankName]) { return 1; }\n    return 0;\n  }));\n};\n\nfunction topRankPerGroup(n, data, groupName, rankName) {\n  if (n < 0) { return; }\n  return sortRank(collectDept(data, groupName),\n    rankName).map(list => list.slice(0, n));\n}\n"
+      ],
+      "tail": [
+        "const testData1 = [",
+        "  { name: 'Tyler Bennett', id: 'E10297', salary: 32000, dept: 'D101' },",
+        "  { name: 'John Rappl', id: 'E21437', salary: 47000, dept: 'D050' },",
+        "  { name: 'George Woltman', id: 'E00127', salary: 53500, dept: 'D101' },",
+        "  { name: 'Adam Smith', id: 'E63535', salary: 18000, dept: 'D202' },",
+        "  { name: 'Claire Buckman', id: 'E39876', salary: 27800, dept: 'D202' },",
+        "  { name: 'David McClellan', id: 'E04242', salary: 41500, dept: 'D101' },",
+        "  { name: 'Rich Holcomb', id: 'E01234', salary: 49500, dept: 'D202' },",
+        "  { name: 'Nathan Adams', id: 'E41298', salary: 21900, dept: 'D050' },",
+        "  { name: 'Richard Potter', id: 'E43128', salary: 15900, dept: 'D101' },",
+        "  { name: 'David Motsinger', id: 'E27002', salary: 19250, dept: 'D202' },",
+        "  { name: 'Tim Sampair', id: 'E03033', salary: 27000, dept: 'D101' },",
+        "  { name: 'Kim Arlich', id: 'E10001', salary: 57000, dept: 'D190' },",
+        "  { name: 'Timothy Grove', id: 'E16398', salary: 29900, dept: 'D190' }",
+        "];",
+        "",
+        "const res1 = topRankPerGroup(10, testData1, 'dept', 'salary');",
+        "",
+        "const testData2 = [",
+        "  { name: 'Friday 13th', genre: 'horror', rating: 9.9 },",
+        "  { name: \"Nightmare on Elm's Street\", genre: 'horror', rating: 5.7 },",
+        "  { name: 'Titanic', genre: 'drama', rating: 7.3 },",
+        "  { name: 'Maze Runner', genre: 'scifi', rating: 7.1 },",
+        "  { name: 'Blade runner', genre: 'scifi', rating: 8.9 }",
+        "];",
+        "",
+        "const res2 = topRankPerGroup(1, testData2, 'genre', 'rating');",
+        "const res3 = topRankPerGroup(2, testData2, 'genre', 'rating');",
+        "",
+        "//console.log(JSON.stringify(topRankPerGroup(10, testData1)));"
+      ],
+      "tests": [
+        "assert(typeof topRankPerGroup === 'function', 'message: <code>topRankPerGroup</code> is a function.');",
+        "assert(typeof topRankPerGroup(-1, []) === 'undefined', 'message: <code>topRankPerGroup</code> returns undefined on negative n values.');",
+        "assert.equal(res1[0][0].dept, 'D050', 'message: First department must be D050');",
+        "assert.equal(res1[0][1].salary, 21900, 'message: First department must be D050');",
+        "assert.equal(res1[3][3].dept, 'D202', 'message: The last department must be D202');",
+        "assert.equal(res2[2].length, 1, 'message: <code>topRankPerGroup(1, ...)</code> must return only top ranking result per group.');",
+        "assert.equal(res3[2][1].name, 'Maze Runner', 'message: <code>topRankPerGroup(1, ...)</code> must return only top ranking result per group.');"
+      ],
+      "id": "595011cba5a81735713873bd"
+    },
+    {
+      "title": "Topological sort",
+      "type": "rosetta-code",
+      "categories": [
+        "sort",
+        "dependencies"
+      ],
+      "difficulty": "8",
+      "description": [
+        "<div class=\"rosetta\">",
+        "<p class=\"rosetta__paragraph\">Given a mapping between items, and items they depend on, a <a class=\"rosetta__link--wiki\" href=\"https://en.wikipedia.org/wiki/Topological sorting\" title=\"wp: Topological sorting\">topological sort</a> orders items so that no item precedes an item it depends upon.</p><br/><p class=\"rosetta__paragraph\">The compiling of a library in the <a class=\"rosetta__link--wiki\" href=\"https://en.wikipedia.org/wiki/VHDL\" title=\"wp: VHDL\">VHDL</a> language has the constraint that a library must be compiled after any library it depends on.</p><br/><p class=\"rosetta__paragraph\">A tool exists that extracts library dependencies.</p>",
+        "<br/><dl class=\"rosetta__description-list\"><dt class=\"rosetta__description-title\">Task;</dt></dl>",
+        "<p class=\"rosetta__paragraph\">Write a function that will return a valid compile order of VHDL libraries from their dependencies.</p><br/><ul class=\"rosetta__unordered-list\"><li class=\"rosetta__list-item--unordered\">Assume library names are single words. </li>",
+        "<li class=\"rosetta__list-item--unordered\">Items mentioned as only dependents, (sic), have no dependents of their own, but their order of compiling must be given.</li>",
+        "<li class=\"rosetta__list-item--unordered\">Any self dependencies should be ignored. </li>",
+        "<li class=\"rosetta__list-item--unordered\">Any un-orderable dependencies should be flagged.</li></ul>",
+        "<br>",
+        "<p class=\"rosetta__paragraph\">Use the following data as an example:</p>",
+        "<div class=\"rosetta__pre-wrap\"><pre class=\"rosetta__pre\">",
+        "LIBRARY          LIBRARY DEPENDENCIES",
+        "=======          ====================",
+        "des_system_lib   std synopsys std_cell_lib des_system_lib dw02 dw01 ramlib ieee",
+        "dw01             ieee dw01 dware gtech",
+        "dw02             ieee dw02 dware",
+        "dw03             std synopsys dware dw03 dw02 dw01 ieee gtech",
+        "dw04             dw04 ieee dw01 dware gtech",
+        "dw05             dw05 ieee dware",
+        "dw06             dw06 ieee dware",
+        "dw07             ieee dware",
+        "dware            ieee dware",
+        "gtech            ieee gtech",
+        "ramlib           std ieee",
+        "std_cell_lib     ieee std_cell_lib",
+        "synopsys",
+        "</pre></div><br/><br>",
+        "<p class=\"rosetta__paragraph\"><small>Note: the above data would be un-orderable if, for example, <code>dw04</code> is added to the list of dependencies of <code>dw01</code>.</small></p>",
+        "<br/><dl class=\"rosetta__description-list\"><dt class=\"rosetta__description-title\">C.f.:</dt></dl>",
+        "<ul class=\"rosetta__unordered-list\"><li class=\"rosetta__list-item--unordered\"> <a class=\"rosetta__link--rosetta\" href=\"http://rosettacode.org/wiki/Topological sort/Extracted top item\" title=\"Topological sort/Extracted top item\">Topological sort/Extracted top item</a>.</li></ul>",
+        "<br>",
+        "<p class=\"rosetta__paragraph\">There are two popular algorithms for topological sorting:</p>",
+        "<p class=\"rosetta__paragraph\">Kahn's 1962 topological sort, and depth-first search.</p>",
+        "<p class=\"rosetta__paragraph\"><ref></p>",
+        "<p class=\"rosetta__paragraph\">[[wp: topological sorting]]</p>",
+        "</ref><ref>",
+        "<p class=\"rosetta__paragraph\">Jason Sachs</p>",
+        "<p class=\"rosetta__paragraph\"><a class=\"rosetta__link--wiki\" href=\"http://www.embeddedrelated.com/showarticle/799.php\" title=\"link: http://www.embeddedrelated.com/showarticle/799.php\">\"Ten little algorithms, part 4: topological sort\"</a>.</p>",
+        "</ref>",
+        "</div>"
+      ],
+      "challengeSeed": [
+        "function topologicalSort(libs) {",
+        "  // Good luck!",
+        "  return true;",
+        "}"
+      ],
+      "solutions": [
+        "function topologicalSort(libs) {\n  // A map of the input data, with the keys as the packages, and the values as\n  // and array of packages on which it depends.\n  const D = libs\n    .split('\\n')\n    .map(e => e.split(' ').filter(ep => ep !== ''))\n    .reduce((p, c) =>\n      p.set(c[0], c.filter((e, i) => (i > 0 && e !== c[0] ? e : null))), new Map());\n  [].concat(...D.values()).forEach(e => {\n    D.set(e, D.get(e) || []);\n  });\n\n  // The above map rotated so that it represents a DAG of the form\n  // Map {\n  //    A => [ A, B, C],\n  //    B => [C],\n  //    C => []\n  // }\n  // where each key represents a node, and the array contains the edges.\n  const G = [...D.keys()].reduce((p, c) =>\n    p.set(\n      c,\n      [...D.keys()].filter(e => D.get(e).includes(c))),\n    new Map()\n  );\n\n  // An array of leaf nodes; nodes with 0 in degrees.\n  const Q = [...D.keys()].filter(e => D.get(e).length === 0);\n\n  // The result array.\n  const S = [];\n  while (Q.length) {\n    const u = Q.pop();\n    S.push(u);\n    G.get(u).forEach(v => {\n      D.set(v, D.get(v).filter(e => e !== u));\n      if (D.get(v).length === 0) {\n        Q.push(v);\n      }\n    });\n  }\n\n  return S;\n}\n"
+      ],
+      "tail": [
+        "const libsSimple =",
+        "  `aaa bbb",
+        "  bbb`;",
+        "",
+        "const libsVHDL =",
+        "  `des_system_lib   std synopsys std_cell_lib des_system_lib dw02 dw01 ramlib ieee",
+        "  dw01             ieee dw01 dware gtech",
+        "  dw02             ieee dw02 dware",
+        "  dw03             std synopsys dware dw03 dw02 dw01 ieee gtech",
+        "  dw04             dw04 ieee dw01 dware gtech",
+        "  dw05             dw05 ieee dware",
+        "  dw06             dw06 ieee dware",
+        "  dw07             ieee dware",
+        "  dware            ieee dware",
+        "  gtech            ieee gtech",
+        "  ramlib           std ieee",
+        "  std_cell_lib     ieee std_cell_lib",
+        "  synopsys`;",
+        "",
+        "const solutionVHDL = [",
+        "  'ieee', 'std_cell_lib', 'gtech', 'dware', 'dw07', 'dw06',",
+        "  'dw05', 'dw02', 'dw01', 'dw04', 'std', 'ramlib', 'synopsys',",
+        "  'dw03', 'des_system_lib'",
+        "];",
+        "",
+        "const libsCustom =",
+        "  `a b c d",
+        "  b c d",
+        "  d c",
+        "  c base",
+        "  base`;",
+        "const solutionCustom = ['base', 'c', 'd', 'b', 'a'];"
+      ],
+      "tests": [
+        "assert(typeof topologicalSort === 'function', 'message: <code>topologicalSort</code> is a function.');",
+        "assert.deepEqual(topologicalSort(libsSimple), ['bbb', 'aaa'], 'message: <code>topologicalSort</code> must return correct library order..');",
+        "assert.deepEqual(topologicalSort(libsVHDL), solutionVHDL, 'message: <code>topologicalSort</code> must return correct library order..');",
+        "assert.deepEqual(topologicalSort(libsCustom), solutionCustom, 'message: <code>topologicalSort</code> must return correct library order..');"
+      ],
+      "id": "594fa2746886f41f7d8bf225"
+    },
+    {
+      "title": "Vector cross product",
+      "type": "rosetta-code",
+      "difficulty": "5",
+      "categories": [
+        "vector",
+        "math"
+      ],
+      "description": [
+        "A vector is defined as having three dimensions as being represented by an ordered collection of three numbers: &nbsp; (X, Y, Z).",
+        "<br/>",
+        "Write a function that takes two vectors (arrays) as",
+        "input and computes their cross product. Your function should return <code>null</code> on",
+        "invalid inputs (ie vectors of different lengths)."
+      ],
+      "challengeSeed": [
+        "function crossProduct() {",
+        "    // Good luck!",
+        "}"
+      ],
+      "solutions": [
+        "function crossProduct(a, b) {\n  if (!a || !b) {\n    return null;\n  }\n\n  // Check lengths\n  if (a.length !== 3 || b.length !== 3) {\n    return null;\n  }\n\n  return [\n    (a[1] * b[2]) - (a[2] * b[1]),\n    (a[2] * b[0]) - (a[0] * b[2]),\n    (a[0] * b[1]) - (a[1] * b[0])\n  ];\n}\n"
+      ],
+      "tail": [
+        "const tv1 = [1, 2, 3];",
+        "const tv2 = [4, 5, 6];",
+        "const res12 = crossProduct(tv1, tv2);",
+        "const exp12 = [-3, 6, -3];"
+      ],
+      "tests": [
+        "assert.equal(typeof crossProduct, 'function', 'message: dotProduct must be a function');",
+        "assert.equal(crossProduct(), null, 'message: dotProduct() must return null');",
+        "assert.deepEqual(res12, exp12, 'message: crossProduct([1, 2, 3], [4, 5, 6]) must return [-3, 6, -3].');"
+      ],
+      "id": "594810f028c0303b75339ad2"
     },
     {
       "title": "Vector dot product",
@@ -327,8 +1167,9 @@
         "vector",
         "math"
       ],
-      "description": "A vector is defined as having three dimensions as being represented by an ordered collection of three numbers: &nbsp; (X, Y, Z).",
-      "Instructions": [
+      "description": [
+        "A vector is defined as having three dimensions as being represented by an ordered collection of three numbers: &nbsp; (X, Y, Z).",
+        "<br/>",
         "Write a function that takes any numbers of vectors (arrays) as",
         "input and computes their dot product. Your function should return <code>null</code> on",
         "invalid inputs (ie vectors of different lenghts)."
@@ -359,7 +1200,7 @@
         "assert.equal(dotProduct(...vectorsWp), 3, 'message: dotProduct([[1, 3, -5], [4, -2, -1]]) must return 3.');",
         "assert.equal(dotProduct(...vectors5x5), 156000);"
       ],
-      "id": 0
+      "id": "594810f028c0303b75339ad3"
     },
     {
       "title": "Word wrap",
@@ -367,23 +1208,30 @@
       "type": "rosetta-code",
       "categories": "strings",
       "description": [
+        "<div class=\"rosetta\">",
+        "<p class=\"rosetta__paragraph\">",
         "Even today, with proportional fonts and complex layouts, there are still",
-        "[[Template:Lines_too_long|cases]] where you need to wrap text at a specified",
+        "cases where you need to wrap text at a specified",
         "column.  The basic task is to wrap a paragraph of text in a simple way.",
         "Example text:",
+        "</p>",
         "<pre>",
         "Wrap text using a more sophisticated algorithm such as the Knuth and Plass TeX algorithm.",
         "If your language provides this, you get easy extra credit,",
         "but you ''must reference documentation'' indicating that the algorithm",
         "is something better than a simple minimimum length algorithm.",
         "</pre>",
-        "can be wrapped to 80 characters as such:",
+        "<p class=\"rosetta__paragraph\">",
+        "Write a function that can wrap this text to any number of characters. As an",
+        "example, the text wrapped to 80 characters should look like the following:",
+        "</p>",
         "<pre>",
         "Wrap text using a more sophisticated algorithm such as the Knuth and Plass TeX",
         "algorithm. If your language provides this, you get easy extra credit, but you",
         "must reference documentation indicating that the algorithm is something better",
         "than a simple minimimum length algorithm.",
-        "</pre>"
+        "</pre>",
+        "</div>"
       ],
       "challengeSeed": [
         "function wrap (text, limit) {",
@@ -416,7 +1264,7 @@
         "assert(wrapped42.split('\\n').length === 7, 'message: wrap(42) must return 7 lines.');",
         "assert.equal(wrapped42.split('\\n')[0], firstRow42);"
       ],
-      "id": 0
+      "id": "594810f028c0303b75339ad4"
     },
     {
       "title": "Y combinator",
@@ -424,21 +1272,11 @@
       "type": "rosetta-code",
       "categories": "recursion",
       "description": [
-        "In strict [[wp:Functional programming|functional programming]] and the",
-        "[[wp:lambda calculus|lambda calculus]], functions (lambda expressions) don't",
-        "have state and are only allowed to refer to arguments of enclosing functions.",
-        "This rules out the usual definition of a recursive function wherein a function",
-        "is associated with the state of a variable and this variable's state is used in",
-        "the body of the function.",
-        "///<br/>",
-        "The <a href=\"http://mvanier.livejournal.com/2897.html\">Y combinator</a> is itself a",
-        "stateless function that, when applied to another stateless function, returns a",
-        "recursive version of the function. The Y combinator is the simplest of the",
-        "class of such functions, called [[wp:Fixed-point combinator|fixed-point combinators]]."
-      ],
-      "Instructions": [
+        "In strict <a class=\"rosetta__link--wiki\" href=\"https://en.wikipedia.org/wiki/Functional programming\" title=\"wp: functional programming\">functional programming</a> and the <a class=\"rosetta__link--wiki\" href=\"https://en.wikipedia.org/wiki/lambda calculus\" title=\"wp: lambda calculus\">lambda calculus</a>, functions (lambda expressions) don't have state and are only allowed to refer to arguments of enclosing functions. This rules out the usual definition of a recursive function wherein a function is associated with the state of a variable and this variable's state is used in the body of the function.<br/>",
+        "The <a href=\"http://mvanier.livejournal.com/2897.html\">Y combinator</a> is itself a stateless function that, when applied to another stateless function, returns a recursive version of the function. The Y combinator is the simplest of the class of such functions, called <a class=\"rosetta__link--wiki\" href=\"https://en.wikipedia.org/wiki/Fixed-point combinator\" title=\"wp: fixed-point combinator\">fixed-point combinators</a>.<br/>",
         "Define the stateless Y combinator function and use it to compute",
-        "[[wp:Factorial|factorials]]. factorial(N) function is already given to you.",
+        "<a class=\"rosetta__link--wiki\" href=\"https://en.wikipedia.org/wiki/Factorial\" title=\"wp: factorial\">factorial</a>.",
+        "<code>factorial(N)</code> function is already given to you.",
         "See also <a href=\"http://vimeo.com/45140590\">Jim Weirich: Adventures in Functional Programming</a>."
       ],
       "challengeSeed": [
@@ -466,33 +1304,19 @@
         "assert.equal(factorial(4), 24, 'message: factorial(4) must return 24.');",
         "assert.equal(factorial(10), 3628800, 'message: factorial(10) must return 3628800.');"
       ],
-      "id": 0
+      "id": "594810f028c0303b75339ad5"
     },
     {
       "title": "Zeckendorf number representation",
       "type": "rosetta-code",
       "difficulty": "3",
       "description": [
-        "Just as numbers can be represented in a positional notation as sums of multiples",
-        "of the powers of ten (decimal) or two (binary); all the positive integers can be",
-        "represented as the sum of one or zero times the distinct members of the",
-        "Fibonacci series.<br/>",
-        "Recall that the first six distinct Fibonacci numbers are:  1, 2, 3, 5, 8, 13.",
-        "The decimal number eleven can be written as 0*13 + 1*8 + 0*5 + 1*3 + 0*2 + 0*1",
-        "or 010100 in positional notation where the columns represent multiplication by a",
-        " particular member of the sequence. Leading zeroes are dropped so that 11 decimal",
-        "becomes 10100. <br/>",
-        "10100 is not the only way to make 11 from the Fibonacci numbers however;  0*13 +",
-        "<code>1*8 + 0*5 + 0*3 + 1*2 + 1*1</code> or 010011 would also represent decimal 11. For a",
-        "true Zeckendorf number there is the added restriction that ''no two consecutive",
-        "Fibonacci numbers can be used'' which leads to the former unique solution."
-      ],
-      "Instructions": [
-        "Generate and show here a table of the Zeckendorf number representations of",
-        "the decimal numbers zero to twenty, in order.",
-        "The intention in this task to find the Zeckendorf form of an arbitrary integer.",
-        "The Zeckendorf form can be iterated by some bit twiddling rather than",
-        "calculating each value separately but leave that to another separate task."
+        "<div class=\"rosetta\">",
+        "Just as numbers can be represented in a positional notation as sums of multiples of the powers of ten (decimal) or two (binary); all the positive integers can be represented as the sum of one or zero times the distinct members of the Fibonacci series.<br/>",
+        "Recall that the first six distinct Fibonacci numbers are:  1, 2, 3, 5, 8, 13. The decimal number eleven can be written as 0*13 + 1*8 + 0*5 + 1*3 + 0*2 + 0*1 or 010100 in positional notation where the columns represent multiplication by a particular member of the sequence. Leading zeroes are dropped so that 11 decimal becomes 10100.<br/>",
+        "10100 is not the only way to make 11 from the Fibonacci numbers however;  0*13 + <code>1*8 + 0*5 + 0*3 + 1*2 + 1*1</code> or 010011 would also represent decimal 11. For a true Zeckendorf number there is the added restriction that ''no two consecutive Fibonacci numbers can be used'' which leads to the former unique solution.<br/>",
+        "Write a function that generates and returns an array of first N Zeckendorf numbers in order.",
+        "</div>"
       ],
       "challengeSeed": [
         "function zeckendorf(n) {",
@@ -521,7 +1345,7 @@
         "assert.equal(typeof zeckendorf, 'function', 'message: zeckendorf must be function');",
         "assert.deepEqual(answer, solution20);"
       ],
-      "id": 0
+      "id": "594810f028c0303b75339ad6"
     },
     {
       "title": "Zhang-Suen thinning algorithm",
@@ -529,7 +1353,7 @@
       "difficulty": "7",
       "description": [
         "This is an algorithm used to thin a black and white i.e. one bit per pixel images.",
-        "///<br/>",
+        "<br/>",
         "For example, with an input image of:",
         "<pre>",
         " #################                   #############",
@@ -551,7 +1375,7 @@
         "                                                           </pre>",
         "It produces the thinned output:",
         "<pre>",
-        "///",
+        "                                                           ",
         "    # ##########                       #######",
         "     ##        #                   ####       #",
         "     #          #                 ##",
@@ -566,47 +1390,46 @@
         "     #                            ##",
         "     #                             ############",
         "                       ###                          ###",
-        "///",
+        "                                                           ",
         "                                                           </pre>",
-        "///<br/>",
+        "<br/>",
         "<h2>Algorithm</h2>",
         "Assume black pixels are one and white pixels zero, and that the input image is a rectangular N by M array of ones and zeroes.",
-        "///<br/>",
+        "<br/>",
         "The algorithm operates on all black pixels P1 that can have eight neighbours. The neighbours are, in order, arranged as:",
-        "<table border=\"1\">",
+        "<table class=\"table\" border=\"1\">",
         "  <tr><td>P9</td><td>P2</td><td>P3</td></tr>",
         "  <tr><td>P8</td><td><b>P1</b></td><td>P4</td></tr>",
         "  <tr><td>P7</td><td>P6</td><td>P5</td></tr>",
         "</table>",
-        "///<br/>",
+        "<br/>",
         "Obviously the boundary pixels of the image cannot have the full eight neighbours.",
-        "///<br/>",
-        "* Define <math>A(P1)</math> = the number of transitions from white to black, (0 -> 1) in the sequence P2,P3,P4,P5,P6,P7,P8,P9,P2. (Note the extra P2 at the end - it is circular).",
-        "* Define <math>B(P1)</math> = The number of black pixel neighbours of P1. ( = sum(P2 .. P9) )",
-        "///<br/>",
-        ";Step 1:",
+        "<br/>",
+        "* Define $A(P1)$ = the number of transitions from white to black, (0 -> 1) in the sequence P2,P3,P4,P5,P6,P7,P8,P9,P2. (Note the extra P2 at the end - it is circular).",
+        "* Define $B(P1)$ = the number of black pixel neighbours of P1. ( = sum(P2 .. P9) )",
+        "<br/>",
+        "Step 1:",
         "All pixels are tested and pixels satisfying all the following conditions (simultaneously) are just noted at this stage.",
         "* (0) The pixel is black and has eight neighbours",
-        "* (1) <math>2 <= B(P1) <= 6</math>",
-        "* (2) A(P1) = 1",
+        "* (1) $2 <= B(P1) <= 6$",
+        "* (2) $A(P1) = 1$",
         "* (3) At least one of P2 and P4 and P6 is white",
         "* (4) At least one of P4 and P6 and P8 is white",
         "After iterating over the image and collecting all the pixels satisfying all step 1 conditions, all these condition satisfying pixels are set to white.",
-        "///<br/>",
-        ";Step 2:",
+        "<br/>",
+        "Step 2:",
         "All pixels are again tested and pixels satisfying all the following conditions are just noted at this stage.",
         "* (0) The pixel is black and has eight neighbours",
-        "* (1) <math>2 <= B(P1) <= 6</math>",
-        "* (2) A(P1) = 1",
+        "* (1) $2 <= B(P1) <= 6$",
+        "* (2) $A(P1) = 1$",
         "* (3) At least one of P2 and P4 and '''P8''' is white",
         "* (4) At least one of '''P2''' and P6 and P8 is white",
         "After iterating over the image and collecting all the pixels satisfying all step 2 conditions, all these condition satisfying pixels are again set to white.",
-        "///<br/>",
-        ";Iteration:",
+        "<br/>",
+        "Iteration:",
         "If any pixels were set in this round of either step 1 or step 2 then all steps are repeated until no image pixels are so changed.",
-        "///<br/>",
-        ";Task:",
-        "# Write a routine to perform Zhang-Suen thinning on an image matrix of ones and zeroes."
+        "<br/>",
+        "Write a routine to perform Zhang-Suen thinning on an image matrix of ones and zeroes."
       ],
       "challengeSeed": [
         "const testImage = [",
@@ -685,7 +1508,7 @@
         "assert.equal(typeof result[0], 'string', 'thinImage must return an array of strings');",
         "assert.deepEqual(result, expected, 'thinImage must return an array of strings');"
       ],
-      "id": 0
+      "id": "594810f028c0303b75339ad7"
     },
     {
       "title": "Zig-zag matrix",
@@ -694,10 +1517,10 @@
       "categories": "matrix",
       "description": [
         "A &nbsp; ''zig-zag'' &nbsp; array is a square arrangement of the first &nbsp;",
-        "<big>N<sup>2</sup></big> &nbsp; integers, &nbsp; where the",
-        "<br>numbers increase sequentially as you zig-zag along the array's &nbsp;",
+        "$N^2$ &nbsp; integers, &nbsp; where the",
+        "numbers increase sequentially as you zig-zag along the array's &nbsp;",
         "<a href=\"https://en.wiktionary.org/wiki/antidiagonal\">anti-diagonals</a>.",
-        "///<br/>",
+        "<br/>",
         "For example, given &nbsp; '''5''', &nbsp; produce this array:",
         "<pre>",
         " 0  1  5  6 14",
@@ -705,9 +1528,7 @@
         " 3  8 12 16 21",
         " 9 11 17 20 22",
         "10 18 19 23 24",
-        "</pre>"
-      ],
-      "Instructions": [
+        "</pre>",
         "Write a function that takes the size of the zig-zag matrix, and returns the",
         "corresponding matrix as two-dimensional array."
       ],
@@ -739,7 +1560,7 @@
         "assert.deepEqual(ZigZagMatrix(2), zm2, 'message: ZigZagMatrix(2) should return [[0, 1], [2, 3]]');",
         "assert.deepEqual(ZigZagMatrix(5), zm5, 'message: ZigZagMatrix(5) must return specified matrix');"
       ],
-      "id": 0
+      "id": "594810f028c0303b75339ad8"
     }
   ]
 }

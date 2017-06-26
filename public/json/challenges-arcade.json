@@ -8,7 +8,7 @@
       "title": "Balanced parenthesis",
       "type": "arcade-mode",
       "difficulty": "3",
-      "HINT": "Do not try to parse the full expression with a single regular expression.",
+      "description": "HINT: Do not try to parse the full expression with a single regular expression.",
       "challengeSeed": [
         "function isBalanced(str) {",
         "  // Good luck!",
@@ -26,7 +26,7 @@
         "assert.isNotOk(isBalanced('((())))'), 'message: <code>((())))</code> should return false.');",
         "assert.isOk(isBalanced('(a(v(b(fdasf)a)a)e)'), 'message: <code>(a(v(b(fdasf)a)a)e)</code> should return false.');"
       ],
-      "id": 0
+      "id": "59481016e949d6392ed98d48"
     },
     {
       "title": "Conventurist",
@@ -103,7 +103,7 @@
         "assert.becomes(callFn(throttle(testFn)), answerThrottle, 'message: Throttle test case failed.');",
         "assert.becomes(callFn(debounce(testFn)), answerDebounce, 'message: Debounce test case failed.');"
       ],
-      "id": 0
+      "id": "59481016e949d6392ed98d49"
     },
     {
       "title": "Gittaca",
@@ -114,7 +114,10 @@
         "longest common subsequence"
       ],
       "difficulty": "8",
-      "benchmark": "diff(benchmark[0], benchmark[1]);",
+      "null": [
+        "benchmark:",
+        []
+      ],
       "images": "public/img/challenges/pexels-photo-127556.jpeg",
       "description": [
         "<img class='challenge__image' src='public/img/challenges/pexels-photo-127556.jpeg'>",
@@ -155,26 +158,29 @@
         "assert.include(tc1Answers, diff(testCase1[0], testCase1[1]), 'message: diff(\"GTTG\", \"GTTAC\") should return either \"G T T +A +C -G\" or \"G T T -G +A +C\"');",
         "assert.include(tc2Answers, diff(testCase2[0], testCase2[1]), 'message: diff(\"ATCGTGT\", \"AGTGCAGC\") should return either \"A -T -C G T G -T +C +A +G +C\" or \"A -T -C G T G +C +A +G +C -T\"');"
       ],
-      "id": 0
+      "id": "59481016e949d6392ed98d4a"
     },
     {
       "title": "Linked Hash Map",
       "type": "arcade-mode",
       "difficulty": "3",
-      "categories": "data structures",
-      "description": [
-        "In a hash map, the order of the keys is usually unspecified. We can use",
-        "Linked hash map to retain the insertion order of the keys, when iterating",
-        "through the hash map."
+      "categories": [
+        "data structures",
+        "hash map"
       ],
-      "Instructions": [
+      "description": [
+        "In a hash map, the order of the keys is unspecified. We can use",
+        "Linked hash map data structure to retain the insertion order of the keys, when iterating",
+        "through the hash map.",
+        "Instructions:",
         "Implement a Linked hash map. It should have the following functions:",
         "  <code>set</code> for adding data with specific key",
         "  <code>get</code> for retrieving data with special key",
         "  <code>delete</code> for deleting data with specific key",
         "  <code>has</code> for checking if key exists.",
         "  <code>keys</code> for returning all keys in insertion order",
-        "  <code>forEach</code> to iterate through the hash map"
+        "  <code>forEach</code> to iterate through the hash map",
+        "Note: Re-inserting an existing key does not change the order of the keys."
       ],
       "challengeSeed": [
         "function LinkedHashMap() {",
@@ -233,7 +239,7 @@
         "assert.deepEqual(hashmap3.keys(), ['123', '567', '890']);",
         "assert.equal(accumul(hashmap4), correctSum);"
       ],
-      "id": 0
+      "id": "59480eb89c2d6c3741bc116d"
     },
     {
       "title": "LRU Cache",
@@ -242,9 +248,8 @@
       "difficulty": "2",
       "description": [
         "A cache is a lookup table (for example hash table) for getting and setting data.",
-        "Least-recently used (LRU) is a policy which evicts (removes) the item which was least-recently used in the cache."
-      ],
-      "Instructions": [
+        "Least-recently used (LRU) is a policy which evicts (removes) the item which was least-recently used in the cache.",
+        "Instructions:",
         "Implement a cache with LRU eviction policy. Your solution must have",
         "<code>get</code> and <code>set</code> methods.",
         "The capacity of the cache is not known beforehand, so your solution must take that into account."
@@ -283,7 +288,7 @@
         "assert(c3.get('bbb') === null, 'The item should be evicted.');",
         "assert(c3.get('ccc') === 80, 'The item should be evicted.');"
       ],
-      "id": 0
+      "id": "59481016e949d6392ed98d4b"
     },
     {
       "title": "Petch",
@@ -348,7 +353,7 @@
         "assert(typeof XOR === 'function', 'message: <code>XOR</code> is a function.');",
         "assert(XOR(OTP, encryptedMsg) === decipheredMsg, 'message: <code>XOR</code> did not produce the right message.');"
       ],
-      "id": 0
+      "id": "59481016e949d6392ed98d4c"
     },
     {
       "title": "Queue using two stacks",
@@ -422,12 +427,13 @@
         "assert(q2.dequeue() === 5, 'message: 5 is dequeued correctly');",
         "assert(q3.dequeue() === 'aaa', 'message: aaa is dequeued correctly');"
       ],
-      "id": 0
+      "id": "59481016e949d6392ed98d4d"
     },
     {
       "title": "Bookshop in Rome",
       "type": "arcade-mode",
-      "catgories": [
+      "null": [
+        "catgories:",
         "algorithms",
         "sorting"
       ],
@@ -468,7 +474,7 @@
         "assert.sameMembers(sortBooks(userProvidedArr), unmodifiedArr, 'message: <code>sortBooks</code> returns an array that is unchanged except for order.');",
         "assert.strictEqual(code.search(/\\.sort\\(/), -1, 'message: <code>sortBooks</code> should not use the built-in <code>.sort()</code> method.');"
       ],
-      "id": 0
+      "id": "59481016e949d6392ed98d4e"
     },
     {
       "title": "Rotate array left",
@@ -481,9 +487,8 @@
         "Rotating values of an array is a common operation. By rotating values of",
         "<code>[0, 1, 2]</code> to left by one, we get <code>[1, 2, 0]</code>. Thus",
         "each number has moved to left one position, and the value 0 has been pushed",
-        "back in from the right side."
-      ],
-      "Instructions": [
+        "back in from the right side.",
+        "Instructions:",
         "Implement a function to rotate an array left by k positions, where k is the",
         "2nd input parameter to the function. Also, try to avoid making copies of the",
         "original array."
@@ -505,7 +510,7 @@
         "assert.deepEqual(rotateArrayLeft([1, 2, 3], 1), [2, 3, 1], 'message: Rotating [1, 2, 3] by 1 should return [2, 3, 1]');",
         "assert.deepEqual(rotateArrayLeft([1, 2, 3, 4], 2), [3, 4, 1, 2], 'message: Rotating [1,2,3,4] by 2 should return [3, 4, 1, 2]');"
       ],
-      "id": 0
+      "id": "59481016e949d6392ed98d4f"
     }
   ]
 }
