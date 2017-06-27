@@ -1,4 +1,11 @@
 # PROGRESS for Arcade Mode
+## Monday 6/26/17:
+### Tim:
+  - Progress:
+    1. Add challenges:
+      - Circles of given radius through two points
+      - Closest-pair program
+
 ## Friday 6/23/17:
 ### Tim:
   - Progress:

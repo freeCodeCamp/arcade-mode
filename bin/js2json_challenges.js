@@ -55,7 +55,7 @@ const expectedProps = {
 
 const optionalProps = {
   difficulty: Number,
-  bencmark: 'Code',
+  benchmark: 'Code',
   categories: String,
   head: 'Code',
   tail: 'Code',
