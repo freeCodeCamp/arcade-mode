@@ -5,6 +5,11 @@
     1. Add challenges:
       - Circles of given radius through two points
       - Closest-pair program
+      - 24 game
+  - @:
+    - [ ] 24 game benchmark takes 40s due to inefficiency of solution.
+    - [ ] Empty benchmarks generate an empty array, which outputs an error to console.
+    - [ ] Scrolling quickly on the CodeMirror editor causes the window to change in size during the event.
 
 ## Friday 6/23/17:
 ### Tim:
@@ -42,7 +47,7 @@
     5. Add Amicable pairs challenge.
     6. Update build process following an npm install.
   - @:
-    - [ ] Newline spaces are added to text nodes that follow any div HTML element.
+    - [X] Newline spaces are added to text nodes that follow any div HTML element.
 
 ## Monday 6/19/17:
 ### Tim:

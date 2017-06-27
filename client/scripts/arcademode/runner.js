@@ -107,10 +107,10 @@ function detectErrorsTranspileCodeRunTestsProcessResults (userCode, currChalleng
   loopProtect.hit = line => {
     if (errorMsgs
           .map(uo => uo.error)
-          .includes(`Potential infinite loop found on line ${line}`)) {
+          .includes(`Potential infinite loop found on line ${line}. To disable, add <code>// noprotect</code> as the first line in the editor.`)) {
       return;
     }
-    errorMsg.error = `Potential infinite loop found on line ${line}`;
+    errorMsg.error = `Potential infinite loop found on line ${line}. To disable, add <code>// noprotect</code> as the first line in the editor.`;
     errorMsg.pass = false;
     errorMsgs.push(errorMsg);
     userOutput = errorMsg.error;
