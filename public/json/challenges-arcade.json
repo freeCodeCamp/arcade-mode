@@ -114,10 +114,7 @@
         "longest common subsequence"
       ],
       "difficulty": "8",
-      "null": [
-        "benchmark:",
-        []
-      ],
+      "benchmark": "diff(benchmark[0], benchmark[1]);",
       "images": "public/img/challenges/pexels-photo-127556.jpeg",
       "description": [
         "<img class='challenge__image' src='public/img/challenges/pexels-photo-127556.jpeg'>",

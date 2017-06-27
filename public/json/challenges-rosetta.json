@@ -9,10 +9,7 @@
       "type": "rosetta-code",
       "categories": "?",
       "difficulty": "2",
-      "null": [
-        "benchmark:",
-        []
-      ],
+      "benchmark": "getFinalOpenedDoors(10000);",
       "description": [
         "<div class=\"rosetta\">",
         "<p class=\"rosetta__paragraph\">There are 100 doors in a row that are all initially closed. You make 100 passes by the doors. The first time through, visit every door and 'toggle' the door (if the door is closed, open it; if it is open, close it). The second time, only visit every 2nd door (i.e., door #2, #4, #6, ...) and toggle it. The third time, visit every 3rd door (i.e., door #3, #6, #9, ...), etc., until you only visit the 100th door.</p><br/>",
@@ -37,6 +34,73 @@
       "id": "594810f028c0303b75339acb"
     },
     {
+      "title": "24 game",
+      "type": "rosetta-code",
+      "categories": [
+        ""
+      ],
+      "difficulty": "5",
+      "benchmark": "// solve24('1234');",
+      "description": [
+        "<div class=\"rosetta\">",
+        "<p class=\"rosetta__paragraph\">Implement a function that takes a string of four digits as its argument, with each digit from 1 ──► 9 (inclusive) with repetitions allowed, and returns an arithmetic expression that evaluates to the number 24. If no such solution exists, return \"no solution exists.\"</p><br/>",
+        "<p class=\"rosetta__paragraph\">Rules:</p>",
+        "<ul class=\"rosetta__unordered-list\">",
+        "<li class=\"rosetta__list-item--unordered\"> Only the following operators/functions are allowed: multiplication, division, addition, subtraction</li>",
+        "<li class=\"rosetta__list-item--unordered\"> Division should use floating point or rational arithmetic, etc, to preserve remainders.</li>",
+        "<li class=\"rosetta__list-item--unordered\"> Forming multiple digit numbers from the supplied digits is <span class=\"rosetta__text--italic\">disallowed</span>. (So an answer of 12+12 when given 1, 2, 2, and 1 is wrong).</li>",
+        "<li class=\"rosetta__list-item--unordered\"> The order of the digits when given does not have to be preserved.</li>",
+        "</ul><br/>",
+        "<p class=\"rosetta__paragraph\">Example inputs:</p>",
+        "<ul class=\"rosetta__unordered-list\">",
+        "<li class=\"rosetta__list-item--unordered\"><code>solve24(\"4878\");</code></li>",
+        "<li class=\"rosetta__list-item--unordered\"><code>solve24(\"1234\");</code></li>",
+        "<li class=\"rosetta__list-item--unordered\"><code>solve24(\"6789\");</code></li>",
+        "<li class=\"rosetta__list-item--unordered\"><code>solve24(\"1127\");</code></li>",
+        "</ul><br/>",
+        "<p class=\"rosetta__paragraph\">Example outputs (strings):</p>",
+        "<ul class=\"rosetta__unordered-list\">",
+        "<li class=\"rosetta__list-item--unordered\"><code>(7-8/8)*4</code></li>",
+        "<li class=\"rosetta__list-item--unordered\"><code>3*1*4*2</code></li>",
+        "<li class=\"rosetta__list-item--unordered\"><code>(6*8)/(9-7)</code></li>",
+        "<li class=\"rosetta__list-item--unordered\"><code>(1+7)*(2+1)</code></li>",
+        "</ul>",
+        "</div>"
+      ],
+      "challengeSeed": [
+        "function solve24 (numStr) {",
+        "  // Good luck!",
+        "  return true;",
+        "}"
+      ],
+      "solutions": [
+        "// noprotect\n\nfunction solve24 (numStr) {\n  const digitsArr = numStr.split('');\n  const answers = [];\n\n  const digitPermutations = [];\n  const operatorPermutations = [];\n\n  function generateDigitPermutations (digits, permutations = []) {\n    if (digits.length === 0) {\n      digitPermutations.push(permutations);\n    }\n    else {\n      for (let i = 0; i < digits.length; i++) {\n        const curr = digits.slice();\n        const next = curr.splice(i, 1);\n        generateDigitPermutations(curr.slice(), permutations.concat(next));\n      }\n    }\n  }\n\n  function generateOperatorPermutations (permutations = []) {\n    const operators = ['+', '-', '*', '/'];\n    if (permutations.length === 3) {\n      operatorPermutations.push(permutations);\n    }\n    else {\n      for (let i = 0; i < operators.length; i++) {\n        const curr = permutations.slice();\n        curr.push(operators[i]);\n        generateOperatorPermutations(curr);\n      }\n    }\n  }\n\n  generateDigitPermutations(digitsArr);\n  generateOperatorPermutations();\n\n  interleave();\n\n  return answers[0];\n\n  function interleave () {\n    for (let i = 0; i < digitPermutations.length; i++) {\n      for (let j = 0; j < operatorPermutations.length; j++) {\n        const d = digitPermutations[i];\n        const o = operatorPermutations[j];\n        const perm = [\n          `${d[0]}${o[0]}${d[1]}${o[1]}${d[2]}${o[2]}${d[3]}`,\n          `(${d[0]}${o[0]}${d[1]})${o[1]}${d[2]}${o[2]}${d[3]}`,\n          `${d[0]}${o[0]}(${d[1]}${o[1]}${d[2]})${o[2]}${d[3]}`,\n          `${d[0]}${o[0]}${d[1]}${o[1]}(${d[2]}${o[2]}${d[3]})`,\n          `${d[0]}${o[0]}(${d[1]}${o[1]}${d[2]}${o[2]}${d[3]})`,\n          `(${d[0]}${o[0]}${d[1]}${o[1]}${d[2]})${o[2]}${d[3]}`,\n          `(${d[0]}${o[0]}${d[1]})${o[1]}(${d[2]}${o[2]}${d[3]})`\n        ];\n\n        perm.forEach(combination => {\n          const res = eval(combination);\n\n          if (res === 24) {\n            return answers.push(combination);\n          }\n        });\n      }\n    }\n  }\n}\n"
+      ],
+      "tail": [
+        "const testCases = [",
+        "  '4878',",
+        "  '1234',",
+        "  '6789',",
+        "  '1127'",
+        "];",
+        "",
+        "const answers = [",
+        "  ['(7-8/8)*4', '4*(7-8/8)', '(4-8+7)*8', '(4+7-8)*8', '(7+4-8)*8', '(7-8+4)*8', '8*(4-8+7)', '8*(4+7-8)', '8*(7+4-8)', '8*(7-8+4)'],",
+        "  ['1*2*3*4', '1*2*4*3', '1*3*2*4', '1*3*4*2', '1*4*2*3', '1*4*3*2', '2*1*3*4', '2*1*4*3', '2*3*1*4', '2*3*4*1', '2*4*3*1', '2*4*1*3', '3*1*2*4', '3*1*4*2', '3*2*1*4', '3*2*4*1', '3*4*1*2', '3*4*2*1', '4*1*2*3', '4*1*3*2', '4*2*1*3', '4*2*3*1', '4*3*1*2', '4*3*2*1', '(1+2+3)*4', '(1+3+2)*4', '(2+1+3)*4', '(2+3+1)*4', '(3+1+2)*4', '(3+2+1)*4', '4*(1+2+3)', '4*(2+1+3)', '4*(2+3+1)', '4*(3+1+2)', '4*(3+2+1)'],",
+        "  ['(6*8)/(9-7)', '(8*6)/(9-7)', '6*8/(9-7)', '8*6/(9-7)'],",
+        "  ['(1+7)*(2+1)', '(1+7)*(1+2)', '(1+2)*(1+7)', '(1+2)*(7+1)', '(2+1)*(1+7)', '(7+1)*(2+1)']",
+        "];"
+      ],
+      "tests": [
+        "assert(typeof solve24 === 'function', 'message: <code>solve24</code> is a function.');",
+        "assert.include(answers[0], solve24(testCases[0]), 'message: <code>solve24(\"4878\")</code> should return <code>(7-8/8)*4</code> or <code>4*(7-8/8)</code>');",
+        "assert.include(answers[1], solve24(testCases[1]), 'message: <code>solve24(\"1234\")</code> should return any arrangement of <code>1*2*3*4</code>');",
+        "assert.include(answers[2], solve24(testCases[2]), 'message: <code>solve24(\"6789\")</code> should return <code>(6*8)/(9-7)</code> or <code>(8*6)/(9-7)</code>');",
+        "assert.include(answers[3], solve24(testCases[3]), 'message: <code>solve24(\"1127\")</code> should return a permutation of <code>(1+7)*(1*2)</code>');"
+      ],
+      "id": "5951e88f64ebf159166a1176"
+    },
+    {
       "title": "9 billion names of God the integer",
       "type": "rosetta-code",
       "categories": [
@@ -44,7 +108,7 @@
         "integer partition"
       ],
       "difficulty": "8",
-      "null": "benchmark:",
+      "benchmark": [],
       "description": [
         "<div class=\"rosetta\">",
         "<p class=\"rosetta__paragraph\">This task is a variation of the <a class=\"rosetta__link--wiki\" href=\"https://en.wikipedia.org/wiki/The Nine Billion Names of God#Plot_summary\" title=\"wp: The Nine Billion Names of God#Plot_summary\">short story by Arthur C. Clarke</a>.</p><br/>",
@@ -152,10 +216,7 @@
       "type": "rosetta-code",
       "categories": "?",
       "difficulty": "4",
-      "null": [
-        "benchmark:",
-        []
-      ],
+      "benchmark": "getDPA(20000);",
       "description": [
         "<div class=\"rosetta\">",
         "<p class=\"rosetta__paragraph\">These define three classifications of positive integers based on their <a class=\"rosetta__link--rosetta\" href=\"http://rosettacode.org/wiki/Proper divisors\" title=\"Proper divisors\">proper divisors</a>.</p><br/>",
@@ -375,7 +436,7 @@
         ""
       ],
       "difficulty": "4",
-      "null": "benchmark:",
+      "benchmark": [],
       "description": [
         "<div class=\"rosetta\">",
         "Two integers $N$ and $M$ are said to be <a class=\"rosetta__link--wiki\" href=\"https://en.wikipedia.org/wiki/Amicable numbers\" title=\"wp: Amicable numbers\">amicable pairs</a> if $N \\neq M$ and the sum of the <a class=\"rosetta__link--rosetta\" href=\"http://rosettacode.org/wiki/Proper divisors\" title=\"Proper divisors\">proper divisors</a> of $N$ ($\\mathrm{sum}(\\mathrm{propDivs}(N))$) $= M$ as well as $\\mathrm{sum}(\\mathrm{propDivs}(M)) = N$.",
@@ -435,9 +496,8 @@
         ""
       ],
       "difficulty": "1",
-      "null": [
-        "benchmark:",
-        []
+      "benchmark": [
+        ""
       ],
       "description": [
         "<div class=\"rosetta\">",
@@ -470,9 +530,8 @@
         ""
       ],
       "difficulty": "4",
-      "null": [
-        "benchmark:",
-        []
+      "benchmark": [
+        ""
       ],
       "description": [
         "<div class='rosetta'>",
@@ -524,9 +583,8 @@
         ""
       ],
       "difficulty": "2",
-      "null": [
-        "benchmark:",
-        []
+      "benchmark": [
+        ""
       ],
       "description": [
         "<div class=\"rosetta\">",
@@ -560,9 +618,8 @@
         ""
       ],
       "difficulty": "2",
-      "null": [
-        "benchmark:",
-        []
+      "benchmark": [
+        ""
       ],
       "description": [
         "<div class=\"rosetta\">",
@@ -601,9 +658,8 @@
         ""
       ],
       "difficulty": "2",
-      "null": [
-        "benchmark:",
-        []
+      "benchmark": [
+        ""
       ],
       "description": [
         "<div class='rosetta'>",
@@ -673,6 +729,282 @@
       "id": "594dc6c729e5700999302b45"
     },
     {
+      "title": "Circles of given radius through two points",
+      "type": "rosetta-code",
+      "categories": [
+        ""
+      ],
+      "difficulty": "4",
+      "benchmark": [
+        ""
+      ],
+      "description": [
+        "<div class=\"rosetta\">",
+        "<br/><p class=\"rosetta__paragraph\">Given two points on a plane and a radius, usually two circles of given radius can be drawn through the points.</p>",
+        "<dl class=\"rosetta__description-list\"><dt class=\"rosetta__description-title\">Exceptions:</dt></dl>",
+        "<ol class=\"rosetta__ordered-list\"><li class=\"rosetta__list-item--ordered\">A radius of zero should be treated as never describing circles (except in the case where the points are coincident).</li>",
+        "<li class=\"rosetta__list-item--ordered\">If the points are coincident then an infinite number of circles with the point on their circumference can be drawn, unless the radius is equal to zero as well which then collapses the circles to a point.</li>",
+        "<li class=\"rosetta__list-item--ordered\">If the points form a diameter then return a single circle.</li>",
+        "<li class=\"rosetta__list-item--ordered\">If the points are too far apart then no circles can be drawn.</li></ol><br/><dl class=\"rosetta__description-list\"><dt class=\"rosetta__description-title\">Task:</dt></dl>",
+        "<ul class=\"rosetta__unordered-list\"><li class=\"rosetta__list-item--unordered\">Implement a function that takes two points and a radius and returns the two circles through those points. For each resulting circle, provide the coordinates for the center of each circle rounded to four decimal digits. Return each coordinate as an array, and coordinates as an array of arrays.<br/><br/>",
+        "For edge cases, return the following:<br/>",
+        "If points are on the diameter, return one point. If the radius is also zero however, return <code>\"Radius Zero\"</code>.<br/>",
+        "If points are coincident, return <code>\"Coincident point. Infinite solutions\"</code>.<br/>",
+        "If points are farther apart than the diameter, return <code>\"No intersection. Points further apart than circle diameter\"</code>.<br/><br/>",
+        "<li class=\"rosetta__list-item--unordered\">Sample inputs:</li></ul><br/>",
+        "<div class=\"rosetta__pre-wrap\"><pre class=\"rosetta__pre\">",
+        "      p1                p2           r",
+        "0.1234, 0.9876    0.8765, 0.2345    2.0",
+        "0.0000, 2.0000    0.0000, 0.0000    1.0",
+        "0.1234, 0.9876    0.1234, 0.9876    2.0",
+        "0.1234, 0.9876    0.8765, 0.2345    0.5",
+        "0.1234, 0.9876    0.1234, 0.9876    0.0",
+        "</pre></div>",
+        "<dl class=\"rosetta__description-list\"><dt class=\"rosetta__description-title\">Ref:</dt></dl>",
+        "<ul class=\"rosetta__unordered-list\"><li class=\"rosetta__list-item--unordered\"><a class=\"rosetta__link--wiki\" href=\"http://mathforum.org/library/drmath/view/53027.html\" title=\"link: http://mathforum.org/library/drmath/view/53027.html\">Finding the Center of a Circle from 2 Points and Radius</a> from Math forum @ Drexel</li></ul></div>"
+      ],
+      "challengeSeed": [
+        "function getCircles (...args) {",
+        "  // Good luck!",
+        "  return true;",
+        "}"
+      ],
+      "solutions": [
+        "const hDist = (p1, p2) => Math.hypot(...p1.map((e, i) => e - p2[i])) / 2;\nconst pAng = (p1, p2) => Math.atan(p1.map((e, i) => e - p2[i]).reduce((p, c) => c / p, 1));\nconst solveF = (p, r) => t => [parseFloat((r * Math.cos(t) + p[0]).toFixed(4)), parseFloat((r * Math.sin(t) + p[1]).toFixed(4))];\nconst diamPoints = (p1, p2) => p1.map((e, i) => parseFloat((e + (p2[i] - e) / 2).toFixed(4)));\n\nfunction getCircles (...args) {\n  const [p1, p2, s] = args;\n  const solve = solveF(p1, s);\n  const halfDist = hDist(p1, p2);\n\n  let msg = [];\n  switch (Math.sign(s - halfDist)) {\n    case 0:\n      msg = s ? diamPoints(p1, p2) :\n        'Radius Zero';\n      break;\n    case 1:\n      if (!halfDist) {\n        msg = 'Coincident point. Infinite solutions';\n      }\n      else {\n        const theta = pAng(p1, p2);\n        const theta2 = Math.acos(halfDist / s);\n        [1, -1].map(e => solve(theta + e * theta2)).forEach(\n          e => msg.push(e));\n      }\n      break;\n    case -1:\n      msg = 'No intersection. Points further apart than circle diameter';\n      break;\n    default:\n      msg = 'Reached the default';\n  }\n  return msg;\n}\n"
+      ],
+      "tail": [
+        "const testCases = [",
+        "  [[0.1234, 0.9876], [0.8765, 0.2345], 2.0],",
+        "  [[0.0000, 2.0000], [0.0000, 0.0000], 1.0],",
+        "  [[0.1234, 0.9876], [0.1234, 0.9876], 2.0],",
+        "  [[0.1234, 0.9876], [0.8765, 0.2345], 0.5],",
+        "  [[0.1234, 0.9876], [0.1234, 0.9876], 0.0]",
+        "];",
+        "const answers = [",
+        "  [[1.8631, 1.9742], [-0.8632, -0.7521]],",
+        "  [0, 1],",
+        "  'Coincident point. Infinite solutions',",
+        "  'No intersection. Points further apart than circle diameter',",
+        "  'Radius Zero'",
+        "];"
+      ],
+      "tests": [
+        "assert(typeof getCircles === 'function', 'message: <code>getCircles</code> is a function.');",
+        "assert.deepEqual(getCircles(...testCases[0]), answers[0], 'message: <code>getCircles([0.1234, 0.9876], [0.8765, 0.2345], 2.0)</code> should return <code>[[1.8631, 1.9742], [-0.8632, -0.7521]]</code>.');",
+        "assert.deepEqual(getCircles(...testCases[1]), answers[1], 'message: <code>getCircles([0.0000, 2.0000], [0.0000, 0.0000], 1.0)</code> should return <code>[0, 1]</code>');",
+        "assert.deepEqual(getCircles(...testCases[2]), answers[2], 'message: <code>getCircles([0.1234, 0.9876], [0.1234, 0.9876], 2.0)</code> should return <code>Coincident point. Infinite solutions</code>');",
+        "assert.deepEqual(getCircles(...testCases[3]), answers[3], 'message: <code>getCircles([0.1234, 0.9876], [0.8765, 0.2345], 0.5)</code> should return <code>No intersection. Points further apart than circle diameter</code>');",
+        "assert.deepEqual(getCircles(...testCases[4]), answers[4], 'message: <code>getCircles([0.1234, 0.9876], [0.1234, 0.9876], 0.0)</code> should return <code>Radius Zero</code>');"
+      ],
+      "id": "5951815dd895584b06884620"
+    },
+    {
+      "title": "Closest-pair problem",
+      "type": "rosetta-code",
+      "categories": [
+        ""
+      ],
+      "difficulty": "4",
+      "benchmark": "getClosestPair(benchmarkPoints);",
+      "description": [
+        "<div class=\"rosetta\">",
+        "<dl class=\"rosetta__description-list\"><dt class=\"rosetta__description-title\">Task:</dt></dl>",
+        "<p class=\"rosetta__paragraph\">Provide a function to find the closest two points among a set of given points in two dimensions,  i.e. to solve the  <a class=\"rosetta__link--wiki\" href=\"https://en.wikipedia.org/wiki/Closest pair of points problem\" title=\"wp: Closest pair of points problem\">Closest pair of points problem</a>  in the  <span class=\"rosetta__text--italic\">planar</span>  case.</p><br/><p class=\"rosetta__paragraph\">The straightforward solution is a  O(n<sup>2</sup>)  algorithm  (which we can call <span class=\"rosetta__text--italic\">brute-force algorithm</span>);  the pseudo-code (using indexes) could be simply:</p><br/>",
+        "<div class=\"rosetta__pre-wrap\"><pre class=\"rosetta__pre\">",
+        "<span class=\"rosetta__text--bold\">bruteForceClosestPair</span> of P(1), P(2), ... P(N)",
+        "<span class=\"rosetta__text--bold\">if</span> N &lt; 2 <span class=\"rosetta__text--bold\">then</span>",
+        "<span class=\"rosetta__text--bold\">  return</span> ∞",
+        "<span class=\"rosetta__text--bold\">else</span>",
+        "  minDistance ← |P(1) - P(2)|",
+        "  minPoints ← { P(1), P(2) }",
+        "<span class=\"rosetta__text--bold\">  foreach</span> i ∈ [1, N-1]",
+        "<span class=\"rosetta__text--bold\">    foreach</span> j ∈ [i+1, N]",
+        "<span class=\"rosetta__text--bold\">      if</span> |P(i) - P(j)| < minDistance <span class=\"rosetta__text--bold\">then</span>",
+        "        minDistance ← |P(i) - P(j)|",
+        "        minPoints ← { P(i), P(j) }",
+        "<span class=\"rosetta__text--bold\">      endif</span>",
+        "<span class=\"rosetta__text--bold\">    endfor</span>",
+        "<span class=\"rosetta__text--bold\">  endfor</span>",
+        "<span class=\"rosetta__text--bold\">  return</span> minDistance, minPoints",
+        "<span class=\"rosetta__text--bold\">endif</span>",
+        "</pre></div>",
+        "<p class=\"rosetta__paragraph\">A better algorithm is based on the recursive divide&amp;conquer approach, as explained also at  <a class=\"rosetta__link--wiki\" href=\"https://en.wikipedia.org/wiki/Closest pair of points problem#Planar_case\" title=\"wp: Closest pair of points problem#Planar_case\">Wikipedia's Closest pair of points problem</a>,  which is  O(<span class=\"rosetta__text--italic\">n</span> log <span class=\"rosetta__text--italic\">n</span>);  a pseudo-code could be:</p><br/>",
+        "<div class=\"rosetta__pre-wrap\"><pre class=\"rosetta__pre\">",
+        "<span class=\"rosetta__text--bold\">closestPair</span> of (xP, yP)",
+        "  where xP is P(1) .. P(N) sorted by x coordinate, and",
+        "  yP is P(1) .. P(N) sorted by y coordinate (ascending order)",
+        "<span class=\"rosetta__text--bold\">if</span> N ≤ 3 <span class=\"rosetta__text--bold\">then</span>",
+        "  <span class=\"rosetta__text--bold\">return</span> closest points of xP using brute-force algorithm",
+        "<span class=\"rosetta__text--bold\">else</span>",
+        "  xL ← points of xP from 1 to ⌈N/2⌉",
+        "  xR ← points of xP from ⌈N/2⌉+1 to N",
+        "  xm ← xP(⌈N/2⌉)<sub>x</sub>",
+        "  yL ← { p ∈ yP : p<sub>x</sub> ≤ xm }",
+        "  yR ← { p ∈ yP : p<sub>x</sub> &gt; xm }",
+        "  (dL, pairL) ← <span class=\"rosetta__text--italic\">closestPair</span> of (xL, yL)",
+        "  (dR, pairR) ← <span class=\"rosetta__text--italic\">closestPair</span> of (xR, yR)",
+        "  (dmin, pairMin) ← (dR, pairR)",
+        "  <span class=\"rosetta__text--bold\">if</span> dL &lt; dR <span class=\"rosetta__text--bold\">then</span>",
+        "    (dmin, pairMin) ← (dL, pairL)",
+        "  <span class=\"rosetta__text--bold\">endif</span>",
+        "  yS ← { p ∈ yP : |xm - p<sub>x</sub>| &lt; dmin }",
+        "  nS ← number of points in yS",
+        "  (closest, closestPair) ← (dmin, pairMin)",
+        "<span class=\"rosetta__text--bold\">  for</span> i <span class=\"rosetta__text--bold\">from</span> 1 <span class=\"rosetta__text--bold\">to</span> nS - 1",
+        "    k ← i + 1",
+        "    <span class=\"rosetta__text--bold\">while</span> k ≤ nS <span class=\"rosetta__text--bold\">and</span> yS(k)<sub>y</sub> - yS(i)<sub>y</sub> &lt; dmin",
+        "      <span class=\"rosetta__text--bold\">if</span> |yS(k) - yS(i)| &lt; closest <span class=\"rosetta__text--bold\">then</span>",
+        "        (closest, closestPair) ← (|yS(k) - yS(i)|, {yS(k), yS(i)})",
+        "      <span class=\"rosetta__text--bold\">endif</span>",
+        "      k ← k + 1",
+        "    <span class=\"rosetta__text--bold\">endwhile</span>",
+        "  <span class=\"rosetta__text--bold\">endfor</span>",
+        "  <span class=\"rosetta__text--bold\">return</span> closest, closestPair",
+        "<span class=\"rosetta__text--bold\">endif</span>",
+        "</pre></div>",
+        "<dl class=\"rosetta__description-list\"><dt class=\"rosetta__description-title\">References and further readings:</dt></dl>",
+        "<ul class=\"rosetta__unordered-list\"><li class=\"rosetta__list-item--unordered\"> <a class=\"rosetta__link--wiki\" href=\"https://en.wikipedia.org/wiki/Closest pair of points problem\" title=\"wp: Closest pair of points problem\">Closest pair of points problem</a></li>",
+        "<li class=\"rosetta__list-item--unordered\"> <a class=\"rosetta__link--wiki\" href=\"http://www.cs.mcgill.ca/~cs251/ClosestPair/ClosestPairDQ.html\" title=\"link: http://www.cs.mcgill.ca/~cs251/ClosestPair/ClosestPairDQ.html\">Closest Pair (McGill)</a></li>",
+        "<li class=\"rosetta__list-item--unordered\"> <a class=\"rosetta__link--wiki\" href=\"http://www.cs.ucsb.edu/~suri/cs235/ClosestPair.pdf\" title=\"link: http://www.cs.ucsb.edu/~suri/cs235/ClosestPair.pdf\">Closest Pair (UCSB)</a></li>",
+        "<li class=\"rosetta__list-item--unordered\"> <a class=\"rosetta__link--wiki\" href=\"http://classes.cec.wustl.edu/~cse241/handouts/closestpair.pdf\" title=\"link: http://classes.cec.wustl.edu/~cse241/handouts/closestpair.pdf\">Closest pair (WUStL)</a></li>",
+        "<li class=\"rosetta__list-item--unordered\"> <a class=\"rosetta__link--wiki\" href=\"http://www.cs.iupui.edu/~xkzou/teaching/CS580/Divide-and-conquer-closestPair.ppt\" title=\"link: http://www.cs.iupui.edu/~xkzou/teaching/CS580/Divide-and-conquer-closestPair.ppt\">Closest pair (IUPUI)</a> </li></ul><br/>",
+        "<p class=\"rosetta__paragraph\">For the input, expect the argument to be an array of objects (points) with <code>x</code> and <code>y</code> members set to numbers. For the output, return an object containing the key:value pairs for  <code>distance</code> and <code>pair</code> (i.e., the pair of two closest points).</p><br/>",
+        "</div>"
+      ],
+      "challengeSeed": [
+        "const Point = function (x, y) {",
+        "  this.x = x;",
+        "  this.y = y;",
+        "};",
+        "Point.prototype.getX = function () {",
+        "  return this.x;",
+        "};",
+        "Point.prototype.getY = function () {",
+        "  return this.y;",
+        "};",
+        "",
+        "function getClosestPair (pointsArr) {",
+        "  // Good luck!",
+        "  return true;",
+        "}"
+      ],
+      "solutions": [
+        "const Point = function (x, y) {\n  this.x = x;\n  this.y = y;\n};\nPoint.prototype.getX = function () {\n  return this.x;\n};\nPoint.prototype.getY = function () {\n  return this.y;\n};\n\nconst mergeSort = function mergeSort(points, comp) {\n\tif(points.length < 2) return points;\n\n\tvar n = points.length,\n\t\ti = 0,\n\t\tj = 0,\n\t\tleftN = Math.floor(n / 2),\n\t\trightN = leftN;\n\n\tvar leftPart = mergeSort( points.slice(0, leftN), comp),\n\t\trightPart = mergeSort( points.slice(rightN), comp );\n\n\tvar sortedPart = [];\n\n\twhile((i < leftPart.length) && (j < rightPart.length)) {\n\t\tif(comp(leftPart[i], rightPart[j]) < 0) {\n\t\t\tsortedPart.push(leftPart[i]);\n\t\t\ti += 1;\n\t\t}\n\t\telse {\n\t\t\tsortedPart.push(rightPart[j]);\n\t\t\tj += 1;\n\t\t}\n\t}\n\twhile(i < leftPart.length) {\n\t\tsortedPart.push(leftPart[i]);\n\t\ti += 1;\n\t}\n\twhile(j < rightPart.length) {\n\t\tsortedPart.push(rightPart[j]);\n\t\tj += 1;\n\t}\n\treturn sortedPart;\n};\n\nconst closestPair = function _closestPair(Px, Py) {\n\tif(Px.length < 2) return { distance: Infinity, pair: [ new Point(0, 0), new Point(0, 0) ] };\n\tif(Px.length < 3) {\n\t\t//find euclid distance\n\t\tvar d = Math.sqrt( Math.pow(Math.abs(Px[1].x - Px[0].x), 2) + Math.pow(Math.abs(Px[1].y - Px[0].y), 2) );\n\t\treturn {\n\t\t\tdistance: d,\n\t\t\tpair: [ Px[0], Px[1] ]\n\t\t};\n\t}\n\n\tvar\tn = Px.length,\n\t\tleftN = Math.floor(n / 2),\n\t\trightN = leftN;\n\n\tvar Xl = Px.slice(0, leftN),\n\t\tXr = Px.slice(rightN),\n\t\tXm = Xl[leftN - 1],\n\t\tYl = [],\n\t\tYr = [];\n\t//separate Py\n\tfor(var i = 0; i < Py.length; i += 1) {\n\t\tif(Py[i].x <= Xm.x)\n\t\t\tYl.push(Py[i]);\n\t\telse\n\t\t\tYr.push(Py[i]);\n\t}\n\n\tvar dLeft = _closestPair(Xl, Yl),\n\t\tdRight = _closestPair(Xr, Yr);\n\n\tvar minDelta = dLeft.distance,\n\t\tclosestPair = dLeft.pair;\n\tif(dLeft.distance > dRight.distance) {\n\t\tminDelta = dRight.distance;\n\t\tclosestPair = dRight.pair;\n\t}\n\n\t//filter points around Xm within delta (minDelta)\n\tvar closeY = [];\n\tfor(i = 0; i < Py.length; i += 1) {\n\t\tif(Math.abs(Py[i].x - Xm.x) < minDelta) closeY.push(Py[i]);\n\t}\n\t//find min within delta. 8 steps max\n\tfor(i = 0; i < closeY.length; i += 1) {\n\t\tfor(var j = i + 1; j < Math.min( (i + 8), closeY.length ); j += 1) {\n\t\t\tvar d = Math.sqrt( Math.pow(Math.abs(closeY[j].x - closeY[i].x), 2) + Math.pow(Math.abs(closeY[j].y - closeY[i].y), 2) );\n\t\t\tif(d < minDelta) {\n\t\t\t\tminDelta = d;\n\t\t\t\tclosestPair = [ closeY[i], closeY[j] ]\n\t\t\t}\n\t\t}\n\t}\n\n\treturn {\n\t\tdistance: minDelta,\n\t\tpair: closestPair\n\t};\n};\n\nfunction getClosestPair (points) {\n  const sortX = function (a, b) { return (a.x < b.x) ? -1 : ((a.x > b.x) ? 1 : 0); }\n  const sortY = function (a, b) { return (a.y < b.y) ? -1 : ((a.y > b.y) ? 1 : 0); }\n\n  const Px = mergeSort(points, sortX);\n  const Py = mergeSort(points, sortY);\n\n  return closestPair(Px, Py);\n}\n"
+      ],
+      "tail": [
+        "const points1 = [",
+        "\tnew Point(0.748501, 4.09624),",
+        "\tnew Point(3.00302, 5.26164),",
+        "\tnew Point(3.61878,  9.52232),",
+        "\tnew Point(7.46911,  4.71611),",
+        "\tnew Point(5.7819,   2.69367),",
+        "\tnew Point(2.34709,  8.74782),",
+        "\tnew Point(2.87169,  5.97774),",
+        "\tnew Point(6.33101,  0.463131),",
+        "\tnew Point(7.46489,  4.6268),",
+        "\tnew Point(1.45428,  0.087596)",
+        "];",
+        "",
+        "const points2 = [",
+        "  new Point(37100, 13118),",
+        "  new Point(37134, 1963),",
+        "  new Point(37181, 2008),",
+        "  new Point(37276, 21611),",
+        "  new Point(37307, 9320)",
+        "];",
+        "",
+        "const answer1 = {",
+        "  distance: 0.0894096443343775,",
+        "  pair: [",
+        "    {",
+        "      x: 7.46489,",
+        "      y: 4.6268",
+        "    },",
+        "    {",
+        "      x: 7.46911,",
+        "      y: 4.71611",
+        "    }",
+        "  ]",
+        "};",
+        "",
+        "const answer2 = {",
+        "  distance: 65.06919393998976,",
+        "  pair: [",
+        "    {",
+        "      x: 37134,",
+        "      y: 1963",
+        "    },",
+        "    {",
+        "      x: 37181,",
+        "      y: 2008",
+        "    }",
+        "  ]",
+        "};",
+        "",
+        "const benchmarkPoints = [",
+        "  new Point(16909, 54699),",
+        "  new Point(14773, 61107),",
+        "  new Point(95547, 45344),",
+        "  new Point(95951, 17573),",
+        "  new Point(5824, 41072),",
+        "  new Point(8769, 52562),",
+        "  new Point(21182, 41881),",
+        "  new Point(53226, 45749),",
+        "  new Point(68180, 887),",
+        "  new Point(29322, 44017),",
+        "  new Point(46817, 64975),",
+        "  new Point(10501, 483),",
+        "  new Point(57094, 60703),",
+        "  new Point(23318, 35472),",
+        "  new Point(72452, 88070),",
+        "  new Point(67775, 28659),",
+        "  new Point(19450, 20518),",
+        "  new Point(17314, 26927),",
+        "  new Point(98088, 11164),",
+        "  new Point(25050, 56835),",
+        "  new Point(8364, 6892),",
+        "  new Point(37868, 18382),",
+        "  new Point(23723, 7701),",
+        "  new Point(55767, 11569),",
+        "  new Point(70721, 66707),",
+        "  new Point(31863, 9837),",
+        "  new Point(49358, 30795),",
+        "  new Point(13041, 39745),",
+        "  new Point(59635, 26523),",
+        "  new Point(25859, 1292),",
+        "  new Point(1551, 53890),",
+        "  new Point(70316, 94479),",
+        "  new Point(48549, 86338),",
+        "  new Point(46413, 92747),",
+        "  new Point(27186, 50426),",
+        "  new Point(27591, 22655),",
+        "  new Point(10905, 46153),",
+        "  new Point(40408, 84202),",
+        "  new Point(52821, 73520),",
+        "  new Point(84865, 77388),",
+        "  new Point(99819, 32527),",
+        "  new Point(34404, 75657),",
+        "  new Point(78457, 96615),",
+        "  new Point(42140, 5564),",
+        "  new Point(62175, 92342),",
+        "  new Point(54958, 67112),",
+        "  new Point(4092, 19709),",
+        "  new Point(99415, 60298),",
+        "  new Point(51090, 52158),",
+        "  new Point(48953, 58567)",
+        "];"
+      ],
+      "naive": "const Point = function (x, y) {\n  this.x = x;\n  this.y = y;\n};\nPoint.prototype.getX = function () {\n  return this.x;\n};\nPoint.prototype.getY = function () {\n  return this.y;\n};\n\nfunction distance(p1, p2) {\n  var dx = Math.abs(p1.x - p2.x);\n  var dy = Math.abs(p1.y - p2.y);\n  return Math.sqrt(dx*dx + dy*dy);\n}\n\nfunction getClosestPair(arr) {\n  if (arr.length < 2) {\n    return Infinity;\n  } else {\n    var minDist = distance(arr[0], arr[1]);\n    var minPoints = arr.slice(0, 2);\n    \n    for (var i=0; i<arr.length-1; i++) {\n      for (var j=i+1; j<arr.length; j++) {\n        if (distance(arr[i], arr[j]) < minDist) {\n          minDist = distance(arr[i], arr[j]);\n          minPoints = [ arr[i], arr[j] ];\n        }\n      }\n    }\n    return {\n      distance: minDist,\n      pair: minPoints\n    };\n  }\n}\n",
+      "tests": [
+        "assert(typeof getClosestPair === 'function', 'message: <code>getClosestPair</code> is a function.');",
+        "assert.equal(getClosestPair(points1).distance, answer1.distance, 'message: Distance should be the following.');",
+        "assert.sameDeepMembers(JSON.parse(JSON.stringify(getClosestPair(points1))).pair, answer1.pair, 'message: Points should be the following.');",
+        "assert.equal(getClosestPair(points2).distance, answer2.distance, 'message: Distance should be the following.');",
+        "assert.sameDeepMembers(JSON.parse(JSON.stringify(getClosestPair(points2))).pair, answer2.pair, 'message: Points should be the following.');"
+      ],
+      "id": "5951a53863c8a34f02bf1bdc"
+    },
+    {
       "title": "Happy numbers",
       "type": "rosetta-code",
       "categories": "?",
@@ -716,10 +1048,7 @@
         ""
       ],
       "difficulty": "?",
-      "null": [
-        "benchmark:",
-        []
-      ],
+      "benchmark": "//replaceWithActualFunctionHere;",
       "description": [
         "<div class=\"rosetta\">",
         "A &nbsp; <a class=\"rosetta__link--wiki\" href=\"https://en.wikipedia.org/wiki/Hardy–Ramanujan number\" title=\"wp: Hardy–Ramanujan number\">taxicab number</a> &nbsp; (the definition that is being used here) &nbsp; is a positive integer that can be expressed as the sum of two positive cubes in more than one way.",
