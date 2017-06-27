@@ -7,7 +7,7 @@ const assert = require('chai').assert;
 
 /// title: Vector cross product
 /// type: rosetta-code
-/// difficulty: 5
+/// difficulty: 2
 
 /// categories:
 /// vector
