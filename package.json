@@ -108,6 +108,7 @@
     "morgan": "^1.8.1",
     "parse-filepath": "^1.0.1",
     "prop-types": "^15.5.8",
+    "pseudomap": "^1.0.2",
     "pug": "^2.0.0-rc.2",
     "react": "^15.6.1",
     "react-bootstrap": "^0.31.0",
@@ -121,7 +122,8 @@
     "redux-immutable-state-invariant": "^2.0.0",
     "redux-thunk": "^2.2.0",
     "reselect": "^3.0.1",
-    "serve-favicon": "^2.4.2"
+    "serve-favicon": "^2.4.2",
+    "token-stream": "^1.0.0"
   },
   "engines": {
     "node": ">=8.0.0",
