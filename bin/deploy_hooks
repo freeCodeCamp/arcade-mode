@@ -6,8 +6,8 @@ if (not -d ".git/hooks") {
     die("Run the script in repository root containing .git");
 }
 
-my $error = system('cp -f bin/pre-push .git/hooks/pre-push');
-$error |= system('cp -f bin/post-merge .git/hooks/post-merge');
+my $error = system('cp -fv bin/pre-push .git/hooks/pre-push');
+$error |= system('cp -fv bin/post-merge .git/hooks/post-merge');
 
 if ($error) {
     print STDERR "There were problems deploying the hooks.\n";
