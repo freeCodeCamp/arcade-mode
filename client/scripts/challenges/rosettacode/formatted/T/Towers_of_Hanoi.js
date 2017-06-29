@@ -1,4 +1,3 @@
-/// WIP
 /* eslint spaced-comment: 0 */
 /* eslint no-redeclare: 0 */
 /* eslint no-undef: 0 */
@@ -13,7 +12,7 @@ const assert = require('chai').assert;
 /// Recursion
 /// Games
 
-/// difficulty: 2
+/// difficulty: 3
 
 /// benchmark:
 // replaceWithActualFunctionHere;
@@ -58,9 +57,7 @@ function towerOfHanoiHelper(n, a, b, c, res) {
 
 /// tail:
 const res3 = towerOfHanoi(3, 'A', 'B', 'C');
-
 const res5 = towerOfHanoi(5, 'X', 'Y', 'Z');
-
 const res7 = towerOfHanoi(7, 'A', 'B', 'C');
 
 /// tests:
