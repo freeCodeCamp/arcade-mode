@@ -1,4 +1,15 @@
 # PROGRESS for Arcade Mode
+## Thursday 6/29/17:
+### Tim:
+  - @:
+    - [ ] QOL change: Users want to press back to return to the menu, but instead end up leaving the site altogether.
+      1. A prompt is needed on pressing the back button as to not lose all progress.
+      2. Client-side history management is needed.
+        - Considerations:
+          - history.pushState
+          - react-router
+
+
 ## Monday 6/26/17:
 ### Tim:
   - Progress:
