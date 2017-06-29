@@ -24,7 +24,7 @@ print "remote: $remote, url: $url\n";
 
 my $branch = `git branch`;
 
-if ($branch !~ /master/) {
+if ($branch !~ /\*\s+master/) {
     print "Not in master branch. Skipping tests.\n";
     exit 0;
 }
