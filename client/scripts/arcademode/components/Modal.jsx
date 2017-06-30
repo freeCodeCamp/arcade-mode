@@ -14,18 +14,41 @@ const ArcadeModal = props => {
     Mode: props.onChangeMode,
     Difficulty: props.onChangeDifficulty,
     Challenge: props.onChangeChallengeType,
-    Editor: props.onChangeEditor
+    Editor: props.onChangeEditor,
+    SelectChallenge: props.onChallengeSelect
   };
   const defaults = {
     Timer: props.appConfig.getIn(['timer', 'default']),
     Mode: props.mode,
     Difficulty: props.difficulty,
     Challenge: props.challengeType,
-    Editor: props.editor
+    Editor: props.editor,
+    SelectChallenge: props.selectedChallenge
   };
 
   const optionDescrJsx = getOptionsDescription(options);
   const dropdownMenus = getDropdownMenus(props, options, callbacks, defaults);
+
+  const challengeNames = props.chosenChallenges.map(item =>
+    item.title);
+
+  const challengeNameObj = {};
+  challengeNames.sort().forEach(name => {
+    challengeNameObj[name] = {};
+  });
+  const challengeOptions = {
+    SelectChallenge: {
+      default: props.chosenChallenges[0].title,
+      showDropdownMenu: true,
+      options: challengeNameObj
+    }
+  };
+  const challengeSelectMenu = getDropdownMenus(
+    props, challengeOptions,
+    { SelectChallenge: props.onChallengeSelect },
+    { SelectChallenge: props.selectedChallenge }
+  );
+
   return (
     <Modal show={props.modal} onHide={props.onModalClose} animation={false} backdrop='static'>
       <Modal.Header>
@@ -42,6 +65,7 @@ const ArcadeModal = props => {
       <Modal.Footer>
         <Form horizontal>
           {dropdownMenus}
+          {challengeSelectMenu}
           <br />
           <FormGroup className='am__modal__submit'>
             <Button type='button' onClick={props.onModalClose}>Submit</Button>
@@ -141,7 +165,10 @@ ArcadeModal.propTypes = {
   onModalClose: PropTypes.func.isRequired,
   challengeType: PropTypes.string.isRequired,
   onChangeChallengeType: PropTypes.func.isRequired,
-  appConfig: ImmutablePropTypes.map.isRequired
+  appConfig: ImmutablePropTypes.map.isRequired,
+  onChallengeSelect: PropTypes.func.isRequired,
+  selectedChallenge: PropTypes.string.isRequired,
+  chosenChallenges: PropTypes.array.isRequired
 };
 
 export default ArcadeModal;
