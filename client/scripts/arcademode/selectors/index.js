@@ -40,6 +40,8 @@ const getIsRunningTests = state => state.getIn(['test', 'isRunningTests']);
 const getIsProfileShown = state => state.getIn(['profile', 'isProfileShown']);
 const getUserData = state => state.getIn(['profile', 'userData']);
 const getSessionExpandStatus = state => state.getIn(['profile', 'sessionExpandStatus']);
+const getSelectedChallenge = state => state.getIn(['challenge', 'selectedChallenge']);
+const getChosenChallenges = state => state.getIn(['challenge', 'chosenChallenges']);
 
 export default function makeMapStateToProps () {
   return createSelector(
@@ -78,6 +80,8 @@ export default function makeMapStateToProps () {
     getIsProfileShown,
     getUserData,
     getSessionExpandStatus,
+    getSelectedChallenge,
+    getChosenChallenges,
     (
       modal,
       mode,
@@ -113,7 +117,9 @@ export default function makeMapStateToProps () {
       isRunningTests,
       isProfileShown,
       userData,
-      sessionExpandStatus
+      sessionExpandStatus,
+      selectedChallenge,
+      chosenChallenges
     ) => ({
       modal,
       mode,
@@ -149,7 +155,9 @@ export default function makeMapStateToProps () {
       isRunningTests,
       isProfileShown,
       userData,
-      sessionExpandStatus
+      sessionExpandStatus,
+      selectedChallenge,
+      chosenChallenges
     })
   );
 }
