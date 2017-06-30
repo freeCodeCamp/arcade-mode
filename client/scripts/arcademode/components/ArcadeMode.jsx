@@ -229,6 +229,9 @@ export default class ArcadeMode extends Component {
           challengeType={this.props.challengeType}
           onChangeChallengeType={this.props.onChangeChallengeType}
           appConfig={this.props.appConfig}
+          selectedChallenge={this.props.selectedChallenge}
+          onChallengeSelect={this.props.onChallengeSelect}
+          chosenChallenges={this.props.chosenChallenges}
         />
         <Navbar />
 
@@ -327,6 +330,9 @@ ArcadeMode.propTypes = {
   challengesCompleted: PropTypes.number.isRequired,
   challengeType: PropTypes.string.isRequired,
   onChangeChallengeType: PropTypes.func.isRequired,
+  onChallengeSelect: PropTypes.func.isRequired,
+  selectedChallenge: PropTypes.string.isRequired,
+  chosenChallenges: PropTypes.array.isRequired,
 
   // session
   currSession: ImmutablePropTypes.map.isRequired,
