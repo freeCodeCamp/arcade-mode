@@ -116,7 +116,8 @@ export default function challenge(state = initialState, action) {
     }
     case GAME_CHALLENGE_TYPE_CHANGE:
       return state
-        .set('challengeType', action.challengeType);
+        .set('challengeType', action.challengeType)
+        .set('chosenChallenges', challengeTypes[action.challengeType]);
     case CHALLENGE_START: // lift to session start
       console.log('benchmark:');
       console.log(state.getIn(['currChallenge', 'benchmark']));
