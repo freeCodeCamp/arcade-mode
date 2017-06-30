@@ -11,7 +11,8 @@ import {
   CHALLENGE_START,
   CHALLENGE_NEXT,
   CHALLENGE_SOLVE,
-  CODE_CHANGED
+  CODE_CHANGED,
+  CHALLENGE_SELECTED
 } from '../actions/challenge';
 
 import { GAME_CHALLENGE_TYPE_CHANGE } from '../actions/gamesetting';
@@ -51,6 +52,7 @@ const initialState = Map({
   nextChallenge: Map(),
   challengeType: appConfig.options.Challenge.default,
   chosenChallenges: challengeTypes[appConfig.options.Challenge.default],
+  selectedChallenge: '',
   passedChallenges: List(),
   benchmark: '',
   difficulty: 10 // Hard-coded for now
@@ -90,14 +92,27 @@ function getNextChallenge(state) {
   );
 }
 
+function findFromChosenChallenges(state, challengeName) {
+  const foundChallenge = state.get('chosenChallenges').find(item => (
+        item.title === challengeName
+  ));
+  if (foundChallenge) {
+    return Map(Immutable.fromJS(foundChallenge));
+  }
+  throw new Error(`No challenge ${challengeName} found.`);
+}
+
 export default function challenge(state = initialState, action) {
   switch (action.type) {
     case MODAL_CLOSE: {
       // shuffle on modal close to prevent gaming the system
       const shuffledChallenges = shuffle(challengeTypes[state.get('challengeType')]);
-      return state
-        .set('chosenChallenges', shuffledChallenges)
-        .set('currChallenge', Map(Immutable.fromJS(shuffledChallenges[0])));
+      if (state.get('selectedChallenge') === '') {
+        return state
+          .set('chosenChallenges', shuffledChallenges)
+          .set('currChallenge', Map(Immutable.fromJS(shuffledChallenges[0])));
+      }
+      return state.set('chosenChallenges', shuffledChallenges);
     }
     case GAME_CHALLENGE_TYPE_CHANGE:
       return state
@@ -153,6 +168,10 @@ export default function challenge(state = initialState, action) {
     case MODAL_OPEN:
       return initialState
         .set('challengeType', state.get('challengeType'));
+    case CHALLENGE_SELECTED:
+      return state
+        .set('currChallenge', findFromChosenChallenges(state, action.selectedChallenge))
+        .set('selectedChallenge', action.selectedChallenge);
     default:
       return state;
   }
