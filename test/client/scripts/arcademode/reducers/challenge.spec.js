@@ -15,6 +15,10 @@ import {
   onChallengeSelect
 } from '../../../../../client/scripts/arcademode/actions/challenge';
 
+import {
+  onChangeChallengeType
+} from '../../../../../client/scripts/arcademode/actions/gamesetting';
+
 import Challenges from '../../../../../public/json/challenges-algorithms.json';
 
 const firstChallenge = Challenges.challenges[0];
@@ -144,6 +148,16 @@ describe('Reducer: challenge', () => {
 
     expect(nextState.get('selectedChallenge')).to.equal(expTitle);
     expect(nextState.get('currChallenge').get('title')).to.equal(expTitle);
+  });
+
+  it('should change chosen challenge on type change', () => {
+    const initial = reducer(undefined, dummyAction);
+    const evt = { target: { value: 'Arcade' } };
+    let currState = reducer(initial, onChangeChallengeType(evt));
+    const arcadeTitle = currState.get('chosenChallenges')[0].title;
+    currState = reducer(currState, onChangeChallengeType({ target: { value: 'Rosetta' } }));
+    const rosettaTitle = currState.get('chosenChallenges')[0].title;
+    expect(arcadeTitle).to.not.equal(rosettaTitle);
   });
 });
 
