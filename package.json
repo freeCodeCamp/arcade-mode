@@ -101,6 +101,7 @@
     "express": "^4.15.2",
     "helmet": "^3.6.0",
     "immutable": "^3.8.1",
+    "mongodb": "^2.2.29",
     "mongoose": "^4.10.7",
     "morgan": "^1.8.1",
     "prop-types": "^15.5.8",
