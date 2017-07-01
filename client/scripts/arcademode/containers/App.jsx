@@ -9,7 +9,8 @@ import {
   startChallenge,
   nextChallenge,
   actionSolveChallenge,
-  onCodeChange
+  onCodeChange,
+  onChallengeSelect
 } from '../actions/challenge';
 
 import {
@@ -82,7 +83,8 @@ const mapDispatchToProps = dispatch => ({
   deleteSession: session => dispatch(deleteSession(session)),
   toggleSessionView: sessionId => dispatch(toggleSessionView(sessionId)),
   toggleChallengeView: (sessionId, challengeId) =>
-    dispatch(toggleChallengeView(sessionId, challengeId))
+    dispatch(toggleChallengeView(sessionId, challengeId)),
+  onChallengeSelect: challengeName => dispatch(onChallengeSelect(challengeName))
 });
 
 export default connect(makeMapStateToProps, mapDispatchToProps)(ArcadeMode);

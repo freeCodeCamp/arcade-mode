@@ -11,8 +11,13 @@ import {
   startChallenge,
   nextChallenge,
   actionSolveChallenge,
-  onCodeChange
+  onCodeChange,
+  onChallengeSelect
 } from '../../../../../client/scripts/arcademode/actions/challenge';
+
+import {
+  onChangeChallengeType
+} from '../../../../../client/scripts/arcademode/actions/gamesetting';
 
 import Challenges from '../../../../../public/json/challenges-algorithms.json';
 
@@ -132,6 +137,27 @@ describe('Reducer: challenge', () => {
       code: 'let x = 3;',
       currChallenge: Immutable.Map({ code: 'let x = 3;' })
     }));
+  });
+
+  it('should change currChallenge with CHALLENGE_SELECTED', () => {
+    const initial = reducer(undefined, dummyAction);
+    const expTitle = initial.get('chosenChallenges')[1].title;
+    const selectAction = onChallengeSelect({ target: { value: expTitle } });
+
+    const nextState = reducer(initial, selectAction);
+
+    expect(nextState.get('selectedChallenge')).to.equal(expTitle);
+    expect(nextState.get('currChallenge').get('title')).to.equal(expTitle);
+  });
+
+  it('should change chosen challenge on type change', () => {
+    const initial = reducer(undefined, dummyAction);
+    const evt = { target: { value: 'Arcade' } };
+    let currState = reducer(initial, onChangeChallengeType(evt));
+    const arcadeTitle = currState.get('chosenChallenges')[0].title;
+    currState = reducer(currState, onChangeChallengeType({ target: { value: 'Rosetta' } }));
+    const rosettaTitle = currState.get('chosenChallenges')[0].title;
+    expect(arcadeTitle).to.not.equal(rosettaTitle);
   });
 });
 

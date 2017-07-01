@@ -12,7 +12,7 @@ import appConfig from '../../../../../client/jsons/appconfig.json';
 
 chai.use(chaiEnzyme());
 
-const formControlLength = 2;
+const formControlLength = 3;
 
 const props = {
   modal: true,
@@ -23,7 +23,9 @@ const props = {
   onChangeDifficulty: () => {},
   editor: 'Normal',
   onChangeEditor: () => {},
-  appConfig: Immutable.Map(Immutable.fromJS(appConfig))
+  appConfig: Immutable.Map(Immutable.fromJS(appConfig)),
+  selectedChallenge: '',
+  chosenChallenges: [{ title: 'ABC' }]
 };
 
 describe('Component: <ArcadeModal>', () => {
