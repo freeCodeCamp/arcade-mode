@@ -334,7 +334,7 @@ for further information
 
 ### How We Review and Merge Pull Requests
 
-Currently, arcade-mode pull requests will be reviewed personally by the two main developers of arcde-mode, [@timolawl](https://github.com/timolawl) and [@tpoikela](https://github.com/tpoikela).
+Currently, arcade-mode pull requests will be reviewed personally by the two main developers of arcade-mode, [@timolawl](https://github.com/timolawl) and [@tpoikela](https://github.com/tpoikela).
 
 We as issue moderators will routinely go through open pull requests in a process called [Quality Assurance](https://en.wikipedia.org/wiki/Quality_assurance) (QA).
 
