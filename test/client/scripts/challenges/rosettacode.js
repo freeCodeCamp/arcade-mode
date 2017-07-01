@@ -45,9 +45,10 @@ challenges.forEach(challenge => {
 
 // HELPER FUNCTIONS
 function expectNoErrorsAndAllTestsRun(res, challenge) {
-  expect(res.errorMsgs).to.have.length(0);
-  expect(res.testResults).to.have.length(challenge.tests.length);
+  expect(res.errorMsgs, 'There should be no error messages').to.have.length(0);
+  expect(res.testResults, 'All tests need to have result'
+    ).to.have.length(challenge.tests.length);
   res.testResults.forEach(result => {
-    expect(result.pass).to.be.true;
+    expect(result.pass, 'Test should return result.pass: true').to.be.true;
   });
 }
