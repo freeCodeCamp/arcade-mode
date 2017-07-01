@@ -14,12 +14,16 @@ Arcade Mode has been undergoing heavy prototyping and iteration. As such, it is 
 4. Run `npm install` to install dependencies and start the build process.
 5. Run `npm start` and see the example app at http://localhost:8080
 
+### Fork Maintenance:
+1. Set the upstream remote to the official arcade-mode repository: `git remote add upstream https://github.com/freeCodeCamp/arcade-mode.git`
+2. Update the fork with the upstream remote with: `git merge upstream master`.
+
+
 ### Contributing:
+- After finishing Quick Start steps 1 - 4, do the following:
 1. Find an issue that needs assistance by searching for the [Help Wanted](https://github.com/freeCodeCamp/arcade-mode/labels/help%20wanted) tag.
-2. After finishing Quick Start steps 1 - 4, do the following.
-3. Set the upstream remote to the official arcade-mode repository: `git remote add upstream https://github.com/freeCodeCamp/arcade-mode.git`
-4. Always make modifications on a branch. Make a branch using: `git checkout -b <BRANCH_NAME>`.
-5. Before submitting a [pull request](https://help.github.com/articles/creating-a-pull-request/), make sure to test the modifications using `npm run test:client`.
-6. To maintain and keep the fork up to date, make sure to update the fork with the upstream remote occassionally with: `git merge upstream master`.
+2. Always make modifications on a branch. Create a branch using: `git checkout -b <BRANCH_NAME>`.
+3. Test modifications with unit tests `npm run test:client` and in-app validation on the browser.
+3. Once it all checks out, submit a [pull request](https://help.github.com/articles/creating-a-pull-request/).
 
 For a more complete guide, see CONTRIBUTING.md.
