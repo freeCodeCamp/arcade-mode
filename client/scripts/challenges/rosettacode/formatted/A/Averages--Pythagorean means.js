@@ -14,9 +14,6 @@ const assert = require('chai').assert;
 
 /// difficulty: 4
 
-/// benchmark:
-
-
 /// description:
 /// <div class='rosetta'>
 /// <p class='rosetta__paragraph'>Compute all three of the <a class='rosetta__link--wiki' href='https://en.wikipedia.org/wiki/Pythagorean means' title='wp: Pythagorean means'>Pythagorean means</a> of the set of integers <big>1</big> through <big>10</big> (inclusive).</p><br/><p class='rosetta__paragraph'>Show that <big>$A(x_1,\ldots,x_n) \geq G(x_1,\ldots,x_n) \geq H(x_1,\ldots,x_n)$</big> for this set of positive integers.</p><br/><ul class='rosetta__unordered-list'><li class='rosetta__list-item--unordered'> The most common of the three means, the <a class='rosetta__link--rosetta' href='http://rosettacode.org/wiki/Averages/Arithmetic mean' title='Averages/Arithmetic mean'>arithmetic mean</a>, is the sum of the list divided by its length:</li></ul><span class='rosetta__text--indented'> <big>$ A(x_1, \ldots, x_n) = \frac{x_1 + \cdots + x_n}{n}$</big></span><br/><ul class='rosetta__unordered-list'><li class='rosetta__list-item--unordered'>The <a class='rosetta__link--wiki' href='https://en.wikipedia.org/wiki/Geometric mean' title='wp: Geometric mean'>geometric mean</a> is the $n$th root of the product of the list:</li></ul><span class='rosetta__text--indented'> <big>$ G(x_1, \ldots, x_n) = \sqrt[n]{x_1 \cdots x_n} $</big></span><br/><ul class='rosetta__unordered-list'><li class='rosetta__list-item--unordered'>The <a class='rosetta__link--wiki' href='https://en.wikipedia.org/wiki/Harmonic mean' title='wp: Harmonic mean'>harmonic mean</a> is $n$ divided by the sum of the reciprocal of each item in the list:</li></ul><span class='rosetta__text--indented'> <big>$ H(x_1, \ldots, x_n) = \frac{n}{\frac{1}{x_1} + \cdots + \frac{1}{x_n}} $</big></span>

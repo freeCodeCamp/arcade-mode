@@ -16,8 +16,6 @@ const assert = require('chai').assert;
 
 /// difficulty: 8
 
-/// benchmark:
-
 /// description:
 /// <div class="rosetta">
 /// <p class="rosetta__paragraph">This task is a variation of the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/The Nine Billion Names of God#Plot_summary" title="wp: The Nine Billion Names of God#Plot_summary">short story by Arthur C. Clarke</a>.</p><br/>

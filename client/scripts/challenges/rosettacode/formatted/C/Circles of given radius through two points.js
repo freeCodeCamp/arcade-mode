@@ -12,11 +12,7 @@ const assert = require('chai').assert;
 
 /// categories:
 
-
 /// difficulty: 4
-
-/// benchmark:
-
 
 /// description:
 /// <div class="rosetta">

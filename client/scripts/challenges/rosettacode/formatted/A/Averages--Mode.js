@@ -14,9 +14,6 @@ const assert = require('chai').assert;
 
 /// difficulty: 1
 
-/// benchmark:
-
-
 /// description:
 /// <div class="rosetta">
 /// <p class="rosetta__paragraph">Write a program to find the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Mode (statistics)" title="wp: Mode (statistics)">mode</a> value of a collection.</p><br/><p class="rosetta__paragraph">The case where the collection is empty may be ignored. Care must be taken to handle the case where the mode is non-unique.</p><br/><p class="rosetta__paragraph">If it is not appropriate or possible to support a general collection, use a vector (array), if possible. If it is not appropriate or possible to support an unspecified value type, use integers.</p>

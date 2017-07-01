@@ -15,8 +15,6 @@ const assert = require('chai').assert;
 
 /// difficulty: 4
 
-/// benchmark:
-
 /// description:
 /// <div class="rosetta">
 /// Two integers $N$ and $M$ are said to be <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Amicable numbers" title="wp: Amicable numbers">amicable pairs</a> if $N \neq M$ and the sum of the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Proper divisors" title="Proper divisors">proper divisors</a> of $N$ ($\mathrm{sum}(\mathrm{propDivs}(N))$) $= M$ as well as $\mathrm{sum}(\mathrm{propDivs}(M)) = N$.

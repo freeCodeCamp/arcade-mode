@@ -15,9 +15,6 @@ const assert = require('chai').assert;
 
 /// difficulty: 2
 
-/// benchmark:
-
-
 /// description:
 /// <div class="rosetta">
 /// <p class="rosetta__paragraph"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Charles_Babbage" title="wp: Charles_Babbage">Charles Babbage</a>, looking ahead to the sorts of problems his Analytical Engine would be able to solve, gave this example:</p><br/>
