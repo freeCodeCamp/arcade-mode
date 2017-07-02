@@ -1,16 +1,15 @@
 CACHE MANIFEST
 
 CACHE:
+css/style.css
+img/FCCfire.svg
+img/FCClogo.svg
+img/favicon.ico
 js/index.bundle.js
 js/main.bundle.js
 js/sw.bundle.js
 js/ww.bundle.js
 js/wwBenchmark.bundle.js
-img/FCCfire.svg
-img/FCClogo.svg
-img/favicon.ico
-css/style.css
-json/appconfig.json
 json/challenges-algorithms.json
 json/challenges-arcade.json
 json/challenges-combined.json
@@ -25,19 +24,9 @@ img/challenges/conventurist.png
 img/challenges/petch.png
 img/challenges/pexels-photo-127556.jpeg
 img/challenges/pexels-photo-358717.jpeg
-json/IDB/challenges-algorithms.json
-json/IDB/challenges-data-structures.json
-img/IDB/challenges/conventurist.png
-img/IDB/challenges/petch.png
-img/IDB/challenges/pexels-photo-127556.jpeg
-img/IDB/challenges/pexels-photo-358717.jpeg
 css/vendor/bootswatch/bootstrap.min.css
 css/vendor/codemirror/codemirror.min.css
 css/vendor/codemirror/monokai.min.css
-IDB/img/IDB/challenges/conventurist.png
-IDB/img/IDB/challenges/petch.png
-IDB/img/IDB/challenges/pexels-photo-127556.jpeg
-IDB/img/IDB/challenges/pexels-photo-358717.jpeg
 
 NETWORK:
 *
@@ -45,4 +34,4 @@ NETWORK:
 SETTINGS:
 prefer-online
 
-# hash: dc2d3797b2b36787898f55be64cabe7f1b7a65d96f08f6ded30bc7afa80d1b17
+# hash: 47d041eaf640f7a077b705e1a1412b233abdbdab032a1f8c170100d5e1135d9c
