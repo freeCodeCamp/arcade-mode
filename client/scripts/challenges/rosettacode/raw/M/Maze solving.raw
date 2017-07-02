@@ -1,7 +1,6 @@
 
 /* eslint spaced-comment: 0 */
 /* eslint no-redeclare: 0 */
-/* eslint no-undef: 0 */
 /* eslint no-unused-vars: 0 */
 
 const assert = require('chai').assert;
@@ -172,7 +171,7 @@ function init() {
 /// rawSolutions:
 =={{header|JavaScript}}==
 Animated: generating and solving.<br />To start solving, click to choose a 'start' and an 'end' points.
-<br />Go [http://webgames.paulo-jorente.de/mazesolver here] to see it in action.
+<br />Go [http://paulo-jorente.de/tests/mazesolver/ here] to see it in action.
 <lang javascript>
 var ctx, wid, hei, cols, rows, maze, stack = [], start = {x:-1, y:-1}, end = {x:-1, y:-1}, grid = 8;
 function drawMaze() {

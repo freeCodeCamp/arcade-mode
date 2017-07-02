@@ -1,7 +1,6 @@
 
 /* eslint spaced-comment: 0 */
 /* eslint no-redeclare: 0 */
-/* eslint no-undef: 0 */
 /* eslint no-unused-vars: 0 */
 
 const assert = require('chai').assert;
@@ -438,9 +437,6 @@ or, again functionally, but:
             .substr(0, n)
         ) : strText;
 
-    // min :: Ord a => a -> a -> a
-    const min = (a, b) => b < a ? b : a;
-
     // unlines :: [String] -> String
     const unlines = xs => xs.join('\n');
 
@@ -450,7 +446,7 @@ or, again functionally, but:
     // zipWith :: (a -> b -> c) -> [a] -> [b] -> [c]
     const zipWith = (f, xs, ys) =>
         Array.from({
-            length: min(xs.length, ys.length)
+            length: Math.min(xs.length, ys.length)
         }, (_, i) => f(xs[i], ys[i]));
 
     // TEST -------------------------------------------------------------------

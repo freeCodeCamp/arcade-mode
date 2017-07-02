@@ -1,7 +1,6 @@
 
 /* eslint spaced-comment: 0 */
 /* eslint no-redeclare: 0 */
-/* eslint no-undef: 0 */
 /* eslint no-unused-vars: 0 */
 
 const assert = require('chai').assert;
@@ -91,7 +90,7 @@ function init() {
 
 /// rawSolutions:
 =={{header|JavaScript}}==
-[[File:juliaSet_js.png|200px|thumb|right]]
+take a look [http://paulo-jorente.de/tests/juliaset/ here].
 <lang javascript>
 var maxIterations = 450, minX = -.5, maxX = .5, 
     minY = -.5, maxY = .5, wid, hei, ctx,
@@ -150,7 +149,6 @@ function init() {
     drawFractal();
 }
 </lang>
-
 
 
 

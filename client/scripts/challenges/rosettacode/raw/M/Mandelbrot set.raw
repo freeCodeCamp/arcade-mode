@@ -1,7 +1,6 @@
 
 /* eslint spaced-comment: 0 */
 /* eslint no-redeclare: 0 */
-/* eslint no-undef: 0 */
 /* eslint no-unused-vars: 0 */
 
 const assert = require('chai').assert;
@@ -50,7 +49,7 @@ function mandelIter(cx, cy, maxIter) {
   }
   return maxIter - i;
 }
- 
+
 function mandelbrot(canvas, xmin, xmax, ymin, ymax, iterations) {
   var width = canvas.width;
   var height = canvas.height;
@@ -128,7 +127,7 @@ The code can be run directly from the Javascript console in modern browsers by c
   }
   return maxIter - i;
 }
- 
+
 function mandelbrot(canvas, xmin, xmax, ymin, ymax, iterations) {
   var width = canvas.width;
   var height = canvas.height;
@@ -183,6 +182,34 @@ mandelbrot(canvas, -2, 1, -1, 1, 1000);</lang>
 
 {{out}} with default parameters:
 [[File:Mandelbrot-Javascript.png]]
+
+=== ES6/WebAssembly ===
+
+With ES6 and WebAssembly, the program can run faster.  Of course, this requires a compiled WASM file, but one can easily build
+one for instance with the [https://mbebenita.github.io/WasmExplorer/ WebAssembly explorer]
+
+<lang javascript>var mandelIter;
+fetch("./mandelIter.wasm")
+    .then(res => {
+        if (res.ok) return res.arrayBuffer();
+        throw new Error('Unable to fetch WASM.');
+    })
+    .then(bytes => { return WebAssembly.compile(bytes); })
+    .then(module => { return WebAssembly.instantiate(module); })
+    .then(instance => { WebAssembly.instance = instance; draw(); })
+
+function mandelbrot(canvas, xmin, xmax, ymin, ymax, iterations) {
+    // ...
+    var i = WebAssembly.instance.exports.mandelIter(x, y, iterations);
+    // ...
+}
+
+function draw() {
+    // canvas initialization if necessary
+    // ...
+    mandelbrot(canvas, -2, 1, -1, 1, 1000);
+    // ...
+}</lang>
 
 
 
