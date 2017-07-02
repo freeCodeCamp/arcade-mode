@@ -87,7 +87,7 @@ const paths = {
   fonts: ['client/fonts/**/*'], // font sources
   images: ['client/images/**/*'], // image sources
   jsons: { // json-related items
-    fccInterviewSeed: ['client/jsons/**/*'],
+    fccInterviewSeed: ['client/jsons/seed/**/*'],
     js2jsonScript: ['bin/js2json_challenges.js']
   },
   challengesJs: ['client/scripts/challenges/**/*'],
