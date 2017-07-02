@@ -10,6 +10,7 @@ js/main.bundle.js
 js/sw.bundle.js
 js/ww.bundle.js
 js/wwBenchmark.bundle.js
+json/appconfig.json
 json/challenges-algorithms.json
 json/challenges-arcade.json
 json/challenges-combined.json
@@ -34,4 +35,4 @@ NETWORK:
 SETTINGS:
 prefer-online
 
-# hash: 47d041eaf640f7a077b705e1a1412b233abdbdab032a1f8c170100d5e1135d9c
+# hash: 11ef69582cbc76dd4b4420e2454f877d27fd4aebeb8ff2786c117f971c53cbd4

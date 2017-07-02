@@ -1028,6 +1028,42 @@
       "id": "5958469238c0d8d2632f46db"
     },
     {
+      "title": "Hailstone sequence",
+      "type": "rosetta-code",
+      "categories": [],
+      "difficulty": "2",
+      "description": [
+        "<div class=\"rosetta\"><br/><p class=\"rosetta__paragraph\">The Hailstone sequence of numbers can be generated from a starting positive integer,  n  by:</p>",
+        "<ul class=\"rosetta__unordered-list\"><li class=\"rosetta__list-item--unordered\"> If  n  is   <span class=\"rosetta__text--bold\">1</span>   then the sequence ends.</li>",
+        "<li class=\"rosetta__list-item--unordered\"> If  n  is  <span class=\"rosetta__text--bold\">even</span> then the next  n  of the sequence <code> = n/2 </code></li>",
+        "<li class=\"rosetta__list-item--unordered\"> If  n  is  <span class=\"rosetta__text--bold\">odd</span>   then the next  n  of the sequence <code> = (3 * n) + 1 </code></li></ul><br/><p class=\"rosetta__paragraph\">The (unproven) <a class=\"rosetta__link--wiki\" href=\"https://en.wikipedia.org/wiki/Collatz conjecture\" title=\"wp: Collatz conjecture\">Collatz conjecture</a> is that the hailstone sequence for any starting number always terminates.</p>",
+        "<br/><p class=\"rosetta__paragraph\">The hailstone sequence is also known as <span class=\"rosetta__text--italic\">hailstone numbers</span> (because the values are usually subject to multiple descents and ascents like hailstones in a cloud), or as the <span class=\"rosetta__text--italic\">Collatz sequence</span>.</p>",
+        "<br/><dl class=\"rosetta__description-list\"><dt class=\"rosetta__description-title\">Task:</dt></dl>",
+        "<ol class=\"rosetta__ordered-list\"><li class=\"rosetta__list-item--ordered\">Create a routine to generate the hailstone sequence for a number.</li>",
+        "<li class=\"rosetta__list-item--ordered\">Use the routine to show that the hailstone sequence for the number 27 has 112 elements starting with <code>27, 82, 41, 124</code> and ending with <code>8, 4, 2, 1</code></li>",
+        "<li class=\"rosetta__list-item--ordered\">Show the number less than 100,000 which has the longest hailstone sequence together with that sequence's length.<br>   (But don't show the actual sequence!)</li></ol><br/><dl class=\"rosetta__description-list\"><dt class=\"rosetta__description-title\">See also:</dt></dl>",
+        "<ul class=\"rosetta__unordered-list\"><li class=\"rosetta__list-item--unordered\"> <a class=\"rosetta__link--wiki\" href=\"http://xkcd.com/710\" title=\"link: http://xkcd.com/710\">xkcd</a> (humourous).</li></ul></div>"
+      ],
+      "challengeSeed": [
+        "// noprotect",
+        "function hailstoneSequence() {",
+        "  const res = [];",
+        "  // Good luck!",
+        "",
+        "  return res;",
+        "}"
+      ],
+      "solutions": [
+        "// noprotect\nfunction hailstoneSequence() {\n  const res = [];\n\n  function hailstone(n) {\n    const seq = [n];\n    while (n > 1) {\n      n = n % 2 ? 3 * n + 1 : n / 2;\n      seq.push(n);\n    }\n    return seq;\n  }\n\n  const h = hailstone(27);\n  const hLen = h.length;\n  res.push([...h.slice(0, 4), ...h.slice(hLen - 4, hLen)]);\n\n  let n = 0;\n  let max = 0;\n  for (let i = 100000; --i;) {\n    const seq = hailstone(i);\n    const sLen = seq.length;\n\n    if (sLen > max) {\n      n = i;\n      max = sLen;\n    }\n  }\n  res.push([max, n]);\n\n  return res;\n}\n"
+      ],
+      "tail": "const res = [[27, 82, 41, 124, 8, 4, 2, 1], [351, 77031]];",
+      "tests": [
+        "assert(typeof hailstoneSequence === 'function', 'message: <code>hailstoneSequence</code> is a function.');",
+        "assert.sameDeepMembers(hailstoneSequence(), res, 'message: <code>hailstoneSequence()</code> should return <code>[[27,82,41,124,8,4,2,1], [351, 77031]]</code>');"
+      ],
+      "id": "595608ff8bcd7a50bd490181"
+    },
+    {
       "title": "Happy numbers",
       "type": "rosetta-code",
       "categories": "?",
@@ -1063,6 +1099,98 @@
         "assert.isFalse(happy(33), 'message: <code>happy(33)</code> should return false.');"
       ],
       "id": "594810f028c0303b75339ad1"
+    },
+    {
+      "title": "Harshad or Niven series",
+      "type": "rosetta-code",
+      "categories": [],
+      "difficulty": "2",
+      "description": [
+        "<div class=\"rosetta\">",
+        "<p class=\"rosetta__paragraph\">The <a class=\"rosetta__link--wiki\" href=\"http://mathworld.wolfram.com/HarshadNumber.html\" title=\"link: http://mathworld.wolfram.com/HarshadNumber.html\">Harshad</a> or Niven numbers are positive integers ≥ 1 that are divisible by the sum of their digits.</p><br/><p class=\"rosetta__paragraph\">For example,  <span class=\"rosetta__text--bold\">42</span>  is a <a class=\"rosetta__link--rosetta\" href=\"http://rosettacode.org/wiki/oeis:A005349\" title=\"oeis:A005349\">Harshad number</a> as  <span class=\"rosetta__text--bold\">42</span>  is divisible by  (<span class=\"rosetta__text--bold\">4</span> + <span class=\"rosetta__text--bold\">2</span>)  without remainder.</p>",
+        "<br>Assume that the series is defined as the numbers in increasing order.",
+        "<br/><dl class=\"rosetta__description-list\"><dt class=\"rosetta__description-title\">Task:</dt></dl>",
+        "<p class=\"rosetta__paragraph\">Implement a function to generate successive members of the Harshad sequence.</p><br/><p class=\"rosetta__paragraph\">Use it to list the first twenty members of the sequence and list the first Harshad number greater than 1000.</p>",
+        "</div>"
+      ],
+      "challengeSeed": [
+        "function isHarshadOrNiven () {",
+        "  const res = {",
+        "    firstTwenty: [],",
+        "    firstOver1000: undefined",
+        "  };",
+        "  // Change after this line",
+        "",
+        "  return res;",
+        "}"
+      ],
+      "solutions": [
+        "function isHarshadOrNiven() {\n  const res = {\n    firstTwenty: [],\n    firstOver1000: undefined\n  };\n\n  function isHarshad(n) {\n    let s = 0;\n    const nStr = n.toString();\n    for (let i = 0; i < nStr.length; ++i) {\n      s += parseInt(nStr.charAt(i), 10);\n    }\n    return n % s === 0;\n  }\n\n  let count = 0;\n  const harshads = [];\n\n  for (let n = 1; count < 20; ++n) {\n    if (isHarshad(n)) {\n      count++;\n      harshads.push(n);\n    }\n  }\n\n  res.firstTwenty = harshads;\n\n  let h = 1000;\n  while (!isHarshad(++h));\n  res.firstOver1000 = h;\n\n  return res;\n}\n"
+      ],
+      "tail": [
+        "const res = {",
+        "  firstTwenty: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 18, 20, 21, 24, 27, 30, 36, 40, 42],",
+        "  firstOver1000: 1002",
+        "};"
+      ],
+      "tests": [
+        "assert(typeof isHarshadOrNiven === 'function', 'message: <code>isHarshadOrNiven</code> is a function.');",
+        "assert.deepEqual(isHarshadOrNiven(), res, 'message: <code>isHarshadOrNiven()</code> should return <code>{\"firstTwenty\": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 18, 20, 21, 24, 27, 30, 36, 40, 42],\"firstOver1000\": 1002}</code>');"
+      ],
+      "id": "595668ca4cfe1af2fb9818d4"
+    },
+    {
+      "title": "Hash from two arrays",
+      "type": "rosetta-code",
+      "categories": "Data Structures",
+      "difficulty": "1",
+      "benchmark": "arrToObj(Array.apply(null, { length: 10000 }).map(String.call, String), Array.apply(null, { length: 10000 }).map(Number.call, Number));",
+      "description": [
+        "<div class=\"rosetta\">",
+        "<dl class=\"rosetta__description-list\"><dt class=\"rosetta__description-title\">Task:</dt></dl>",
+        "<p class=\"rosetta__paragraph\">Using two Arrays of equal length, create a Hash object where the elements from one array (the keys) are linked to the elements of the other (the values)</p>",
+        "<br/><dl class=\"rosetta__description-list\"><dt class=\"rosetta__description-title\">Related task:</dt></dl>",
+        "<ul class=\"rosetta__unordered-list\"><li class=\"rosetta__list-item--unordered\"> <a class=\"rosetta__link--rosetta\" href=\"http://rosettacode.org/wiki/Associative arrays/Creation\" title=\"Associative arrays/Creation\">Associative arrays/Creation</a></li></ul>",
+        "</div>"
+      ],
+      "challengeSeed": [
+        "function arrToObj(keys, vals) {",
+        "  // Good luck!",
+        "  return true;",
+        "}"
+      ],
+      "solutions": [
+        "function arrToObj(keys, vals) {\n  return keys.reduce((map, key, index) => {\n    map[key] = vals[index];\n    return map;\n  }, {});\n}"
+      ],
+      "tail": [
+        "const testCases = [",
+        "  [[1, 2, 3, 4, 5], ['a', 'b', 'c', 'd', 'e']],",
+        "  [[1, 2, 3, 4, 5], ['a', 'b', 'c', 'd']],",
+        "  [[1, 2, 3], ['a', 'b', 'c', 'd', 'e']],",
+        "  [['a', 'b', 'c', 'd', 'e'], [1, 2, 3, 4, 5]],",
+        "  [['a', 'b', 'c', 'd', 'e'], [1, 2, 3, 4]],",
+        "  [['a', 'b', 'c'], [1, 2, 3, 4, 5]]",
+        "];",
+        "",
+        "const res = [",
+        "  { 1: 'a', 2: 'b', 3: 'c', 4: 'd', 5: 'e' },",
+        "  { 1: 'a', 2: 'b', 3: 'c', 4: 'd', 5: undefined },",
+        "  { 1: 'a', 2: 'b', 3: 'c' },",
+        "  { a: 1, b: 2, c: 3, d: 4, e: 5 },",
+        "  { a: 1, b: 2, c: 3, d: 4, e: undefined },",
+        "  { a: 1, b: 2, c: 3 }",
+        "];"
+      ],
+      "tests": [
+        "assert(typeof arrToObj === 'function', 'message: <code>arrToObj</code> is a function.');",
+        "assert.deepEqual(arrToObj(...testCases[0]), res[0], 'message: <code>arrToObj([1, 2, 3, 4, 5], [\"a\", \"b\", \"c\", \"d\", \"e\"])</code> should return <code>{ 1: \"a\", 2: \"b\", 3: \"c\", 4: \"d\", 5: \"e\" }</code>');",
+        "assert.deepEqual(arrToObj(...testCases[1]), res[1], 'message: <code>arrToObj([1, 2, 3, 4, 5], [\"a\", \"b\", \"c\", \"d\"])</code> should return <code>{ 1: \"a\", 2: \"b\", 3: \"c\", 4: \"d\", 5: undefined }</code>');",
+        "assert.deepEqual(arrToObj(...testCases[2]), res[2], 'message: <code>arrToObj([1, 2, 3], [\"a\", \"b\", \"c\", \"d\", \"e\"])</code> should return <code>{ 1: \"a\", 2: \"b\", 3: \"c\" }</code>');",
+        "assert.deepEqual(arrToObj(...testCases[3]), res[3], 'message: <code>arrToObj([\"a\", \"b\", \"c\", \"d\", \"e\"], [1, 2, 3, 4, 5])</code> should return <code>{ \"a\": 1, \"b\": 2, \"c\": 3 , \"d\": 4, \"e\": 5 }</code>');",
+        "assert.deepEqual(arrToObj(...testCases[4]), res[4], 'message: <code>arrToObj([\"a\", \"b\", \"c\", \"d\", \"e\"], [1, 2, 3, 4])</code> should return <code>{ \"a\": 1, \"b\": 2, \"c\": 3 , \"d\": 4, \"e\": undefined }</code>');",
+        "assert.deepEqual(arrToObj(...testCases[5]), res[5], 'message: <code>arrToObj([\"a\", \"b\", \"c\"], [1, 2, 3, 4, 5])</code> should return <code>{ \"a\": 1, \"b\": 2, \"c\": 3  }</code>');"
+      ],
+      "id": "595671d4d2cdc305f0d5b36f"
     },
     {
       "title": "Taxicab numbers",
