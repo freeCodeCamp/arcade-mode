@@ -19,18 +19,17 @@ const assert = require('chai').assert;
 arrToObj(Array.apply(null, { length: 10000 }).map(String.call, String), Array.apply(null, { length: 10000 }).map(Number.call, Number));
 
 /// description:
-/// <div class="rosetta"><br/><p class="rosetta__paragraph"><!-- Does not have hash tables or other map structures. --></p>
-/// <br/><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
-/// <p class="rosetta__paragraph">Using two Arrays of equal length, create a Hash object</p>
-/// <p class="rosetta__paragraph">where the elements from one array (the keys) are linked</p>
-/// <p class="rosetta__paragraph">to the elements of the other (the values)</p>
+/// <div class="rosetta">
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <p class="rosetta__paragraph">Using two Arrays of equal length, create a Hash object where the elements from one array (the keys) are linked to the elements of the other (the values)</p>
 /// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Related task:</dt></dl>
-/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"> <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Associative arrays/Creation" title="Associative arrays/Creation">Associative arrays/Creation</a></li></ul><br><br><br/></div>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered"> <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Associative arrays/Creation" title="Associative arrays/Creation">Associative arrays/Creation</a></li></ul>
+/// </div>
 
 /// challengeSeed:
 function arrToObj(keys, vals) {
   // Good luck!
-  return {};
+  return true;
 }
 
 /// solutions:
