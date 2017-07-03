@@ -1,0 +1,77 @@
+{
+  "site": "https://freecodecamp.github.io/arcade-mode",
+  "lives": false,
+  "timer": {
+    "default": "00:05"
+  },
+  "multiplier": 1.25,
+  "score": true,
+  "pass": true,
+
+  "options": {
+    "Mode": {
+      "default": "Arcade",
+      "showDescription": false,
+      "showDropdownMenu": false,
+      "options": {
+        "Practice": {
+          "lives": false, "timer": false, "score": false, "pass": false,
+          "description": "No constraints, free-form practice"
+        },
+        "Arcade": {
+          "description": "Test your abilities in time-limited environment"
+        }
+      }
+    },
+    "Difficulty": {
+      "default": "Medium",
+      "showDescription": false,
+      "showDropdownMenu": true,
+      "options": {
+        "Easy": {
+          "lives": 15,
+          "time": "15:00",
+          "description": "Most lives, most time"
+        },
+        "Medium": {
+          "lives": 10,
+          "time": "10:00",
+          "description": "Average lives and time"
+        },
+        "Hard": {
+          "lives": 5,
+          "time": "05:00",
+          "description": "Few lives, short in time. Life is short."
+        },
+        "Random": {
+          "description": "Random choice"
+        }
+      }
+    },
+    "Editor": {
+      "default": "Normal",
+      "showDescription": false,
+      "showDropdownMenu": false,
+      "options": {
+        "Normal": {
+          "description": "Black marker, no  highlighting"
+        },
+        "Whiteboard": {
+          "description": "Syntax highlight, line numbers and specific error reporting"
+        }
+      }
+    },
+    "Challenge": {
+      "default": "Rosetta",
+      "showDescription": false,
+      "showDropdownMenu": true,
+      "options": {
+        "Rosetta": {},
+        "Arcade": {},
+        "Algorithms": {},
+        "Data structures": {},
+        "Mixed": {}
+      }
+    }
+  }
+}
