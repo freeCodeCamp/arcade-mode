@@ -10,14 +10,14 @@ js/main.bundle.js
 js/sw.bundle.js
 js/ww.bundle.js
 js/wwBenchmark.bundle.js
-json/appconfig.json
+json/appConfig.json
 json/challenges-algorithms.json
 json/challenges-arcade.json
 json/challenges-combined.json
 json/challenges-data-structures.json
 json/challenges-rosetta.json
-font/Lato/Lato-Black.ttf
 font/Kalam/Kalam-Regular.ttf
+font/Lato/Lato-Black.ttf
 font/Roboto/Roboto-Bold.ttf
 font/Roboto/Roboto-Medium.ttf
 font/Roboto/Roboto-Regular.ttf
@@ -35,4 +35,4 @@ NETWORK:
 SETTINGS:
 prefer-online
 
-# hash: af3bcf5a4ad1051442eacb94d80e816fd42743c87dcbf9d6a9e9e8d72b627ecd
+# hash: 21807cfac432ff3b02f45171951f8422d391456af6991b396182d797e5d02291
