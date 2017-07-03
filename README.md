@@ -16,7 +16,8 @@ Arcade Mode has been undergoing heavy prototyping and iteration. As such, it is 
 
 ### Fork Maintenance:
 1. Set the upstream remote to the official arcade-mode repository: `git remote add upstream https://github.com/freeCodeCamp/arcade-mode.git`
-2. Update the fork with the upstream remote with: `git merge upstream master`.
+2. Update the fork locally by pulling from the upstream remote: `git pull upstream master`.
+3. Push the updates to your fork repository with `git push origin master`.
 
 
 ### Contributing:
