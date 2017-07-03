@@ -34,7 +34,6 @@ export default class ArcadeMode extends Component {
     this.onClickBenchmark = this.onClickBenchmark.bind(this);
     this.onClickShowHideProfile = this.onClickShowHideProfile.bind(this);
     this.onClickSaveSession = this.onClickSaveSession.bind(this);
-    // this.onUnload = this.onUnload.bind(this);
   }
 
   componentDidMount() {
@@ -48,25 +47,8 @@ export default class ArcadeMode extends Component {
 
     // Load stored user data
     this.props.loadUserData();
-    // window.addEventListener('beforeunload', this.onUnload);
-  }
-/*
-  componentWillUnmount() {
-    window.removeEventListener('beforeunload', this.onUnload);
   }
 
-  onUnload(event) {
-    console.log('onUnload called');
-    console.log('session status');
-    console.log(this.props.isSessionStarted);
-    if (this.props.isSessionStarted) {
-      event.returnValue = true;
-    }
-    else {
-      event.returnValue = false;
-    }
-  }
-*/
   onClickNextChallenge() {
     const startTime = new Date().getTime();
     const obj = {
@@ -74,14 +56,6 @@ export default class ArcadeMode extends Component {
       currChallenge: this.props.currChallenge
     };
     this.props.nextChallenge(obj);
-
-    // if no challenges completed, then allow for leaving freely:
-    if (this.props.challengesCompleted === 0) {
-      window.onbeforeunload = null;
-    }
-    else {
-      window.onbeforeunload = function () { return true; };
-    }
   }
 
   onClickRunTests() {
@@ -242,6 +216,7 @@ export default class ArcadeMode extends Component {
         );
       }
       if (passFailResult) {
+        window.onbeforeunload = function () { return true; }; // if passed, seek confirm
         return (
           <button className={'btn btn-info btn-block'} onClick={this.onClickNextChallenge}>Continue to next challenge!</button>
         );
