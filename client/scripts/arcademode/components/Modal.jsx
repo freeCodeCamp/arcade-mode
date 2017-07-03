@@ -49,10 +49,6 @@ const ArcadeModal = props => {
     { SelectChallenge: props.selectedChallenge }
   );
 
-  if (props.modal) {
-    window.onbeforeunload = null; // remove confirmation to leave on return to menu
-  }
-
   return (
     <Modal show={props.modal} onHide={props.onModalClose} animation={false} backdrop='static'>
       <Modal.Header>
