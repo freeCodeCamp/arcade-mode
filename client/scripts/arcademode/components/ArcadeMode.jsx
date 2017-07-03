@@ -34,6 +34,7 @@ export default class ArcadeMode extends Component {
     this.onClickBenchmark = this.onClickBenchmark.bind(this);
     this.onClickShowHideProfile = this.onClickShowHideProfile.bind(this);
     this.onClickSaveSession = this.onClickSaveSession.bind(this);
+    // this.onUnload = this.onUnload.bind(this);
   }
 
   componentDidMount() {
@@ -47,8 +48,25 @@ export default class ArcadeMode extends Component {
 
     // Load stored user data
     this.props.loadUserData();
+    // window.addEventListener('beforeunload', this.onUnload);
+  }
+/*
+  componentWillUnmount() {
+    window.removeEventListener('beforeunload', this.onUnload);
   }
 
+  onUnload(event) {
+    console.log('onUnload called');
+    console.log('session status');
+    console.log(this.props.isSessionStarted);
+    if (this.props.isSessionStarted) {
+      event.returnValue = true;
+    }
+    else {
+      event.returnValue = false;
+    }
+  }
+*/
   onClickNextChallenge() {
     const startTime = new Date().getTime();
     const obj = {
@@ -56,6 +74,14 @@ export default class ArcadeMode extends Component {
       currChallenge: this.props.currChallenge
     };
     this.props.nextChallenge(obj);
+
+    // if no challenges completed, then allow for leaving freely:
+    if (this.props.challengesCompleted === 0) {
+      window.onbeforeunload = null;
+    }
+    else {
+      window.onbeforeunload = function () { return true; };
+    }
   }
 
   onClickRunTests() {
@@ -70,6 +96,8 @@ export default class ArcadeMode extends Component {
     if (this.props.mode === 'Arcade') {
       this.props.startTimer(this.props.timerMaxValue);
     }
+
+    window.onbeforeunload = null; // no confirm to leave since starting new
   }
 
   onClickFinishSession() {
@@ -84,6 +112,8 @@ export default class ArcadeMode extends Component {
       this.props.saveSession();
       this.props.saveUserData(this.props.currSession);
     }
+
+    window.onbeforeunload = null; // on save, remove confirmation requirement to leave.
   }
 
   /* Inserts the solution for current challenge into the editor. */
@@ -107,6 +137,17 @@ export default class ArcadeMode extends Component {
   onCodeChange(newCode) {
     console.log('Emitting new code from <ArcadeMode>');
     this.props.onCodeChange(newCode);
+
+    console.log(this.props.challengesCompleted);
+
+    // if no changes made in editor and no challenges completed, leave page without prompt
+    if (this.props.code === this.props.currChallenge.toJS().challengeSeed.join('\n')
+       && this.props.challengesCompleted === 0) {
+      window.onbeforeunload = null;
+    }
+    else {
+      window.onbeforeunload = function () { return true; };
+    }
   }
 
   onTimerMaxValueChange(e) {
