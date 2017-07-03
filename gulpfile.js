@@ -62,7 +62,7 @@ const manifest = require('gulp-manifest');
 // =====================
 
 // Environmental variables
-// const isProduction = process.env.NODE_ENV === 'production';
+const isProduction = process.env.NODE_ENV === 'production';
 const isGitHubPages = process.env.DEST === 'github';
 
 let ghPages = '';
@@ -87,7 +87,7 @@ const paths = {
   fonts: ['client/fonts/**/*'], // font sources
   images: ['client/images/**/*'], // image sources
   jsons: { // json-related items
-    appConfig: ['client/jsons/appConfig.json'],
+    appConfig: ['client/jsons/appConfig.*'],
     fccInterviewSeed: ['client/jsons/seed/**/*'],
     js2jsonScript: ['bin/js2json_challenges.js']
   },
@@ -143,7 +143,10 @@ gulp.task('build-json', () => {
     .pipe(gulp.dest(`${ghPages}public/json`))
     .pipe(browserSync.reload({ stream: true }));
 
-  const s3 = gulp.src(paths.jsons.appConfig)
+  const appConfigFile = isProduction ? 'client/jsons/appConfig.production.json' : 'client/jsons/appConfig.devel.json';
+
+  const s3 = gulp.src(appConfigFile)
+    .pipe(rename('appConfig.json'))
     .pipe(gulp.dest(`${ghPages}public/json`))
     .pipe(browserSync.reload({ stream: true }));
 
@@ -353,10 +356,10 @@ gulp.task('watch', gulp.series('build', done => {
 }));
 
 gulp.task('watch-dev', gulp.series('build-dev', done => {
-  const jsonFiles = Object.keys(paths.jsons).map(item => paths.jsons[item]);
+  // const jsonFiles = Object.keys(paths.jsons).map(item => paths.jsons[item]);
   gulp.watch(paths.fonts, gulp.task('build-font'));
   gulp.watch(paths.images, gulp.task('build-img'));
-  gulp.watch(jsonFiles, gulp.task('build-json'));
+  gulp.watch([...Object.values(paths.jsons)], gulp.task('build-json'));
   gulp.watch(paths.challengesJs, gulp.task('build-js2json'));
   gulp.watch(paths.scripts, gulp.task('build-js-inc'));
   gulp.watch(paths.stylesheets, gulp.task('build-css'));
