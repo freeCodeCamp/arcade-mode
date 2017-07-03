@@ -24,17 +24,19 @@ print "remote: $remote, url: $url\n";
 
 my $branch = `git branch`;
 
-if ($branch !~ /\*\s+master/) {
+if ($branch =~ /\*\s+master/gs) {
+    print "Master branch detected.\n";
+}
+else {
     print "Not in master branch. Skipping tests.\n";
     exit 0;
 }
 
 print "Running unit tests for the push to master.\n";
-my $error = system("npm run test:client >& /dev/null");
+my $error = system("npm run test:client && >& /dev/null");
 if ($error == 0) {
     print "Tests OK. Proceeding to push.\n";
 }
 else {
-    print "Tests FAILED. Aborting push.\n";
+    die("Tests FAILED. Aborting push.\n");
 }
-exit $error;
