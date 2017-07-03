@@ -87,6 +87,7 @@ const paths = {
   fonts: ['client/fonts/**/*'], // font sources
   images: ['client/images/**/*'], // image sources
   jsons: { // json-related items
+    appConfig: ['client/jsons/appConfig.json'],
     fccInterviewSeed: ['client/jsons/seed/**/*'],
     js2jsonScript: ['bin/js2json_challenges.js']
   },
@@ -142,7 +143,11 @@ gulp.task('build-json', () => {
     .pipe(gulp.dest(`${ghPages}public/json`))
     .pipe(browserSync.reload({ stream: true }));
 
-  return merge(s1, s2);
+  const s3 = gulp.src(paths.jsons.appConfig)
+    .pipe(gulp.dest(`${ghPages}public/json`))
+    .pipe(browserSync.reload({ stream: true }));
+
+  return merge(s1, s2, s3);
 });
 
 // Builds the arcade-mode json from js challenge files
