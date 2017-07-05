@@ -1,12 +1,19 @@
 {
+  "comment": "JSON configuration file for the PRODUCTION version of Arcade Mode",
   "site": "https://freecodecamp.github.io/arcade-mode",
   "lives": false,
   "timer": {
-    "default": "00:05"
+    "default": "10:00"
   },
   "multiplier": 1.25,
   "score": true,
   "pass": true,
+
+  "production": true,
+  "development": false,
+  "benchmark": true,
+  "showProfile": false,
+  "selectChallenge": false,
 
   "options": {
     "Mode": {
