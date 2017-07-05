@@ -28,26 +28,7 @@ const ArcadeModal = props => {
 
   const optionDescrJsx = getOptionsDescription(options);
   const dropdownMenus = getDropdownMenus(props, options, callbacks, defaults);
-
-  const challengeNames = props.chosenChallenges.map(item =>
-    item.title);
-
-  const challengeNameObj = {};
-  challengeNames.sort().forEach(name => {
-    challengeNameObj[name] = {};
-  });
-  const challengeOptions = {
-    SelectChallenge: {
-      default: props.chosenChallenges[0].title,
-      showDropdownMenu: true,
-      options: challengeNameObj
-    }
-  };
-  const challengeSelectMenu = getDropdownMenus(
-    props, challengeOptions,
-    { SelectChallenge: props.onChallengeSelect },
-    { SelectChallenge: props.selectedChallenge }
-  );
+  const challengeSelectMenu = createChallengeSelectMenu(props);
 
   if (props.modal) {
     window.onbeforeunload = null; // remove confirmation to leave on return to menu
@@ -158,6 +139,33 @@ function getDropdownMenus(props, opts, callbacks, defaults) {
   return result;
 }
 
+function createChallengeSelectMenu(props) {
+  let challengeSelectMenu = null;
+
+  if (props.appConfig.get('selectChallenge')) {
+    const challengeNames = props.chosenChallenges.map(item =>
+      item.title);
+
+    const challengeNameObj = {};
+    challengeNames.sort().forEach(name => {
+      challengeNameObj[name] = {};
+    });
+    const challengeOptions = {
+      SelectChallenge: {
+        default: props.chosenChallenges[0].title,
+        showDropdownMenu: true,
+        options: challengeNameObj
+      }
+    };
+    challengeSelectMenu = getDropdownMenus(
+      props, challengeOptions,
+      { SelectChallenge: props.onChallengeSelect },
+      { SelectChallenge: props.selectedChallenge }
+    );
+  }
+  return challengeSelectMenu;
+}
+
 ArcadeModal.propTypes = {
   mode: PropTypes.string.isRequired,
   onChangeMode: PropTypes.func.isRequired,
@@ -172,7 +180,9 @@ ArcadeModal.propTypes = {
   appConfig: ImmutablePropTypes.map.isRequired,
   onChallengeSelect: PropTypes.func.isRequired,
   selectedChallenge: PropTypes.string.isRequired,
+  /* eslint-disable */
   chosenChallenges: PropTypes.array.isRequired
+  /* eslint-enable */
 };
 
 export default ArcadeModal;
