@@ -26,7 +26,7 @@ import Challenges from '../../../../public/json/challenges-combined.json';
 import ChallengesArcade from '../../../../public/json/challenges-arcade.json';
 import ChallengesRosetta from '../../../../public/json/challenges-rosetta.json';
 
-import appConfig from '../../../jsons/appconfig.json';
+import appConfig from '../../../../public/json/appconfig.json';
 
 const combinedChallenges = Object.keys(Challenges)
   .reduce((arr, key) => arr.concat(Challenges[key].challenges), []);

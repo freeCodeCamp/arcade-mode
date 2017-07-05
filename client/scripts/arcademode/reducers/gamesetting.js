@@ -9,7 +9,7 @@ import {
   GAME_EDITOR_CHANGE
 } from '../actions/gamesetting';
 
-import appConfig from '../../../jsons/appconfig.json';
+import appConfig from '../../../../public/json/appconfig.json';
 
 const initialState = Immutable.Map({
   mode: appConfig.options.Mode.default,

@@ -16,17 +16,11 @@ import {
   GAME_DIFFICULTY_CHANGE
 } from '../actions/gamesetting';
 
-/*
-import {
-  PLAYER_PASSED
-} from '../actions/playerstatus';
-*/
-
 import {
   MODAL_OPEN
 } from '../actions/modal';
 
-import appConfig from '../../../jsons/appconfig.json';
+import appConfig from '../../../../public/json/appconfig.json';
 
 const difficultyOptions = appConfig.options.Difficulty.options;
 

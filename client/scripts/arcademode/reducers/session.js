@@ -13,7 +13,7 @@ import { PLAYER_PASSED } from '../actions/playerstatus';
 
 import { MODAL_OPEN } from '../actions/modal';
 
-import appConfig from '../../../jsons/appconfig.json';
+import appConfig from '../../../../public/json/appconfig.json';
 
 const getScoreForChallenge = currChallenge => {
   if (currChallenge.get('difficulty')) {

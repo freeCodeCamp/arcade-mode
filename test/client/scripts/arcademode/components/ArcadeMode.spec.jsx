@@ -18,7 +18,7 @@ import Editor from '../../../../../client/scripts/arcademode/components/Editor';
 
 import Challenges from '../../../../../public/json/challenges-algorithms.json';
 
-import appConfig from '../../../../../client/jsons/appconfig.json';
+import appConfig from '../../../../../public/json/appconfig.json';
 
 chai.use(chaiEnzyme());
 

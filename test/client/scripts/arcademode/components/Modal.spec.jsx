@@ -8,7 +8,7 @@ import chai, { expect } from 'chai';
 import { Modal, Form, FormControl, Button } from 'react-bootstrap';
 
 import ArcadeModal from '../../../../../client/scripts/arcademode/components/Modal';
-import appConfig from '../../../../../client/jsons/appconfig.json';
+import appConfig from '../../../../../public/json/appconfig.json';
 
 chai.use(chaiEnzyme());
 

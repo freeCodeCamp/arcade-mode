@@ -15,7 +15,7 @@ import { CHALLENGE_START } from '../actions/challenge';
 import { GAME_DIFFICULTY_CHANGE } from '../actions/gamesetting';
 import { MODAL_OPEN } from '../actions/modal';
 
-import appConfig from '../../../jsons/appconfig.json';
+import appConfig from '../../../../public/json/appconfig.json';
 
 const timerDefaultValue = toMs(appConfig.timer.default);
 
