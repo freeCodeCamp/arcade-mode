@@ -95,7 +95,7 @@ const paths = {
   scripts: ['client/scripts/**/*'],
   stylesheets: ['client/stylesheets/**/*'],
   vendor: {
-    scripts: ['client/scripts/vendor/**/*'], // browserify currently imports loop-protect
+    scripts: ['client/scripts/vendor/MathJax.min.js'], // browserify currently imports loop-protect
     stylesheets: ['client/stylesheets/vendor/**/*.css']
   },
   views: ['server/views/*.pug'] // generated for static sites
@@ -183,7 +183,7 @@ gulp.task('build-js', () => {
   console.log('gulpfile.js: build-js: build-dev - includes build-js-inc.');
   console.log('gulpfile.js: build-js: watch-dev - includes build-dev; watches for changes.');
   console.log('gulpfile.js: build-js: watch-sync - includes build-dev; watches for changes and hot reloads with browserSync at port 3000. TODO: fix this task. Currently buggy in that it only hot reloads automatically some of the time and at other times require a complete restart of the gulp task.');
-  return merge(...paths.entry.scripts.map(script =>
+  const s1 = merge(...paths.entry.scripts.map(script =>
     browserify({
       entries: script,
       extensions: ['.jsx'],
@@ -209,6 +209,13 @@ gulp.task('build-js', () => {
       .pipe(isGitHubPages ? gulpif('*sw.bundle.js', gulp.dest(ghPages)) : gutil.noop())
       .pipe(browserSync.reload({ stream: true }))
   ));
+
+  // pass through vendor files
+  const s2 = gulp.src(paths.vendor.scripts)
+    .pipe(gulp.dest(`${ghPages}public/js`))
+    .pipe(browserSync.reload({ stream: true }));
+
+  return merge(s1, s2);
 });
 
 gulp.task('build-css', () => {
@@ -271,8 +278,8 @@ function handleErrors(...errorArgs) {
 }
 
 // Incrementally building the js
-gulp.task('build-js-inc', () =>
-  merge(...paths.entry.scripts.map(script => {
+gulp.task('build-js-inc', () => {
+  const s1 = merge(...paths.entry.scripts.map(script => {
     const b = browserify(Object.assign({}, browserifyInc.args,
       {
         entries: script,
@@ -294,8 +301,15 @@ gulp.task('build-js-inc', () =>
         }))
         .pipe(gulp.dest('public/js'))
         .pipe(browserSync.reload({ stream: true }));
-  }))
-);
+  }));
+
+  // pass through vendor files
+  const s2 = gulp.src(paths.vendor.scripts)
+    .pipe(gulp.dest(`${ghPages}public/js`))
+    .pipe(browserSync.reload({ stream: true }));
+
+  return merge(s1, s2);
+});
 
 gulp.task('build-appcache-dev', () =>
   gulp.src('public/**/*', { base: 'public' })
