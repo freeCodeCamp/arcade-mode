@@ -87,7 +87,7 @@ const paths = {
   fonts: ['client/fonts/**/*'], // font sources
   images: ['client/images/**/*'], // image sources
   jsons: { // json-related items
-    appConfig: ['client/jsons/appConfig.*'],
+    appConfig: ['client/jsons/appconfig.*'],
     fccInterviewSeed: ['client/jsons/seed/**/*'],
     js2jsonScript: ['bin/js2json_challenges.js']
   },
@@ -143,10 +143,10 @@ gulp.task('build-json', () => {
     .pipe(gulp.dest(`${ghPages}public/json`))
     .pipe(browserSync.reload({ stream: true }));
 
-  const appConfigFile = isProduction ? 'client/jsons/appConfig.production.json' : 'client/jsons/appConfig.devel.json';
+  const appConfigFile = isProduction ? 'client/jsons/appconfig.production.json' : 'client/jsons/appconfig.devel.json';
 
   const s3 = gulp.src(appConfigFile)
-    .pipe(rename('appConfig.json'))
+    .pipe(rename('appconfig.json'))
     .pipe(gulp.dest(`${ghPages}public/json`))
     .pipe(browserSync.reload({ stream: true }));
 
