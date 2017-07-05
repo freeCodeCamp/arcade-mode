@@ -25,6 +25,7 @@
     "public/img/favicon.ico"
   ],
   "js": [
+    "public/js/MathJax.min.js",
     "public/js/index.bundle.js",
     "public/js/main.bundle.js",
     "public/js/sw.bundle.js",
@@ -32,7 +33,7 @@
     "public/js/wwBenchmark.bundle.js"
   ],
   "json": [
-    "public/json/appconfig.json",
+    "public/json/appConfig.json",
     "public/json/challenges-algorithms.json",
     "public/json/challenges-arcade.json",
     "public/json/challenges-combined.json",
