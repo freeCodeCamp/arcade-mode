@@ -1,13 +1,13 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import ImmutablePropTypes from 'react-immutable-proptypes';
 
 import {
   ShareButtons,
   generateShareIcon
 } from 'react-share';
 
-import appConfig from '../../../jsons/appconfig.json';
 
 const {
   FacebookShareButton,
@@ -27,7 +27,7 @@ const SocialMediaLinks = props => {
         <FacebookShareButton
           title='ArcadeMode'
           description={shareDescr}
-          url={appConfig.site}
+          url={props.appConfig.get('site')}
         >
           <FacebookIcon size={32} round />
         </FacebookShareButton>
@@ -36,7 +36,7 @@ const SocialMediaLinks = props => {
         <TwitterShareButton
           title={shareDescr}
           hashtags={['freeCodeCamp']}
-          url={appConfig.site}
+          url={props.appConfig.get('site')}
         >
           <TwitterIcon
             size={32}
@@ -49,6 +49,7 @@ const SocialMediaLinks = props => {
 };
 
 SocialMediaLinks.propTypes = {
+  appConfig: ImmutablePropTypes.map.isRequired,
   score: PropTypes.number.isRequired
 };
 

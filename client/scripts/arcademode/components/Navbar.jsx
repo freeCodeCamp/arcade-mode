@@ -3,15 +3,14 @@
 
 import React from 'react';
 import { Navbar } from 'react-bootstrap';
+import ImmutablePropTypes from 'react-immutable-proptypes';
 
 import browser from 'detect-browser';
 
 import AMLogo from './AMLogo';
 
-import appConfig from '../../../jsons/appconfig.json';
-
 /* Component at the top of page showing freeCodeCamp next and timer value. */
-const ArcadeNavbar = () => (
+const ArcadeNavbar = props => (
   <Navbar fluid className='am__navbar'>
     <Navbar.Header>
       <Navbar.Brand>
@@ -27,7 +26,7 @@ const ArcadeNavbar = () => (
       <AMLogo />
     }
     { browser.name === 'firefox' &&
-      <a href={appConfig.site} className='am__am__link'>
+      <a href={props.appConfig.site} className='am__am__link'>
         <div className='am__am__logo--ff'>
           <canvas className='am__am__canvas' height='50' width='220'>ARCADE MODE</canvas>
           <svg className='am__am__svg'>
@@ -40,5 +39,9 @@ const ArcadeNavbar = () => (
     }
   </Navbar>
 );
+
+ArcadeNavbar.propTypes = {
+  appConfig: ImmutablePropTypes.map.isRequired
+};
 
 export default ArcadeNavbar;

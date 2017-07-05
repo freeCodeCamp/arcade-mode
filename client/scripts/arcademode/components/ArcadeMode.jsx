@@ -190,7 +190,12 @@ export default class ArcadeMode extends Component {
             <button className='btn btn-success' onClick={this.onClickSaveSession}>Save</button>
           }
 
-          {useSocialMediaLinks && <SocialMediaLinks score={this.props.sessionScore} />}
+          {useSocialMediaLinks &&
+            <SocialMediaLinks
+              appConfig={this.props.appConfig}
+              score={this.props.sessionScore}
+            />
+          }
 
 
         </div>
@@ -249,7 +254,7 @@ export default class ArcadeMode extends Component {
           onChallengeSelect={this.props.onChallengeSelect}
           chosenChallenges={this.props.chosenChallenges}
         />
-        <Navbar />
+        <Navbar appConfig={this.props.appConfig} />
 
 
         <Grid fluid>
