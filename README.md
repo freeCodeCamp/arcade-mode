@@ -33,4 +33,4 @@ For a more complete guide, see CONTRIBUTING.md.
 
 > I'm receiving `package not found` errors on `npm install`. How can I fix this?
 
-Try removing the `node_modules` directory, then `npm install` again.
+Try removing the `node_modules` directory, then `npm install` again. If this does not work, remove both `node_modules` and `package-lock.json` and try `npm install` again.
