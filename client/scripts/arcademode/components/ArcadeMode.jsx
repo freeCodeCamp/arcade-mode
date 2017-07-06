@@ -231,6 +231,10 @@ export default class ArcadeMode extends Component {
   }
 
   render() {
+    if (this.props.modal) {
+      window.onbeforeunload = null; // remove confirmation to leave on return to menu
+    }
+
     const statusBar = this.renderStatusbar();
     const editorBody = this.renderEditor();
     const passFailResult = this.processTestResults();
