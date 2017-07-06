@@ -33,7 +33,7 @@
     "public/js/wwBenchmark.bundle.js"
   ],
   "json": [
-    "public/json/appConfig.json",
+    "public/json/appconfig.json",
     "public/json/challenges-algorithms.json",
     "public/json/challenges-arcade.json",
     "public/json/challenges-combined.json",
