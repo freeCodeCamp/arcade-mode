@@ -16,8 +16,9 @@ const CURRENT_CACHES = {
   css: `css-cache-v${CACHE_VERSION}`,
   html: `html-cache-v${CACHE_VERSION}`,
   img: `img-cache-v${CACHE_VERSION}`,
-  js: `js-cache-v${CACHE_VERSION}`
-  // json: `json-cache-v${CACHE_VERSION}` // this should be in indexedDB.
+  js: `js-cache-v${CACHE_VERSION}`,
+  json: `json-cache-v${CACHE_VERSION}` // appconfig.json
+  // everything else should be in indexedDB.
   // Currently appcache has everything stored in it, including json.
   // Shouldn't be a problem to move everything to IDB being that it has incredibly high compatibility (~94%).
   // Need to move all non-structural files to be stored in and accessed from IDB.
@@ -71,6 +72,9 @@ self.addEventListener('fetch', event => {
       break;
     case 'js':
       requestType = 'js';
+      break;
+    case 'json':
+      requestType = 'json';
       break;
     default:
       requestType = 'not found';
