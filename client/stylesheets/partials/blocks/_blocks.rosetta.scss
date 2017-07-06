@@ -34,6 +34,9 @@
       display: inline-block;
       text-indent: 1em;
     }
+    &--centered {
+      text-align: center;
+    }
   }
 
   &__unordered-list {
@@ -64,4 +67,34 @@
     overflow-x: auto;
     max-width: 100%;
   }
+
+  &__wikitable {
+    margin: auto;
+    background: #f9f9f9;
+    border: 1px solid #aaa;
+    border-collapse: collapse;
+  }
+}
+
+// table headers
+table.rosetta__wikitable > tr > th,
+table.rosetta__wikitable > * > tr > th {
+  background-color: #f2f2f2;
+  text-align: center;
+}
+
+
+// Inner elements
+table.rosetta__wikitable > tr > th,
+table.rosetta__wikitable > * > tr > th {
+  bakground-color: #f2f2f2;
+  text-align: center;
+}
+
+table.rosetta__wikitable > tr > th,
+table.rosetta__wikitable > tr > td,
+table.rosetta__wikitable > * > tr > th,
+table.rosetta__wikitable > * > tr > td {
+  border: 1px solid #aaa;
+  padding: 0.2em 0.4em;
 }
