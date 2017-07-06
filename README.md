@@ -31,5 +31,6 @@ For a more complete guide, see CONTRIBUTING.md.
 
 ## FAQ:
 
-Q. I'm receiving `package not found` errors on `npm install`. How can I fix this?
-A. Try removing the `node_modules` directory, then `npm install` again.
+> I'm receiving `package not found` errors on `npm install`. How can I fix this?
+
+Try removing the `node_modules` directory, then `npm install` again.
