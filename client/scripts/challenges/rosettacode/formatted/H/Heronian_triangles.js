@@ -27,10 +27,7 @@ const assert = require('chai').assert;
 /// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
 /// <ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered">Create a named function/method/procedure/... that implements Hero's formula.</li>
 /// <li class="rosetta__list-item--ordered">Use the function to generate all the <span class="rosetta__text--italic">primitive</span> Heronian triangles with sides <= 200.</li>
-/// <li class="rosetta__list-item--ordered">Show the count of how many triangles are found.</li>
-/// <li class="rosetta__list-item--ordered">Order the triangles by first increasing area, then by increasing perimeter, then by increasing maximum side lengths</li>
 /// <li class="rosetta__list-item--ordered">Show the first ten ordered triangles in a table of sides, perimeter, and area.</li>
-/// <li class="rosetta__list-item--ordered">Show a similar ordered table for those triangles with area = 210</li></ol>
 /// <br>
 /// <p class="rosetta__paragraph">Show all output here.</p><br/><p class="rosetta__paragraph"><small><span class="rosetta__text--bold">Note</span>: when generating triangles it may help to restrict</small> $a <= b <= c$</p>
 /// <br/></div>
@@ -43,13 +40,7 @@ function heronianTriangle () {
     this.perimeter = perimeter;
     this.area = area;
   }
-  const firstTen = [Triangle];
-  const area210 = [Triangle];
-  const result = {
-    task3: 0,
-    task5: firstTen,
-    task6: area210
-  };
+  const result = [Triangle];
   // Change after this code
   // Good luck!
 
@@ -65,13 +56,8 @@ function heronianTriangle() {
     this.perimeter = perimeter;
     this.area = area;
   }
-  const firstTen = [Triangle];
-  const area210 = [Triangle];
-  const result = {
-    task3: 0,
-    task5: firstTen,
-    task6: area210
-  };
+  const result = [Triangle];
+
 
   let j = 0;
   for (let c = 1; c <= 200; c++) {
@@ -86,19 +72,11 @@ function heronianTriangle() {
 
   sort(list);
 
-  result.task3 = list.length;
-
   for (let i = 0; i < 10; i++) {
-    firstTen[i] = new Triangle([list[i][0], list[i][1], list[i][2]], list[i][3], list[i][4]);
+    result[i] = new Triangle([list[i][0], list[i][1], list[i][2]], list[i][3], list[i][4]);
   }
-  result.task5 = firstTen;
 
-  for (let i = 0, count = 0; i < list.length; i++) {
-    if (list[i][4] === 210) {
-      area210[count++] = new Triangle([list[i][0], list[i][1], list[i][2]], list[i][3], list[i][4]);
-    }
-  }
-  result.task6 = area210;
+  return result;
 
   function heronArea(a, b, c) {
     const s = (a + b + c) / 2;
@@ -136,8 +114,6 @@ function heronianTriangle() {
       }
     }
   }
-
-  return result;
 }
 
 /// tail:
@@ -147,33 +123,20 @@ function Triangle(sides = [], perimeter = 0, area = 0) {
   this.area = area;
 }
 
-const res = {
-  task3: 517,
-  task5: [
-    new Triangle([3, 4, 5], 12, 6),
-    new Triangle([5, 5, 6], 16, 12),
-    new Triangle([5, 5, 8], 18, 12),
-    new Triangle([4, 13, 15], 32, 24),
-    new Triangle([5, 12, 13], 30, 30),
-    new Triangle([9, 10, 17], 36, 36),
-    new Triangle([3, 25, 26], 54, 36),
-    new Triangle([7, 15, 20], 42, 42),
-    new Triangle([10, 13, 13], 36, 60),
-    new Triangle([8, 15, 17], 40, 60)
-  ],
-  task6: [
-    new Triangle([17, 25, 28], 70, 210),
-    new Triangle([20, 21, 29], 70, 210),
-    new Triangle([12, 35, 37], 84, 210),
-    new Triangle([17, 28, 39], 84, 210),
-    new Triangle([7, 65, 68], 140, 210),
-    new Triangle([3, 148, 149], 300, 210)
-  ]
-};
+const res = [
+  new Triangle([3, 4, 5], 12, 6),
+  new Triangle([5, 5, 6], 16, 12),
+  new Triangle([5, 5, 8], 18, 12),
+  new Triangle([4, 13, 15], 32, 24),
+  new Triangle([5, 12, 13], 30, 30),
+  new Triangle([9, 10, 17], 36, 36),
+  new Triangle([3, 25, 26], 54, 36),
+  new Triangle([7, 15, 20], 42, 42),
+  new Triangle([10, 13, 13], 36, 60),
+  new Triangle([8, 15, 17], 40, 60)
+];
 
 /// tests:
 assert(typeof heronianTriangle === 'function', 'message: <code>heronianTriangle</code> is a function.');
-assert.equal(heronianTriangle().task3, res.task3, 'message: <code>heronianTriangle()</code> should return <code>517</code>');
-assert.deepEqual(heronianTriangle().task5, res.task5, 'message: <code>heronianTriangle()</code> should return <code>[{[3, 4, 5], 12, 6},{[5, 5, 6], 16, 12},{[5, 5, 8], 18, 12},{[4, 13, 15], 32, 24},{[5, 12, 13], 30, 30},{[9, 10, 17], 36, 36},{[3, 25, 26], 54, 36},{[7, 15, 20], 42, 42},{[10, 13, 13], 36, 60},{[8, 15, 17], 40, 6})]</code>');
-assert.deepEqual(heronianTriangle().task6, res.task6, 'message: <code>heronianTriangle()</code> should return <code>[{  sides: [17, 25, 28],   perimeter: 70,  area: 210},{  sides: [20, 21, 29],  perimeter: 70,  area: 210},{  sides: [12, 35, 37],  perimeter: 84,  area: 210},{  sides: [17, 28, 39],  perimeter: 84,  area: 210},{  sides: [7, 65, 68],  perimeter: 140,  area: 210},{  sides: [3, 148, 149],  perimeter: 300,  area: 210}]</code>');
+assert.deepEqual(heronianTriangle(), res, 'message: <code>heronianTriangle()</code> should return <code>[{[3, 4, 5], 12, 6},{[5, 5, 6], 16, 12},{[5, 5, 8], 18, 12},{[4, 13, 15], 32, 24},{[5, 12, 13], 30, 30},{[9, 10, 17], 36, 36},{[3, 25, 26], 54, 36},{[7, 15, 20], 42, 42},{[10, 13, 13], 36, 60},{[8, 15, 17], 40, 6})]</code>');
 /// id: 595b98f8b5a2245e243aa831
