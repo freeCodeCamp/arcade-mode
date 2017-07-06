@@ -16,12 +16,12 @@ const assert = require('chai').assert;
 
 /// description:
 /// <div class="rosetta">
-/// <p class="rosetta__paragraph">Given a mapping between items, and items they depend on, a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Topological sorting" title="wp: Topological sorting">topological sort</a> orders items so that no item precedes an item it depends upon.</p><br/><p class="rosetta__paragraph">The compiling of a library in the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/VHDL" title="wp: VHDL">VHDL</a> language has the constraint that a library must be compiled after any library it depends on.</p><br/><p class="rosetta__paragraph">A tool exists that extracts library dependencies.</p>
-/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task;</dt></dl>
+/// <p class="rosetta__paragraph">Given a mapping between items, and items they depend on, a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Topological sorting" title="wp: Topological sorting">topological sort</a> orders items so that no item precedes an item it depends upon.</p><br/><p class="rosetta__paragraph">The compiling of a library in the <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/VHDL" title="wp: VHDL">VHDL</a> language has the constraint that a library must be compiled after any library it depends on.</p>
+/// <br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
 /// <p class="rosetta__paragraph">Write a function that will return a valid compile order of VHDL libraries from their dependencies.</p><br/><ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Assume library names are single words. </li>
-/// <li class="rosetta__list-item--unordered">Items mentioned as only dependents, (sic), have no dependents of their own, but their order of compiling must be given.</li>
+/// <li class="rosetta__list-item--unordered">Items mentioned as only dependents have no dependents of their own, but their order of compiling must be given.</li>
 /// <li class="rosetta__list-item--unordered">Any self dependencies should be ignored. </li>
-/// <li class="rosetta__list-item--unordered">Any un-orderable dependencies should be flagged.</li></ul>
+/// <li class="rosetta__list-item--unordered">Any un-orderable dependencies should be ignored.</li></ul>
 /// <br>
 /// <p class="rosetta__paragraph">Use the following data as an example:</p>
 /// <div class="rosetta__pre-wrap"><pre class="rosetta__pre">
@@ -48,7 +48,7 @@ const assert = require('chai').assert;
 /// <p class="rosetta__paragraph">There are two popular algorithms for topological sorting:</p>
 /// <p class="rosetta__paragraph">Kahn's 1962 topological sort, and depth-first search.</p>
 /// <p class="rosetta__paragraph"><ref></p>
-/// <p class="rosetta__paragraph">[[wp: topological sorting]]</p>
+/// <p class="rosetta__paragraph"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Topological sorting" title="wp: Topological sorting">topological sort</a></p>
 /// </ref><ref>
 /// <p class="rosetta__paragraph">Jason Sachs</p>
 /// <p class="rosetta__paragraph"><a class="rosetta__link--wiki" href="http://www.embeddedrelated.com/showarticle/799.php" title="link: http://www.embeddedrelated.com/showarticle/799.php">"Ten little algorithms, part 4: topological sort"</a>.</p>
@@ -141,9 +141,19 @@ const libsCustom =
   base`;
 const solutionCustom = ['base', 'c', 'd', 'b', 'a'];
 
+const libsUnorderable =
+  `TestLib Base MainLib
+  MainLib TestLib
+  Base`;
+
+const solutionUnorderable = ['Base'];
+
+console.log(JSON.stringify(topologicalSort(unorderable)));
+
 /// tests:
 assert(typeof topologicalSort === 'function', 'message: <code>topologicalSort</code> is a function.');
 assert.deepEqual(topologicalSort(libsSimple), ['bbb', 'aaa'], 'message: <code>topologicalSort</code> must return correct library order..');
 assert.deepEqual(topologicalSort(libsVHDL), solutionVHDL, 'message: <code>topologicalSort</code> must return correct library order..');
 assert.deepEqual(topologicalSort(libsCustom), solutionCustom, 'message: <code>topologicalSort</code> must return correct library order..');
+assert.deepEqual(topologicalSort(libsUnorderable), solutionUnorderable, 'message: <code>topologicalSort</code> must ignore unorderable dependencies..');
 /// id: 594fa2746886f41f7d8bf225
