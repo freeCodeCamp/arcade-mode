@@ -53,6 +53,7 @@ import { shallow } from 'enzyme';
 
 import chaiEnzyme from 'chai-enzyme';
 import chai, { expect } from 'chai';
+import Immutable from 'immutable';
 
 import { Navbar } from 'react-bootstrap';
 
@@ -66,7 +67,8 @@ const props = {
   sessionScore: 0,
   timeLeft: timerDefaultValue,
   timerMaxValue: timerDefaultValue.toString(),
-  onTimerMaxValueChange: () => {}
+  onTimerMaxValueChange: () => {},
+  appConfig: Immutable.Map()
 };
 
 
