@@ -23,10 +23,10 @@ const ArcadeNavbar = props => (
       </Navbar.Brand>
     </Navbar.Header>
     { browser.name !== 'firefox' &&
-      <AMLogo />
+      <AMLogo site={props.appConfig.toJS().site} />
     }
     { browser.name === 'firefox' &&
-      <a href={props.appConfig.site} className='am__am__link'>
+      <a className='am__am__link' href={props.appConfig.toJS().site} >
         <div className='am__am__logo--ff'>
           <canvas className='am__am__canvas' height='50' width='220'>ARCADE MODE</canvas>
           <svg className='am__am__svg'>

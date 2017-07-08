@@ -357,7 +357,9 @@ ArcadeMode.propTypes = {
   onChangeChallengeType: PropTypes.func.isRequired,
   onChallengeSelect: PropTypes.func.isRequired,
   selectedChallenge: PropTypes.string.isRequired,
+  /* eslint-disable */
   chosenChallenges: PropTypes.array.isRequired,
+  /* eslint-enable */
 
   // session
   currSession: ImmutablePropTypes.map.isRequired,

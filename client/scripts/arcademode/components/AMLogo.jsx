@@ -2,9 +2,10 @@
 'use strict';
 
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const AMLogo = () => (
-  <a href='//freecodecamp.github.io/arcade-mode' className='am__am__link'>
+const AMLogo = props => (
+  <a href={props.site} className='am__am__link'>
     <div className='am__am__logo'>
       <canvas className='am__am__canvas'>ARCADE MODE</canvas>
       <svg className='am__am__svg' xmlns='http://www.w3.org/2000/svg' height='0.11364' width='1'>
@@ -125,5 +126,9 @@ const AMLogo = () => (
     </div>
   </a>
 );
+
+AMLogo.propTypes = {
+  site: PropTypes.string.isRequired
+};
 
 export default AMLogo;
