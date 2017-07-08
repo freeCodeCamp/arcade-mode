@@ -14,6 +14,11 @@ const assert = require('chai').assert;
 /// difficulty: 3
 
 /// benchmark:
+<<<<<<< HEAD
+=======
+const bench1 = [{ name: 'u2v7v', num: 1 }, { name: 'n53c8', num: 10 }, { name: 'oysce', num: 9 }, { name: '0mto2s', num: 1 }, { name: 'vkh5id', num: 4 }, { name: '5od0cf', num: 8 }, { name: 'uuulue', num: 10 }, { name: '3rgsbi', num: 9 }, { name: 'kccv35r', num: 4 }, { name: '80un74', num: 9 }, { name: 'h4pp3', num: 6 }, { name: '51bit', num: 7 }, { name: 'j9ndf', num: 8 }, { name: 'vf3u1', num: 10 }, { name: 'g0bw0om', num: 10 }, { name: 'j031x', num: 7 }, { name: 'ij3asc', num: 9 }, { name: 'byv83y', num: 8 }, { name: 'bjzp4k', num: 4 }, { name: 'f3kbnm', num: 10 }];
+const bench2 = [{ friend: 'o8b', num: 8 }, { friend: 'ye', num: 2 }, { friend: '32i', num: 5 }, { friend: 'uz', num: 3 }, { friend: 'a5k', num: 4 }, { friend: 'uad', num: 7 }, { friend: '3w5', num: 10 }, { friend: 'vw', num: 10 }, { friend: 'ah', num: 4 }, { friend: 'qv', num: 7 }, { friend: 'ozv', num: 2 }, { friend: '9ri', num: 10 }, { friend: '7nu', num: 4 }, { friend: 'w3', num: 9 }, { friend: 'tgp', num: 8 }, { friend: 'ibs', num: 1 }, { friend: 'ss7', num: 6 }, { friend: 'g44', num: 9 }, { friend: 'tab', num: 9 }, { friend: 'zem', num: 10 }];
+>>>>>>> 425953f54404022c6fa971150ac81613d09c758c
 hashJoin(bench1, bench2);
 
 /// description:
@@ -21,6 +26,7 @@ hashJoin(bench1, bench2);
 /// <br/>
 /// <p class="rosetta__paragraph">Implement the "hash join" algorithm, and demonstrate that it passes the test-case listed below.</p><br/><p class="rosetta__paragraph">You should represent the tables as data structures that feel natural in your programming language.</p>
 /// <br/>
+<<<<<<< HEAD
 /// <p class="rosetta__paragraph">The "hash join" algorithm consists of two steps:</p><br/>
 /// <ol class="rosetta__ordered-list">
 /// <li class="rosetta__list-item--ordered"><span class="rosetta__text--bold">Hash phase:</span> Create a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Multimap" title="wp: Multimap">multimap</a> from one of the two tables, mapping from each join column value to all the rows that contain it.<br></li>
@@ -49,6 +55,27 @@ hashJoin(bench1, bench2);
 /// <div id="Test-case" style="margin:20px 0 10px 0; line-height:1.1; font-size:16.5px; font-weight:bold">Test-case</div>
 /// <p class="rosetta__paragraph rosetta__text--centered rosetta__text--bold">Input</p>
 /// <table class="rosetta__wikitable">
+=======
+/// <p class="rosetta__paragraph">The "hash join" algorithm consists of two steps:</p><br/><ol class="rosetta__ordered-list"><li class="rosetta__list-item--ordered"><span class="rosetta__text--bold">Hash phase:</span> Create a <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Multimap" title="wp: Multimap">multimap</a> from one of the two tables, mapping from each join column value to all the rows that contain it.<br></li>
+/// <li class="rosetta__list-item--ordered">* The multimap must support hash-based lookup which scales better than a simple linear search, because that's the whole point of this algorithm.</li>
+/// <li class="rosetta__list-item--ordered">* Ideally we should create the multimap for the <span class="rosetta__text--italic">smaller</span> table, thus minimizing its creation time and memory size.</li>
+/// <li class="rosetta__list-item--ordered"><span class="rosetta__text--bold">Join phase:</span> Scan the other table, and find matching rows by looking in the multimap created before.</li></ol>
+/// <br>
+/// <p class="rosetta__paragraph">In pseudo-code, the algorithm could be expressed as follows:</p><br/><p class="rosetta__paragraph"><span class="rosetta__text--bold">let</span> <span class="rosetta__text--italic">A</span> = the first input table (or ideally, the larger one)</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">let</span> <span class="rosetta__text--italic">B</span> = the second input table (or ideally, the smaller one)</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">let</span> <span class="rosetta__text--italic">j<sub>A</sub></span> = the join column ID of table <span class="rosetta__text--italic">A</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">let</span> <span class="rosetta__text--italic">j<sub>B</sub></span> = the join column ID of table <span class="rosetta__text--italic">B</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">let</span> <span class="rosetta__text--italic">M<sub>B</sub></span> = a multimap for mapping from single values to multiple rows of table <span class="rosetta__text--italic">B</span> (starts out empty)</p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">let</span> <span class="rosetta__text--italic">C</span> = the output table (starts out empty)</p><br/><p class="rosetta__paragraph"><span class="rosetta__text--bold">for each</span> row <span class="rosetta__text--italic">b</span> <span class="rosetta__text--bold">in</span> table <span class="rosetta__text--italic">B<span class="rosetta__text--bold"></span>:</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">place</span> <span class="rosetta__text--italic">b</span> <span class="rosetta__text--bold">in</span> multimap <span class="rosetta__text--italic">M<sub>B</sub></span> under key <span class="rosetta__text--italic">b</span>(<span class="rosetta__text--italic">j<sub>B</sub></span>)</p><br/><p class="rosetta__paragraph"><span class="rosetta__text--bold">for each</span> row <span class="rosetta__text--italic">a</span> <span class="rosetta__text--bold">in</span> table <span class="rosetta__text--italic">A<span class="rosetta__text--bold"></span>:</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">for each</span> row <span class="rosetta__text--italic">b</span> <span class="rosetta__text--bold">in</span> multimap <span class="rosetta__text--italic">M<sub>B</sub></span> under key <span class="rosetta__text--italic">a</span>(<span class="rosetta__text--italic">j<sub>A</sub></span>)<span class="rosetta__text--bold">:</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">let</span> <span class="rosetta__text--italic">c</span> = the concatenation of row <span class="rosetta__text--italic">a</span> and row <span class="rosetta__text--italic">b</span></p>
+/// <p class="rosetta__paragraph"><span class="rosetta__text--bold">place</span> row <span class="rosetta__text--italic">c</span> in table <span class="rosetta__text--italic">C</span></p>
+/// <br/>
+/// <div id="Test-case" style="margin:20px 0 10px 0; line-height:1.1; font-size:16.5px; font-weight:bold">Test-case</div>
+/// <p class="rosetta__paragraph">Input</p>
+/// <table class="wikitable">
+>>>>>>> 425953f54404022c6fa971150ac81613d09c758c
 /// <tr>
 /// <td style="padding: 4px; margin: 5px;">
 /// <table style="border:none; border-collapse:collapse;">
@@ -56,7 +83,11 @@ hashJoin(bench1, bench2);
 /// <td style="border:none"> <i>A =</i>
 /// </td>
 /// <td style="border:none">
+<<<<<<< HEAD
 /// <table class="rosetta__wikitable">
+=======
+/// <table class="wikitable">
+>>>>>>> 425953f54404022c6fa971150ac81613d09c758c
 /// <tr>
 /// <th style="padding: 4px; margin: 5px;"> Age </th>
 /// <th style="padding: 4px; margin: 5px;"> Name
@@ -87,7 +118,11 @@ hashJoin(bench1, bench2);
 /// <td style="border:none"> <i>B =</i>
 /// </td>
 /// <td style="border:none">
+<<<<<<< HEAD
 /// <table class="rosetta__wikitable">
+=======
+/// <table class="wikitable">
+>>>>>>> 425953f54404022c6fa971150ac81613d09c758c
 /// <tr>
 /// <th style="padding: 4px; margin: 5px;"> Character </th>
 /// <th style="padding: 4px; margin: 5px;"> Nemesis
@@ -126,8 +161,13 @@ hashJoin(bench1, bench2);
 /// <td style="padding: 4px; margin: 5px;">
 /// </td></tr></table>
 /// <br>
+<<<<<<< HEAD
 /// <p class="rosetta__paragraph rosetta__text--centered rosetta__text--bold">Output</p>
 /// <table class="rosetta__wikitable">
+=======
+/// <p class="rosetta__paragraph">Output</p>
+/// <table class="wikitable">
+>>>>>>> 425953f54404022c6fa971150ac81613d09c758c
 /// <tr>
 /// <th style="padding: 4px; margin: 5px;"> A.Age </th>
 /// <th style="padding: 4px; margin: 5px;"> A.Name </th>
@@ -248,8 +288,13 @@ const res = [
     { A_age: 28, A_name: 'Alan', B_character: 'Alan', B_nemesis: 'Zombies' }
 ];
 
+<<<<<<< HEAD
 const bench1 = [{ name: 'u2v7v', num: 1 }, { name: 'n53c8', num: 10 }, { name: 'oysce', num: 9 }, { name: '0mto2s', num: 1 }, { name: 'vkh5id', num: 4 }, { name: '5od0cf', num: 8 }, { name: 'uuulue', num: 10 }, { name: '3rgsbi', num: 9 }, { name: 'kccv35r', num: 4 }, { name: '80un74', num: 9 }, { name: 'h4pp3', num: 6 }, { name: '51bit', num: 7 }, { name: 'j9ndf', num: 8 }, { name: 'vf3u1', num: 10 }, { name: 'g0bw0om', num: 10 }, { name: 'j031x', num: 7 }, { name: 'ij3asc', num: 9 }, { name: 'byv83y', num: 8 }, { name: 'bjzp4k', num: 4 }, { name: 'f3kbnm', num: 10 }];
 const bench2 = [{ friend: 'o8b', num: 8 }, { friend: 'ye', num: 2 }, { friend: '32i', num: 5 }, { friend: 'uz', num: 3 }, { friend: 'a5k', num: 4 }, { friend: 'uad', num: 7 }, { friend: '3w5', num: 10 }, { friend: 'vw', num: 10 }, { friend: 'ah', num: 4 }, { friend: 'qv', num: 7 }, { friend: 'ozv', num: 2 }, { friend: '9ri', num: 10 }, { friend: '7nu', num: 4 }, { friend: 'w3', num: 9 }, { friend: 'tgp', num: 8 }, { friend: 'ibs', num: 1 }, { friend: 'ss7', num: 6 }, { friend: 'g44', num: 9 }, { friend: 'tab', num: 9 }, { friend: 'zem', num: 10 }];
+
+
+=======
+>>>>>>> 425953f54404022c6fa971150ac81613d09c758c
 /// tests:
 assert(typeof hashJoin === 'function', 'message: <code>hashJoin</code> is a function.');
 assert.sameDeepMembers(hashJoin(hash1, hash2), res, 'message: <code>hashJoin([{ age: 27, name: "Jonah" }, { age: 18, name: "Alan" }, { age: 28, name: "Glory" }, { age: 18, name: "Popeye" }, { age: 28, name: "Alan" }], [{ character: "Jonah", nemesis: "Whales" }, { character: "Jonah", nemesis: "Spiders" }, { character: "Alan", nemesis: "Ghosts" }, { character:"Alan", nemesis: "Zombies" }, { character: "Glory", nemesis: "Buffy" }, { character: "Bob", nemesis: "foo" }])</code> should return <code>[{"A_age": 27,"A_name": "Jonah", "B_character": "Jonah", "B_nemesis": "Whales"}, {"A_age": 27,"A_name": "Jonah", "B_character": "Jonah", "B_nemesis": "Spiders"}, {"A_age": 18,"A_name": "Alan", "B_character": "Alan", "B_nemesis": "Ghosts"}, {"A_age": 18,"A_name": "Alan", "B_character": "Alan", "B_nemesis": "Zombies"}, {"A_age": 28,"A_name": "Glory", "B_character": "Glory", "B_nemesis": "Buffy"}, {"A_age": 28,"A_name": "Alan", "B_character": "Alan", "B_nemesis": "Ghosts"}, {"A_age": 28,"A_name": "Alan", "B_character": "Alan", "B_nemesis": "Zombies"}]</code>');
