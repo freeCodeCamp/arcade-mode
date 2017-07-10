@@ -5,18 +5,18 @@ css/style.css
 img/FCCfire.svg
 img/FCClogo.svg
 img/favicon.ico
-json/appconfig.json
-json/challenges-algorithms.json
-json/challenges-arcade.json
-json/challenges-combined.json
-json/challenges-data-structures.json
-json/challenges-rosetta.json
 js/MathJax.min.js
 js/index.bundle.js
 js/main.bundle.js
 js/sw.bundle.js
 js/ww.bundle.js
 js/wwBenchmark.bundle.js
+json/appconfig.json
+json/challenges-algorithms.json
+json/challenges-arcade.json
+json/challenges-combined.json
+json/challenges-data-structures.json
+json/challenges-rosetta.json
 font/Kalam/Kalam-Regular.ttf
 font/Lato/Lato-Black.ttf
 font/Roboto/Roboto-Bold.ttf
@@ -36,4 +36,4 @@ NETWORK:
 SETTINGS:
 prefer-online
 
-# hash: d954df4f0233234917654646e6dffa72e55386bf3f6d9d3bdc65966758bee6ee
+# hash: 11dd56f79960432bdb7711358b2cfb987a1ac47ec6fc77a349df352da3aade7a
