@@ -1,38 +1,42 @@
 // general style overrides against bootstrap
 
-$btn-list: default, primary, success, info, warning, danger, link;
 
-$colors: (
-  default: #3e3f3a,
-  primary: #325d88,
-  success: #93c54b,
-  info: #29abe0,
-  warning: #f47c3c,
-  danger: #d9534f,
-  link: transparent
-);
 
-@function color($color) {
-  @return map-get($colors, $color);
-}
+// set up button hover colors without active button staying highlighted
+// $btn-list: default, primary, success, info, warning, danger, link;
 
-@each $btn-type in $btn-list {
-  .btn {
-    &-#{$btn-type} {
-      &:active,
-      &:focus,
-      &:active:focus,
-      &:focus:active {
-        background-color: color($btn-type);
-      }
-      &:hover,
-      &:active:hover,
-      &:focus:hover {
-        background-color: lighten(color($btn-type), 10%);
-      }
-    }
-  }
-}
+// $colors: (
+//   default: #3e3f3a,
+//   primary: #325d88,
+//   success: #93c54b,
+//   info: #29abe0,
+//   warning: #f47c3c,
+//   danger: #d9534f,
+//   link: transparent
+// );
+
+// @function color($color) {
+//   @return map-get($colors, $color);
+// }
+
+// @each $btn-type in $btn-list {
+//   .btn {
+//     &-#{$btn-type} {
+//       &:active,
+//       &:focus,
+//       &:active:focus,
+//       &:focus:active {
+//         background-color: color($btn-type);
+//       }
+//       &:hover,
+//       &:active:hover,
+//       &:focus:hover {
+//         background-color: lighten(color($btn-type), 10%);
+//       }
+//     }
+//   }
+// }
+
 
 .container-fluid {
   margin-left: auto;
@@ -45,8 +49,45 @@ $colors: (
 }
 
 .btn {
+  font-weight: 400;
   outline: none !important;
+  text-transform: none;
+  transition: background 0.2s ease-in-out, border 0.2s ease-in-out;
+  &-big {
+    font-size: 20px;
+  }
+
+
+  &-default,
+  &-success,
+  &-info,
+  &-warning,
+  &-danger,
+  &-link,
+
+  &-primary {
+    color: darkgreen;
+    background-color: white;
+    border: 1px solid darkgreen;
+
+    &:active,
+    &:focus,
+    &:active:focus,
+    &:focus:active {
+      color: darkgreen;
+      background-color: white;
+      border-color: darkgreen;
+    }
+
+    &:hover,
+    &:active:hover,
+    &:focus:hover {
+      background-color: darkgreen;
+      color: white;
+    }
+  }
 }
+
 
 
 

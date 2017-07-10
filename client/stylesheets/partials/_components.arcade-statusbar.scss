@@ -3,9 +3,10 @@
 .am__statusbar {
   border-radius: 5px;
   padding: 5px 10px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   line-height: 2;
-  background-color: #bdbdbd;
+  // background-color: #bdbdbd;
+  font-size: 16px;
 
   &__lives-logo {
     height: 20px;

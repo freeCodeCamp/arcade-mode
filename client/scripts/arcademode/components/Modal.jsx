@@ -49,7 +49,7 @@ const ArcadeModal = props => {
           {challengeSelectMenu}
           <br />
           <FormGroup className='am__modal__submit'>
-            <Button type='button' onClick={props.onModalClose}>Submit</Button>
+            <Button type='button' className='btn btn-big' onClick={props.onModalClose}>Submit</Button>
           </FormGroup>
         </Form>
       </Modal.Footer>

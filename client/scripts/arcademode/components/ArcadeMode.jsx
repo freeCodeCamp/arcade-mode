@@ -25,6 +25,7 @@ export default class ArcadeMode extends Component {
     super(props);
 
     this.onClickRunTests = this.onClickRunTests.bind(this);
+    this.onClickResetCode = this.onClickResetCode.bind(this);
     this.onClickNextChallenge = this.onClickNextChallenge.bind(this);
     this.onClickStartChallenge = this.onClickStartChallenge.bind(this);
     this.onClickFinishSession = this.onClickFinishSession.bind(this);
@@ -62,6 +63,10 @@ export default class ArcadeMode extends Component {
     if (!this.props.isRunningTests) {
       this.props.runTests(this.props.code, this.props.currChallenge);
     }
+  }
+
+  onClickResetCode() {
+    this.props.onCodeReset();
   }
 
   onClickStartChallenge() {
@@ -187,7 +192,7 @@ export default class ArcadeMode extends Component {
             <p className='text-success'>Your session has been saved.</p>
           }
           { !this.props.isSessionSaved &&
-            <button className='btn btn-success' onClick={this.onClickSaveSession}>Save</button>
+            <button className='btn btn-success btn-big' onClick={this.onClickSaveSession}>Save</button>
           }
 
           {useSocialMediaLinks &&
@@ -217,13 +222,13 @@ export default class ArcadeMode extends Component {
     if (!this.props.isSessionFinished) {
       if (this.props.isTimerFinished || this.isOutOfLives()) {
         return (
-          <button className={'btn btn-danger btn-block'} onClick={this.onClickFinishSession}>Finish Session</button>
+          <button className={'btn btn-danger btn-block btn-big'} onClick={this.onClickFinishSession}>Finish Session</button>
         );
       }
       if (passFailResult) {
         window.onbeforeunload = function () { return true; }; // if passed, seek confirm
         return (
-          <button className={'btn btn-info btn-block'} onClick={this.onClickNextChallenge}>Continue to next challenge!</button>
+          <button className={'btn btn-info btn-block btn-big'} onClick={this.onClickNextChallenge}>Continue to next challenge!</button>
         );
       }
     }
@@ -278,8 +283,10 @@ export default class ArcadeMode extends Component {
           <Row className='show-grid'>
             <Col className='arcade-panel-left' xs={12} sm={12} md={4} lg={4}>
               <ChallengePanel
+                appConfig={this.props.appConfig}
                 onClickStartChallenge={this.onClickStartChallenge}
                 onClickRunTests={this.onClickRunTests}
+                onClickResetCode={this.onClickResetCode}
                 onClickShowHideProfile={this.onClickShowHideProfile}
                 isProfileShown={this.props.isProfileShown}
                 onChangeEditor={this.props.onChangeEditor}
@@ -351,6 +358,7 @@ ArcadeMode.propTypes = {
   runBenchmark: PropTypes.func.isRequired,
   code: PropTypes.string.isRequired,
   onCodeChange: PropTypes.func.isRequired,
+  onCodeReset: PropTypes.func.isRequired,
   userOutput: PropTypes.string.isRequired,
   challengesCompleted: PropTypes.number.isRequired,
   challengeType: PropTypes.string.isRequired,

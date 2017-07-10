@@ -110,7 +110,7 @@ export default class UserProfile extends Component {
     return (
       <div className='user-profile'>
         <h1>User Profile</h1>
-        <button className='btn btn-default' onClick={this.props.onClickShowHideProfile}>Hide Profile</button>
+        <button className='btn btn-default btn-big btn-block' onClick={this.props.onClickShowHideProfile}>Hide Profile</button>
         <p>You can view your past sessions here. By clicking on a session, you can expand it
           to view all challenges completed during that session.
         </p>
