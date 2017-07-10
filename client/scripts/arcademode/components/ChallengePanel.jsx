@@ -167,6 +167,7 @@ export default class ChallengePanel extends React.Component {
           {this.props.isSessionStarted &&
             overallTestResult &&
             this.props.benchmark !== '' &&
+            !/^\/\//.test(this.props.benchmark) &&
             <button className={runBenchmarkBtnClass} onClick={this.props.onClickBenchmark}>Benchmark</button>
           }
 

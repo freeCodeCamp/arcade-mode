@@ -111,7 +111,7 @@ function processFile(parser, file, props) {
     verifyExpectedProps(parser, file, props);
   }
   else {
-    console.log('Skipping WIP file ' + file);
+    console.log(`Skipping WIP file ${file}`);
   }
 }
 
