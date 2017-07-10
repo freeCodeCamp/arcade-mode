@@ -26,7 +26,6 @@ export default class ChallengePanel extends React.Component {
     super(props);
     this.createMarkup = this.createMarkup.bind(this);
     MathJax.Hub.Config({
-      jax: ['input/TeX', 'output/AMS_SVG'],
       tex2jax: { inlineMath: [['$', '$'], ['\\(', '\\)']] }
     });
   }
