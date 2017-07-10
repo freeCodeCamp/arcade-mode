@@ -29,7 +29,7 @@ const CURRENT_CACHES = {
 // challenges currently do not need to be imported as it's part of the main.bundle.js
 
 self.addEventListener('install', event => {
-  self.skipWaiting(); // make queued SW active.
+  // self.skipWaiting(); // make queued SW active.
   debug('in the install event');
   event.waitUntil(
     Object.keys(CURRENT_CACHES).forEach(key => {
@@ -107,7 +107,7 @@ self.addEventListener('fetch', event => {
 self.addEventListener('activate', event => {
   debug('[activate]: Activating Service Worker.');
 
-  self.clients.claim();
+  // self.clients.claim();
 
   // Delete all caches that aren't named in CURRENT_CACHES
   const expectedCacheNames = Object.keys(CURRENT_CACHES).map(key => CURRENT_CACHES[key]);
