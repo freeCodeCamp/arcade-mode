@@ -29,7 +29,8 @@ const props = {
   description: Immutable.List(['a', 'b', 'c']),
   editor: 'editor',
   mode: 'Arcade',
-  isRunningTests: false
+  isRunningTests: false,
+  appConfig: Immutable.Map()
 };
 
 describe('<ChallengePanel> component', () => {

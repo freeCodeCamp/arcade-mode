@@ -40,12 +40,12 @@ describe('Component: <Statusbar>', () => {
 
     const passBtn = document.createElement('button');
     passBtn.innerHTML = wrapper.find(Col).at(2).html();
-    expect(passBtn.textContent).to.equal('Pass');
+    expect(passBtn.textContent).to.equal('Skip');
     expect(wrapper.find(Col).at(2).props().children.props.disabled).to.be.true;
 
     const score = document.createElement('div');
     score.innerHTML = wrapper.find(Col).last().html();
-    expect(score.textContent).to.equal('Score: 0');
+    expect(score.textContent).to.equal('Points: 0');
   });
 
   it('does not show lives when they are disabled', () => {
