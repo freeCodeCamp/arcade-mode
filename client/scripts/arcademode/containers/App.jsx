@@ -10,6 +10,7 @@ import {
   nextChallenge,
   actionSolveChallenge,
   onCodeChange,
+  onCodeReset,
   onChallengeSelect
 } from '../actions/challenge';
 
@@ -71,6 +72,7 @@ const mapDispatchToProps = dispatch => ({
   runBenchmark: (userCode, currChallenge) => dispatch(runBenchmark(userCode, currChallenge)),
   nextChallenge: obj => dispatch(nextChallenge(obj)),
   onCodeChange: newCode => dispatch(onCodeChange(newCode)),
+  onCodeReset: () => dispatch(onCodeReset()),
   startChallenge: startTime => dispatch(startChallenge(startTime)),
   startTimer: timerMaxValue => dispatch(startTimer(timerMaxValue)),
   stopTimer: finishTime => dispatch(stopTimer(finishTime)),
