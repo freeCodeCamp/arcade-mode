@@ -19,8 +19,12 @@ const Statusbar = props => (
       <Col xs={6} sm={3}>
         {
           (props.passOption && props.isSessionStarted) ?
-            <Button bsSize='xsmall' onClick={props.onClickPass}>Skip</Button> :
-            <Button bsSize='xsmall' disabled>Skip</Button>
+            <Button bsSize='xsmall' onClick={props.onClickPass}>
+              <span className='am__statusbar__btn'>Skip</span>
+            </Button> :
+            <Button bsSize='xsmall' disabled>
+              <span className='am__statusbar__btn'>Skip</span>
+            </Button>
         }
       </Col>
       <Col xs={6} sm={3}>
