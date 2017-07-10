@@ -12,8 +12,10 @@
   "production": false,
   "development": true,
   "benchmark": true,
+  "insertSolution": true,
   "showProfile": true,
   "selectChallenge": true,
+  "whiteboard": true,
 
   "options": {
     "Mode": {
