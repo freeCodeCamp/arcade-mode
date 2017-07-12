@@ -13,7 +13,7 @@ import {
 import { CHALLENGE_START, CHALLENGE_NEXT } from '../actions/challenge';
 import { PLAYER_PASSED } from '../actions/playerstatus';
 import { TIMER_FINISHED } from '../actions/timer';
-import { MODAL_OPEN } from '../actions/modal';
+import { MODAL_RESTART } from '../actions/modal';
 
 const initialState = Immutable.Map({
   userOutput: 'The output of your code will show up here.',
@@ -57,7 +57,7 @@ export default function test (state = initialState, action) {
       return state
         .set('isRunningBenchmark', false)
         .set('benchmarkResults', Immutable.Map(action.benchmarkResults));
-    case MODAL_OPEN:
+    case MODAL_RESTART:
       return initialState;
     default:
       return state;

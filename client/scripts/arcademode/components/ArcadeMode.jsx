@@ -255,6 +255,9 @@ export default class ArcadeMode extends Component {
           editor={this.props.editor}
           onChangeEditor={this.props.onChangeEditor}
           modal={this.props.modal}
+          isSessionStarted={this.props.isSessionStarted}
+          stopTimer={this.props.stopTimer}
+          onModalRestart={this.props.onModalRestart}
           onModalClose={this.props.onModalClose}
           challengeType={this.props.challengeType}
           onChangeChallengeType={this.props.onChangeChallengeType}
@@ -349,6 +352,7 @@ ArcadeMode.propTypes = {
 
   // modal
   modal: PropTypes.bool.isRequired,
+  onModalRestart: PropTypes.func.isRequired,
   onModalClose: PropTypes.func.isRequired,
   onModalOpen: PropTypes.func.isRequired,
 
