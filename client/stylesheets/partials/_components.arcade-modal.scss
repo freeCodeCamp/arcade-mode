@@ -27,6 +27,9 @@
 
     &__submit {
       text-align: center;
+      button:not(:last-child) {
+        margin-right: 20px;
+      }
     }
   }
 }
