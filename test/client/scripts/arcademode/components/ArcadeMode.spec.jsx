@@ -60,7 +60,7 @@ describe('Component: <ArcadeMode>', () => {
       isTimerFinished: false,
       solveChallenge: () => {},
       isSessionFinished: false,
-      isSessionStarted: false,
+      isSessionStarted: true,
       totalAttempts: 0,
       timeUsed: '00:00',
       stopTimer: () => {},
@@ -103,6 +103,7 @@ describe('Component: <ArcadeMode>', () => {
       const wrapper = shallow(<ArcadeMode {...newProps} />);
       const editorDiv = wrapper.find('.arcade-panel-right');
       const finishButton = editorDiv.find('button');
+      expect(finishButton).to.have.length(1);
       expect(finishButton.text()).to.include('Continue');
     });
 
@@ -115,6 +116,7 @@ describe('Component: <ArcadeMode>', () => {
       const editorDiv = wrapper.find('.arcade-panel-right');
       expect(editorDiv).to.have.length(1);
       const finishButton = editorDiv.find('button');
+      expect(finishButton).to.have.length(1);
       expect(finishButton.text()).to.include('Finish');
     });
   });

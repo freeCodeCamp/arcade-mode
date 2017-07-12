@@ -28,7 +28,7 @@ describe('Component: <Statusbar>', () => {
 
   it('should render all subcomponents', () => {
     const wrapper = shallow(<Statusbar {...props} />);
-    expect(wrapper.find(Col)).to.have.length(5);
+    expect(wrapper.find(Col)).to.have.length(4); // skip moved so 4 now.
 
     const lives = document.createElement('div');
     lives.innerHTML = wrapper.find(Col).first().html();
@@ -38,10 +38,12 @@ describe('Component: <Statusbar>', () => {
     timeLeftText.innerHTML = wrapper.find(Col).at(1).html();
     expect(timeLeftText.textContent).to.equal('Time left: 01:00');
 
+    /*
     const skipBtn = document.createElement('button');
     skipBtn.innerHTML = wrapper.find(Col).at(2).html();
     expect(skipBtn.textContent).to.equal('Skip');
     expect(wrapper.find(Col).at(2).props().children.props.disabled).to.be.true;
+   */
 
     const score = document.createElement('div');
     score.innerHTML = wrapper.find(Col).last().html();
@@ -52,7 +54,7 @@ describe('Component: <Statusbar>', () => {
     props.useLives = false;
     props.timeLeft = '03:00';
     const wrapper = shallow(<Statusbar {...props} />);
-    expect(wrapper.find(Col)).to.have.length(4);
+    expect(wrapper.find(Col)).to.have.length(3); // skip moved so 3 now.
     const timeLeft = document.createElement('div');
     timeLeft.innerHTML = wrapper.find(Col).first().html();
     expect(timeLeft.textContent).to.equal('Time left: 03:00');
