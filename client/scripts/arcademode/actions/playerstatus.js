@@ -3,7 +3,7 @@
 
 export const PLAYER_PASSED = 'PLAYER_PASSED'; // challenge, playerstatus
 
-export function onClickPass () {
+export function onClickSkip () {
   return {
     type: PLAYER_PASSED
   };

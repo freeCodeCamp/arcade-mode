@@ -28,7 +28,7 @@ import {
 } from '../actions/modal';
 
 import {
-  onClickPass
+  onClickSkip
 } from '../actions/playerstatus';
 
 import {
@@ -64,7 +64,7 @@ const mapDispatchToProps = dispatch => ({
   onChangeDifficulty: event => dispatch(onChangeDifficulty(event)),
   onChangeEditor: event => dispatch(onChangeEditor(event)),
   onChangeChallengeType: event => dispatch(onChangeChallengeType(event)),
-  onClickPass: () => dispatch(onClickPass()),
+  onClickSkip: () => dispatch(onClickSkip()),
   onModalRestart: () => dispatch(onModalRestart()),
   onModalClose: () => dispatch(onModalClose()),
   onModalOpen: () => dispatch(onModalOpen()),

@@ -11,7 +11,7 @@ const getDifficulty = state => state.getIn(['gamesetting', 'difficulty']);
 const getEditor = state => state.getIn(['gamesetting', 'editor']);
 const getAppConfig = state => state.getIn(['gamesetting', 'appConfig']);
 const getLives = state => state.getIn(['playerstatus', 'lives']);
-const getPassOption = state => state.getIn(['playerstatus', 'passOption']);
+const getSkipOption = state => state.getIn(['playerstatus', 'skipOption']);
 const getChallengeNumber = state => state.getIn(['challenge', 'challengeNumber']);
 const getCurrSession = state => state.getIn(['session', 'currSession']);
 const getTotalAttempts = state => state.getIn(['session', 'totalAttempts']);
@@ -51,7 +51,7 @@ export default function makeMapStateToProps () {
     getEditor,
     getAppConfig,
     getLives,
-    getPassOption,
+    getSkipOption,
     getChallengeNumber,
     getCurrSession,
     getTotalAttempts,
@@ -89,7 +89,7 @@ export default function makeMapStateToProps () {
       editor,
       appConfig,
       lives,
-      passOption,
+      skipOption,
       challengeNumber,
       currSession,
       totalAttempts,
@@ -127,7 +127,7 @@ export default function makeMapStateToProps () {
       editor,
       appConfig,
       lives,
-      passOption,
+      skipOption,
       challengeNumber,
       currSession,
       totalAttempts,

@@ -18,8 +18,8 @@ const Statusbar = props => (
       </Col>
       <Col xs={6} sm={3}>
         {
-          (props.passOption && props.isSessionStarted) ?
-            <Button bsSize='xsmall' onClick={props.onClickPass}>
+          (props.skipOption && props.isSessionStarted) ?
+            <Button bsSize='xsmall' onClick={props.onClickSkip}>
               <span className='am__statusbar__btn'>Skip</span>
             </Button> :
             <Button bsSize='xsmall' disabled>
@@ -40,8 +40,8 @@ const Statusbar = props => (
 Statusbar.propTypes = {
   lives: PropTypes.number.isRequired,
   timeLeft: PropTypes.string.isRequired,
-  passOption: PropTypes.bool.isRequired,
-  onClickPass: PropTypes.func.isRequired,
+  skipOption: PropTypes.bool.isRequired,
+  onClickSkip: PropTypes.func.isRequired,
   sessionScore: PropTypes.number.isRequired,
   isSessionStarted: PropTypes.bool.isRequired,
   streakMultiplier: PropTypes.number.isRequired,

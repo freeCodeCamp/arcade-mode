@@ -196,6 +196,11 @@ export default class ChallengePanel extends React.Component {
           </button>
         </div>
        */}
+        { this.props.isSessionStarted &&
+          <div className='challenge__buttons'>
+            <button className='btn btn-primary btn-big btn-block' onClick={this.props.onClickSkip}>Skip this challenge</button>
+          </div>
+        }
         <div className='challenge__buttons'>
           { this.props.appConfig.toJS().whiteboard &&
             <input

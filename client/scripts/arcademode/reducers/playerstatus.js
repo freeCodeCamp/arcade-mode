@@ -26,7 +26,7 @@ const difficultyOptions = appConfig.options.Difficulty.options;
 
 const initialState = Immutable.Map({
   lives: difficultyOptions.Easy.lives,
-  passOption: appConfig.pass
+  skipOption: appConfig.skip
 });
 
 
@@ -44,10 +44,10 @@ export default function playerstatus (state = initialState, action) {
     case CHALLENGE_START:
       return state
         .set('lives', initialState.get('lives'))
-        .set('passOption', appConfig.pass);
+        .set('skipOption', appConfig.skip);
     case CHALLENGE_NEXT:
       return state
-        .set('passOption', appConfig.pass); // refresh passOption on each challenge solve
+        .set('skipOption', appConfig.skip); // refresh skipOption on each challenge solve
     case TESTS_FAILED: {
       if (appConfig.lives) {
         return state.update('lives', lives => lives - 1);
@@ -57,7 +57,7 @@ export default function playerstatus (state = initialState, action) {
     case GAME_DIFFICULTY_CHANGE:
       return state.set('lives', difficultySettings[action.difficulty].lives);
     // case PLAYER_PASSED:
-    // return state.set('passOption', false);
+    // return state.set('skipOption', false);
     case MODAL_RESTART:
       return initialState;
     default:

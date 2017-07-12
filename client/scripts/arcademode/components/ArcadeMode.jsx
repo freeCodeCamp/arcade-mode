@@ -160,8 +160,8 @@ export default class ArcadeMode extends Component {
       <Statusbar
         lives={this.props.lives}
         timeLeft={this.props.timeLeft}
-        passOption={this.props.passOption}
-        onClickPass={this.props.onClickPass}
+        skipOption={this.props.skipOption}
+        onClickSkip={this.props.onClickSkip}
         sessionScore={this.props.sessionScore}
         isSessionStarted={this.props.isSessionStarted}
         streakMultiplier={this.props.streakMultiplier}
@@ -347,8 +347,8 @@ ArcadeMode.propTypes = {
 
   // player status
   lives: PropTypes.number.isRequired,
-  passOption: PropTypes.bool.isRequired,
-  onClickPass: PropTypes.func.isRequired,
+  skipOption: PropTypes.bool.isRequired,
+  onClickSkip: PropTypes.func.isRequired,
 
   // modal
   modal: PropTypes.bool.isRequired,
