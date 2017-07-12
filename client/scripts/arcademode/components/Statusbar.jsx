@@ -19,15 +19,19 @@ const Statusbar = props => (
       <Col xs={6} sm={3}>
         {
           (props.passOption && props.isSessionStarted) ?
-            <Button bsSize='xsmall' onClick={props.onClickPass}>Pass</Button> :
-            <Button bsSize='xsmall' disabled>Pass</Button>
+            <Button bsSize='xsmall' onClick={props.onClickPass}>
+              <span className='am__statusbar__btn'>Skip</span>
+            </Button> :
+            <Button bsSize='xsmall' disabled>
+              <span className='am__statusbar__btn'>Skip</span>
+            </Button>
         }
       </Col>
       <Col xs={6} sm={3}>
         <span className='am__statusbar__text'>Bonus:</span> x{props.streakMultiplier}
       </Col>
       <Col xs={6} sm={3}>
-        <span className='am__statusbar__text'>Score:</span> {props.sessionScore}
+        <span className='am__statusbar__text'>Points:</span> {props.sessionScore}
       </Col>
     </Row>
   </Grid>

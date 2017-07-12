@@ -16,8 +16,8 @@ const CURRENT_CACHES = {
   css: `css-cache-v${CACHE_VERSION}`,
   html: `html-cache-v${CACHE_VERSION}`,
   img: `img-cache-v${CACHE_VERSION}`,
-  js: `js-cache-v${CACHE_VERSION}`,
-  json: `json-cache-v${CACHE_VERSION}` // appconfig.json
+  js: `js-cache-v${CACHE_VERSION}`
+  // json: `json-cache-v${CACHE_VERSION}` // appconfig.json
   // everything else should be in indexedDB.
   // Currently appcache has everything stored in it, including json.
   // Shouldn't be a problem to move everything to IDB being that it has incredibly high compatibility (~94%).
@@ -29,7 +29,7 @@ const CURRENT_CACHES = {
 // challenges currently do not need to be imported as it's part of the main.bundle.js
 
 self.addEventListener('install', event => {
-  self.skipWaiting(); // make queued SW active.
+  // self.skipWaiting(); // make queued SW active.
   debug('in the install event');
   event.waitUntil(
     Object.keys(CURRENT_CACHES).forEach(key => {
@@ -73,9 +73,11 @@ self.addEventListener('fetch', event => {
     case 'js':
       requestType = 'js';
       break;
+    /*
     case 'json':
       requestType = 'json';
       break;
+    */
     default:
       requestType = 'not found';
   }
@@ -105,7 +107,7 @@ self.addEventListener('fetch', event => {
 self.addEventListener('activate', event => {
   debug('[activate]: Activating Service Worker.');
 
-  self.clients.claim();
+  // self.clients.claim();
 
   // Delete all caches that aren't named in CURRENT_CACHES
   const expectedCacheNames = Object.keys(CURRENT_CACHES).map(key => CURRENT_CACHES[key]);

@@ -12,7 +12,7 @@ import appConfig from '../../../../../public/json/appconfig.json';
 
 chai.use(chaiEnzyme());
 
-const formControlLength = 3;
+// const formControlLength = 3; can be 2 or 3 depending on environment.
 
 const props = {
   modal: true,
@@ -53,7 +53,12 @@ describe('Component: <ArcadeModal>', () => {
     const footer = wrapper.find(Modal.Footer);
     expect(footer).to.have.length(1);
     expect(footer.find(Form)).to.have.length(1);
-    expect(footer.find(FormControl)).to.have.length(formControlLength);
+    // expect(footer.find(FormControl)).to.have.length(formControlLength);
+    if (appConfig.production) {
+      expect(footer.find(FormControl)).to.have.length(2);
+    }
+    else expect(footer.find(FormControl)).to.have.length(3);
+
     expect(footer.find(Button)).to.have.length(1);
 
     const opts = Object.keys(appConfig.options);

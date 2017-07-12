@@ -12,6 +12,7 @@ import {
   CHALLENGE_NEXT,
   CHALLENGE_SOLVE,
   CODE_CHANGED,
+  CODE_RESET,
   CHALLENGE_SELECTED
 } from '../actions/challenge';
 
@@ -166,6 +167,9 @@ export default function challenge(state = initialState, action) {
       return state
         .set('code', action.code)
         .setIn(['currChallenge', 'code'], action.code);
+    case CODE_RESET:
+      return state
+        .set('code', state.getIn(['currChallenge', 'challengeSeed']).join('\n'));
     case MODAL_OPEN:
       return initialState
         .set('challengeType', state.get('challengeType'));

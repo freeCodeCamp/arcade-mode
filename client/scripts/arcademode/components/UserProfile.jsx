@@ -18,6 +18,12 @@ export default class UserProfile extends Component {
     this.toggleChallengeView = this.toggleChallengeView.bind(this);
     this.toggleSessionView = this.toggleSessionView.bind(this);
     this.deleteSession = this.deleteSession.bind(this);
+    this.showHideProfile = this.showHideProfile.bind(this);
+  }
+
+  showHideProfile() {
+    this.props.onClickShowHideProfile();
+    document.querySelector('.am__navbar__link--profile a').classList.remove('active');
   }
 
   toggleChallengeView(sessionId, challengeId) {
@@ -110,7 +116,7 @@ export default class UserProfile extends Component {
     return (
       <div className='user-profile'>
         <h1>User Profile</h1>
-        <button className='btn btn-default' onClick={this.props.onClickShowHideProfile}>Hide Profile</button>
+        <button className='btn btn-default btn-big btn-block' onClick={this.showHideProfile}>Hide Profile</button>
         <p>You can view your past sessions here. By clicking on a session, you can expand it
           to view all challenges completed during that session.
         </p>

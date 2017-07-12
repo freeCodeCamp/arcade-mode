@@ -26,7 +26,6 @@ export default class ChallengePanel extends React.Component {
     super(props);
     this.createMarkup = this.createMarkup.bind(this);
     MathJax.Hub.Config({
-      jax: ['input/TeX', 'output/AMS_SVG'],
       tex2jax: { inlineMath: [['$', '$'], ['\\(', '\\)']] }
     });
   }
@@ -127,18 +126,20 @@ export default class ChallengePanel extends React.Component {
   }
 
   render() {
+    /*
     let finishButton = null;
     if (this.props.isTimerFinished && !this.props.isSessionFinished) {
       finishButton = (
-        <button className='btn btn-danger' onClick={this.props.onClickFinishSession}>Finish</button>
+        <button className='btn btn-danger btn-big btn-block' onClick={this.props.onClickFinishSession}>Finish</button>
       );
     }
+   */
 
     const benchmarkResults = this.renderBenchmarkResults();
     const testResults = this.renderTestResults();
     const overallTestResult = this.getOverallTestResult();
-    const runTestsBtnClass = (this.props.isRunningTests || this.props.isRunningBenchmark) ? 'btn btn-primary disabled' : 'btn btn-primary';
-    const runBenchmarkBtnClass = (this.props.isRunningTests || this.props.isRunningBenchmark) ? 'btn btn-info disabled' : 'btn btn-info';
+    const runTestsBtnClass = (this.props.isRunningTests || this.props.isRunningBenchmark) ? 'btn btn-primary btn-big btn-block disabled' : 'btn btn-primary btn-big btn-block';
+    const runBenchmarkBtnClass = (this.props.isRunningTests || this.props.isRunningBenchmark) ? 'btn btn-info btn-big btn-block disabled' : 'btn btn-info btn-big btn-block';
 
     /* eslint react/no-danger: 0 */
     return (
@@ -149,26 +150,41 @@ export default class ChallengePanel extends React.Component {
         }
         <div className='challenge__buttons'>
           {!this.props.isSessionStarted &&
-            <button className='btn btn-success' onClick={this.props.onClickStartChallenge}>Start</button>
+            <button className='btn btn-success btn-big btn-block' onClick={this.props.onClickStartChallenge}>Start</button>
           }
+        </div>
+        {/*
+        <div className='challenge__buttons'>
           {(!this.props.isSessionStarted || this.props.mode === 'Practice') &&
-            <button className='btn btn-primary' onClick={this.props.onModalOpen}>Menu</button>
+            <button className='btn btn-primary btn-big btn-block' onClick={this.props.onModalOpen}>Menu</button>
           }
+        </div>
+       */}
+        <div className='challenge__buttons'>
           {this.props.isSessionStarted &&
             <button className={runTestsBtnClass} onClick={this.props.onClickRunTests}>Run tests</button>
           }
+        </div>
+        <div className='challenge__buttons'>
           {this.props.isSessionStarted &&
             overallTestResult &&
             this.props.benchmark !== '' &&
+            !/^\/\//.test(this.props.benchmark) &&
             <button className={runBenchmarkBtnClass} onClick={this.props.onClickBenchmark}>Benchmark</button>
           }
 
-          {finishButton}
+          {/* {finishButton} */}
         </div>
+        { this.props.isSessionStarted &&
+          <div className='challenge__buttons'>
+            <button className='btn btn-primary btn-big btn-block' onClick={this.props.onClickResetCode}>Reset your code</button>
+          </div>
+        }
+        {/*
         <div className='challenge__buttons'>
 
           <button
-            className='btn btn-default'
+            className='btn btn-default btn-big btn-block'
             onClick={this.props.onClickShowHideProfile}
           >
             {this.props.isProfileShown &&
@@ -178,15 +194,22 @@ export default class ChallengePanel extends React.Component {
             'Show Profile'
             }
           </button>
-
-          <input
-            className='btn btn-default'
-            type='button'
-            onClick={this.props.onChangeEditor}
-            value={this.props.editor === 'Normal' ? 'Whiteboard' : 'Normal'}
-          />
-          {this.props.isSessionStarted &&
-            <button className='btn btn-warning' onClick={this.props.onClickSolve}>Insert Solution</button>
+        </div>
+       */}
+        <div className='challenge__buttons'>
+          { this.props.appConfig.toJS().whiteboard &&
+            <input
+              className='btn btn-default btn-big btn-block'
+              type='button'
+              onClick={this.props.onChangeEditor}
+              value={this.props.editor === 'Normal' ? 'Whiteboard' : 'Normal'}
+            />
+          }
+        </div>
+        <div className='challenge__buttons'>
+          { this.props.appConfig.toJS().insertSolution &&
+            this.props.isSessionStarted &&
+            <button className='btn btn-warning btn-big btn-block' onClick={this.props.onClickSolve}>Insert Solution</button>
           }
         </div>
         <div className='challenge__user-output'>
@@ -209,16 +232,18 @@ ChallengePanel.defaultProps = {
 };
 
 ChallengePanel.propTypes = {
+  appConfig: ImmutablePropTypes.map.isRequired,
   title: PropTypes.string.isRequired,
   description: ImmutablePropTypes.list.isRequired,
   benchmark: PropTypes.string,
   isSessionStarted: PropTypes.bool.isRequired,
-  isSessionFinished: PropTypes.bool.isRequired,
-  isTimerFinished: PropTypes.bool.isRequired,
-  onClickFinishSession: PropTypes.func.isRequired,
+//  isSessionFinished: PropTypes.bool.isRequired,
+//  isTimerFinished: PropTypes.bool.isRequired,
+//  onClickFinishSession: PropTypes.func.isRequired,
   onClickRunTests: PropTypes.func.isRequired,
-  onClickShowHideProfile: PropTypes.func.isRequired,
-  isProfileShown: PropTypes.bool.isRequired,
+  onClickResetCode: PropTypes.func.isRequired,
+//  onClickShowHideProfile: PropTypes.func.isRequired,
+//  isProfileShown: PropTypes.bool.isRequired,
   onChangeEditor: PropTypes.func.isRequired,
   onClickSolve: PropTypes.func.isRequired,
   onClickBenchmark: PropTypes.func.isRequired,
@@ -227,8 +252,8 @@ ChallengePanel.propTypes = {
   benchmarkResults: ImmutablePropTypes.map.isRequired,
   testResults: ImmutablePropTypes.list.isRequired,
   editor: PropTypes.string.isRequired,
-  onModalOpen: PropTypes.func.isRequired,
-  mode: PropTypes.string.isRequired,
+//  onModalOpen: PropTypes.func.isRequired,
+//  mode: PropTypes.string.isRequired,
   showDescription: PropTypes.bool,
   isRunningBenchmark: PropTypes.bool.isRequired,
   isRunningTests: PropTypes.bool.isRequired

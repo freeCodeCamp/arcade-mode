@@ -29,9 +29,10 @@ const ArcadeModal = props => {
   const optionDescrJsx = getOptionsDescription(options);
   const dropdownMenus = getDropdownMenus(props, options, callbacks, defaults);
   const challengeSelectMenu = createChallengeSelectMenu(props);
+  const modalClose = processModalClose(props);
 
   return (
-    <Modal show={props.modal} onHide={props.onModalClose} animation={false} backdrop='static'>
+    <Modal show={props.modal} onHide={modalClose} animation={false} backdrop='static'>
       <Modal.Header>
         <Modal.Title className='am__modal__title'>
           Arcade Mode
@@ -49,7 +50,7 @@ const ArcadeModal = props => {
           {challengeSelectMenu}
           <br />
           <FormGroup className='am__modal__submit'>
-            <Button type='button' onClick={props.onModalClose}>Submit</Button>
+            <Button type='button' className='btn btn-big' onClick={modalClose}>Submit</Button>
           </FormGroup>
         </Form>
       </Modal.Footer>
@@ -57,6 +58,12 @@ const ArcadeModal = props => {
   );
 };
 
+function processModalClose (props) {
+  return function () {
+    props.onModalClose();
+    document.querySelector('.am__navbar__link--menu a').classList.remove('active');
+  };
+}
 
 function getOptionsDescription(opts) {
   const optNames = Object.keys(opts);

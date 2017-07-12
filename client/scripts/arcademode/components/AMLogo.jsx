@@ -2,9 +2,10 @@
 'use strict';
 
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const AMLogo = () => (
-  <a href='//freecodecamp.github.io/arcade-mode' className='am__am__link'>
+const AMLogo = props => (
+  <a href={props.site} className='am__am__link'>
     <div className='am__am__logo'>
       <canvas className='am__am__canvas'>ARCADE MODE</canvas>
       <svg className='am__am__svg' xmlns='http://www.w3.org/2000/svg' height='0.11364' width='1'>
@@ -75,6 +76,7 @@ const AMLogo = () => (
             d='M0.555176,0.014135v0.164423H0.51416v0.219231h0.031738v0.159856H0.51416v0.223798h0.041016v0.164423
             H0.491211V0.014135H0.555176z'
           />
+          {/*
           <path
             d='M0.647949,0.571346c0.000977,0.018269,0.001953,0.036538,0.002441,0.054808
             c0.000977-0.022837,0.001953-0.041106,0.002441-0.054808c0.000977-0.018269,0.001953-0.036538,0.00293-0.054808l0.025391-0.470433
@@ -120,10 +122,15 @@ const AMLogo = () => (
             d='M0.997559,0.014135v0.164423H0.956543v0.219231h0.031738v0.159856H0.956543v0.223798h0.041016v0.164423
             H0.933594V0.014135H0.997559z'
           />
+         */}
         </clipPath>
       </svg>
     </div>
   </a>
 );
+
+AMLogo.propTypes = {
+  site: PropTypes.string.isRequired
+};
 
 export default AMLogo;
