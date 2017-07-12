@@ -263,7 +263,13 @@ export default class ArcadeMode extends Component {
           onChallengeSelect={this.props.onChallengeSelect}
           chosenChallenges={this.props.chosenChallenges}
         />
-        <Navbar appConfig={this.props.appConfig} />
+        <Navbar
+          modal={this.props.modal}
+          isProfileShown={this.props.isProfileShown}
+          onModalOpen={this.props.onModalOpen}
+          onClickShowHideProfile={this.onClickShowHideProfile}
+          appConfig={this.props.appConfig}
+        />
 
 
         <Grid fluid>
@@ -287,15 +293,15 @@ export default class ArcadeMode extends Component {
                 onClickStartChallenge={this.onClickStartChallenge}
                 onClickRunTests={this.onClickRunTests}
                 onClickResetCode={this.onClickResetCode}
-                onClickShowHideProfile={this.onClickShowHideProfile}
-                isProfileShown={this.props.isProfileShown}
+              //  onClickShowHideProfile={this.onClickShowHideProfile}
+              //  isProfileShown={this.props.isProfileShown}
                 onChangeEditor={this.props.onChangeEditor}
                 onClickSolve={this.onClickSolve}
                 onClickBenchmark={this.onClickBenchmark}
-                onClickFinishSession={this.onClickFinishSession}
+             //   onClickFinishSession={this.onClickFinishSession}
                 isSessionStarted={this.props.isSessionStarted}
-                isSessionFinished={this.props.isSessionFinished}
-                isTimerFinished={this.props.isTimerFinished}
+             //   isSessionFinished={this.props.isSessionFinished}
+             //   isTimerFinished={this.props.isTimerFinished}
                 benchmark={this.props.benchmark}
                 title={this.props.title}
                 userOutput={this.props.userOutput}
@@ -303,8 +309,8 @@ export default class ArcadeMode extends Component {
                 benchmarkResults={this.props.benchmarkResults}
                 testResults={this.props.testResults}
                 editor={this.props.editor}
-                onModalOpen={this.props.onModalOpen}
-                mode={this.props.mode}
+              //  onModalOpen={this.props.onModalOpen}
+              //  mode={this.props.mode}
                 isRunningBenchmark={this.props.isRunningBenchmark}
                 isRunningTests={this.props.isRunningTests}
               />
