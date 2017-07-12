@@ -153,11 +153,13 @@ export default class ChallengePanel extends React.Component {
             <button className='btn btn-success btn-big btn-block' onClick={this.props.onClickStartChallenge}>Start</button>
           }
         </div>
+        {/*
         <div className='challenge__buttons'>
           {(!this.props.isSessionStarted || this.props.mode === 'Practice') &&
             <button className='btn btn-primary btn-big btn-block' onClick={this.props.onModalOpen}>Menu</button>
           }
         </div>
+       */}
         <div className='challenge__buttons'>
           {this.props.isSessionStarted &&
             <button className={runTestsBtnClass} onClick={this.props.onClickRunTests}>Run tests</button>
@@ -178,6 +180,7 @@ export default class ChallengePanel extends React.Component {
             <button className='btn btn-primary btn-big btn-block' onClick={this.props.onClickResetCode}>Reset your code</button>
           </div>
         }
+        {/*
         <div className='challenge__buttons'>
 
           <button
@@ -192,6 +195,7 @@ export default class ChallengePanel extends React.Component {
             }
           </button>
         </div>
+       */}
         <div className='challenge__buttons'>
           { this.props.appConfig.toJS().whiteboard &&
             <input
@@ -238,8 +242,8 @@ ChallengePanel.propTypes = {
 //  onClickFinishSession: PropTypes.func.isRequired,
   onClickRunTests: PropTypes.func.isRequired,
   onClickResetCode: PropTypes.func.isRequired,
-  onClickShowHideProfile: PropTypes.func.isRequired,
-  isProfileShown: PropTypes.bool.isRequired,
+//  onClickShowHideProfile: PropTypes.func.isRequired,
+//  isProfileShown: PropTypes.bool.isRequired,
   onChangeEditor: PropTypes.func.isRequired,
   onClickSolve: PropTypes.func.isRequired,
   onClickBenchmark: PropTypes.func.isRequired,
@@ -248,8 +252,8 @@ ChallengePanel.propTypes = {
   benchmarkResults: ImmutablePropTypes.map.isRequired,
   testResults: ImmutablePropTypes.list.isRequired,
   editor: PropTypes.string.isRequired,
-  onModalOpen: PropTypes.func.isRequired,
-  mode: PropTypes.string.isRequired,
+//  onModalOpen: PropTypes.func.isRequired,
+//  mode: PropTypes.string.isRequired,
   showDescription: PropTypes.bool,
   isRunningBenchmark: PropTypes.bool.isRequired,
   isRunningTests: PropTypes.bool.isRequired
