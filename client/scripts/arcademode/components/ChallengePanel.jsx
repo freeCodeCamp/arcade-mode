@@ -250,6 +250,7 @@ ChallengePanel.propTypes = {
 //  onClickShowHideProfile: PropTypes.func.isRequired,
 //  isProfileShown: PropTypes.bool.isRequired,
   onChangeEditor: PropTypes.func.isRequired,
+  onClickSkip: PropTypes.func.isRequired,
   onClickSolve: PropTypes.func.isRequired,
   onClickBenchmark: PropTypes.func.isRequired,
   onClickStartChallenge: PropTypes.func.isRequired,

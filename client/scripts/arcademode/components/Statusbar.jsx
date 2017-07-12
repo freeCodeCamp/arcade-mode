@@ -2,7 +2,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Grid, Row, Col, Button } from 'react-bootstrap';
+import { Grid, Row, Col } from 'react-bootstrap';
 
 
 const Statusbar = props => (
@@ -13,9 +13,10 @@ const Statusbar = props => (
         <img className='am__statusbar__lives-logo' src='public/img/FCCfire.svg' alt='Lives' /> x {props.lives}
       </Col>
       }
-      <Col xs={6} sm={3}>
+      <Col xs={4} sm={4}>
         <span className='am__statusbar__text'>Time left:</span> {props.timeLeft}
       </Col>
+      {/*
       <Col xs={6} sm={3}>
         {
           (props.skipOption && props.isSessionStarted) ?
@@ -27,10 +28,11 @@ const Statusbar = props => (
             </Button>
         }
       </Col>
-      <Col xs={6} sm={3}>
+     */}
+      <Col xs={4} sm={4}>
         <span className='am__statusbar__text'>Bonus:</span> x{props.streakMultiplier}
       </Col>
-      <Col xs={6} sm={3}>
+      <Col xs={4} sm={4}>
         <span className='am__statusbar__text'>Points:</span> {props.sessionScore}
       </Col>
     </Row>
@@ -40,11 +42,11 @@ const Statusbar = props => (
 Statusbar.propTypes = {
   lives: PropTypes.number.isRequired,
   timeLeft: PropTypes.string.isRequired,
-  skipOption: PropTypes.bool.isRequired,
-  onClickSkip: PropTypes.func.isRequired,
+//  skipOption: PropTypes.bool.isRequired,
+//  onClickSkip: PropTypes.func.isRequired,
   sessionScore: PropTypes.number.isRequired,
-  isSessionStarted: PropTypes.bool.isRequired,
-  streakMultiplier: PropTypes.number.isRequired,
+//  isSessionStarted: PropTypes.bool.isRequired,
+//  streakMultiplier: PropTypes.number.isRequired,
   useLives: PropTypes.bool.isRequired
 };
 

@@ -301,6 +301,7 @@ export default class ArcadeMode extends Component {
                 onChangeEditor={this.props.onChangeEditor}
                 onClickSolve={this.onClickSolve}
                 onClickBenchmark={this.onClickBenchmark}
+                onClickSkip={this.props.onClickSkip}
              //   onClickFinishSession={this.onClickFinishSession}
                 isSessionStarted={this.props.isSessionStarted}
              //   isSessionFinished={this.props.isSessionFinished}
