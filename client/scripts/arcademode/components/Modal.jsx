@@ -52,11 +52,13 @@ const ArcadeModal = props => {
           <br />
           <FormGroup className='am__modal__submit'>
             <Button type='button' className='btn btn-big' onClick={modalRestart}>Submit</Button>
-
+            <Button type='button' className='btn btn-big' onClick={modalClose}>Cancel</Button>
           </FormGroup>
+          {/*
           <FormGroup className='am__modal__submit'>
             <Button type='button' className='btn btn-big' onClick={modalClose}>Cancel</Button>
           </FormGroup>
+         */}
         </Form>
       </Modal.Footer>
     </Modal>
