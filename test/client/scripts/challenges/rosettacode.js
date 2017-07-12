@@ -32,11 +32,11 @@ challenges.forEach(challenge => {
   describe(`RosettaChallenge ${challenge.title}`, () => {
     it(`runner can execute ${challenge.title} challenge properly`, () => {
       const userCode = challenge.solutions.join('');
-      expect(challenge.tests).to.have.property('length');
+      expect(challenge.tests, 'Tests must be in an array').to.have.property('length');
       const result = runner(userCode, challenge);
 
       return result.then(res => {
-        expect(res.userOutput).to.equal(userOutputUndef);
+        expect(res.userOutput, `User output must match ${userOutputUndef}`).to.equal(userOutputUndef);
         expectNoErrorsAndAllTestsRun(res, challenge);
       });
     });
@@ -48,7 +48,7 @@ function expectNoErrorsAndAllTestsRun(res, challenge) {
   expect(res.errorMsgs, 'There should be no error messages').to.have.length(0);
   expect(res.testResults, 'All tests need to have result'
     ).to.have.length(challenge.tests.length);
-  res.testResults.forEach(result => {
-    expect(result.pass, 'Test should return result.pass: true').to.be.true;
+  res.testResults.forEach((result, index) => {
+    expect(result.pass, `Test ${index} should return result.pass: true`).to.be.true;
   });
 }

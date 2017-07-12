@@ -12,6 +12,7 @@ const assert = require('chai').assert;
 /// difficulty: 7
 
 /// description:
+/// <div class="rosetta">
 /// This is an algorithm used to thin a black and white i.e. one bit per pixel images.
 /// <br/>
 /// For example, with an input image of:
@@ -90,6 +91,7 @@ const assert = require('chai').assert;
 /// If any pixels were set in this round of either step 1 or step 2 then all steps are repeated until no image pixels are so changed.
 /// <br/>
 /// Write a routine to perform Zhang-Suen thinning on an image matrix of ones and zeroes.
+/// </div>
 
 /// challengeSeed:
 const testImage = [

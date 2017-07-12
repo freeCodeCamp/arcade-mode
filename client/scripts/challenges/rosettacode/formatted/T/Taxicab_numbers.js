@@ -19,7 +19,8 @@ const assert = require('chai').assert;
 
 /// description:
 /// <div class="rosetta">
-/// A &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Hardy–Ramanujan number" title="wp: Hardy–Ramanujan number">taxicab number</a> &nbsp; (the definition that is being used here) &nbsp; is a positive integer that can be expressed as the sum of two positive cubes in more than one way.
+/// A &nbsp; <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Hardy–Ramanujan number" title="wp: Hardy–Ramanujan number">taxicab number</a>
+/// &nbsp; (the definition that is being used here) &nbsp; is a positive integer that can be expressed as the sum of two positive cubes in more than one way.
 /// <br>
 /// The first taxicab number is &nbsp; <span class="rosetta__text--bold">1729</span>, &nbsp; which is:
 /// <span class="rosetta__text--indented">1<sup>3</sup> &nbsp; + &nbsp; 12<sup>3</sup> &nbsp; &nbsp; &nbsp; and</span>
@@ -78,17 +79,15 @@ function taxicabNumbers(nNumbers) {
 
   let i = 0;
   const res = [];
-  for (const s3 in s3s) {
+  Object.keys(s3s).forEach(s3 => {
     const abs = s3s[s3];
-    if (abs.length < 2) { // No two cube pairs found
-      continue;
+    if (abs.length >= 2) { // No two cube pairs found
+      i += 1;
+      if (i <= nNumbers) {
+        res.push(s3);
+      }
     }
-    i += 1;
-    if (i > nNumbers) {
-      break;
-    }
-    res.push(s3);
-  }
+  });
   return res.map(item => parseInt(item, 10));
 }
 
