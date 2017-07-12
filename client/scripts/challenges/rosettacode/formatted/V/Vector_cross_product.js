@@ -14,11 +14,15 @@ const assert = require('chai').assert;
 /// math
 
 /// description:
+/// <div class="rosetta">
 /// A vector is defined as having three dimensions as being represented by an ordered collection of three numbers: &nbsp; (X, Y, Z).
 /// <br/>
+/// <p class="rosetta__paragraph">
 /// Write a function that takes two vectors (arrays) as
 /// input and computes their cross product. Your function should return <code>null</code> on
 /// invalid inputs (ie vectors of different lengths).
+/// </p>
+/// </div>
 
 /// challengeSeed:
 function crossProduct() {
