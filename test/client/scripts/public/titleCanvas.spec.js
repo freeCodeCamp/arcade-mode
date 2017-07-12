@@ -22,7 +22,7 @@ describe('ARCADE MODE Canvas animation', () => {
   it('should render', () => {
     const canvasEl = document.querySelector('.am__am__canvas');
     expect(canvasEl.height).to.equal(50);
-    expect(canvasEl.width).to.equal(220);
+    expect(canvasEl.width).to.equal(125);
     expect(canvasObject.hue).to.be.within(0, 360);
   });
 });
