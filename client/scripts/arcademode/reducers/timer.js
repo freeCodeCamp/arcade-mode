@@ -80,8 +80,8 @@ export default function timer (state = initialState, action) {
     case STOP_TIMER: // essentially session finish
       return state
         .set('timeUsed', printTime(action.finishTime - state.get('timerStart')))
-        .set('isTimerFinished', true);
-      //  .set('timeLeft', state.get('timeLeft'));
+        .set('isTimerFinished', true)
+        .set('timeLeft', '00:00');
     case TIMER_STARTED:
       return state
         .set('isTimerFinished', false)
