@@ -9,7 +9,7 @@ import { CHALLENGE_START, CHALLENGE_NEXT } from '../actions/challenge';
 
 import { TESTS_STARTED } from '../actions/test';
 
-import { PLAYER_PASSED } from '../actions/playerstatus';
+import { PLAYER_SKIPPED } from '../actions/playerstatus';
 
 import { MODAL_RESTART } from '../actions/modal';
 
@@ -72,7 +72,7 @@ export default function session (state = initialState, action) {
         .setIn(['currSession', 'endTime'], action.endTime);
     case TESTS_STARTED:
       return state.update('totalAttempts', totalAttempts => totalAttempts + 1);
-    case PLAYER_PASSED:
+    case PLAYER_SKIPPED:
       return state.set('streakMultiplier', 1);
     case MODAL_RESTART:
       return initialState;

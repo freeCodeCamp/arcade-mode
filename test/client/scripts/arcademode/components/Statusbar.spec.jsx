@@ -13,8 +13,8 @@ import Statusbar from '../../../../../client/scripts/arcademode/components/Statu
 const props = {
   lives: 5,
   timeLeft: '01:00',
-  passOption: true,
-  onClickPass: () => {},
+  skipOption: true,
+  onClickSkip: () => {},
   sessionScore: 0,
   isSessionStarted: false,
   useLives: true
@@ -38,9 +38,9 @@ describe('Component: <Statusbar>', () => {
     timeLeftText.innerHTML = wrapper.find(Col).at(1).html();
     expect(timeLeftText.textContent).to.equal('Time left: 01:00');
 
-    const passBtn = document.createElement('button');
-    passBtn.innerHTML = wrapper.find(Col).at(2).html();
-    expect(passBtn.textContent).to.equal('Skip');
+    const skipBtn = document.createElement('button');
+    skipBtn.innerHTML = wrapper.find(Col).at(2).html();
+    expect(skipBtn.textContent).to.equal('Skip');
     expect(wrapper.find(Col).at(2).props().children.props.disabled).to.be.true;
 
     const score = document.createElement('div');

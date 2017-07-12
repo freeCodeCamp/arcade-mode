@@ -1,10 +1,10 @@
 
 'use strict';
 
-export const PLAYER_PASSED = 'PLAYER_PASSED'; // challenge, playerstatus
+export const PLAYER_SKIPPED = 'PLAYER_SKIPPED'; // challenge, playerstatus
 
 export function onClickSkip () {
   return {
-    type: PLAYER_PASSED
+    type: PLAYER_SKIPPED
   };
 }

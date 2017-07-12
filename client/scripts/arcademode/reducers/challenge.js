@@ -3,7 +3,7 @@
 
 import Immutable, { Map, List } from 'immutable';
 
-import { PLAYER_PASSED } from '../actions/playerstatus';
+import { PLAYER_SKIPPED } from '../actions/playerstatus';
 
 import {
   MODAL_RESTART,
@@ -137,7 +137,7 @@ export default function challenge(state = initialState, action) {
         .set('currChallengeStartedAt', action.startTime)
         .setIn(['currChallenge', 'startTime'], action.startTime)
         .setIn(['currChallenge', 'attempts'], 0);
-    case PLAYER_PASSED:
+    case PLAYER_SKIPPED:
           // Fallthrough to CHALLENGE_NEXT
     case CHALLENGE_NEXT:
       return state

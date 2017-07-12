@@ -56,7 +56,7 @@ export default function playerstatus (state = initialState, action) {
     }
     case GAME_DIFFICULTY_CHANGE:
       return state.set('lives', difficultySettings[action.difficulty].lives);
-    // case PLAYER_PASSED:
+    // case PLAYER_SKIPPED:
     // return state.set('skipOption', false);
     case MODAL_RESTART:
       return initialState;
