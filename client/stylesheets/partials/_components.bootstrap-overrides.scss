@@ -37,7 +37,6 @@
 //   }
 // }
 
-
 .container-fluid {
   margin-left: auto;
   margin-right: auto;
@@ -56,7 +55,6 @@
   &-big {
     font-size: 20px;
   }
-
 
   &-default,
   &-success,
@@ -88,7 +86,38 @@
   }
 }
 
+.navbar {
+  .nav {
 
+    li a {
+      font-size: 20px;
+      text-transform: none;
+      color: #eee;
+      height: 50px;
+      padding: 15px;
+
+      &:focus {
+        outline: none;
+        color: #eee;
+      }
+
+      &:hover {
+        color: darkgreen;
+        background: #eee;
+      }
+
+      &:active {
+        color: darkgreen;
+        background: #eee;
+      }
+    }
+
+    li a.active {
+      color: darkgreen;
+      background: #eee;
+    }
+  }
+}
 
 
 // bsClass and className do not work on Modal component
