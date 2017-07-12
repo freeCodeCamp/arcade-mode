@@ -8,6 +8,13 @@
     background-color: darkgreen;
     border-radius: 0;
     border: none;
+
+    // menu items, profile and menu
+    &__menu {
+      position: absolute;
+      top: 0;
+      right: 160px;
+    }
   }
 
   &__fcc {
@@ -32,10 +39,12 @@
       @media (max-width: 550px) {
         display: none;
       }
+      width: 155px; // set a width now that "MODE" has been dropped
+      padding: 0 15px;
       position: absolute;
       top: 0;
       right: 0;
-      transform: translateX(calc(100% - 240px));
+      transform: translateX(calc(100% - 160px));
     }
 
     &__logo {
