@@ -148,12 +148,11 @@ const libsUnorderable =
 
 const solutionUnorderable = ['Base'];
 
-console.log(JSON.stringify(topologicalSort(unorderable)));
-
 /// tests:
 assert(typeof topologicalSort === 'function', 'message: <code>topologicalSort</code> is a function.');
 assert.deepEqual(topologicalSort(libsSimple), ['bbb', 'aaa'], 'message: <code>topologicalSort</code> must return correct library order..');
 assert.deepEqual(topologicalSort(libsVHDL), solutionVHDL, 'message: <code>topologicalSort</code> must return correct library order..');
 assert.deepEqual(topologicalSort(libsCustom), solutionCustom, 'message: <code>topologicalSort</code> must return correct library order..');
 assert.deepEqual(topologicalSort(libsUnorderable), solutionUnorderable, 'message: <code>topologicalSort</code> must ignore unorderable dependencies..');
+
 /// id: 594fa2746886f41f7d8bf225
