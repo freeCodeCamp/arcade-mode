@@ -219,7 +219,7 @@ export default class ArcadeMode extends Component {
     /* Returns either button for next challenge or button to finish the
      * challenge.*/
   renderNextChallengeButton(passFailResult) {
-    if (!this.props.isSessionFinished) {
+    if (this.props.isSessionStarted && !this.props.isSessionFinished) {
       if (this.props.isTimerFinished || this.isOutOfLives()) {
         return (
           <button className={'btn btn-danger btn-block btn-big'} onClick={this.onClickFinishSession}>Finish Session</button>
