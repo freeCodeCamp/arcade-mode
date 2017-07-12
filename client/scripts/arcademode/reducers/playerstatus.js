@@ -17,7 +17,7 @@ import {
 } from '../actions/gamesetting';
 
 import {
-  MODAL_OPEN
+  MODAL_RESTART
 } from '../actions/modal';
 
 import appConfig from '../../../../public/json/appconfig.json';
@@ -58,7 +58,7 @@ export default function playerstatus (state = initialState, action) {
       return state.set('lives', difficultySettings[action.difficulty].lives);
     // case PLAYER_PASSED:
     // return state.set('passOption', false);
-    case MODAL_OPEN:
+    case MODAL_RESTART:
       return initialState;
     default:
       return state;

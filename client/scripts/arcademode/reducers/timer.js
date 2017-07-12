@@ -13,14 +13,14 @@ import {
 
 import { CHALLENGE_START } from '../actions/challenge';
 import { GAME_DIFFICULTY_CHANGE } from '../actions/gamesetting';
-import { MODAL_OPEN } from '../actions/modal';
+import { MODAL_RESTART } from '../actions/modal';
 
 import appConfig from '../../../../public/json/appconfig.json';
 
 const timerDefaultValue = toMs(appConfig.timer.default);
 
 const initialState = Immutable.Map({
-  isTimerFinished: false,
+  isTimerFinished: true,
   timerMaxValue: timerDefaultValue,
   timerMaxValueLoaded: timerDefaultValue,
   timeLeft: '10:00',
@@ -66,11 +66,14 @@ const difficultySettings = {
   // Random - for random, can randomly generate lives and time and hide until game start
 };
 
+let lastDifficultyTime = '10:00';
+
 export default function timer (state = initialState, action) {
   switch (action.type) {
     case CHALLENGE_START:
       return state.set('timerMaxValueLoaded', state.get('timerMaxValue'));
     case GAME_DIFFICULTY_CHANGE:
+      lastDifficultyTime = difficultySettings[action.difficulty].displayTime;
       return state
         .set('timeLeft', difficultySettings[action.difficulty].displayTime) // display
         .set('timerMaxValue', difficultySettings[action.difficulty].time); // actual number
@@ -94,8 +97,10 @@ export default function timer (state = initialState, action) {
         .set('timeLeft', '00:00');
     case TIMER_MAX_VALUE_CHANGED:
       return state.set('timerMaxValue', action.timerMaxValue);
-    case MODAL_OPEN:
-      return initialState;
+    case MODAL_RESTART:
+      return initialState
+        .set('timeLeft', lastDifficultyTime)
+        .set('timerMaxValue', state.get('timerMaxValue'));
     default:
       return state;
   }

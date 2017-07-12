@@ -11,7 +11,7 @@ import { TESTS_STARTED } from '../actions/test';
 
 import { PLAYER_PASSED } from '../actions/playerstatus';
 
-import { MODAL_OPEN } from '../actions/modal';
+import { MODAL_RESTART } from '../actions/modal';
 
 import appConfig from '../../../../public/json/appconfig.json';
 
@@ -74,7 +74,7 @@ export default function session (state = initialState, action) {
       return state.update('totalAttempts', totalAttempts => totalAttempts + 1);
     case PLAYER_PASSED:
       return state.set('streakMultiplier', 1);
-    case MODAL_OPEN:
+    case MODAL_RESTART:
       return initialState;
     default:
       return state;

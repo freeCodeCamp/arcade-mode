@@ -22,6 +22,7 @@ import {
 } from '../actions/gamesetting';
 
 import {
+  onModalRestart,
   onModalClose,
   onModalOpen
 } from '../actions/modal';
@@ -64,6 +65,7 @@ const mapDispatchToProps = dispatch => ({
   onChangeEditor: event => dispatch(onChangeEditor(event)),
   onChangeChallengeType: event => dispatch(onChangeChallengeType(event)),
   onClickPass: () => dispatch(onClickPass()),
+  onModalRestart: () => dispatch(onModalRestart()),
   onModalClose: () => dispatch(onModalClose()),
   onModalOpen: () => dispatch(onModalOpen()),
   saveSession: () => dispatch(actionSaveSession()),

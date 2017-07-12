@@ -5,7 +5,10 @@ import Immutable, { Map, List } from 'immutable';
 
 import { PLAYER_PASSED } from '../actions/playerstatus';
 
-import { MODAL_OPEN, MODAL_CLOSE } from '../actions/modal';
+import {
+  MODAL_RESTART,
+  MODAL_CLOSE
+} from '../actions/modal';
 
 import {
   CHALLENGE_START,
@@ -105,6 +108,7 @@ function findFromChosenChallenges(state, challengeName) {
 
 export default function challenge(state = initialState, action) {
   switch (action.type) {
+    /*
     case MODAL_CLOSE: {
       // shuffle on modal close to prevent gaming the system
       const shuffledChallenges = shuffle(challengeTypes[state.get('challengeType')]);
@@ -115,6 +119,7 @@ export default function challenge(state = initialState, action) {
       }
       return state.set('chosenChallenges', shuffledChallenges);
     }
+   */
     case GAME_CHALLENGE_TYPE_CHANGE:
       return state
         .set('challengeType', action.challengeType)
@@ -170,9 +175,20 @@ export default function challenge(state = initialState, action) {
     case CODE_RESET:
       return state
         .set('code', state.getIn(['currChallenge', 'challengeSeed']).join('\n'));
-    case MODAL_OPEN:
+    case MODAL_RESTART: {
+      // shuffle on modal close to prevent gaming the system
+      const shuffledChallenges = shuffle(challengeTypes[state.get('challengeType')]);
+      if (state.get('selectedChallenge') === '') {
+        return initialState
+          .set('challengeType', state.get('challengeType'))
+          .set('chosenChallenges', shuffledChallenges)
+          .set('currChallenge', Map(Immutable.fromJS(shuffledChallenges[0])));
+      }
       return initialState
-        .set('challengeType', state.get('challengeType'));
+        .set('challengeType', state.get('challengeType'))
+        .set('chosenChallenges', shuffledChallenges)
+        .set('currChallenge', state.get('currChallenge'));
+    }
     case CHALLENGE_SELECTED:
       return state
         .set('currChallenge', findFromChosenChallenges(state, action.selectedChallenge))

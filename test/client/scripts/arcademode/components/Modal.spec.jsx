@@ -59,7 +59,7 @@ describe('Component: <ArcadeModal>', () => {
     }
     else expect(footer.find(FormControl)).to.have.length(3);
 
-    expect(footer.find(Button)).to.have.length(1);
+    expect(footer.find(Button)).to.have.length(2);
 
     const opts = Object.keys(appConfig.options);
     let index = 0;
@@ -73,8 +73,12 @@ describe('Component: <ArcadeModal>', () => {
     });
 
     const button = document.createElement('button');
-    button.innerHTML = wrapper.find(Button).html();
+    button.innerHTML = wrapper.find(Button).at(0).html();
     expect(button.textContent).to.equal('Submit');
+
+    const button2 = document.createElement('button');
+    button2.innerHTML = wrapper.find(Button).at(1).html();
+    expect(button2.textContent).to.equal('Cancel');
   });
 });
 

@@ -30,6 +30,7 @@ const ArcadeModal = props => {
   const dropdownMenus = getDropdownMenus(props, options, callbacks, defaults);
   const challengeSelectMenu = createChallengeSelectMenu(props);
   const modalClose = processModalClose(props);
+  const modalRestart = processModalRestart(props);
 
   return (
     <Modal show={props.modal} onHide={modalClose} animation={false} backdrop='static'>
@@ -50,13 +51,28 @@ const ArcadeModal = props => {
           {challengeSelectMenu}
           <br />
           <FormGroup className='am__modal__submit'>
-            <Button type='button' className='btn btn-big' onClick={modalClose}>Submit</Button>
+            <Button type='button' className='btn btn-big' onClick={modalRestart}>Submit</Button>
+            <Button type='button' className='btn btn-big' onClick={modalClose}>Cancel</Button>
           </FormGroup>
+          {/*
+          <FormGroup className='am__modal__submit'>
+            <Button type='button' className='btn btn-big' onClick={modalClose}>Cancel</Button>
+          </FormGroup>
+         */}
         </Form>
       </Modal.Footer>
     </Modal>
   );
 };
+
+function processModalRestart (props) {
+  return function () {
+    props.stopTimer();
+    props.onModalRestart();
+    props.onModalClose();
+    document.querySelector('.am__navbar__link--menu a').classList.remove('active');
+  };
+}
 
 function processModalClose (props) {
   return function () {
@@ -177,6 +193,9 @@ ArcadeModal.propTypes = {
   editor: PropTypes.string.isRequired,
   onChangeEditor: PropTypes.func.isRequired,
   modal: PropTypes.bool.isRequired,
+  isSessionStarted: PropTypes.bool.isRequired,
+  stopTimer: PropTypes.func.isRequired,
+  onModalRestart: PropTypes.func.isRequired,
   onModalClose: PropTypes.func.isRequired,
   challengeType: PropTypes.string.isRequired,
   onChangeChallengeType: PropTypes.func.isRequired,
