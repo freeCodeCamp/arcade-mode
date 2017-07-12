@@ -14,6 +14,7 @@ const assert = require('chai').assert;
 /// matrix
 
 /// description:
+/// <div class="rosetta">
 /// A &nbsp; ''zig-zag'' &nbsp; array is a square arrangement of the first &nbsp;
 /// $N^2$ &nbsp; integers, &nbsp; where the
 /// numbers increase sequentially as you zig-zag along the array's &nbsp;
@@ -29,6 +30,7 @@ const assert = require('chai').assert;
 /// </pre>
 /// Write a function that takes the size of the zig-zag matrix, and returns the
 /// corresponding matrix as two-dimensional array.
+/// </div>
 
 /// challengeSeed:
 function ZigZagMatrix(n) {

@@ -11,10 +11,30 @@ const assert = require('chai').assert;
 
 /// description:
 /// <div class="rosetta">
-/// Just as numbers can be represented in a positional notation as sums of multiples of the powers of ten (decimal) or two (binary); all the positive integers can be represented as the sum of one or zero times the distinct members of the Fibonacci series.<br/>
-/// Recall that the first six distinct Fibonacci numbers are:  1, 2, 3, 5, 8, 13. The decimal number eleven can be written as 0*13 + 1*8 + 0*5 + 1*3 + 0*2 + 0*1 or 010100 in positional notation where the columns represent multiplication by a particular member of the sequence. Leading zeroes are dropped so that 11 decimal becomes 10100.<br/>
-/// 10100 is not the only way to make 11 from the Fibonacci numbers however;  0*13 + <code>1*8 + 0*5 + 0*3 + 1*2 + 1*1</code> or 010011 would also represent decimal 11. For a true Zeckendorf number there is the added restriction that ''no two consecutive Fibonacci numbers can be used'' which leads to the former unique solution.<br/>
+/// <p class="rosetta__paragraph">
+/// Just as numbers can be represented in a
+/// positional notation as sums of multiples of the powers of ten (decimal)
+/// or two (binary); all the positive integers can be represented as the sum
+/// of one or zero times the distinct members of the Fibonacci series.
+/// </p>
+/// <p class="rosetta__paragraph">
+/// Recall that the first six distinct Fibonacci
+/// numbers are:  <code>1, 2, 3, 5, 8, 13</code>. The decimal number eleven can
+/// be written as <code>0*13 + 1*8 + 0*5 + 1*3 + 0*2 + 0*1</code> or
+/// <code>010100</code> in positional notation where the columns represent
+/// multiplication by a particular member of the sequence. Leading zeroes are
+/// dropped so that 11 decimal becomes <code>10100</code>.
+/// </p>
+/// <p class="rosetta__paragraph">
+/// 10100 is not the only way to make 11 from the Fibonacci numbers however
+/// <code>0*13 + 1*8 + 0*5 + 0*3 + 1*2 + 1*1</code> or 010011 would also
+/// represent decimal 11. For a true Zeckendorf number there is the added
+/// restriction that ''no two consecutive Fibonacci numbers can be used''
+/// which leads to the former unique solution.
+/// </p>
+/// <p class="rosetta__paragraph">
 /// Write a function that generates and returns an array of first N Zeckendorf numbers in order.
+/// </p>
 /// </div>
 
 /// challengeSeed:
