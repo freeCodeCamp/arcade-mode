@@ -57,12 +57,14 @@ function towerOfHanoiHelper(n, a, b, c, res) {
 
 /// tail:
 const res3 = towerOfHanoi(3, 'A', 'B', 'C');
+const res3Moves = [['A', 'B'], ['A', 'C'], ['B', 'C'], ['A', 'B'], ['C', 'A'], ['C', 'B'], ['A', 'B']];
 const res5 = towerOfHanoi(5, 'X', 'Y', 'Z');
-const res7 = towerOfHanoi(7, 'A', 'B', 'C');
+const res7First10Moves = [['A', 'B'], ['A', 'C'], ['B', 'C'], ['A', 'B'], ['C', 'A'], ['C', 'B'], ['A', 'B'], ['A', 'C'], ['B', 'C'], ['B', 'A']];
 
 /// tests:
 assert(typeof towerOfHanoi === 'function', 'message: <code>towerOfHanoi</code> is a function.');
-assert(res3.length === 7, 'message: <code>towerOfHanoi(3, ...)</code> shoul return 7 moves.');
+assert(res3.length === 7, 'message: <code>towerOfHanoi(3, ...)</code> should return 7 moves.');
+assert.deepEqual(towerOfHanoi(3, 'A', 'B', 'C'), res3Moves, "message: <code>towerOfHanoi(3, 'A', 'B', 'C')</code> should return [['A','B'],['A','C'],['B','C'],['A','B'],['C','A'],['C','B'],['A','B']].");
 assert.deepEqual(res5[9], ['Y', 'X'], 'message: <code>towerOfHanoi(5, "X", "Y", "Z")</code> 10th move should be Y -> X.');
-assert.deepEqual(towerOfHanoi(7, 'A', 'B', 'C'), res7, 'message: <code>towerOfHanoi(7, "A", "B", "C")</code> not correct.');
+assert.deepEqual(towerOfHanoi(7, 'A', 'B', 'C').slice(0, 10), res7First10Moves, "message: <code>towerOfHanoi(7, 'A', 'B', 'C')</code> first ten moves are [['A','B'],['A','C'],['B','C'],['A','B'],['C','A'],['C','B'],['A','B'],['A','C'],['B','C'],['B','A']].");
 /// id: 5951ed8945deab770972ae56
