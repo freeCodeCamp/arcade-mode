@@ -8,8 +8,6 @@ import ImmutablePropTypes from 'react-immutable-proptypes';
 export default class TestResults extends React.Component {
   componentDidUpdate () {
     if (this.props.testResults.size !== 0) {
-      console.log('testResults:');
-      console.log(this.props.testResults);
       document.querySelector('.arcade-panel-left').scrollTop = document.querySelector('.arcade-panel-left').scrollHeight;
     }
   }
