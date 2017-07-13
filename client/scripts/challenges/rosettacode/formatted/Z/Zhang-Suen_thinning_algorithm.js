@@ -66,31 +66,44 @@ const assert = require('chai').assert;
 /// <br/>
 /// Obviously the boundary pixels of the image cannot have the full eight neighbours.
 /// <br/>
-/// * Define $A(P1)$ = the number of transitions from white to black, (0 -> 1) in the sequence P2,P3,P4,P5,P6,P7,P8,P9,P2. (Note the extra P2 at the end - it is circular).
-/// * Define $B(P1)$ = the number of black pixel neighbours of P1. ( = sum(P2 .. P9) )
+/// <ul class="rosetta__unordered-list">
+///   <li class="rosetta__list-item--unordered">
+///     Define $A(P1)$ = the number of transitions from white to black, (0 -> 1) in the sequence P2,P3,P4,P5,P6,P7,P8,P9,P2. (Note the extra P2 at the end - it is circular).
+///   </li>
+///   <li class="rosetta__list-item--unordered">
+///     Define $B(P1)$ = the number of black pixel neighbours of P1. ( = sum(P2 .. P9) )
+///   </li>
+/// </ul>
 /// <br/>
-/// Step 1:
+/// <h3>Step 1:</h3>
 /// All pixels are tested and pixels satisfying all the following conditions (simultaneously) are just noted at this stage.
-/// * (0) The pixel is black and has eight neighbours
-/// * (1) $2 <= B(P1) <= 6$
-/// * (2) $A(P1) = 1$
-/// * (3) At least one of P2 and P4 and P6 is white
-/// * (4) At least one of P4 and P6 and P8 is white
+/// <ul class="rosetta__unordered-list">
+///   <li class="rosetta__list-item--unordered">(0) The pixel is black and has eight neighbours</li>
+///   <li class="rosetta__list-item--unordered">(1) $2 <= B(P1) <= 6$</li>
+///   <li class="rosetta__list-item--unordered">(2) $A(P1) = 1$</li>
+///   <li class="rosetta__list-item--unordered">(3) At least one of P2 and P4 and P6 is white</li>
+///   <li class="rosetta__list-item--unordered">(4) At least one of P4 and P6 and P8 is white</li>
+/// </ul>
 /// After iterating over the image and collecting all the pixels satisfying all step 1 conditions, all these condition satisfying pixels are set to white.
 /// <br/>
-/// Step 2:
+/// <h3>Step 2:</h3>
 /// All pixels are again tested and pixels satisfying all the following conditions are just noted at this stage.
-/// * (0) The pixel is black and has eight neighbours
-/// * (1) $2 <= B(P1) <= 6$
-/// * (2) $A(P1) = 1$
-/// * (3) At least one of P2 and P4 and '''P8''' is white
-/// * (4) At least one of '''P2''' and P6 and P8 is white
+/// <ul class="rosetta__unordered-list">
+///   <li class="rosetta__list-item--unordered">(0) The pixel is black and has eight neighbours</li>
+///   <li class="rosetta__list-item--unordered">(1) $2 <= B(P1) <= 6$</li>
+///   <li class="rosetta__list-item--unordered">(2) $A(P1) = 1$</li>
+///   <li class="rosetta__list-item--unordered">(3) At least one of P2 and P4 and '''P8''' is white</li>
+///   <li class="rosetta__list-item--unordered">(4) At least one of '''P2''' and P6 and P8 is white</li>
+/// </ul>
 /// After iterating over the image and collecting all the pixels satisfying all step 2 conditions, all these condition satisfying pixels are again set to white.
 /// <br/>
 /// Iteration:
 /// If any pixels were set in this round of either step 1 or step 2 then all steps are repeated until no image pixels are so changed.
 /// <br/>
-/// Write a routine to perform Zhang-Suen thinning on an image matrix of ones and zeroes.
+/// <p class="rosetta__paragraph">
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Write a routine to perform Zhang-Suen thinning on an image matrix of ones and zeroes.</li></ul>
+/// </p>
 /// </div>
 
 /// challengeSeed:
