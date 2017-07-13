@@ -119,6 +119,14 @@
   }
 }
 
+// needed for the collapseable from overlaying the entire navbar and preventing
+// freecodecamp.org from being clicked.
+.navbar-collapse {
+  &:after {
+    display: initial;
+  }
+}
+
 
 // bsClass and className do not work on Modal component
 /*
