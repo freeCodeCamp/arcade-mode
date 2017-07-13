@@ -6,6 +6,11 @@ import PropTypes from 'prop-types';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 
 export default class ChallengeDescription extends React.Component {
+  constructor(props) {
+    super(props);
+    this.createMarkup = this.createMarkup.bind(this);
+  }
+
   componentDidUpdate () {
     document.querySelector('.arcade-panel-left').scrollTop = 0;
   }
