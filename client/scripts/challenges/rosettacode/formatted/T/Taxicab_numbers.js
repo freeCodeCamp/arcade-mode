@@ -27,24 +27,24 @@ const assert = require('chai').assert;
 /// <span class="rosetta__text--indented">9<sup>3</sup> &nbsp; + &nbsp; 10<sup>3</sup>.</span>
 /// <br>
 /// Taxicab numbers are also known as:
-/// <span class="rosetta__text--indented">* &nbsp; taxi numbers</span>
-/// <span class="rosetta__text--indented">* &nbsp; taxi-cab numbers</span>
-/// <span class="rosetta__text--indented">* &nbsp; taxi cab numbers</span>
-/// <span class="rosetta__text--indented">* &nbsp; Hardy-Ramanujan numbers</span>
+/// <ul class="rosetta__unordered-list">
+///   <li><span class="rosetta__text--indented">* &nbsp; taxi numbers</span></li>
+///   <li><span class="rosetta__text--indented">* &nbsp; taxi-cab numbers</span></li>
+///   <li><span class="rosetta__text--indented">* &nbsp; taxi cab numbers</span></li>
+///   <li><span class="rosetta__text--indented">* &nbsp; Hardy-Ramanujan numbers</span></li>
+/// </ul>
 /// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
 /// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Write a function that returns the lowest N taxicab numbers.</li>
 /// <li class="rosetta__list-item--unordered">For each of the taxicab numbers, show the number as well as it's constituent cubes.</li>
 /// </ul>
 /// <br>
-/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Extra credit</dt></dl>
-/// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Show the 2,000<sup>th</sup> taxicab number, and a half dozen more</li></ul>
-/// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">See also:</dt></dl>
 /// <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">[http://oeis.org/A001235 A001235 taxicab numbers] on The On-Line Encyclopedia of Integer Sequences.</li>
-/// <li class="rosetta__list-item--unordered"><a href="http://mathworld.wolfram.com/Hardy-RamanujanNumber.html">Hardy-Ramanujan Number</a> on MathWorld.</li>
-/// <li class="rosetta__list-item--unordered"><a href="http://mathworld.wolfram.com/TaxicabNumber.html">taxicab number</a> on MathWorld.</li>
-/// <li class="rosetta__list-item--unordered"><a href="https://en.wikipedia.org/wiki/Taxicab_number">taxicab number</a> on Wikipedia.</li></ul><br><br>
+///   <li class="rosetta__list-item--unordered"><a href="http://mathworld.wolfram.com/Hardy-RamanujanNumber.html">Hardy-Ramanujan Number</a> on MathWorld.</li>
+///   <li class="rosetta__list-item--unordered"><a href="http://mathworld.wolfram.com/TaxicabNumber.html">taxicab number</a> on MathWorld.</li>
+///   <li class="rosetta__list-item--unordered"><a href="https://en.wikipedia.org/wiki/Taxicab_number">taxicab number</a> on Wikipedia.</li>
+/// </ul>
 /// </div>
 
 /// challengeSeed:
@@ -99,10 +99,13 @@ const res25 = [
   373464, 402597
 ];
 
+const res39From20To29 = [314496, 320264, 327763, 373464, 402597, 439101, 443889, 513000, 513856];
+
 /// tests:
 assert(typeof taxicabNumbers === 'function', 'message: <code>taxicabNumbers </code> is a function.');
 assert(typeof taxicabNumbers(2) === 'object', 'message: <code>taxicabNumbers </code> should return an array.');
 assert(typeof taxicabNumbers(100)[0] === 'number', 'message: <code>taxicabNumbers </code> should return an array of numbers.');
 assert.deepEqual(taxicabNumbers(4), res4, 'message: <code>taxicabNumbers(4) </code> must return [1729, 4104, 13832, 20683].');
 assert.deepEqual(taxicabNumbers(25), res25, 'message: taxicabNumbers(25) should return [1729, 4104, 13832, 20683, 32832, 39312, 40033, 46683, 64232, 65728, 110656, 110808, 134379, 149389, 165464, 171288, 195841, 216027, 216125, 262656, 314496, 320264, 327763, 373464, 402597]');
+assert.deepEqual(taxicabNumbers(39).slice(20, 29), res39From20To29, 'message: taxicabNumbers(39) resulting numbers from 20 - 29 should be [314496,320264,327763,373464,402597,439101,443889,513000,513856].');
 /// id: 594ecc0d9a8cf816e3340187
