@@ -39,10 +39,6 @@ The canvas package has prerequisites that need to be installed before canvas can
 
 Try removing the `node_modules` directory, then `npm install` again. If this does not work, remove both `node_modules` and `package-lock.json` and try `npm install` again.
 
-> I'm having trouble installing node-canvas. How do I fix this?
-
-`node-canvas` may require some prerequisites. Refer to its [npm page](https://www.npmjs.com/package/canvas) for more details.
-
 > Is there a way I can automate `npm run test:client` to run when I try to push?
 
 You can use git hooks. We are currently using this `pre-push` script [here](https://github.com/freeCodeCamp/arcade-mode/blob/master/bin/pre-push), but you may want to tailor it to a different branch or all branches. The project's git hooks can be found in the `/bin` directory (i.e., `pre-push` and `post-merge`).
