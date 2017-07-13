@@ -45,7 +45,7 @@ const firstSolution = [1977, 1983, 1988, 1994, 2005, 2011, 2016];
 const secondSolution = [2011, 2016, 2022, 2033, 2039, 2044, 2050, 2061, 2067, 2072, 2078, 2089, 2095, 2101, 2107, 2112, 2118];
 
 /// tests:
-assert(typeof findChristmasSunday === 'function', 'message: <code>replaceMe</code> is a function.');
+assert(typeof findXmasSunday === 'function', 'message: <code>findXmasSunday</code> is a function.');
 assert(typeof findXmasSunday(2000, 2100) === 'object', 'message: <code>findChristmasSunday(2000, 2100)</code> should return an array.');
 assert.deepEqual(findXmasSunday(1970, 2017), firstSolution, 'message: <code>findChristmasSunday(2008, 2121</code> should return [1977, 1983, 1988, 1994, 2005, 2011, 2016]');
 assert.deepEqual(findXmasSunday(2008, 2121), secondSolution, 'message: <code>findChristmasSunday(2008, 2121</code> should return [2011, 2016, 2022, 2033, 2039, 2044, 2050, 2061, 2067, 2072, 2078, 2089, 2095, 2101, 2107, 2112, 2118]');
