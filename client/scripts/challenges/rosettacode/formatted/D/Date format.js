@@ -53,9 +53,12 @@ const getDateSolution = () => {
   return [fmt1, fmt2];
 };
 
+const dates = getDateSolution();
+const equalsMessage = `message: <code>getDataFormats()</code> should return <code>["${dates[0]}", "${dates[1]}"]</code>.`;
+
 /// tests:
 assert(typeof getDateFormats === 'function', 'message: <code>getDateFormats</code> is a function.');
 assert(typeof getDateFormats() === 'object', 'message: Should return an object.');
 assert(getDateFormats().length === 2, 'message: Should returned an array with 2 elements.');
-assert.deepEqual(getDateFormats(), getDateSolution(), 'message: <code>getDataFormats()</code> should return <code>' + getDateSolution().toString() + '</code>.');
+assert.deepEqual(getDateFormats(), dates, equalsMessage);
 /// id: 59669d08d75b60482359409f
