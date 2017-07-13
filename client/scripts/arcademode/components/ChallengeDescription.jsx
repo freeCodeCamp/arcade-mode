@@ -8,11 +8,15 @@ import ImmutablePropTypes from 'react-immutable-proptypes';
 export default class ChallengeDescription extends React.Component {
   constructor(props) {
     super(props);
+    this.oldDescription = this.props.description;
     this.createMarkup = this.createMarkup.bind(this);
   }
 
   componentDidUpdate () {
-    document.querySelector('.arcade-panel-left').scrollTop = 0;
+    if (this.props.description !== this.oldDescription) {
+      document.querySelector('.arcade-panel-left').scrollTop = 0;
+      this.oldDescription = this.props.description;
+    }
   }
 
   createMarkup() {
