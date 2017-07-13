@@ -15,11 +15,18 @@ const assert = require('chai').assert;
 
 /// description:
 /// <div class="rosetta">
+/// <p class="rosetta__paragraph">
 /// A vector is defined as having three dimensions as being represented by an ordered collection of three numbers: &nbsp; (X, Y, Z).
+/// </p>
 /// <br/>
 /// <p class="rosetta__paragraph">
-/// Write a function that takes any numbers of vectors (arrays) as
-/// input and computes their dot product.
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+///   <li class="rosetta__list-item--unordered">
+///     Write a function that takes any numbers of vectors (arrays) as input and computes their dot product.
+///   </li>
+/// </ul>
+/// <br>
 /// Your function should return <code>null</code> on
 /// invalid inputs (ie vectors of different lengths).
 /// </p>

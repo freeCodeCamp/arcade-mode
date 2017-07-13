@@ -18,8 +18,14 @@ const assert = require('chai').assert;
 /// A vector is defined as having three dimensions as being represented by an ordered collection of three numbers: &nbsp; (X, Y, Z).
 /// <br/>
 /// <p class="rosetta__paragraph">
-/// Write a function that takes two vectors (arrays) as
-/// input and computes their cross product. Your function should return <code>null</code> on
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+///   <li class="rosetta__list-item--unordered">
+///     Write a function that takes two vectors (arrays) as input and computes their cross product.
+///   </li>
+/// </ul>
+/// <br>
+/// Your function should return <code>null</code> on
 /// invalid inputs (ie vectors of different lengths).
 /// </p>
 /// </div>

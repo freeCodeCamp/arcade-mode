@@ -33,7 +33,8 @@ const assert = require('chai').assert;
 /// which leads to the former unique solution.
 /// </p>
 /// <p class="rosetta__paragraph">
-/// Write a function that generates and returns an array of first N Zeckendorf numbers in order.
+///  <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+///  <ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">Write a function that generates and returns an array of first N Zeckendorf numbers in order.</li></ul>
 /// </p>
 /// </div>
 
