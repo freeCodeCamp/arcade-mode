@@ -1,11 +1,14 @@
 
-/* eslint no-multi-spaces: 0 */
 /* eslint no-undef: 0 */
 
 import React from 'react';
 import PropTypes from 'prop-types';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import CodeMirror from 'react-codemirror';
+
+import ChallengeDescription from './ChallengeDescription';
+import TestResults from './TestResults';
+import BenchmarkResults from './BenchmarkResults';
 // import MathJax from '../../vendor/MathJax'; // single-file ver. doesn't work as it uses code incompatible with strict mode i.e., arguments.callee
 // importing MathJax from npm's mathjax also doesn't seem to work (mathjax not found).
 // Hence, the current solution is to rely on the external script. This however means potential problems during offline sessions.
@@ -45,86 +48,6 @@ export default class ChallengePanel extends React.Component {
     return false;
   }
 
-  createMarkup() {
-    let descr;
-    if (typeof this.props.description === 'string') {
-      descr = this.props.description;
-    }
-    else descr = this.props.description.join('\n');
-    return { __html: descr };
-  }
-
-  renderBenchmarkResults () {
-    if (!this.props.benchmarkResults.size) {
-      return;
-    }
-
-    const results = this.props.benchmarkResults.toJS();
-
-    let className;
-    if (results.resultMessage === 'Your code is slower than par.') {
-      className = 'text-warning';
-    }
-    else if (results.resultMessage === 'Par! Your code is fast!') {
-      className = 'text-primary';
-    }
-    else className = 'text-success';
-
-    return (
-      <div>
-        <p className='text-default'>Benchmark result:
-          <span className={className}>  {results.resultMessage}</span>
-        </p>
-        <p className='text-muted'>{results.stockPerf}</p>
-        <p className='text-muted'>{results.userPerf}</p>
-      </div>
-    );
-  }
-
-  /* TODO: Add limit to the number of printed tests. Improve output. */
-  renderTestResults() {
-    /* eslint react/no-danger: 0 */
-    const results = this.props.testResults;
-    const numTests = results.size;
-    let testsOk = true;
-    let individualTests;
-
-    if (numTests > 0) {
-      let id = 0;
-      individualTests = results.map(item => {
-        const result = item.pass ? 'Pass' : 'Fail';
-        const className = item.pass ? 'text-success' : 'text-danger';
-        testsOk = testsOk && item.pass;
-        id += 1;
-
-        // return only status of each test on Whiteboard mode
-        if (this.props.editor === 'Whiteboard') {
-          return <p className={className} key={id}>Status: {result}</p>;
-        }
-
-        // If test had error, format the error message here
-        let msg = null;
-        if (item.error !== null) {
-          const innerHtml = { __html: `Error: ${item.error}` };
-          msg = <span dangerouslySetInnerHTML={innerHtml} />;
-        }
-
-        return <p className={className} key={id}>Status: {result} {msg}</p>;
-      });
-    }
-    let finalResult = testsOk ? 'All tests passed' : 'There were failing tests';
-    if (numTests === 0) {
-      finalResult = 'No tests run.';
-    }
-
-    return (
-      <div>
-        <p>Tests result: {finalResult}</p>
-        {individualTests}
-      </div>
-    );
-  }
-
   render() {
     /*
     let finishButton = null;
@@ -135,8 +58,6 @@ export default class ChallengePanel extends React.Component {
     }
    */
 
-    const benchmarkResults = this.renderBenchmarkResults();
-    const testResults = this.renderTestResults();
     const overallTestResult = this.getOverallTestResult();
     const runTestsBtnClass = (this.props.isRunningTests || this.props.isRunningBenchmark) ? 'btn btn-primary btn-big btn-block disabled' : 'btn btn-primary btn-big btn-block';
     const runBenchmarkBtnClass = (this.props.isRunningTests || this.props.isRunningBenchmark) ? 'btn btn-info btn-big btn-block disabled' : 'btn btn-info btn-big btn-block';
@@ -145,9 +66,10 @@ export default class ChallengePanel extends React.Component {
     return (
       <div className='challenge-panel'>
         <div className='challenge__title'>{this.props.title}</div>
-        {this.props.showDescription &&
-        <div className='challenge__description' dangerouslySetInnerHTML={this.createMarkup()} />
-        }
+        <ChallengeDescription
+          description={this.props.description}
+          showDescription={this.props.showDescription}
+        />
         <div className='challenge__buttons'>
           {!this.props.isSessionStarted &&
             <button className='btn btn-success btn-big btn-block' onClick={this.props.onClickStartChallenge}>Start</button>
@@ -169,7 +91,7 @@ export default class ChallengePanel extends React.Component {
           {this.props.isSessionStarted &&
             overallTestResult &&
             this.props.benchmark !== '' &&
-            !/^\/\//.test(this.props.benchmark) &&
+            !/^\/\//.test(this.props.benchmark) && // if commented out, ignore
             <button className={runBenchmarkBtnClass} onClick={this.props.onClickBenchmark}>Benchmark</button>
           }
 
@@ -223,9 +145,15 @@ export default class ChallengePanel extends React.Component {
             value={this.props.userOutput}
           />
         </div>
-        {benchmarkResults}
-        {testResults}
-
+        {/* {benchmarkResults} */}
+        {/* {testResults} */}
+        <BenchmarkResults
+          benchmarkResults={this.props.benchmarkResults}
+        />
+        <TestResults
+          testResults={this.props.testResults}
+          editor={this.props.editor}
+        />
       </div>
     );
   }
