@@ -1459,6 +1459,81 @@
       "id": "595b98f8b5a2245e243aa831"
     },
     {
+      "title": "S-Expressions",
+      "type": "rosetta-code",
+      "categories": [
+        "parsing",
+        "s-expressions"
+      ],
+      "difficulty": "?",
+      "benchmark": "parseSexpr('((data \"quoted data\" 123 4.5) (data (!@# (4.5) \"(more\" \"data)\")))');",
+      "description": [
+        "<div class=\"rosetta\">",
+        "<p class=\"rosetta__paragraph\">",
+        "<a class=\"rosetta__link--wiki\" href=\"https://en.wikipedia.org/wiki/S-Expression\" title=\"wp: S-Expression\">S-Expressions</a> are one convenient way to parse and store data.",
+        "</p>",
+        "<br/><dl class=\"rosetta__description-list\"><dt class=\"rosetta__description-title\">Task:</dt></dl>",
+        "<p class=\"rosetta__paragraph\">",
+        "    Write a simple reader/parser for S-Expressions that handles quoted and unquoted strings, integers and floats.",
+        "</p>",
+        "<p class=\"rosetta__paragraph\">",
+        "The function should read a single but nested S-Expression from a string and",
+        "return it as a (nested) array.",
+        "</p>",
+        "<p class=\"rosetta__paragraph\">",
+        "    Newlines and other whitespace may be ignored unless contained within a quoted string.",
+        "</p>",
+        "<p class=\"rosetta__paragraph\">“<tt>()</tt>”  inside quoted strings are not interpreted, but treated as part of the string.",
+        "</p>",
+        "<p class=\"rosetta__paragraph\">",
+        "Handling escaped quotes inside a string is optional;  thus “<tt>(foo\"bar)</tt>” maybe treated as a string “<tt>foo\"bar</tt>”, or as an error.",
+        "</p>",
+        "<p class=\"rosetta__paragraph\">",
+        "For this, the reader need not recognize “<tt>\\</tt>” for escaping, but should, in addition, recognize numbers if the language has appropriate datatypes.",
+        "</p>",
+        "<p class=\"rosetta__paragraph\">",
+        "Note that with the exception of “<tt>()\"</tt>” (“<tt>\\</tt>” if escaping is supported) and whitespace there are no special characters. Anything else is allowed without quotes.",
+        "</p>",
+        "<p class=\"rosetta__paragraph\">The reader should be able to read the following input</p>",
+        "<p class=\"rosetta__paragraph\">",
+        "<pre>",
+        "    ((data \"quoted data\" 123 4.5)",
+        "    (data (!@# (4.5) \"(more\" \"data)\")))",
+        "</pre>",
+        "</p>",
+        "<p class=\"rosetta__paragraph\">",
+        "and turn it into a native datastructure. (see the",
+        "<a class=\"rosetta__link--rosetta\" href=\"http://rosettacode.org/wiki/#Pike\" title=\"#Pike\">Pike</a>, ",
+        "<a class=\"rosetta__link--rosetta\" href=\"http://rosettacode.org/wiki/#Python\" title=\"#Python\">Python</a> and",
+        "<a class=\"rosetta__link--rosetta\" href=\"http://rosettacode.org/wiki/#Ruby\" title=\"#Ruby\">Ruby</a> implementations",
+        "for examples of native data structures.)",
+        "</p>",
+        "</div>"
+      ],
+      "challengeSeed": [
+        "function parseSexpr(str) {",
+        "  // Good luck!",
+        "  return true;",
+        "}"
+      ],
+      "solutions": [
+        "function parseSexpr(str) {\n  const t = str.match(/\\s*(\"[^\"]*\"|\\(|\\)|\"|[^\\s()\"]+)/g);\n  for (var o, c = 0, i = t.length - 1; i >= 0; i--) {\n    var n,\n      ti = t[i].trim();\n    if (ti == '\"') return;\n    else if (ti == '(') t[i] = '[', c += 1;\n    else if (ti == ')') t[i] = ']', c -= 1;\n    else if ((n = +ti) == ti) t[i] = n;\n    else t[i] = `'${ti.replace('\\'', '\\\\\\'')}'`;\n    if (i > 0 && ti != ']' && t[i - 1].trim() != '(') t.splice(i, 0, ',');\n    if (!c) if (!o) o = true; else return;\n  }\n  return c ? undefined : eval(t.join(''));\n}\n"
+      ],
+      "tail": [
+        "const simpleSExpr = '(data1 data2 data3)';",
+        "const simpleSolution = ['data1', 'data2', 'data3'];",
+        "",
+        "const basicSExpr = '((data \"quoted data\" 123 4.5) (data (!@# (4.5) \"(more\" \"data)\")))';",
+        "const basicSolution = [[\"data\",\"\\\"quoted data\\\"\",123,4.5],[\"data\",[\"!@#\",[4.5],\"\\\"(more\\\"\",\"\\\"data)\\\"\"]]];"
+      ],
+      "tests": [
+        "assert(typeof parseSexpr === 'function', 'message: <code>parseSexpr</code> is a function.');",
+        "assert.deepEqual(parseSexpr(simpleSExpr), simpleSolution, \"message: <code>parseSexpr('(data1 data2 data3)')</code> should return ['data1', 'data2', 'data3']\");",
+        "assert.deepEqual(parseSexpr(basicSExpr), basicSolution, \"message: <code>parseSexpr('(data1 data2 data3)')</code> should return an array with 3 elements\");"
+      ],
+      "id": "59667989bf71cf555dd5d2ff"
+    },
+    {
       "title": "Taxicab numbers",
       "type": "rosetta-code",
       "categories": [],
@@ -1466,7 +1541,8 @@
       "benchmark": "//replaceWithActualFunctionHere;",
       "description": [
         "<div class=\"rosetta\">",
-        "A &nbsp; <a class=\"rosetta__link--wiki\" href=\"https://en.wikipedia.org/wiki/Hardy–Ramanujan number\" title=\"wp: Hardy–Ramanujan number\">taxicab number</a> &nbsp; (the definition that is being used here) &nbsp; is a positive integer that can be expressed as the sum of two positive cubes in more than one way.",
+        "A &nbsp; <a class=\"rosetta__link--wiki\" href=\"https://en.wikipedia.org/wiki/Hardy–Ramanujan number\" title=\"wp: Hardy–Ramanujan number\">taxicab number</a>",
+        "&nbsp; (the definition that is being used here) &nbsp; is a positive integer that can be expressed as the sum of two positive cubes in more than one way.",
         "<br>",
         "The first taxicab number is &nbsp; <span class=\"rosetta__text--bold\">1729</span>, &nbsp; which is:",
         "<span class=\"rosetta__text--indented\">1<sup>3</sup> &nbsp; + &nbsp; 12<sup>3</sup> &nbsp; &nbsp; &nbsp; and</span>",
@@ -1500,7 +1576,7 @@
         "}"
       ],
       "solutions": [
-        "function taxicabNumbers(nNumbers) {\n  const cubeN = [];\n  const s3s = {};\n\n  const e = 100;\n  for (let n = 1; n < e; n += 1) {\n    cubeN[n] = n * n * n;\n  }\n\n  for (let a = 1; a < e - 1; a += 1) {\n    const a3 = cubeN[a];\n    for (let b = a; b < e; b += 1) {\n      const b3 = cubeN[b];\n      const s3 = a3 + b3;\n\n      let abs = s3s[s3];\n      if (!abs) {\n        s3s[s3] = abs = [];\n      }\n      abs.push([a, b]);\n    }\n  }\n\n  let i = 0;\n  const res = [];\n  for (const s3 in s3s) {\n    const abs = s3s[s3];\n    if (abs.length < 2) { // No two cube pairs found\n      continue;\n    }\n    i += 1;\n    if (i > nNumbers) {\n      break;\n    }\n    res.push(s3);\n  }\n  return res.map(item => parseInt(item, 10));\n}\n"
+        "function taxicabNumbers(nNumbers) {\n  const cubeN = [];\n  const s3s = {};\n\n  const e = 100;\n  for (let n = 1; n < e; n += 1) {\n    cubeN[n] = n * n * n;\n  }\n\n  for (let a = 1; a < e - 1; a += 1) {\n    const a3 = cubeN[a];\n    for (let b = a; b < e; b += 1) {\n      const b3 = cubeN[b];\n      const s3 = a3 + b3;\n\n      let abs = s3s[s3];\n      if (!abs) {\n        s3s[s3] = abs = [];\n      }\n      abs.push([a, b]);\n    }\n  }\n\n  let i = 0;\n  const res = [];\n  Object.keys(s3s).forEach(s3 => {\n    const abs = s3s[s3];\n    if (abs.length >= 2) { // No two cube pairs found\n      i += 1;\n      if (i <= nNumbers) {\n        res.push(s3);\n      }\n    }\n  });\n  return res.map(item => parseInt(item, 10));\n}\n"
       ],
       "tail": [
         "const res4 = [1729, 4104, 13832, 20683];",
@@ -1777,12 +1853,12 @@
       "difficulty": "7",
       "description": [
         "<div class=\"rosetta\">",
-        "<p class=\"rosetta__paragraph\">Given a mapping between items, and items they depend on, a <a class=\"rosetta__link--wiki\" href=\"https://en.wikipedia.org/wiki/Topological sorting\" title=\"wp: Topological sorting\">topological sort</a> orders items so that no item precedes an item it depends upon.</p><br/><p class=\"rosetta__paragraph\">The compiling of a library in the <a class=\"rosetta__link--wiki\" href=\"https://en.wikipedia.org/wiki/VHDL\" title=\"wp: VHDL\">VHDL</a> language has the constraint that a library must be compiled after any library it depends on.</p><br/><p class=\"rosetta__paragraph\">A tool exists that extracts library dependencies.</p>",
-        "<br/><dl class=\"rosetta__description-list\"><dt class=\"rosetta__description-title\">Task;</dt></dl>",
+        "<p class=\"rosetta__paragraph\">Given a mapping between items, and items they depend on, a <a class=\"rosetta__link--wiki\" href=\"https://en.wikipedia.org/wiki/Topological sorting\" title=\"wp: Topological sorting\">topological sort</a> orders items so that no item precedes an item it depends upon.</p><br/><p class=\"rosetta__paragraph\">The compiling of a library in the <a class=\"rosetta__link--wiki\" href=\"https://en.wikipedia.org/wiki/VHDL\" title=\"wp: VHDL\">VHDL</a> language has the constraint that a library must be compiled after any library it depends on.</p>",
+        "<br/><dl class=\"rosetta__description-list\"><dt class=\"rosetta__description-title\">Task:</dt></dl>",
         "<p class=\"rosetta__paragraph\">Write a function that will return a valid compile order of VHDL libraries from their dependencies.</p><br/><ul class=\"rosetta__unordered-list\"><li class=\"rosetta__list-item--unordered\">Assume library names are single words. </li>",
-        "<li class=\"rosetta__list-item--unordered\">Items mentioned as only dependents, (sic), have no dependents of their own, but their order of compiling must be given.</li>",
+        "<li class=\"rosetta__list-item--unordered\">Items mentioned as only dependents have no dependents of their own, but their order of compiling must be given.</li>",
         "<li class=\"rosetta__list-item--unordered\">Any self dependencies should be ignored. </li>",
-        "<li class=\"rosetta__list-item--unordered\">Any un-orderable dependencies should be flagged.</li></ul>",
+        "<li class=\"rosetta__list-item--unordered\">Any un-orderable dependencies should be ignored.</li></ul>",
         "<br>",
         "<p class=\"rosetta__paragraph\">Use the following data as an example:</p>",
         "<div class=\"rosetta__pre-wrap\"><pre class=\"rosetta__pre\">",
@@ -1809,7 +1885,7 @@
         "<p class=\"rosetta__paragraph\">There are two popular algorithms for topological sorting:</p>",
         "<p class=\"rosetta__paragraph\">Kahn's 1962 topological sort, and depth-first search.</p>",
         "<p class=\"rosetta__paragraph\"><ref></p>",
-        "<p class=\"rosetta__paragraph\">[[wp: topological sorting]]</p>",
+        "<p class=\"rosetta__paragraph\"><a class=\"rosetta__link--wiki\" href=\"https://en.wikipedia.org/wiki/Topological sorting\" title=\"wp: Topological sorting\">topological sort</a></p>",
         "</ref><ref>",
         "<p class=\"rosetta__paragraph\">Jason Sachs</p>",
         "<p class=\"rosetta__paragraph\"><a class=\"rosetta__link--wiki\" href=\"http://www.embeddedrelated.com/showarticle/799.php\" title=\"link: http://www.embeddedrelated.com/showarticle/799.php\">\"Ten little algorithms, part 4: topological sort\"</a>.</p>",
@@ -1857,13 +1933,21 @@
         "  d c",
         "  c base",
         "  base`;",
-        "const solutionCustom = ['base', 'c', 'd', 'b', 'a'];"
+        "const solutionCustom = ['base', 'c', 'd', 'b', 'a'];",
+        "",
+        "const libsUnorderable =",
+        "  `TestLib Base MainLib",
+        "  MainLib TestLib",
+        "  Base`;",
+        "",
+        "const solutionUnorderable = ['Base'];"
       ],
       "tests": [
         "assert(typeof topologicalSort === 'function', 'message: <code>topologicalSort</code> is a function.');",
         "assert.deepEqual(topologicalSort(libsSimple), ['bbb', 'aaa'], 'message: <code>topologicalSort</code> must return correct library order..');",
         "assert.deepEqual(topologicalSort(libsVHDL), solutionVHDL, 'message: <code>topologicalSort</code> must return correct library order..');",
-        "assert.deepEqual(topologicalSort(libsCustom), solutionCustom, 'message: <code>topologicalSort</code> must return correct library order..');"
+        "assert.deepEqual(topologicalSort(libsCustom), solutionCustom, 'message: <code>topologicalSort</code> must return correct library order..');",
+        "assert.deepEqual(topologicalSort(libsUnorderable), solutionUnorderable, 'message: <code>topologicalSort</code> must ignore unorderable dependencies..');"
       ],
       "id": "594fa2746886f41f7d8bf225"
     },
@@ -1924,11 +2008,15 @@
         "math"
       ],
       "description": [
+        "<div class=\"rosetta\">",
         "A vector is defined as having three dimensions as being represented by an ordered collection of three numbers: &nbsp; (X, Y, Z).",
         "<br/>",
+        "<p class=\"rosetta__paragraph\">",
         "Write a function that takes two vectors (arrays) as",
         "input and computes their cross product. Your function should return <code>null</code> on",
-        "invalid inputs (ie vectors of different lengths)."
+        "invalid inputs (ie vectors of different lengths).",
+        "</p>",
+        "</div>"
       ],
       "challengeSeed": [
         "function crossProduct() {",
@@ -1960,11 +2048,16 @@
         "math"
       ],
       "description": [
+        "<div class=\"rosetta\">",
         "A vector is defined as having three dimensions as being represented by an ordered collection of three numbers: &nbsp; (X, Y, Z).",
         "<br/>",
+        "<p class=\"rosetta__paragraph\">",
         "Write a function that takes any numbers of vectors (arrays) as",
-        "input and computes their dot product. Your function should return <code>null</code> on",
-        "invalid inputs (ie vectors of different lenghts)."
+        "input and computes their dot product.",
+        "Your function should return <code>null</code> on",
+        "invalid inputs (ie vectors of different lengths).",
+        "</p>",
+        "</div>"
       ],
       "challengeSeed": [
         "function dotProduct() {",
@@ -2104,10 +2197,30 @@
       "difficulty": "3",
       "description": [
         "<div class=\"rosetta\">",
-        "Just as numbers can be represented in a positional notation as sums of multiples of the powers of ten (decimal) or two (binary); all the positive integers can be represented as the sum of one or zero times the distinct members of the Fibonacci series.<br/>",
-        "Recall that the first six distinct Fibonacci numbers are:  1, 2, 3, 5, 8, 13. The decimal number eleven can be written as 0*13 + 1*8 + 0*5 + 1*3 + 0*2 + 0*1 or 010100 in positional notation where the columns represent multiplication by a particular member of the sequence. Leading zeroes are dropped so that 11 decimal becomes 10100.<br/>",
-        "10100 is not the only way to make 11 from the Fibonacci numbers however;  0*13 + <code>1*8 + 0*5 + 0*3 + 1*2 + 1*1</code> or 010011 would also represent decimal 11. For a true Zeckendorf number there is the added restriction that ''no two consecutive Fibonacci numbers can be used'' which leads to the former unique solution.<br/>",
+        "<p class=\"rosetta__paragraph\">",
+        "Just as numbers can be represented in a",
+        "positional notation as sums of multiples of the powers of ten (decimal)",
+        "or two (binary); all the positive integers can be represented as the sum",
+        "of one or zero times the distinct members of the Fibonacci series.",
+        "</p>",
+        "<p class=\"rosetta__paragraph\">",
+        "Recall that the first six distinct Fibonacci",
+        "numbers are:  <code>1, 2, 3, 5, 8, 13</code>. The decimal number eleven can",
+        "be written as <code>0*13 + 1*8 + 0*5 + 1*3 + 0*2 + 0*1</code> or",
+        "<code>010100</code> in positional notation where the columns represent",
+        "multiplication by a particular member of the sequence. Leading zeroes are",
+        "dropped so that 11 decimal becomes <code>10100</code>.",
+        "</p>",
+        "<p class=\"rosetta__paragraph\">",
+        "10100 is not the only way to make 11 from the Fibonacci numbers however",
+        "<code>0*13 + 1*8 + 0*5 + 0*3 + 1*2 + 1*1</code> or 010011 would also",
+        "represent decimal 11. For a true Zeckendorf number there is the added",
+        "restriction that ''no two consecutive Fibonacci numbers can be used''",
+        "which leads to the former unique solution.",
+        "</p>",
+        "<p class=\"rosetta__paragraph\">",
         "Write a function that generates and returns an array of first N Zeckendorf numbers in order.",
+        "</p>",
         "</div>"
       ],
       "challengeSeed": [
@@ -2144,6 +2257,7 @@
       "type": "rosetta-code",
       "difficulty": "7",
       "description": [
+        "<div class=\"rosetta\">",
         "This is an algorithm used to thin a black and white i.e. one bit per pixel images.",
         "<br/>",
         "For example, with an input image of:",
@@ -2221,7 +2335,8 @@
         "Iteration:",
         "If any pixels were set in this round of either step 1 or step 2 then all steps are repeated until no image pixels are so changed.",
         "<br/>",
-        "Write a routine to perform Zhang-Suen thinning on an image matrix of ones and zeroes."
+        "Write a routine to perform Zhang-Suen thinning on an image matrix of ones and zeroes.",
+        "</div>"
       ],
       "challengeSeed": [
         "const testImage = [",
@@ -2308,6 +2423,7 @@
       "difficulty": "3",
       "categories": "matrix",
       "description": [
+        "<div class=\"rosetta\">",
         "A &nbsp; ''zig-zag'' &nbsp; array is a square arrangement of the first &nbsp;",
         "$N^2$ &nbsp; integers, &nbsp; where the",
         "numbers increase sequentially as you zig-zag along the array's &nbsp;",
@@ -2322,7 +2438,8 @@
         "10 18 19 23 24",
         "</pre>",
         "Write a function that takes the size of the zig-zag matrix, and returns the",
-        "corresponding matrix as two-dimensional array."
+        "corresponding matrix as two-dimensional array.",
+        "</div>"
       ],
       "challengeSeed": [
         "function ZigZagMatrix(n) {",

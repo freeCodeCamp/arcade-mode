@@ -7,7 +7,7 @@
   },
   "multiplier": 1.25,
   "score": true,
-  "pass": true,
+  "skip": true,
 
   "production": true,
   "development": false,

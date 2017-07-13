@@ -17,8 +17,8 @@ json/challenges-arcade.json
 json/challenges-combined.json
 json/challenges-data-structures.json
 json/challenges-rosetta.json
-font/Kalam/Kalam-Regular.ttf
 font/Lato/Lato-Black.ttf
+font/Kalam/Kalam-Regular.ttf
 font/Roboto/Roboto-Bold.ttf
 font/Roboto/Roboto-Medium.ttf
 font/Roboto/Roboto-Regular.ttf
@@ -36,4 +36,4 @@ NETWORK:
 SETTINGS:
 prefer-online
 
-# hash: bb60b55d1641841e0be240c3cd42027c4a67842bab936536f64747d7e5a30f38
+# hash: be54fee199539bb2c7823b58bc4d7b1f65bc9525fb15adae9d626980ddb5a4eb
