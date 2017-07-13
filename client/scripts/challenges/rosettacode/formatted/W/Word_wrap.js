@@ -27,8 +27,14 @@ const assert = require('chai').assert;
 /// is something better than a simple minimimum length algorithm.
 /// </pre>
 /// <p class="rosetta__paragraph">
-/// Write a function that can wrap this text to any number of characters. As an
-/// example, the text wrapped to 80 characters should look like the following:
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+///   <li class="rosetta__list-item--unordered">
+///     Write a function that can wrap this text to any number of characters.
+///   </li>
+/// </ul>
+/// <br>
+/// As an example, the text wrapped to 80 characters should look like the following:
 /// </p>
 /// <pre>
 /// Wrap text using a more sophisticated algorithm such as the Knuth and Plass TeX
