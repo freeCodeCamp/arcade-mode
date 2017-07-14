@@ -89,7 +89,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -97,7 +97,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-${description}
+/// ${description}
 
 /// challengeSeed:
 ${challengeSeed}
