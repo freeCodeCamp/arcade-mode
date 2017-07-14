@@ -17,7 +17,18 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">Consider a honey bee's honeycomb where each cell is a perfect regular hexagon with side length 1.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">One particular cell is occupied by the queen bee.</p><p class="euler__paragraph">For a positive real number L, let B(L) count the cells with distance L from the queen bee cell (all distances are measured from centre to centre); you may assume that the honeycomb is large enough to accommodate for any distance we wish to consider. </p><p class="euler__paragraph">For example, B(√3) = 6, B(√21) = 12 and B(111 111 111) = 54.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Find the number of L ≤ 5·1011 such that B(L) = 450.</p></div>
+/// <div class="euler"><p class="euler__paragraph">Consider a honey bee's honeycomb where each cell is a perfect regular hexagon with side length 1.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">One particular cell is occupied by the queen bee.</p>
+/// <p class="euler__paragraph">For a positive real number L, let B(L) count the cells with distance L from the queen bee cell (all distances are measured from centre to centre); you may assume that the honeycomb is large enough to accommodate for any distance we wish to consider. </p>
+/// <p class="euler__paragraph">For example, B(√3) = 6, B(√21) = 12 and B(111 111 111) = 54.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Find the number of L ≤ 5·1011 such that B(L) = 450.</p></div>
 
 /// challengeSeed:
 function euler354() {
@@ -33,5 +44,6 @@ euler354();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler354 === 'function', 'message: <code>euler354()</code> is a function.');
 assert.strictEqual(euler354(), 58065134, 'message: <code>euler354()</code> should return 58065134.');
 /// id: 5900f4cf1000cf542c50ffe1

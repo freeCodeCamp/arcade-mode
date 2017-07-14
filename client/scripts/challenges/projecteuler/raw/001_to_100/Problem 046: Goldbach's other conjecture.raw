@@ -17,7 +17,15 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">It was proposed by Christian Goldbach that every odd composite number can be written as the sum of a prime and twice a square.</p><p class="euler__paragraph">9 = 7 + 2×12</p><p class="euler__paragraph">15 = 7 + 2×22</p><p class="euler__paragraph">21 = 3 + 2×32</p><p class="euler__paragraph">25 = 7 + 2×32</p><p class="euler__paragraph">27 = 19 + 2×22</p><p class="euler__paragraph">33 = 31 + 2×12</p><p class="euler__paragraph">It turns out that the conjecture was false.</p><p class="euler__paragraph">What is the smallest odd composite that cannot be written as the sum of a prime and twice a square?</p></div>
+/// <div class="euler"><p class="euler__paragraph">It was proposed by Christian Goldbach that every odd composite number can be written as the sum of a prime and twice a square.</p>
+/// <p class="euler__paragraph">9 = 7 + 2×12</p>
+/// <p class="euler__paragraph">15 = 7 + 2×22</p>
+/// <p class="euler__paragraph">21 = 3 + 2×32</p>
+/// <p class="euler__paragraph">25 = 7 + 2×32</p>
+/// <p class="euler__paragraph">27 = 19 + 2×22</p>
+/// <p class="euler__paragraph">33 = 31 + 2×12</p>
+/// <p class="euler__paragraph">It turns out that the conjecture was false.</p>
+/// <p class="euler__paragraph">What is the smallest odd composite that cannot be written as the sum of a prime and twice a square?</p></div>
 
 /// challengeSeed:
 function euler46() {
@@ -33,5 +41,6 @@ euler46();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler46 === 'function', 'message: <code>euler46()</code> is a function.');
 assert.strictEqual(euler46(), 5777, 'message: <code>euler46()</code> should return 5777.');
 /// id: 5900f39a1000cf542c50fead

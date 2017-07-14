@@ -17,7 +17,10 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">By replacing each of the letters in the word CARE with 1, 2, 9, and 6 respectively, we form a square number: 1296 = 362. What is remarkable is that, by using the same digital substitutions, the anagram, RACE, also forms a square number: 9216 = 962. We shall call CARE (and RACE) a square anagram word pair and specify further that leading zeroes are not permitted, neither may a different letter have the same digital value as another letter.</p><p class="euler__paragraph">Using words.txt (right click and 'Save Link/Target As...'), a 16K text file containing nearly two-thousand common English words, find all the square anagram word pairs (a palindromic word is NOT considered to be an anagram of itself).</p><p class="euler__paragraph">What is the largest square number formed by any member of such a pair?</p><p class="euler__paragraph">NOTE: All anagrams formed must be contained in the given text file.</p></div>
+/// <div class="euler"><p class="euler__paragraph">By replacing each of the letters in the word CARE with 1, 2, 9, and 6 respectively, we form a square number: 1296 = 362. What is remarkable is that, by using the same digital substitutions, the anagram, RACE, also forms a square number: 9216 = 962. We shall call CARE (and RACE) a square anagram word pair and specify further that leading zeroes are not permitted, neither may a different letter have the same digital value as another letter.</p>
+/// <p class="euler__paragraph">Using words.txt (right click and 'Save Link/Target As...'), a 16K text file containing nearly two-thousand common English words, find all the square anagram word pairs (a palindromic word is NOT considered to be an anagram of itself).</p>
+/// <p class="euler__paragraph">What is the largest square number formed by any member of such a pair?</p>
+/// <p class="euler__paragraph">NOTE: All anagrams formed must be contained in the given text file.</p></div>
 
 /// challengeSeed:
 function euler98() {
@@ -33,5 +36,6 @@ euler98();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler98 === 'function', 'message: <code>euler98()</code> is a function.');
 assert.strictEqual(euler98(), 18769, 'message: <code>euler98()</code> should return 18769.');
 /// id: 5900f3cf1000cf542c50fee1

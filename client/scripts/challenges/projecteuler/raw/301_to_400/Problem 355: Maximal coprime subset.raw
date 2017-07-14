@@ -17,7 +17,14 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">Define Co(n) to be the maximal possible sum of a set of mutually co-prime elements from {1, 2, ..., n}. For example Co(10) is 30 and hits that maximum on the subset {1, 5, 7, 8, 9}.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">You are given that Co(30) = 193 and Co(100) = 1356. </p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Find Co(200000).</p></div>
+/// <div class="euler"><p class="euler__paragraph">Define Co(n) to be the maximal possible sum of a set of mutually co-prime elements from {1, 2, ..., n}. For example Co(10) is 30 and hits that maximum on the subset {1, 5, 7, 8, 9}.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">You are given that Co(30) = 193 and Co(100) = 1356. </p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Find Co(200000).</p></div>
 
 /// challengeSeed:
 function euler355() {
@@ -33,5 +40,6 @@ euler355();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler355 === 'function', 'message: <code>euler355()</code> is a function.');
 assert.strictEqual(euler355(), 1726545007, 'message: <code>euler355()</code> should return 1726545007.');
 /// id: 5900f4d01000cf542c50ffe2

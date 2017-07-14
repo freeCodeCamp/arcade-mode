@@ -17,7 +17,12 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">Working from left-to-right if no digit is exceeded by the digit to its left it is called an increasing number; for example, 134468.</p><p class="euler__paragraph">Similarly if no digit is exceeded by the digit to its right it is called a decreasing number; for example, 66420.</p><p class="euler__paragraph">We shall call a positive integer that is neither increasing nor decreasing a "bouncy" number; for example, 155349.</p><p class="euler__paragraph">Clearly there cannot be any bouncy numbers below one-hundred, but just over half of the numbers below one-thousand (525) are bouncy. In fact, the least number for which the proportion of bouncy numbers first reaches 50% is 538.</p><p class="euler__paragraph">Surprisingly, bouncy numbers become more and more common and by the time we reach 21780 the proportion of bouncy numbers is equal to 90%.</p><p class="euler__paragraph">Find the least number for which the proportion of bouncy numbers is exactly 99%.</p></div>
+/// <div class="euler"><p class="euler__paragraph">Working from left-to-right if no digit is exceeded by the digit to its left it is called an increasing number; for example, 134468.</p>
+/// <p class="euler__paragraph">Similarly if no digit is exceeded by the digit to its right it is called a decreasing number; for example, 66420.</p>
+/// <p class="euler__paragraph">We shall call a positive integer that is neither increasing nor decreasing a "bouncy" number; for example, 155349.</p>
+/// <p class="euler__paragraph">Clearly there cannot be any bouncy numbers below one-hundred, but just over half of the numbers below one-thousand (525) are bouncy. In fact, the least number for which the proportion of bouncy numbers first reaches 50% is 538.</p>
+/// <p class="euler__paragraph">Surprisingly, bouncy numbers become more and more common and by the time we reach 21780 the proportion of bouncy numbers is equal to 90%.</p>
+/// <p class="euler__paragraph">Find the least number for which the proportion of bouncy numbers is exactly 99%.</p></div>
 
 /// challengeSeed:
 function euler112() {
@@ -33,5 +38,6 @@ euler112();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler112 === 'function', 'message: <code>euler112()</code> is a function.');
 assert.strictEqual(euler112(), 1587000, 'message: <code>euler112()</code> should return 1587000.');
 /// id: 5900f3dd1000cf542c50feef

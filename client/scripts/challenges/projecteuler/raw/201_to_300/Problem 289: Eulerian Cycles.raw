@@ -17,7 +17,21 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">Let C(x,y) be a circle passing through the points (x, y), (x, y+1), (x+1, y) and (x+1, y+1).</p><p class="euler__paragraph"></p><p class="euler__paragraph">For positive integers m and n, let E(m,n) be a configuration which consists of the m·n circles:</p><p class="euler__paragraph">{ C(x,y): 0 ≤ x < m, 0 ≤ y < n, x and y are integers }</p><p class="euler__paragraph"></p><p class="euler__paragraph">An Eulerian cycle on E(m,n) is a closed path that passes through each arc exactly once.</p><p class="euler__paragraph">Many such paths are possible on E(m,n), but we are only interested in those which are not self-crossing: </p><p class="euler__paragraph">A non-crossing path just touches itself at lattice points, but it never crosses itself.</p><p class="euler__paragraph"></p><p class="euler__paragraph">The image below shows E(3,3) and an example of an Eulerian non-crossing path.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Let L(m,n) be the number of Eulerian non-crossing paths on E(m,n).</p><p class="euler__paragraph">For example, L(1,2) = 2, L(2,2) = 37 and L(3,3) = 104290.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Find L(6,10) mod 1010.</p></div>
+/// <div class="euler"><p class="euler__paragraph">Let C(x,y) be a circle passing through the points (x, y), (x, y+1), (x+1, y) and (x+1, y+1).</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">For positive integers m and n, let E(m,n) be a configuration which consists of the m·n circles:</p>
+/// <p class="euler__paragraph">{ C(x,y): 0 ≤ x < m, 0 ≤ y < n, x and y are integers }</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">An Eulerian cycle on E(m,n) is a closed path that passes through each arc exactly once.</p>
+/// <p class="euler__paragraph">Many such paths are possible on E(m,n), but we are only interested in those which are not self-crossing: </p>
+/// <p class="euler__paragraph">A non-crossing path just touches itself at lattice points, but it never crosses itself.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">The image below shows E(3,3) and an example of an Eulerian non-crossing path.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Let L(m,n) be the number of Eulerian non-crossing paths on E(m,n).</p>
+/// <p class="euler__paragraph">For example, L(1,2) = 2, L(2,2) = 37 and L(3,3) = 104290.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Find L(6,10) mod 1010.</p></div>
 
 /// challengeSeed:
 function euler289() {
@@ -33,5 +47,6 @@ euler289();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler289 === 'function', 'message: <code>euler289()</code> is a function.');
 assert.strictEqual(euler289(), 6567944538, 'message: <code>euler289()</code> should return 6567944538.');
 /// id: 5900f48d1000cf542c50ffa0

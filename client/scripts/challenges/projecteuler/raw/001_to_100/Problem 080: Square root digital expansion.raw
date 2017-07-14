@@ -17,7 +17,9 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">It is well known that if the square root of a natural number is not an integer, then it is irrational. The decimal expansion of such square roots is infinite without any repeating pattern at all.</p><p class="euler__paragraph">The square root of two is 1.41421356237309504880..., and the digital sum of the first one hundred decimal digits is 475.</p><p class="euler__paragraph">For the first one hundred natural numbers, find the total of the digital sums of the first one hundred decimal digits for all the irrational square roots.</p></div>
+/// <div class="euler"><p class="euler__paragraph">It is well known that if the square root of a natural number is not an integer, then it is irrational. The decimal expansion of such square roots is infinite without any repeating pattern at all.</p>
+/// <p class="euler__paragraph">The square root of two is 1.41421356237309504880..., and the digital sum of the first one hundred decimal digits is 475.</p>
+/// <p class="euler__paragraph">For the first one hundred natural numbers, find the total of the digital sums of the first one hundred decimal digits for all the irrational square roots.</p></div>
 
 /// challengeSeed:
 function euler80() {
@@ -33,5 +35,6 @@ euler80();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler80 === 'function', 'message: <code>euler80()</code> is a function.');
 assert.strictEqual(euler80(), 40886, 'message: <code>euler80()</code> should return 40886.');
 /// id: 5900f3bc1000cf542c50fecf

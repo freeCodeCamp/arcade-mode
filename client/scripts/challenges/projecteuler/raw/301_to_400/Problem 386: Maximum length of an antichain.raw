@@ -17,7 +17,17 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">Let n be an integer and S(n) be the set of factors of n.</p><p class="euler__paragraph"></p><p class="euler__paragraph">A subset A of S(n) is called an antichain of S(n) if A contains only one element or if none of the elements of A divides any of the other elements of A.</p><p class="euler__paragraph"></p><p class="euler__paragraph">For example: S(30) = {1, 2, 3, 5, 6, 10, 15, 30}</p><p class="euler__paragraph">{2, 5, 6} is not an antichain of S(30).</p><p class="euler__paragraph">{2, 3, 5} is an antichain of S(30).</p><p class="euler__paragraph"></p><p class="euler__paragraph">Let N(n) be the maximum length of an antichain of S(n).</p><p class="euler__paragraph"></p><p class="euler__paragraph">Find ΣN(n) for 1 ≤ n ≤ 108</p></div>
+/// <div class="euler"><p class="euler__paragraph">Let n be an integer and S(n) be the set of factors of n.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">A subset A of S(n) is called an antichain of S(n) if A contains only one element or if none of the elements of A divides any of the other elements of A.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">For example: S(30) = {1, 2, 3, 5, 6, 10, 15, 30}</p>
+/// <p class="euler__paragraph">{2, 5, 6} is not an antichain of S(30).</p>
+/// <p class="euler__paragraph">{2, 3, 5} is an antichain of S(30).</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Let N(n) be the maximum length of an antichain of S(n).</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Find ΣN(n) for 1 ≤ n ≤ 108</p></div>
 
 /// challengeSeed:
 function euler386() {
@@ -33,5 +43,6 @@ euler386();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler386 === 'function', 'message: <code>euler386()</code> is a function.');
 assert.strictEqual(euler386(), 528755790, 'message: <code>euler386()</code> should return 528755790.');
 /// id: 5900f4ef1000cf542c510001

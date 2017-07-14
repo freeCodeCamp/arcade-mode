@@ -17,7 +17,16 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">A hexagonal tile with number 1 is surrounded by a ring of six hexagonal tiles, starting at "12 o'clock" and numbering the tiles 2 to 7 in an anti-clockwise direction.</p><p class="euler__paragraph">New rings are added in the same fashion, with the next rings being numbered 8 to 19, 20 to 37, 38 to 61, and so on. The diagram below shows the first three rings.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">By finding the difference between tile n and each of its six neighbours we shall define PD(n) to be the number of those differences which are prime.</p><p class="euler__paragraph">For example, working clockwise around tile 8 the differences are 12, 29, 11, 6, 1, and 13. So PD(8) = 3.</p><p class="euler__paragraph">In the same way, the differences around tile 17 are 1, 17, 16, 1, 11, and 10, hence PD(17) = 2.</p><p class="euler__paragraph">It can be shown that the maximum value of PD(n) is 3.</p><p class="euler__paragraph">If all of the tiles for which PD(n) = 3 are listed in ascending order to form a sequence, the 10th tile would be 271.</p><p class="euler__paragraph">Find the 2000th tile in this sequence.</p></div>
+/// <div class="euler"><p class="euler__paragraph">A hexagonal tile with number 1 is surrounded by a ring of six hexagonal tiles, starting at "12 o'clock" and numbering the tiles 2 to 7 in an anti-clockwise direction.</p>
+/// <p class="euler__paragraph">New rings are added in the same fashion, with the next rings being numbered 8 to 19, 20 to 37, 38 to 61, and so on. The diagram below shows the first three rings.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">By finding the difference between tile n and each of its six neighbours we shall define PD(n) to be the number of those differences which are prime.</p>
+/// <p class="euler__paragraph">For example, working clockwise around tile 8 the differences are 12, 29, 11, 6, 1, and 13. So PD(8) = 3.</p>
+/// <p class="euler__paragraph">In the same way, the differences around tile 17 are 1, 17, 16, 1, 11, and 10, hence PD(17) = 2.</p>
+/// <p class="euler__paragraph">It can be shown that the maximum value of PD(n) is 3.</p>
+/// <p class="euler__paragraph">If all of the tiles for which PD(n) = 3 are listed in ascending order to form a sequence, the 10th tile would be 271.</p>
+/// <p class="euler__paragraph">Find the 2000th tile in this sequence.</p></div>
 
 /// challengeSeed:
 function euler128() {
@@ -33,5 +42,6 @@ euler128();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler128 === 'function', 'message: <code>euler128()</code> is a function.');
 assert.strictEqual(euler128(), 14516824220, 'message: <code>euler128()</code> should return 14516824220.');
 /// id: 5900f3ec1000cf542c50feff

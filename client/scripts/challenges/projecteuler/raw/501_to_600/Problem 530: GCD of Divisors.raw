@@ -17,7 +17,17 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">Every divisor d of a number n has a complementary divisor n/d.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Let f(n) be the sum of the greatest common divisor of d and n/d over all positive divisors d of n, that is</p><p class="euler__paragraph">$f(n)=\displaystyle\sum\limits_{d|n}\, \text{gcd}(d,\frac n d)$.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Let F be the summatory function of f, that is</p><p class="euler__paragraph">$F(k)=\displaystyle\sum\limits_{n=1}^k \, f(n)$.</p><p class="euler__paragraph"></p><p class="euler__paragraph">You are given that F(10)=32 and F(1000)=12776.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Find F(1015).</p></div>
+/// <div class="euler"><p class="euler__paragraph">Every divisor d of a number n has a complementary divisor n/d.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Let f(n) be the sum of the greatest common divisor of d and n/d over all positive divisors d of n, that is</p>
+/// <p class="euler__paragraph">$f(n)=\displaystyle\sum\limits_{d|n}\, \text{gcd}(d,\frac n d)$.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Let F be the summatory function of f, that is</p>
+/// <p class="euler__paragraph">$F(k)=\displaystyle\sum\limits_{n=1}^k \, f(n)$.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">You are given that F(10)=32 and F(1000)=12776.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Find F(1015).</p></div>
 
 /// challengeSeed:
 function euler530() {
@@ -33,5 +43,6 @@ euler530();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler530 === 'function', 'message: <code>euler530()</code> is a function.');
 assert.strictEqual(euler530(), TODO: MISSING ANSWER, 'message: <code>euler530()</code> should return TODO: MISSING ANSWER.');
 /// id: 5900fed458d9425c70af4f64

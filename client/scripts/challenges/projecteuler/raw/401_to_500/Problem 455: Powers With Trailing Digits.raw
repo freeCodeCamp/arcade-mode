@@ -17,7 +17,15 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">Let f(n) be the largest positive integer x less than 109 such that the last 9 digits of nx form the number x (including leading zeros), or zero if no such integer exists.</p><p class="euler__paragraph"></p><p class="euler__paragraph">For example:</p><p class="euler__paragraph"></p><p class="euler__paragraph">f(4) = 411728896 (4411728896 = ...490411728896) </p><p class="euler__paragraph">f(10) = 0</p><p class="euler__paragraph">f(157) = 743757 (157743757 = ...567000743757)</p><p class="euler__paragraph">Σf(n), 2 ≤ n ≤ 103 = 442530011399</p><p class="euler__paragraph">Find Σf(n), 2 ≤ n ≤ 106.</p></div>
+/// <div class="euler"><p class="euler__paragraph">Let f(n) be the largest positive integer x less than 109 such that the last 9 digits of nx form the number x (including leading zeros), or zero if no such integer exists.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">For example:</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">f(4) = 411728896 (4411728896 = ...490411728896) </p>
+/// <p class="euler__paragraph">f(10) = 0</p>
+/// <p class="euler__paragraph">f(157) = 743757 (157743757 = ...567000743757)</p>
+/// <p class="euler__paragraph">Σf(n), 2 ≤ n ≤ 103 = 442530011399</p>
+/// <p class="euler__paragraph">Find Σf(n), 2 ≤ n ≤ 106.</p></div>
 
 /// challengeSeed:
 function euler455() {
@@ -33,5 +41,6 @@ euler455();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler455 === 'function', 'message: <code>euler455()</code> is a function.');
 assert.strictEqual(euler455(), 450186511399999, 'message: <code>euler455()</code> should return 450186511399999.');
 /// id: 5900f5331000cf542c510046

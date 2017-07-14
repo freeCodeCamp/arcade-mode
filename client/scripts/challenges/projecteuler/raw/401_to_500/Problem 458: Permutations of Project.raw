@@ -17,7 +17,13 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">Consider the alphabet A made out of the letters of the word "project": A={c,e,j,o,p,r,t}.</p><p class="euler__paragraph">Let T(n) be the number of strings of length n consisting of letters from A that do not have a substring that is one of the 5040 permutations of "project".</p><p class="euler__paragraph"></p><p class="euler__paragraph">T(7)=77-7!=818503.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Find T(1012). Give the last 9 digits of your answer.</p></div>
+/// <div class="euler"><p class="euler__paragraph">Consider the alphabet A made out of the letters of the word "project": A={c,e,j,o,p,r,t}.</p>
+/// <p class="euler__paragraph">Let T(n) be the number of strings of length n consisting of letters from A that do not have a substring that is one of the 5040 permutations of "project".</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">T(7)=77-7!=818503.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Find T(1012). Give the last 9 digits of your answer.</p></div>
 
 /// challengeSeed:
 function euler458() {
@@ -33,5 +39,6 @@ euler458();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler458 === 'function', 'message: <code>euler458()</code> is a function.');
 assert.strictEqual(euler458(), 423341841, 'message: <code>euler458()</code> should return 423341841.');
 /// id: 5900f5361000cf542c510049

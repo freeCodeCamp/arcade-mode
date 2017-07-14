@@ -17,7 +17,18 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">Given two points (x1,y1,z1) and (x2,y2,z2) in three dimensional space, the Manhattan distance  between those points is defined as  |x1-x2|+|y1-y2|+|z1-z2|.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Let C(r) be a sphere with radius r and center in the origin O(0,0,0).</p><p class="euler__paragraph">Let I(r) be the set of all points with integer coordinates on the surface of C(r).</p><p class="euler__paragraph">Let S(r) be the sum of the Manhattan distances of all elements of I(r) to the origin O.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">E.g. S(45)=34518.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Find S(1010).</p></div>
+/// <div class="euler"><p class="euler__paragraph">Given two points (x1,y1,z1) and (x2,y2,z2) in three dimensional space, the Manhattan distance  between those points is defined as  |x1-x2|+|y1-y2|+|z1-z2|.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Let C(r) be a sphere with radius r and center in the origin O(0,0,0).</p>
+/// <p class="euler__paragraph">Let I(r) be the set of all points with integer coordinates on the surface of C(r).</p>
+/// <p class="euler__paragraph">Let S(r) be the sum of the Manhattan distances of all elements of I(r) to the origin O.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">E.g. S(45)=34518.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Find S(1010).</p></div>
 
 /// challengeSeed:
 function euler360() {
@@ -33,5 +44,6 @@ euler360();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler360 === 'function', 'message: <code>euler360()</code> is a function.');
 assert.strictEqual(euler360(), 878825614395267100, 'message: <code>euler360()</code> should return 878825614395267100.');
 /// id: 5900f4d41000cf542c50ffe7

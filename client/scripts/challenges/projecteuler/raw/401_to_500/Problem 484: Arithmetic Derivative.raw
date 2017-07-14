@@ -17,7 +17,14 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">The arithmetic derivative is defined by</p><p class="euler__paragraph">p' = 1 for any prime p</p><p class="euler__paragraph">(ab)' = a'b + ab' for all integers a, b (Leibniz rule)</p><p class="euler__paragraph">For example, 20' = 24</p><p class="euler__paragraph"></p><p class="euler__paragraph">Find ∑ gcd(k,k') for 1 < k ≤ 5·1015</p><p class="euler__paragraph"></p><p class="euler__paragraph">Note: gcd(x,y) denotes the greatest common divisor of x and y.</p></div>
+/// <div class="euler"><p class="euler__paragraph">The arithmetic derivative is defined by</p>
+/// <p class="euler__paragraph">p' = 1 for any prime p</p>
+/// <p class="euler__paragraph">(ab)' = a'b + ab' for all integers a, b (Leibniz rule)</p>
+/// <p class="euler__paragraph">For example, 20' = 24</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Find ∑ gcd(k,k') for 1 < k ≤ 5·1015</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Note: gcd(x,y) denotes the greatest common divisor of x and y.</p></div>
 
 /// challengeSeed:
 function euler484() {
@@ -33,5 +40,6 @@ euler484();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler484 === 'function', 'message: <code>euler484()</code> is a function.');
 assert.strictEqual(euler484(), TODO: MISSING ANSWER, 'message: <code>euler484()</code> should return TODO: MISSING ANSWER.');
 /// id: 5900f5501000cf542c510063

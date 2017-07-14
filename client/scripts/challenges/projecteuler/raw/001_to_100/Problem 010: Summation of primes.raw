@@ -17,7 +17,8 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.</p><p class="euler__paragraph">Find the sum of all the primes below two million.</p></div>
+/// <div class="euler"><p class="euler__paragraph">The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.</p>
+/// <p class="euler__paragraph">Find the sum of all the primes below two million.</p></div>
 
 /// challengeSeed:
 function euler10() {
@@ -33,5 +34,6 @@ euler10();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler10 === 'function', 'message: <code>euler10()</code> is a function.');
 assert.strictEqual(euler10(), 142913828922, 'message: <code>euler10()</code> should return 142913828922.');
 /// id: 5900f3761000cf542c50fe89

@@ -17,7 +17,17 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">ABC is an integer sided triangle with incenter I and perimeter p.</p><p class="euler__paragraph">The segments IA, IB and IC have integral length as well. </p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Let L = p + |IA| + |IB| + |IC|. </p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Let S(P) = ∑L for all such triangles where p ≤ P. For example, S(103) = 3619.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Find S(107).</p></div>
+/// <div class="euler"><p class="euler__paragraph">ABC is an integer sided triangle with incenter I and perimeter p.</p>
+/// <p class="euler__paragraph">The segments IA, IB and IC have integral length as well. </p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Let L = p + |IA| + |IB| + |IC|. </p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Let S(P) = ∑L for all such triangles where p ≤ P. For example, S(103) = 3619.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Find S(107).</p></div>
 
 /// challengeSeed:
 function euler482() {
@@ -33,5 +43,6 @@ euler482();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler482 === 'function', 'message: <code>euler482()</code> is a function.');
 assert.strictEqual(euler482(), TODO: MISSING ANSWER, 'message: <code>euler482()</code> should return TODO: MISSING ANSWER.');
 /// id: 5900f54f1000cf542c510061

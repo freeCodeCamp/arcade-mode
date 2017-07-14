@@ -17,7 +17,19 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">An even positive integer N will be called admissible, if it is a power of 2 or its distinct prime factors are consecutive primes.</p><p class="euler__paragraph">The first twelve admissible numbers are 2,4,6,8,12,16,18,24,30,32,36,48.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">If N is admissible, the smallest integer M > 1 such that N+M is prime, will be called the pseudo-Fortunate number for N.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">For example, N=630 is admissible since it is even and its distinct prime factors are the consecutive primes 2,3,5 and 7. </p><p class="euler__paragraph">The next prime number after 631 is 641; hence, the pseudo-Fortunate number for 630 is M=11.</p><p class="euler__paragraph">It can also be seen that the pseudo-Fortunate number for 16 is 3.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Find the sum of all distinct pseudo-Fortunate numbers for admissible numbers N less than 109.</p></div>
+/// <div class="euler"><p class="euler__paragraph">An even positive integer N will be called admissible, if it is a power of 2 or its distinct prime factors are consecutive primes.</p>
+/// <p class="euler__paragraph">The first twelve admissible numbers are 2,4,6,8,12,16,18,24,30,32,36,48.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">If N is admissible, the smallest integer M > 1 such that N+M is prime, will be called the pseudo-Fortunate number for N.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">For example, N=630 is admissible since it is even and its distinct prime factors are the consecutive primes 2,3,5 and 7. </p>
+/// <p class="euler__paragraph">The next prime number after 631 is 641; hence, the pseudo-Fortunate number for 630 is M=11.</p>
+/// <p class="euler__paragraph">It can also be seen that the pseudo-Fortunate number for 16 is 3.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Find the sum of all distinct pseudo-Fortunate numbers for admissible numbers N less than 109.</p></div>
 
 /// challengeSeed:
 function euler293() {
@@ -33,5 +45,6 @@ euler293();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler293 === 'function', 'message: <code>euler293()</code> is a function.');
 assert.strictEqual(euler293(), 2209, 'message: <code>euler293()</code> should return 2209.');
 /// id: 5900f4931000cf542c50ffa4

@@ -17,7 +17,14 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">A positive number is pandigital in base b if it contains all digits from 0 to b - 1 at least once when written in base b.</p><p class="euler__paragraph"></p><p class="euler__paragraph">A n-super-pandigital number is a number that is simultaneously pandigital in all bases from 2 to n inclusively.</p><p class="euler__paragraph">For example 978 = 11110100102 = 11000203 = 331024 = 124035 is the smallest 5-super-pandigital number.</p><p class="euler__paragraph">Similarly, 1093265784 is the smallest 10-super-pandigital number.</p><p class="euler__paragraph">The sum of the 10 smallest 10-super-pandigital numbers is 20319792309.</p><p class="euler__paragraph"></p><p class="euler__paragraph">What is the sum of the 10 smallest 12-super-pandigital numbers?</p></div>
+/// <div class="euler"><p class="euler__paragraph">A positive number is pandigital in base b if it contains all digits from 0 to b - 1 at least once when written in base b.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">A n-super-pandigital number is a number that is simultaneously pandigital in all bases from 2 to n inclusively.</p>
+/// <p class="euler__paragraph">For example 978 = 11110100102 = 11000203 = 331024 = 124035 is the smallest 5-super-pandigital number.</p>
+/// <p class="euler__paragraph">Similarly, 1093265784 is the smallest 10-super-pandigital number.</p>
+/// <p class="euler__paragraph">The sum of the 10 smallest 10-super-pandigital numbers is 20319792309.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">What is the sum of the 10 smallest 12-super-pandigital numbers?</p></div>
 
 /// challengeSeed:
 function euler571() {
@@ -33,5 +40,6 @@ euler571();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler571 === 'function', 'message: <code>euler571()</code> is a function.');
 assert.strictEqual(euler571(), TODO: MISSING ANSWER, 'message: <code>euler571()</code> should return TODO: MISSING ANSWER.');
 /// id: 5900fefd58d9425c70af4f8d

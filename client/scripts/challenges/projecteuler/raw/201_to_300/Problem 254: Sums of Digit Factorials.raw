@@ -17,7 +17,17 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">Define f(n) as the sum of the factorials of the digits of n. For example, f(342) = 3! + 4! + 2! = 32.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Define sf(n) as the sum of the digits of f(n). So sf(342) = 3 + 2 = 5.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Define g(i) to be the smallest positive integer n such that sf(n) = i. Though sf(342) is 5, sf(25) is also 5, and it can be verified that g(5) is 25.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Define sg(i) as the sum of the digits of g(i). So sg(5) = 2 + 5 = 7.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Further, it can be verified that g(20) is 267 and ∑ sg(i) for 1 ≤ i ≤ 20 is 156.</p><p class="euler__paragraph"></p><p class="euler__paragraph">What is ∑ sg(i) for 1 ≤ i ≤ 150?</p></div>
+/// <div class="euler"><p class="euler__paragraph">Define f(n) as the sum of the factorials of the digits of n. For example, f(342) = 3! + 4! + 2! = 32.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Define sf(n) as the sum of the digits of f(n). So sf(342) = 3 + 2 = 5.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Define g(i) to be the smallest positive integer n such that sf(n) = i. Though sf(342) is 5, sf(25) is also 5, and it can be verified that g(5) is 25.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Define sg(i) as the sum of the digits of g(i). So sg(5) = 2 + 5 = 7.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Further, it can be verified that g(20) is 267 and ∑ sg(i) for 1 ≤ i ≤ 20 is 156.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">What is ∑ sg(i) for 1 ≤ i ≤ 150?</p></div>
 
 /// challengeSeed:
 function euler254() {
@@ -33,5 +43,6 @@ euler254();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler254 === 'function', 'message: <code>euler254()</code> is a function.');
 assert.strictEqual(euler254(), 8184523820510, 'message: <code>euler254()</code> should return 8184523820510.');
 /// id: 5900f46b1000cf542c50ff7d

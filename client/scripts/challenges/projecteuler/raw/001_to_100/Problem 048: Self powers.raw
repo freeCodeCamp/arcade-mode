@@ -17,7 +17,8 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">The series, 11 + 22 + 33 + ... + 1010 = 10405071317.</p><p class="euler__paragraph">Find the last ten digits of the series, 11 + 22 + 33 + ... + 10001000.</p></div>
+/// <div class="euler"><p class="euler__paragraph">The series, 11 + 22 + 33 + ... + 1010 = 10405071317.</p>
+/// <p class="euler__paragraph">Find the last ten digits of the series, 11 + 22 + 33 + ... + 10001000.</p></div>
 
 /// challengeSeed:
 function euler48() {
@@ -33,5 +34,6 @@ euler48();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler48 === 'function', 'message: <code>euler48()</code> is a function.');
 assert.strictEqual(euler48(), 9110846700, 'message: <code>euler48()</code> should return 9110846700.');
 /// id: 5900f39c1000cf542c50feaf

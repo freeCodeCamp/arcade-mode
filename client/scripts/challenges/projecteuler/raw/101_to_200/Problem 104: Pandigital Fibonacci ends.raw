@@ -17,7 +17,10 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">The Fibonacci sequence is defined by the recurrence relation:</p><p class="euler__paragraph">Fn = Fn−1 + Fn−2, where F1 = 1 and F2 = 1.</p><p class="euler__paragraph">It turns out that F541, which contains 113 digits, is the first Fibonacci number for which the last nine digits are 1-9 pandigital (contain all the digits 1 to 9, but not necessarily in order). And F2749, which contains 575 digits, is the first Fibonacci number for which the first nine digits are 1-9 pandigital.</p><p class="euler__paragraph">Given that Fk is the first Fibonacci number for which the first nine digits AND the last nine digits are 1-9 pandigital, find k.</p></div>
+/// <div class="euler"><p class="euler__paragraph">The Fibonacci sequence is defined by the recurrence relation:</p>
+/// <p class="euler__paragraph">Fn = Fn−1 + Fn−2, where F1 = 1 and F2 = 1.</p>
+/// <p class="euler__paragraph">It turns out that F541, which contains 113 digits, is the first Fibonacci number for which the last nine digits are 1-9 pandigital (contain all the digits 1 to 9, but not necessarily in order). And F2749, which contains 575 digits, is the first Fibonacci number for which the first nine digits are 1-9 pandigital.</p>
+/// <p class="euler__paragraph">Given that Fk is the first Fibonacci number for which the first nine digits AND the last nine digits are 1-9 pandigital, find k.</p></div>
 
 /// challengeSeed:
 function euler104() {
@@ -33,5 +36,6 @@ euler104();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler104 === 'function', 'message: <code>euler104()</code> is a function.');
 assert.strictEqual(euler104(), 329468, 'message: <code>euler104()</code> should return 329468.');
 /// id: 5900f3d51000cf542c50fee6

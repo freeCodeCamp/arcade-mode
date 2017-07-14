@@ -17,7 +17,10 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">The fraction 49/98 is a curious fraction, as an inexperienced mathematician in attempting to simplify it may incorrectly believe that 49/98 = 4/8, which is correct, is obtained by cancelling the 9s.</p><p class="euler__paragraph">We shall consider fractions like, 30/50 = 3/5, to be trivial examples.</p><p class="euler__paragraph">There are exactly four non-trivial examples of this type of fraction, less than one in value, and containing two digits in the numerator and denominator.</p><p class="euler__paragraph">If the product of these four fractions is given in its lowest common terms, find the value of the denominator.</p></div>
+/// <div class="euler"><p class="euler__paragraph">The fraction 49/98 is a curious fraction, as an inexperienced mathematician in attempting to simplify it may incorrectly believe that 49/98 = 4/8, which is correct, is obtained by cancelling the 9s.</p>
+/// <p class="euler__paragraph">We shall consider fractions like, 30/50 = 3/5, to be trivial examples.</p>
+/// <p class="euler__paragraph">There are exactly four non-trivial examples of this type of fraction, less than one in value, and containing two digits in the numerator and denominator.</p>
+/// <p class="euler__paragraph">If the product of these four fractions is given in its lowest common terms, find the value of the denominator.</p></div>
 
 /// challengeSeed:
 function euler33() {
@@ -33,5 +36,6 @@ euler33();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler33 === 'function', 'message: <code>euler33()</code> is a function.');
 assert.strictEqual(euler33(), 100, 'message: <code>euler33()</code> should return 100.');
 /// id: 5900f38d1000cf542c50fea0

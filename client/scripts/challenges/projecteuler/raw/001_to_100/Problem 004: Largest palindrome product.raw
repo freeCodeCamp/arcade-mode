@@ -17,7 +17,8 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">A palindromic number reads the same both ways. The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 × 99.</p><p class="euler__paragraph">Find the largest palindrome made from the product of two 3-digit numbers.</p></div>
+/// <div class="euler"><p class="euler__paragraph">A palindromic number reads the same both ways. The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 × 99.</p>
+/// <p class="euler__paragraph">Find the largest palindrome made from the product of two 3-digit numbers.</p></div>
 
 /// challengeSeed:
 function euler4() {
@@ -33,5 +34,6 @@ euler4();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler4 === 'function', 'message: <code>euler4()</code> is a function.');
 assert.strictEqual(euler4(), 906609, 'message: <code>euler4()</code> should return 906609.');
 /// id: 5900f3701000cf542c50fe83

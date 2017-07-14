@@ -17,7 +17,11 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">The first two consecutive numbers to have two distinct prime factors are:</p><p class="euler__paragraph">14 = 2 × 715 = 3 × 5</p><p class="euler__paragraph">The first three consecutive numbers to have three distinct prime factors are:</p><p class="euler__paragraph">644 = 2² × 7 × 23645 = 3 × 5 × 43646 = 2 × 17 × 19.</p><p class="euler__paragraph">Find the first four consecutive integers to have four distinct prime factors each. What is the first of these numbers?</p></div>
+/// <div class="euler"><p class="euler__paragraph">The first two consecutive numbers to have two distinct prime factors are:</p>
+/// <p class="euler__paragraph">14 = 2 × 715 = 3 × 5</p>
+/// <p class="euler__paragraph">The first three consecutive numbers to have three distinct prime factors are:</p>
+/// <p class="euler__paragraph">644 = 2² × 7 × 23645 = 3 × 5 × 43646 = 2 × 17 × 19.</p>
+/// <p class="euler__paragraph">Find the first four consecutive integers to have four distinct prime factors each. What is the first of these numbers?</p></div>
 
 /// challengeSeed:
 function euler47() {
@@ -33,5 +37,6 @@ euler47();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler47 === 'function', 'message: <code>euler47()</code> is a function.');
 assert.strictEqual(euler47(), 134043, 'message: <code>euler47()</code> should return 134043.');
 /// id: 5900f39c1000cf542c50feae

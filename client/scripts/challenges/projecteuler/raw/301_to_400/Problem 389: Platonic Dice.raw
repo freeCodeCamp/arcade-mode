@@ -17,7 +17,8 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">An unbiased single 4-sided die is thrown and its value, T, is noted.T unbiased 6-sided dice are thrown and their scores are added together. The sum, C, is noted.C unbiased 8-sided dice are thrown and their scores are added together. The sum, O, is noted.O unbiased 12-sided dice are thrown and their scores are added together. The sum, D, is noted.D unbiased 20-sided dice are thrown and their scores are added together. The sum, I, is noted.</p><p class="euler__paragraph">Find the variance of I, and give your answer rounded to 4 decimal places.</p></div>
+/// <div class="euler"><p class="euler__paragraph">An unbiased single 4-sided die is thrown and its value, T, is noted.T unbiased 6-sided dice are thrown and their scores are added together. The sum, C, is noted.C unbiased 8-sided dice are thrown and their scores are added together. The sum, O, is noted.O unbiased 12-sided dice are thrown and their scores are added together. The sum, D, is noted.D unbiased 20-sided dice are thrown and their scores are added together. The sum, I, is noted.</p>
+/// <p class="euler__paragraph">Find the variance of I, and give your answer rounded to 4 decimal places.</p></div>
 
 /// challengeSeed:
 function euler389() {
@@ -33,5 +34,6 @@ euler389();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler389 === 'function', 'message: <code>euler389()</code> is a function.');
 assert.strictEqual(euler389(), 2406376.3623, 'message: <code>euler389()</code> should return 2406376.3623.');
 /// id: 5900f4f21000cf542c510004

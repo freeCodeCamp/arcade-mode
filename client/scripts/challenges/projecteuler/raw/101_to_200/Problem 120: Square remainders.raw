@@ -17,7 +17,9 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">Let r be the remainder when (a−1)n + (a+1)n is divided by a2.</p><p class="euler__paragraph">For example, if a = 7 and n = 3, then r = 42: 63 + 83 = 728 ≡ 42 mod 49. And as n varies, so too will r, but for a = 7 it turns out that rmax = 42.</p><p class="euler__paragraph">For 3 ≤ a ≤ 1000, find ∑ rmax.</p></div>
+/// <div class="euler"><p class="euler__paragraph">Let r be the remainder when (a−1)n + (a+1)n is divided by a2.</p>
+/// <p class="euler__paragraph">For example, if a = 7 and n = 3, then r = 42: 63 + 83 = 728 ≡ 42 mod 49. And as n varies, so too will r, but for a = 7 it turns out that rmax = 42.</p>
+/// <p class="euler__paragraph">For 3 ≤ a ≤ 1000, find ∑ rmax.</p></div>
 
 /// challengeSeed:
 function euler120() {
@@ -33,5 +35,6 @@ euler120();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler120 === 'function', 'message: <code>euler120()</code> is a function.');
 assert.strictEqual(euler120(), 333082500, 'message: <code>euler120()</code> should return 333082500.');
 /// id: 5900f3e41000cf542c50fef7

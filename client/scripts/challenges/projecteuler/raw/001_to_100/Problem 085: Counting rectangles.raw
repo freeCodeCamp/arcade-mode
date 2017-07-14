@@ -17,7 +17,10 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">By counting carefully it can be seen that a rectangular grid measuring 3 by 2 contains eighteen rectangles:</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Although there exists no rectangular grid that contains exactly two million rectangles, find the area of the grid with the nearest solution.</p></div>
+/// <div class="euler"><p class="euler__paragraph">By counting carefully it can be seen that a rectangular grid measuring 3 by 2 contains eighteen rectangles:</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Although there exists no rectangular grid that contains exactly two million rectangles, find the area of the grid with the nearest solution.</p></div>
 
 /// challengeSeed:
 function euler85() {
@@ -33,5 +36,6 @@ euler85();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler85 === 'function', 'message: <code>euler85()</code> is a function.');
 assert.strictEqual(euler85(), 2772, 'message: <code>euler85()</code> should return 2772.');
 /// id: 5900f3c11000cf542c50fed4

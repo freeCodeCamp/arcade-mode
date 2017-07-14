@@ -17,7 +17,11 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">For a positive integer n, define f(n) as the least positive multiple of n that, written in base 10, uses only digits ≤ 2.</p><p class="euler__paragraph">Thus f(2)=2, f(3)=12, f(7)=21, f(42)=210, f(89)=1121222.</p><p class="euler__paragraph">Also, .</p><p class="euler__paragraph"></p><p class="euler__paragraph">Find .</p></div>
+/// <div class="euler"><p class="euler__paragraph">For a positive integer n, define f(n) as the least positive multiple of n that, written in base 10, uses only digits ≤ 2.</p>
+/// <p class="euler__paragraph">Thus f(2)=2, f(3)=12, f(7)=21, f(42)=210, f(89)=1121222.</p>
+/// <p class="euler__paragraph">Also, .</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Find .</p></div>
 
 /// challengeSeed:
 function euler303() {
@@ -33,5 +37,6 @@ euler303();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler303 === 'function', 'message: <code>euler303()</code> is a function.');
 assert.strictEqual(euler303(), 1111981904675169, 'message: <code>euler303()</code> should return 1111981904675169.');
 /// id: 5900f49b1000cf542c50ffae

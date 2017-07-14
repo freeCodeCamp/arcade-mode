@@ -17,7 +17,13 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">An arrangement of coins in one or more rows with the bottom row being a block without gaps and every coin in a higher row touching exactly two coins in the row below is called a fountain of coins. Let f(n) be the number of possible fountains with n coins. For 4 coins there are three possible arrangements:</p><p class="euler__paragraph"></p><p class="euler__paragraph">Therefore f(4) = 3 while f(10) = 78.</p><p class="euler__paragraph">Let T(n) be the number of all possible colorings with three colors for all f(n) different fountains with n coins, given the condition that no two touching coins have the same color. Below you see the possible colorings for one of the three valid fountains for 4 coins:</p><p class="euler__paragraph"></p><p class="euler__paragraph">You are given that T(4) = 48 and T(10) = 17760.</p><p class="euler__paragraph">Find the last 9 digits of T(20000).</p></div>
+/// <div class="euler"><p class="euler__paragraph">An arrangement of coins in one or more rows with the bottom row being a block without gaps and every coin in a higher row touching exactly two coins in the row below is called a fountain of coins. Let f(n) be the number of possible fountains with n coins. For 4 coins there are three possible arrangements:</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Therefore f(4) = 3 while f(10) = 78.</p>
+/// <p class="euler__paragraph">Let T(n) be the number of all possible colorings with three colors for all f(n) different fountains with n coins, given the condition that no two touching coins have the same color. Below you see the possible colorings for one of the three valid fountains for 4 coins:</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">You are given that T(4) = 48 and T(10) = 17760.</p>
+/// <p class="euler__paragraph">Find the last 9 digits of T(20000).</p></div>
 
 /// challengeSeed:
 function euler519() {
@@ -33,5 +39,6 @@ euler519();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler519 === 'function', 'message: <code>euler519()</code> is a function.');
 assert.strictEqual(euler519(), 804739330, 'message: <code>euler519()</code> should return 804739330.');
 /// id: 5900f5741000cf542c510086

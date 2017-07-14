@@ -17,7 +17,14 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">Given is the arithmetic-geometric sequence u(k) = (900-3k)rk-1.</p><p class="euler__paragraph">Let s(n) = Σk=1...nu(k).</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Find the value of r for which s(5000) = -600,000,000,000.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Give your answer rounded to 12 places behind the decimal point.</p></div>
+/// <div class="euler"><p class="euler__paragraph">Given is the arithmetic-geometric sequence u(k) = (900-3k)rk-1.</p>
+/// <p class="euler__paragraph">Let s(n) = Σk=1...nu(k).</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Find the value of r for which s(5000) = -600,000,000,000.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Give your answer rounded to 12 places behind the decimal point.</p></div>
 
 /// challengeSeed:
 function euler235() {
@@ -33,5 +40,6 @@ euler235();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler235 === 'function', 'message: <code>euler235()</code> is a function.');
 assert.strictEqual(euler235(), 1.002322108633, 'message: <code>euler235()</code> should return 1.002322108633.');
 /// id: 5900f4571000cf542c50ff6a

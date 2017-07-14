@@ -17,7 +17,11 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">The eight divisors of 24 are 1, 2, 3, 4, 6, 8, 12 and 24.</p><p class="euler__paragraph">The ten numbers not exceeding 100 having exactly eight divisors are 24, 30, 40, 42, 54, 56, 66, 70, 78 and 88.</p><p class="euler__paragraph">Let f(n) be the count of numbers not exceeding n with exactly eight divisors.</p><p class="euler__paragraph">You are given f(100) = 10, f(1000) = 180 and f(106) = 224427.</p><p class="euler__paragraph">Find f(1012).</p></div>
+/// <div class="euler"><p class="euler__paragraph">The eight divisors of 24 are 1, 2, 3, 4, 6, 8, 12 and 24.</p>
+/// <p class="euler__paragraph">The ten numbers not exceeding 100 having exactly eight divisors are 24, 30, 40, 42, 54, 56, 66, 70, 78 and 88.</p>
+/// <p class="euler__paragraph">Let f(n) be the count of numbers not exceeding n with exactly eight divisors.</p>
+/// <p class="euler__paragraph">You are given f(100) = 10, f(1000) = 180 and f(106) = 224427.</p>
+/// <p class="euler__paragraph">Find f(1012).</p></div>
 
 /// challengeSeed:
 function euler501() {
@@ -33,5 +37,6 @@ euler501();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler501 === 'function', 'message: <code>euler501()</code> is a function.');
 assert.strictEqual(euler501(), 197912312715, 'message: <code>euler501()</code> should return 197912312715.');
 /// id: 5900f5621000cf542c510074

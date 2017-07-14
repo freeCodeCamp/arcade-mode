@@ -17,7 +17,15 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">The function lcm(a,b) denotes the least common multiple of a and b.</p><p class="euler__paragraph">Let A(n) be the average of the values of lcm(n,i) for 1≤i≤n.</p><p class="euler__paragraph">E.g: A(2)=(2+2)/2=2 and A(10)=(10+10+30+20+10+30+70+40+90+10)/10=32. </p><p class="euler__paragraph"></p><p class="euler__paragraph">Let S(n)=∑A(k) for 1≤k≤n.</p><p class="euler__paragraph">S(100)=122726.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Find S(99999999019) mod 999999017.</p></div>
+/// <div class="euler"><p class="euler__paragraph">The function lcm(a,b) denotes the least common multiple of a and b.</p>
+/// <p class="euler__paragraph">Let A(n) be the average of the values of lcm(n,i) for 1≤i≤n.</p>
+/// <p class="euler__paragraph">E.g: A(2)=(2+2)/2=2 and A(10)=(10+10+30+20+10+30+70+40+90+10)/10=32. </p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Let S(n)=∑A(k) for 1≤k≤n.</p>
+/// <p class="euler__paragraph">S(100)=122726.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Find S(99999999019) mod 999999017.</p></div>
 
 /// challengeSeed:
 function euler448() {
@@ -33,5 +41,6 @@ euler448();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler448 === 'function', 'message: <code>euler448()</code> is a function.');
 assert.strictEqual(euler448(), 106467648, 'message: <code>euler448()</code> should return 106467648.');
 /// id: 5900f52c1000cf542c51003f

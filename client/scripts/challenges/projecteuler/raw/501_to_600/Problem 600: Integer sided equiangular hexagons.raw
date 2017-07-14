@@ -17,7 +17,14 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">Let H(n) be the number of distinct integer sided equiangular convex hexagons with perimeter not exceeding n.</p><p class="euler__paragraph">Hexagons are distinct if and only if they are not congruent.</p><p class="euler__paragraph"></p><p class="euler__paragraph">You are given H(6) = 1, H(12) = 10, H(100) = 31248.</p><p class="euler__paragraph">Find H(55106).</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Equiangular hexagons with perimeter not exceeding 12</p></div>
+/// <div class="euler"><p class="euler__paragraph">Let H(n) be the number of distinct integer sided equiangular convex hexagons with perimeter not exceeding n.</p>
+/// <p class="euler__paragraph">Hexagons are distinct if and only if they are not congruent.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">You are given H(6) = 1, H(12) = 10, H(100) = 31248.</p>
+/// <p class="euler__paragraph">Find H(55106).</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Equiangular hexagons with perimeter not exceeding 12</p></div>
 
 /// challengeSeed:
 function euler600() {
@@ -33,5 +40,6 @@ euler600();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler600 === 'function', 'message: <code>euler600()</code> is a function.');
 assert.strictEqual(euler600(), TODO: MISSING ANSWER, 'message: <code>euler600()</code> should return TODO: MISSING ANSWER.');
 /// id: 5900ff1a58d9425c70af4faa

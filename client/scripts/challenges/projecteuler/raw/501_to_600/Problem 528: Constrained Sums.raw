@@ -17,7 +17,11 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">Let S(n,k,b) represent the number of valid solutions to x1 + x2 + ... + xk ≤ n, where 0 ≤ xm ≤ bm for all 1 ≤ m ≤ k.</p><p class="euler__paragraph"></p><p class="euler__paragraph">For example, S(14,3,2) = 135, S(200,5,3) = 12949440, and S(1000,10,5) mod 1 000 000 007 = 624839075.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Find (∑10 ≤ k ≤ 15 S(10k,k,k)) mod 1 000 000 007.</p></div>
+/// <div class="euler"><p class="euler__paragraph">Let S(n,k,b) represent the number of valid solutions to x1 + x2 + ... + xk ≤ n, where 0 ≤ xm ≤ bm for all 1 ≤ m ≤ k.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">For example, S(14,3,2) = 135, S(200,5,3) = 12949440, and S(1000,10,5) mod 1 000 000 007 = 624839075.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Find (∑10 ≤ k ≤ 15 S(10k,k,k)) mod 1 000 000 007.</p></div>
 
 /// challengeSeed:
 function euler528() {
@@ -33,5 +37,6 @@ euler528();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler528 === 'function', 'message: <code>euler528()</code> is a function.');
 assert.strictEqual(euler528(), TODO: MISSING ANSWER, 'message: <code>euler528()</code> should return TODO: MISSING ANSWER.');
 /// id: 5900fed258d9425c70af4f62

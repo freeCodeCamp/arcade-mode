@@ -17,7 +17,10 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">Let pn be the nth prime: 2, 3, 5, 7, 11, ..., and let r be the remainder when (pn−1)n + (pn+1)n is divided by pn2.</p><p class="euler__paragraph">For example, when n = 3, p3 = 5, and 43 + 63 = 280 ≡ 5 mod 25.</p><p class="euler__paragraph">The least value of n for which the remainder first exceeds 109 is 7037.</p><p class="euler__paragraph">Find the least value of n for which the remainder first exceeds 1010.</p></div>
+/// <div class="euler"><p class="euler__paragraph">Let pn be the nth prime: 2, 3, 5, 7, 11, ..., and let r be the remainder when (pn−1)n + (pn+1)n is divided by pn2.</p>
+/// <p class="euler__paragraph">For example, when n = 3, p3 = 5, and 43 + 63 = 280 ≡ 5 mod 25.</p>
+/// <p class="euler__paragraph">The least value of n for which the remainder first exceeds 109 is 7037.</p>
+/// <p class="euler__paragraph">Find the least value of n for which the remainder first exceeds 1010.</p></div>
 
 /// challengeSeed:
 function euler123() {
@@ -33,5 +36,6 @@ euler123();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler123 === 'function', 'message: <code>euler123()</code> is a function.');
 assert.strictEqual(euler123(), 21035, 'message: <code>euler123()</code> should return 21035.');
 /// id: 5900f3e71000cf542c50fefa

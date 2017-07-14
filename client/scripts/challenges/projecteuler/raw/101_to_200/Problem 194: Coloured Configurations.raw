@@ -17,7 +17,17 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">Consider graphs built with the units A: </p><p class="euler__paragraph">and B: , where the units are glued along</p><p class="euler__paragraph">the vertical edges as in the graph .</p><p class="euler__paragraph"></p><p class="euler__paragraph">A configuration of type (a,b,c) is a graph thus built of a units A and b units B, where the graph's vertices are coloured using up to c colours, so that no two adjacent vertices have the same colour.</p><p class="euler__paragraph">The compound graph above is an example of a configuration of type (2,2,6), in fact of type (2,2,c) for all c ≥ 4.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Let N(a,b,c) be the number of configurations of type (a,b,c).</p><p class="euler__paragraph">For example, N(1,0,3) = 24, N(0,2,4) = 92928 and N(2,2,3) = 20736.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Find the last 8 digits of N(25,75,1984).</p></div>
+/// <div class="euler"><p class="euler__paragraph">Consider graphs built with the units A: </p>
+/// <p class="euler__paragraph">and B: , where the units are glued along</p>
+/// <p class="euler__paragraph">the vertical edges as in the graph .</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">A configuration of type (a,b,c) is a graph thus built of a units A and b units B, where the graph's vertices are coloured using up to c colours, so that no two adjacent vertices have the same colour.</p>
+/// <p class="euler__paragraph">The compound graph above is an example of a configuration of type (2,2,6), in fact of type (2,2,c) for all c ≥ 4.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Let N(a,b,c) be the number of configurations of type (a,b,c).</p>
+/// <p class="euler__paragraph">For example, N(1,0,3) = 24, N(0,2,4) = 92928 and N(2,2,3) = 20736.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Find the last 8 digits of N(25,75,1984).</p></div>
 
 /// challengeSeed:
 function euler194() {
@@ -33,5 +43,6 @@ euler194();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler194 === 'function', 'message: <code>euler194()</code> is a function.');
 assert.strictEqual(euler194(), 61190912, 'message: <code>euler194()</code> should return 61190912.');
 /// id: 5900f42f1000cf542c50ff40

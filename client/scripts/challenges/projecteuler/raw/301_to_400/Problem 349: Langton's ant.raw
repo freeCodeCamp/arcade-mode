@@ -17,7 +17,12 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">An ant moves on a regular grid of squares that are coloured either black or white. </p><p class="euler__paragraph">The ant is always oriented in one of the cardinal directions (left, right, up or down) and moves from square to adjacent square according to the following rules:</p><p class="euler__paragraph">- if it is on a black square, it flips the color of the square to white, rotates 90 degrees counterclockwise and moves forward one square.</p><p class="euler__paragraph">- if it is on a white square, it flips the color of the square to black, rotates 90 degrees clockwise and moves forward one square.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Starting with a grid that is entirely white, how many squares are black after 1018 moves of the ant?</p></div>
+/// <div class="euler"><p class="euler__paragraph">An ant moves on a regular grid of squares that are coloured either black or white. </p>
+/// <p class="euler__paragraph">The ant is always oriented in one of the cardinal directions (left, right, up or down) and moves from square to adjacent square according to the following rules:</p>
+/// <p class="euler__paragraph">- if it is on a black square, it flips the color of the square to white, rotates 90 degrees counterclockwise and moves forward one square.</p>
+/// <p class="euler__paragraph">- if it is on a white square, it flips the color of the square to black, rotates 90 degrees clockwise and moves forward one square.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Starting with a grid that is entirely white, how many squares are black after 1018 moves of the ant?</p></div>
 
 /// challengeSeed:
 function euler349() {
@@ -33,5 +38,6 @@ euler349();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler349 === 'function', 'message: <code>euler349()</code> is a function.');
 assert.strictEqual(euler349(), 115384615384614940, 'message: <code>euler349()</code> should return 115384615384614940.');
 /// id: 5900f4ca1000cf542c50ffdc

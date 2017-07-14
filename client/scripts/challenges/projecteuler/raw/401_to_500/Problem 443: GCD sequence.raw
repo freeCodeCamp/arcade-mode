@@ -17,7 +17,19 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">Let g(n) be a sequence defined as follows:</p><p class="euler__paragraph">g(4) = 13,</p><p class="euler__paragraph">g(n) = g(n-1) + gcd(n, g(n-1)) for n > 4.</p><p class="euler__paragraph"></p><p class="euler__paragraph">The first few values are:</p><p class="euler__paragraph"></p><p class="euler__paragraph">    n4567891011121314151617181920...</p><p class="euler__paragraph">    g(n)1314161718272829303132333451545560...</p><p class="euler__paragraph">    </p><p class="euler__paragraph"></p><p class="euler__paragraph">You are given that g(1 000) = 2524 and g(1 000 000) = 2624152.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Find g(1015).</p></div>
+/// <div class="euler"><p class="euler__paragraph">Let g(n) be a sequence defined as follows:</p>
+/// <p class="euler__paragraph">g(4) = 13,</p>
+/// <p class="euler__paragraph">g(n) = g(n-1) + gcd(n, g(n-1)) for n > 4.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">The first few values are:</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">    n4567891011121314151617181920...</p>
+/// <p class="euler__paragraph">    g(n)1314161718272829303132333451545560...</p>
+/// <p class="euler__paragraph">    </p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">You are given that g(1 000) = 2524 and g(1 000 000) = 2624152.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Find g(1015).</p></div>
 
 /// challengeSeed:
 function euler443() {
@@ -33,5 +45,6 @@ euler443();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler443 === 'function', 'message: <code>euler443()</code> is a function.');
 assert.strictEqual(euler443(), 2744233049300770, 'message: <code>euler443()</code> should return 2744233049300770.');
 /// id: 5900f5271000cf542c51003a

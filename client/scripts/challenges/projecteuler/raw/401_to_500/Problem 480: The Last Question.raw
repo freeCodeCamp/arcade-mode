@@ -17,7 +17,45 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">Consider all the words which can be formed by selecting letters, in any order, from the phrase:</p><p class="euler__paragraph">thereisasyetinsufficientdataforameaningfulanswer</p><p class="euler__paragraph">Suppose those with 15 letters or less are listed in alphabetical order and numbered sequentially starting at 1.</p><p class="euler__paragraph">The list would include:</p><p class="euler__paragraph">1 : a</p><p class="euler__paragraph">2 : aa</p><p class="euler__paragraph">3 : aaa</p><p class="euler__paragraph">4 : aaaa</p><p class="euler__paragraph">5 : aaaaa</p><p class="euler__paragraph">6 : aaaaaa</p><p class="euler__paragraph">7 : aaaaaac</p><p class="euler__paragraph">8 : aaaaaacd</p><p class="euler__paragraph">9 : aaaaaacde</p><p class="euler__paragraph">10 : aaaaaacdee</p><p class="euler__paragraph">11 : aaaaaacdeee</p><p class="euler__paragraph">12 : aaaaaacdeeee</p><p class="euler__paragraph">13 : aaaaaacdeeeee</p><p class="euler__paragraph">14 : aaaaaacdeeeeee</p><p class="euler__paragraph">15 : aaaaaacdeeeeeef</p><p class="euler__paragraph">16 : aaaaaacdeeeeeeg</p><p class="euler__paragraph">17 : aaaaaacdeeeeeeh</p><p class="euler__paragraph">...</p><p class="euler__paragraph">28 : aaaaaacdeeeeeey</p><p class="euler__paragraph">29 : aaaaaacdeeeeef</p><p class="euler__paragraph">30 : aaaaaacdeeeeefe</p><p class="euler__paragraph">...</p><p class="euler__paragraph">115246685191495242: euleoywuttttsss</p><p class="euler__paragraph">115246685191495243: euler</p><p class="euler__paragraph">115246685191495244: eulera</p><p class="euler__paragraph">...</p><p class="euler__paragraph">525069350231428029: ywuuttttssssrrrDefine P(w) as the position of the word w.</p><p class="euler__paragraph">Define W(p) as the word in position p.</p><p class="euler__paragraph">We can see that P(w) and W(p) are inverses: P(W(p)) = p and W(P(w)) = w.</p><p class="euler__paragraph">Examples:</p><p class="euler__paragraph">W(10) = aaaaaacdee</p><p class="euler__paragraph">P(aaaaaacdee) = 10</p><p class="euler__paragraph">W(115246685191495243) = euler</p><p class="euler__paragraph">P(euler) = 115246685191495243Find W(P(legionary) + P(calorimeters) - P(annihilate) + P(orchestrated) - P(fluttering)).</p><p class="euler__paragraph">Give your answer using lowercase characters (no punctuation or space).</p></div>
+/// <div class="euler"><p class="euler__paragraph">Consider all the words which can be formed by selecting letters, in any order, from the phrase:</p>
+/// <p class="euler__paragraph">thereisasyetinsufficientdataforameaningfulanswer</p>
+/// <p class="euler__paragraph">Suppose those with 15 letters or less are listed in alphabetical order and numbered sequentially starting at 1.</p>
+/// <p class="euler__paragraph">The list would include:</p>
+/// <p class="euler__paragraph">1 : a</p>
+/// <p class="euler__paragraph">2 : aa</p>
+/// <p class="euler__paragraph">3 : aaa</p>
+/// <p class="euler__paragraph">4 : aaaa</p>
+/// <p class="euler__paragraph">5 : aaaaa</p>
+/// <p class="euler__paragraph">6 : aaaaaa</p>
+/// <p class="euler__paragraph">7 : aaaaaac</p>
+/// <p class="euler__paragraph">8 : aaaaaacd</p>
+/// <p class="euler__paragraph">9 : aaaaaacde</p>
+/// <p class="euler__paragraph">10 : aaaaaacdee</p>
+/// <p class="euler__paragraph">11 : aaaaaacdeee</p>
+/// <p class="euler__paragraph">12 : aaaaaacdeeee</p>
+/// <p class="euler__paragraph">13 : aaaaaacdeeeee</p>
+/// <p class="euler__paragraph">14 : aaaaaacdeeeeee</p>
+/// <p class="euler__paragraph">15 : aaaaaacdeeeeeef</p>
+/// <p class="euler__paragraph">16 : aaaaaacdeeeeeeg</p>
+/// <p class="euler__paragraph">17 : aaaaaacdeeeeeeh</p>
+/// <p class="euler__paragraph">...</p>
+/// <p class="euler__paragraph">28 : aaaaaacdeeeeeey</p>
+/// <p class="euler__paragraph">29 : aaaaaacdeeeeef</p>
+/// <p class="euler__paragraph">30 : aaaaaacdeeeeefe</p>
+/// <p class="euler__paragraph">...</p>
+/// <p class="euler__paragraph">115246685191495242: euleoywuttttsss</p>
+/// <p class="euler__paragraph">115246685191495243: euler</p>
+/// <p class="euler__paragraph">115246685191495244: eulera</p>
+/// <p class="euler__paragraph">...</p>
+/// <p class="euler__paragraph">525069350231428029: ywuuttttssssrrrDefine P(w) as the position of the word w.</p>
+/// <p class="euler__paragraph">Define W(p) as the word in position p.</p>
+/// <p class="euler__paragraph">We can see that P(w) and W(p) are inverses: P(W(p)) = p and W(P(w)) = w.</p>
+/// <p class="euler__paragraph">Examples:</p>
+/// <p class="euler__paragraph">W(10) = aaaaaacdee</p>
+/// <p class="euler__paragraph">P(aaaaaacdee) = 10</p>
+/// <p class="euler__paragraph">W(115246685191495243) = euler</p>
+/// <p class="euler__paragraph">P(euler) = 115246685191495243Find W(P(legionary) + P(calorimeters) - P(annihilate) + P(orchestrated) - P(fluttering)).</p>
+/// <p class="euler__paragraph">Give your answer using lowercase characters (no punctuation or space).</p></div>
 
 /// challengeSeed:
 function euler480() {
@@ -33,5 +71,6 @@ euler480();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler480 === 'function', 'message: <code>euler480()</code> is a function.');
 assert.strictEqual(euler480(), turnthestarson, 'message: <code>euler480()</code> should return turnthestarson.');
 /// id: 5900f54c1000cf542c51005f

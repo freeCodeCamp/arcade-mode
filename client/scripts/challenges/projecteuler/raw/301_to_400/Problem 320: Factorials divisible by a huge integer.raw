@@ -17,7 +17,15 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">Let N(i) be the smallest integer n such that n! is divisible by (i!)1234567890</p><p class="euler__paragraph"></p><p class="euler__paragraph">Let S(u)=∑N(i) for 10 ≤ i ≤ u.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">S(1000)=614538266565663.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Find S(1 000 000) mod 1018.</p></div>
+/// <div class="euler"><p class="euler__paragraph">Let N(i) be the smallest integer n such that n! is divisible by (i!)1234567890</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Let S(u)=∑N(i) for 10 ≤ i ≤ u.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">S(1000)=614538266565663.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Find S(1 000 000) mod 1018.</p></div>
 
 /// challengeSeed:
 function euler320() {
@@ -33,5 +41,6 @@ euler320();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler320 === 'function', 'message: <code>euler320()</code> is a function.');
 assert.strictEqual(euler320(), 278157919195482660, 'message: <code>euler320()</code> should return 278157919195482660.');
 /// id: 5900f4ae1000cf542c50ffbf

@@ -17,7 +17,29 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">We call the convex area enclosed by two circles a lenticular hole if:</p><p class="euler__paragraph">The centres of both circles are on lattice points.</p><p class="euler__paragraph">The two circles intersect at two distinct lattice points.</p><p class="euler__paragraph">The interior of the convex area enclosed by both circles does not contain any lattice points.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Consider the circles:</p><p class="euler__paragraph">C0: x2+y2=25</p><p class="euler__paragraph">C1: (x+4)2+(y-4)2=1</p><p class="euler__paragraph">C2: (x-12)2+(y-4)2=65</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">The circles C0, C1 and C2 are drawn in the picture below.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">C0 and C1 form a lenticular hole, as well as C0 and C2.</p><p class="euler__paragraph"></p><p class="euler__paragraph">We call an ordered pair of positive real numbers (r1, r2) a lenticular pair if there exist two circles with radii r1 and r2 that form a lenticular hole.</p><p class="euler__paragraph">We can verify that (1, 5) and (5, √65) are the lenticular pairs of the example above.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Let L(N) be the number of distinct lenticular pairs (r1, r2) for which 0 < r1 ≤ r2 ≤ N.</p><p class="euler__paragraph">We can verify that L(10) = 30 and L(100) = 3442.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Find L(100 000).</p></div>
+/// <div class="euler"><p class="euler__paragraph">We call the convex area enclosed by two circles a lenticular hole if:</p>
+/// <p class="euler__paragraph">The centres of both circles are on lattice points.</p>
+/// <p class="euler__paragraph">The two circles intersect at two distinct lattice points.</p>
+/// <p class="euler__paragraph">The interior of the convex area enclosed by both circles does not contain any lattice points.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Consider the circles:</p>
+/// <p class="euler__paragraph">C0: x2+y2=25</p>
+/// <p class="euler__paragraph">C1: (x+4)2+(y-4)2=1</p>
+/// <p class="euler__paragraph">C2: (x-12)2+(y-4)2=65</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">The circles C0, C1 and C2 are drawn in the picture below.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">C0 and C1 form a lenticular hole, as well as C0 and C2.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">We call an ordered pair of positive real numbers (r1, r2) a lenticular pair if there exist two circles with radii r1 and r2 that form a lenticular hole.</p>
+/// <p class="euler__paragraph">We can verify that (1, 5) and (5, √65) are the lenticular pairs of the example above.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Let L(N) be the number of distinct lenticular pairs (r1, r2) for which 0 < r1 ≤ r2 ≤ N.</p>
+/// <p class="euler__paragraph">We can verify that L(10) = 30 and L(100) = 3442.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Find L(100 000).</p></div>
 
 /// challengeSeed:
 function euler295() {
@@ -33,5 +55,6 @@ euler295();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler295 === 'function', 'message: <code>euler295()</code> is a function.');
 assert.strictEqual(euler295(), 4884650818, 'message: <code>euler295()</code> should return 4884650818.');
 /// id: 5900f4931000cf542c50ffa6

@@ -17,7 +17,45 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">A program written in the programming language Fractran consists of a list of fractions.</p><p class="euler__paragraph"></p><p class="euler__paragraph">The internal state of the Fractran Virtual Machine is a positive integer, which is initially set to a seed value. Each iteration of a Fractran program multiplies the state integer by the first fraction in the list which will leave it an integer.</p><p class="euler__paragraph"></p><p class="euler__paragraph">For example, one of the Fractran programs that John Horton Conway wrote for prime-generation consists of the following 14 fractions:1791</p><p class="euler__paragraph">,</p><p class="euler__paragraph">7885</p><p class="euler__paragraph">,</p><p class="euler__paragraph">1951</p><p class="euler__paragraph">,</p><p class="euler__paragraph">2338</p><p class="euler__paragraph">,</p><p class="euler__paragraph">2933</p><p class="euler__paragraph">,</p><p class="euler__paragraph">7729</p><p class="euler__paragraph">,</p><p class="euler__paragraph">9523</p><p class="euler__paragraph">,</p><p class="euler__paragraph">7719</p><p class="euler__paragraph">,</p><p class="euler__paragraph">117</p><p class="euler__paragraph">,</p><p class="euler__paragraph">1113</p><p class="euler__paragraph">,</p><p class="euler__paragraph">1311</p><p class="euler__paragraph">,</p><p class="euler__paragraph">152</p><p class="euler__paragraph">,</p><p class="euler__paragraph">17</p><p class="euler__paragraph">,</p><p class="euler__paragraph">551</p><p class="euler__paragraph">.</p><p class="euler__paragraph">Starting with the seed integer 2, successive iterations of the program produce the sequence:</p><p class="euler__paragraph">15, 825, 725, 1925, 2275, 425, ..., 68, 4, 30, ..., 136, 8, 60, ..., 544, 32, 240, ...</p><p class="euler__paragraph"></p><p class="euler__paragraph">The powers of 2 that appear in this sequence are 22, 23, 25, ...</p><p class="euler__paragraph">It can be shown that all the powers of 2 in this sequence have prime exponents and that all the primes appear as exponents of powers of 2, in proper order!</p><p class="euler__paragraph"></p><p class="euler__paragraph">If someone uses the above Fractran program to solve Project Euler Problem 7 (find the 10001st prime), how many iterations would be needed until the program produces 210001st prime ?</p></div>
+/// <div class="euler"><p class="euler__paragraph">A program written in the programming language Fractran consists of a list of fractions.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">The internal state of the Fractran Virtual Machine is a positive integer, which is initially set to a seed value. Each iteration of a Fractran program multiplies the state integer by the first fraction in the list which will leave it an integer.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">For example, one of the Fractran programs that John Horton Conway wrote for prime-generation consists of the following 14 fractions:1791</p>
+/// <p class="euler__paragraph">,</p>
+/// <p class="euler__paragraph">7885</p>
+/// <p class="euler__paragraph">,</p>
+/// <p class="euler__paragraph">1951</p>
+/// <p class="euler__paragraph">,</p>
+/// <p class="euler__paragraph">2338</p>
+/// <p class="euler__paragraph">,</p>
+/// <p class="euler__paragraph">2933</p>
+/// <p class="euler__paragraph">,</p>
+/// <p class="euler__paragraph">7729</p>
+/// <p class="euler__paragraph">,</p>
+/// <p class="euler__paragraph">9523</p>
+/// <p class="euler__paragraph">,</p>
+/// <p class="euler__paragraph">7719</p>
+/// <p class="euler__paragraph">,</p>
+/// <p class="euler__paragraph">117</p>
+/// <p class="euler__paragraph">,</p>
+/// <p class="euler__paragraph">1113</p>
+/// <p class="euler__paragraph">,</p>
+/// <p class="euler__paragraph">1311</p>
+/// <p class="euler__paragraph">,</p>
+/// <p class="euler__paragraph">152</p>
+/// <p class="euler__paragraph">,</p>
+/// <p class="euler__paragraph">17</p>
+/// <p class="euler__paragraph">,</p>
+/// <p class="euler__paragraph">551</p>
+/// <p class="euler__paragraph">.</p>
+/// <p class="euler__paragraph">Starting with the seed integer 2, successive iterations of the program produce the sequence:</p>
+/// <p class="euler__paragraph">15, 825, 725, 1925, 2275, 425, ..., 68, 4, 30, ..., 136, 8, 60, ..., 544, 32, 240, ...</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">The powers of 2 that appear in this sequence are 22, 23, 25, ...</p>
+/// <p class="euler__paragraph">It can be shown that all the powers of 2 in this sequence have prime exponents and that all the primes appear as exponents of powers of 2, in proper order!</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">If someone uses the above Fractran program to solve Project Euler Problem 7 (find the 10001st prime), how many iterations would be needed until the program produces 210001st prime ?</p></div>
 
 /// challengeSeed:
 function euler308() {
@@ -33,5 +71,6 @@ euler308();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler308 === 'function', 'message: <code>euler308()</code> is a function.');
 assert.strictEqual(euler308(), 1539669807660924, 'message: <code>euler308()</code> should return 1539669807660924.');
 /// id: 5900f4a11000cf542c50ffb3

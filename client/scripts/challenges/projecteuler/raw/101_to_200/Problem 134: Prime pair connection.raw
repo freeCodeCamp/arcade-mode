@@ -17,7 +17,9 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">Consider the consecutive primes p1 = 19 and p2 = 23. It can be verified that 1219 is the smallest number such that the last digits are formed by p1 whilst also being divisible by p2.</p><p class="euler__paragraph">In fact, with the exception of p1 = 3 and p2 = 5, for every pair of consecutive primes, p2 > p1, there exist values of n for which the last digits are formed by p1 and n is divisible by p2. Let S be the smallest of these values of n.</p><p class="euler__paragraph">Find ∑ S for every pair of consecutive primes with 5 ≤ p1 ≤ 1000000.</p></div>
+/// <div class="euler"><p class="euler__paragraph">Consider the consecutive primes p1 = 19 and p2 = 23. It can be verified that 1219 is the smallest number such that the last digits are formed by p1 whilst also being divisible by p2.</p>
+/// <p class="euler__paragraph">In fact, with the exception of p1 = 3 and p2 = 5, for every pair of consecutive primes, p2 > p1, there exist values of n for which the last digits are formed by p1 and n is divisible by p2. Let S be the smallest of these values of n.</p>
+/// <p class="euler__paragraph">Find ∑ S for every pair of consecutive primes with 5 ≤ p1 ≤ 1000000.</p></div>
 
 /// challengeSeed:
 function euler134() {
@@ -33,5 +35,6 @@ euler134();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler134 === 'function', 'message: <code>euler134()</code> is a function.');
 assert.strictEqual(euler134(), 18613426663617120, 'message: <code>euler134()</code> should return 18613426663617120.');
 /// id: 5900f3f21000cf542c50ff05

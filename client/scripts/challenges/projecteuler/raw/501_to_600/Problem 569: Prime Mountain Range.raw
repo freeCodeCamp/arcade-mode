@@ -17,7 +17,17 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">A mountain range consists of a line of mountains with slopes of exactly 45°, and heights governed by the prime numbers, pn. The up-slope of the kth mountain is of height p2k−1, and the downslope is p2k. The first few foot-hills of this range are illustrated below.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Tenzing sets out to climb each one in turn, starting from the lowest. At the top of each peak, he looks back and counts how many of the previous peaks he can see. In the example above, the eye-line from the third mountain is drawn in red, showing that he can only see the peak of the second mountain from this viewpoint. Similarly, from the 9th mountain, he can see three peaks, those of the 5th, 7th and 8th mountain.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Let P(k) be the number of peaks that are visible looking back from the kth mountain.  Hence P(3)=1 and P(9)=3.</p><p class="euler__paragraph">Also $\displaystyle \sum_{k=1}^{100} P(k) = 227$.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Find $\displaystyle \sum_{k=1}^{2500000} P(k)$.</p></div>
+/// <div class="euler"><p class="euler__paragraph">A mountain range consists of a line of mountains with slopes of exactly 45°, and heights governed by the prime numbers, pn. The up-slope of the kth mountain is of height p2k−1, and the downslope is p2k. The first few foot-hills of this range are illustrated below.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Tenzing sets out to climb each one in turn, starting from the lowest. At the top of each peak, he looks back and counts how many of the previous peaks he can see. In the example above, the eye-line from the third mountain is drawn in red, showing that he can only see the peak of the second mountain from this viewpoint. Similarly, from the 9th mountain, he can see three peaks, those of the 5th, 7th and 8th mountain.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Let P(k) be the number of peaks that are visible looking back from the kth mountain.  Hence P(3)=1 and P(9)=3.</p>
+/// <p class="euler__paragraph">Also $\displaystyle \sum_{k=1}^{100} P(k) = 227$.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Find $\displaystyle \sum_{k=1}^{2500000} P(k)$.</p></div>
 
 /// challengeSeed:
 function euler569() {
@@ -33,5 +43,6 @@ euler569();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler569 === 'function', 'message: <code>euler569()</code> is a function.');
 assert.strictEqual(euler569(), TODO: MISSING ANSWER, 'message: <code>euler569()</code> should return TODO: MISSING ANSWER.');
 /// id: 5900fefb58d9425c70af4f8b

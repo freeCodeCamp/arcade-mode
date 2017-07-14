@@ -17,7 +17,17 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">Anton and Bertrand love to play three pile Nim.</p><p class="euler__paragraph">However, after a lot of games of Nim they got bored and changed the rules somewhat.</p><p class="euler__paragraph">They may only take a number of stones from a pile that is a proper divisor of the number of stones present in the pile. E.g. if a pile at a certain moment contains 24 stones they may take only 1,2,3,4,6,8 or 12 stones from that pile.</p><p class="euler__paragraph">So if a pile contains one stone they can't take the last stone from it as 1 isn't a proper divisor of 1.</p><p class="euler__paragraph">The first player that can't make a valid move loses the game.</p><p class="euler__paragraph">Of course both Anton and Bertrand play optimally.</p><p class="euler__paragraph"></p><p class="euler__paragraph">The triple (a,b,c) indicates the number of stones in the three piles.</p><p class="euler__paragraph">Let S(n) be the number of winning positions for the next player for 1 ≤ a, b, c ≤ n.S(10) = 692 and S(100) = 735494.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Find S(123456787654321) modulo 1234567890.</p></div>
+/// <div class="euler"><p class="euler__paragraph">Anton and Bertrand love to play three pile Nim.</p>
+/// <p class="euler__paragraph">However, after a lot of games of Nim they got bored and changed the rules somewhat.</p>
+/// <p class="euler__paragraph">They may only take a number of stones from a pile that is a proper divisor of the number of stones present in the pile. E.g. if a pile at a certain moment contains 24 stones they may take only 1,2,3,4,6,8 or 12 stones from that pile.</p>
+/// <p class="euler__paragraph">So if a pile contains one stone they can't take the last stone from it as 1 isn't a proper divisor of 1.</p>
+/// <p class="euler__paragraph">The first player that can't make a valid move loses the game.</p>
+/// <p class="euler__paragraph">Of course both Anton and Bertrand play optimally.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">The triple (a,b,c) indicates the number of stones in the three piles.</p>
+/// <p class="euler__paragraph">Let S(n) be the number of winning positions for the next player for 1 ≤ a, b, c ≤ n.S(10) = 692 and S(100) = 735494.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Find S(123456787654321) modulo 1234567890.</p></div>
 
 /// challengeSeed:
 function euler509() {
@@ -33,5 +43,6 @@ euler509();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler509 === 'function', 'message: <code>euler509()</code> is a function.');
 assert.strictEqual(euler509(), 151725678, 'message: <code>euler509()</code> should return 151725678.');
 /// id: 5900f5691000cf542c51007b

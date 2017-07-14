@@ -17,7 +17,10 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">Let R(a, b, c) be the maximum area covered by three non-overlapping circles inside a triangle with edge lengths a, b and c.</p><p class="euler__paragraph">Let S(n) be the average value of R(a, b, c) over all integer triplets (a, b, c) such that 1 ≤ a ≤ b ≤ c < a + b ≤ n</p><p class="euler__paragraph">You are given S(2) = R(1, 1, 1) ≈ 0.31998, S(5) ≈ 1.25899.</p><p class="euler__paragraph">Find S(1803) rounded to 5 decimal places behind the decimal point.</p></div>
+/// <div class="euler"><p class="euler__paragraph">Let R(a, b, c) be the maximum area covered by three non-overlapping circles inside a triangle with edge lengths a, b and c.</p>
+/// <p class="euler__paragraph">Let S(n) be the average value of R(a, b, c) over all integer triplets (a, b, c) such that 1 ≤ a ≤ b ≤ c < a + b ≤ n</p>
+/// <p class="euler__paragraph">You are given S(2) = R(1, 1, 1) ≈ 0.31998, S(5) ≈ 1.25899.</p>
+/// <p class="euler__paragraph">Find S(1803) rounded to 5 decimal places behind the decimal point.</p></div>
 
 /// challengeSeed:
 function euler476() {
@@ -33,5 +36,6 @@ euler476();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler476 === 'function', 'message: <code>euler476()</code> is a function.');
 assert.strictEqual(euler476(), 110242.87794, 'message: <code>euler476()</code> should return 110242.87794.');
 /// id: 5900f5481000cf542c51005b

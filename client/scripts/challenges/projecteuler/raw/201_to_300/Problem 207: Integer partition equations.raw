@@ -17,7 +17,28 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">For some positive integers k, there exists an integer partition of the form   4t = 2t + k,</p><p class="euler__paragraph">where 4t, 2t, and k are all positive integers and t is a real number.</p><p class="euler__paragraph"></p><p class="euler__paragraph">The first two such partitions are 41 = 21 + 2 and 41.5849625... = 21.5849625... + 6.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Partitions where t is also an integer are called perfect. </p><p class="euler__paragraph">For any m ≥ 1 let P(m) be the proportion of such partitions that are perfect with k ≤ m.</p><p class="euler__paragraph">Thus P(6) = 1/2.</p><p class="euler__paragraph"></p><p class="euler__paragraph">In the following table are listed some values of P(m)</p><p class="euler__paragraph">   P(5) = 1/1</p><p class="euler__paragraph">   P(10) = 1/2</p><p class="euler__paragraph">   P(15) = 2/3</p><p class="euler__paragraph">   P(20) = 1/2</p><p class="euler__paragraph">   P(25) = 1/2</p><p class="euler__paragraph">   P(30) = 2/5</p><p class="euler__paragraph">   ...</p><p class="euler__paragraph">   P(180) = 1/4</p><p class="euler__paragraph">   P(185) = 3/13</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Find the smallest m for which P(m) < 1/12345</p></div>
+/// <div class="euler"><p class="euler__paragraph">For some positive integers k, there exists an integer partition of the form   4t = 2t + k,</p>
+/// <p class="euler__paragraph">where 4t, 2t, and k are all positive integers and t is a real number.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">The first two such partitions are 41 = 21 + 2 and 41.5849625... = 21.5849625... + 6.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Partitions where t is also an integer are called perfect. </p>
+/// <p class="euler__paragraph">For any m ≥ 1 let P(m) be the proportion of such partitions that are perfect with k ≤ m.</p>
+/// <p class="euler__paragraph">Thus P(6) = 1/2.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">In the following table are listed some values of P(m)</p>
+/// <p class="euler__paragraph">   P(5) = 1/1</p>
+/// <p class="euler__paragraph">   P(10) = 1/2</p>
+/// <p class="euler__paragraph">   P(15) = 2/3</p>
+/// <p class="euler__paragraph">   P(20) = 1/2</p>
+/// <p class="euler__paragraph">   P(25) = 1/2</p>
+/// <p class="euler__paragraph">   P(30) = 2/5</p>
+/// <p class="euler__paragraph">   ...</p>
+/// <p class="euler__paragraph">   P(180) = 1/4</p>
+/// <p class="euler__paragraph">   P(185) = 3/13</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Find the smallest m for which P(m) < 1/12345</p></div>
 
 /// challengeSeed:
 function euler207() {
@@ -33,5 +54,6 @@ euler207();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler207 === 'function', 'message: <code>euler207()</code> is a function.');
 assert.strictEqual(euler207(), 44043947822, 'message: <code>euler207()</code> should return 44043947822.');
 /// id: 5900f43c1000cf542c50ff4e

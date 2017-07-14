@@ -17,7 +17,17 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">We shall call a fraction that cannot be cancelled down a resilient fraction. Furthermore we shall define the resilience of a denominator, R(d), to be the ratio of its proper fractions that are resilient; for example, R(12) = 4⁄11.</p><p class="euler__paragraph"></p><p class="euler__paragraph">The resilience of a number d > 1 is then</p><p class="euler__paragraph">φ(d)d − 1</p><p class="euler__paragraph">, where φ is Euler's totient function.</p><p class="euler__paragraph">We further define the coresilience of a number n > 1 as C(n)= </p><p class="euler__paragraph">n − φ(n)n − 1.</p><p class="euler__paragraph">The coresilience of a prime p is C(p)</p><p class="euler__paragraph">= </p><p class="euler__paragraph">1p − 1.</p><p class="euler__paragraph">Find the sum of all composite integers 1 < n ≤ 2×1011, for which C(n) is a unit fraction.</p></div>
+/// <div class="euler"><p class="euler__paragraph">We shall call a fraction that cannot be cancelled down a resilient fraction. Furthermore we shall define the resilience of a denominator, R(d), to be the ratio of its proper fractions that are resilient; for example, R(12) = 4⁄11.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">The resilience of a number d > 1 is then</p>
+/// <p class="euler__paragraph">φ(d)d − 1</p>
+/// <p class="euler__paragraph">, where φ is Euler's totient function.</p>
+/// <p class="euler__paragraph">We further define the coresilience of a number n > 1 as C(n)= </p>
+/// <p class="euler__paragraph">n − φ(n)n − 1.</p>
+/// <p class="euler__paragraph">The coresilience of a prime p is C(p)</p>
+/// <p class="euler__paragraph">= </p>
+/// <p class="euler__paragraph">1p − 1.</p>
+/// <p class="euler__paragraph">Find the sum of all composite integers 1 < n ≤ 2×1011, for which C(n) is a unit fraction.</p></div>
 
 /// challengeSeed:
 function euler245() {
@@ -33,5 +43,6 @@ euler245();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler245 === 'function', 'message: <code>euler245()</code> is a function.');
 assert.strictEqual(euler245(), 288084712410001, 'message: <code>euler245()</code> should return 288084712410001.');
 /// id: 5900f4621000cf542c50ff74

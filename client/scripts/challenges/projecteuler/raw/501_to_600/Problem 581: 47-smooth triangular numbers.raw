@@ -17,7 +17,9 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">A number is p-smooth if it has no prime factors larger than p.</p><p class="euler__paragraph">Let T be the sequence of triangular numbers, ie T(n)=n(n+1)/2.</p><p class="euler__paragraph">Find the sum of all indices n such that T(n) is 47-smooth.</p></div>
+/// <div class="euler"><p class="euler__paragraph">A number is p-smooth if it has no prime factors larger than p.</p>
+/// <p class="euler__paragraph">Let T be the sequence of triangular numbers, ie T(n)=n(n+1)/2.</p>
+/// <p class="euler__paragraph">Find the sum of all indices n such that T(n) is 47-smooth.</p></div>
 
 /// challengeSeed:
 function euler581() {
@@ -33,5 +35,6 @@ euler581();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler581 === 'function', 'message: <code>euler581()</code> is a function.');
 assert.strictEqual(euler581(), TODO: MISSING ANSWER, 'message: <code>euler581()</code> should return TODO: MISSING ANSWER.');
 /// id: 5900ff0758d9425c70af4f97

@@ -17,7 +17,16 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">The nthharmonic number Hn is defined as the sum of the multiplicative inverses of the first n positive integers, and can be written as a reduced fraction an/bn.</p><p class="euler__paragraph">$H_n = \displaystyle \sum_{k=1}^n \frac 1 k = \frac {a_n} {b_n}$, with $\text {gcd}(a_n, b_n)=1$.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Let M(p) be the largest value of n such that bn is not divisible by p.</p><p class="euler__paragraph"></p><p class="euler__paragraph">For example, M(3) = 68 because $H_{68} = \frac {a_{68}} {b_{68}} = \frac {14094018321907827923954201611} {2933773379069966367528193600}$, b68=2933773379069966367528193600 is not divisible by 3, but all larger harmonic numbers have denominators divisible by 3.</p><p class="euler__paragraph"></p><p class="euler__paragraph">You are given M(7) = 719102.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Find M(137).</p></div>
+/// <div class="euler"><p class="euler__paragraph">The nthharmonic number Hn is defined as the sum of the multiplicative inverses of the first n positive integers, and can be written as a reduced fraction an/bn.</p>
+/// <p class="euler__paragraph">$H_n = \displaystyle \sum_{k=1}^n \frac 1 k = \frac {a_n} {b_n}$, with $\text {gcd}(a_n, b_n)=1$.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Let M(p) be the largest value of n such that bn is not divisible by p.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">For example, M(3) = 68 because $H_{68} = \frac {a_{68}} {b_{68}} = \frac {14094018321907827923954201611} {2933773379069966367528193600}$, b68=2933773379069966367528193600 is not divisible by 3, but all larger harmonic numbers have denominators divisible by 3.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">You are given M(7) = 719102.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Find M(137).</p></div>
 
 /// challengeSeed:
 function euler541() {
@@ -33,5 +42,6 @@ euler541();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler541 === 'function', 'message: <code>euler541()</code> is a function.');
 assert.strictEqual(euler541(), TODO: MISSING ANSWER, 'message: <code>euler541()</code> should return TODO: MISSING ANSWER.');
 /// id: 5900fedf58d9425c70af4f6f

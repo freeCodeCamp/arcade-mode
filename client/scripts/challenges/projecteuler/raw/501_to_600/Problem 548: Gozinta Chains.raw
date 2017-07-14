@@ -17,7 +17,14 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">A gozinta chain for n is a sequence {1,a,b,...,n} where each element properly divides the next.</p><p class="euler__paragraph">There are eight gozinta chains for 12:</p><p class="euler__paragraph">{1,12} ,{1,2,12}, {1,2,4,12}, {1,2,6,12}, {1,3,12}, {1,3,6,12}, {1,4,12} and {1,6,12}. </p><p class="euler__paragraph">Let g(n) be the number of gozinta chains for n, so g(12)=8.</p><p class="euler__paragraph">g(48)=48 and g(120)=132.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Find the sum of the numbers n  not exceeding 1016 for which g(n)=n.</p></div>
+/// <div class="euler"><p class="euler__paragraph">A gozinta chain for n is a sequence {1,a,b,...,n} where each element properly divides the next.</p>
+/// <p class="euler__paragraph">There are eight gozinta chains for 12:</p>
+/// <p class="euler__paragraph">{1,12} ,{1,2,12}, {1,2,4,12}, {1,2,6,12}, {1,3,12}, {1,3,6,12}, {1,4,12} and {1,6,12}. </p>
+/// <p class="euler__paragraph">Let g(n) be the number of gozinta chains for n, so g(12)=8.</p>
+/// <p class="euler__paragraph">g(48)=48 and g(120)=132.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Find the sum of the numbers n  not exceeding 1016 for which g(n)=n.</p></div>
 
 /// challengeSeed:
 function euler548() {
@@ -33,5 +40,6 @@ euler548();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler548 === 'function', 'message: <code>euler548()</code> is a function.');
 assert.strictEqual(euler548(), TODO: MISSING ANSWER, 'message: <code>euler548()</code> should return TODO: MISSING ANSWER.');
 /// id: 5900fee658d9425c70af4f76

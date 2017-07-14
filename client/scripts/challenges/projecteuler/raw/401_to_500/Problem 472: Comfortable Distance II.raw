@@ -17,7 +17,24 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">There are N seats in a row. N people come one after another to fill the seats according to the following rules:</p><p class="euler__paragraph">No person sits beside another.</p><p class="euler__paragraph">The first person chooses any seat.</p><p class="euler__paragraph">Each subsequent person chooses the seat furthest from anyone else already seated, as long as it does not violate rule 1. If there is more than one choice satisfying this condition, then the person chooses the leftmost choice.</p><p class="euler__paragraph">Note that due to rule 1, some seats will surely be left unoccupied, and the maximum number of people that can be seated is less than N (for N > 1).</p><p class="euler__paragraph"></p><p class="euler__paragraph">Here are the possible seating arrangements for N = 15:</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">We see that if the first person chooses correctly, the 15 seats can seat up to 7 people.</p><p class="euler__paragraph">We can also see that the first person has 9 choices to maximize the number of people that may be seated.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Let f(N) be the number of choices the first person has to maximize the number of occupants for N seats in a row. Thus, f(1) = 1, f(15) = 9, f(20) = 6, and f(500) = 16.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Also, ∑f(N) = 83 for 1 ≤ N ≤ 20 and  ∑f(N) = 13343 for 1 ≤ N ≤ 500.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Find ∑f(N) for 1 ≤ N ≤ 1012. Give the last 8 digits of your answer.</p></div>
+/// <div class="euler"><p class="euler__paragraph">There are N seats in a row. N people come one after another to fill the seats according to the following rules:</p>
+/// <p class="euler__paragraph">No person sits beside another.</p>
+/// <p class="euler__paragraph">The first person chooses any seat.</p>
+/// <p class="euler__paragraph">Each subsequent person chooses the seat furthest from anyone else already seated, as long as it does not violate rule 1. If there is more than one choice satisfying this condition, then the person chooses the leftmost choice.</p>
+/// <p class="euler__paragraph">Note that due to rule 1, some seats will surely be left unoccupied, and the maximum number of people that can be seated is less than N (for N > 1).</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Here are the possible seating arrangements for N = 15:</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">We see that if the first person chooses correctly, the 15 seats can seat up to 7 people.</p>
+/// <p class="euler__paragraph">We can also see that the first person has 9 choices to maximize the number of people that may be seated.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Let f(N) be the number of choices the first person has to maximize the number of occupants for N seats in a row. Thus, f(1) = 1, f(15) = 9, f(20) = 6, and f(500) = 16.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Also, ∑f(N) = 83 for 1 ≤ N ≤ 20 and  ∑f(N) = 13343 for 1 ≤ N ≤ 500.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Find ∑f(N) for 1 ≤ N ≤ 1012. Give the last 8 digits of your answer.</p></div>
 
 /// challengeSeed:
 function euler472() {
@@ -33,5 +50,6 @@ euler472();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler472 === 'function', 'message: <code>euler472()</code> is a function.');
 assert.strictEqual(euler472(), 73811586, 'message: <code>euler472()</code> should return 73811586.');
 /// id: 5900f5451000cf542c510057

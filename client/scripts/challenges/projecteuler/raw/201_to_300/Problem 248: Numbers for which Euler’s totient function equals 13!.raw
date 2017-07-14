@@ -17,7 +17,8 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">The first number n for which φ(n)=13! is 6227180929.</p><p class="euler__paragraph">Find the 150,000th such number.</p></div>
+/// <div class="euler"><p class="euler__paragraph">The first number n for which φ(n)=13! is 6227180929.</p>
+/// <p class="euler__paragraph">Find the 150,000th such number.</p></div>
 
 /// challengeSeed:
 function euler248() {
@@ -33,5 +34,6 @@ euler248();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler248 === 'function', 'message: <code>euler248()</code> is a function.');
 assert.strictEqual(euler248(), 23507044290, 'message: <code>euler248()</code> should return 23507044290.');
 /// id: 5900f4651000cf542c50ff77

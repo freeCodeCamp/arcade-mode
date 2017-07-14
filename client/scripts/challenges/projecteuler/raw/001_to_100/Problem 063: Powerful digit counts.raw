@@ -17,7 +17,8 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">The 5-digit number, 16807=75, is also a fifth power. Similarly, the 9-digit number, 134217728=89, is a ninth power.</p><p class="euler__paragraph">How many n-digit positive integers exist which are also an nth power?</p></div>
+/// <div class="euler"><p class="euler__paragraph">The 5-digit number, 16807=75, is also a fifth power. Similarly, the 9-digit number, 134217728=89, is a ninth power.</p>
+/// <p class="euler__paragraph">How many n-digit positive integers exist which are also an nth power?</p></div>
 
 /// challengeSeed:
 function euler63() {
@@ -33,5 +34,6 @@ euler63();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler63 === 'function', 'message: <code>euler63()</code> is a function.');
 assert.strictEqual(euler63(), 49, 'message: <code>euler63()</code> should return 49.');
 /// id: 5900f3ab1000cf542c50febe

@@ -17,7 +17,18 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">For a prime p let S(p) = (∑(p-k)!) mod(p) for 1 ≤ k ≤ 5.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">For example, if p=7,</p><p class="euler__paragraph">(7-1)! + (7-2)! + (7-3)! + (7-4)! + (7-5)! = 6! + 5! + 4! + 3! + 2! = 720+120+24+6+2 = 872. </p><p class="euler__paragraph">As 872 mod(7) = 4, S(7) = 4.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">It can be verified that ∑S(p) = 480 for 5 ≤ p < 100.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Find ∑S(p) for 5 ≤ p < 108.</p></div>
+/// <div class="euler"><p class="euler__paragraph">For a prime p let S(p) = (∑(p-k)!) mod(p) for 1 ≤ k ≤ 5.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">For example, if p=7,</p>
+/// <p class="euler__paragraph">(7-1)! + (7-2)! + (7-3)! + (7-4)! + (7-5)! = 6! + 5! + 4! + 3! + 2! = 720+120+24+6+2 = 872. </p>
+/// <p class="euler__paragraph">As 872 mod(7) = 4, S(7) = 4.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">It can be verified that ∑S(p) = 480 for 5 ≤ p < 100.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Find ∑S(p) for 5 ≤ p < 108.</p></div>
 
 /// challengeSeed:
 function euler381() {
@@ -33,5 +44,6 @@ euler381();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler381 === 'function', 'message: <code>euler381()</code> is a function.');
 assert.strictEqual(euler381(), 139602943319822, 'message: <code>euler381()</code> should return 139602943319822.');
 /// id: 5900f4ea1000cf542c50fffc

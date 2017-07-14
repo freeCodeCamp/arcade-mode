@@ -17,7 +17,22 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">The following undirected network consists of seven vertices and twelve edges with a total weight of 243.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">The same network can be represented by the matrix below.</p><p class="euler__paragraph">    ABCDEFG</p><p class="euler__paragraph">A-161221---</p><p class="euler__paragraph">B16--1720--</p><p class="euler__paragraph">C12--28-31-</p><p class="euler__paragraph">D211728-181923</p><p class="euler__paragraph">E-20-18--11</p><p class="euler__paragraph">F--3119--27</p><p class="euler__paragraph">G---231127-</p><p class="euler__paragraph">However, it is possible to optimise the network by removing some edges and still ensure that all points on the network remain connected. The network which achieves the maximum saving is shown below. It has a weight of 93, representing a saving of 243 − 93 = 150 from the original network.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Using network.txt (right click and 'Save Link/Target As...'), a 6K text file containing a network with forty vertices, and given in matrix form, find the maximum saving which can be achieved by removing redundant edges whilst ensuring that the network remains connected.</p></div>
+/// <div class="euler"><p class="euler__paragraph">The following undirected network consists of seven vertices and twelve edges with a total weight of 243.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">The same network can be represented by the matrix below.</p>
+/// <p class="euler__paragraph">    ABCDEFG</p>
+/// <p class="euler__paragraph">A-161221---</p>
+/// <p class="euler__paragraph">B16--1720--</p>
+/// <p class="euler__paragraph">C12--28-31-</p>
+/// <p class="euler__paragraph">D211728-181923</p>
+/// <p class="euler__paragraph">E-20-18--11</p>
+/// <p class="euler__paragraph">F--3119--27</p>
+/// <p class="euler__paragraph">G---231127-</p>
+/// <p class="euler__paragraph">However, it is possible to optimise the network by removing some edges and still ensure that all points on the network remain connected. The network which achieves the maximum saving is shown below. It has a weight of 93, representing a saving of 243 − 93 = 150 from the original network.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Using network.txt (right click and 'Save Link/Target As...'), a 6K text file containing a network with forty vertices, and given in matrix form, find the maximum saving which can be achieved by removing redundant edges whilst ensuring that the network remains connected.</p></div>
 
 /// challengeSeed:
 function euler107() {
@@ -33,5 +48,6 @@ euler107();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler107 === 'function', 'message: <code>euler107()</code> is a function.');
 assert.strictEqual(euler107(), 259679, 'message: <code>euler107()</code> should return 259679.');
 /// id: 5900f3d91000cf542c50feea

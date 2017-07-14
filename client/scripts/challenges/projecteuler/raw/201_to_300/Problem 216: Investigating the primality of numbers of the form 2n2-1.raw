@@ -17,7 +17,12 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">Consider numbers t(n) of the form t(n) = 2n2-1 with n > 1.</p><p class="euler__paragraph">The first such numbers are 7, 17, 31, 49, 71, 97, 127 and 161.</p><p class="euler__paragraph">It turns out that only 49 = 7*7 and 161 = 7*23 are not prime.</p><p class="euler__paragraph">For n ≤ 10000 there are 2202 numbers t(n)  that are prime.</p><p class="euler__paragraph"></p><p class="euler__paragraph">How many numbers t(n) are prime for n ≤ 50,000,000 ?</p></div>
+/// <div class="euler"><p class="euler__paragraph">Consider numbers t(n) of the form t(n) = 2n2-1 with n > 1.</p>
+/// <p class="euler__paragraph">The first such numbers are 7, 17, 31, 49, 71, 97, 127 and 161.</p>
+/// <p class="euler__paragraph">It turns out that only 49 = 7*7 and 161 = 7*23 are not prime.</p>
+/// <p class="euler__paragraph">For n ≤ 10000 there are 2202 numbers t(n)  that are prime.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">How many numbers t(n) are prime for n ≤ 50,000,000 ?</p></div>
 
 /// challengeSeed:
 function euler216() {
@@ -33,5 +38,6 @@ euler216();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler216 === 'function', 'message: <code>euler216()</code> is a function.');
 assert.strictEqual(euler216(), 5437849, 'message: <code>euler216()</code> should return 5437849.');
 /// id: 5900f4451000cf542c50ff57

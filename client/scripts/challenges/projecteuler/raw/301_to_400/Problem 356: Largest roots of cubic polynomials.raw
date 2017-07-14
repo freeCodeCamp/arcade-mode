@@ -17,7 +17,14 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">Let an be the largest real root of a polynomial g(x) = x3 - 2n·x2 + n.</p><p class="euler__paragraph">For example, a2 = 3.86619826...</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Find the last eight digits of.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Note:  represents the floor function.</p></div>
+/// <div class="euler"><p class="euler__paragraph">Let an be the largest real root of a polynomial g(x) = x3 - 2n·x2 + n.</p>
+/// <p class="euler__paragraph">For example, a2 = 3.86619826...</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Find the last eight digits of.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Note:  represents the floor function.</p></div>
 
 /// challengeSeed:
 function euler356() {
@@ -33,5 +40,6 @@ euler356();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler356 === 'function', 'message: <code>euler356()</code> is a function.');
 assert.strictEqual(euler356(), 28010159, 'message: <code>euler356()</code> should return 28010159.');
 /// id: 5900f4d01000cf542c50ffe3

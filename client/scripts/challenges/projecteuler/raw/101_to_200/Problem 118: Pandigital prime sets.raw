@@ -17,7 +17,8 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">Using all of the digits 1 through 9 and concatenating them freely to form decimal integers, different sets can be formed. Interestingly with the set {2,5,47,89,631}, all of the elements belonging to it are prime.</p><p class="euler__paragraph">How many distinct sets containing each of the digits one through nine exactly once contain only prime elements?</p></div>
+/// <div class="euler"><p class="euler__paragraph">Using all of the digits 1 through 9 and concatenating them freely to form decimal integers, different sets can be formed. Interestingly with the set {2,5,47,89,631}, all of the elements belonging to it are prime.</p>
+/// <p class="euler__paragraph">How many distinct sets containing each of the digits one through nine exactly once contain only prime elements?</p></div>
 
 /// challengeSeed:
 function euler118() {
@@ -33,5 +34,6 @@ euler118();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler118 === 'function', 'message: <code>euler118()</code> is a function.');
 assert.strictEqual(euler118(), 44680, 'message: <code>euler118()</code> should return 44680.');
 /// id: 5900f3e21000cf542c50fef5

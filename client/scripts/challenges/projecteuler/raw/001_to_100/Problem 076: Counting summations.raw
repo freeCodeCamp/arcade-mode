@@ -17,7 +17,14 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">It is possible to write five as a sum in exactly six different ways:</p><p class="euler__paragraph">4 + 1</p><p class="euler__paragraph">3 + 2</p><p class="euler__paragraph">3 + 1 + 1</p><p class="euler__paragraph">2 + 2 + 1</p><p class="euler__paragraph">2 + 1 + 1 + 1</p><p class="euler__paragraph">1 + 1 + 1 + 1 + 1</p><p class="euler__paragraph">How many different ways can one hundred be written as a sum of at least two positive integers?</p></div>
+/// <div class="euler"><p class="euler__paragraph">It is possible to write five as a sum in exactly six different ways:</p>
+/// <p class="euler__paragraph">4 + 1</p>
+/// <p class="euler__paragraph">3 + 2</p>
+/// <p class="euler__paragraph">3 + 1 + 1</p>
+/// <p class="euler__paragraph">2 + 2 + 1</p>
+/// <p class="euler__paragraph">2 + 1 + 1 + 1</p>
+/// <p class="euler__paragraph">1 + 1 + 1 + 1 + 1</p>
+/// <p class="euler__paragraph">How many different ways can one hundred be written as a sum of at least two positive integers?</p></div>
 
 /// challengeSeed:
 function euler76() {
@@ -33,5 +40,6 @@ euler76();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler76 === 'function', 'message: <code>euler76()</code> is a function.');
 assert.strictEqual(euler76(), 190569291, 'message: <code>euler76()</code> should return 190569291.');
 /// id: 5900f3b81000cf542c50fecb

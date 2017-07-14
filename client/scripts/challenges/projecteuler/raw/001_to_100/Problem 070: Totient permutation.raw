@@ -17,7 +17,9 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">Euler's Totient function, φ(n) [sometimes called the phi function], is used to determine the number of positive numbers less than or equal to n which are relatively prime to n. For example, as 1, 2, 4, 5, 7, and 8, are all less than nine and relatively prime to nine, φ(9)=6.The number 1 is considered to be relatively prime to every positive number, so φ(1)=1. </p><p class="euler__paragraph">Interestingly, φ(87109)=79180, and it can be seen that 87109 is a permutation of 79180.</p><p class="euler__paragraph">Find the value of n, 1 < n < 107, for which φ(n) is a permutation of n and the ratio n/φ(n) produces a minimum.</p></div>
+/// <div class="euler"><p class="euler__paragraph">Euler's Totient function, φ(n) [sometimes called the phi function], is used to determine the number of positive numbers less than or equal to n which are relatively prime to n. For example, as 1, 2, 4, 5, 7, and 8, are all less than nine and relatively prime to nine, φ(9)=6.The number 1 is considered to be relatively prime to every positive number, so φ(1)=1. </p>
+/// <p class="euler__paragraph">Interestingly, φ(87109)=79180, and it can be seen that 87109 is a permutation of 79180.</p>
+/// <p class="euler__paragraph">Find the value of n, 1 < n < 107, for which φ(n) is a permutation of n and the ratio n/φ(n) produces a minimum.</p></div>
 
 /// challengeSeed:
 function euler70() {
@@ -33,5 +35,6 @@ euler70();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler70 === 'function', 'message: <code>euler70()</code> is a function.');
 assert.strictEqual(euler70(), 8319823, 'message: <code>euler70()</code> should return 8319823.');
 /// id: 5900f3b21000cf542c50fec5

@@ -17,7 +17,11 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">Let Sm = (x1, x2, ... , xm) be the m-tuple of positive real numbers with x1 + x2 + ... + xm = m for which Pm = x1 * x22 * ... * xmm is maximised.</p><p class="euler__paragraph"></p><p class="euler__paragraph">For example, it can be verified that [P10] = 4112 ([ ] is the integer part function).</p><p class="euler__paragraph"></p><p class="euler__paragraph">Find Σ[Pm] for 2 ≤ m ≤ 15.</p></div>
+/// <div class="euler"><p class="euler__paragraph">Let Sm = (x1, x2, ... , xm) be the m-tuple of positive real numbers with x1 + x2 + ... + xm = m for which Pm = x1 * x22 * ... * xmm is maximised.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">For example, it can be verified that [P10] = 4112 ([ ] is the integer part function).</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Find Σ[Pm] for 2 ≤ m ≤ 15.</p></div>
 
 /// challengeSeed:
 function euler190() {
@@ -33,5 +37,6 @@ euler190();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler190 === 'function', 'message: <code>euler190()</code> is a function.');
 assert.strictEqual(euler190(), 371048281, 'message: <code>euler190()</code> should return 371048281.');
 /// id: 5900f42b1000cf542c50ff3d

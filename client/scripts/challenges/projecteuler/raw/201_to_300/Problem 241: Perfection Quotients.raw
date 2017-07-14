@@ -17,7 +17,15 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">For a positive integer n, let σ(n) be the sum of all divisors of n, so e.g. σ(6) = 1 + 2 + 3 + 6 = 12.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">A perfect number, as you probably know, is a number with σ(n) = 2n.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Let us define the perfection quotient of a positive integer asp(n)= </p><p class="euler__paragraph">σ(n)n</p><p class="euler__paragraph">.</p><p class="euler__paragraph">Find the sum of all positive integers n ≤ 1018 for which p(n) has the form k + 1⁄2, where k is an integer.</p></div>
+/// <div class="euler"><p class="euler__paragraph">For a positive integer n, let σ(n) be the sum of all divisors of n, so e.g. σ(6) = 1 + 2 + 3 + 6 = 12.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">A perfect number, as you probably know, is a number with σ(n) = 2n.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Let us define the perfection quotient of a positive integer asp(n)= </p>
+/// <p class="euler__paragraph">σ(n)n</p>
+/// <p class="euler__paragraph">.</p>
+/// <p class="euler__paragraph">Find the sum of all positive integers n ≤ 1018 for which p(n) has the form k + 1⁄2, where k is an integer.</p></div>
 
 /// challengeSeed:
 function euler241() {
@@ -33,5 +41,6 @@ euler241();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler241 === 'function', 'message: <code>euler241()</code> is a function.');
 assert.strictEqual(euler241(), 482316491800641150, 'message: <code>euler241()</code> should return 482316491800641150.');
 /// id: 5900f45d1000cf542c50ff70

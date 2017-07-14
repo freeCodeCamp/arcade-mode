@@ -17,7 +17,24 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">Two positive numbers A and B are said to be connected (denoted by "A ↔ B") if one of these conditions holds:</p><p class="euler__paragraph">(1) A and B have the same length and differ in exactly one digit; for example, 123 ↔ 173.</p><p class="euler__paragraph">(2) Adding one digit to the left of A (or B) makes B (or A); for example, 23 ↔ 223 and 123 ↔ 23.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">We call a prime P a 2's relative if there exists a chain of connected primes between 2 and P and no prime in the chain exceeds P.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">For example, 127 is a 2's relative. One of the possible chains is shown below:</p><p class="euler__paragraph">2 ↔ 3 ↔ 13 ↔ 113 ↔ 103 ↔ 107 ↔ 127</p><p class="euler__paragraph">However, 11 and 103 are not 2's relatives.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Let F(N) be the sum of the primes ≤ N which are not 2's relatives.</p><p class="euler__paragraph">We can verify that F(103) = 431 and F(104) = 78728.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Find F(107).</p></div>
+/// <div class="euler"><p class="euler__paragraph">Two positive numbers A and B are said to be connected (denoted by "A ↔ B") if one of these conditions holds:</p>
+/// <p class="euler__paragraph">(1) A and B have the same length and differ in exactly one digit; for example, 123 ↔ 173.</p>
+/// <p class="euler__paragraph">(2) Adding one digit to the left of A (or B) makes B (or A); for example, 23 ↔ 223 and 123 ↔ 23.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">We call a prime P a 2's relative if there exists a chain of connected primes between 2 and P and no prime in the chain exceeds P.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">For example, 127 is a 2's relative. One of the possible chains is shown below:</p>
+/// <p class="euler__paragraph">2 ↔ 3 ↔ 13 ↔ 113 ↔ 103 ↔ 107 ↔ 127</p>
+/// <p class="euler__paragraph">However, 11 and 103 are not 2's relatives.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Let F(N) be the sum of the primes ≤ N which are not 2's relatives.</p>
+/// <p class="euler__paragraph">We can verify that F(103) = 431 and F(104) = 78728.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Find F(107).</p></div>
 
 /// challengeSeed:
 function euler425() {
@@ -33,5 +50,6 @@ euler425();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler425 === 'function', 'message: <code>euler425()</code> is a function.');
 assert.strictEqual(euler425(), 46479497324, 'message: <code>euler425()</code> should return 46479497324.');
 /// id: 5900f5151000cf542c510028

@@ -17,7 +17,10 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">Consider the number 142857. We can right-rotate this number by moving the last digit (7) to the front of it, giving us 714285.</p><p class="euler__paragraph">It can be verified that 714285=5×142857.</p><p class="euler__paragraph">This demonstrates an unusual property of 142857: it is a divisor of its right-rotation.</p><p class="euler__paragraph">Find the last 5 digits of the sum of all integers n, 10 < n < 10100, that have this property.</p></div>
+/// <div class="euler"><p class="euler__paragraph">Consider the number 142857. We can right-rotate this number by moving the last digit (7) to the front of it, giving us 714285.</p>
+/// <p class="euler__paragraph">It can be verified that 714285=5×142857.</p>
+/// <p class="euler__paragraph">This demonstrates an unusual property of 142857: it is a divisor of its right-rotation.</p>
+/// <p class="euler__paragraph">Find the last 5 digits of the sum of all integers n, 10 < n < 10100, that have this property.</p></div>
 
 /// challengeSeed:
 function euler168() {
@@ -33,5 +36,6 @@ euler168();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler168 === 'function', 'message: <code>euler168()</code> is a function.');
 assert.strictEqual(euler168(), 59206, 'message: <code>euler168()</code> should return 59206.');
 /// id: 5900f4151000cf542c50ff27

@@ -17,7 +17,13 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">The binomial coefficient C(1018,109) is a number with more than 9 billion (9×109) digits.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Let M(n,k,m) denote the binomial coefficient C(n,k) modulo m.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Calculate ∑M(1018,109,p*q*r) for 1000<p<q<r<5000 and p,q,r prime.</p></div>
+/// <div class="euler"><p class="euler__paragraph">The binomial coefficient C(1018,109) is a number with more than 9 billion (9×109) digits.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Let M(n,k,m) denote the binomial coefficient C(n,k) modulo m.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Calculate ∑M(1018,109,p*q*r) for 1000<p<q<r<5000 and p,q,r prime.</p></div>
 
 /// challengeSeed:
 function euler365() {
@@ -33,5 +39,6 @@ euler365();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler365 === 'function', 'message: <code>euler365()</code> is a function.');
 assert.strictEqual(euler365(), 162619462356610300, 'message: <code>euler365()</code> should return 162619462356610300.');
 /// id: 5900f4da1000cf542c50ffec

@@ -17,7 +17,12 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">Peter has nine four-sided (pyramidal) dice, each with faces numbered 1, 2, 3, 4.</p><p class="euler__paragraph">Colin has six six-sided (cubic) dice, each with faces numbered 1, 2, 3, 4, 5, 6.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Peter and Colin roll their dice and compare totals: the highest total wins. The result is a draw if the totals are equal.</p><p class="euler__paragraph"></p><p class="euler__paragraph">What is the probability that Pyramidal Pete beats Cubic Colin? Give your answer rounded to seven decimal places in the form 0.abcdefg</p></div>
+/// <div class="euler"><p class="euler__paragraph">Peter has nine four-sided (pyramidal) dice, each with faces numbered 1, 2, 3, 4.</p>
+/// <p class="euler__paragraph">Colin has six six-sided (cubic) dice, each with faces numbered 1, 2, 3, 4, 5, 6.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Peter and Colin roll their dice and compare totals: the highest total wins. The result is a draw if the totals are equal.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">What is the probability that Pyramidal Pete beats Cubic Colin? Give your answer rounded to seven decimal places in the form 0.abcdefg</p></div>
 
 /// challengeSeed:
 function euler205() {
@@ -33,5 +38,6 @@ euler205();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler205 === 'function', 'message: <code>euler205()</code> is a function.');
 assert.strictEqual(euler205(), 0.5731441, 'message: <code>euler205()</code> should return 0.5731441.');
 /// id: 5900f4391000cf542c50ff4c

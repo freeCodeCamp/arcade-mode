@@ -17,7 +17,11 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">Let T(r) be the number of integer quadruplets x, y, z, t such that x2 + y2 + z2 + t2 ≤ r2. In other words, T(r) is the number of lattice points in the four-dimensional hyperball of radius r.</p><p class="euler__paragraph"></p><p class="euler__paragraph">You are given that T(2) = 89, T(5) = 3121, T(100) = 493490641 and T(104) = 49348022079085897.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Find T(108) mod 1000000007.</p></div>
+/// <div class="euler"><p class="euler__paragraph">Let T(r) be the number of integer quadruplets x, y, z, t such that x2 + y2 + z2 + t2 ≤ r2. In other words, T(r) is the number of lattice points in the four-dimensional hyperball of radius r.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">You are given that T(2) = 89, T(5) = 3121, T(100) = 493490641 and T(104) = 49348022079085897.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Find T(108) mod 1000000007.</p></div>
 
 /// challengeSeed:
 function euler596() {
@@ -33,5 +37,6 @@ euler596();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler596 === 'function', 'message: <code>euler596()</code> is a function.');
 assert.strictEqual(euler596(), TODO: MISSING ANSWER, 'message: <code>euler596()</code> should return TODO: MISSING ANSWER.');
 /// id: 5900ff1658d9425c70af4fa6

@@ -17,7 +17,19 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">A positive integer matrix is a matrix whose elements are all positive integers.</p><p class="euler__paragraph">Some positive integer matrices can be expressed as a square of a positive integer matrix in two different ways. Here is an example:</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">We define F(N) as the number of the 2x2 positive integer matrices which have a trace less than N and which can be expressed as a square of a positive integer matrix in two different ways.</p><p class="euler__paragraph">We can verify that F(50) = 7 and F(1000) = 1019.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Find F(107).</p></div>
+/// <div class="euler"><p class="euler__paragraph">A positive integer matrix is a matrix whose elements are all positive integers.</p>
+/// <p class="euler__paragraph">Some positive integer matrices can be expressed as a square of a positive integer matrix in two different ways. Here is an example:</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">We define F(N) as the number of the 2x2 positive integer matrices which have a trace less than N and which can be expressed as a square of a positive integer matrix in two different ways.</p>
+/// <p class="euler__paragraph">We can verify that F(50) = 7 and F(1000) = 1019.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Find F(107).</p></div>
 
 /// challengeSeed:
 function euler420() {
@@ -33,5 +45,6 @@ euler420();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler420 === 'function', 'message: <code>euler420()</code> is a function.');
 assert.strictEqual(euler420(), 145159332, 'message: <code>euler420()</code> should return 145159332.');
 /// id: 5900f5111000cf542c510023

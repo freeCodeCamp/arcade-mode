@@ -17,7 +17,8 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">It can be seen that the number, 125874, and its double, 251748, contain exactly the same digits, but in a different order.</p><p class="euler__paragraph">Find the smallest positive integer, x, such that 2x, 3x, 4x, 5x, and 6x, contain the same digits.</p></div>
+/// <div class="euler"><p class="euler__paragraph">It can be seen that the number, 125874, and its double, 251748, contain exactly the same digits, but in a different order.</p>
+/// <p class="euler__paragraph">Find the smallest positive integer, x, such that 2x, 3x, 4x, 5x, and 6x, contain the same digits.</p></div>
 
 /// challengeSeed:
 function euler52() {
@@ -33,5 +34,6 @@ euler52();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler52 === 'function', 'message: <code>euler52()</code> is a function.');
 assert.strictEqual(euler52(), 142857, 'message: <code>euler52()</code> should return 142857.');
 /// id: 5900f3a01000cf542c50feb3

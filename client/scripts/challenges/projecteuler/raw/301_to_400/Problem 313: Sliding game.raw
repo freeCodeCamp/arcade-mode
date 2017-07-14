@@ -17,7 +17,17 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">In a sliding game a counter may slide horizontally or vertically into an empty space. The objective of the game is to move the red counter from the top left corner of a grid to the bottom right corner; the space always starts in the bottom right corner. For example, the following sequence of pictures show how the game can be completed in five moves on a 2 by 2 grid.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Let S(m,n) represent the minimum number of moves to complete the game on an m by n grid. For example, it can be verified that S(5,4) = 25.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">There are exactly 5482 grids for which S(m,n) = p2, where p < 100 is prime.</p><p class="euler__paragraph"></p><p class="euler__paragraph">How many grids does S(m,n) = p2, where p < 106 is prime?</p></div>
+/// <div class="euler"><p class="euler__paragraph">In a sliding game a counter may slide horizontally or vertically into an empty space. The objective of the game is to move the red counter from the top left corner of a grid to the bottom right corner; the space always starts in the bottom right corner. For example, the following sequence of pictures show how the game can be completed in five moves on a 2 by 2 grid.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Let S(m,n) represent the minimum number of moves to complete the game on an m by n grid. For example, it can be verified that S(5,4) = 25.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">There are exactly 5482 grids for which S(m,n) = p2, where p < 100 is prime.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">How many grids does S(m,n) = p2, where p < 106 is prime?</p></div>
 
 /// challengeSeed:
 function euler313() {
@@ -33,5 +43,6 @@ euler313();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler313 === 'function', 'message: <code>euler313()</code> is a function.');
 assert.strictEqual(euler313(), 2057774861813004, 'message: <code>euler313()</code> should return 2057774861813004.');
 /// id: 5900f4a61000cf542c50ffb8

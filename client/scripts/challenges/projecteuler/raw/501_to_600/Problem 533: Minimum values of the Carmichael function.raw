@@ -17,7 +17,13 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">The Carmichael function λ(n) is defined as the smallest positive integer m such that am = 1 modulo n for all integers a coprime with n.</p><p class="euler__paragraph">For example λ(8) = 2 and λ(240) = 4.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Define L(n) as the smallest positive integer m such that λ(k) ≥ n for all k ≥ m.</p><p class="euler__paragraph">For example, L(6) = 241 and L(100) = 20 174 525 281.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Find L(20 000 000). Give the last 9 digits of your answer.</p></div>
+/// <div class="euler"><p class="euler__paragraph">The Carmichael function λ(n) is defined as the smallest positive integer m such that am = 1 modulo n for all integers a coprime with n.</p>
+/// <p class="euler__paragraph">For example λ(8) = 2 and λ(240) = 4.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Define L(n) as the smallest positive integer m such that λ(k) ≥ n for all k ≥ m.</p>
+/// <p class="euler__paragraph">For example, L(6) = 241 and L(100) = 20 174 525 281.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Find L(20 000 000). Give the last 9 digits of your answer.</p></div>
 
 /// challengeSeed:
 function euler533() {
@@ -33,5 +39,6 @@ euler533();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler533 === 'function', 'message: <code>euler533()</code> is a function.');
 assert.strictEqual(euler533(), TODO: MISSING ANSWER, 'message: <code>euler533()</code> should return TODO: MISSING ANSWER.');
 /// id: 5900fed758d9425c70af4f67

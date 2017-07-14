@@ -17,7 +17,14 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">Taking three different letters from the 26 letters of the alphabet, character strings of length three can be formed.</p><p class="euler__paragraph">Examples are 'abc', 'hat' and 'zyx'.</p><p class="euler__paragraph">When we study these three examples we see that for 'abc' two characters come lexicographically after its neighbour to the left. </p><p class="euler__paragraph">For 'hat' there is exactly one character that comes lexicographically after its neighbour to the left. For 'zyx' there are zero characters that come lexicographically after its neighbour to the left.</p><p class="euler__paragraph">In all there are 10400 strings of length 3 for which exactly one character comes lexicographically after its neighbour to the left.</p><p class="euler__paragraph">We now consider strings of n ≤ 26 different characters from the alphabet. </p><p class="euler__paragraph">For every n, p(n) is the number of strings of length n for which exactly one character comes lexicographically after its neighbour to the left. </p><p class="euler__paragraph">What is the maximum value of p(n)?</p></div>
+/// <div class="euler"><p class="euler__paragraph">Taking three different letters from the 26 letters of the alphabet, character strings of length three can be formed.</p>
+/// <p class="euler__paragraph">Examples are 'abc', 'hat' and 'zyx'.</p>
+/// <p class="euler__paragraph">When we study these three examples we see that for 'abc' two characters come lexicographically after its neighbour to the left. </p>
+/// <p class="euler__paragraph">For 'hat' there is exactly one character that comes lexicographically after its neighbour to the left. For 'zyx' there are zero characters that come lexicographically after its neighbour to the left.</p>
+/// <p class="euler__paragraph">In all there are 10400 strings of length 3 for which exactly one character comes lexicographically after its neighbour to the left.</p>
+/// <p class="euler__paragraph">We now consider strings of n ≤ 26 different characters from the alphabet. </p>
+/// <p class="euler__paragraph">For every n, p(n) is the number of strings of length n for which exactly one character comes lexicographically after its neighbour to the left. </p>
+/// <p class="euler__paragraph">What is the maximum value of p(n)?</p></div>
 
 /// challengeSeed:
 function euler158() {
@@ -33,5 +40,6 @@ euler158();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler158 === 'function', 'message: <code>euler158()</code> is a function.');
 assert.strictEqual(euler158(), 409511334375, 'message: <code>euler158()</code> should return 409511334375.');
 /// id: 5900f40a1000cf542c50ff1d

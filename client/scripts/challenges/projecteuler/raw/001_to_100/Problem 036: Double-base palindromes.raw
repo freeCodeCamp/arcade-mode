@@ -17,7 +17,9 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">The decimal number, 585 = 10010010012 (binary), is palindromic in both bases.</p><p class="euler__paragraph">Find the sum of all numbers, less than one million, which are palindromic in base 10 and base 2.</p><p class="euler__paragraph">(Please note that the palindromic number, in either base, may not include leading zeros.)</p></div>
+/// <div class="euler"><p class="euler__paragraph">The decimal number, 585 = 10010010012 (binary), is palindromic in both bases.</p>
+/// <p class="euler__paragraph">Find the sum of all numbers, less than one million, which are palindromic in base 10 and base 2.</p>
+/// <p class="euler__paragraph">(Please note that the palindromic number, in either base, may not include leading zeros.)</p></div>
 
 /// challengeSeed:
 function euler36() {
@@ -33,5 +35,6 @@ euler36();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler36 === 'function', 'message: <code>euler36()</code> is a function.');
 assert.strictEqual(euler36(), 872187, 'message: <code>euler36()</code> should return 872187.');
 /// id: 5900f3901000cf542c50fea3

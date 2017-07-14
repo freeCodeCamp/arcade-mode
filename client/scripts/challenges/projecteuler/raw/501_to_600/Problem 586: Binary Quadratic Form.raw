@@ -17,7 +17,20 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">The number 209 can be expressed as $a^2 + 3ab + b^2$ in two distinct ways:</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">$ \qquad 209 = 8^2 + 3\cdot 8\cdot 5 + 5^2$ </p><p class="euler__paragraph">$ \qquad 209 = 13^2 + 3\cdot13\cdot 1 + 1^2$</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Let $f(n,r)$ be the number of integers $k$ not exceeding $n$ that can be expressed as $k=a^2 + 3ab + b^2$, with $a\gt b>0$ integers, in exactly $r$ different ways.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">You are given that $f(10^5, 4) = 237$ and $f(10^8, 6) = 59517$.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Find $f(10^{15}, 40)$.</p></div>
+/// <div class="euler"><p class="euler__paragraph">The number 209 can be expressed as $a^2 + 3ab + b^2$ in two distinct ways:</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">$ \qquad 209 = 8^2 + 3\cdot 8\cdot 5 + 5^2$ </p>
+/// <p class="euler__paragraph">$ \qquad 209 = 13^2 + 3\cdot13\cdot 1 + 1^2$</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Let $f(n,r)$ be the number of integers $k$ not exceeding $n$ that can be expressed as $k=a^2 + 3ab + b^2$, with $a\gt b>0$ integers, in exactly $r$ different ways.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">You are given that $f(10^5, 4) = 237$ and $f(10^8, 6) = 59517$.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Find $f(10^{15}, 40)$.</p></div>
 
 /// challengeSeed:
 function euler586() {
@@ -33,5 +46,6 @@ euler586();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler586 === 'function', 'message: <code>euler586()</code> is a function.');
 assert.strictEqual(euler586(), TODO: MISSING ANSWER, 'message: <code>euler586()</code> should return TODO: MISSING ANSWER.');
 /// id: 5900ff0c58d9425c70af4f9c

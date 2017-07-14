@@ -17,7 +17,28 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">We wish to tile a rectangle whose length is twice its width.</p><p class="euler__paragraph">Let T(0) be the tiling consisting of a single rectangle.</p><p class="euler__paragraph">For n > 0, let T(n) be obtained from T(n-1) by replacing all tiles in the following manner:</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">The following animation demonstrates the tilings T(n) for n from 0 to 5:</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Let f(n) be the number of points where four tiles meet in T(n).</p><p class="euler__paragraph">For example, f(1) = 0, f(4) = 82 and f(109) mod 177 = 126897180.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Find f(10k) for k = 1018, give your answer modulo 177.</p></div>
+/// <div class="euler"><p class="euler__paragraph">We wish to tile a rectangle whose length is twice its width.</p>
+/// <p class="euler__paragraph">Let T(0) be the tiling consisting of a single rectangle.</p>
+/// <p class="euler__paragraph">For n > 0, let T(n) be obtained from T(n-1) by replacing all tiles in the following manner:</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">The following animation demonstrates the tilings T(n) for n from 0 to 5:</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Let f(n) be the number of points where four tiles meet in T(n).</p>
+/// <p class="euler__paragraph">For example, f(1) = 0, f(4) = 82 and f(109) mod 177 = 126897180.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Find f(10k) for k = 1018, give your answer modulo 177.</p></div>
 
 /// challengeSeed:
 function euler405() {
@@ -33,5 +54,6 @@ euler405();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler405 === 'function', 'message: <code>euler405()</code> is a function.');
 assert.strictEqual(euler405(), 237696125, 'message: <code>euler405()</code> should return 237696125.');
 /// id: 5900f5021000cf542c510014

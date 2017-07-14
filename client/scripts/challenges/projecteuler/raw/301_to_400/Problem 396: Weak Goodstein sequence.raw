@@ -17,7 +17,31 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">For any positive integer n, the nth weak Goodstein sequence {g1, g2, g3, ...} is defined as:</p><p class="euler__paragraph"> g1 = n</p><p class="euler__paragraph"> for k > 1, gk is obtained by writing gk-1 in base k, interpreting it as a base k + 1 number, and subtracting 1.</p><p class="euler__paragraph"></p><p class="euler__paragraph">The sequence terminates when gk becomes 0.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">For example, the 6th weak Goodstein sequence is {6, 11, 17, 25, ...}:</p><p class="euler__paragraph"> g1 = 6.</p><p class="euler__paragraph"> g2 = 11 since 6 = 1102, 1103 = 12, and 12 - 1 = 11.</p><p class="euler__paragraph"> g3 = 17 since 11 = 1023, 1024 = 18, and 18 - 1 = 17.</p><p class="euler__paragraph"> g4 = 25 since 17 = 1014, 1015 = 26, and 26 - 1 = 25.</p><p class="euler__paragraph"></p><p class="euler__paragraph">and so on.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">It can be shown that every weak Goodstein sequence terminates.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Let G(n) be the number of nonzero elements in the nth weak Goodstein sequence.</p><p class="euler__paragraph">It can be verified that G(2) = 3, G(4) = 21 and G(6) = 381.</p><p class="euler__paragraph">It can also be verified that ΣG(n) = 2517 for 1 ≤ n < 8.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Find the last 9 digits of ΣG(n) for 1 ≤ n < 16.</p></div>
+/// <div class="euler"><p class="euler__paragraph">For any positive integer n, the nth weak Goodstein sequence {g1, g2, g3, ...} is defined as:</p>
+/// <p class="euler__paragraph"> g1 = n</p>
+/// <p class="euler__paragraph"> for k > 1, gk is obtained by writing gk-1 in base k, interpreting it as a base k + 1 number, and subtracting 1.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">The sequence terminates when gk becomes 0.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">For example, the 6th weak Goodstein sequence is {6, 11, 17, 25, ...}:</p>
+/// <p class="euler__paragraph"> g1 = 6.</p>
+/// <p class="euler__paragraph"> g2 = 11 since 6 = 1102, 1103 = 12, and 12 - 1 = 11.</p>
+/// <p class="euler__paragraph"> g3 = 17 since 11 = 1023, 1024 = 18, and 18 - 1 = 17.</p>
+/// <p class="euler__paragraph"> g4 = 25 since 17 = 1014, 1015 = 26, and 26 - 1 = 25.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">and so on.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">It can be shown that every weak Goodstein sequence terminates.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Let G(n) be the number of nonzero elements in the nth weak Goodstein sequence.</p>
+/// <p class="euler__paragraph">It can be verified that G(2) = 3, G(4) = 21 and G(6) = 381.</p>
+/// <p class="euler__paragraph">It can also be verified that ΣG(n) = 2517 for 1 ≤ n < 8.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Find the last 9 digits of ΣG(n) for 1 ≤ n < 16.</p></div>
 
 /// challengeSeed:
 function euler396() {
@@ -33,5 +57,6 @@ euler396();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler396 === 'function', 'message: <code>euler396()</code> is a function.');
 assert.strictEqual(euler396(), 173214653, 'message: <code>euler396()</code> should return 173214653.');
 /// id: 5900f4f81000cf542c51000b

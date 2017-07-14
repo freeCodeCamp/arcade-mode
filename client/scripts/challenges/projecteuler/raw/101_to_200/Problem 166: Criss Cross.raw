@@ -17,7 +17,19 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">A 4x4 grid is filled with digits d, 0 ≤ d ≤ 9.</p><p class="euler__paragraph"></p><p class="euler__paragraph">It can be seen that in the grid</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">6 3 3 0</p><p class="euler__paragraph">5 0 4 3</p><p class="euler__paragraph">0 7 1 4</p><p class="euler__paragraph">1 2 4 5</p><p class="euler__paragraph"></p><p class="euler__paragraph">the sum of each row and each column has the value 12. Moreover the sum of each diagonal is also 12.</p><p class="euler__paragraph"></p><p class="euler__paragraph">In how many ways can you fill a 4x4 grid with the digits d, 0 ≤ d ≤ 9 so that each row, each column, and both diagonals have the same sum?</p></div>
+/// <div class="euler"><p class="euler__paragraph">A 4x4 grid is filled with digits d, 0 ≤ d ≤ 9.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">It can be seen that in the grid</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">6 3 3 0</p>
+/// <p class="euler__paragraph">5 0 4 3</p>
+/// <p class="euler__paragraph">0 7 1 4</p>
+/// <p class="euler__paragraph">1 2 4 5</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">the sum of each row and each column has the value 12. Moreover the sum of each diagonal is also 12.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">In how many ways can you fill a 4x4 grid with the digits d, 0 ≤ d ≤ 9 so that each row, each column, and both diagonals have the same sum?</p></div>
 
 /// challengeSeed:
 function euler166() {
@@ -33,5 +45,6 @@ euler166();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler166 === 'function', 'message: <code>euler166()</code> is a function.');
 assert.strictEqual(euler166(), 7130034, 'message: <code>euler166()</code> should return 7130034.');
 /// id: 5900f4131000cf542c50ff25

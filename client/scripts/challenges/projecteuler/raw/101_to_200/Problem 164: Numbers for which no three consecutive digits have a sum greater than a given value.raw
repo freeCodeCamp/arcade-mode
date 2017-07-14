@@ -33,5 +33,6 @@ euler164();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler164 === 'function', 'message: <code>euler164()</code> is a function.');
 assert.strictEqual(euler164(), 378158756814587, 'message: <code>euler164()</code> should return 378158756814587.');
 /// id: 5900f4111000cf542c50ff23

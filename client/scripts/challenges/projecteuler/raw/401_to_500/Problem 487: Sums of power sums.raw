@@ -17,7 +17,13 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">Let fk(n) be the sum of the kth powers of the first n positive integers.</p><p class="euler__paragraph"></p><p class="euler__paragraph">For example, f2(10) = 12 + 22 + 32 + 42 + 52 + 62 + 72 + 82 + 92 + 102 = 385.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Let Sk(n) be the sum of fk(i) for 1 ≤ i ≤ n. For example, S4(100) = 35375333830.</p><p class="euler__paragraph"></p><p class="euler__paragraph">What is ∑ (S10000(1012) mod p) over all primes p between 2 ⋅ 109 and 2 ⋅ 109 + 2000?</p></div>
+/// <div class="euler"><p class="euler__paragraph">Let fk(n) be the sum of the kth powers of the first n positive integers.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">For example, f2(10) = 12 + 22 + 32 + 42 + 52 + 62 + 72 + 82 + 92 + 102 = 385.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Let Sk(n) be the sum of fk(i) for 1 ≤ i ≤ n. For example, S4(100) = 35375333830.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">What is ∑ (S10000(1012) mod p) over all primes p between 2 ⋅ 109 and 2 ⋅ 109 + 2000?</p></div>
 
 /// challengeSeed:
 function euler487() {
@@ -33,5 +39,6 @@ euler487();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler487 === 'function', 'message: <code>euler487()</code> is a function.');
 assert.strictEqual(euler487(), 106650212746, 'message: <code>euler487()</code> should return 106650212746.');
 /// id: 5900f5531000cf542c510066

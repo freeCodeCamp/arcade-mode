@@ -17,7 +17,16 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">Every triangle has a circumscribed circle that goes through the three vertices.</p><p class="euler__paragraph">Consider all integer sided triangles for which the radius of the circumscribed circle is integral as well.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Let S(n) be the sum of the radii of the circumscribed circles of all such triangles for which the radius does not exceed n.</p><p class="euler__paragraph"></p><p class="euler__paragraph">S(100)=4950 and S(1200)=1653605.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Find S(107).</p></div>
+/// <div class="euler"><p class="euler__paragraph">Every triangle has a circumscribed circle that goes through the three vertices.</p>
+/// <p class="euler__paragraph">Consider all integer sided triangles for which the radius of the circumscribed circle is integral as well.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Let S(n) be the sum of the radii of the circumscribed circles of all such triangles for which the radius does not exceed n.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">S(100)=4950 and S(1200)=1653605.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Find S(107).</p></div>
 
 /// challengeSeed:
 function euler373() {
@@ -33,5 +42,6 @@ euler373();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler373 === 'function', 'message: <code>euler373()</code> is a function.');
 assert.strictEqual(euler373(), 727227472448913, 'message: <code>euler373()</code> should return 727227472448913.');
 /// id: 5900f4e11000cf542c50fff4

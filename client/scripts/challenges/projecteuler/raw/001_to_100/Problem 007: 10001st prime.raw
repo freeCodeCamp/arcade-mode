@@ -17,7 +17,8 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we can see that the 6th prime is 13.</p><p class="euler__paragraph">What is the 10 001st prime number?</p></div>
+/// <div class="euler"><p class="euler__paragraph">By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we can see that the 6th prime is 13.</p>
+/// <p class="euler__paragraph">What is the 10 001st prime number?</p></div>
 
 /// challengeSeed:
 function euler7() {
@@ -33,5 +34,6 @@ euler7();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler7 === 'function', 'message: <code>euler7()</code> is a function.');
 assert.strictEqual(euler7(), 104743, 'message: <code>euler7()</code> should return 104743.');
 /// id: 5900f3731000cf542c50fe86

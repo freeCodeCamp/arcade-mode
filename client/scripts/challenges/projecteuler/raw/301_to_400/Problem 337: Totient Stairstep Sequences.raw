@@ -17,7 +17,16 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">Let {a1, a2,..., an} be an integer sequence of length n such that:</p><p class="euler__paragraph">a1 = 6</p><p class="euler__paragraph">for all 1 ≤ i < n : φ(ai) < φ(ai+1) < ai < ai+11</p><p class="euler__paragraph">Let S(N) be the number of such sequences with an ≤ N.</p><p class="euler__paragraph">For example, S(10) = 4: {6}, {6, 8}, {6, 8, 9} and {6, 10}.</p><p class="euler__paragraph">We can verify that S(100) = 482073668 and S(10 000) mod 108 = 73808307.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Find S(20 000 000) mod 108.</p><p class="euler__paragraph"></p><p class="euler__paragraph">1 φ denotes Euler's totient function.</p></div>
+/// <div class="euler"><p class="euler__paragraph">Let {a1, a2,..., an} be an integer sequence of length n such that:</p>
+/// <p class="euler__paragraph">a1 = 6</p>
+/// <p class="euler__paragraph">for all 1 ≤ i < n : φ(ai) < φ(ai+1) < ai < ai+11</p>
+/// <p class="euler__paragraph">Let S(N) be the number of such sequences with an ≤ N.</p>
+/// <p class="euler__paragraph">For example, S(10) = 4: {6}, {6, 8}, {6, 8, 9} and {6, 10}.</p>
+/// <p class="euler__paragraph">We can verify that S(100) = 482073668 and S(10 000) mod 108 = 73808307.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Find S(20 000 000) mod 108.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">1 φ denotes Euler's totient function.</p></div>
 
 /// challengeSeed:
 function euler337() {
@@ -33,5 +42,6 @@ euler337();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler337 === 'function', 'message: <code>euler337()</code> is a function.');
 assert.strictEqual(euler337(), 85068035, 'message: <code>euler337()</code> should return 85068035.');
 /// id: 5900f4be1000cf542c50ffd0

@@ -17,7 +17,8 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">215 = 32768 and the sum of its digits is 3 + 2 + 7 + 6 + 8 = 26.</p><p class="euler__paragraph">What is the sum of the digits of the number 21000?</p></div>
+/// <div class="euler"><p class="euler__paragraph">215 = 32768 and the sum of its digits is 3 + 2 + 7 + 6 + 8 = 26.</p>
+/// <p class="euler__paragraph">What is the sum of the digits of the number 21000?</p></div>
 
 /// challengeSeed:
 function euler16() {
@@ -33,5 +34,6 @@ euler16();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler16 === 'function', 'message: <code>euler16()</code> is a function.');
 assert.strictEqual(euler16(), 1366, 'message: <code>euler16()</code> should return 1366.');
 /// id: 5900f37d1000cf542c50fe8f

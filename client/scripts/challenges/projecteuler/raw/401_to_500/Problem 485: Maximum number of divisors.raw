@@ -17,7 +17,15 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">Let d(n) be the number of divisors of n.</p><p class="euler__paragraph">Let M(n,k) be the maximum value of d(j) for n ≤ j ≤ n+k-1.</p><p class="euler__paragraph">Let S(u,k) be the sum of M(n,k) for 1 ≤ n ≤ u-k+1.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">You are given that S(1000,10)=17176.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Find S(100 000 000,100 000).</p></div>
+/// <div class="euler"><p class="euler__paragraph">Let d(n) be the number of divisors of n.</p>
+/// <p class="euler__paragraph">Let M(n,k) be the maximum value of d(j) for n ≤ j ≤ n+k-1.</p>
+/// <p class="euler__paragraph">Let S(u,k) be the sum of M(n,k) for 1 ≤ n ≤ u-k+1.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">You are given that S(1000,10)=17176.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Find S(100 000 000,100 000).</p></div>
 
 /// challengeSeed:
 function euler485() {
@@ -33,5 +41,6 @@ euler485();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler485 === 'function', 'message: <code>euler485()</code> is a function.');
 assert.strictEqual(euler485(), 51281274340, 'message: <code>euler485()</code> should return 51281274340.');
 /// id: 5900f5511000cf542c510064

@@ -17,7 +17,81 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">Larry and Robin play a memory game involving of a sequence of random numbers between 1 and 10, inclusive, that are called out one at a time. Each player can remember up to 5 previous numbers. When the called number is in a player's memory, that player is awarded a point. If it's not, the player adds the called number to his memory, removing another number if his memory is full.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Both players start with empty memories. Both players always add new missed numbers to their memory but use a different strategy in deciding which number to remove:</p><p class="euler__paragraph">Larry's strategy is to remove the number that hasn't been called in the longest time.</p><p class="euler__paragraph">Robin's strategy is to remove the number that's been in the memory the longest time.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Example game:Turn</p><p class="euler__paragraph">  Callednumber</p><p class="euler__paragraph">  Larry'smemory</p><p class="euler__paragraph">  Larry'sscore</p><p class="euler__paragraph">  Robin'smemory</p><p class="euler__paragraph">  Robin'sscore</p><p class="euler__paragraph">1</p><p class="euler__paragraph">  1</p><p class="euler__paragraph">  1</p><p class="euler__paragraph">  0</p><p class="euler__paragraph">  1</p><p class="euler__paragraph">  0</p><p class="euler__paragraph">2</p><p class="euler__paragraph">  2</p><p class="euler__paragraph">  1,2</p><p class="euler__paragraph">  0</p><p class="euler__paragraph">  1,2</p><p class="euler__paragraph">  0</p><p class="euler__paragraph">3</p><p class="euler__paragraph">  4</p><p class="euler__paragraph">  1,2,4</p><p class="euler__paragraph">  0</p><p class="euler__paragraph">  1,2,4</p><p class="euler__paragraph">  0</p><p class="euler__paragraph">4</p><p class="euler__paragraph">  6</p><p class="euler__paragraph">  1,2,4,6</p><p class="euler__paragraph">  0</p><p class="euler__paragraph">  1,2,4,6</p><p class="euler__paragraph">  0</p><p class="euler__paragraph">5</p><p class="euler__paragraph">  1</p><p class="euler__paragraph">  1,2,4,6</p><p class="euler__paragraph">  1</p><p class="euler__paragraph">  1,2,4,6</p><p class="euler__paragraph">  1</p><p class="euler__paragraph">6</p><p class="euler__paragraph">  8</p><p class="euler__paragraph">  1,2,4,6,8</p><p class="euler__paragraph">  1</p><p class="euler__paragraph">  1,2,4,6,8</p><p class="euler__paragraph">  1</p><p class="euler__paragraph">7</p><p class="euler__paragraph">  10</p><p class="euler__paragraph">  1,4,6,8,10</p><p class="euler__paragraph">  1</p><p class="euler__paragraph">  2,4,6,8,10</p><p class="euler__paragraph">  1</p><p class="euler__paragraph">8</p><p class="euler__paragraph">  2</p><p class="euler__paragraph">  1,2,6,8,10</p><p class="euler__paragraph">  1</p><p class="euler__paragraph">  2,4,6,8,10</p><p class="euler__paragraph">  2</p><p class="euler__paragraph">9</p><p class="euler__paragraph">  4</p><p class="euler__paragraph">  1,2,4,8,10</p><p class="euler__paragraph">  1</p><p class="euler__paragraph">  2,4,6,8,10</p><p class="euler__paragraph">  3</p><p class="euler__paragraph">10</p><p class="euler__paragraph">  1</p><p class="euler__paragraph">  1,2,4,8,10</p><p class="euler__paragraph">  2</p><p class="euler__paragraph">  1,4,6,8,10</p><p class="euler__paragraph">  3</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Denoting Larry's score by L and Robin's score by R, what is the expected value of |L-R| after 50 turns? Give your answer rounded to eight decimal places using the format x.xxxxxxxx .</p></div>
+/// <div class="euler"><p class="euler__paragraph">Larry and Robin play a memory game involving of a sequence of random numbers between 1 and 10, inclusive, that are called out one at a time. Each player can remember up to 5 previous numbers. When the called number is in a player's memory, that player is awarded a point. If it's not, the player adds the called number to his memory, removing another number if his memory is full.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Both players start with empty memories. Both players always add new missed numbers to their memory but use a different strategy in deciding which number to remove:</p>
+/// <p class="euler__paragraph">Larry's strategy is to remove the number that hasn't been called in the longest time.</p>
+/// <p class="euler__paragraph">Robin's strategy is to remove the number that's been in the memory the longest time.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Example game:Turn</p>
+/// <p class="euler__paragraph">  Callednumber</p>
+/// <p class="euler__paragraph">  Larry'smemory</p>
+/// <p class="euler__paragraph">  Larry'sscore</p>
+/// <p class="euler__paragraph">  Robin'smemory</p>
+/// <p class="euler__paragraph">  Robin'sscore</p>
+/// <p class="euler__paragraph">1</p>
+/// <p class="euler__paragraph">  1</p>
+/// <p class="euler__paragraph">  1</p>
+/// <p class="euler__paragraph">  0</p>
+/// <p class="euler__paragraph">  1</p>
+/// <p class="euler__paragraph">  0</p>
+/// <p class="euler__paragraph">2</p>
+/// <p class="euler__paragraph">  2</p>
+/// <p class="euler__paragraph">  1,2</p>
+/// <p class="euler__paragraph">  0</p>
+/// <p class="euler__paragraph">  1,2</p>
+/// <p class="euler__paragraph">  0</p>
+/// <p class="euler__paragraph">3</p>
+/// <p class="euler__paragraph">  4</p>
+/// <p class="euler__paragraph">  1,2,4</p>
+/// <p class="euler__paragraph">  0</p>
+/// <p class="euler__paragraph">  1,2,4</p>
+/// <p class="euler__paragraph">  0</p>
+/// <p class="euler__paragraph">4</p>
+/// <p class="euler__paragraph">  6</p>
+/// <p class="euler__paragraph">  1,2,4,6</p>
+/// <p class="euler__paragraph">  0</p>
+/// <p class="euler__paragraph">  1,2,4,6</p>
+/// <p class="euler__paragraph">  0</p>
+/// <p class="euler__paragraph">5</p>
+/// <p class="euler__paragraph">  1</p>
+/// <p class="euler__paragraph">  1,2,4,6</p>
+/// <p class="euler__paragraph">  1</p>
+/// <p class="euler__paragraph">  1,2,4,6</p>
+/// <p class="euler__paragraph">  1</p>
+/// <p class="euler__paragraph">6</p>
+/// <p class="euler__paragraph">  8</p>
+/// <p class="euler__paragraph">  1,2,4,6,8</p>
+/// <p class="euler__paragraph">  1</p>
+/// <p class="euler__paragraph">  1,2,4,6,8</p>
+/// <p class="euler__paragraph">  1</p>
+/// <p class="euler__paragraph">7</p>
+/// <p class="euler__paragraph">  10</p>
+/// <p class="euler__paragraph">  1,4,6,8,10</p>
+/// <p class="euler__paragraph">  1</p>
+/// <p class="euler__paragraph">  2,4,6,8,10</p>
+/// <p class="euler__paragraph">  1</p>
+/// <p class="euler__paragraph">8</p>
+/// <p class="euler__paragraph">  2</p>
+/// <p class="euler__paragraph">  1,2,6,8,10</p>
+/// <p class="euler__paragraph">  1</p>
+/// <p class="euler__paragraph">  2,4,6,8,10</p>
+/// <p class="euler__paragraph">  2</p>
+/// <p class="euler__paragraph">9</p>
+/// <p class="euler__paragraph">  4</p>
+/// <p class="euler__paragraph">  1,2,4,8,10</p>
+/// <p class="euler__paragraph">  1</p>
+/// <p class="euler__paragraph">  2,4,6,8,10</p>
+/// <p class="euler__paragraph">  3</p>
+/// <p class="euler__paragraph">10</p>
+/// <p class="euler__paragraph">  1</p>
+/// <p class="euler__paragraph">  1,2,4,8,10</p>
+/// <p class="euler__paragraph">  2</p>
+/// <p class="euler__paragraph">  1,4,6,8,10</p>
+/// <p class="euler__paragraph">  3</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Denoting Larry's score by L and Robin's score by R, what is the expected value of |L-R| after 50 turns? Give your answer rounded to eight decimal places using the format x.xxxxxxxx .</p></div>
 
 /// challengeSeed:
 function euler298() {
@@ -33,5 +107,6 @@ euler298();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler298 === 'function', 'message: <code>euler298()</code> is a function.');
 assert.strictEqual(euler298(), 1.76882294, 'message: <code>euler298()</code> should return 1.76882294.');
 /// id: 5900f4971000cf542c50ffa9

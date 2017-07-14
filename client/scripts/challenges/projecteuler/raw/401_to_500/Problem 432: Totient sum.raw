@@ -17,7 +17,12 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">Let S(n,m) = ∑φ(n × i) for 1 ≤ i ≤ m. (φ is Euler's totient function)</p><p class="euler__paragraph">You are given that S(510510,106 )= 45480596821125120. </p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Find S(510510,1011).</p><p class="euler__paragraph">Give the last 9 digits of your answer.</p></div>
+/// <div class="euler"><p class="euler__paragraph">Let S(n,m) = ∑φ(n × i) for 1 ≤ i ≤ m. (φ is Euler's totient function)</p>
+/// <p class="euler__paragraph">You are given that S(510510,106 )= 45480596821125120. </p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Find S(510510,1011).</p>
+/// <p class="euler__paragraph">Give the last 9 digits of your answer.</p></div>
 
 /// challengeSeed:
 function euler432() {
@@ -33,5 +38,6 @@ euler432();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler432 === 'function', 'message: <code>euler432()</code> is a function.');
 assert.strictEqual(euler432(), 754862080, 'message: <code>euler432()</code> should return 754862080.');
 /// id: 5900f51e1000cf542c510030

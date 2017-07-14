@@ -17,7 +17,12 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">Let d(k) be the sum of all divisors of k.</p><p class="euler__paragraph">We define the function S(N) = ∑1≤i≤N ∑1≤j≤Nd(i·j).</p><p class="euler__paragraph">For example, S(3) = d(1) + d(2) + d(3) + d(2) + d(4) + d(6) + d(3) + d(6) + d(9) = 59.</p><p class="euler__paragraph"></p><p class="euler__paragraph">You are given that S(103) = 563576517282 and S(105) mod 109 = 215766508.</p><p class="euler__paragraph">Find S(1011) mod 109.</p></div>
+/// <div class="euler"><p class="euler__paragraph">Let d(k) be the sum of all divisors of k.</p>
+/// <p class="euler__paragraph">We define the function S(N) = ∑1≤i≤N ∑1≤j≤Nd(i·j).</p>
+/// <p class="euler__paragraph">For example, S(3) = d(1) + d(2) + d(3) + d(2) + d(4) + d(6) + d(3) + d(6) + d(9) = 59.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">You are given that S(103) = 563576517282 and S(105) mod 109 = 215766508.</p>
+/// <p class="euler__paragraph">Find S(1011) mod 109.</p></div>
 
 /// challengeSeed:
 function euler439() {
@@ -33,5 +38,6 @@ euler439();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler439 === 'function', 'message: <code>euler439()</code> is a function.');
 assert.strictEqual(euler439(), 968697378, 'message: <code>euler439()</code> should return 968697378.');
 /// id: 5900f5231000cf542c510035

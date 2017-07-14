@@ -17,7 +17,10 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">Having three black objects B and one white object W they can be grouped in 7 ways like this:</p><p class="euler__paragraph">(BBBW)(B,BBW)(B,B,BW)(B,B,B,W)</p><p class="euler__paragraph">(B,BB,W)(BBB,W)(BB,BW)</p><p class="euler__paragraph">In how many ways can sixty black objects B and forty white objects W be  thus grouped?</p></div>
+/// <div class="euler"><p class="euler__paragraph">Having three black objects B and one white object W they can be grouped in 7 ways like this:</p>
+/// <p class="euler__paragraph">(BBBW)(B,BBW)(B,B,BW)(B,B,B,W)</p>
+/// <p class="euler__paragraph">(B,BB,W)(BBB,W)(BB,BW)</p>
+/// <p class="euler__paragraph">In how many ways can sixty black objects B and forty white objects W be  thus grouped?</p></div>
 
 /// challengeSeed:
 function euler181() {
@@ -33,5 +36,6 @@ euler181();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler181 === 'function', 'message: <code>euler181()</code> is a function.');
 assert.strictEqual(euler181(), 83735848679360670, 'message: <code>euler181()</code> should return 83735848679360670.');
 /// id: 5900f4231000cf542c50ff34

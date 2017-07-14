@@ -17,7 +17,8 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">We shall say that an n-digit number is pandigital if it makes use of all the digits 1 to n exactly once. For example, 2143 is a 4-digit pandigital and is also prime.</p><p class="euler__paragraph">What is the largest n-digit pandigital prime that exists?</p></div>
+/// <div class="euler"><p class="euler__paragraph">We shall say that an n-digit number is pandigital if it makes use of all the digits 1 to n exactly once. For example, 2143 is a 4-digit pandigital and is also prime.</p>
+/// <p class="euler__paragraph">What is the largest n-digit pandigital prime that exists?</p></div>
 
 /// challengeSeed:
 function euler41() {
@@ -33,5 +34,6 @@ euler41();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler41 === 'function', 'message: <code>euler41()</code> is a function.');
 assert.strictEqual(euler41(), 7652413, 'message: <code>euler41()</code> should return 7652413.');
 /// id: 5900f3951000cf542c50fea8

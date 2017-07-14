@@ -17,7 +17,24 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">The following game is a classic example of Combinatorial Game Theory:</p><p class="euler__paragraph"></p><p class="euler__paragraph">Two players start with a strip of n white squares and they take alternate turns.</p><p class="euler__paragraph">On each turn, a player picks two contiguous white squares and paints them black.</p><p class="euler__paragraph">The first player who cannot make a move loses.</p><p class="euler__paragraph"></p><p class="euler__paragraph">If n = 1, there are no valid moves, so the first player loses automatically.</p><p class="euler__paragraph">If n = 2, there is only one valid move, after which the second player loses.</p><p class="euler__paragraph">If n = 3, there are two valid moves, but both leave a situation where the second player loses.</p><p class="euler__paragraph">If n = 4, there are three valid moves for the first player; she can win the game by painting the two middle squares.</p><p class="euler__paragraph">If n = 5, there are four valid moves for the first player (shown below in red); but no matter what she does, the second player (blue) wins.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">So, for 1 ≤ n ≤ 5, there are 3 values of n for which the first player can force a win.</p><p class="euler__paragraph">Similarly, for 1 ≤ n ≤ 50, there are 40 values of n for which the first player can force a win.</p><p class="euler__paragraph"></p><p class="euler__paragraph">For 1 ≤ n ≤ 1 000 000, how many values of n are there for which the first player can force a win?</p></div>
+/// <div class="euler"><p class="euler__paragraph">The following game is a classic example of Combinatorial Game Theory:</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Two players start with a strip of n white squares and they take alternate turns.</p>
+/// <p class="euler__paragraph">On each turn, a player picks two contiguous white squares and paints them black.</p>
+/// <p class="euler__paragraph">The first player who cannot make a move loses.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">If n = 1, there are no valid moves, so the first player loses automatically.</p>
+/// <p class="euler__paragraph">If n = 2, there is only one valid move, after which the second player loses.</p>
+/// <p class="euler__paragraph">If n = 3, there are two valid moves, but both leave a situation where the second player loses.</p>
+/// <p class="euler__paragraph">If n = 4, there are three valid moves for the first player; she can win the game by painting the two middle squares.</p>
+/// <p class="euler__paragraph">If n = 5, there are four valid moves for the first player (shown below in red); but no matter what she does, the second player (blue) wins.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">So, for 1 ≤ n ≤ 5, there are 3 values of n for which the first player can force a win.</p>
+/// <p class="euler__paragraph">Similarly, for 1 ≤ n ≤ 50, there are 40 values of n for which the first player can force a win.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">For 1 ≤ n ≤ 1 000 000, how many values of n are there for which the first player can force a win?</p></div>
 
 /// challengeSeed:
 function euler306() {
@@ -33,5 +50,6 @@ euler306();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler306 === 'function', 'message: <code>euler306()</code> is a function.');
 assert.strictEqual(euler306(), 852938, 'message: <code>euler306()</code> should return 852938.');
 /// id: 5900f49f1000cf542c50ffb1

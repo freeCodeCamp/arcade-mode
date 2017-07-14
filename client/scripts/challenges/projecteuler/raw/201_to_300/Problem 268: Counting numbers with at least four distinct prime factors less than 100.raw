@@ -17,7 +17,9 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">It can be verified that there are 23 positive integers less than 1000 that are divisible by at least four distinct primes less than 100.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Find how many positive integers less than 1016 are divisible by at least four distinct primes less than 100.</p></div>
+/// <div class="euler"><p class="euler__paragraph">It can be verified that there are 23 positive integers less than 1000 that are divisible by at least four distinct primes less than 100.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Find how many positive integers less than 1016 are divisible by at least four distinct primes less than 100.</p></div>
 
 /// challengeSeed:
 function euler268() {
@@ -33,5 +35,6 @@ euler268();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler268 === 'function', 'message: <code>euler268()</code> is a function.');
 assert.strictEqual(euler268(), 785478606870985, 'message: <code>euler268()</code> should return 785478606870985.');
 /// id: 5900f4791000cf542c50ff8b

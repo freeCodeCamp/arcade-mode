@@ -17,7 +17,11 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">Let G(a, b) be the smallest non-negative integer n for which gcd(n3 + b, (n + a)3 + b) is maximized.</p><p class="euler__paragraph">For example, G(1, 1) = 5 because gcd(n3 + 1, (n + 1)3 + 1) reaches its maximum value of 7 for n = 5, and is smaller for 0 ≤ n < 5.</p><p class="euler__paragraph">Let H(m, n) = Σ G(a, b) for 1 ≤ a ≤ m, 1 ≤ b ≤ n.</p><p class="euler__paragraph">You are given H(5, 5) = 128878 and H(10, 10) = 32936544.</p><p class="euler__paragraph">Find H(18, 1900).</p></div>
+/// <div class="euler"><p class="euler__paragraph">Let G(a, b) be the smallest non-negative integer n for which gcd(n3 + b, (n + a)3 + b) is maximized.</p>
+/// <p class="euler__paragraph">For example, G(1, 1) = 5 because gcd(n3 + 1, (n + 1)3 + 1) reaches its maximum value of 7 for n = 5, and is smaller for 0 ≤ n < 5.</p>
+/// <p class="euler__paragraph">Let H(m, n) = Σ G(a, b) for 1 ≤ a ≤ m, 1 ≤ b ≤ n.</p>
+/// <p class="euler__paragraph">You are given H(5, 5) = 128878 and H(10, 10) = 32936544.</p>
+/// <p class="euler__paragraph">Find H(18, 1900).</p></div>
 
 /// challengeSeed:
 function euler489() {
@@ -33,5 +37,6 @@ euler489();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler489 === 'function', 'message: <code>euler489()</code> is a function.');
 assert.strictEqual(euler489(), TODO: MISSING ANSWER, 'message: <code>euler489()</code> should return TODO: MISSING ANSWER.');
 /// id: 5900f5561000cf542c510068

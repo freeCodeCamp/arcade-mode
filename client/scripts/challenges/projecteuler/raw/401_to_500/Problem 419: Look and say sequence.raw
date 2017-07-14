@@ -17,7 +17,24 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">The look and say sequence goes 1, 11, 21, 1211, 111221, 312211, 13112221, 1113213211, ...</p><p class="euler__paragraph">The sequence starts with 1 and all other members are obtained by describing the previous member in terms of consecutive digits.</p><p class="euler__paragraph">It helps to do this out loud:</p><p class="euler__paragraph">1 is 'one one' → 11</p><p class="euler__paragraph">11 is 'two ones' → 21</p><p class="euler__paragraph">21 is 'one two and one one' → 1211 </p><p class="euler__paragraph">1211 is 'one one, one two and two ones' → 111221</p><p class="euler__paragraph">111221 is 'three ones, two twos and one one' → 312211</p><p class="euler__paragraph">...</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Define A(n), B(n) and C(n) as the number of ones, twos and threes in the n'th element of the sequence respectively.</p><p class="euler__paragraph">One can verify that A(40) = 31254, B(40) = 20259 and C(40) = 11625.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Find A(n), B(n) and C(n) for n = 1012. </p><p class="euler__paragraph">Give your answer modulo 230 and separate your values for A, B and C by a comma. </p><p class="euler__paragraph">E.g. for n = 40 the answer would be 31254,20259,11625</p></div>
+/// <div class="euler"><p class="euler__paragraph">The look and say sequence goes 1, 11, 21, 1211, 111221, 312211, 13112221, 1113213211, ...</p>
+/// <p class="euler__paragraph">The sequence starts with 1 and all other members are obtained by describing the previous member in terms of consecutive digits.</p>
+/// <p class="euler__paragraph">It helps to do this out loud:</p>
+/// <p class="euler__paragraph">1 is 'one one' → 11</p>
+/// <p class="euler__paragraph">11 is 'two ones' → 21</p>
+/// <p class="euler__paragraph">21 is 'one two and one one' → 1211 </p>
+/// <p class="euler__paragraph">1211 is 'one one, one two and two ones' → 111221</p>
+/// <p class="euler__paragraph">111221 is 'three ones, two twos and one one' → 312211</p>
+/// <p class="euler__paragraph">...</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Define A(n), B(n) and C(n) as the number of ones, twos and threes in the n'th element of the sequence respectively.</p>
+/// <p class="euler__paragraph">One can verify that A(40) = 31254, B(40) = 20259 and C(40) = 11625.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Find A(n), B(n) and C(n) for n = 1012. </p>
+/// <p class="euler__paragraph">Give your answer modulo 230 and separate your values for A, B and C by a comma. </p>
+/// <p class="euler__paragraph">E.g. for n = 40 the answer would be 31254,20259,11625</p></div>
 
 /// challengeSeed:
 function euler419() {
@@ -33,5 +50,6 @@ euler419();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler419 === 'function', 'message: <code>euler419()</code> is a function.');
 assert.strictEqual(euler419(), 998567458, 1046245404, 43363922, 'message: <code>euler419()</code> should return 998567458, 1046245404, 43363922.');
 /// id: 5900f5101000cf542c510022

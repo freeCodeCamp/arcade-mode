@@ -17,7 +17,32 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">In a triangular array of positive and negative integers, we wish to find a sub-triangle such that the sum of the numbers it contains is the smallest possible.</p><p class="euler__paragraph">In the example below, it can be easily verified that the marked triangle satisfies this condition having a sum of −42.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">We wish to make such a triangular array with one thousand rows, so we generate 500500 pseudo-random numbers sk in the range ±219, using a type of random number generator (known as a Linear Congruential Generator) as follows:</p><p class="euler__paragraph">t := 0</p><p class="euler__paragraph"></p><p class="euler__paragraph">for k = 1 up to k = 500500:</p><p class="euler__paragraph"></p><p class="euler__paragraph">    t := (615949*t + 797807) modulo 220</p><p class="euler__paragraph">    sk := t−219</p><p class="euler__paragraph">Thus: s1 = 273519, s2 = −153582, s3 = 450905 etc</p><p class="euler__paragraph">Our triangular array is then formed using the pseudo-random numbers thus:</p><p class="euler__paragraph"></p><p class="euler__paragraph">s1</p><p class="euler__paragraph">s2  s3</p><p class="euler__paragraph">s4  s5  s6  </p><p class="euler__paragraph"></p><p class="euler__paragraph">s7  s8  s9  s10</p><p class="euler__paragraph">...</p><p class="euler__paragraph"></p><p class="euler__paragraph">Sub-triangles can start at any element of the array and extend down as far as we like (taking-in the two elements directly below it from the next row, the three elements directly below from the row after that, and so on).</p><p class="euler__paragraph"></p><p class="euler__paragraph">The "sum of a sub-triangle" is defined as the sum of all the elements it contains.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Find the smallest possible sub-triangle sum.</p></div>
+/// <div class="euler"><p class="euler__paragraph">In a triangular array of positive and negative integers, we wish to find a sub-triangle such that the sum of the numbers it contains is the smallest possible.</p>
+/// <p class="euler__paragraph">In the example below, it can be easily verified that the marked triangle satisfies this condition having a sum of −42.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">We wish to make such a triangular array with one thousand rows, so we generate 500500 pseudo-random numbers sk in the range ±219, using a type of random number generator (known as a Linear Congruential Generator) as follows:</p>
+/// <p class="euler__paragraph">t := 0</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">for k = 1 up to k = 500500:</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">    t := (615949*t + 797807) modulo 220</p>
+/// <p class="euler__paragraph">    sk := t−219</p>
+/// <p class="euler__paragraph">Thus: s1 = 273519, s2 = −153582, s3 = 450905 etc</p>
+/// <p class="euler__paragraph">Our triangular array is then formed using the pseudo-random numbers thus:</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">s1</p>
+/// <p class="euler__paragraph">s2  s3</p>
+/// <p class="euler__paragraph">s4  s5  s6  </p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">s7  s8  s9  s10</p>
+/// <p class="euler__paragraph">...</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Sub-triangles can start at any element of the array and extend down as far as we like (taking-in the two elements directly below it from the next row, the three elements directly below from the row after that, and so on).</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">The "sum of a sub-triangle" is defined as the sum of all the elements it contains.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Find the smallest possible sub-triangle sum.</p></div>
 
 /// challengeSeed:
 function euler150() {
@@ -33,5 +58,6 @@ euler150();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler150 === 'function', 'message: <code>euler150()</code> is a function.');
 assert.strictEqual(euler150(), -271248680, 'message: <code>euler150()</code> should return -271248680.');
 /// id: 5900f4031000cf542c50ff15

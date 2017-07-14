@@ -17,7 +17,9 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">Let us call an integer sided triangle with sides a ≤ b ≤ c barely acute if the sides satisfy a2 + b2 = c2 + 1.</p><p class="euler__paragraph"></p><p class="euler__paragraph">How many barely acute triangles are there with perimeter ≤ 25,000,000?</p></div>
+/// <div class="euler"><p class="euler__paragraph">Let us call an integer sided triangle with sides a ≤ b ≤ c barely acute if the sides satisfy a2 + b2 = c2 + 1.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">How many barely acute triangles are there with perimeter ≤ 25,000,000?</p></div>
 
 /// challengeSeed:
 function euler223() {
@@ -33,5 +35,6 @@ euler223();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler223 === 'function', 'message: <code>euler223()</code> is a function.');
 assert.strictEqual(euler223(), 61614848, 'message: <code>euler223()</code> should return 61614848.');
 /// id: 5900f44b1000cf542c50ff5e

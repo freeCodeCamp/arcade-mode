@@ -17,7 +17,12 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">Let a0, a1, a2, ... be an integer sequence defined by:</p><p class="euler__paragraph">a0 = 1;</p><p class="euler__paragraph">for n ≥ 1, an is the sum of the digits of all preceding terms.</p><p class="euler__paragraph">The sequence starts with 1, 1, 2, 4, 8, 16, 23, 28, 38, 49, ...</p><p class="euler__paragraph">You are given a106 = 31054319.</p><p class="euler__paragraph">Find a1015.</p></div>
+/// <div class="euler"><p class="euler__paragraph">Let a0, a1, a2, ... be an integer sequence defined by:</p>
+/// <p class="euler__paragraph">a0 = 1;</p>
+/// <p class="euler__paragraph">for n ≥ 1, an is the sum of the digits of all preceding terms.</p>
+/// <p class="euler__paragraph">The sequence starts with 1, 1, 2, 4, 8, 16, 23, 28, 38, 49, ...</p>
+/// <p class="euler__paragraph">You are given a106 = 31054319.</p>
+/// <p class="euler__paragraph">Find a1015.</p></div>
 
 /// challengeSeed:
 function euler551() {
@@ -33,5 +38,6 @@ euler551();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler551 === 'function', 'message: <code>euler551()</code> is a function.');
 assert.strictEqual(euler551(), TODO: MISSING ANSWER, 'message: <code>euler551()</code> should return TODO: MISSING ANSWER.');
 /// id: 5900fee958d9425c70af4f79

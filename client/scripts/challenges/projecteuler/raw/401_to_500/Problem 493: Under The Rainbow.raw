@@ -17,7 +17,9 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">70 colored balls are placed in an urn, 10 for each of the seven rainbow colors.</p><p class="euler__paragraph">What is the expected number of distinct colors in 20 randomly picked balls?</p><p class="euler__paragraph">Give your answer with nine digits after the decimal point (a.bcdefghij).</p></div>
+/// <div class="euler"><p class="euler__paragraph">70 colored balls are placed in an urn, 10 for each of the seven rainbow colors.</p>
+/// <p class="euler__paragraph">What is the expected number of distinct colors in 20 randomly picked balls?</p>
+/// <p class="euler__paragraph">Give your answer with nine digits after the decimal point (a.bcdefghij).</p></div>
 
 /// challengeSeed:
 function euler493() {
@@ -33,5 +35,6 @@ euler493();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler493 === 'function', 'message: <code>euler493()</code> is a function.');
 assert.strictEqual(euler493(), 6.818741802, 'message: <code>euler493()</code> should return 6.818741802.');
 /// id: 5900f55a1000cf542c51006c

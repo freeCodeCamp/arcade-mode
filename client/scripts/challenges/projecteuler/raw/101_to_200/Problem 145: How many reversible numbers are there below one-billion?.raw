@@ -17,7 +17,11 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">Some positive integers n have the property that the sum [ n + reverse(n) ] consists entirely of odd (decimal) digits. For instance, 36 + 63 = 99 and 409 + 904 = 1313. We will call such numbers reversible; so 36, 63, 409, and 904 are reversible. Leading zeroes are not allowed in either n or reverse(n).</p><p class="euler__paragraph"></p><p class="euler__paragraph">There are 120 reversible numbers below one-thousand.</p><p class="euler__paragraph"></p><p class="euler__paragraph">How many reversible numbers are there below one-billion (109)?</p></div>
+/// <div class="euler"><p class="euler__paragraph">Some positive integers n have the property that the sum [ n + reverse(n) ] consists entirely of odd (decimal) digits. For instance, 36 + 63 = 99 and 409 + 904 = 1313. We will call such numbers reversible; so 36, 63, 409, and 904 are reversible. Leading zeroes are not allowed in either n or reverse(n).</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">There are 120 reversible numbers below one-thousand.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">How many reversible numbers are there below one-billion (109)?</p></div>
 
 /// challengeSeed:
 function euler145() {
@@ -33,5 +37,6 @@ euler145();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler145 === 'function', 'message: <code>euler145()</code> is a function.');
 assert.strictEqual(euler145(), 608720, 'message: <code>euler145()</code> should return 608720.');
 /// id: 5900f3fd1000cf542c50ff10

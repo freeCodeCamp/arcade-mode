@@ -17,7 +17,10 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">Let f(N) be the number of points with integer coordinates that are on a circle passing through (0,0), (N,0),(0,N), and (N,N).</p><p class="euler__paragraph">It can be shown that f(10000) = 36.</p><p class="euler__paragraph"></p><p class="euler__paragraph">What is the sum of all positive integers N ≤ 1011 such that f(N) = 420 ?</p></div>
+/// <div class="euler"><p class="euler__paragraph">Let f(N) be the number of points with integer coordinates that are on a circle passing through (0,0), (N,0),(0,N), and (N,N).</p>
+/// <p class="euler__paragraph">It can be shown that f(10000) = 36.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">What is the sum of all positive integers N ≤ 1011 such that f(N) = 420 ?</p></div>
 
 /// challengeSeed:
 function euler233() {
@@ -33,5 +36,6 @@ euler233();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler233 === 'function', 'message: <code>euler233()</code> is a function.');
 assert.strictEqual(euler233(), 271204031455541300, 'message: <code>euler233()</code> should return 271204031455541300.');
 /// id: 5900f4551000cf542c50ff68

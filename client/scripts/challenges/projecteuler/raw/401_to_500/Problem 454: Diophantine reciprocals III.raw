@@ -17,7 +17,18 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">In the following equation x, y, and n are positive integers.</p><p class="euler__paragraph"></p><p class="euler__paragraph">1x</p><p class="euler__paragraph"> + </p><p class="euler__paragraph">1y</p><p class="euler__paragraph"> = </p><p class="euler__paragraph">1n</p><p class="euler__paragraph"></p><p class="euler__paragraph">For a limit L we define F(L) as the number of solutions which satisfy x < y ≤ L.</p><p class="euler__paragraph"></p><p class="euler__paragraph">We can verify that F(15) = 4 and F(1000) = 1069.</p><p class="euler__paragraph">Find F(1012).</p></div>
+/// <div class="euler"><p class="euler__paragraph">In the following equation x, y, and n are positive integers.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">1x</p>
+/// <p class="euler__paragraph"> + </p>
+/// <p class="euler__paragraph">1y</p>
+/// <p class="euler__paragraph"> = </p>
+/// <p class="euler__paragraph">1n</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">For a limit L we define F(L) as the number of solutions which satisfy x < y ≤ L.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">We can verify that F(15) = 4 and F(1000) = 1069.</p>
+/// <p class="euler__paragraph">Find F(1012).</p></div>
 
 /// challengeSeed:
 function euler454() {
@@ -33,5 +44,6 @@ euler454();
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler454 === 'function', 'message: <code>euler454()</code> is a function.');
 assert.strictEqual(euler454(), 5435004633092, 'message: <code>euler454()</code> should return 5435004633092.');
 /// id: 5900f5331000cf542c510045
