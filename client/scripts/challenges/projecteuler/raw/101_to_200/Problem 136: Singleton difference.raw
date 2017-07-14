@@ -1,0 +1,41 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 136: Singleton difference
+/// type: project-euler
+
+/// categories:
+/// math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="euler"><p class="euler__paragraph">The positive integers, x, y, and z, are consecutive terms of an arithmetic progression. Given that n is a positive integer, the equation, x2 − y2 − z2 = n, has exactly one solution when n = 20:</p>
+/// <p class="euler__paragraph">132 − 102 − 72 = 20</p>
+/// <p class="euler__paragraph">In fact there are twenty-five values of n below one hundred for which the equation has a unique solution.</p>
+/// <p class="euler__paragraph">How many values of n less than fifty million have exactly one solution?</p></div>
+
+/// challengeSeed:
+function euler136() {
+  // Good luck!
+  return true;
+}
+
+euler136();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof euler136 === 'function', 'message: <code>euler136()</code> is a function.');
+assert.strictEqual(euler136(), 2544559, 'message: <code>euler136()</code> should return 2544559.');
+/// id: 5900f3f51000cf542c50ff07

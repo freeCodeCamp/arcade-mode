@@ -1,0 +1,42 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 141: Investigating progressive numbers, n, which are also square
+/// type: project-euler
+
+/// categories:
+/// math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="euler"><p class="euler__paragraph">A positive integer, n, is divided by d and the quotient and remainder are q and r respectively. In addition d, q, and r are consecutive positive integer terms in a geometric sequence, but not necessarily in that order.</p>
+/// <p class="euler__paragraph">For example, 58 divided by 6 has quotient 9 and remainder 4. It can also be seen that 4, 6, 9 are consecutive terms in a geometric sequence (common ratio 3/2).</p>
+/// <p class="euler__paragraph">We will call such numbers, n, progressive.</p>
+/// <p class="euler__paragraph">Some progressive numbers, such as 9 and 10404 = 1022, happen to also be perfect squares. The sum of all progressive perfect squares below one hundred thousand is 124657.</p>
+/// <p class="euler__paragraph">Find the sum of all progressive perfect squares below one trillion (1012).</p></div>
+
+/// challengeSeed:
+function euler141() {
+  // Good luck!
+  return true;
+}
+
+euler141();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof euler141 === 'function', 'message: <code>euler141()</code> is a function.');
+assert.strictEqual(euler141(), 878454337159, 'message: <code>euler141()</code> should return 878454337159.');
+/// id: 5900f3f91000cf542c50ff0b

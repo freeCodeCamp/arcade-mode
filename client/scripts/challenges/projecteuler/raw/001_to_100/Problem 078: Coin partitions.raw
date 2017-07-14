@@ -1,0 +1,48 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 78: Coin partitions
+/// type: project-euler
+
+/// categories:
+/// math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="euler"><p class="euler__paragraph">Let p(n) represent the number of different ways in which n coins can be separated into piles. For example, five coins can be separated into piles in exactly seven different ways, so p(5)=7.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">OOOOO</p>
+/// <p class="euler__paragraph">OOOO   O</p>
+/// <p class="euler__paragraph">OOO   OO</p>
+/// <p class="euler__paragraph">OOO   O   O</p>
+/// <p class="euler__paragraph">OO   OO   O</p>
+/// <p class="euler__paragraph">OO   O   O   O</p>
+/// <p class="euler__paragraph">O   O   O   O   O</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Find the least value of n for which p(n) is divisible by one million.</p></div>
+
+/// challengeSeed:
+function euler78() {
+  // Good luck!
+  return true;
+}
+
+euler78();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof euler78 === 'function', 'message: <code>euler78()</code> is a function.');
+assert.strictEqual(euler78(), 55374, 'message: <code>euler78()</code> should return 55374.');
+/// id: 5900f3ba1000cf542c50fecd

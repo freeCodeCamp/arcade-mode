@@ -1,0 +1,54 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 570: Snowflakes
+/// type: project-euler
+
+/// categories:
+/// math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="euler"><p class="euler__paragraph">A snowflake of order n is formed by overlaying an equilateral triangle (rotated by 180 degrees) onto each equilateral triangle of the same size in a snowflake of order n-1. A snowflake of order 1 is a single equilateral triangle.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"> </p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Some areas of the snowflake are overlaid repeatedly. In the above picture, blue represents the areas that are one layer thick, red two layers thick, yellow three layers thick, and so on. </p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">For an order n snowflake, let A(n) be the number of triangles that are one layer thick, and let B(n) be the number of triangles that are three layers thick. Define G(n) = gcd(A(n), B(n)).</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">E.g. A(3) = 30, B(3) = 6, G(3)=6</p>
+/// <p class="euler__paragraph">A(11) = 3027630, B(11) = 19862070, G(11) = 30</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Further, G(500) = 186 and  $\sum_{n=3}^{500}G(n)=5124$</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Find $\displaystyle \sum_{n=3}^{10^7}G(n)$.</p></div>
+
+/// challengeSeed:
+function euler570() {
+  // Good luck!
+  return true;
+}
+
+euler570();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof euler570 === 'function', 'message: <code>euler570()</code> is a function.');
+assert.strictEqual(euler570(), TODO: MISSING ANSWER, 'message: <code>euler570()</code> should return TODO: MISSING ANSWER.');
+/// id: 5900fefc58d9425c70af4f8c

@@ -1,0 +1,48 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 598: Split Divisibilities
+/// type: project-euler
+
+/// categories:
+/// math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="euler"><p class="euler__paragraph">Consider the number 48.</p>
+/// <p class="euler__paragraph">There are five pairs of integers $a$ and $b$ ($a \leq b$) such that $a \times b=48$: (1,48), (2,24), (3,16), (4,12) and (6,8).</p>
+/// <p class="euler__paragraph">It can be seen that both 6 and 8 have 4 divisors.</p>
+/// <p class="euler__paragraph">So of those five pairs one consists of two integers with the same number of divisors.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">In general:</p>
+/// <p class="euler__paragraph">Let $C(n)$ be the number of pairs of positive integers $a \times b=n$, ($a \leq b$) such that $a$ and $b$ have the same number of divisors; so $C(48)=1$.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">You are given $C(10!)=3$: (1680, 2160), (1800, 2016) and (1890,1920). </p>
+/// <p class="euler__paragraph">Find $C(100!)$</p></div>
+
+/// challengeSeed:
+function euler598() {
+  // Good luck!
+  return true;
+}
+
+euler598();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof euler598 === 'function', 'message: <code>euler598()</code> is a function.');
+assert.strictEqual(euler598(), TODO: MISSING ANSWER, 'message: <code>euler598()</code> should return TODO: MISSING ANSWER.');
+/// id: 5900ff1858d9425c70af4fa8

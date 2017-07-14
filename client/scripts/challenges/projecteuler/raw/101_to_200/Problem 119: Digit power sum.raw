@@ -1,0 +1,41 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 119: Digit power sum
+/// type: project-euler
+
+/// categories:
+/// math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="euler"><p class="euler__paragraph">The number 512 is interesting because it is equal to the sum of its digits raised to some power: 5 + 1 + 2 = 8, and 83 = 512. Another example of a number with this property is 614656 = 284.</p>
+/// <p class="euler__paragraph">We shall define an to be the nth term of this sequence and insist that a number must contain at least two digits to have a sum.</p>
+/// <p class="euler__paragraph">You are given that a2 = 512 and a10 = 614656.</p>
+/// <p class="euler__paragraph">Find a30.</p></div>
+
+/// challengeSeed:
+function euler119() {
+  // Good luck!
+  return true;
+}
+
+euler119();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof euler119 === 'function', 'message: <code>euler119()</code> is a function.');
+assert.strictEqual(euler119(), 248155780267521, 'message: <code>euler119()</code> should return 248155780267521.');
+/// id: 5900f3e41000cf542c50fef6

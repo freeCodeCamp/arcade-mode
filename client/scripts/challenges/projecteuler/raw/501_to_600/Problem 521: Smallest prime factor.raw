@@ -1,0 +1,45 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 521: Smallest prime factor
+/// type: project-euler
+
+/// categories:
+/// math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="euler"><p class="euler__paragraph">Let smpf(n) be the smallest prime factor of n.</p>
+/// <p class="euler__paragraph">smpf(91)=7 because 91=7×13 and smpf(45)=3 because 45=3×3×5.</p>
+/// <p class="euler__paragraph">Let S(n) be the sum of smpf(i) for 2 ≤ i ≤ n.</p>
+/// <p class="euler__paragraph">E.g. S(100)=1257.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Find S(1012) mod 109.</p></div>
+
+/// challengeSeed:
+function euler521() {
+  // Good luck!
+  return true;
+}
+
+euler521();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof euler521 === 'function', 'message: <code>euler521()</code> is a function.');
+assert.strictEqual(euler521(), 44389811, 'message: <code>euler521()</code> should return 44389811.');
+/// id: 5900f5751000cf542c510088

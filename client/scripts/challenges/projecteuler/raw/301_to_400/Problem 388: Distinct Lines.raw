@@ -1,0 +1,47 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 388: Distinct Lines
+/// type: project-euler
+
+/// categories:
+/// math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="euler"><p class="euler__paragraph">Consider all lattice points (a,b,c) with 0 ≤ a,b,c ≤ N.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">From the origin O(0,0,0) all lines are drawn to the other lattice points.</p>
+/// <p class="euler__paragraph">Let D(N) be the number of distinct such lines.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">You are given that D(1 000 000) = 831909254469114121.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Find D(1010). Give as your answer the first nine digits followed by the last nine digits.</p></div>
+
+/// challengeSeed:
+function euler388() {
+  // Good luck!
+  return true;
+}
+
+euler388();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof euler388 === 'function', 'message: <code>euler388()</code> is a function.');
+assert.strictEqual(euler388(), 831907372805130000, 'message: <code>euler388()</code> should return 831907372805130000.');
+/// id: 5900f4f11000cf542c510002

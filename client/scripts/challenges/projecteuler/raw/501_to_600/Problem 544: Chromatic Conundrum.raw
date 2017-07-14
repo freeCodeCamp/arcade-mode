@@ -1,0 +1,46 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 544: Chromatic Conundrum
+/// type: project-euler
+
+/// categories:
+/// math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="euler"><p class="euler__paragraph">Let F(r,c,n) be the number of ways to color a rectangular grid with r rows and c columns using at most n colors such that no two adjacent cells share the same color. Cells that are diagonal to each other are not considered adjacent.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">For example, F(2,2,3) = 18, F(2,2,20) = 130340, and F(3,4,6) = 102923670.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Let S(r,c,n) = $\sum_{k=1}^{n}$ F(r,c,k).</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">For example, S(4,4,15) mod 109+7 = 325951319.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Find S(9,10,1112131415) mod 109+7.</p></div>
+
+/// challengeSeed:
+function euler544() {
+  // Good luck!
+  return true;
+}
+
+euler544();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof euler544 === 'function', 'message: <code>euler544()</code> is a function.');
+assert.strictEqual(euler544(), TODO: MISSING ANSWER, 'message: <code>euler544()</code> should return TODO: MISSING ANSWER.');
+/// id: 5900fee258d9425c70af4f72

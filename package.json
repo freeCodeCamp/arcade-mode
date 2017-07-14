@@ -12,7 +12,10 @@
     "test": "NODE_ENV=test mocha --require test/helpers/browser.js --compilers .:babel-core/register --recursive test",
     "test:coverage": "NODE_ENV=test bin/cover_test_client.sh && bin/cover_test_server.sh",
     "test:client": "NODE_ENV=test mocha --require test/helpers/browser.js --compilers .:babel-core/register --opts test/client/**/*.{js,jsx} --recursive test/client",
-    "test:rosetta": "NODE_ENV=test mocha --require test/helpers/browser.js --compilers .:babel-core/register --recursive test/client/scripts/challenges/",
+    "test:challenges": "NODE_ENV=test mocha --require test/helpers/browser.js --compilers .:babel-core/register --recursive test/client/scripts/challenges/",
+    "test:euler": "NODE_ENV=test mocha --require test/helpers/browser.js --compilers .:babel-core/register --recursive test/client/scripts/challenges/projecteuler.js",
+
+    "test:rosetta": "NODE_ENV=test mocha --require test/helpers/browser.js --compilers .:babel-core/register --recursive test/client/scripts/challenges/rosettacode.js",
     "test:server": "NODE_ENV=test mocha --compilers js:babel-core/register --recursive test/server",
     "watch": "NODE_ENV=production gulp watch",
     "watch-dev": "NODE_ENV=development gulp watch-dev",

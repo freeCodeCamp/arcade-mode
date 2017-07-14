@@ -1,0 +1,54 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 392: Enmeshed unit circle
+/// type: project-euler
+
+/// categories:
+/// math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="euler"><p class="euler__paragraph">A rectilinear grid is an orthogonal grid where the spacing between the gridlines does not have to be equidistant.</p>
+/// <p class="euler__paragraph">An example of such grid is logarithmic graph paper.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Consider rectilinear grids in the Cartesian coordinate system with the following properties:The gridlines are parallel to the axes of the Cartesian coordinate system.There are N+2 vertical and N+2 horizontal gridlines. Hence there are (N+1) x (N+1) rectangular cells.The equations of the two outer vertical gridlines are x = -1 and x = 1.The equations of the two outer horizontal gridlines are y = -1 and y = 1.The grid cells are colored red if they overlap with the unit circle, black otherwise.For this problem we would like you to find the positions of the remaining N inner horizontal and N inner vertical gridlines so that the area occupied by the red cells is minimized.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">E.g. here is a picture of the solution for N = 10:</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">The area occupied by the red cells for N = 10 rounded to 10 digits behind the decimal point is 3.3469640797.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Find the positions for N = 400. </p>
+/// <p class="euler__paragraph">Give as your answer the area occupied by the red cells rounded to 10 digits behind the decimal point.</p></div>
+
+/// challengeSeed:
+function euler392() {
+  // Good luck!
+  return true;
+}
+
+euler392();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof euler392 === 'function', 'message: <code>euler392()</code> is a function.');
+assert.strictEqual(euler392(), 3.1486734435, 'message: <code>euler392()</code> should return 3.1486734435.');
+/// id: 5900f4f41000cf542c510007

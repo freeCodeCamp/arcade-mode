@@ -1,0 +1,84 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 109: Darts
+/// type: project-euler
+
+/// categories:
+/// math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="euler"><p class="euler__paragraph">In the game of darts a player throws three darts at a target board which is split into twenty equal sized sections numbered one to twenty.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">The score of a dart is determined by the number of the region that the dart lands in. A dart landing outside the red/green outer ring scores zero. The black and cream regions inside this ring represent single scores. However, the red/green outer ring and middle ring score double and treble scores respectively.</p>
+/// <p class="euler__paragraph">At the centre of the board are two concentric circles called the bull region, or bulls-eye. The outer bull is worth 25 points and the inner bull is a double, worth 50 points.</p>
+/// <p class="euler__paragraph">There are many variations of rules but in the most popular game the players will begin with a score 301 or 501 and the first player to reduce their running total to zero is a winner. However, it is normal to play a "doubles out" system, which means that the player must land a double (including the double bulls-eye at the centre of the board) on their final dart to win; any other dart that would reduce their running total to one or lower means the score for that set of three darts is "bust".</p>
+/// <p class="euler__paragraph">When a player is able to finish  on their current score it is called a "checkout" and the highest checkout is 170: T20 T20 D25 (two treble 20s and double bull).</p>
+/// <p class="euler__paragraph">There are exactly eleven distinct ways to checkout on a score of 6:</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">D3</p>
+/// <p class="euler__paragraph"> </p>
+/// <p class="euler__paragraph"> </p>
+/// <p class="euler__paragraph">D1</p>
+/// <p class="euler__paragraph">D2</p>
+/// <p class="euler__paragraph"> </p>
+/// <p class="euler__paragraph">S2</p>
+/// <p class="euler__paragraph">D2</p>
+/// <p class="euler__paragraph"> </p>
+/// <p class="euler__paragraph">D2</p>
+/// <p class="euler__paragraph">D1</p>
+/// <p class="euler__paragraph"> </p>
+/// <p class="euler__paragraph">S4</p>
+/// <p class="euler__paragraph">D1</p>
+/// <p class="euler__paragraph"> </p>
+/// <p class="euler__paragraph">S1</p>
+/// <p class="euler__paragraph">S1</p>
+/// <p class="euler__paragraph">D2</p>
+/// <p class="euler__paragraph">S1</p>
+/// <p class="euler__paragraph">T1</p>
+/// <p class="euler__paragraph">D1</p>
+/// <p class="euler__paragraph">S1</p>
+/// <p class="euler__paragraph">S3</p>
+/// <p class="euler__paragraph">D1</p>
+/// <p class="euler__paragraph">D1</p>
+/// <p class="euler__paragraph">D1</p>
+/// <p class="euler__paragraph">D1</p>
+/// <p class="euler__paragraph">D1</p>
+/// <p class="euler__paragraph">S2</p>
+/// <p class="euler__paragraph">D1</p>
+/// <p class="euler__paragraph">S2</p>
+/// <p class="euler__paragraph">S2</p>
+/// <p class="euler__paragraph">D1</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Note that D1 D2 is considered different to D2 D1 as they finish on different doubles. However, the combination S1 T1 D1 is considered the same as T1 S1 D1.</p>
+/// <p class="euler__paragraph">In addition we shall not include misses in considering combinations; for example, D3 is the same as 0 D3 and 0 0 D3.</p>
+/// <p class="euler__paragraph">Incredibly there are 42336 distinct ways of checking out in total.</p>
+/// <p class="euler__paragraph">How many distinct ways can a player checkout with a score less than 100?</p></div>
+
+/// challengeSeed:
+function euler109() {
+  // Good luck!
+  return true;
+}
+
+euler109();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof euler109 === 'function', 'message: <code>euler109()</code> is a function.');
+assert.strictEqual(euler109(), 38182, 'message: <code>euler109()</code> should return 38182.');
+/// id: 5900f3db1000cf542c50feec

@@ -160,7 +160,10 @@ gulp.task('build-js2json', done => {
   const rosetta2json = `bin/js2json_challenges.js\
     --force -f client/scripts/challenges/rosettacode/formatted/**/*.js -o ${ghPages}public/json/challenges-rosetta.json`;
 
-  return Promise.all([arcade2json, rosetta2json].map(js2json =>
+  const euler2json = `bin/js2json_challenges.js\
+    --force -f client/scripts/challenges/projecteuler/formatted/**/*.js -o ${ghPages}public/json/challenges-euler.json`;
+
+  return Promise.all([arcade2json, rosetta2json, euler2json].map(js2json =>
     new Promise((resolve, reject) => {
       exec(js2json, err => {
         if (err) {

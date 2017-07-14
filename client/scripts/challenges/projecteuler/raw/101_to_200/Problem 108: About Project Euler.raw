@@ -1,0 +1,38 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 108: About Project Euler
+/// type: project-euler
+
+/// categories:
+/// math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="euler"><p class="euler__paragraph"></p></div>
+
+/// challengeSeed:
+function euler108() {
+  // Good luck!
+  return true;
+}
+
+euler108();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof euler108 === 'function', 'message: <code>euler108()</code> is a function.');
+assert.strictEqual(euler108(), 180180, 'message: <code>euler108()</code> should return 180180.');
+/// id: 5900f3d91000cf542c50feeb

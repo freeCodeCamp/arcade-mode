@@ -1,0 +1,84 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 315: Digital root clocks
+/// type: project-euler
+
+/// categories:
+/// math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="euler"><p class="euler__paragraph">Sam and Max are asked to transform two digital clocks into two "digital root" clocks.</p>
+/// <p class="euler__paragraph">A digital root clock is a digital clock that calculates digital roots step by step.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">When a clock is fed a number, it will show it and then it will start the calculation, showing all the intermediate values until it gets to the result.</p>
+/// <p class="euler__paragraph">For example, if the clock is fed the number 137, it will show: "137" → "11" → "2" and then it will go black, waiting for the next number.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Every digital number consists of some light segments: three horizontal (top, middle, bottom) and four vertical (top-left, top-right, bottom-left, bottom-right).</p>
+/// <p class="euler__paragraph">Number "1" is made of vertical top-right and bottom-right, number "4" is made by middle horizontal and vertical top-left, top-right and bottom-right. Number "8" lights them all.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">The clocks consume energy only when segments are turned on/off.</p>
+/// <p class="euler__paragraph">To turn on a "2" will cost 5 transitions, while a "7" will cost only 4 transitions.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Sam and Max built two different clocks.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Sam's clock is fed e.g. number 137: the clock shows "137", then the panel is turned off, then the next number ("11") is turned on, then the panel is turned off again and finally the last number ("2") is turned on and, after some time, off.</p>
+/// <p class="euler__paragraph">For the example, with number 137, Sam's clock requires:"137"</p>
+/// <p class="euler__paragraph">:</p>
+/// <p class="euler__paragraph">(2 + 5 + 4) × 2 = 22 transitions ("137" on/off).</p>
+/// <p class="euler__paragraph">"11"</p>
+/// <p class="euler__paragraph">:</p>
+/// <p class="euler__paragraph">(2 + 2) × 2 = 8 transitions ("11" on/off).</p>
+/// <p class="euler__paragraph">"2"</p>
+/// <p class="euler__paragraph">:</p>
+/// <p class="euler__paragraph">(5) × 2 = 10 transitions ("2" on/off).</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">For a grand total of 40 transitions.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Max's clock works differently. Instead of turning off the whole panel, it is smart enough to turn off only those segments that won't be needed for the next number.</p>
+/// <p class="euler__paragraph">For number 137, Max's clock requires:"137"</p>
+/// <p class="euler__paragraph">:</p>
+/// <p class="euler__paragraph">2 + 5 + 4 = 11 transitions ("137" on)</p>
+/// <p class="euler__paragraph">7 transitions (to turn off the segments that are not needed for number "11").</p>
+/// <p class="euler__paragraph">"11"</p>
+/// <p class="euler__paragraph">:</p>
+/// <p class="euler__paragraph">0 transitions (number "11" is already turned on correctly)</p>
+/// <p class="euler__paragraph">3 transitions (to turn off the first "1" and the bottom part of the second "1"; </p>
+/// <p class="euler__paragraph">the top part is common with number "2").</p>
+/// <p class="euler__paragraph">"2"</p>
+/// <p class="euler__paragraph">:</p>
+/// <p class="euler__paragraph">4 transitions (to turn on the remaining segments in order to get a "2")</p>
+/// <p class="euler__paragraph">5 transitions (to turn off number "2").</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">For a grand total of 30 transitions.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Of course, Max's clock consumes less power than Sam's one.</p>
+/// <p class="euler__paragraph">The two clocks are fed all the prime numbers between A = 107 and B = 2×107. </p>
+/// <p class="euler__paragraph">Find the difference between the total number of transitions needed by Sam's clock and that needed by Max's one.</p></div>
+
+/// challengeSeed:
+function euler315() {
+  // Good luck!
+  return true;
+}
+
+euler315();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof euler315 === 'function', 'message: <code>euler315()</code> is a function.');
+assert.strictEqual(euler315(), 13625242, 'message: <code>euler315()</code> should return 13625242.');
+/// id: 5900f4a71000cf542c50ffba

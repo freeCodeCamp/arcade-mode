@@ -6,8 +6,8 @@ import Immutable, { Map, List } from 'immutable';
 import { PLAYER_SKIPPED } from '../actions/playerstatus';
 
 import {
-  MODAL_RESTART,
-  MODAL_CLOSE
+  MODAL_RESTART
+//  MODAL_CLOSE
 } from '../actions/modal';
 
 import {
@@ -29,6 +29,7 @@ import FCCInterviewDataStructures from '../../../../public/json/challenges-data-
 import Challenges from '../../../../public/json/challenges-combined.json';
 import ChallengesArcade from '../../../../public/json/challenges-arcade.json';
 import ChallengesRosetta from '../../../../public/json/challenges-rosetta.json';
+import ChallengesEuler from '../../../../public/json/challenges-euler.json';
 
 import appConfig from '../../../../public/json/appconfig.json';
 
@@ -40,7 +41,8 @@ const challengeTypes = {
   Algorithms: shuffle(FCCInterviewAlgorithms.challenges),
   Mixed: shuffle(combinedChallenges),
   Arcade: shuffle(ChallengesArcade.challenges),
-  Rosetta: shuffle(ChallengesRosetta.challenges)
+  Rosetta: shuffle(ChallengesRosetta.challenges),
+  Euler: shuffle(ChallengesEuler.challenges)
 };
 
 const initialState = Map({
@@ -84,7 +86,8 @@ function getNextChallenge(state) {
   const lastIndex = state.get('chosenChallenges').size - 1;
 
   while (
-    state.get('chosenChallenges')[newIndex].difficulty
+    state.get('chosenChallenges')[newIndex]
+    && state.get('chosenChallenges')[newIndex].difficulty
     && state.get('chosenChallenges')[newIndex].difficulty > state.get('difficulty')
     && newIndex <= lastIndex
   ) {
@@ -127,6 +130,9 @@ export default function challenge(state = initialState, action) {
     case CHALLENGE_START: // lift to session start
       console.log('benchmark:');
       console.log(state.getIn(['currChallenge', 'benchmark']));
+      console.log('Challenges:');
+      console.log(state.get('chosenChallenges'));
+      console.log(state.getIn(['currChallenge', 'title']));
       return state
         .update('challengeNumber', challengeNumber => challengeNumber + 1)
         .set('title', state.getIn(['currChallenge', 'title']))

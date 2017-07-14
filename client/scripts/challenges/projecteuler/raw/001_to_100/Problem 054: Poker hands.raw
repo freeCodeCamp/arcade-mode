@@ -1,0 +1,61 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 54: Poker hands
+/// type: project-euler
+
+/// categories:
+/// math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="euler"><p class="euler__paragraph">In the card game poker, a hand consists of five cards and are ranked, from lowest to highest, in the following way:</p>
+/// <p class="euler__paragraph">High Card: Highest value card.</p>
+/// <p class="euler__paragraph">One Pair: Two cards of the same value.</p>
+/// <p class="euler__paragraph">Two Pairs: Two different pairs.</p>
+/// <p class="euler__paragraph">Three of a Kind: Three cards of the same value.</p>
+/// <p class="euler__paragraph">Straight: All cards are consecutive values.</p>
+/// <p class="euler__paragraph">Flush: All cards of the same suit.</p>
+/// <p class="euler__paragraph">Full House: Three of a kind and a pair.</p>
+/// <p class="euler__paragraph">Four of a Kind: Four cards of the same value.</p>
+/// <p class="euler__paragraph">Straight Flush: All cards are consecutive values of same suit.</p>
+/// <p class="euler__paragraph">Royal Flush: Ten, Jack, Queen, King, Ace, in same suit.</p>
+/// <p class="euler__paragraph">The cards are valued in the order:2, 3, 4, 5, 6, 7, 8, 9, 10, Jack, Queen, King, Ace.</p>
+/// <p class="euler__paragraph">If two players have the same ranked hands then the rank made up of the highest value wins; for example, a pair of eights beats a pair of fives (see example 1 below). But if two ranks tie, for example, both players have a pair of queens, then highest cards in each hand are compared (see example 4 below); if the highest cards tie then the next highest cards are compared, and so on.</p>
+/// <p class="euler__paragraph">Consider the following five hands dealt to two players:</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Hand Player 1 Player 2 Winner</p>
+/// <p class="euler__paragraph">1 5H 5C 6S 7S KDPair of Fives 2C 3S 8S 8D TDPair of Eights Player 2</p>
+/// <p class="euler__paragraph">2 5D 8C 9S JS ACHighest card Ace 2C 5C 7D 8S QHHighest card Queen Player 1</p>
+/// <p class="euler__paragraph">3 2D 9C AS AH ACThree Aces 3D 6D 7D TD QDFlush  with Diamonds Player 2</p>
+/// <p class="euler__paragraph">4 4D 6S 9H QH QCPair of QueensHighest card Nine 3D 6D 7H QD QSPair of QueensHighest card Seven Player 1</p>
+/// <p class="euler__paragraph">5 2H 2D 4C 4D 4SFull HouseWith Three Fours 3C 3D 3S 9S 9DFull Housewith Three Threes Player 1</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">The file, poker.txt, contains one-thousand random hands dealt to two players. Each line of the file contains ten cards (separated by a single space): the first five are Player 1's cards and the last five are Player 2's cards. You can assume that all hands are valid (no invalid characters or repeated cards), each player's hand is in no specific order, and in each hand there is a clear winner.</p>
+/// <p class="euler__paragraph">How many hands does Player 1 win?</p></div>
+
+/// challengeSeed:
+function euler54() {
+  // Good luck!
+  return true;
+}
+
+euler54();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof euler54 === 'function', 'message: <code>euler54()</code> is a function.');
+assert.strictEqual(euler54(), 376, 'message: <code>euler54()</code> should return 376.');
+/// id: 5900f3a21000cf542c50feb5

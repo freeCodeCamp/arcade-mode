@@ -1,0 +1,40 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 211: Divisor Square Sum
+/// type: project-euler
+
+/// categories:
+/// math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="euler"><p class="euler__paragraph">For a positive integer n, let σ2(n) be the sum of the squares of its divisors. For example,</p>
+/// <p class="euler__paragraph">σ2(10) = 1 + 4 + 25 + 100 = 130.</p>
+/// <p class="euler__paragraph">Find the sum of all n, 0 < n < 64,000,000 such that σ2(n) is a perfect square.</p></div>
+
+/// challengeSeed:
+function euler211() {
+  // Good luck!
+  return true;
+}
+
+euler211();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof euler211 === 'function', 'message: <code>euler211()</code> is a function.');
+assert.strictEqual(euler211(), 1922364685, 'message: <code>euler211()</code> should return 1922364685.');
+/// id: 5900f43f1000cf542c50ff52

@@ -1,0 +1,43 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 92: Square digit chains
+/// type: project-euler
+
+/// categories:
+/// math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="euler"><p class="euler__paragraph">A number chain is created by continuously adding the square of the digits in a number to form a new number until it has been seen before.</p>
+/// <p class="euler__paragraph">For example,</p>
+/// <p class="euler__paragraph">44 → 32 → 13 → 10 → 1 → 1</p>
+/// <p class="euler__paragraph">85 → 89 → 145 → 42 → 20 → 4 → 16 → 37 → 58 → 89</p>
+/// <p class="euler__paragraph">Therefore any chain that arrives at 1 or 89 will become stuck in an endless loop. What is most amazing is that EVERY starting number will eventually arrive at 1 or 89.</p>
+/// <p class="euler__paragraph">How many starting numbers below ten million will arrive at 89?</p></div>
+
+/// challengeSeed:
+function euler92() {
+  // Good luck!
+  return true;
+}
+
+euler92();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof euler92 === 'function', 'message: <code>euler92()</code> is a function.');
+assert.strictEqual(euler92(), 8581146, 'message: <code>euler92()</code> should return 8581146.');
+/// id: 5900f3c81000cf542c50fedb

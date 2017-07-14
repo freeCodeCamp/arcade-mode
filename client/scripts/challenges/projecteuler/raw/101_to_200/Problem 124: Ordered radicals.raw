@@ -1,0 +1,80 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 124: Ordered radicals
+/// type: project-euler
+
+/// categories:
+/// math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="euler"><p class="euler__paragraph">The radical of n, rad(n), is the product of the distinct prime factors of n. For example, 504 = 23 × 32 × 7, so rad(504) = 2 × 3 × 7 = 42.</p>
+/// <p class="euler__paragraph">If we calculate rad(n) for 1 ≤ n ≤ 10, then sort them on rad(n), and sorting on n if the radical values are equal, we get:</p>
+/// <p class="euler__paragraph">Unsorted</p>
+/// <p class="euler__paragraph"> </p>
+/// <p class="euler__paragraph">Sorted</p>
+/// <p class="euler__paragraph">n</p>
+/// <p class="euler__paragraph">rad(n)</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">n</p>
+/// <p class="euler__paragraph">rad(n)</p>
+/// <p class="euler__paragraph">k</p>
+/// <p class="euler__paragraph">11</p>
+/// <p class="euler__paragraph"> </p>
+/// <p class="euler__paragraph">111</p>
+/// <p class="euler__paragraph">22</p>
+/// <p class="euler__paragraph"> </p>
+/// <p class="euler__paragraph">222</p>
+/// <p class="euler__paragraph">33</p>
+/// <p class="euler__paragraph"> </p>
+/// <p class="euler__paragraph">423</p>
+/// <p class="euler__paragraph">42</p>
+/// <p class="euler__paragraph"> </p>
+/// <p class="euler__paragraph">824</p>
+/// <p class="euler__paragraph">55</p>
+/// <p class="euler__paragraph"> </p>
+/// <p class="euler__paragraph">335</p>
+/// <p class="euler__paragraph">66</p>
+/// <p class="euler__paragraph"> </p>
+/// <p class="euler__paragraph">936</p>
+/// <p class="euler__paragraph">77</p>
+/// <p class="euler__paragraph"> </p>
+/// <p class="euler__paragraph">557</p>
+/// <p class="euler__paragraph">82</p>
+/// <p class="euler__paragraph"> </p>
+/// <p class="euler__paragraph">668</p>
+/// <p class="euler__paragraph">93</p>
+/// <p class="euler__paragraph"> </p>
+/// <p class="euler__paragraph">779</p>
+/// <p class="euler__paragraph">1010</p>
+/// <p class="euler__paragraph"> </p>
+/// <p class="euler__paragraph">101010</p>
+/// <p class="euler__paragraph">Let E(k) be the kth element in the sorted n column; for example, E(4) = 8 and E(6) = 9.</p>
+/// <p class="euler__paragraph">If rad(n) is sorted for 1 ≤ n ≤ 100000, find E(10000).</p></div>
+
+/// challengeSeed:
+function euler124() {
+  // Good luck!
+  return true;
+}
+
+euler124();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof euler124 === 'function', 'message: <code>euler124()</code> is a function.');
+assert.strictEqual(euler124(), 21417, 'message: <code>euler124()</code> should return 21417.');
+/// id: 5900f3e81000cf542c50fefb

@@ -1,0 +1,59 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 343: Fractional Sequences
+/// type: project-euler
+
+/// categories:
+/// math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="euler"><p class="euler__paragraph">For any positive integer k, a finite sequence ai of fractions xi/yi is defined by:</p>
+/// <p class="euler__paragraph">a1 = 1/k and</p>
+/// <p class="euler__paragraph">ai = (xi-1+1)/(yi-1-1) reduced to lowest terms for i>1.</p>
+/// <p class="euler__paragraph">When ai reaches some integer n, the sequence stops. (That is, when yi=1.)</p>
+/// <p class="euler__paragraph">Define f(k) = n. </p>
+/// <p class="euler__paragraph">For example, for k = 20:</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">1/20 → 2/19 → 3/18 = 1/6 → 2/5 → 3/4 → 4/3 → 5/2 → 6/1 = 6</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">So f(20) = 6.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Also f(1) = 1, f(2) = 2, f(3) = 1 and Σf(k3) = 118937 for 1 ≤ k ≤ 100.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Find Σf(k3) for 1 ≤ k ≤ 2×106.</p></div>
+
+/// challengeSeed:
+function euler343() {
+  // Good luck!
+  return true;
+}
+
+euler343();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof euler343 === 'function', 'message: <code>euler343()</code> is a function.');
+assert.strictEqual(euler343(), 269533451410884200, 'message: <code>euler343()</code> should return 269533451410884200.');
+/// id: 5900f4c41000cf542c50ffd6

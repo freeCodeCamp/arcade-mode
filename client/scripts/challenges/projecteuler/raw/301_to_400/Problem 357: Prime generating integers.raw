@@ -1,0 +1,43 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 357: Prime generating integers
+/// type: project-euler
+
+/// categories:
+/// math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="euler"><p class="euler__paragraph">Consider the divisors of 30: 1,2,3,5,6,10,15,30.</p>
+/// <p class="euler__paragraph">It can be seen that for every divisor d of 30, d+30/d is prime.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Find the sum of all positive integers n not exceeding 100 000 000such that</p>
+/// <p class="euler__paragraph">for every divisor d of n, d+n/d is prime.</p></div>
+
+/// challengeSeed:
+function euler357() {
+  // Good luck!
+  return true;
+}
+
+euler357();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof euler357 === 'function', 'message: <code>euler357()</code> is a function.');
+assert.strictEqual(euler357(), 1739023853137, 'message: <code>euler357()</code> should return 1739023853137.');
+/// id: 5900f4d11000cf542c50ffe4

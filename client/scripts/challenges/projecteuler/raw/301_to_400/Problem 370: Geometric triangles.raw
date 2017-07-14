@@ -1,0 +1,44 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 370: Geometric triangles
+/// type: project-euler
+
+/// categories:
+/// math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="euler"><p class="euler__paragraph">Let us define a geometric triangle as an integer sided triangle with sides a ≤ b ≤ c so that its sides form a geometric progression, i.e. b2 = a · c .  </p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">An example of such a geometric triangle is the triangle with sides a = 144, b = 156 and c = 169.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">There are 861805 geometric triangles with perimeter ≤ 106 .</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">How many geometric triangles exist with perimeter ≤ 2.5·1013 ?</p></div>
+
+/// challengeSeed:
+function euler370() {
+  // Good luck!
+  return true;
+}
+
+euler370();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof euler370 === 'function', 'message: <code>euler370()</code> is a function.');
+assert.strictEqual(euler370(), 41791929448408, 'message: <code>euler370()</code> should return 41791929448408.');
+/// id: 5900f4de1000cf542c50fff1

@@ -1,0 +1,75 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 185: Number Mind
+/// type: project-euler
+
+/// categories:
+/// math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="euler"><p class="euler__paragraph">The game Number Mind is a variant of the well known game Master Mind.</p>
+/// <p class="euler__paragraph">Instead of coloured pegs, you have to guess a secret sequence of digits. After each guess you're only told in how many places you've guessed the correct digit. So, if the sequence was 1234 and you guessed 2036, you'd be told that you have one correct digit; however, you would NOT be told that you also have another digit in the wrong place.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">For instance, given the following guesses for a 5-digit secret sequence,</p>
+/// <p class="euler__paragraph">90342 ;2 correct</p>
+/// <p class="euler__paragraph">70794 ;0 correct</p>
+/// <p class="euler__paragraph">39458 ;2 correct</p>
+/// <p class="euler__paragraph">34109 ;1 correct</p>
+/// <p class="euler__paragraph">51545 ;2 correct</p>
+/// <p class="euler__paragraph">12531 ;1 correct</p>
+/// <p class="euler__paragraph">The correct sequence 39542 is unique.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Based on the following guesses,</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">5616185650518293 ;2 correct</p>
+/// <p class="euler__paragraph">3847439647293047 ;1 correct</p>
+/// <p class="euler__paragraph">5855462940810587 ;3 correct</p>
+/// <p class="euler__paragraph">9742855507068353 ;3 correct</p>
+/// <p class="euler__paragraph">4296849643607543 ;3 correct</p>
+/// <p class="euler__paragraph">3174248439465858 ;1 correct</p>
+/// <p class="euler__paragraph">4513559094146117 ;2 correct</p>
+/// <p class="euler__paragraph">7890971548908067 ;3 correct</p>
+/// <p class="euler__paragraph">8157356344118483 ;1 correct</p>
+/// <p class="euler__paragraph">2615250744386899 ;2 correct</p>
+/// <p class="euler__paragraph">8690095851526254 ;3 correct</p>
+/// <p class="euler__paragraph">6375711915077050 ;1 correct</p>
+/// <p class="euler__paragraph">6913859173121360 ;1 correct</p>
+/// <p class="euler__paragraph">6442889055042768 ;2 correct</p>
+/// <p class="euler__paragraph">2321386104303845 ;0 correct</p>
+/// <p class="euler__paragraph">2326509471271448 ;2 correct</p>
+/// <p class="euler__paragraph">5251583379644322 ;2 correct</p>
+/// <p class="euler__paragraph">1748270476758276 ;3 correct</p>
+/// <p class="euler__paragraph">4895722652190306 ;1 correct</p>
+/// <p class="euler__paragraph">3041631117224635 ;3 correct</p>
+/// <p class="euler__paragraph">1841236454324589 ;3 correct</p>
+/// <p class="euler__paragraph">2659862637316867 ;2 correct</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Find the unique 16-digit secret sequence.</p></div>
+
+/// challengeSeed:
+function euler185() {
+  // Good luck!
+  return true;
+}
+
+euler185();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof euler185 === 'function', 'message: <code>euler185()</code> is a function.');
+assert.strictEqual(euler185(), 4640261571849533, 'message: <code>euler185()</code> should return 4640261571849533.');
+/// id: 5900f4251000cf542c50ff38

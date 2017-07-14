@@ -1,0 +1,63 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 159: Digital root sums of factorisations
+/// type: project-euler
+
+/// categories:
+/// math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="euler"><p class="euler__paragraph">A composite number can be factored many different ways.  </p>
+/// <p class="euler__paragraph">For instance, not including multiplication by one, 24 can be factored in 7 distinct ways:</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">24 = 2x2x2x3</p>
+/// <p class="euler__paragraph">24 = 2x3x4</p>
+/// <p class="euler__paragraph">24 = 2x2x6</p>
+/// <p class="euler__paragraph">24 = 4x6</p>
+/// <p class="euler__paragraph">24 = 3x8</p>
+/// <p class="euler__paragraph">24 = 2x12</p>
+/// <p class="euler__paragraph">24 = 24</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Recall that the digital root of a number, in base 10, is found by adding together the digits of that number, </p>
+/// <p class="euler__paragraph">and repeating that process until a number is arrived at that is less than 10.  </p>
+/// <p class="euler__paragraph">Thus the digital root of 467 is 8.</p>
+/// <p class="euler__paragraph">We shall call a Digital Root Sum (DRS) the sum of the digital roots of the individual factors of our number.</p>
+/// <p class="euler__paragraph"> The chart below demonstrates all of the DRS values for 24.</p>
+/// <p class="euler__paragraph">FactorisationDigital Root Sum2x2x2x3</p>
+/// <p class="euler__paragraph">92x3x4</p>
+/// <p class="euler__paragraph">92x2x6</p>
+/// <p class="euler__paragraph">104x6</p>
+/// <p class="euler__paragraph">103x8</p>
+/// <p class="euler__paragraph">112x12</p>
+/// <p class="euler__paragraph">524</p>
+/// <p class="euler__paragraph">6The maximum Digital Root Sum  of 24 is 11.</p>
+/// <p class="euler__paragraph">The function mdrs(n) gives the maximum Digital Root Sum of n. So  mdrs(24)=11.</p>
+/// <p class="euler__paragraph">Find ∑mdrs(n) for 1 < n < 1,000,000.</p></div>
+
+/// challengeSeed:
+function euler159() {
+  // Good luck!
+  return true;
+}
+
+euler159();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof euler159 === 'function', 'message: <code>euler159()</code> is a function.');
+assert.strictEqual(euler159(), 14489159, 'message: <code>euler159()</code> should return 14489159.');
+/// id: 5900f40c1000cf542c50ff1e

@@ -1,0 +1,45 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 154: Exploring Pascal's pyramid
+/// type: project-euler
+
+/// categories:
+/// math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="euler"><p class="euler__paragraph">A triangular pyramid is constructed using spherical balls so that each ball rests on exactly three balls of the next lower level.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Then, we calculate the number of paths leading from the apex to each position:</p>
+/// <p class="euler__paragraph">A path starts at the apex and progresses downwards to any of the three spheres directly below the current position.</p>
+/// <p class="euler__paragraph">Consequently, the number of paths to reach a certain position is the sum of the numbers immediately above it (depending on the position, there are up to three numbers above it).</p>
+/// <p class="euler__paragraph">The result is Pascal's pyramid and the numbers at each level n are the coefficients of the trinomial expansion </p>
+/// <p class="euler__paragraph">(x + y + z)n.</p>
+/// <p class="euler__paragraph">How many coefficients in the expansion of (x + y + z)200000 are multiples of 1012?</p></div>
+
+/// challengeSeed:
+function euler154() {
+  // Good luck!
+  return true;
+}
+
+euler154();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof euler154 === 'function', 'message: <code>euler154()</code> is a function.');
+assert.strictEqual(euler154(), 479742450, 'message: <code>euler154()</code> should return 479742450.');
+/// id: 5900f4071000cf542c50ff19

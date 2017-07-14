@@ -1,0 +1,51 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 82: Path sum: three ways
+/// type: project-euler
+
+/// categories:
+/// math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="euler"><p class="euler__paragraph">NOTE: This problem is a more challenging version of Problem 81.</p>
+/// <p class="euler__paragraph">The minimal path sum in the 5 by 5 matrix below, by starting in any cell in the left column and finishing in any cell in the right column, and only moving up, down, and right, is indicated in red and bold; the sum is equal to 994.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">$$</p>
+/// <p class="euler__paragraph">\begin{pmatrix}</p>
+/// <p class="euler__paragraph">131 & 673 & \color{red}{234} & \color{red}{103} & \color{red}{18}\\</p>
+/// <p class="euler__paragraph">\color{red}{201} & \color{red}{96} & \color{red}{342} & 965 & 150\\</p>
+/// <p class="euler__paragraph">630 & 803 & 746 & 422 & 111\\</p>
+/// <p class="euler__paragraph">537 & 699 & 497 & 121 & 956\\</p>
+/// <p class="euler__paragraph">805 & 732 & 524 & 37 & 331</p>
+/// <p class="euler__paragraph">\end{pmatrix}</p>
+/// <p class="euler__paragraph">$$</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Find the minimal path sum, in matrix.txt (right click and "Save Link/Target As..."), a 31K text file containing a 80 by 80 matrix, from the left column to the right column.</p></div>
+
+/// challengeSeed:
+function euler82() {
+  // Good luck!
+  return true;
+}
+
+euler82();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof euler82 === 'function', 'message: <code>euler82()</code> is a function.');
+assert.strictEqual(euler82(), 260324, 'message: <code>euler82()</code> should return 260324.');
+/// id: 5900f3be1000cf542c50fed1

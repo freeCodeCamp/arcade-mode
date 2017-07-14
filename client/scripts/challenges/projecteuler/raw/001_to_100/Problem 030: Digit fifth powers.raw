@@ -1,0 +1,44 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 30: Digit fifth powers
+/// type: project-euler
+
+/// categories:
+/// math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="euler"><p class="euler__paragraph">Surprisingly there are only three numbers that can be written as the sum of fourth powers of their digits:</p>
+/// <p class="euler__paragraph">1634 = 14 + 64 + 34 + 44</p>
+/// <p class="euler__paragraph">8208 = 84 + 24 + 04 + 84</p>
+/// <p class="euler__paragraph">9474 = 94 + 44 + 74 + 44</p>
+/// <p class="euler__paragraph">As 1 = 14 is not a sum it is not included.</p>
+/// <p class="euler__paragraph">The sum of these numbers is 1634 + 8208 + 9474 = 19316.</p>
+/// <p class="euler__paragraph">Find the sum of all the numbers that can be written as the sum of fifth powers of their digits.</p></div>
+
+/// challengeSeed:
+function euler30() {
+  // Good luck!
+  return true;
+}
+
+euler30();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof euler30 === 'function', 'message: <code>euler30()</code> is a function.');
+assert.strictEqual(euler30(), 443839, 'message: <code>euler30()</code> should return 443839.');
+/// id: 5900f38a1000cf542c50fe9d

@@ -1,0 +1,5 @@
+Refer to the following spreadsheet for conversion decisions:
+https://docs.google.com/spreadsheets/d/1b_wMIaKR-gA0tD6ADQfDjDT5BBWaUsQyIPP0TS6o7is/edit?usp=sharing
+
+The original json file of Project Euler problems can be found here: https://raw.githubusercontent.com/freeCodeCamp/freeCodeCamp/staging/seed/challenges/08-coding-interview-questions-and-take-home-assignments/project-euler-problems.json
+

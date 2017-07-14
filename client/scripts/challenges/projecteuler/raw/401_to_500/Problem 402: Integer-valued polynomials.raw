@@ -1,0 +1,55 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 402: Integer-valued polynomials
+/// type: project-euler
+
+/// categories:
+/// math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="euler"><p class="euler__paragraph">It can be shown that the polynomial n4 + 4n3 + 2n2 + 5n is a multiple of 6 for every integer n. It can also be shown that 6 is the largest integer satisfying this property.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Define M(a, b, c) as the maximum m such that n4 + an3 + bn2 + cn is a multiple of m for all integers n. For example, M(4, 2, 5) = 6.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Also, define S(N) as the sum of M(a, b, c) for all 0 < a, b, c ≤ N.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">We can verify that S(10) = 1972 and S(10000) = 2024258331114.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Let Fk be the Fibonacci sequence:</p>
+/// <p class="euler__paragraph">F0 = 0, F1 = 1 and</p>
+/// <p class="euler__paragraph">Fk = Fk-1 + Fk-2 for k ≥ 2.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Find the last 9 digits of Σ S(Fk) for 2 ≤ k ≤ 1234567890123.</p></div>
+
+/// challengeSeed:
+function euler402() {
+  // Good luck!
+  return true;
+}
+
+euler402();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof euler402 === 'function', 'message: <code>euler402()</code> is a function.');
+assert.strictEqual(euler402(), 356019862, 'message: <code>euler402()</code> should return 356019862.');
+/// id: 5900f4ff1000cf542c510011

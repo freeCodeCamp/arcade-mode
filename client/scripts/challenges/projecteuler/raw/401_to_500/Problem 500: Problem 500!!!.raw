@@ -1,0 +1,43 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 500: Problem 500!!!
+/// type: project-euler
+
+/// categories:
+/// math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="euler"><p class="euler__paragraph">The number of divisors of 120 is 16.</p>
+/// <p class="euler__paragraph">In fact 120 is the smallest number having 16 divisors.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Find the smallest number with 2500500 divisors.</p>
+/// <p class="euler__paragraph">Give your answer modulo 500500507.</p></div>
+
+/// challengeSeed:
+function euler500() {
+  // Good luck!
+  return true;
+}
+
+euler500();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof euler500 === 'function', 'message: <code>euler500()</code> is a function.');
+assert.strictEqual(euler500(), 35407281, 'message: <code>euler500()</code> should return 35407281.');
+/// id: 5900f5611000cf542c510073

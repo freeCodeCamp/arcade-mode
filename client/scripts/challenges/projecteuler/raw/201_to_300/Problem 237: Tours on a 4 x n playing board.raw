@@ -1,0 +1,48 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 237: Tours on a 4 x n playing board
+/// type: project-euler
+
+/// categories:
+/// math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="euler"><p class="euler__paragraph">Let T(n) be the number of tours over a 4 × n playing board such that:</p>
+/// <p class="euler__paragraph">The tour starts in the top left corner.</p>
+/// <p class="euler__paragraph">The tour consists of moves that are up, down, left, or right one square.</p>
+/// <p class="euler__paragraph">The tour visits each square exactly once.</p>
+/// <p class="euler__paragraph">The tour ends in the bottom left corner.</p>
+/// <p class="euler__paragraph">The diagram shows one tour over a 4 × 10 board:</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">T(10) is 2329. What is T(1012) modulo 108?</p></div>
+
+/// challengeSeed:
+function euler237() {
+  // Good luck!
+  return true;
+}
+
+euler237();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof euler237 === 'function', 'message: <code>euler237()</code> is a function.');
+assert.strictEqual(euler237(), 15836928, 'message: <code>euler237()</code> should return 15836928.');
+/// id: 5900f4591000cf542c50ff6c

@@ -1,0 +1,57 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 221: Alexandrian Integers
+/// type: project-euler
+
+/// categories:
+/// math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="euler"><p class="euler__paragraph">We shall call a positive integer A an "Alexandrian integer", if there exist integers p, q, r such that:</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">      A = p · q · r    and  </p>
+/// <p class="euler__paragraph">   </p>
+/// <p class="euler__paragraph">   </p>
+/// <p class="euler__paragraph">      1A</p>
+/// <p class="euler__paragraph">   =</p>
+/// <p class="euler__paragraph">   </p>
+/// <p class="euler__paragraph">      1p</p>
+/// <p class="euler__paragraph">   +</p>
+/// <p class="euler__paragraph">   </p>
+/// <p class="euler__paragraph">      1q</p>
+/// <p class="euler__paragraph">   +</p>
+/// <p class="euler__paragraph">   </p>
+/// <p class="euler__paragraph">      1r</p>
+/// <p class="euler__paragraph">For example, 630 is an Alexandrian integer (p = 5, q = −7, r = −18).</p>
+/// <p class="euler__paragraph">In fact, 630 is the 6th Alexandrian integer,  the first 6 Alexandrian integers being: 6, 42, 120, 156, 420 and 630.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Find the 150000th Alexandrian integer.</p></div>
+
+/// challengeSeed:
+function euler221() {
+  // Good luck!
+  return true;
+}
+
+euler221();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof euler221 === 'function', 'message: <code>euler221()</code> is a function.');
+assert.strictEqual(euler221(), 1884161251122450, 'message: <code>euler221()</code> should return 1884161251122450.');
+/// id: 5900f4491000cf542c50ff5c

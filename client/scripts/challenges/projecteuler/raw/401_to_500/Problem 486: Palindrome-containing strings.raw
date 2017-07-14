@@ -1,0 +1,50 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 486: Palindrome-containing strings
+/// type: project-euler
+
+/// categories:
+/// math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="euler"><p class="euler__paragraph">Let F5(n) be the number of strings s such that:</p>
+/// <p class="euler__paragraph">s consists only of '0's and '1's,</p>
+/// <p class="euler__paragraph">s has length at most n, and</p>
+/// <p class="euler__paragraph">s contains a palindromic substring of length at least 5.</p>
+/// <p class="euler__paragraph">For example, F5(4) = 0, F5(5) = 8, </p>
+/// <p class="euler__paragraph">F5(6) = 42 and F5(11) = 3844.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Let D(L) be the number of integers n such that </p>
+/// <p class="euler__paragraph">5 ≤ n ≤ L and F5(n) is divisible by 87654321.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">For example, D(107) = 0 and D(5·109) = 51.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Find D(1018).</p></div>
+
+/// challengeSeed:
+function euler486() {
+  // Good luck!
+  return true;
+}
+
+euler486();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof euler486 === 'function', 'message: <code>euler486()</code> is a function.');
+assert.strictEqual(euler486(), 11408450515, 'message: <code>euler486()</code> should return 11408450515.');
+/// id: 5900f5531000cf542c510065

@@ -1,0 +1,41 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 99: Largest exponential
+/// type: project-euler
+
+/// categories:
+/// math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="euler"><p class="euler__paragraph">Comparing two numbers written in index form like 211 and 37 is not difficult, as any calculator would confirm that 211 = 2048 < 37 = 2187.</p>
+/// <p class="euler__paragraph">However, confirming that 632382518061 > 519432525806 would be much more difficult, as both numbers contain over three million digits.</p>
+/// <p class="euler__paragraph">Using base_exp.txt (right click and 'Save Link/Target As...'), a 22K text file containing one thousand lines with a base/exponent pair on each line, determine which line number has the greatest numerical value.</p>
+/// <p class="euler__paragraph">NOTE: The first two lines in the file represent the numbers in the example given above.</p></div>
+
+/// challengeSeed:
+function euler99() {
+  // Good luck!
+  return true;
+}
+
+euler99();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof euler99 === 'function', 'message: <code>euler99()</code> is a function.');
+assert.strictEqual(euler99(), 709, 'message: <code>euler99()</code> should return 709.');
+/// id: 5900f3d01000cf542c50fee2

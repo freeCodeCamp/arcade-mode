@@ -1,0 +1,47 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 261: Pivotal Square Sums
+/// type: project-euler
+
+/// categories:
+/// math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="euler"><p class="euler__paragraph">Let us call a positive integer k a square-pivot, if there is a pair of integers m > 0 and n ≥ k, such that the sum of the (m+1) consecutive squares up to k equals the sum of the m consecutive squares from (n+1) on:</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">(k-m)2 + ... + k2 = (n+1)2 + ... + (n+m)2.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Some small square-pivots are</p>
+/// <p class="euler__paragraph">4: 32 + 42</p>
+/// <p class="euler__paragraph"> = 52</p>
+/// <p class="euler__paragraph">21: 202 + 212 = 292</p>
+/// <p class="euler__paragraph">24: 212 + 222 + 232 + 242 = 252 + 262 + 272</p>
+/// <p class="euler__paragraph">110: 1082 + 1092 + 1102 = 1332 + 1342Find the sum of all distinct square-pivots ≤ 1010.</p></div>
+
+/// challengeSeed:
+function euler261() {
+  // Good luck!
+  return true;
+}
+
+euler261();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof euler261 === 'function', 'message: <code>euler261()</code> is a function.');
+assert.strictEqual(euler261(), 238890850232021, 'message: <code>euler261()</code> should return 238890850232021.');
+/// id: 5900f4711000cf542c50ff84

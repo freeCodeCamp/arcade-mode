@@ -1,0 +1,45 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 200: Find the 200th prime-proof sqube containing the contiguous sub-string "200"
+/// type: project-euler
+
+/// categories:
+/// math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="euler"><p class="euler__paragraph">We shall define a sqube to be a number of the form, p2q3, where p and q are distinct primes.</p>
+/// <p class="euler__paragraph">For example, 200 = 5223 or 120072949 = 232613.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">The first five squbes are 72, 108, 200, 392, and 500.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Interestingly, 200 is also the first number for which you cannot change any single digit to make a prime; we shall call such numbers, prime-proof. The next prime-proof sqube which contains the contiguous sub-string "200" is 1992008.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Find the 200th prime-proof sqube containing the contiguous sub-string "200".</p></div>
+
+/// challengeSeed:
+function euler200() {
+  // Good luck!
+  return true;
+}
+
+euler200();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof euler200 === 'function', 'message: <code>euler200()</code> is a function.');
+assert.strictEqual(euler200(), 229161792008, 'message: <code>euler200()</code> should return 229161792008.');
+/// id: 5900f4351000cf542c50ff47

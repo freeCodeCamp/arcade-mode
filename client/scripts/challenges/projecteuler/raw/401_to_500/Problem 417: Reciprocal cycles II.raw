@@ -1,0 +1,60 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 417: Reciprocal cycles II
+/// type: project-euler
+
+/// categories:
+/// math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="euler"><p class="euler__paragraph">A unit fraction contains 1 in the numerator. The decimal representation of the unit fractions with denominators 2 to 10 are given:</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">1/2= 0.5</p>
+/// <p class="euler__paragraph">1/3= 0.(3)</p>
+/// <p class="euler__paragraph">1/4= 0.25</p>
+/// <p class="euler__paragraph">1/5= 0.2</p>
+/// <p class="euler__paragraph">1/6= 0.1(6)</p>
+/// <p class="euler__paragraph">1/7= 0.(142857)</p>
+/// <p class="euler__paragraph">1/8= 0.125</p>
+/// <p class="euler__paragraph">1/9= 0.(1)</p>
+/// <p class="euler__paragraph">1/10= 0.1</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Where 0.1(6) means 0.166666..., and has a 1-digit recurring cycle. It can be seen that 1/7 has a 6-digit recurring cycle.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Unit fractions whose denominator has no other prime factors than 2 and/or 5 are not considered to have a recurring cycle.</p>
+/// <p class="euler__paragraph">We define the length of the recurring cycle of those unit fractions as 0. </p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Let L(n) denote the length of the recurring cycle of 1/n.</p>
+/// <p class="euler__paragraph">You are given that ∑L(n) for 3 ≤ n ≤ 1 000 000 equals 55535191115.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Find ∑L(n) for 3 ≤ n ≤ 100 000 000</p></div>
+
+/// challengeSeed:
+function euler417() {
+  // Good luck!
+  return true;
+}
+
+euler417();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof euler417 === 'function', 'message: <code>euler417()</code> is a function.');
+assert.strictEqual(euler417(), 446572970925740, 'message: <code>euler417()</code> should return 446572970925740.');
+/// id: 5900f50d1000cf542c51001f

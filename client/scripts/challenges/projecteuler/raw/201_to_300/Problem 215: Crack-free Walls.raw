@@ -1,0 +1,47 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 215: Crack-free Walls
+/// type: project-euler
+
+/// categories:
+/// math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="euler"><p class="euler__paragraph">Consider the problem of building a wall out of 2×1 and 3×1 bricks (horizontal×vertical dimensions) such that, for extra strength, the gaps between horizontally-adjacent bricks never line up in consecutive layers, i.e. never form a "running crack".</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">For example, the following 9×3 wall is not acceptable due to the running crack shown in red:</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">There are eight ways of forming a crack-free 9×3 wall, written W(9,3) = 8.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Calculate W(32,10).</p></div>
+
+/// challengeSeed:
+function euler215() {
+  // Good luck!
+  return true;
+}
+
+euler215();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof euler215 === 'function', 'message: <code>euler215()</code> is a function.');
+assert.strictEqual(euler215(), 806844323190414, 'message: <code>euler215()</code> should return 806844323190414.');
+/// id: 5900f4431000cf542c50ff56

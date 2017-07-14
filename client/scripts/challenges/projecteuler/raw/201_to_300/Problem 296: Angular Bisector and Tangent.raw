@@ -1,0 +1,43 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 296: Angular Bisector and Tangent
+/// type: project-euler
+
+/// categories:
+/// math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="euler"><p class="euler__paragraph">Given is an integer sided triangle ABC with BC ≤ AC ≤ AB.k is the angular bisector of angle ACB.m is the tangent at C to the circumscribed circle of ABC.n is a line parallel to m through B.</p>
+/// <p class="euler__paragraph">The intersection of n and k is called E.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">How many triangles ABC with a perimeter not exceeding 100 000 exist such that BE has integral length?</p></div>
+
+/// challengeSeed:
+function euler296() {
+  // Good luck!
+  return true;
+}
+
+euler296();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof euler296 === 'function', 'message: <code>euler296()</code> is a function.');
+assert.strictEqual(euler296(), 1137208419, 'message: <code>euler296()</code> should return 1137208419.');
+/// id: 5900f4941000cf542c50ffa7

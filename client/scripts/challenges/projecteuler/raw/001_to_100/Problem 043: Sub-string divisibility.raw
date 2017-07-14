@@ -1,0 +1,47 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 43: Sub-string divisibility
+/// type: project-euler
+
+/// categories:
+/// math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="euler"><p class="euler__paragraph">The number, 1406357289, is a 0 to 9 pandigital number because it is made up of each of the digits 0 to 9 in some order, but it also has a rather interesting sub-string divisibility property.</p>
+/// <p class="euler__paragraph">Let d1 be the 1st digit, d2 be the 2nd digit, and so on. In this way, we note the following:</p>
+/// <p class="euler__paragraph">d2d3d4=406 is divisible by 2</p>
+/// <p class="euler__paragraph">d3d4d5=063 is divisible by 3</p>
+/// <p class="euler__paragraph">d4d5d6=635 is divisible by 5</p>
+/// <p class="euler__paragraph">d5d6d7=357 is divisible by 7</p>
+/// <p class="euler__paragraph">d6d7d8=572 is divisible by 11</p>
+/// <p class="euler__paragraph">d7d8d9=728 is divisible by 13</p>
+/// <p class="euler__paragraph">d8d9d10=289 is divisible by 17</p>
+/// <p class="euler__paragraph">Find the sum of all 0 to 9 pandigital numbers with this property.</p></div>
+
+/// challengeSeed:
+function euler43() {
+  // Good luck!
+  return true;
+}
+
+euler43();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof euler43 === 'function', 'message: <code>euler43()</code> is a function.');
+assert.strictEqual(euler43(), 16695334890, 'message: <code>euler43()</code> should return 16695334890.');
+/// id: 5900f3971000cf542c50feaa

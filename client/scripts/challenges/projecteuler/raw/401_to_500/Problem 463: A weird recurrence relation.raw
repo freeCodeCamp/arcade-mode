@@ -1,0 +1,47 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 463: A weird recurrence relation
+/// type: project-euler
+
+/// categories:
+/// math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="euler"><p class="euler__paragraph">The function $f$ is defined for all positive integers as follows:</p>
+/// <p class="euler__paragraph">$f(1)=1$</p>
+/// <p class="euler__paragraph">$f(3)=3$</p>
+/// <p class="euler__paragraph">$f(2n)=f(n)$</p>
+/// <p class="euler__paragraph">$f(4n + 1)=2f(2n + 1) - f(n)$</p>
+/// <p class="euler__paragraph">$f(4n + 3)=3f(2n + 1) - 2f(n)$</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">The function $S(n)$ is defined as $\sum_{i=1}^{n}f(i)$.</p>
+/// <p class="euler__paragraph">$S(8)=22$ and $S(100)=3604$.</p>
+/// <p class="euler__paragraph">Find $S(3^{37})$. Give the last 9 digits of your answer.</p></div>
+
+/// challengeSeed:
+function euler463() {
+  // Good luck!
+  return true;
+}
+
+euler463();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof euler463 === 'function', 'message: <code>euler463()</code> is a function.');
+assert.strictEqual(euler463(), 808981553, 'message: <code>euler463()</code> should return 808981553.');
+/// id: 5900f53c1000cf542c51004e

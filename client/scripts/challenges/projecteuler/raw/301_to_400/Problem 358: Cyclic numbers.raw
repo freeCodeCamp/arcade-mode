@@ -1,0 +1,66 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 358: Cyclic numbers
+/// type: project-euler
+
+/// categories:
+/// math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="euler"><p class="euler__paragraph">A cyclic number with n digits has a very interesting property:</p>
+/// <p class="euler__paragraph">When it is multiplied by 1, 2, 3, 4, ... n, all the products have exactly the same digits, in the same order, but rotated in a circular fashion!</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">The smallest cyclic number is the 6-digit number 142857 :</p>
+/// <p class="euler__paragraph">142857 × 1 = 142857</p>
+/// <p class="euler__paragraph">142857 × 2 = 285714</p>
+/// <p class="euler__paragraph">142857 × 3 = 428571</p>
+/// <p class="euler__paragraph">142857 × 4 = 571428</p>
+/// <p class="euler__paragraph">142857 × 5 = 714285</p>
+/// <p class="euler__paragraph">142857 × 6 = 857142  </p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">The next cyclic number is 0588235294117647 with 16 digits :</p>
+/// <p class="euler__paragraph">0588235294117647 × 1 = 0588235294117647</p>
+/// <p class="euler__paragraph">0588235294117647 × 2 = 1176470588235294</p>
+/// <p class="euler__paragraph">0588235294117647 × 3 = 1764705882352941</p>
+/// <p class="euler__paragraph">...</p>
+/// <p class="euler__paragraph">0588235294117647 × 16 = 9411764705882352</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Note that for cyclic numbers, leading zeros are important.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">There is only one cyclic number for which, the eleven leftmost digits are 00000000137 and the five rightmost digits are 56789 (i.e., it has the form 00000000137...56789 with an unknown number of digits in the middle). Find the sum of all its digits.</p></div>
+
+/// challengeSeed:
+function euler358() {
+  // Good luck!
+  return true;
+}
+
+euler358();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof euler358 === 'function', 'message: <code>euler358()</code> is a function.');
+assert.strictEqual(euler358(), 3284144505, 'message: <code>euler358()</code> should return 3284144505.');
+/// id: 5900f4d21000cf542c50ffe5

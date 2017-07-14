@@ -1,0 +1,41 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 291: Panaitopol Primes
+/// type: project-euler
+
+/// categories:
+/// math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="euler"><p class="euler__paragraph">A prime number p is called a Panaitopol prime if  for some positive integersx and y.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Find how many Panaitopol primes are less than 5×1015.</p></div>
+
+/// challengeSeed:
+function euler291() {
+  // Good luck!
+  return true;
+}
+
+euler291();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof euler291 === 'function', 'message: <code>euler291()</code> is a function.');
+assert.strictEqual(euler291(), 4037526, 'message: <code>euler291()</code> should return 4037526.');
+/// id: 5900f48f1000cf542c50ffa2

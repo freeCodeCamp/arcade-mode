@@ -1,0 +1,39 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 56: Powerful digit sum
+/// type: project-euler
+
+/// categories:
+/// math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="euler"><p class="euler__paragraph">A googol (10100) is a massive number: one followed by one-hundred zeros; 100100 is almost unimaginably large: one followed by two-hundred zeros. Despite their size, the sum of the digits in each number is only 1.</p>
+/// <p class="euler__paragraph">Considering natural numbers of the form, ab, where a, b < 100, what is the maximum digital sum?</p></div>
+
+/// challengeSeed:
+function euler56() {
+  // Good luck!
+  return true;
+}
+
+euler56();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof euler56 === 'function', 'message: <code>euler56()</code> is a function.');
+assert.strictEqual(euler56(), 972, 'message: <code>euler56()</code> should return 972.');
+/// id: 5900f3a41000cf542c50feb7

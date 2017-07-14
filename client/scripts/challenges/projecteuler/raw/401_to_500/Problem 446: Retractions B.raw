@@ -1,0 +1,47 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 446: Retractions B
+/// type: project-euler
+
+/// categories:
+/// math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="euler"><p class="euler__paragraph">For every integer n>1, the family of functions fn,a,b  is defined </p>
+/// <p class="euler__paragraph">by fn,a,b(x)≡ax+b mod n for a,b,x integer and  0<a<n, 0≤b<n, 0≤x<n.</p>
+/// <p class="euler__paragraph">We will call fn,a,b a retraction if fn,a,b(fn,a,b(x))≡fn,a,b(x) mod n for every 0≤x<n.</p>
+/// <p class="euler__paragraph">Let R(n) be the number of retractions for n.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">F(N)=∑R(n4+4) for 1≤n≤N.  </p>
+/// <p class="euler__paragraph">F(1024)=77532377300600.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Find F(107) (mod 1 000 000 007)</p></div>
+
+/// challengeSeed:
+function euler446() {
+  // Good luck!
+  return true;
+}
+
+euler446();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof euler446 === 'function', 'message: <code>euler446()</code> is a function.');
+assert.strictEqual(euler446(), 907803852, 'message: <code>euler446()</code> should return 907803852.');
+/// id: 5900f52c1000cf542c51003d

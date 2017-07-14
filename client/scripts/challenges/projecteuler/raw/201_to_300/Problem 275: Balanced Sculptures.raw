@@ -1,0 +1,46 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 275: Balanced Sculptures
+/// type: project-euler
+
+/// categories:
+/// math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="euler"><p class="euler__paragraph">Let us define a balanced sculpture of order n as follows:</p>
+/// <p class="euler__paragraph">A polyomino made up of n+1 tiles known as the blocks (n tiles) and the plinth (remaining tile);</p>
+/// <p class="euler__paragraph">the plinth has its centre at position (x = 0, y = 0);</p>
+/// <p class="euler__paragraph">the blocks have y-coordinates greater than zero (so the plinth is the unique lowest tile);</p>
+/// <p class="euler__paragraph">the centre of mass of all the blocks, combined, has x-coordinate equal to zero.</p>
+/// <p class="euler__paragraph">When counting the sculptures, any arrangements which are simply reflections about the y-axis, are not counted as distinct. For example, the 18 balanced sculptures of order 6 are shown below; note that each pair of mirror images (about the y-axis) is counted as one sculpture:</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">There are 964 balanced sculptures of order 10 and 360505 of order 15.How many balanced sculptures are there of order 18?</p></div>
+
+/// challengeSeed:
+function euler275() {
+  // Good luck!
+  return true;
+}
+
+euler275();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof euler275 === 'function', 'message: <code>euler275()</code> is a function.');
+assert.strictEqual(euler275(), 15030564, 'message: <code>euler275()</code> should return 15030564.');
+/// id: 5900f4801000cf542c50ff92

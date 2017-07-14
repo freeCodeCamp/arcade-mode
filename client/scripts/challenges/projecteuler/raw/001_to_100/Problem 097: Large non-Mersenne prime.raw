@@ -1,0 +1,40 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 97: Large non-Mersenne prime
+/// type: project-euler
+
+/// categories:
+/// math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="euler"><p class="euler__paragraph">The first known prime found to exceed one million digits was discovered in 1999, and is a Mersenne prime of the form 26972593−1; it contains exactly 2,098,960 digits. Subsequently other Mersenne primes, of the form 2p−1, have been found which contain more digits.</p>
+/// <p class="euler__paragraph">However, in 2004 there was found a massive non-Mersenne prime which contains 2,357,207 digits: 28433×27830457+1.</p>
+/// <p class="euler__paragraph">Find the last ten digits of this prime number.</p></div>
+
+/// challengeSeed:
+function euler97() {
+  // Good luck!
+  return true;
+}
+
+euler97();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof euler97 === 'function', 'message: <code>euler97()</code> is a function.');
+assert.strictEqual(euler97(), 8739992577, 'message: <code>euler97()</code> should return 8739992577.');
+/// id: 5900f3ce1000cf542c50fee0

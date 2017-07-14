@@ -1,0 +1,49 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 74: Digit factorial chains
+/// type: project-euler
+
+/// categories:
+/// math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="euler"><p class="euler__paragraph">The number 145 is well known for the property that the sum of the factorial of its digits is equal to 145:</p>
+/// <p class="euler__paragraph">1! + 4! + 5! = 1 + 24 + 120 = 145</p>
+/// <p class="euler__paragraph">Perhaps less well known is 169, in that it produces the longest chain of numbers that link back to 169; it turns out that there are only three such loops that exist:</p>
+/// <p class="euler__paragraph">169 → 363601 → 1454 → 169</p>
+/// <p class="euler__paragraph">871 → 45361 → 871</p>
+/// <p class="euler__paragraph">872 → 45362 → 872</p>
+/// <p class="euler__paragraph">It is not difficult to prove that EVERY starting number will eventually get stuck in a loop. For example,</p>
+/// <p class="euler__paragraph">69 → 363600 → 1454 → 169 → 363601 (→ 1454)</p>
+/// <p class="euler__paragraph">78 → 45360 → 871 → 45361 (→ 871)</p>
+/// <p class="euler__paragraph">540 → 145 (→ 145)</p>
+/// <p class="euler__paragraph">Starting with 69 produces a chain of five non-repeating terms, but the longest non-repeating chain with a starting number below one million is sixty terms.</p>
+/// <p class="euler__paragraph">How many chains, with a starting number below one million, contain exactly sixty non-repeating terms?</p></div>
+
+/// challengeSeed:
+function euler74() {
+  // Good luck!
+  return true;
+}
+
+euler74();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof euler74 === 'function', 'message: <code>euler74()</code> is a function.');
+assert.strictEqual(euler74(), 402, 'message: <code>euler74()</code> should return 402.');
+/// id: 5900f3b61000cf542c50fec9

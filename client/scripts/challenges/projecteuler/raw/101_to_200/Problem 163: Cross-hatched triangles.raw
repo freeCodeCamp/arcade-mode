@@ -1,0 +1,45 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 163: Cross-hatched triangles
+/// type: project-euler
+
+/// categories:
+/// math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="euler"><p class="euler__paragraph">Consider an equilateral triangle in which straight lines are drawn from each vertex to the middle of the opposite side, such as in the size 1 triangle in the sketch below.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Sixteen triangles of either different shape or size or orientation or location can now be observed in that triangle. Using size 1 triangles as building blocks, larger triangles can be formed, such as the size 2 triangle in the above sketch. One-hundred and four triangles of either different shape or size or orientation or location can now be observed in that size 2 triangle.</p>
+/// <p class="euler__paragraph">It can be observed that the size 2 triangle contains 4 size 1 triangle building blocks. A size 3 triangle would contain 9 size 1 triangle building blocks and a size n triangle would thus contain n2 size 1 triangle building blocks.</p>
+/// <p class="euler__paragraph">If we denote T(n) as the number of triangles present in a triangle of size n, then</p>
+/// <p class="euler__paragraph">T(1) = 16</p>
+/// <p class="euler__paragraph">T(2) = 104</p>
+/// <p class="euler__paragraph">Find T(36).</p></div>
+
+/// challengeSeed:
+function euler163() {
+  // Good luck!
+  return true;
+}
+
+euler163();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof euler163 === 'function', 'message: <code>euler163()</code> is a function.');
+assert.strictEqual(euler163(), 343047, 'message: <code>euler163()</code> should return 343047.');
+/// id: 5900f40f1000cf542c50ff22

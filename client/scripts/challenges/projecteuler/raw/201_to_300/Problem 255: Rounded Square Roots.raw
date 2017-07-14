@@ -1,0 +1,61 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 255: Rounded Square Roots
+/// type: project-euler
+
+/// categories:
+/// math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="euler"><p class="euler__paragraph">We define the rounded-square-root of a positive integer n as the square root of n rounded to the nearest integer.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">The following procedure (essentially Heron's method adapted to integer arithmetic) finds the rounded-square-root of n:</p>
+/// <p class="euler__paragraph">Let d be the number of digits of the number n.</p>
+/// <p class="euler__paragraph">If d is odd, set x0 = 2×10(d-1)⁄2.</p>
+/// <p class="euler__paragraph">If d is even, set x0 = 7×10(d-2)⁄2.</p>
+/// <p class="euler__paragraph">Repeat:</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">until xk+1 = xk.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">As an example, let us find the rounded-square-root of n = 4321.n has 4 digits, so x0 = 7×10(4-2)⁄2 = 70.</p>
+/// <p class="euler__paragraph">Since x2 = x1, we stop here.</p>
+/// <p class="euler__paragraph">So, after just two iterations, we have found that the rounded-square-root of 4321 is 66 (the actual square root is 65.7343137…).</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">The number of iterations required when using this method is surprisingly low.</p>
+/// <p class="euler__paragraph">For example, we can find the rounded-square-root of a 5-digit integer (10,000 ≤ n ≤ 99,999) with an average of 3.2102888889 iterations (the average value was rounded to 10 decimal places).</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Using the procedure described above, what is the average number of iterations required to find the rounded-square-root of a 14-digit number (1013 ≤ n < 1014)?</p>
+/// <p class="euler__paragraph">Give your answer rounded to 10 decimal places.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Note: The symbols ⌊x⌋ and ⌈x⌉ represent the floor function and ceiling function respectively.</p></div>
+
+/// challengeSeed:
+function euler255() {
+  // Good luck!
+  return true;
+}
+
+euler255();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof euler255 === 'function', 'message: <code>euler255()</code> is a function.');
+assert.strictEqual(euler255(), 4.447401118, 'message: <code>euler255()</code> should return 4.447401118.');
+/// id: 5900f46d1000cf542c50ff7f

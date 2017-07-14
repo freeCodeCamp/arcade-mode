@@ -1,0 +1,44 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 409: Nim Extreme
+/// type: project-euler
+
+/// categories:
+/// math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+/// <div class="euler"><p class="euler__paragraph">Let n be a positive integer. Consider nim positions where:There are n non-empty piles.</p>
+/// <p class="euler__paragraph">Each pile has size less than 2n.</p>
+/// <p class="euler__paragraph">No two piles have the same size.</p>
+/// <p class="euler__paragraph">Let W(n) be the number of winning nim positions satisfying the above</p>
+/// <p class="euler__paragraph">conditions (a position is winning if the first player has a winning strategy). For example, W(1) = 1, W(2) = 6, W(3) = 168, W(5) = 19764360 and W(100) mod 1 000 000 007 = 384777056.</p>
+/// <p class="euler__paragraph"></p>
+/// <p class="euler__paragraph">Find W(10 000 000) mod 1 000 000 007.</p></div>
+
+/// challengeSeed:
+function euler409() {
+  // Good luck!
+  return true;
+}
+
+euler409();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert(typeof euler409 === 'function', 'message: <code>euler409()</code> is a function.');
+assert.strictEqual(euler409(), 253223948, 'message: <code>euler409()</code> should return 253223948.');
+/// id: 5900f5061000cf542c510017
