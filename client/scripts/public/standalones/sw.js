@@ -10,7 +10,7 @@ import * as CACHE from './swCache.json';
 
 const debug = require('debug')('am:sw');
 
-const CACHE_VERSION = 14;
+const CACHE_VERSION = 15;
 const CURRENT_CACHES = {
   font: `font-cache-v${CACHE_VERSION}`,
   css: `css-cache-v${CACHE_VERSION}`,
