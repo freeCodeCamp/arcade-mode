@@ -11,13 +11,14 @@ const assert = require('chai').assert;
 /// categories:
 /// math
 
-/// difficulty: ?
+/// difficulty: 1
 
 /// benchmark:
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.</p><p class="euler__paragraph">Find the sum of all the multiples of 3 or 5 below 1000.</p></div>
+/// <div class="euler"><p class="euler__paragraph">If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.</p>
+/// <p class="euler__paragraph">Find the sum of all the multiples of 3 or 5 below 1000.</p></div>
 
 /// challengeSeed:
 function euler1() {
@@ -30,7 +31,7 @@ euler1();
 /// solutions:
 function euler1() {
   let sum = 0;
-  for (let i = 1; i < 999; i++) {
+  for (let i = 1; i < 1000; i++) {
     if (i % 3 === 0 || i % 5 === 0) {
       sum += i;
     }
@@ -39,8 +40,9 @@ function euler1() {
 }
 
 /// tail:
+// not used
 
-/// tests
+/// tests:
 assert(typeof euler1 === 'function', 'message: <code>euler1()</code> is a function.');
 assert.strictEqual(euler1(), 233168, 'message: <code>euler1()</code> should return 233168.');
 /// id: 5900f36e1000cf542c50fe80
