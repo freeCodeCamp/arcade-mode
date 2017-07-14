@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">The hyperexponentiation or tetration of a number a by a positive integer b, denoted by a↑↑b or ba, is recursively defined by:</p><p class="euler__paragraph">a↑↑1 = a,</p><p class="euler__paragraph">a↑↑(k+1) = a(a↑↑k).</p><p class="euler__paragraph"></p><p class="euler__paragraph">Thus we have e.g. 3↑↑2 = 33 = 27, hence 3↑↑3 = 327 = 7625597484987 and 3↑↑4 is roughly 103.6383346400240996*10^12.</p><p class="euler__paragraph">Find the last 8 digits of 1777↑↑1855.</p></div>
+/// <div class="euler"><p class="euler__paragraph">The hyperexponentiation or tetration of a number a by a positive integer b, denoted by a↑↑b or ba, is recursively defined by:</p><p class="euler__paragraph">a↑↑1 = a,</p><p class="euler__paragraph">a↑↑(k+1) = a(a↑↑k).</p><p class="euler__paragraph"></p><p class="euler__paragraph">Thus we have e.g. 3↑↑2 = 33 = 27, hence 3↑↑3 = 327 = 7625597484987 and 3↑↑4 is roughly 103.6383346400240996*10^12.</p><p class="euler__paragraph">Find the last 8 digits of 1777↑↑1855.</p></div>
 
 /// challengeSeed:
 function euler188() {

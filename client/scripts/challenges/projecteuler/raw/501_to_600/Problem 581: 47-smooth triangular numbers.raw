@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">A number is p-smooth if it has no prime factors larger than p.</p><p class="euler__paragraph">Let T be the sequence of triangular numbers, ie T(n)=n(n+1)/2.</p><p class="euler__paragraph">Find the sum of all indices n such that T(n) is 47-smooth.</p></div>
+/// <div class="euler"><p class="euler__paragraph">A number is p-smooth if it has no prime factors larger than p.</p><p class="euler__paragraph">Let T be the sequence of triangular numbers, ie T(n)=n(n+1)/2.</p><p class="euler__paragraph">Find the sum of all indices n such that T(n) is 47-smooth.</p></div>
 
 /// challengeSeed:
 function euler581() {

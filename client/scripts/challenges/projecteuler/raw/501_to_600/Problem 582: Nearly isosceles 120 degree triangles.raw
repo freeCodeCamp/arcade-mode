@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">Let a, b and c be the sides of an integer sided triangle with one angle of 120 degrees, a≤b≤c and b-a≤100.</p><p class="euler__paragraph">Let T(n) be the number of such triangles with c≤n.</p><p class="euler__paragraph">T(1000)=235 and T(108)=1245.</p><p class="euler__paragraph">Find T(10100).</p></div>
+/// <div class="euler"><p class="euler__paragraph">Let a, b and c be the sides of an integer sided triangle with one angle of 120 degrees, a≤b≤c and b-a≤100.</p><p class="euler__paragraph">Let T(n) be the number of such triangles with c≤n.</p><p class="euler__paragraph">T(1000)=235 and T(108)=1245.</p><p class="euler__paragraph">Find T(10100).</p></div>
 
 /// challengeSeed:
 function euler582() {

@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">"The Chase" is a game played with two dice and an even number of players.</p><p class="euler__paragraph"></p><p class="euler__paragraph">The players sit around a table; the game begins with two opposite players having one die each. On each turn, the two players with a die roll it.</p><p class="euler__paragraph">If a player rolls a 1, he passes the die to his neighbour on the left; if he rolls a 6, he passes the die to his neighbour on the right; otherwise, he keeps the die for the next turn.</p><p class="euler__paragraph">The game ends when one player has both dice after they have been rolled and passed; that player has then lost.</p><p class="euler__paragraph"></p><p class="euler__paragraph">In a game with 100 players, what is the expected number of turns the game lasts?</p><p class="euler__paragraph">Give your answer rounded to ten significant digits.</p></div>
+/// <div class="euler"><p class="euler__paragraph">"The Chase" is a game played with two dice and an even number of players.</p><p class="euler__paragraph"></p><p class="euler__paragraph">The players sit around a table; the game begins with two opposite players having one die each. On each turn, the two players with a die roll it.</p><p class="euler__paragraph">If a player rolls a 1, he passes the die to his neighbour on the left; if he rolls a 6, he passes the die to his neighbour on the right; otherwise, he keeps the die for the next turn.</p><p class="euler__paragraph">The game ends when one player has both dice after they have been rolled and passed; that player has then lost.</p><p class="euler__paragraph"></p><p class="euler__paragraph">In a game with 100 players, what is the expected number of turns the game lasts?</p><p class="euler__paragraph">Give your answer rounded to ten significant digits.</p></div>
 
 /// challengeSeed:
 function euler227() {

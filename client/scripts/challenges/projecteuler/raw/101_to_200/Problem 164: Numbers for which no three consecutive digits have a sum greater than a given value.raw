@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">How many 20 digit numbers n (without any leading zero) exist such that no three consecutive digits of n have a sum greater than 9?</p></div>
+/// <div class="euler"><p class="euler__paragraph">How many 20 digit numbers n (without any leading zero) exist such that no three consecutive digits of n have a sum greater than 9?</p></div>
 
 /// challengeSeed:
 function euler164() {

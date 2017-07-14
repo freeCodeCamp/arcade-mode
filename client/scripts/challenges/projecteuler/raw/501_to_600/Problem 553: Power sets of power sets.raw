@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">Let P(n) be the set of the first n positive integers {1, 2, ..., n}.</p><p class="euler__paragraph">Let Q(n) be the set of all the non-empty subsets of P(n).</p><p class="euler__paragraph">Let R(n) be the set of all the non-empty subsets of Q(n).</p><p class="euler__paragraph"></p><p class="euler__paragraph">An element X ∈ R(n) is a non-empty subset of Q(n), so it is itself a set.</p><p class="euler__paragraph">From X we can construct a graph as follows:</p><p class="euler__paragraph"></p><p class="euler__paragraph">Each element Y ∈ X corresponds to a vertex and labeled with Y;</p><p class="euler__paragraph">Two vertices Y1 and Y2 are connected if Y1 ∩ Y2 ≠ ∅.</p><p class="euler__paragraph">For example, X = {{1}, {1,2,3}, {3}, {5,6}, {6,7}} results in the following graph:</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">This graph has two connected components.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Let C(n,k) be the number of elements of R(n) that have exactly k connected components in their graph.</p><p class="euler__paragraph">You are given C(2,1) = 6, C(3,1) = 111, C(4,2) = 486, C(100,10) mod 1 000 000 007 = 728209718.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Find C(104,10) mod 1 000 000 007.</p></div>
+/// <div class="euler"><p class="euler__paragraph">Let P(n) be the set of the first n positive integers {1, 2, ..., n}.</p><p class="euler__paragraph">Let Q(n) be the set of all the non-empty subsets of P(n).</p><p class="euler__paragraph">Let R(n) be the set of all the non-empty subsets of Q(n).</p><p class="euler__paragraph"></p><p class="euler__paragraph">An element X ∈ R(n) is a non-empty subset of Q(n), so it is itself a set.</p><p class="euler__paragraph">From X we can construct a graph as follows:</p><p class="euler__paragraph"></p><p class="euler__paragraph">Each element Y ∈ X corresponds to a vertex and labeled with Y;</p><p class="euler__paragraph">Two vertices Y1 and Y2 are connected if Y1 ∩ Y2 ≠ ∅.</p><p class="euler__paragraph">For example, X = {{1}, {1,2,3}, {3}, {5,6}, {6,7}} results in the following graph:</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">This graph has two connected components.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Let C(n,k) be the number of elements of R(n) that have exactly k connected components in their graph.</p><p class="euler__paragraph">You are given C(2,1) = 6, C(3,1) = 111, C(4,2) = 486, C(100,10) mod 1 000 000 007 = 728209718.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Find C(104,10) mod 1 000 000 007.</p></div>
 
 /// challengeSeed:
 function euler553() {

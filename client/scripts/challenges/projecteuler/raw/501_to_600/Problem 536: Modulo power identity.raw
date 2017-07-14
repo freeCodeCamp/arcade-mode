@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">Let S(n) be the sum of all positive integers m not exceeding n having the following property:a m+4 ≡ a (mod m) for all integers a.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">The values of m ≤ 100 that satisfy this property are 1, 2, 3, 5 and 21, thus S(100) = 1+2+3+5+21 = 32.</p><p class="euler__paragraph">You are given S(106) = 22868117.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Find S(1012).</p></div>
+/// <div class="euler"><p class="euler__paragraph">Let S(n) be the sum of all positive integers m not exceeding n having the following property:a m+4 ≡ a (mod m) for all integers a.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">The values of m ≤ 100 that satisfy this property are 1, 2, 3, 5 and 21, thus S(100) = 1+2+3+5+21 = 32.</p><p class="euler__paragraph">You are given S(106) = 22868117.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Find S(1012).</p></div>
 
 /// challengeSeed:
 function euler536() {

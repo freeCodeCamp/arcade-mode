@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">The binomial coefficient 10C3 = 120.</p><p class="euler__paragraph">120 = 23 × 3 × 5 = 2 × 2 × 2 × 3 × 5, and 2 + 2 + 2 + 3 + 5 = 14.</p><p class="euler__paragraph">So the sum of the terms in the prime factorisation of 10C3 is 14.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Find the sum of the terms in the prime factorisation of 20000000C15000000.</p></div>
+/// <div class="euler"><p class="euler__paragraph">The binomial coefficient 10C3 = 120.</p><p class="euler__paragraph">120 = 23 × 3 × 5 = 2 × 2 × 2 × 3 × 5, and 2 + 2 + 2 + 3 + 5 = 14.</p><p class="euler__paragraph">So the sum of the terms in the prime factorisation of 10C3 is 14.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Find the sum of the terms in the prime factorisation of 20000000C15000000.</p></div>
 
 /// challengeSeed:
 function euler231() {

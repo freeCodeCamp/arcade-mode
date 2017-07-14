@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">Let x be a real number.</p><p class="euler__paragraph">A best approximation to x for the denominator bound d is a rational number r/s in reduced form, with s ≤ d, such that any rational number which is closer to x than r/s has a denominator larger than d:</p><p class="euler__paragraph"></p><p class="euler__paragraph">|p/q-x| < |r/s-x| ⇒ q > d</p><p class="euler__paragraph"></p><p class="euler__paragraph">For example, the best approximation to √13 for the denominator bound 20 is 18/5 and the best approximation to √13 for the denominator bound 30 is 101/28.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Find the sum of all denominators of the best approximations to √n for the denominator bound 1012, where n is not a perfect square and 1 < n ≤ 100000.</p></div>
+/// <div class="euler"><p class="euler__paragraph">Let x be a real number.</p><p class="euler__paragraph">A best approximation to x for the denominator bound d is a rational number r/s in reduced form, with s ≤ d, such that any rational number which is closer to x than r/s has a denominator larger than d:</p><p class="euler__paragraph"></p><p class="euler__paragraph">|p/q-x| < |r/s-x| ⇒ q > d</p><p class="euler__paragraph"></p><p class="euler__paragraph">For example, the best approximation to √13 for the denominator bound 20 is 18/5 and the best approximation to √13 for the denominator bound 30 is 101/28.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Find the sum of all denominators of the best approximations to √n for the denominator bound 1012, where n is not a perfect square and 1 < n ≤ 100000.</p></div>
 
 /// challengeSeed:
 function euler192() {

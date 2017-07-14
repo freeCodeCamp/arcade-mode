@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">Alice and Bob play the game Nim Square.</p><p class="euler__paragraph">Nim Square is just like ordinary three-heap normal play Nim, but the players may only remove a square number of stones from a heap.</p><p class="euler__paragraph">The number of stones in the three heaps is represented by the ordered triple (a,b,c).</p><p class="euler__paragraph">If 0≤a≤b≤c≤29 then the number of losing positions for the next player is 1160.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Find the number of losing positions for the next player if 0≤a≤b≤c≤100 000.</p></div>
+/// <div class="euler"><p class="euler__paragraph">Alice and Bob play the game Nim Square.</p><p class="euler__paragraph">Nim Square is just like ordinary three-heap normal play Nim, but the players may only remove a square number of stones from a heap.</p><p class="euler__paragraph">The number of stones in the three heaps is represented by the ordered triple (a,b,c).</p><p class="euler__paragraph">If 0≤a≤b≤c≤29 then the number of losing positions for the next player is 1160.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Find the number of losing positions for the next player if 0≤a≤b≤c≤100 000.</p></div>
 
 /// challengeSeed:
 function euler310() {

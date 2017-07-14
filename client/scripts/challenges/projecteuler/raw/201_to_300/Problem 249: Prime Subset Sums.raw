@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">Let S = {2, 3, 5, ..., 4999} be the set of prime numbers less than 5000.</p><p class="euler__paragraph">Find the number of subsets of S, the sum of whose elements is a prime number.</p><p class="euler__paragraph">Enter the rightmost 16 digits as your answer.</p></div>
+/// <div class="euler"><p class="euler__paragraph">Let S = {2, 3, 5, ..., 4999} be the set of prime numbers less than 5000.</p><p class="euler__paragraph">Find the number of subsets of S, the sum of whose elements is a prime number.</p><p class="euler__paragraph">Enter the rightmost 16 digits as your answer.</p></div>
 
 /// challengeSeed:
 function euler249() {

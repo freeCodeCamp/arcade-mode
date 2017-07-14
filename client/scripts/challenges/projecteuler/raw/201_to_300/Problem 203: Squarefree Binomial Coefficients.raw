@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">The binomial coefficients nCk can be arranged in triangular form, Pascal's triangle, like this:</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">111121133114641151010511615201561172135352171</p><p class="euler__paragraph">.........</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">It can be seen that the first eight rows of Pascal's triangle contain twelve distinct numbers: 1, 2, 3, 4, 5, 6, 7, 10, 15, 20, 21 and 35.</p><p class="euler__paragraph"></p><p class="euler__paragraph">A positive integer n is called squarefree if no square of a prime divides n.</p><p class="euler__paragraph">Of the twelve distinct numbers in the first eight rows of Pascal's triangle, all except 4 and 20 are squarefree.</p><p class="euler__paragraph">The sum of the distinct squarefree numbers in the first eight rows is 105.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Find the sum of the distinct squarefree numbers in the first 51 rows of Pascal's triangle.</p></div>
+/// <div class="euler"><p class="euler__paragraph">The binomial coefficients nCk can be arranged in triangular form, Pascal's triangle, like this:</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">111121133114641151010511615201561172135352171</p><p class="euler__paragraph">.........</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">It can be seen that the first eight rows of Pascal's triangle contain twelve distinct numbers: 1, 2, 3, 4, 5, 6, 7, 10, 15, 20, 21 and 35.</p><p class="euler__paragraph"></p><p class="euler__paragraph">A positive integer n is called squarefree if no square of a prime divides n.</p><p class="euler__paragraph">Of the twelve distinct numbers in the first eight rows of Pascal's triangle, all except 4 and 20 are squarefree.</p><p class="euler__paragraph">The sum of the distinct squarefree numbers in the first eight rows is 105.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Find the sum of the distinct squarefree numbers in the first 51 rows of Pascal's triangle.</p></div>
 
 /// challengeSeed:
 function euler203() {

@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">Let a0, a1, a2, ... be an integer sequence defined by:</p><p class="euler__paragraph">a0 = 1;</p><p class="euler__paragraph">for n ≥ 1, an is the sum of the digits of all preceding terms.</p><p class="euler__paragraph">The sequence starts with 1, 1, 2, 4, 8, 16, 23, 28, 38, 49, ...</p><p class="euler__paragraph">You are given a106 = 31054319.</p><p class="euler__paragraph">Find a1015.</p></div>
+/// <div class="euler"><p class="euler__paragraph">Let a0, a1, a2, ... be an integer sequence defined by:</p><p class="euler__paragraph">a0 = 1;</p><p class="euler__paragraph">for n ≥ 1, an is the sum of the digits of all preceding terms.</p><p class="euler__paragraph">The sequence starts with 1, 1, 2, 4, 8, 16, 23, 28, 38, 49, ...</p><p class="euler__paragraph">You are given a106 = 31054319.</p><p class="euler__paragraph">Find a1015.</p></div>
 
 /// challengeSeed:
 function euler551() {

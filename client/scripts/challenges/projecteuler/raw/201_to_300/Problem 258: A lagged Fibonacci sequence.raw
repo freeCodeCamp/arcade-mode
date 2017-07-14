@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">A sequence is defined as:</p><p class="euler__paragraph"></p><p class="euler__paragraph">gk = 1, for 0 ≤ k ≤ 1999</p><p class="euler__paragraph">gk = gk-2000 + gk-1999, for k ≥ 2000.</p><p class="euler__paragraph">Find gk mod 20092010 for k = 1018.</p></div>
+/// <div class="euler"><p class="euler__paragraph">A sequence is defined as:</p><p class="euler__paragraph"></p><p class="euler__paragraph">gk = 1, for 0 ≤ k ≤ 1999</p><p class="euler__paragraph">gk = gk-2000 + gk-1999, for k ≥ 2000.</p><p class="euler__paragraph">Find gk mod 20092010 for k = 1018.</p></div>
 
 /// challengeSeed:
 function euler258() {

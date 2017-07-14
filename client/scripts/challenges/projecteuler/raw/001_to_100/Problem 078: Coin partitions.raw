@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">Let p(n) represent the number of different ways in which n coins can be separated into piles. For example, five coins can be separated into piles in exactly seven different ways, so p(5)=7.</p><p class="euler__paragraph"></p><p class="euler__paragraph">OOOOO</p><p class="euler__paragraph">OOOO   O</p><p class="euler__paragraph">OOO   OO</p><p class="euler__paragraph">OOO   O   O</p><p class="euler__paragraph">OO   OO   O</p><p class="euler__paragraph">OO   O   O   O</p><p class="euler__paragraph">O   O   O   O   O</p><p class="euler__paragraph"></p><p class="euler__paragraph">Find the least value of n for which p(n) is divisible by one million.</p></div>
+/// <div class="euler"><p class="euler__paragraph">Let p(n) represent the number of different ways in which n coins can be separated into piles. For example, five coins can be separated into piles in exactly seven different ways, so p(5)=7.</p><p class="euler__paragraph"></p><p class="euler__paragraph">OOOOO</p><p class="euler__paragraph">OOOO   O</p><p class="euler__paragraph">OOO   OO</p><p class="euler__paragraph">OOO   O   O</p><p class="euler__paragraph">OO   OO   O</p><p class="euler__paragraph">OO   O   O   O</p><p class="euler__paragraph">O   O   O   O   O</p><p class="euler__paragraph"></p><p class="euler__paragraph">Find the least value of n for which p(n) is divisible by one million.</p></div>
 
 /// challengeSeed:
 function euler78() {

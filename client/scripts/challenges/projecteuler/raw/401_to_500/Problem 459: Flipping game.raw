@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">The flipping game is a two player game played on a N by N square board.</p><p class="euler__paragraph">Each square contains a disk with one side white and one side black.</p><p class="euler__paragraph">The game starts with all disks showing their white side.</p><p class="euler__paragraph"></p><p class="euler__paragraph">A turn consists of flipping all disks in a rectangle with the following properties:</p><p class="euler__paragraph">the upper right corner of the rectangle contains a white disk</p><p class="euler__paragraph">the rectangle width is a perfect square (1, 4, 9, 16, ...)</p><p class="euler__paragraph">the rectangle height is a triangular number (1, 3, 6, 10, ...)</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Players alternate turns. A player wins by turning the grid all black.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Let W(N) be the number of winning moves for the first player on a N by N board with all disks white, assuming perfect play.</p><p class="euler__paragraph">W(1) = 1, W(2) = 0, W(5) = 8 and W(102) = 31395.</p><p class="euler__paragraph"></p><p class="euler__paragraph">For N=5, the first player's eight winning first moves are:</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Find W(106).</p></div>
+/// <div class="euler"><p class="euler__paragraph">The flipping game is a two player game played on a N by N square board.</p><p class="euler__paragraph">Each square contains a disk with one side white and one side black.</p><p class="euler__paragraph">The game starts with all disks showing their white side.</p><p class="euler__paragraph"></p><p class="euler__paragraph">A turn consists of flipping all disks in a rectangle with the following properties:</p><p class="euler__paragraph">the upper right corner of the rectangle contains a white disk</p><p class="euler__paragraph">the rectangle width is a perfect square (1, 4, 9, 16, ...)</p><p class="euler__paragraph">the rectangle height is a triangular number (1, 3, 6, 10, ...)</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Players alternate turns. A player wins by turning the grid all black.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Let W(N) be the number of winning moves for the first player on a N by N board with all disks white, assuming perfect play.</p><p class="euler__paragraph">W(1) = 1, W(2) = 0, W(5) = 8 and W(102) = 31395.</p><p class="euler__paragraph"></p><p class="euler__paragraph">For N=5, the first player's eight winning first moves are:</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Find W(106).</p></div>
 
 /// challengeSeed:
 function euler459() {

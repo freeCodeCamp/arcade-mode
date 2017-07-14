@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">Let f(n) be the largest prime factor of n.</p><p class="euler__paragraph">Let g(n) = f(n) + f(n+1) + f(n+2) + f(n+3) + f(n+4) + f(n+5) + f(n+6) + f(n+7) + f(n+8), the sum of the largest prime factor of each of nine consecutive numbers starting with n.</p><p class="euler__paragraph">Let h(n) be the maximum value of g(k) for 2 ≤ k ≤ n.</p><p class="euler__paragraph">You are given:</p><p class="euler__paragraph">f(100) = 5</p><p class="euler__paragraph">f(101) = 101</p><p class="euler__paragraph">g(100) = 409</p><p class="euler__paragraph">h(100) = 417</p><p class="euler__paragraph">h(109) = 4896292593Find h(1016).</p></div>
+/// <div class="euler"><p class="euler__paragraph">Let f(n) be the largest prime factor of n.</p><p class="euler__paragraph">Let g(n) = f(n) + f(n+1) + f(n+2) + f(n+3) + f(n+4) + f(n+5) + f(n+6) + f(n+7) + f(n+8), the sum of the largest prime factor of each of nine consecutive numbers starting with n.</p><p class="euler__paragraph">Let h(n) be the maximum value of g(k) for 2 ≤ k ≤ n.</p><p class="euler__paragraph">You are given:</p><p class="euler__paragraph">f(100) = 5</p><p class="euler__paragraph">f(101) = 101</p><p class="euler__paragraph">g(100) = 409</p><p class="euler__paragraph">h(100) = 417</p><p class="euler__paragraph">h(109) = 4896292593Find h(1016).</p></div>
 
 /// challengeSeed:
 function euler526() {

@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">Circles A and B are tangent to each other and to line L at three distinct points.</p><p class="euler__paragraph">Circle C is inside the space between A, B and L, and tangent to all three.</p><p class="euler__paragraph">Let rA, rB and rC be the radii of A, B and C respectively.</p><p class="euler__paragraph">Let S(n) = Σ rA + rB + rC, for 0 < rA ≤ rB ≤ n where rA, rB and rC are integers.</p><p class="euler__paragraph">The only solution for 0 < rA ≤ rB ≤ 5 is rA = 4, rB = 4 and rC = 1, so S(5) = 4 + 4 + 1 = 9.</p><p class="euler__paragraph">You are also given S(100) = 3072.</p><p class="euler__paragraph">Find S(109).</p></div>
+/// <div class="euler"><p class="euler__paragraph">Circles A and B are tangent to each other and to line L at three distinct points.</p><p class="euler__paragraph">Circle C is inside the space between A, B and L, and tangent to all three.</p><p class="euler__paragraph">Let rA, rB and rC be the radii of A, B and C respectively.</p><p class="euler__paragraph">Let S(n) = Σ rA + rB + rC, for 0 < rA ≤ rB ≤ n where rA, rB and rC are integers.</p><p class="euler__paragraph">The only solution for 0 < rA ≤ rB ≤ 5 is rA = 4, rB = 4 and rC = 1, so S(5) = 4 + 4 + 1 = 9.</p><p class="euler__paragraph">You are also given S(100) = 3072.</p><p class="euler__paragraph">Find S(109).</p></div>
 
 /// challengeSeed:
 function euler510() {

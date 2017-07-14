@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">Let W(n,k) be the number of ways in which n can be written as the product of k distinct positive integers.</p><p class="euler__paragraph">For example, W(144,4) = 7. There are 7 ways in which 144 can be written as a product of 4 distinct positive integers:</p><p class="euler__paragraph">144 = 1×2×4×18</p><p class="euler__paragraph">144 = 1×2×8×9</p><p class="euler__paragraph">144 = 1×2×3×24</p><p class="euler__paragraph">144 = 1×2×6×12</p><p class="euler__paragraph">144 = 1×3×4×12</p><p class="euler__paragraph">144 = 1×3×6×8</p><p class="euler__paragraph">144 = 2×3×4×6</p><p class="euler__paragraph">Note that permutations of the integers themselves are not considered distinct.</p><p class="euler__paragraph">Furthermore, W(100!,10) modulo 1 000 000 007 = 287549200.</p><p class="euler__paragraph">Find W(10000!,30) modulo 1 000 000 007.</p></div>
+/// <div class="euler"><p class="euler__paragraph">Let W(n,k) be the number of ways in which n can be written as the product of k distinct positive integers.</p><p class="euler__paragraph">For example, W(144,4) = 7. There are 7 ways in which 144 can be written as a product of 4 distinct positive integers:</p><p class="euler__paragraph">144 = 1×2×4×18</p><p class="euler__paragraph">144 = 1×2×8×9</p><p class="euler__paragraph">144 = 1×2×3×24</p><p class="euler__paragraph">144 = 1×2×6×12</p><p class="euler__paragraph">144 = 1×3×4×12</p><p class="euler__paragraph">144 = 1×3×6×8</p><p class="euler__paragraph">144 = 2×3×4×6</p><p class="euler__paragraph">Note that permutations of the integers themselves are not considered distinct.</p><p class="euler__paragraph">Furthermore, W(100!,10) modulo 1 000 000 007 = 287549200.</p><p class="euler__paragraph">Find W(10000!,30) modulo 1 000 000 007.</p></div>
 
 /// challengeSeed:
 function euler495() {

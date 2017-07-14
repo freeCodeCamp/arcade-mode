@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">Comparing two numbers written in index form like 211 and 37 is not difficult, as any calculator would confirm that 211 = 2048 < 37 = 2187.</p><p class="euler__paragraph">However, confirming that 632382518061 > 519432525806 would be much more difficult, as both numbers contain over three million digits.</p><p class="euler__paragraph">Using base_exp.txt (right click and 'Save Link/Target As...'), a 22K text file containing one thousand lines with a base/exponent pair on each line, determine which line number has the greatest numerical value.</p><p class="euler__paragraph">NOTE: The first two lines in the file represent the numbers in the example given above.</p></div>
+/// <div class="euler"><p class="euler__paragraph">Comparing two numbers written in index form like 211 and 37 is not difficult, as any calculator would confirm that 211 = 2048 < 37 = 2187.</p><p class="euler__paragraph">However, confirming that 632382518061 > 519432525806 would be much more difficult, as both numbers contain over three million digits.</p><p class="euler__paragraph">Using base_exp.txt (right click and 'Save Link/Target As...'), a 22K text file containing one thousand lines with a base/exponent pair on each line, determine which line number has the greatest numerical value.</p><p class="euler__paragraph">NOTE: The first two lines in the file represent the numbers in the example given above.</p></div>
 
 /// challengeSeed:
 function euler99() {

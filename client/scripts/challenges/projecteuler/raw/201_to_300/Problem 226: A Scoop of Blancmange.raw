@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">The blancmange curve is the set of points (x,y) such that 0 ≤ x ≤ 1 and  ,where s(x) = the distance from x to the nearest integer.</p><p class="euler__paragraph"></p><p class="euler__paragraph">The area under the blancmange curve is equal to ½, shown in pink in the diagram below.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Let C be the circle with centre (¼,½) and radius ¼, shown in black in the diagram.</p><p class="euler__paragraph"></p><p class="euler__paragraph">What area under the blancmange curve is enclosed by C?Give your answer rounded to eight decimal places in the form 0.abcdefgh</p></div>
+/// <div class="euler"><p class="euler__paragraph">The blancmange curve is the set of points (x,y) such that 0 ≤ x ≤ 1 and  ,where s(x) = the distance from x to the nearest integer.</p><p class="euler__paragraph"></p><p class="euler__paragraph">The area under the blancmange curve is equal to ½, shown in pink in the diagram below.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Let C be the circle with centre (¼,½) and radius ¼, shown in black in the diagram.</p><p class="euler__paragraph"></p><p class="euler__paragraph">What area under the blancmange curve is enclosed by C?Give your answer rounded to eight decimal places in the form 0.abcdefgh</p></div>
 
 /// challengeSeed:
 function euler226() {

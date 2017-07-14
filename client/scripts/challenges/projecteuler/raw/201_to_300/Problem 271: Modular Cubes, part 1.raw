@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">For a positive number n, define S(n) as the sum of the integers x, for which 1<x<n andx3≡1 mod n.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">When n=91, there are 8 possible values for x, namely : 9, 16, 22, 29, 53, 74, 79, 81.</p><p class="euler__paragraph">Thus, S(91)=9+16+22+29+53+74+79+81=363.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Find S(13082761331670030).</p></div>
+/// <div class="euler"><p class="euler__paragraph">For a positive number n, define S(n) as the sum of the integers x, for which 1<x<n andx3≡1 mod n.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">When n=91, there are 8 possible values for x, namely : 9, 16, 22, 29, 53, 74, 79, 81.</p><p class="euler__paragraph">Thus, S(91)=9+16+22+29+53+74+79+81=363.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Find S(13082761331670030).</p></div>
 
 /// challengeSeed:
 function euler271() {

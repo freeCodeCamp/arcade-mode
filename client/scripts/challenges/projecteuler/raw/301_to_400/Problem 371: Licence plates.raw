@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">Oregon licence plates consist of three letters followed by a three digit number (each digit can be from [0..9]).</p><p class="euler__paragraph">While driving to work Seth plays the following game:</p><p class="euler__paragraph">Whenever the numbers of two licence plates seen on his trip add to 1000 that's a win.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">E.g. MIC-012 and HAN-988 is a win and RYU-500 and SET-500 too. (as long as he sees them in the same trip). </p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Find the expected number of plates he needs to see for a win.</p><p class="euler__paragraph">Give your answer rounded to 8 decimal places behind the decimal point.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Note: We assume that each licence plate seen is equally likely to have any three digit number on it.</p></div>
+/// <div class="euler"><p class="euler__paragraph">Oregon licence plates consist of three letters followed by a three digit number (each digit can be from [0..9]).</p><p class="euler__paragraph">While driving to work Seth plays the following game:</p><p class="euler__paragraph">Whenever the numbers of two licence plates seen on his trip add to 1000 that's a win.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">E.g. MIC-012 and HAN-988 is a win and RYU-500 and SET-500 too. (as long as he sees them in the same trip). </p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Find the expected number of plates he needs to see for a win.</p><p class="euler__paragraph">Give your answer rounded to 8 decimal places behind the decimal point.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Note: We assume that each licence plate seen is equally likely to have any three digit number on it.</p></div>
 
 /// challengeSeed:
 function euler371() {

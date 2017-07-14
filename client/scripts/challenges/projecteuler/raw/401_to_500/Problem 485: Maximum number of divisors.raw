@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">Let d(n) be the number of divisors of n.</p><p class="euler__paragraph">Let M(n,k) be the maximum value of d(j) for n ≤ j ≤ n+k-1.</p><p class="euler__paragraph">Let S(u,k) be the sum of M(n,k) for 1 ≤ n ≤ u-k+1.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">You are given that S(1000,10)=17176.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Find S(100 000 000,100 000).</p></div>
+/// <div class="euler"><p class="euler__paragraph">Let d(n) be the number of divisors of n.</p><p class="euler__paragraph">Let M(n,k) be the maximum value of d(j) for n ≤ j ≤ n+k-1.</p><p class="euler__paragraph">Let S(u,k) be the sum of M(n,k) for 1 ≤ n ≤ u-k+1.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">You are given that S(1000,10)=17176.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Find S(100 000 000,100 000).</p></div>
 
 /// challengeSeed:
 function euler485() {

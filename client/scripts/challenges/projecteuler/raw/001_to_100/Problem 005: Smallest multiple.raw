@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">2520 is the smallest number that can be divided by each of the numbers from 1 to 10 without any remainder.</p><p class="euler__paragraph">What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?</p></div>
+/// <div class="euler"><p class="euler__paragraph">2520 is the smallest number that can be divided by each of the numbers from 1 to 10 without any remainder.</p><p class="euler__paragraph">What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?</p></div>
 
 /// challengeSeed:
 function euler5() {

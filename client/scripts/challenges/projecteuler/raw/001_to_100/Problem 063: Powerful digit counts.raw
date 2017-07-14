@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">The 5-digit number, 16807=75, is also a fifth power. Similarly, the 9-digit number, 134217728=89, is a ninth power.</p><p class="euler__paragraph">How many n-digit positive integers exist which are also an nth power?</p></div>
+/// <div class="euler"><p class="euler__paragraph">The 5-digit number, 16807=75, is also a fifth power. Similarly, the 9-digit number, 134217728=89, is a ninth power.</p><p class="euler__paragraph">How many n-digit positive integers exist which are also an nth power?</p></div>
 
 /// challengeSeed:
 function euler63() {

@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">Let $\sigma(n)$ be the sum of the divisors of $n$.</p><p class="euler__paragraph">E.g. the divisors of 4 are 1, 2 and 4, so $\sigma(4)=7$.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">The numbers $n$ not exceeding 20 such that 7 divides  $\sigma(n)$ are:  4,12,13 and 20, the sum of these numbers being 49.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Let $S(n , d)$ be the sum of the numbers $i$ not exceeding $n$ such that $d$ divides $\sigma(i)$.</p><p class="euler__paragraph">So $S(20 , 7)=49$.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">You are given: $S(10^6,2017)=150850429$ and $S(10^9 , 2017)=249652238344557$.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Find $S(10^{11} , 2017)$</p></div>
+/// <div class="euler"><p class="euler__paragraph">Let $\sigma(n)$ be the sum of the divisors of $n$.</p><p class="euler__paragraph">E.g. the divisors of 4 are 1, 2 and 4, so $\sigma(4)=7$.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">The numbers $n$ not exceeding 20 such that 7 divides  $\sigma(n)$ are:  4,12,13 and 20, the sum of these numbers being 49.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Let $S(n , d)$ be the sum of the numbers $i$ not exceeding $n$ such that $d$ divides $\sigma(i)$.</p><p class="euler__paragraph">So $S(20 , 7)=49$.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">You are given: $S(10^6,2017)=150850429$ and $S(10^9 , 2017)=249652238344557$.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Find $S(10^{11} , 2017)$</p></div>
 
 /// challengeSeed:
 function euler565() {

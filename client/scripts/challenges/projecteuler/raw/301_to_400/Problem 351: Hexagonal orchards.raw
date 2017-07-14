@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">A hexagonal orchard of order n is a triangular lattice made up of points within a regular hexagon with side n. The following is an example of a hexagonal orchard of order 5:</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Highlighted in green are the points which are hidden from the center by a point closer to it. It can be seen that for a hexagonal orchard of order 5, 30 points are hidden from the center.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Let H(n) be the number of points hidden from the center in a hexagonal orchard of order n.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">H(5) = 30. H(10) = 138. H(1 000) = 1177848.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Find H(100 000 000).</p></div>
+/// <div class="euler"><p class="euler__paragraph">A hexagonal orchard of order n is a triangular lattice made up of points within a regular hexagon with side n. The following is an example of a hexagonal orchard of order 5:</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Highlighted in green are the points which are hidden from the center by a point closer to it. It can be seen that for a hexagonal orchard of order 5, 30 points are hidden from the center.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Let H(n) be the number of points hidden from the center in a hexagonal orchard of order n.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">H(5) = 30. H(10) = 138. H(1 000) = 1177848.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Find H(100 000 000).</p></div>
 
 /// challengeSeed:
 function euler351() {

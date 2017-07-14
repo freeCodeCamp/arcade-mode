@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">Consider the triangles with integer sides a, b and c with a ≤ b ≤ c.</p><p class="euler__paragraph">An integer sided triangle (a,b,c) is called primitive if  gcd(a,b,c)=1. </p><p class="euler__paragraph">How many primitive integer sided triangles exist with a perimeter not exceeding 10 000 000?</p></div>
+/// <div class="euler"><p class="euler__paragraph">Consider the triangles with integer sides a, b and c with a ≤ b ≤ c.</p><p class="euler__paragraph">An integer sided triangle (a,b,c) is called primitive if  gcd(a,b,c)=1. </p><p class="euler__paragraph">How many primitive integer sided triangles exist with a perimeter not exceeding 10 000 000?</p></div>
 
 /// challengeSeed:
 function euler276() {

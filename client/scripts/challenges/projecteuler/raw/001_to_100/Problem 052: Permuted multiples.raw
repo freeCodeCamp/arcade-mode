@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">It can be seen that the number, 125874, and its double, 251748, contain exactly the same digits, but in a different order.</p><p class="euler__paragraph">Find the smallest positive integer, x, such that 2x, 3x, 4x, 5x, and 6x, contain the same digits.</p></div>
+/// <div class="euler"><p class="euler__paragraph">It can be seen that the number, 125874, and its double, 251748, contain exactly the same digits, but in a different order.</p><p class="euler__paragraph">Find the smallest positive integer, x, such that 2x, 3x, 4x, 5x, and 6x, contain the same digits.</p></div>
 
 /// challengeSeed:
 function euler52() {

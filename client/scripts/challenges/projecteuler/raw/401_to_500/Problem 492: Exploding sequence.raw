@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">Define the sequence a1, a2, a3, ... as:</p><p class="euler__paragraph">a1 = 1</p><p class="euler__paragraph">an+1 = 6an2 + 10an + 3 for n ≥ 1.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Examples:</p><p class="euler__paragraph">a3 = 2359</p><p class="euler__paragraph">a6 = 269221280981320216750489044576319</p><p class="euler__paragraph">a6 mod 1 000 000 007 = 203064689</p><p class="euler__paragraph">a100 mod 1 000 000 007 = 456482974</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Define B(x,y,n) as ∑ (an mod p) for every prime p such that x ≤ p ≤ x+y.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Examples:</p><p class="euler__paragraph">B(109, 103, 103) = 23674718882</p><p class="euler__paragraph">B(109, 103, 1015) = 20731563854</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Find B(109, 107, 1015).</p></div>
+/// <div class="euler"><p class="euler__paragraph">Define the sequence a1, a2, a3, ... as:</p><p class="euler__paragraph">a1 = 1</p><p class="euler__paragraph">an+1 = 6an2 + 10an + 3 for n ≥ 1.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Examples:</p><p class="euler__paragraph">a3 = 2359</p><p class="euler__paragraph">a6 = 269221280981320216750489044576319</p><p class="euler__paragraph">a6 mod 1 000 000 007 = 203064689</p><p class="euler__paragraph">a100 mod 1 000 000 007 = 456482974</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Define B(x,y,n) as ∑ (an mod p) for every prime p such that x ≤ p ≤ x+y.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Examples:</p><p class="euler__paragraph">B(109, 103, 103) = 23674718882</p><p class="euler__paragraph">B(109, 103, 1015) = 20731563854</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Find B(109, 107, 1015).</p></div>
 
 /// challengeSeed:
 function euler492() {

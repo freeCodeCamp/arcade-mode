@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">Let ak, bk, and ck represent the three solutions (real or complex numbers) to the expression 1/x = (k/x)2(k+x2) - kx.</p><p class="euler__paragraph"></p><p class="euler__paragraph">For instance, for k = 5, we see that {a5, b5, c5} is approximately {5.727244, -0.363622+2.057397i, -0.363622-2.057397i}.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Let S(n) = Σ (ak+bk)p(bk+ck)p(ck+ak)p for all integers p, k such that 1 ≤ p, k ≤ n. </p><p class="euler__paragraph"></p><p class="euler__paragraph">Interestingly, S(n) is always an integer. For example, S(4) = 51160.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Find S(106) modulo 1 000 000 007.</p></div>
+/// <div class="euler"><p class="euler__paragraph">Let ak, bk, and ck represent the three solutions (real or complex numbers) to the expression 1/x = (k/x)2(k+x2) - kx.</p><p class="euler__paragraph"></p><p class="euler__paragraph">For instance, for k = 5, we see that {a5, b5, c5} is approximately {5.727244, -0.363622+2.057397i, -0.363622-2.057397i}.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Let S(n) = Σ (ak+bk)p(bk+ck)p(ck+ak)p for all integers p, k such that 1 ≤ p, k ≤ n. </p><p class="euler__paragraph"></p><p class="euler__paragraph">Interestingly, S(n) is always an integer. For example, S(4) = 51160.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Find S(106) modulo 1 000 000 007.</p></div>
 
 /// challengeSeed:
 function euler479() {

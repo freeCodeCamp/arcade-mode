@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">In a room N chairs are placed around a round table.</p><p class="euler__paragraph">Knights enter the room one by one and choose at random an available empty chair.</p><p class="euler__paragraph">To have enough elbow room the knights always leave at least one empty chair between each other.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">When there aren't any suitable chairs left, the fraction C of empty chairs is determined.</p><p class="euler__paragraph">We also define E(N) as the expected value of C.</p><p class="euler__paragraph">We can verify that E(4) = 1/2 and E(6) = 5/9.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Find E(1018). Give your answer rounded to fourteen decimal places in the form 0.abcdefghijklmn.</p></div>
+/// <div class="euler"><p class="euler__paragraph">In a room N chairs are placed around a round table.</p><p class="euler__paragraph">Knights enter the room one by one and choose at random an available empty chair.</p><p class="euler__paragraph">To have enough elbow room the knights always leave at least one empty chair between each other.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">When there aren't any suitable chairs left, the fraction C of empty chairs is determined.</p><p class="euler__paragraph">We also define E(N) as the expected value of C.</p><p class="euler__paragraph">We can verify that E(4) = 1/2 and E(6) = 5/9.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Find E(1018). Give your answer rounded to fourteen decimal places in the form 0.abcdefghijklmn.</p></div>
 
 /// challengeSeed:
 function euler469() {

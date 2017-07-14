@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">Having three black objects B and one white object W they can be grouped in 7 ways like this:</p><p class="euler__paragraph">(BBBW)(B,BBW)(B,B,BW)(B,B,B,W)</p><p class="euler__paragraph">(B,BB,W)(BBB,W)(BB,BW)</p><p class="euler__paragraph">In how many ways can sixty black objects B and forty white objects W be  thus grouped?</p></div>
+/// <div class="euler"><p class="euler__paragraph">Having three black objects B and one white object W they can be grouped in 7 ways like this:</p><p class="euler__paragraph">(BBBW)(B,BBW)(B,B,BW)(B,B,B,W)</p><p class="euler__paragraph">(B,BB,W)(BBB,W)(BB,BW)</p><p class="euler__paragraph">In how many ways can sixty black objects B and forty white objects W be  thus grouped?</p></div>
 
 /// challengeSeed:
 function euler181() {

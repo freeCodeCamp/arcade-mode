@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">Let f(N) be the number of points with integer coordinates that are on a circle passing through (0,0), (N,0),(0,N), and (N,N).</p><p class="euler__paragraph">It can be shown that f(10000) = 36.</p><p class="euler__paragraph"></p><p class="euler__paragraph">What is the sum of all positive integers N ≤ 1011 such that f(N) = 420 ?</p></div>
+/// <div class="euler"><p class="euler__paragraph">Let f(N) be the number of points with integer coordinates that are on a circle passing through (0,0), (N,0),(0,N), and (N,N).</p><p class="euler__paragraph">It can be shown that f(10000) = 36.</p><p class="euler__paragraph"></p><p class="euler__paragraph">What is the sum of all positive integers N ≤ 1011 such that f(N) = 420 ?</p></div>
 
 /// challengeSeed:
 function euler233() {

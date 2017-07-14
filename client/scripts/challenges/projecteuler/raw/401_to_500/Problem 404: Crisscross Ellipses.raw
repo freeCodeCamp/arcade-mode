@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">Ea is an ellipse with an equation of the form x2 + 4y2 = 4a2.</p><p class="euler__paragraph">Ea' is the rotated image of Ea by θ degrees counterclockwise around the origin O(0, 0) for 0° < θ < 90°.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">b is the distance to the origin of the two intersection points closest to the origin and c is the distance of the two other intersection points.</p><p class="euler__paragraph">We call an ordered triplet (a, b, c) a canonical ellipsoidal triplet if a, b and c are positive integers.</p><p class="euler__paragraph">For example, (209, 247, 286) is a canonical ellipsoidal triplet.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Let C(N) be the number of distinct canonical ellipsoidal triplets (a, b, c) for a ≤ N.</p><p class="euler__paragraph">It can be verified that C(103) = 7, C(104) = 106 and C(106) = 11845.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Find C(1017).</p></div>
+/// <div class="euler"><p class="euler__paragraph">Ea is an ellipse with an equation of the form x2 + 4y2 = 4a2.</p><p class="euler__paragraph">Ea' is the rotated image of Ea by θ degrees counterclockwise around the origin O(0, 0) for 0° < θ < 90°.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">b is the distance to the origin of the two intersection points closest to the origin and c is the distance of the two other intersection points.</p><p class="euler__paragraph">We call an ordered triplet (a, b, c) a canonical ellipsoidal triplet if a, b and c are positive integers.</p><p class="euler__paragraph">For example, (209, 247, 286) is a canonical ellipsoidal triplet.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Let C(N) be the number of distinct canonical ellipsoidal triplets (a, b, c) for a ≤ N.</p><p class="euler__paragraph">It can be verified that C(103) = 7, C(104) = 106 and C(106) = 11845.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Find C(1017).</p></div>
 
 /// challengeSeed:
 function euler404() {

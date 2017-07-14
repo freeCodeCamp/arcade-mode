@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">You are given a unique investment opportunity.</p><p class="euler__paragraph">Starting with £1 of capital, you can choose a fixed proportion, f, of your capital to bet on a fair coin toss repeatedly for 1000 tosses.</p><p class="euler__paragraph">Your return is double your bet for heads and you lose your bet for tails.</p><p class="euler__paragraph">For example, if f = 1/4,  for the first toss you bet £0.25, and if heads comes up you win £0.5 and so then have £1.5. You then bet £0.375 and if the second toss is tails, you have £1.125.</p><p class="euler__paragraph">Choosing f to maximize your chances of having at least £1,000,000,000 after 1,000 flips, what is the chance that you become a billionaire?</p><p class="euler__paragraph">All computations are assumed to be exact (no rounding), but give your answer rounded to 12 digits behind the decimal point in the form 0.abcdefghijkl.</p></div>
+/// <div class="euler"><p class="euler__paragraph">You are given a unique investment opportunity.</p><p class="euler__paragraph">Starting with £1 of capital, you can choose a fixed proportion, f, of your capital to bet on a fair coin toss repeatedly for 1000 tosses.</p><p class="euler__paragraph">Your return is double your bet for heads and you lose your bet for tails.</p><p class="euler__paragraph">For example, if f = 1/4,  for the first toss you bet £0.25, and if heads comes up you win £0.5 and so then have £1.5. You then bet £0.375 and if the second toss is tails, you have £1.125.</p><p class="euler__paragraph">Choosing f to maximize your chances of having at least £1,000,000,000 after 1,000 flips, what is the chance that you become a billionaire?</p><p class="euler__paragraph">All computations are assumed to be exact (no rounding), but give your answer rounded to 12 digits behind the decimal point in the form 0.abcdefghijkl.</p></div>
 
 /// challengeSeed:
 function euler267() {

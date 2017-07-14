@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">Let H(n) be the number of distinct integer sided equiangular convex hexagons with perimeter not exceeding n.</p><p class="euler__paragraph">Hexagons are distinct if and only if they are not congruent.</p><p class="euler__paragraph"></p><p class="euler__paragraph">You are given H(6) = 1, H(12) = 10, H(100) = 31248.</p><p class="euler__paragraph">Find H(55106).</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Equiangular hexagons with perimeter not exceeding 12</p></div>
+/// <div class="euler"><p class="euler__paragraph">Let H(n) be the number of distinct integer sided equiangular convex hexagons with perimeter not exceeding n.</p><p class="euler__paragraph">Hexagons are distinct if and only if they are not congruent.</p><p class="euler__paragraph"></p><p class="euler__paragraph">You are given H(6) = 1, H(12) = 10, H(100) = 31248.</p><p class="euler__paragraph">Find H(55106).</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Equiangular hexagons with perimeter not exceeding 12</p></div>
 
 /// challengeSeed:
 function euler600() {

@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">The sum of the squares of the first ten natural numbers is,</p><p class="euler__paragraph">12 + 22 + ... + 102 = 385</p><p class="euler__paragraph">The square of the sum of the first ten natural numbers is,</p><p class="euler__paragraph">(1 + 2 + ... + 10)2 = 552 = 3025</p><p class="euler__paragraph">Hence the difference between the sum of the squares of the first ten natural numbers and the square of the sum is 3025 − 385 = 2640.</p><p class="euler__paragraph">Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum.</p></div>
+/// <div class="euler"><p class="euler__paragraph">The sum of the squares of the first ten natural numbers is,</p><p class="euler__paragraph">12 + 22 + ... + 102 = 385</p><p class="euler__paragraph">The square of the sum of the first ten natural numbers is,</p><p class="euler__paragraph">(1 + 2 + ... + 10)2 = 552 = 3025</p><p class="euler__paragraph">Hence the difference between the sum of the squares of the first ten natural numbers and the square of the sum is 3025 − 385 = 2640.</p><p class="euler__paragraph">Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum.</p></div>
 
 /// challengeSeed:
 function euler6() {

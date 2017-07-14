@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">Any positive integer can be written as a product of prime powers: p1a1 × p2a2 × ... × pkak,</p><p class="euler__paragraph">where pi are distinct prime integers, ai > 0 and pi < pj if i < j.</p><p class="euler__paragraph"></p><p class="euler__paragraph">A decreasing prime power positive integer is one for which ai ≥ aj if i < j.</p><p class="euler__paragraph">For example, 1, 2, 15=3×5, 360=23×32×5 and 1000=23×53 are decreasing prime power integers.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Let C(n) be the count of decreasing prime power positive integers not exceeding n.</p><p class="euler__paragraph">C(100) = 94 since all positive integers not exceeding 100 have decreasing prime powers except 18, 50, 54, 75, 90 and 98.</p><p class="euler__paragraph">You are given C(106) = 922052.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Find C(1013).</p></div>
+/// <div class="euler"><p class="euler__paragraph">Any positive integer can be written as a product of prime powers: p1a1 × p2a2 × ... × pkak,</p><p class="euler__paragraph">where pi are distinct prime integers, ai > 0 and pi < pj if i < j.</p><p class="euler__paragraph"></p><p class="euler__paragraph">A decreasing prime power positive integer is one for which ai ≥ aj if i < j.</p><p class="euler__paragraph">For example, 1, 2, 15=3×5, 360=23×32×5 and 1000=23×53 are decreasing prime power integers.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Let C(n) be the count of decreasing prime power positive integers not exceeding n.</p><p class="euler__paragraph">C(100) = 94 since all positive integers not exceeding 100 have decreasing prime powers except 18, 50, 54, 75, 90 and 98.</p><p class="euler__paragraph">You are given C(106) = 922052.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Find C(1013).</p></div>
 
 /// challengeSeed:
 function euler578() {

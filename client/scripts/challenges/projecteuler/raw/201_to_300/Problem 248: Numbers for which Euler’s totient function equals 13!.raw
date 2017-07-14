@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">The first number n for which φ(n)=13! is 6227180929.</p><p class="euler__paragraph">Find the 150,000th such number.</p></div>
+/// <div class="euler"><p class="euler__paragraph">The first number n for which φ(n)=13! is 6227180929.</p><p class="euler__paragraph">Find the 150,000th such number.</p></div>
 
 /// challengeSeed:
 function euler248() {

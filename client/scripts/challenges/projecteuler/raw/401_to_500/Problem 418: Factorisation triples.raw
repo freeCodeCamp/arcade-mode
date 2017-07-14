@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">Let n be a positive integer. An integer triple (a, b, c) is called a factorisation triple of n if: 1 ≤ a ≤ b ≤ c</p><p class="euler__paragraph"> a·b·c = n.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Define f(n) to be a + b + c for the factorisation triple (a, b, c) of n which minimises c / a. One can show that this triple is unique.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">For example, f(165) = 19, f(100100) = 142 and f(20!) = 4034872.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Find f(43!).</p></div>
+/// <div class="euler"><p class="euler__paragraph">Let n be a positive integer. An integer triple (a, b, c) is called a factorisation triple of n if: 1 ≤ a ≤ b ≤ c</p><p class="euler__paragraph"> a·b·c = n.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Define f(n) to be a + b + c for the factorisation triple (a, b, c) of n which minimises c / a. One can show that this triple is unique.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">For example, f(165) = 19, f(100100) = 142 and f(20!) = 4034872.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Find f(43!).</p></div>
 
 /// challengeSeed:
 function euler418() {

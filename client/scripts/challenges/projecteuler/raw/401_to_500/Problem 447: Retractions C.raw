@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">For every integer n>1, the family of functions fn,a,b  is defined </p><p class="euler__paragraph">by fn,a,b(x)≡ax+b mod n for a,b,x integer and  0<a<n, 0≤b<n, 0≤x<n.</p><p class="euler__paragraph">We will call fn,a,b a retraction if fn,a,b(fn,a,b(x))≡fn,a,b(x) mod n for every 0≤x<n.</p><p class="euler__paragraph">Let R(n) be the number of retractions for n.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">F(N)=∑R(n) for 2≤n≤N.</p><p class="euler__paragraph">F(107)≡638042271 (mod 1 000 000 007).</p><p class="euler__paragraph"></p><p class="euler__paragraph"> </p><p class="euler__paragraph">Find F(1014) (mod 1 000 000 007).</p></div>
+/// <div class="euler"><p class="euler__paragraph">For every integer n>1, the family of functions fn,a,b  is defined </p><p class="euler__paragraph">by fn,a,b(x)≡ax+b mod n for a,b,x integer and  0<a<n, 0≤b<n, 0≤x<n.</p><p class="euler__paragraph">We will call fn,a,b a retraction if fn,a,b(fn,a,b(x))≡fn,a,b(x) mod n for every 0≤x<n.</p><p class="euler__paragraph">Let R(n) be the number of retractions for n.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">F(N)=∑R(n) for 2≤n≤N.</p><p class="euler__paragraph">F(107)≡638042271 (mod 1 000 000 007).</p><p class="euler__paragraph"></p><p class="euler__paragraph"> </p><p class="euler__paragraph">Find F(1014) (mod 1 000 000 007).</p></div>
 
 /// challengeSeed:
 function euler447() {

@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">Let T(n) be the nth triangle number, so T(n) =</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">n (n+1)2</p><p class="euler__paragraph"></p><p class="euler__paragraph">.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Let dT(n) be the number of divisors of T(n).</p><p class="euler__paragraph">E.g.:</p><p class="euler__paragraph">T(7) = 28 and dT(7) = 6.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Let Tr(n) be the number of triples (i, j, k) such that 1 ≤ i < j < k ≤ n and dT(i) > dT(j) > dT(k).</p><p class="euler__paragraph">Tr(20) = 14, Tr(100) = 5772 and Tr(1000) = 11174776.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Find Tr(60 000 000). </p><p class="euler__paragraph">Give the last 18 digits of your answer.</p></div>
+/// <div class="euler"><p class="euler__paragraph">Let T(n) be the nth triangle number, so T(n) =</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">n (n+1)2</p><p class="euler__paragraph"></p><p class="euler__paragraph">.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Let dT(n) be the number of divisors of T(n).</p><p class="euler__paragraph">E.g.:</p><p class="euler__paragraph">T(7) = 28 and dT(7) = 6.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Let Tr(n) be the number of triples (i, j, k) such that 1 ≤ i < j < k ≤ n and dT(i) > dT(j) > dT(k).</p><p class="euler__paragraph">Tr(20) = 14, Tr(100) = 5772 and Tr(1000) = 11174776.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Find Tr(60 000 000). </p><p class="euler__paragraph">Give the last 18 digits of your answer.</p></div>
 
 /// challengeSeed:
 function euler378() {

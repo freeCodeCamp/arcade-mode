@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">If p is the perimeter of a right angle triangle with integral length sides, {a,b,c}, there are exactly three solutions for p = 120.</p><p class="euler__paragraph">{20,48,52}, {24,45,51}, {30,40,50}</p><p class="euler__paragraph">For which value of p ≤ 1000, is the number of solutions maximised?</p></div>
+/// <div class="euler"><p class="euler__paragraph">If p is the perimeter of a right angle triangle with integral length sides, {a,b,c}, there are exactly three solutions for p = 120.</p><p class="euler__paragraph">{20,48,52}, {24,45,51}, {30,40,50}</p><p class="euler__paragraph">For which value of p ≤ 1000, is the number of solutions maximised?</p></div>
 
 /// challengeSeed:
 function euler39() {

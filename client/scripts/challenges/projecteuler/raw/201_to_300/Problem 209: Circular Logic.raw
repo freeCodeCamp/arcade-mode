@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">A k-input binary truth table is a map from k input bits</p><p class="euler__paragraph">(binary digits, 0 [false] or 1 [true]) to 1 output bit. For example, the 2-input binary truth tables for the logical AND and XOR functions are:</p><p class="euler__paragraph"></p><p class="euler__paragraph">x</p><p class="euler__paragraph">y</p><p class="euler__paragraph">x AND y000010100111x</p><p class="euler__paragraph">y</p><p class="euler__paragraph">x XOR y000011101110How many 6-input binary truth tables, τ, satisfy the formula</p><p class="euler__paragraph"></p><p class="euler__paragraph">τ(a, b, c, d, e, f) AND τ(b, c, d, e, f, a XOR (b AND c)) = 0</p><p class="euler__paragraph">for all 6-bit inputs (a, b, c, d, e, f)?</p></div>
+/// <div class="euler"><p class="euler__paragraph">A k-input binary truth table is a map from k input bits</p><p class="euler__paragraph">(binary digits, 0 [false] or 1 [true]) to 1 output bit. For example, the 2-input binary truth tables for the logical AND and XOR functions are:</p><p class="euler__paragraph"></p><p class="euler__paragraph">x</p><p class="euler__paragraph">y</p><p class="euler__paragraph">x AND y000010100111x</p><p class="euler__paragraph">y</p><p class="euler__paragraph">x XOR y000011101110How many 6-input binary truth tables, τ, satisfy the formula</p><p class="euler__paragraph"></p><p class="euler__paragraph">τ(a, b, c, d, e, f) AND τ(b, c, d, e, f, a XOR (b AND c)) = 0</p><p class="euler__paragraph">for all 6-bit inputs (a, b, c, d, e, f)?</p></div>
 
 /// challengeSeed:
 function euler209() {

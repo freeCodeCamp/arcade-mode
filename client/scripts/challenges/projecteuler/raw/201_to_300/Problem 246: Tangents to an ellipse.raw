@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">A definition for an ellipse is:</p><p class="euler__paragraph">Given a circle c with centre M and radius r and a point G such that d(G,M)<r, the locus of the points that are equidistant from c and G form an ellipse.</p><p class="euler__paragraph"></p><p class="euler__paragraph">The construction of the points of the ellipse is shown below.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Given are the points M(-2000,1500) and G(8000,1500). </p><p class="euler__paragraph">Given is also the circle c with centre M and radius 15000.</p><p class="euler__paragraph">The locus of the points that are equidistant from G and c form an ellipse e.</p><p class="euler__paragraph">From a point P outside e the two tangents t1 and t2 to the ellipse are drawn.</p><p class="euler__paragraph">Let the points where t1 and t2 touch the ellipse be R and S.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">For how many lattice points P is angle RPS greater than 45 degrees?</p></div>
+/// <div class="euler"><p class="euler__paragraph">A definition for an ellipse is:</p><p class="euler__paragraph">Given a circle c with centre M and radius r and a point G such that d(G,M)<r, the locus of the points that are equidistant from c and G form an ellipse.</p><p class="euler__paragraph"></p><p class="euler__paragraph">The construction of the points of the ellipse is shown below.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Given are the points M(-2000,1500) and G(8000,1500). </p><p class="euler__paragraph">Given is also the circle c with centre M and radius 15000.</p><p class="euler__paragraph">The locus of the points that are equidistant from G and c form an ellipse e.</p><p class="euler__paragraph">From a point P outside e the two tangents t1 and t2 to the ellipse are drawn.</p><p class="euler__paragraph">Let the points where t1 and t2 touch the ellipse be R and S.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">For how many lattice points P is angle RPS greater than 45 degrees?</p></div>
 
 /// challengeSeed:
 function euler246() {

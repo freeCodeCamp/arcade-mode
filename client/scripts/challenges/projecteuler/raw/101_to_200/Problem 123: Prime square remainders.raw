@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">Let pn be the nth prime: 2, 3, 5, 7, 11, ..., and let r be the remainder when (pn−1)n + (pn+1)n is divided by pn2.</p><p class="euler__paragraph">For example, when n = 3, p3 = 5, and 43 + 63 = 280 ≡ 5 mod 25.</p><p class="euler__paragraph">The least value of n for which the remainder first exceeds 109 is 7037.</p><p class="euler__paragraph">Find the least value of n for which the remainder first exceeds 1010.</p></div>
+/// <div class="euler"><p class="euler__paragraph">Let pn be the nth prime: 2, 3, 5, 7, 11, ..., and let r be the remainder when (pn−1)n + (pn+1)n is divided by pn2.</p><p class="euler__paragraph">For example, when n = 3, p3 = 5, and 43 + 63 = 280 ≡ 5 mod 25.</p><p class="euler__paragraph">The least value of n for which the remainder first exceeds 109 is 7037.</p><p class="euler__paragraph">Find the least value of n for which the remainder first exceeds 1010.</p></div>
 
 /// challengeSeed:
 function euler123() {

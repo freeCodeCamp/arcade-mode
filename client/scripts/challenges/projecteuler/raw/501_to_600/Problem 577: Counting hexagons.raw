@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">An equilateral triangle with integer side length $n \ge 3$ is divided into $n^2$ equilateral triangles with side length 1 as shown in the diagram below.</p><p class="euler__paragraph">The vertices of these triangles constitute a triangular lattice with $\frac{(n+1)(n+2)} 2$ lattice points.</p><p class="euler__paragraph">Let $H(n)$ be the number of all regular hexagons that can be found by connecting 6 of these points. </p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">For example, $H(3)=1$, $H(6)=12$ and $H(20)=966$.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Find $\displaystyle \sum_{n=3}^{12345} H(n)$.</p></div>
+/// <div class="euler"><p class="euler__paragraph">An equilateral triangle with integer side length $n \ge 3$ is divided into $n^2$ equilateral triangles with side length 1 as shown in the diagram below.</p><p class="euler__paragraph">The vertices of these triangles constitute a triangular lattice with $\frac{(n+1)(n+2)} 2$ lattice points.</p><p class="euler__paragraph">Let $H(n)$ be the number of all regular hexagons that can be found by connecting 6 of these points. </p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">For example, $H(3)=1$, $H(6)=12$ and $H(20)=966$.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Find $\displaystyle \sum_{n=3}^{12345} H(n)$.</p></div>
 
 /// challengeSeed:
 function euler577() {

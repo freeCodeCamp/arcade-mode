@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">Consider the infinite integer sequence S starting with:S = 1, 1, 2, 1, 3, 2, 4, 1, 5, 3, 6, 2, 7, 8, 4, 9, 1, 10, 11, 5, ...</p><p class="euler__paragraph"></p><p class="euler__paragraph">Circle the first occurrence of each integer.S = ①, 1, ②, 1, ③, 2, ④, 1, ⑤, 3, ⑥, 2, ⑦, ⑧, 4, ⑨, 1, ⑩, ⑪, 5, ...</p><p class="euler__paragraph"></p><p class="euler__paragraph">The sequence is characterized by the following properties:</p><p class="euler__paragraph">The circled numbers are consecutive integers starting with 1.</p><p class="euler__paragraph">Immediately preceding each non-circled numbers ai, there are exactly ⌊√ai⌋ adjacent circled numbers, where ⌊⌋ is the floor function.</p><p class="euler__paragraph">If we remove all circled numbers, the remaining numbers form a sequence identical to S, so S is a fractal sequence.Let T(n) be the sum of the first n elements of the sequence.</p><p class="euler__paragraph">You are given T(1) = 1, T(20) = 86, T(103) = 364089 and T(109) = 498676527978348241.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Find T(1018). Give the last 9 digits of your answer.</p></div>
+/// <div class="euler"><p class="euler__paragraph">Consider the infinite integer sequence S starting with:S = 1, 1, 2, 1, 3, 2, 4, 1, 5, 3, 6, 2, 7, 8, 4, 9, 1, 10, 11, 5, ...</p><p class="euler__paragraph"></p><p class="euler__paragraph">Circle the first occurrence of each integer.S = ①, 1, ②, 1, ③, 2, ④, 1, ⑤, 3, ⑥, 2, ⑦, ⑧, 4, ⑨, 1, ⑩, ⑪, 5, ...</p><p class="euler__paragraph"></p><p class="euler__paragraph">The sequence is characterized by the following properties:</p><p class="euler__paragraph">The circled numbers are consecutive integers starting with 1.</p><p class="euler__paragraph">Immediately preceding each non-circled numbers ai, there are exactly ⌊√ai⌋ adjacent circled numbers, where ⌊⌋ is the floor function.</p><p class="euler__paragraph">If we remove all circled numbers, the remaining numbers form a sequence identical to S, so S is a fractal sequence.Let T(n) be the sum of the first n elements of the sequence.</p><p class="euler__paragraph">You are given T(1) = 1, T(20) = 86, T(103) = 364089 and T(109) = 498676527978348241.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Find T(1018). Give the last 9 digits of your answer.</p></div>
 
 /// challengeSeed:
 function euler535() {

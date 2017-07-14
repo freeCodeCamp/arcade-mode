@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">We shall call a positive integer A an "Alexandrian integer", if there exist integers p, q, r such that:</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">      A = p · q · r    and  </p><p class="euler__paragraph">   </p><p class="euler__paragraph">   </p><p class="euler__paragraph">      1A</p><p class="euler__paragraph">   =</p><p class="euler__paragraph">   </p><p class="euler__paragraph">      1p</p><p class="euler__paragraph">   +</p><p class="euler__paragraph">   </p><p class="euler__paragraph">      1q</p><p class="euler__paragraph">   +</p><p class="euler__paragraph">   </p><p class="euler__paragraph">      1r</p><p class="euler__paragraph">For example, 630 is an Alexandrian integer (p = 5, q = −7, r = −18).</p><p class="euler__paragraph">In fact, 630 is the 6th Alexandrian integer,  the first 6 Alexandrian integers being: 6, 42, 120, 156, 420 and 630.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Find the 150000th Alexandrian integer.</p></div>
+/// <div class="euler"><p class="euler__paragraph">We shall call a positive integer A an "Alexandrian integer", if there exist integers p, q, r such that:</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">      A = p · q · r    and  </p><p class="euler__paragraph">   </p><p class="euler__paragraph">   </p><p class="euler__paragraph">      1A</p><p class="euler__paragraph">   =</p><p class="euler__paragraph">   </p><p class="euler__paragraph">      1p</p><p class="euler__paragraph">   +</p><p class="euler__paragraph">   </p><p class="euler__paragraph">      1q</p><p class="euler__paragraph">   +</p><p class="euler__paragraph">   </p><p class="euler__paragraph">      1r</p><p class="euler__paragraph">For example, 630 is an Alexandrian integer (p = 5, q = −7, r = −18).</p><p class="euler__paragraph">In fact, 630 is the 6th Alexandrian integer,  the first 6 Alexandrian integers being: 6, 42, 120, 156, 420 and 630.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Find the 150000th Alexandrian integer.</p></div>
 
 /// challengeSeed:
 function euler221() {

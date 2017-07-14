@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">In  the hexadecimal number system numbers are represented using 16 different digits:</p><p class="euler__paragraph">0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F</p><p class="euler__paragraph">The hexadecimal number AF when written in the decimal number system equals 10x16+15=175.</p><p class="euler__paragraph">In the 3-digit hexadecimal numbers 10A, 1A0, A10, and A01 the digits 0,1 and A are all present.</p><p class="euler__paragraph">Like numbers written in base ten we write hexadecimal numbers without leading zeroes.</p><p class="euler__paragraph">How many hexadecimal numbers containing at most sixteen hexadecimal digits exist with all of the digits 0,1, and A present at least once?</p><p class="euler__paragraph">Give your answer as a hexadecimal number.</p><p class="euler__paragraph">(A,B,C,D,E and F in upper case, without any leading or trailing code that marks the number as hexadecimal and without leading zeroes , e.g. 1A3F and not: 1a3f and not 0x1a3f and not $1A3F and not #1A3F and not 0000001A3F)</p></div>
+/// <div class="euler"><p class="euler__paragraph">In  the hexadecimal number system numbers are represented using 16 different digits:</p><p class="euler__paragraph">0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F</p><p class="euler__paragraph">The hexadecimal number AF when written in the decimal number system equals 10x16+15=175.</p><p class="euler__paragraph">In the 3-digit hexadecimal numbers 10A, 1A0, A10, and A01 the digits 0,1 and A are all present.</p><p class="euler__paragraph">Like numbers written in base ten we write hexadecimal numbers without leading zeroes.</p><p class="euler__paragraph">How many hexadecimal numbers containing at most sixteen hexadecimal digits exist with all of the digits 0,1, and A present at least once?</p><p class="euler__paragraph">Give your answer as a hexadecimal number.</p><p class="euler__paragraph">(A,B,C,D,E and F in upper case, without any leading or trailing code that marks the number as hexadecimal and without leading zeroes , e.g. 1A3F and not: 1a3f and not 0x1a3f and not $1A3F and not #1A3F and not 0000001A3F)</p></div>
 
 /// challengeSeed:
 function euler162() {

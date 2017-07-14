@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">Inside a rope of length n, n-1 points are placed with distance 1 from each other and from the endpoints. Among these points, we choose m-1 points at random and cut the rope at these points to create m segments.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Let E(n, m) be the expected length of the second-shortest segment.</p><p class="euler__paragraph">For example, E(3, 2) = 2 and E(8, 3) = 16/7.</p><p class="euler__paragraph">Note that if multiple segments have the same shortest length the length of the second-shortest segment is defined as the same as the shortest length.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Find E(107, 100).</p><p class="euler__paragraph">Give your answer rounded to 5 decimal places behind the decimal point.</p></div>
+/// <div class="euler"><p class="euler__paragraph">Inside a rope of length n, n-1 points are placed with distance 1 from each other and from the endpoints. Among these points, we choose m-1 points at random and cut the rope at these points to create m segments.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Let E(n, m) be the expected length of the second-shortest segment.</p><p class="euler__paragraph">For example, E(3, 2) = 2 and E(8, 3) = 16/7.</p><p class="euler__paragraph">Note that if multiple segments have the same shortest length the length of the second-shortest segment is defined as the same as the shortest length.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Find E(107, 100).</p><p class="euler__paragraph">Give your answer rounded to 5 decimal places behind the decimal point.</p></div>
 
 /// challengeSeed:
 function euler398() {

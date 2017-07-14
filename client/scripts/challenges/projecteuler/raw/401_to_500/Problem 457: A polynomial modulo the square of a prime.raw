@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">Let f(n) = n2 - 3n - 1.</p><p class="euler__paragraph">Let p be a prime.</p><p class="euler__paragraph">Let R(p) be the smallest positive integer n such that f(n) mod p2 = 0 if such an integer n exists, otherwise R(p) = 0.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Let SR(L) be ∑R(p) for all primes not exceeding L.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Find SR(107).</p></div>
+/// <div class="euler"><p class="euler__paragraph">Let f(n) = n2 - 3n - 1.</p><p class="euler__paragraph">Let p be a prime.</p><p class="euler__paragraph">Let R(p) be the smallest positive integer n such that f(n) mod p2 = 0 if such an integer n exists, otherwise R(p) = 0.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Let SR(L) be ∑R(p) for all primes not exceeding L.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Find SR(107).</p></div>
 
 /// challengeSeed:
 function euler457() {

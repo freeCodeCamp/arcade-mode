@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">A triplet of positive integers (a,b,c) is called a Cardano Triplet if it satisfies the condition:</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">For example, (2,1,5) is a Cardano Triplet.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">There exist 149 Cardano Triplets for which a+b+c ≤ 1000.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Find how many Cardano Triplets exist such that a+b+c ≤ 110,000,000.</p></div>
+/// <div class="euler"><p class="euler__paragraph">A triplet of positive integers (a,b,c) is called a Cardano Triplet if it satisfies the condition:</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">For example, (2,1,5) is a Cardano Triplet.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">There exist 149 Cardano Triplets for which a+b+c ≤ 1000.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Find how many Cardano Triplets exist such that a+b+c ≤ 110,000,000.</p></div>
 
 /// challengeSeed:
 function euler251() {

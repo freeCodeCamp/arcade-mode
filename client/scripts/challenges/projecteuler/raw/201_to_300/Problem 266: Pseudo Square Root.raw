@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">The divisors of 12 are: 1,2,3,4,6 and 12.</p><p class="euler__paragraph">The largest divisor of 12 that does not exceed the square root of 12 is 3.</p><p class="euler__paragraph">We shall call the largest divisor of an integer n that does not exceed the square root of n the pseudo square root (PSR) of n.</p><p class="euler__paragraph">It can be seen that PSR(3102)=47.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Let p be the product of the primes below 190.</p><p class="euler__paragraph">Find PSR(p) mod 1016.</p></div>
+/// <div class="euler"><p class="euler__paragraph">The divisors of 12 are: 1,2,3,4,6 and 12.</p><p class="euler__paragraph">The largest divisor of 12 that does not exceed the square root of 12 is 3.</p><p class="euler__paragraph">We shall call the largest divisor of an integer n that does not exceed the square root of n the pseudo square root (PSR) of n.</p><p class="euler__paragraph">It can be seen that PSR(3102)=47.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Let p be the product of the primes below 190.</p><p class="euler__paragraph">Find PSR(p) mod 1016.</p></div>
 
 /// challengeSeed:
 function euler266() {

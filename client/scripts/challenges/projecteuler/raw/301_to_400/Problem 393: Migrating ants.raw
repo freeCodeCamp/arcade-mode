@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">An  n×n grid of squares contains  n2 ants, one ant per square.</p><p class="euler__paragraph">All ants decide to move simultaneously to an adjacent square (usually 4 possibilities, except for ants on the edge of the grid or at the corners).</p><p class="euler__paragraph">We define f(n) to be the number of ways this can happen without any ants ending on the same square and without any two ants crossing the same edge between two squares.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">You are given that f(4) = 88.</p><p class="euler__paragraph">Find  f(10).</p></div>
+/// <div class="euler"><p class="euler__paragraph">An  n×n grid of squares contains  n2 ants, one ant per square.</p><p class="euler__paragraph">All ants decide to move simultaneously to an adjacent square (usually 4 possibilities, except for ants on the edge of the grid or at the corners).</p><p class="euler__paragraph">We define f(n) to be the number of ways this can happen without any ants ending on the same square and without any two ants crossing the same edge between two squares.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">You are given that f(4) = 88.</p><p class="euler__paragraph">Find  f(10).</p></div>
 
 /// challengeSeed:
 function euler393() {

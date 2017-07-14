@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">Consider equations of the form: a2 + b2 = N, 0 ≤ a ≤ b, a, b and N integer.</p><p class="euler__paragraph"></p><p class="euler__paragraph">For N=65 there are two solutions:</p><p class="euler__paragraph">a=1, b=8 and a=4, b=7.</p><p class="euler__paragraph">We call S(N) the sum of the values of a of all solutions of a2 + b2 = N, 0 ≤ a ≤ b, a, b and N integer.</p><p class="euler__paragraph">Thus S(65) = 1 + 4 = 5.</p><p class="euler__paragraph">Find ∑S(N), for all squarefree N only divisible by primes of the form 4k+1 with 4k+1 < 150.</p></div>
+/// <div class="euler"><p class="euler__paragraph">Consider equations of the form: a2 + b2 = N, 0 ≤ a ≤ b, a, b and N integer.</p><p class="euler__paragraph"></p><p class="euler__paragraph">For N=65 there are two solutions:</p><p class="euler__paragraph">a=1, b=8 and a=4, b=7.</p><p class="euler__paragraph">We call S(N) the sum of the values of a of all solutions of a2 + b2 = N, 0 ≤ a ≤ b, a, b and N integer.</p><p class="euler__paragraph">Thus S(65) = 1 + 4 = 5.</p><p class="euler__paragraph">Find ∑S(N), for all squarefree N only divisible by primes of the form 4k+1 with 4k+1 < 150.</p></div>
 
 /// challengeSeed:
 function euler273() {

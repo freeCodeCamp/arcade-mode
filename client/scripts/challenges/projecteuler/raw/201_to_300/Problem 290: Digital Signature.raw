@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">How many integers 0 ≤ n < 1018 have the property that the sum of the digits of n equals the sum of digits of 137n?</p></div>
+/// <div class="euler"><p class="euler__paragraph">How many integers 0 ≤ n < 1018 have the property that the sum of the digits of n equals the sum of digits of 137n?</p></div>
 
 /// challengeSeed:
 function euler290() {

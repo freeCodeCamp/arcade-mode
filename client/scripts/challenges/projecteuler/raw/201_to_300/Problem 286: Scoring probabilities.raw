@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">Barbara is a mathematician and a basketball player. She has found that the probability of scoring a point when shooting from a distance x is exactly (1 - x/q), where q is a real constant greater than 50.</p><p class="euler__paragraph"></p><p class="euler__paragraph">During each practice run, she takes shots from distances x = 1, x = 2, ..., x = 50 and, according to her records, she has precisely a 2 % chance to score a total of exactly 20 points.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Find q and give your answer rounded to 10 decimal places.</p></div>
+/// <div class="euler"><p class="euler__paragraph">Barbara is a mathematician and a basketball player. She has found that the probability of scoring a point when shooting from a distance x is exactly (1 - x/q), where q is a real constant greater than 50.</p><p class="euler__paragraph"></p><p class="euler__paragraph">During each practice run, she takes shots from distances x = 1, x = 2, ..., x = 50 and, according to her records, she has precisely a 2 % chance to score a total of exactly 20 points.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Find q and give your answer rounded to 10 decimal places.</p></div>
 
 /// challengeSeed:
 function euler286() {

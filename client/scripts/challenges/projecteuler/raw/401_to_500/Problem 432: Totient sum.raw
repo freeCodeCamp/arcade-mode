@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">Let S(n,m) = ∑φ(n × i) for 1 ≤ i ≤ m. (φ is Euler's totient function)</p><p class="euler__paragraph">You are given that S(510510,106 )= 45480596821125120. </p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Find S(510510,1011).</p><p class="euler__paragraph">Give the last 9 digits of your answer.</p></div>
+/// <div class="euler"><p class="euler__paragraph">Let S(n,m) = ∑φ(n × i) for 1 ≤ i ≤ m. (φ is Euler's totient function)</p><p class="euler__paragraph">You are given that S(510510,106 )= 45480596821125120. </p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Find S(510510,1011).</p><p class="euler__paragraph">Give the last 9 digits of your answer.</p></div>
 
 /// challengeSeed:
 function euler432() {

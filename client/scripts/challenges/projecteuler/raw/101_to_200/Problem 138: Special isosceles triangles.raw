@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">Consider the isosceles triangle with base length, b = 16, and legs, L = 17.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">By using the Pythagorean theorem it can be seen that the height of the triangle, h = √(172 − 82) = 15, which is one less than the base length.</p><p class="euler__paragraph">With b = 272 and L = 305, we get h = 273, which is one more than the base length, and this is the second smallest isosceles triangle with the property that h = b ± 1.</p><p class="euler__paragraph">Find ∑ L for the twelve smallest isosceles triangles for which h = b ± 1 and b, L are positive integers.</p></div>
+/// <div class="euler"><p class="euler__paragraph">Consider the isosceles triangle with base length, b = 16, and legs, L = 17.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">By using the Pythagorean theorem it can be seen that the height of the triangle, h = √(172 − 82) = 15, which is one less than the base length.</p><p class="euler__paragraph">With b = 272 and L = 305, we get h = 273, which is one more than the base length, and this is the second smallest isosceles triangle with the property that h = b ± 1.</p><p class="euler__paragraph">Find ∑ L for the twelve smallest isosceles triangles for which h = b ± 1 and b, L are positive integers.</p></div>
 
 /// challengeSeed:
 function euler138() {

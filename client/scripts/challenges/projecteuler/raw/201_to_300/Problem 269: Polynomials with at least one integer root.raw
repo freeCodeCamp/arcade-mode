@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">A root or zero of a polynomial P(x) is a solution to the equation P(x) = 0. </p><p class="euler__paragraph">Define Pn as the polynomial whose coefficients are the digits of n.</p><p class="euler__paragraph">For example, P5703(x) = 5x3 + 7x2 + 3.</p><p class="euler__paragraph"></p><p class="euler__paragraph">We can see that:Pn(0) is the last digit of n,</p><p class="euler__paragraph">Pn(1) is the sum of the digits of n,</p><p class="euler__paragraph">Pn(10) is n itself.Define Z(k) as the number of positive integers, n, not exceeding k for which the polynomial Pn has at least one integer root.</p><p class="euler__paragraph"></p><p class="euler__paragraph">It can be verified that Z(100 000) is 14696.</p><p class="euler__paragraph"></p><p class="euler__paragraph">What is Z(1016)?</p></div>
+/// <div class="euler"><p class="euler__paragraph">A root or zero of a polynomial P(x) is a solution to the equation P(x) = 0. </p><p class="euler__paragraph">Define Pn as the polynomial whose coefficients are the digits of n.</p><p class="euler__paragraph">For example, P5703(x) = 5x3 + 7x2 + 3.</p><p class="euler__paragraph"></p><p class="euler__paragraph">We can see that:Pn(0) is the last digit of n,</p><p class="euler__paragraph">Pn(1) is the sum of the digits of n,</p><p class="euler__paragraph">Pn(10) is n itself.Define Z(k) as the number of positive integers, n, not exceeding k for which the polynomial Pn has at least one integer root.</p><p class="euler__paragraph"></p><p class="euler__paragraph">It can be verified that Z(100 000) is 14696.</p><p class="euler__paragraph"></p><p class="euler__paragraph">What is Z(1016)?</p></div>
 
 /// challengeSeed:
 function euler269() {

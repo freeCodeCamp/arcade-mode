@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">How many 18-digit numbers n (without leading zeros) are there such that no digit occurs more than three times in n?</p></div>
+/// <div class="euler"><p class="euler__paragraph">How many 18-digit numbers n (without leading zeros) are there such that no digit occurs more than three times in n?</p></div>
 
 /// challengeSeed:
 function euler172() {

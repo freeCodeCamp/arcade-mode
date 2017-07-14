@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">By counting carefully it can be seen that a rectangular grid measuring 3 by 2 contains eighteen rectangles:</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Although there exists no rectangular grid that contains exactly two million rectangles, find the area of the grid with the nearest solution.</p></div>
+/// <div class="euler"><p class="euler__paragraph">By counting carefully it can be seen that a rectangular grid measuring 3 by 2 contains eighteen rectangles:</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Although there exists no rectangular grid that contains exactly two million rectangles, find the area of the grid with the nearest solution.</p></div>
 
 /// challengeSeed:
 function euler85() {

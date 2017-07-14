@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">The Golomb's self-describing sequence {G(n)} is the only nondecreasing sequence of natural numbers such that n appears exactly G(n) times in the sequence. The values of G(n) for the first few n are</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">n123456789101112131415…G(n)122334445556666…</p><p class="euler__paragraph"></p><p class="euler__paragraph">You are given that G(103) = 86, G(106) = 6137.</p><p class="euler__paragraph">You are also given that ΣG(n3) = 153506976 for 1 ≤ n < 103.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Find ΣG(n3) for 1 ≤ n < 106.</p></div>
+/// <div class="euler"><p class="euler__paragraph">The Golomb's self-describing sequence {G(n)} is the only nondecreasing sequence of natural numbers such that n appears exactly G(n) times in the sequence. The values of G(n) for the first few n are</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">n123456789101112131415…G(n)122334445556666…</p><p class="euler__paragraph"></p><p class="euler__paragraph">You are given that G(103) = 86, G(106) = 6137.</p><p class="euler__paragraph">You are also given that ΣG(n3) = 153506976 for 1 ≤ n < 103.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Find ΣG(n3) for 1 ≤ n < 106.</p></div>
 
 /// challengeSeed:
 function euler341() {

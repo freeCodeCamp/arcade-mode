@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">Consider the set S(r) of points (x,y) with integer coordinates satisfying |x| + |y| ≤ r. </p><p class="euler__paragraph">Let O be the point (0,0) and C the point (r/4,r/4). </p><p class="euler__paragraph">Let N(r) be the number of points B in S(r), so that the triangle OBC has an obtuse angle, i.e. the largest angle α satisfies 90°<α<180°.</p><p class="euler__paragraph">So, for example, N(4)=24 and N(8)=100.</p><p class="euler__paragraph"></p><p class="euler__paragraph">What is N(1,000,000,000)?</p></div>
+/// <div class="euler"><p class="euler__paragraph">Consider the set S(r) of points (x,y) with integer coordinates satisfying |x| + |y| ≤ r. </p><p class="euler__paragraph">Let O be the point (0,0) and C the point (r/4,r/4). </p><p class="euler__paragraph">Let N(r) be the number of points B in S(r), so that the triangle OBC has an obtuse angle, i.e. the largest angle α satisfies 90°<α<180°.</p><p class="euler__paragraph">So, for example, N(4)=24 and N(8)=100.</p><p class="euler__paragraph"></p><p class="euler__paragraph">What is N(1,000,000,000)?</p></div>
 
 /// challengeSeed:
 function euler210() {

@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">ABC is an integral sided triangle with sides a≤b≤c.</p><p class="euler__paragraph">mc is the median connecting C and the midpoint of AB. </p><p class="euler__paragraph">F(n) is the number of such triangles with  c≤n for which mc has integral length as well.</p><p class="euler__paragraph">F(10)=3 and F(50)=165.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Find F(100000).</p></div>
+/// <div class="euler"><p class="euler__paragraph">ABC is an integral sided triangle with sides a≤b≤c.</p><p class="euler__paragraph">mc is the median connecting C and the midpoint of AB. </p><p class="euler__paragraph">F(n) is the number of such triangles with  c≤n for which mc has integral length as well.</p><p class="euler__paragraph">F(10)=3 and F(50)=165.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Find F(100000).</p></div>
 
 /// challengeSeed:
 function euler513() {

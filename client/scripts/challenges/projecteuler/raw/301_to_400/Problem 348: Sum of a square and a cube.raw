@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">Many numbers can be expressed as the sum of a square and a cube. Some of them in more than one way.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Consider the palindromic numbers that can be expressed as the sum of a square and a cube, both greater than 1, in exactly 4 different ways.</p><p class="euler__paragraph">For example, 5229225 is a palindromic number and it can be expressed in exactly 4 different ways:</p><p class="euler__paragraph">22852 + 203</p><p class="euler__paragraph">22232 + 663</p><p class="euler__paragraph">18102 + 1253</p><p class="euler__paragraph">11972 + 1563</p><p class="euler__paragraph"> </p><p class="euler__paragraph">Find the sum of the five smallest such palindromic numbers.</p></div>
+/// <div class="euler"><p class="euler__paragraph">Many numbers can be expressed as the sum of a square and a cube. Some of them in more than one way.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Consider the palindromic numbers that can be expressed as the sum of a square and a cube, both greater than 1, in exactly 4 different ways.</p><p class="euler__paragraph">For example, 5229225 is a palindromic number and it can be expressed in exactly 4 different ways:</p><p class="euler__paragraph">22852 + 203</p><p class="euler__paragraph">22232 + 663</p><p class="euler__paragraph">18102 + 1253</p><p class="euler__paragraph">11972 + 1563</p><p class="euler__paragraph"> </p><p class="euler__paragraph">Find the sum of the five smallest such palindromic numbers.</p></div>
 
 /// challengeSeed:
 function euler348() {

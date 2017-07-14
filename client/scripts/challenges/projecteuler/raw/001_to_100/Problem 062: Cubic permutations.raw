@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">The cube, 41063625 (3453), can be permuted to produce two other cubes: 56623104 (3843) and 66430125 (4053). In fact, 41063625 is the smallest cube which has exactly three permutations of its digits which are also cube.</p><p class="euler__paragraph">Find the smallest cube for which exactly five permutations of its digits are cube.</p></div>
+/// <div class="euler"><p class="euler__paragraph">The cube, 41063625 (3453), can be permuted to produce two other cubes: 56623104 (3843) and 66430125 (4053). In fact, 41063625 is the smallest cube which has exactly three permutations of its digits which are also cube.</p><p class="euler__paragraph">Find the smallest cube for which exactly five permutations of its digits are cube.</p></div>
 
 /// challengeSeed:
 function euler62() {

@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">Working from left-to-right if no digit is exceeded by the digit to its left it is called an increasing number; for example, 134468.</p><p class="euler__paragraph">Similarly if no digit is exceeded by the digit to its right it is called a decreasing number; for example, 66420.</p><p class="euler__paragraph">We shall call a positive integer that is neither increasing nor decreasing a "bouncy" number; for example, 155349.</p><p class="euler__paragraph">As n increases, the proportion of bouncy numbers below n increases such that there are only 12951 numbers below one-million that are not bouncy and only 277032 non-bouncy numbers below 1010.</p><p class="euler__paragraph">How many numbers below a googol (10100) are not bouncy?</p></div>
+/// <div class="euler"><p class="euler__paragraph">Working from left-to-right if no digit is exceeded by the digit to its left it is called an increasing number; for example, 134468.</p><p class="euler__paragraph">Similarly if no digit is exceeded by the digit to its right it is called a decreasing number; for example, 66420.</p><p class="euler__paragraph">We shall call a positive integer that is neither increasing nor decreasing a "bouncy" number; for example, 155349.</p><p class="euler__paragraph">As n increases, the proportion of bouncy numbers below n increases such that there are only 12951 numbers below one-million that are not bouncy and only 277032 non-bouncy numbers below 1010.</p><p class="euler__paragraph">How many numbers below a googol (10100) are not bouncy?</p></div>
 
 /// challengeSeed:
 function euler113() {

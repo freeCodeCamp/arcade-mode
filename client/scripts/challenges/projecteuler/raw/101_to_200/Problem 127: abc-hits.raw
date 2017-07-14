@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">The radical of n, rad(n), is the product of distinct prime factors of n. For example, 504 = 23 × 32 × 7, so rad(504) = 2 × 3 × 7 = 42.</p><p class="euler__paragraph">We shall define the triplet of positive integers (a, b, c) to be an abc-hit if:</p><p class="euler__paragraph">GCD(a, b) = GCD(a, c) = GCD(b, c) = 1</p><p class="euler__paragraph">a < b</p><p class="euler__paragraph">a + b = c</p><p class="euler__paragraph">rad(abc) < c</p><p class="euler__paragraph">For example, (5, 27, 32) is an abc-hit, because:</p><p class="euler__paragraph">GCD(5, 27) = GCD(5, 32) = GCD(27, 32) = 1</p><p class="euler__paragraph">5 < 27</p><p class="euler__paragraph">5 + 27 = 32</p><p class="euler__paragraph">rad(4320) = 30 < 32</p><p class="euler__paragraph">It turns out that abc-hits are quite rare and there are only thirty-one abc-hits for c < 1000, with ∑c = 12523.</p><p class="euler__paragraph">Find ∑c for c < 120000.</p></div>
+/// <div class="euler"><p class="euler__paragraph">The radical of n, rad(n), is the product of distinct prime factors of n. For example, 504 = 23 × 32 × 7, so rad(504) = 2 × 3 × 7 = 42.</p><p class="euler__paragraph">We shall define the triplet of positive integers (a, b, c) to be an abc-hit if:</p><p class="euler__paragraph">GCD(a, b) = GCD(a, c) = GCD(b, c) = 1</p><p class="euler__paragraph">a < b</p><p class="euler__paragraph">a + b = c</p><p class="euler__paragraph">rad(abc) < c</p><p class="euler__paragraph">For example, (5, 27, 32) is an abc-hit, because:</p><p class="euler__paragraph">GCD(5, 27) = GCD(5, 32) = GCD(27, 32) = 1</p><p class="euler__paragraph">5 < 27</p><p class="euler__paragraph">5 + 27 = 32</p><p class="euler__paragraph">rad(4320) = 30 < 32</p><p class="euler__paragraph">It turns out that abc-hits are quite rare and there are only thirty-one abc-hits for c < 1000, with ∑c = 12523.</p><p class="euler__paragraph">Find ∑c for c < 120000.</p></div>
 
 /// challengeSeed:
 function euler127() {

@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">For an integer M, we define R(M) as the sum of 1/(p·q) for all the integer pairs p and q which satisfy all of these conditions:</p><p class="euler__paragraph"></p><p class="euler__paragraph"> 1 ≤ p < q ≤ M</p><p class="euler__paragraph"> p + q ≥ M</p><p class="euler__paragraph"> p and q are coprime.</p><p class="euler__paragraph"></p><p class="euler__paragraph">We also define S(N) as the sum of R(i) for 2 ≤ i ≤ N.</p><p class="euler__paragraph">We can verify that S(2) = R(2) = 1/2, S(10) ≈ 6.9147 and S(100) ≈ 58.2962.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Find S(107). Give your answer rounded to four decimal places.</p></div>
+/// <div class="euler"><p class="euler__paragraph">For an integer M, we define R(M) as the sum of 1/(p·q) for all the integer pairs p and q which satisfy all of these conditions:</p><p class="euler__paragraph"></p><p class="euler__paragraph"> 1 ≤ p < q ≤ M</p><p class="euler__paragraph"> p + q ≥ M</p><p class="euler__paragraph"> p and q are coprime.</p><p class="euler__paragraph"></p><p class="euler__paragraph">We also define S(N) as the sum of R(i) for 2 ≤ i ≤ N.</p><p class="euler__paragraph">We can verify that S(2) = R(2) = 1/2, S(10) ≈ 6.9147 and S(100) ≈ 58.2962.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Find S(107). Give your answer rounded to four decimal places.</p></div>
 
 /// challengeSeed:
 function euler441() {

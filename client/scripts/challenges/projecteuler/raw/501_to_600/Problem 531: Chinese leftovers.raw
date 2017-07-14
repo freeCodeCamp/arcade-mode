@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">Let g(a,n,b,m) be the smallest non-negative solution x to the system:x = a mod nx = b mod m</p><p class="euler__paragraph">if such a solution exists, otherwise 0.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">E.g. g(2,4,4,6)=10, but g(3,4,4,6)=0.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Let φ(n) be Euler's totient function.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Let f(n,m)=g(φ(n),n,φ(m),m)</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Find ∑f(n,m) for 1000000 ≤ n < m < 1005000</p></div>
+/// <div class="euler"><p class="euler__paragraph">Let g(a,n,b,m) be the smallest non-negative solution x to the system:x = a mod nx = b mod m</p><p class="euler__paragraph">if such a solution exists, otherwise 0.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">E.g. g(2,4,4,6)=10, but g(3,4,4,6)=0.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Let φ(n) be Euler's totient function.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Let f(n,m)=g(φ(n),n,φ(m),m)</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Find ∑f(n,m) for 1000000 ≤ n < m < 1005000</p></div>
 
 /// challengeSeed:
 function euler531() {

@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">For a positive integer n, let σ2(n) be the sum of the squares of its divisors. For example,</p><p class="euler__paragraph">σ2(10) = 1 + 4 + 25 + 100 = 130.</p><p class="euler__paragraph">Find the sum of all n, 0 < n < 64,000,000 such that σ2(n) is a perfect square.</p></div>
+/// <div class="euler"><p class="euler__paragraph">For a positive integer n, let σ2(n) be the sum of the squares of its divisors. For example,</p><p class="euler__paragraph">σ2(10) = 1 + 4 + 25 + 100 = 130.</p><p class="euler__paragraph">Find the sum of all n, 0 < n < 64,000,000 such that σ2(n) is a perfect square.</p></div>
 
 /// challengeSeed:
 function euler211() {

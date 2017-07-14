@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">Let R(a, b, c) be the maximum area covered by three non-overlapping circles inside a triangle with edge lengths a, b and c.</p><p class="euler__paragraph">Let S(n) be the average value of R(a, b, c) over all integer triplets (a, b, c) such that 1 ≤ a ≤ b ≤ c < a + b ≤ n</p><p class="euler__paragraph">You are given S(2) = R(1, 1, 1) ≈ 0.31998, S(5) ≈ 1.25899.</p><p class="euler__paragraph">Find S(1803) rounded to 5 decimal places behind the decimal point.</p></div>
+/// <div class="euler"><p class="euler__paragraph">Let R(a, b, c) be the maximum area covered by three non-overlapping circles inside a triangle with edge lengths a, b and c.</p><p class="euler__paragraph">Let S(n) be the average value of R(a, b, c) over all integer triplets (a, b, c) such that 1 ≤ a ≤ b ≤ c < a + b ≤ n</p><p class="euler__paragraph">You are given S(2) = R(1, 1, 1) ≈ 0.31998, S(5) ≈ 1.25899.</p><p class="euler__paragraph">Find S(1803) rounded to 5 decimal places behind the decimal point.</p></div>
 
 /// challengeSeed:
 function euler476() {

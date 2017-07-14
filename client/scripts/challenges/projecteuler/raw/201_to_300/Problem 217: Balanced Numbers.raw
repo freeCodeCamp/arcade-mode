@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">A positive integer with k (decimal) digits is called balanced if its first ⌈k/2⌉ digits sum to the same value as its last ⌈k/2⌉ digits, where ⌈x⌉, pronounced ceiling of x, is the smallest integer ≥ x, thus ⌈π⌉ = 4 and ⌈5⌉ = 5.</p><p class="euler__paragraph">So, for example, all palindromes are balanced, as is 13722.</p><p class="euler__paragraph">Let T(n) be the sum of all balanced numbers less than 10n. </p><p class="euler__paragraph">Thus: T(1) = 45, T(2) = 540 and T(5) = 334795890. </p><p class="euler__paragraph">Find T(47) mod 315</p></div>
+/// <div class="euler"><p class="euler__paragraph">A positive integer with k (decimal) digits is called balanced if its first ⌈k/2⌉ digits sum to the same value as its last ⌈k/2⌉ digits, where ⌈x⌉, pronounced ceiling of x, is the smallest integer ≥ x, thus ⌈π⌉ = 4 and ⌈5⌉ = 5.</p><p class="euler__paragraph">So, for example, all palindromes are balanced, as is 13722.</p><p class="euler__paragraph">Let T(n) be the sum of all balanced numbers less than 10n. </p><p class="euler__paragraph">Thus: T(1) = 45, T(2) = 540 and T(5) = 334795890. </p><p class="euler__paragraph">Find T(47) mod 315</p></div>
 
 /// challengeSeed:
 function euler217() {

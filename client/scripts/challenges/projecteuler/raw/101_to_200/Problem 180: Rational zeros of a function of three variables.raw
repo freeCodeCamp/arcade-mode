@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">For any integer n, consider the three functions</p><p class="euler__paragraph">f1,n(x,y,z) = xn+1 + yn+1 − zn+1f2,n(x,y,z) = (xy + yz + zx)*(xn-1 + yn-1 − zn-1)f3,n(x,y,z) = xyz*(xn-2 + yn-2 − zn-2)</p><p class="euler__paragraph">and their combination</p><p class="euler__paragraph">fn(x,y,z) = f1,n(x,y,z) + f2,n(x,y,z) − f3,n(x,y,z)</p><p class="euler__paragraph">We call (x,y,z) a golden triple of order k if x, y, and z are all rational numbers of the form a / b with</p><p class="euler__paragraph">0 < a < b ≤ k and there is (at least) one integer n, so that fn(x,y,z) = 0.</p><p class="euler__paragraph">Let s(x,y,z) = x + y + z.</p><p class="euler__paragraph">Let t = u / v be the sum of all distinct s(x,y,z) for all golden triples (x,y,z) of order 35. All the s(x,y,z) and t  must be in reduced form.</p><p class="euler__paragraph">Find u + v.</p></div>
+/// <div class="euler"><p class="euler__paragraph">For any integer n, consider the three functions</p><p class="euler__paragraph">f1,n(x,y,z) = xn+1 + yn+1 − zn+1f2,n(x,y,z) = (xy + yz + zx)*(xn-1 + yn-1 − zn-1)f3,n(x,y,z) = xyz*(xn-2 + yn-2 − zn-2)</p><p class="euler__paragraph">and their combination</p><p class="euler__paragraph">fn(x,y,z) = f1,n(x,y,z) + f2,n(x,y,z) − f3,n(x,y,z)</p><p class="euler__paragraph">We call (x,y,z) a golden triple of order k if x, y, and z are all rational numbers of the form a / b with</p><p class="euler__paragraph">0 < a < b ≤ k and there is (at least) one integer n, so that fn(x,y,z) = 0.</p><p class="euler__paragraph">Let s(x,y,z) = x + y + z.</p><p class="euler__paragraph">Let t = u / v be the sum of all distinct s(x,y,z) for all golden triples (x,y,z) of order 35. All the s(x,y,z) and t  must be in reduced form.</p><p class="euler__paragraph">Find u + v.</p></div>
 
 /// challengeSeed:
 function euler180() {

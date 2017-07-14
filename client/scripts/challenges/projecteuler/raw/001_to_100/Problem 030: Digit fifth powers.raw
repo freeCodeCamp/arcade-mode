@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">Surprisingly there are only three numbers that can be written as the sum of fourth powers of their digits:</p><p class="euler__paragraph">1634 = 14 + 64 + 34 + 44</p><p class="euler__paragraph">8208 = 84 + 24 + 04 + 84</p><p class="euler__paragraph">9474 = 94 + 44 + 74 + 44</p><p class="euler__paragraph">As 1 = 14 is not a sum it is not included.</p><p class="euler__paragraph">The sum of these numbers is 1634 + 8208 + 9474 = 19316.</p><p class="euler__paragraph">Find the sum of all the numbers that can be written as the sum of fifth powers of their digits.</p></div>
+/// <div class="euler"><p class="euler__paragraph">Surprisingly there are only three numbers that can be written as the sum of fourth powers of their digits:</p><p class="euler__paragraph">1634 = 14 + 64 + 34 + 44</p><p class="euler__paragraph">8208 = 84 + 24 + 04 + 84</p><p class="euler__paragraph">9474 = 94 + 44 + 74 + 44</p><p class="euler__paragraph">As 1 = 14 is not a sum it is not included.</p><p class="euler__paragraph">The sum of these numbers is 1634 + 8208 + 9474 = 19316.</p><p class="euler__paragraph">Find the sum of all the numbers that can be written as the sum of fifth powers of their digits.</p></div>
 
 /// challengeSeed:
 function euler30() {

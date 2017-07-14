@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">Let T(n) be the number of tours over a 4 × n playing board such that:</p><p class="euler__paragraph">The tour starts in the top left corner.</p><p class="euler__paragraph">The tour consists of moves that are up, down, left, or right one square.</p><p class="euler__paragraph">The tour visits each square exactly once.</p><p class="euler__paragraph">The tour ends in the bottom left corner.</p><p class="euler__paragraph">The diagram shows one tour over a 4 × 10 board:</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">T(10) is 2329. What is T(1012) modulo 108?</p></div>
+/// <div class="euler"><p class="euler__paragraph">Let T(n) be the number of tours over a 4 × n playing board such that:</p><p class="euler__paragraph">The tour starts in the top left corner.</p><p class="euler__paragraph">The tour consists of moves that are up, down, left, or right one square.</p><p class="euler__paragraph">The tour visits each square exactly once.</p><p class="euler__paragraph">The tour ends in the bottom left corner.</p><p class="euler__paragraph">The diagram shows one tour over a 4 × 10 board:</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">T(10) is 2329. What is T(1012) modulo 108?</p></div>
 
 /// challengeSeed:
 function euler237() {

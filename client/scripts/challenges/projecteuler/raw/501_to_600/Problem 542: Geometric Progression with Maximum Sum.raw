@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">Let S(k) be the sum of three or more distinct positive integers having the following properties:</p><p class="euler__paragraph">No value exceeds k.</p><p class="euler__paragraph">The values form a geometric progression.</p><p class="euler__paragraph">The sum is maximal.S(4) = 4 + 2 + 1 = 7S(10) = 9 + 6 + 4 = 19S(12) = 12 + 6 + 3 = 21S(1000) = 1000 + 900 + 810 + 729 = 3439</p><p class="euler__paragraph"></p><p class="euler__paragraph">Let $T(n) = \sum_{k=4}^n (-1)^k S(k)$.T(1000) = 2268</p><p class="euler__paragraph"></p><p class="euler__paragraph">Find T(1017).</p></div>
+/// <div class="euler"><p class="euler__paragraph">Let S(k) be the sum of three or more distinct positive integers having the following properties:</p><p class="euler__paragraph">No value exceeds k.</p><p class="euler__paragraph">The values form a geometric progression.</p><p class="euler__paragraph">The sum is maximal.S(4) = 4 + 2 + 1 = 7S(10) = 9 + 6 + 4 = 19S(12) = 12 + 6 + 3 = 21S(1000) = 1000 + 900 + 810 + 729 = 3439</p><p class="euler__paragraph"></p><p class="euler__paragraph">Let $T(n) = \sum_{k=4}^n (-1)^k S(k)$.T(1000) = 2268</p><p class="euler__paragraph"></p><p class="euler__paragraph">Find T(1017).</p></div>
 
 /// challengeSeed:
 function euler542() {

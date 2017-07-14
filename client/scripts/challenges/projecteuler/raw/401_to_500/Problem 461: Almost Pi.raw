@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">Let fn(k) = ek/n - 1, for all non-negative integers k.</p><p class="euler__paragraph">Remarkably, f200(6) + f200(75) + f200(89) + f200(226) = 3.141592644529… ≈ π.</p><p class="euler__paragraph">In fact, it is the best approximation of π of the form fn(a) + fn(b) + fn(c) + fn(d) for n = 200.</p><p class="euler__paragraph">Let g(n) = a2 + b2 + c2 + d 2 for a, b, c, d that minimize the error: | fn(a) + fn(b) + fn(c) + fn(d) - π|</p><p class="euler__paragraph">(where |x| denotes the absolute value of x).</p><p class="euler__paragraph">You are given g(200) = 62 + 752 + 892 + 2262 = 64658.</p><p class="euler__paragraph">Find g(10000).</p></div>
+/// <div class="euler"><p class="euler__paragraph">Let fn(k) = ek/n - 1, for all non-negative integers k.</p><p class="euler__paragraph">Remarkably, f200(6) + f200(75) + f200(89) + f200(226) = 3.141592644529… ≈ π.</p><p class="euler__paragraph">In fact, it is the best approximation of π of the form fn(a) + fn(b) + fn(c) + fn(d) for n = 200.</p><p class="euler__paragraph">Let g(n) = a2 + b2 + c2 + d 2 for a, b, c, d that minimize the error: | fn(a) + fn(b) + fn(c) + fn(d) - π|</p><p class="euler__paragraph">(where |x| denotes the absolute value of x).</p><p class="euler__paragraph">You are given g(200) = 62 + 752 + 892 + 2262 = 64658.</p><p class="euler__paragraph">Find g(10000).</p></div>
 
 /// challengeSeed:
 function euler461() {

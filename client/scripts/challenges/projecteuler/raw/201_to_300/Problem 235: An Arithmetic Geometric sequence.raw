@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">Given is the arithmetic-geometric sequence u(k) = (900-3k)rk-1.</p><p class="euler__paragraph">Let s(n) = Σk=1...nu(k).</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Find the value of r for which s(5000) = -600,000,000,000.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Give your answer rounded to 12 places behind the decimal point.</p></div>
+/// <div class="euler"><p class="euler__paragraph">Given is the arithmetic-geometric sequence u(k) = (900-3k)rk-1.</p><p class="euler__paragraph">Let s(n) = Σk=1...nu(k).</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Find the value of r for which s(5000) = -600,000,000,000.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Give your answer rounded to 12 places behind the decimal point.</p></div>
 
 /// challengeSeed:
 function euler235() {

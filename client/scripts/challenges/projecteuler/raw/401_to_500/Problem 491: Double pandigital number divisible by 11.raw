@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">We call a positive integer double pandigital if it uses all the digits 0 to 9 exactly twice (with no leading zero). For example, 40561817703823564929 is one such number.</p><p class="euler__paragraph"></p><p class="euler__paragraph">How many double pandigital numbers are divisible by 11?</p></div>
+/// <div class="euler"><p class="euler__paragraph">We call a positive integer double pandigital if it uses all the digits 0 to 9 exactly twice (with no leading zero). For example, 40561817703823564929 is one such number.</p><p class="euler__paragraph"></p><p class="euler__paragraph">How many double pandigital numbers are divisible by 11?</p></div>
 
 /// challengeSeed:
 function euler491() {

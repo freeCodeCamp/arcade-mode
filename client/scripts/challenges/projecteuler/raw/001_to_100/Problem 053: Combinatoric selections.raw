@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">There are exactly ten ways of selecting three from five, 12345:</p><p class="euler__paragraph">123, 124, 125, 134, 135, 145, 234, 235, 245, and 345</p><p class="euler__paragraph">In combinatorics, we use the notation, 5C3 = 10.</p><p class="euler__paragraph">In general,</p><p class="euler__paragraph"></p><p class="euler__paragraph">nCr = </p><p class="euler__paragraph">n!r!(n−r)!</p><p class="euler__paragraph">,where r ≤ n, n! = n×(n−1)×...×3×2×1, and 0! = 1.</p><p class="euler__paragraph"></p><p class="euler__paragraph">It is not until n = 23, that a value exceeds one-million: 23C10 = 1144066.</p><p class="euler__paragraph">How many, not necessarily distinct, values of  nCr, for 1 ≤ n ≤ 100, are greater than one-million?</p></div>
+/// <div class="euler"><p class="euler__paragraph">There are exactly ten ways of selecting three from five, 12345:</p><p class="euler__paragraph">123, 124, 125, 134, 135, 145, 234, 235, 245, and 345</p><p class="euler__paragraph">In combinatorics, we use the notation, 5C3 = 10.</p><p class="euler__paragraph">In general,</p><p class="euler__paragraph"></p><p class="euler__paragraph">nCr = </p><p class="euler__paragraph">n!r!(n−r)!</p><p class="euler__paragraph">,where r ≤ n, n! = n×(n−1)×...×3×2×1, and 0! = 1.</p><p class="euler__paragraph"></p><p class="euler__paragraph">It is not until n = 23, that a value exceeds one-million: 23C10 = 1144066.</p><p class="euler__paragraph">How many, not necessarily distinct, values of  nCr, for 1 ≤ n ≤ 100, are greater than one-million?</p></div>
 
 /// challengeSeed:
 function euler53() {

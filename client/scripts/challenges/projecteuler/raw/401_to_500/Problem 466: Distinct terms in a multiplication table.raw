@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">Let P(m,n) be the number of distinct terms in an m×n multiplication table.</p><p class="euler__paragraph"></p><p class="euler__paragraph">For example, a 3×4 multiplication table looks like this:</p><p class="euler__paragraph"></p><p class="euler__paragraph">× 12341 12342 24683 36912</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">There are 8 distinct terms {1,2,3,4,6,8,9,12}, therefore P(3,4) = 8.</p><p class="euler__paragraph"></p><p class="euler__paragraph">You are given that:</p><p class="euler__paragraph">P(64,64) = 1263,</p><p class="euler__paragraph">P(12,345) = 1998, and</p><p class="euler__paragraph">P(32,1015) = 13826382602124302.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Find P(64,1016).</p></div>
+/// <div class="euler"><p class="euler__paragraph">Let P(m,n) be the number of distinct terms in an m×n multiplication table.</p><p class="euler__paragraph"></p><p class="euler__paragraph">For example, a 3×4 multiplication table looks like this:</p><p class="euler__paragraph"></p><p class="euler__paragraph">× 12341 12342 24683 36912</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">There are 8 distinct terms {1,2,3,4,6,8,9,12}, therefore P(3,4) = 8.</p><p class="euler__paragraph"></p><p class="euler__paragraph">You are given that:</p><p class="euler__paragraph">P(64,64) = 1263,</p><p class="euler__paragraph">P(12,345) = 1998, and</p><p class="euler__paragraph">P(32,1015) = 13826382602124302.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Find P(64,1016).</p></div>
 
 /// challengeSeed:
 function euler466() {

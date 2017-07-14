@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">The prime factors of 13195 are 5, 7, 13 and 29.</p><p class="euler__paragraph">What is the largest prime factor of the number 600851475143 ?</p></div>
+/// <div class="euler"><p class="euler__paragraph">The prime factors of 13195 are 5, 7, 13 and 29.</p><p class="euler__paragraph">What is the largest prime factor of the number 600851475143 ?</p></div>
 
 /// challengeSeed:
 function euler3() {

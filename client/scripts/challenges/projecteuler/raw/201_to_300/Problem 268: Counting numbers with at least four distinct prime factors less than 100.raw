@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">It can be verified that there are 23 positive integers less than 1000 that are divisible by at least four distinct primes less than 100.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Find how many positive integers less than 1016 are divisible by at least four distinct primes less than 100.</p></div>
+/// <div class="euler"><p class="euler__paragraph">It can be verified that there are 23 positive integers less than 1000 that are divisible by at least four distinct primes less than 100.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Find how many positive integers less than 1016 are divisible by at least four distinct primes less than 100.</p></div>
 
 /// challengeSeed:
 function euler268() {

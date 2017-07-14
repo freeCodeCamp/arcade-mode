@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">Given an integer sided triangle ABC:</p><p class="euler__paragraph">Let I be the incenter of ABC.</p><p class="euler__paragraph">Let D be the intersection between the line AI and the circumcircle of ABC (A ≠ D).</p><p class="euler__paragraph"></p><p class="euler__paragraph">We define F(L) as the sum of BC for the triangles ABC that satisfy AC = DI and BC ≤ L.</p><p class="euler__paragraph"></p><p class="euler__paragraph">For example, F(15) = 45 because the triangles ABC with (BC,AC,AB) = (6,4,5), (12,8,10), (12,9,7), (15,9,16) satisfy the conditions.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Find F(109).</p></div>
+/// <div class="euler"><p class="euler__paragraph">Given an integer sided triangle ABC:</p><p class="euler__paragraph">Let I be the incenter of ABC.</p><p class="euler__paragraph">Let D be the intersection between the line AI and the circumcircle of ABC (A ≠ D).</p><p class="euler__paragraph"></p><p class="euler__paragraph">We define F(L) as the sum of BC for the triangles ABC that satisfy AC = DI and BC ≤ L.</p><p class="euler__paragraph"></p><p class="euler__paragraph">For example, F(15) = 45 because the triangles ABC with (BC,AC,AB) = (6,4,5), (12,8,10), (12,9,7), (15,9,16) satisfy the conditions.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Find F(109).</p></div>
 
 /// challengeSeed:
 function euler496() {

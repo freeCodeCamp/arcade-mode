@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">215 = 32768 and the sum of its digits is 3 + 2 + 7 + 6 + 8 = 26.</p><p class="euler__paragraph">What is the sum of the digits of the number 21000?</p></div>
+/// <div class="euler"><p class="euler__paragraph">215 = 32768 and the sum of its digits is 3 + 2 + 7 + 6 + 8 = 26.</p><p class="euler__paragraph">What is the sum of the digits of the number 21000?</p></div>
 
 /// challengeSeed:
 function euler16() {

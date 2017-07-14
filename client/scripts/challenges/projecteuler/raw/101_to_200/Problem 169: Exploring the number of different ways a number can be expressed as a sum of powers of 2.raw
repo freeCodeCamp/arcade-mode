@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">Define f(0)=1 and f(n) to be the number of different ways n can be expressed as a sum of integer powers of 2 using each power no more than twice.</p><p class="euler__paragraph">For example, f(10)=5 since there are five different ways to express 10:</p><p class="euler__paragraph">1 + 1 + 8</p><p class="euler__paragraph">1 + 1 + 4 + 41 + 1 + 2 + 2 + 4</p><p class="euler__paragraph">2 + 4 + 4</p><p class="euler__paragraph">2 + 8</p><p class="euler__paragraph">What is f(1025)?</p></div>
+/// <div class="euler"><p class="euler__paragraph">Define f(0)=1 and f(n) to be the number of different ways n can be expressed as a sum of integer powers of 2 using each power no more than twice.</p><p class="euler__paragraph">For example, f(10)=5 since there are five different ways to express 10:</p><p class="euler__paragraph">1 + 1 + 8</p><p class="euler__paragraph">1 + 1 + 4 + 41 + 1 + 2 + 2 + 4</p><p class="euler__paragraph">2 + 4 + 4</p><p class="euler__paragraph">2 + 8</p><p class="euler__paragraph">What is f(1025)?</p></div>
 
 /// challengeSeed:
 function euler169() {

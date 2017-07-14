@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">Let's call an integer sided triangle with exactly one angle of 60 degrees a 60-degree triangle.</p><p class="euler__paragraph">Let r be the radius of the inscribed circle of such a 60-degree triangle.</p><p class="euler__paragraph">There are 1234 60-degree triangles for which r ≤ 100.</p><p class="euler__paragraph">Let T(n) be the number of 60-degree triangles for which r ≤ n, so</p><p class="euler__paragraph"> T(100) = 1234,  T(1000) = 22767, and  T(10000) = 359912.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Find T(1053779).</p></div>
+/// <div class="euler"><p class="euler__paragraph">Let's call an integer sided triangle with exactly one angle of 60 degrees a 60-degree triangle.</p><p class="euler__paragraph">Let r be the radius of the inscribed circle of such a 60-degree triangle.</p><p class="euler__paragraph">There are 1234 60-degree triangles for which r ≤ 100.</p><p class="euler__paragraph">Let T(n) be the number of 60-degree triangles for which r ≤ n, so</p><p class="euler__paragraph"> T(100) = 1234,  T(1000) = 22767, and  T(10000) = 359912.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Find T(1053779).</p></div>
 
 /// challengeSeed:
 function euler195() {

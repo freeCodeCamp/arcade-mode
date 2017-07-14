@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">Four points with integer coordinates are selected:A(a, 0), B(b, 0), C(0, c) and D(0, d), </p><p class="euler__paragraph">with 0 < a < b and 0 < c < d.</p><p class="euler__paragraph">Point P, also with integer coordinates, is chosen on the line AC so that the three triangles ABP, CDP and BDP are all similar.</p><p class="euler__paragraph"></p><p class="euler__paragraph">It is easy to prove that the three triangles can be similar, only if a=c.</p><p class="euler__paragraph"></p><p class="euler__paragraph">So, given that a=c, we are looking for triplets (a,b,d) such that at least one point P (with integer coordinates) exists on AC, making the three triangles ABP, CDP and BDP all similar.</p><p class="euler__paragraph"></p><p class="euler__paragraph">For example, if (a,b,d)=(2,3,4), it can be easily verified that point P(1,1) satisfies the above condition. </p><p class="euler__paragraph">Note that the triplets (2,3,4) and (2,4,3) are considered as distinct, although point P(1,1) is common for both.</p><p class="euler__paragraph"></p><p class="euler__paragraph">If b+d < 100, there are 92 distinct triplets (a,b,d) such that point P exists.</p><p class="euler__paragraph">If b+d < 100 000, there are 320471 distinct triplets (a,b,d) such that point P exists.</p><p class="euler__paragraph">If b+d < 100 000 000, how many distinct triplets (a,b,d) are there such that point P exists?</p></div>
+/// <div class="euler"><p class="euler__paragraph">Four points with integer coordinates are selected:A(a, 0), B(b, 0), C(0, c) and D(0, d), </p><p class="euler__paragraph">with 0 < a < b and 0 < c < d.</p><p class="euler__paragraph">Point P, also with integer coordinates, is chosen on the line AC so that the three triangles ABP, CDP and BDP are all similar.</p><p class="euler__paragraph"></p><p class="euler__paragraph">It is easy to prove that the three triangles can be similar, only if a=c.</p><p class="euler__paragraph"></p><p class="euler__paragraph">So, given that a=c, we are looking for triplets (a,b,d) such that at least one point P (with integer coordinates) exists on AC, making the three triangles ABP, CDP and BDP all similar.</p><p class="euler__paragraph"></p><p class="euler__paragraph">For example, if (a,b,d)=(2,3,4), it can be easily verified that point P(1,1) satisfies the above condition. </p><p class="euler__paragraph">Note that the triplets (2,3,4) and (2,4,3) are considered as distinct, although point P(1,1) is common for both.</p><p class="euler__paragraph"></p><p class="euler__paragraph">If b+d < 100, there are 92 distinct triplets (a,b,d) such that point P exists.</p><p class="euler__paragraph">If b+d < 100 000, there are 320471 distinct triplets (a,b,d) such that point P exists.</p><p class="euler__paragraph">If b+d < 100 000 000, how many distinct triplets (a,b,d) are there such that point P exists?</p></div>
 
 /// challengeSeed:
 function euler299() {

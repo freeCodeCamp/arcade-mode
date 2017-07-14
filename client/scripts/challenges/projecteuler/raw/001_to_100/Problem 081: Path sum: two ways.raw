@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">In the 5 by 5 matrix below, the minimal path sum from the top left to the bottom right, by only moving to the right and down, is indicated in bold red and is equal to 2427.</p><p class="euler__paragraph"></p><p class="euler__paragraph">$$</p><p class="euler__paragraph">\begin{pmatrix}</p><p class="euler__paragraph">\color{red}{131} & 673 & 234 & 103 & 18\\</p><p class="euler__paragraph">\color{red}{201} & \color{red}{96} & \color{red}{342} & 965 & 150\\</p><p class="euler__paragraph">630 & 803 & \color{red}{746} & \color{red}{422} & 111\\</p><p class="euler__paragraph">537 & 699 & 497 & \color{red}{121} & 956\\</p><p class="euler__paragraph">805 & 732 & 524 & \color{red}{37} & \color{red}{331}</p><p class="euler__paragraph">\end{pmatrix}</p><p class="euler__paragraph">$$</p><p class="euler__paragraph"></p><p class="euler__paragraph">Find the minimal path sum, in matrix.txt (right click and "Save Link/Target As..."), a 31K text file containing a 80 by 80 matrix, from the top left to the bottom right by only moving right and down.</p></div>
+/// <div class="euler"><p class="euler__paragraph">In the 5 by 5 matrix below, the minimal path sum from the top left to the bottom right, by only moving to the right and down, is indicated in bold red and is equal to 2427.</p><p class="euler__paragraph"></p><p class="euler__paragraph">$$</p><p class="euler__paragraph">\begin{pmatrix}</p><p class="euler__paragraph">\color{red}{131} & 673 & 234 & 103 & 18\\</p><p class="euler__paragraph">\color{red}{201} & \color{red}{96} & \color{red}{342} & 965 & 150\\</p><p class="euler__paragraph">630 & 803 & \color{red}{746} & \color{red}{422} & 111\\</p><p class="euler__paragraph">537 & 699 & 497 & \color{red}{121} & 956\\</p><p class="euler__paragraph">805 & 732 & 524 & \color{red}{37} & \color{red}{331}</p><p class="euler__paragraph">\end{pmatrix}</p><p class="euler__paragraph">$$</p><p class="euler__paragraph"></p><p class="euler__paragraph">Find the minimal path sum, in matrix.txt (right click and "Save Link/Target As..."), a 31K text file containing a 80 by 80 matrix, from the top left to the bottom right by only moving right and down.</p></div>
 
 /// challengeSeed:
 function euler81() {

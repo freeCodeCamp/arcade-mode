@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">Consider the right angled triangle with sides a=7, b=24 and c=25.</p><p class="euler__paragraph">The area of this triangle is 84, which is divisible by the perfect numbers 6 and 28.</p><p class="euler__paragraph">Moreover it is a primitive right angled triangle as gcd(a,b)=1 and gcd(b,c)=1.</p><p class="euler__paragraph">Also c is a perfect square.</p><p class="euler__paragraph"></p><p class="euler__paragraph">We will call a right angled triangle perfect if</p><p class="euler__paragraph">-it is a primitive right angled triangle</p><p class="euler__paragraph">-its hypotenuse is a perfect square</p><p class="euler__paragraph"></p><p class="euler__paragraph">We will call a right angled triangle super-perfect if</p><p class="euler__paragraph">-it is a perfect right angled triangle and</p><p class="euler__paragraph">-its area is a multiple of the perfect numbers 6 and 28.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">How many perfect right-angled triangles with c≤1016 exist that are not super-perfect?</p></div>
+/// <div class="euler"><p class="euler__paragraph">Consider the right angled triangle with sides a=7, b=24 and c=25.</p><p class="euler__paragraph">The area of this triangle is 84, which is divisible by the perfect numbers 6 and 28.</p><p class="euler__paragraph">Moreover it is a primitive right angled triangle as gcd(a,b)=1 and gcd(b,c)=1.</p><p class="euler__paragraph">Also c is a perfect square.</p><p class="euler__paragraph"></p><p class="euler__paragraph">We will call a right angled triangle perfect if</p><p class="euler__paragraph">-it is a primitive right angled triangle</p><p class="euler__paragraph">-its hypotenuse is a perfect square</p><p class="euler__paragraph"></p><p class="euler__paragraph">We will call a right angled triangle super-perfect if</p><p class="euler__paragraph">-it is a perfect right angled triangle and</p><p class="euler__paragraph">-its area is a multiple of the perfect numbers 6 and 28.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">How many perfect right-angled triangles with c≤1016 exist that are not super-perfect?</p></div>
 
 /// challengeSeed:
 function euler218() {

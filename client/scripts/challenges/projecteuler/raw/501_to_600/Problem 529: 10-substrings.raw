@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">A 10-substring of a number is a substring of its digits that sum to 10. For example, the 10-substrings of the number 3523014 are:</p><p class="euler__paragraph">3523014</p><p class="euler__paragraph">3523014</p><p class="euler__paragraph">3523014</p><p class="euler__paragraph">3523014A number is called 10-substring-friendly if every one of its digits belongs to a 10-substring. For example, 3523014 is 10-substring-friendly, but 28546 is not.</p><p class="euler__paragraph">Let T(n) be the number of 10-substring-friendly numbers from 1 to 10n (inclusive).</p><p class="euler__paragraph">For example T(2) = 9 and T(5) = 3492.</p><p class="euler__paragraph">Find T(1018) mod 1 000 000 007.</p></div>
+/// <div class="euler"><p class="euler__paragraph">A 10-substring of a number is a substring of its digits that sum to 10. For example, the 10-substrings of the number 3523014 are:</p><p class="euler__paragraph">3523014</p><p class="euler__paragraph">3523014</p><p class="euler__paragraph">3523014</p><p class="euler__paragraph">3523014A number is called 10-substring-friendly if every one of its digits belongs to a 10-substring. For example, 3523014 is 10-substring-friendly, but 28546 is not.</p><p class="euler__paragraph">Let T(n) be the number of 10-substring-friendly numbers from 1 to 10n (inclusive).</p><p class="euler__paragraph">For example T(2) = 9 and T(5) = 3492.</p><p class="euler__paragraph">Find T(1018) mod 1 000 000 007.</p></div>
 
 /// challengeSeed:
 function euler529() {

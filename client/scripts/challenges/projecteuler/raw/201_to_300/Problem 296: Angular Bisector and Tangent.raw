@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">Given is an integer sided triangle ABC with BC ≤ AC ≤ AB.k is the angular bisector of angle ACB.m is the tangent at C to the circumscribed circle of ABC.n is a line parallel to m through B.</p><p class="euler__paragraph">The intersection of n and k is called E.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">How many triangles ABC with a perimeter not exceeding 100 000 exist such that BE has integral length?</p></div>
+/// <div class="euler"><p class="euler__paragraph">Given is an integer sided triangle ABC with BC ≤ AC ≤ AB.k is the angular bisector of angle ACB.m is the tangent at C to the circumscribed circle of ABC.n is a line parallel to m through B.</p><p class="euler__paragraph">The intersection of n and k is called E.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">How many triangles ABC with a perimeter not exceeding 100 000 exist such that BE has integral length?</p></div>
 
 /// challengeSeed:
 function euler296() {

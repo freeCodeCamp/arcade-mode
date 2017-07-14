@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">Let T(m, n) be the number of the binomial coefficients iCn that are divisible by 10 for n ≤ i < m(i, m and n are positive integers).</p><p class="euler__paragraph">You are given that T(109, 107-10) = 989697000.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Find T(1018, 1012-10).</p></div>
+/// <div class="euler"><p class="euler__paragraph">Let T(m, n) be the number of the binomial coefficients iCn that are divisible by 10 for n ≤ i < m(i, m and n are positive integers).</p><p class="euler__paragraph">You are given that T(109, 107-10) = 989697000.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Find T(1018, 1012-10).</p></div>
 
 /// challengeSeed:
 function euler322() {

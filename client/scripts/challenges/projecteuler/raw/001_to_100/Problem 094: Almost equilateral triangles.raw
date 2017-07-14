@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">It is easily proved that no equilateral triangle exists with integral length sides and integral area. However, the almost equilateral triangle 5-5-6 has an area of 12 square units.</p><p class="euler__paragraph">We shall define an almost equilateral triangle to be a triangle for which two sides are equal and the third differs by no more than one unit.</p><p class="euler__paragraph">Find the sum of the perimeters of all almost equilateral triangles with integral side lengths and area and whose perimeters do not exceed one billion (1,000,000,000).</p></div>
+/// <div class="euler"><p class="euler__paragraph">It is easily proved that no equilateral triangle exists with integral length sides and integral area. However, the almost equilateral triangle 5-5-6 has an area of 12 square units.</p><p class="euler__paragraph">We shall define an almost equilateral triangle to be a triangle for which two sides are equal and the third differs by no more than one unit.</p><p class="euler__paragraph">Find the sum of the perimeters of all almost equilateral triangles with integral side lengths and area and whose perimeters do not exceed one billion (1,000,000,000).</p></div>
 
 /// challengeSeed:
 function euler94() {

@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">The first two consecutive numbers to have two distinct prime factors are:</p><p class="euler__paragraph">14 = 2 × 715 = 3 × 5</p><p class="euler__paragraph">The first three consecutive numbers to have three distinct prime factors are:</p><p class="euler__paragraph">644 = 2² × 7 × 23645 = 3 × 5 × 43646 = 2 × 17 × 19.</p><p class="euler__paragraph">Find the first four consecutive integers to have four distinct prime factors each. What is the first of these numbers?</p></div>
+/// <div class="euler"><p class="euler__paragraph">The first two consecutive numbers to have two distinct prime factors are:</p><p class="euler__paragraph">14 = 2 × 715 = 3 × 5</p><p class="euler__paragraph">The first three consecutive numbers to have three distinct prime factors are:</p><p class="euler__paragraph">644 = 2² × 7 × 23645 = 3 × 5 × 43646 = 2 × 17 × 19.</p><p class="euler__paragraph">Find the first four consecutive integers to have four distinct prime factors each. What is the first of these numbers?</p></div>
 
 /// challengeSeed:
 function euler47() {

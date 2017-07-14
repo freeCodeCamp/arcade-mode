@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">Let us call an integer sided triangle with sides a ≤ b ≤ c barely obtuse if the sides satisfy a2 + b2 = c2 - 1.</p><p class="euler__paragraph"></p><p class="euler__paragraph">How many barely obtuse triangles are there with perimeter ≤ 75,000,000?</p></div>
+/// <div class="euler"><p class="euler__paragraph">Let us call an integer sided triangle with sides a ≤ b ≤ c barely obtuse if the sides satisfy a2 + b2 = c2 - 1.</p><p class="euler__paragraph"></p><p class="euler__paragraph">How many barely obtuse triangles are there with perimeter ≤ 75,000,000?</p></div>
 
 /// challengeSeed:
 function euler224() {

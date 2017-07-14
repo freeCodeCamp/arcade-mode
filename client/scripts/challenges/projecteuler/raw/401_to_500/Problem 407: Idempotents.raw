@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">If we calculate a2 mod 6 for 0 ≤ a ≤ 5 we get: 0,1,4,3,4,1.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">The largest value of a such that a2 ≡ a mod 6 is 4.</p><p class="euler__paragraph">Let's call M(n) the largest value of a < n such that a2 ≡ a (mod n).</p><p class="euler__paragraph">So M(6) = 4.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Find ∑M(n) for 1 ≤ n ≤ 107.</p></div>
+/// <div class="euler"><p class="euler__paragraph">If we calculate a2 mod 6 for 0 ≤ a ≤ 5 we get: 0,1,4,3,4,1.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">The largest value of a such that a2 ≡ a mod 6 is 4.</p><p class="euler__paragraph">Let's call M(n) the largest value of a < n such that a2 ≡ a (mod n).</p><p class="euler__paragraph">So M(6) = 4.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Find ∑M(n) for 1 ≤ n ≤ 107.</p></div>
 
 /// challengeSeed:
 function euler407() {

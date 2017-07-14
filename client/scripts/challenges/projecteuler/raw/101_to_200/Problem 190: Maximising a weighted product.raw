@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">Let Sm = (x1, x2, ... , xm) be the m-tuple of positive real numbers with x1 + x2 + ... + xm = m for which Pm = x1 * x22 * ... * xmm is maximised.</p><p class="euler__paragraph"></p><p class="euler__paragraph">For example, it can be verified that [P10] = 4112 ([ ] is the integer part function).</p><p class="euler__paragraph"></p><p class="euler__paragraph">Find Σ[Pm] for 2 ≤ m ≤ 15.</p></div>
+/// <div class="euler"><p class="euler__paragraph">Let Sm = (x1, x2, ... , xm) be the m-tuple of positive real numbers with x1 + x2 + ... + xm = m for which Pm = x1 * x22 * ... * xmm is maximised.</p><p class="euler__paragraph"></p><p class="euler__paragraph">For example, it can be verified that [P10] = 4112 ([ ] is the integer part function).</p><p class="euler__paragraph"></p><p class="euler__paragraph">Find Σ[Pm] for 2 ≤ m ≤ 15.</p></div>
 
 /// challengeSeed:
 function euler190() {

@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">For any N, let f(N) be the last five digits before the trailing zeroes in N!.</p><p class="euler__paragraph">For example,</p><p class="euler__paragraph">9! = 362880 so f(9)=36288</p><p class="euler__paragraph">10! = 3628800 so f(10)=36288</p><p class="euler__paragraph">20! = 2432902008176640000 so f(20)=17664</p><p class="euler__paragraph">Find f(1,000,000,000,000)</p></div>
+/// <div class="euler"><p class="euler__paragraph">For any N, let f(N) be the last five digits before the trailing zeroes in N!.</p><p class="euler__paragraph">For example,</p><p class="euler__paragraph">9! = 362880 so f(9)=36288</p><p class="euler__paragraph">10! = 3628800 so f(10)=36288</p><p class="euler__paragraph">20! = 2432902008176640000 so f(20)=17664</p><p class="euler__paragraph">Find f(1,000,000,000,000)</p></div>
 
 /// challengeSeed:
 function euler160() {

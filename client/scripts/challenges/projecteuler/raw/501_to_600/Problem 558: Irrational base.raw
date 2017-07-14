@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">Let r be the real root of the equation x3 = x2 + 1.</p><p class="euler__paragraph">Every positive integer can be written as the sum of distinct increasing powers of r.</p><p class="euler__paragraph">If we require the number of terms to be finite and the difference between any two exponents to be three or more, then the representation is unique.</p><p class="euler__paragraph">For example, 3 = r -10 + r -5 + r -1 + r 2 and 10 = r -10 + r -7 + r 6.</p><p class="euler__paragraph">Interestingly, the relation holds for the complex roots of the equation.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Let w(n) be the number of terms in this unique representation of n. Thus w(3) = 4 and w(10) = 3.</p><p class="euler__paragraph"></p><p class="euler__paragraph">More formally, for all positive integers n, we have:n = $\displaystyle \sum_{k=-\infty}^{\infty}$ bk rk</p><p class="euler__paragraph">under the conditions that:bk is 0 or 1 for all k;bk + bk+1 + bk+2 ≤ 1 for all k;w(n) = $\displaystyle \sum_{k=-\infty}^{\infty}$ bk is finite.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Let S(m) = $\displaystyle \sum_{j=1}^{m}$ w(j2).</p><p class="euler__paragraph">You are given S(10) = 61 and S(1000) = 19403.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Find S(5 000 000).</p></div>
+/// <div class="euler"><p class="euler__paragraph">Let r be the real root of the equation x3 = x2 + 1.</p><p class="euler__paragraph">Every positive integer can be written as the sum of distinct increasing powers of r.</p><p class="euler__paragraph">If we require the number of terms to be finite and the difference between any two exponents to be three or more, then the representation is unique.</p><p class="euler__paragraph">For example, 3 = r -10 + r -5 + r -1 + r 2 and 10 = r -10 + r -7 + r 6.</p><p class="euler__paragraph">Interestingly, the relation holds for the complex roots of the equation.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Let w(n) be the number of terms in this unique representation of n. Thus w(3) = 4 and w(10) = 3.</p><p class="euler__paragraph"></p><p class="euler__paragraph">More formally, for all positive integers n, we have:n = $\displaystyle \sum_{k=-\infty}^{\infty}$ bk rk</p><p class="euler__paragraph">under the conditions that:bk is 0 or 1 for all k;bk + bk+1 + bk+2 ≤ 1 for all k;w(n) = $\displaystyle \sum_{k=-\infty}^{\infty}$ bk is finite.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Let S(m) = $\displaystyle \sum_{j=1}^{m}$ w(j2).</p><p class="euler__paragraph">You are given S(10) = 61 and S(1000) = 19403.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Find S(5 000 000).</p></div>
 
 /// challengeSeed:
 function euler558() {

@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">A triomino is a shape consisting of three squares joined via the edges.</p><p class="euler__paragraph">There are two basic forms:</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">If all possible orientations are taken into account there are six:</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Any n by m grid for which nxm is divisible by 3 can be tiled with triominoes.</p><p class="euler__paragraph">If we consider tilings that can be obtained by reflection or rotation from another tiling as different there are 41 ways a 2 by 9 grid can be  tiled with triominoes:</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">In how many ways can a 9 by 12 grid be tiled in this way by triominoes?</p></div>
+/// <div class="euler"><p class="euler__paragraph">A triomino is a shape consisting of three squares joined via the edges.</p><p class="euler__paragraph">There are two basic forms:</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">If all possible orientations are taken into account there are six:</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Any n by m grid for which nxm is divisible by 3 can be tiled with triominoes.</p><p class="euler__paragraph">If we consider tilings that can be obtained by reflection or rotation from another tiling as different there are 41 ways a 2 by 9 grid can be  tiled with triominoes:</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">In how many ways can a 9 by 12 grid be tiled in this way by triominoes?</p></div>
 
 /// challengeSeed:
 function euler161() {

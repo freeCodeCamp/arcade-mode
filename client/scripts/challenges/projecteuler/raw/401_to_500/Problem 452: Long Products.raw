@@ -9,7 +9,7 @@ const assert = require('chai').assert;
 /// type: project-euler
 
 /// categories:
-math
+/// math
 
 /// difficulty: ?
 
@@ -17,7 +17,7 @@ math
 //replaceWithActualFunctionHere;
 
 /// description:
-<div class="euler"><p class="euler__paragraph">Define F(m,n) as the number of n-tuples of positive integers for which the product of the elements doesn't exceed m.</p><p class="euler__paragraph">F(10, 10) = 571.</p><p class="euler__paragraph">F(106, 106) mod 1 234 567 891 = 252903833.</p><p class="euler__paragraph">Find F(109, 109) mod 1 234 567 891.</p></div>
+/// <div class="euler"><p class="euler__paragraph">Define F(m,n) as the number of n-tuples of positive integers for which the product of the elements doesn't exceed m.</p><p class="euler__paragraph">F(10, 10) = 571.</p><p class="euler__paragraph">F(106, 106) mod 1 234 567 891 = 252903833.</p><p class="euler__paragraph">Find F(109, 109) mod 1 234 567 891.</p></div>
 
 /// challengeSeed:
 function euler452() {
