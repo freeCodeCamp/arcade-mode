@@ -16,16 +16,17 @@ json/challenges-algorithms.json
 json/challenges-arcade.json
 json/challenges-combined.json
 json/challenges-data-structures.json
+json/challenges-euler.json
 json/challenges-rosetta.json
+img/challenges/conventurist.png
+img/challenges/petch.png
+img/challenges/pexels-photo-127556.jpeg
+img/challenges/pexels-photo-358717.jpeg
 font/Kalam/Kalam-Regular.ttf
 font/Lato/Lato-Black.ttf
 font/Roboto/Roboto-Bold.ttf
 font/Roboto/Roboto-Medium.ttf
 font/Roboto/Roboto-Regular.ttf
-img/challenges/conventurist.png
-img/challenges/petch.png
-img/challenges/pexels-photo-127556.jpeg
-img/challenges/pexels-photo-358717.jpeg
 css/vendor/bootswatch/bootstrap.min.css
 css/vendor/codemirror/codemirror.min.css
 css/vendor/codemirror/monokai.min.css
@@ -36,4 +37,4 @@ NETWORK:
 SETTINGS:
 prefer-online
 
-# hash: dda1f956894521edf420a57da498d9372189aba80efc8805d1cfad079bac6951
+# hash: cde3467e48d90ce4edc1078eaf462da77626785e1c79e5570d1ac00341567f13
