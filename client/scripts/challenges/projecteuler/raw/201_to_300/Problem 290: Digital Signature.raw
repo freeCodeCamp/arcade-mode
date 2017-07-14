@@ -1,0 +1,37 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 290: Digital Signature
+/// type: project-euler
+
+/// categories:
+math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+<div class="euler"><p class="euler__paragraph">How many integers 0 ≤ n < 1018 have the property that the sum of the digits of n equals the sum of digits of 137n?</p></div>
+
+/// challengeSeed:
+function euler290() {
+  // Good luck!
+  return true;
+}
+
+euler290();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert.strictEqual(euler290(), 20444710234716470, 'message: <code>euler290()</code> should return 20444710234716470.');
+/// id: 5900f48f1000cf542c50ffa1

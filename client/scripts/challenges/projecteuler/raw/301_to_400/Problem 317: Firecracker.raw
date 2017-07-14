@@ -1,0 +1,37 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 317: Firecracker
+/// type: project-euler
+
+/// categories:
+math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+<div class="euler"><p class="euler__paragraph">A firecracker explodes at a height of 100 m above level ground. It breaks into a large number of very small fragments, which move in every direction; all of them have the same initial velocity of 20 m/s.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">We assume that the fragments move without air resistance, in a uniform gravitational field with g=9.81 m/s2.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Find the volume (in m3) of the region through which the fragments move before reaching the ground. </p><p class="euler__paragraph">Give your answer rounded to four decimal places.</p></div>
+
+/// challengeSeed:
+function euler317() {
+  // Good luck!
+  return true;
+}
+
+euler317();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert.strictEqual(euler317(), 1856532.8455, 'message: <code>euler317()</code> should return 1856532.8455.');
+/// id: 5900f4aa1000cf542c50ffbc

@@ -1,0 +1,37 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 304: Primonacci
+/// type: project-euler
+
+/// categories:
+math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+<div class="euler"><p class="euler__paragraph">For any positive integer n the function next_prime(n) returns the smallest prime p  such that p>n.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">The sequence a(n) is defined by:</p><p class="euler__paragraph">a(1)=next_prime(1014) and a(n)=next_prime(a(n-1)) for n>1.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">The fibonacci sequence f(n) is defined by:</p><p class="euler__paragraph">f(0)=0, f(1)=1 and f(n)=f(n-1)+f(n-2) for n>1.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">The sequence b(n) is defined as f(a(n)).</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Find ∑b(n) for 1≤n≤100 000. </p><p class="euler__paragraph">Give your answer mod 1234567891011.</p></div>
+
+/// challengeSeed:
+function euler304() {
+  // Good luck!
+  return true;
+}
+
+euler304();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert.strictEqual(euler304(), 283988410192, 'message: <code>euler304()</code> should return 283988410192.');
+/// id: 5900f49d1000cf542c50ffaf

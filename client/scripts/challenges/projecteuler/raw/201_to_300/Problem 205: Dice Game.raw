@@ -1,0 +1,37 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 205: Dice Game
+/// type: project-euler
+
+/// categories:
+math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+<div class="euler"><p class="euler__paragraph">Peter has nine four-sided (pyramidal) dice, each with faces numbered 1, 2, 3, 4.</p><p class="euler__paragraph">Colin has six six-sided (cubic) dice, each with faces numbered 1, 2, 3, 4, 5, 6.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Peter and Colin roll their dice and compare totals: the highest total wins. The result is a draw if the totals are equal.</p><p class="euler__paragraph"></p><p class="euler__paragraph">What is the probability that Pyramidal Pete beats Cubic Colin? Give your answer rounded to seven decimal places in the form 0.abcdefg</p></div>
+
+/// challengeSeed:
+function euler205() {
+  // Good luck!
+  return true;
+}
+
+euler205();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert.strictEqual(euler205(), 0.5731441, 'message: <code>euler205()</code> should return 0.5731441.');
+/// id: 5900f4391000cf542c50ff4c

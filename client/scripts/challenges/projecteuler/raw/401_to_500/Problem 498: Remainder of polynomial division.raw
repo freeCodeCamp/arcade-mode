@@ -1,0 +1,37 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 498: Remainder of polynomial division
+/// type: project-euler
+
+/// categories:
+math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+<div class="euler"><p class="euler__paragraph">For positive integers n and m, we define two polynomials Fn(x) = xn and Gm(x) = (x-1)m.</p><p class="euler__paragraph">We also define a polynomial Rn,m(x) as the remainder of the division of Fn(x) by Gm(x).</p><p class="euler__paragraph">For example, R6,3(x) = 15x2 - 24x + 10.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Let C(n, m, d) be the absolute value of the coefficient of the d-th degree term of Rn,m(x).</p><p class="euler__paragraph">We can verify that C(6, 3, 1) = 24 and C(100, 10, 4) = 227197811615775.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Find C(1013, 1012, 104) mod 999999937.</p></div>
+
+/// challengeSeed:
+function euler498() {
+  // Good luck!
+  return true;
+}
+
+euler498();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert.strictEqual(euler498(), 472294837, 'message: <code>euler498()</code> should return 472294837.');
+/// id: 5900f55f1000cf542c510071

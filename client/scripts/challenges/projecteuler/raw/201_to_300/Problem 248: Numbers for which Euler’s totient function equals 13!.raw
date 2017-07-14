@@ -1,0 +1,37 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 248: Numbers for which Euler’s totient function equals 13!
+/// type: project-euler
+
+/// categories:
+math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+<div class="euler"><p class="euler__paragraph">The first number n for which φ(n)=13! is 6227180929.</p><p class="euler__paragraph">Find the 150,000th such number.</p></div>
+
+/// challengeSeed:
+function euler248() {
+  // Good luck!
+  return true;
+}
+
+euler248();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert.strictEqual(euler248(), 23507044290, 'message: <code>euler248()</code> should return 23507044290.');
+/// id: 5900f4651000cf542c50ff77

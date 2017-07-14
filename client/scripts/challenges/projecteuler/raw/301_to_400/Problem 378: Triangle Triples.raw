@@ -1,0 +1,37 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 378: Triangle Triples
+/// type: project-euler
+
+/// categories:
+math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+<div class="euler"><p class="euler__paragraph">Let T(n) be the nth triangle number, so T(n) =</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">n (n+1)2</p><p class="euler__paragraph"></p><p class="euler__paragraph">.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Let dT(n) be the number of divisors of T(n).</p><p class="euler__paragraph">E.g.:</p><p class="euler__paragraph">T(7) = 28 and dT(7) = 6.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Let Tr(n) be the number of triples (i, j, k) such that 1 ≤ i < j < k ≤ n and dT(i) > dT(j) > dT(k).</p><p class="euler__paragraph">Tr(20) = 14, Tr(100) = 5772 and Tr(1000) = 11174776.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Find Tr(60 000 000). </p><p class="euler__paragraph">Give the last 18 digits of your answer.</p></div>
+
+/// challengeSeed:
+function euler378() {
+  // Good luck!
+  return true;
+}
+
+euler378();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert.strictEqual(euler378(), 147534623725724700, 'message: <code>euler378()</code> should return 147534623725724700.');
+/// id: 5900f4e61000cf542c50fff9

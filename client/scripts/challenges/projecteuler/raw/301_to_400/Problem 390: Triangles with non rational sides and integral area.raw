@@ -1,0 +1,37 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 390: Triangles with non rational sides and integral area
+/// type: project-euler
+
+/// categories:
+math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+<div class="euler"><p class="euler__paragraph">Consider the triangle with sides √5, √65 and √68.</p><p class="euler__paragraph">It can be shown that this triangle has area 9.</p><p class="euler__paragraph"></p><p class="euler__paragraph">S(n) is the sum of the areas of  all triangles with sides √(1+b2), √(1+c2) and √(b2+c2) (for positive integers b and c ) that have an integral area not exceeding n.</p><p class="euler__paragraph"></p><p class="euler__paragraph">The example triangle has b=2 and c=8.</p><p class="euler__paragraph"></p><p class="euler__paragraph">S(106)=18018206.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Find S(1010).</p></div>
+
+/// challengeSeed:
+function euler390() {
+  // Good luck!
+  return true;
+}
+
+euler390();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert.strictEqual(euler390(), 2919133642971, 'message: <code>euler390()</code> should return 2919133642971.');
+/// id: 5900f4f21000cf542c510005

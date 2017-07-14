@@ -1,0 +1,37 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 593: Fleeting Medians
+/// type: project-euler
+
+/// categories:
+math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+<div class="euler"><p class="euler__paragraph">We define two sequences $S = \{S(1), S(2), ..., S(n)\}$ and $S_2 = \{S_2(1), S_2(2), ..., S_2(n)\}$:</p><p class="euler__paragraph"></p><p class="euler__paragraph">$S(k) = (p_k)^k$ mod $10007$ where $p_k$ is the $k$th prime number.</p><p class="euler__paragraph"></p><p class="euler__paragraph">$S_2(k) = S(k) + S(\lfloor\frac{k}{10000}\rfloor + 1)$ where $\lfloor \cdot \rfloor$ denotes the floor function.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Then let $M(i, j)$ be the median of elements $S_2(i)$ through $S_2(j)$, inclusive. For example, $M(1, 10) = 2021.5$ and $M(10^2, 10^3) = 4715.0$.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Let $F(n, k) = \sum_{i=1}^{n-k+1} M(i, i + k - 1)$. For example, $F(100, 10) = 463628.5$ and $F(10^5, 10^4) = 675348207.5$.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Find $F(10^7, 10^5)$. If the sum is not an integer, use $.5$ to denote a half. Otherwise, use $.0$ instead.</p></div>
+
+/// challengeSeed:
+function euler593() {
+  // Good luck!
+  return true;
+}
+
+euler593();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert.strictEqual(euler593(), TODO: MISSING ANSWER, 'message: <code>euler593()</code> should return TODO: MISSING ANSWER.');
+/// id: 5900ff1358d9425c70af4fa3

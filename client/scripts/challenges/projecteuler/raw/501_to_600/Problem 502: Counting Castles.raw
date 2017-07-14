@@ -1,0 +1,37 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 502: Counting Castles
+/// type: project-euler
+
+/// categories:
+math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+<div class="euler"><p class="euler__paragraph">We define a block to be a rectangle with a height of 1 and an integer-valued length. Let a castle be a configuration of stacked blocks.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Given a game grid that is w units wide and h units tall, a castle is generated according to the following rules:</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Blocks can be placed on top of other blocks as long as nothing sticks out past the edges or hangs out over open space.</p><p class="euler__paragraph">All blocks are aligned/snapped to the grid.</p><p class="euler__paragraph">Any two neighboring blocks on the same row have at least one unit of space between them.</p><p class="euler__paragraph">The bottom row is occupied by a block of length w.</p><p class="euler__paragraph">The maximum achieved height of the entire castle is exactly h.</p><p class="euler__paragraph">The castle is made from an even number of blocks.</p><p class="euler__paragraph">The following is a sample castle for w=8 and h=5:</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Let F(w,h) represent the number of valid castles, given grid parameters w and h.</p><p class="euler__paragraph"></p><p class="euler__paragraph">For example, F(4,2) = 10, F(13,10) = 3729050610636, F(10,13) = 37959702514, and F(100,100) mod 1 000 000 007 = 841913936.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Find (F(1012,100) + F(10000,10000) + F(100,1012)) mod 1 000 000 007.</p></div>
+
+/// challengeSeed:
+function euler502() {
+  // Good luck!
+  return true;
+}
+
+euler502();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert.strictEqual(euler502(), TODO: MISSING ANSWER, 'message: <code>euler502()</code> should return TODO: MISSING ANSWER.');
+/// id: 5900f5621000cf542c510075

@@ -1,0 +1,37 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 165: Intersections
+/// type: project-euler
+
+/// categories:
+math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+<div class="euler"><p class="euler__paragraph">A segment is uniquely defined by its two endpoints. By considering two line segments in plane geometry there are three possibilities: </p><p class="euler__paragraph">the segments have zero points, one point, or infinitely many points in common.</p><p class="euler__paragraph">Moreover when two segments have exactly one point in common it might be the case that that common point is an endpoint of either one of the segments or of both. If a common point of two segments is not an endpoint of either of the segments it is an interior point of both segments.</p><p class="euler__paragraph">We will call a common point T of two segments L1 and L2 a true intersection point of L1 and L2  if T is the only common point of L1 and L2  and T is an interior point of both segments.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Consider the three segments L1, L2, and L3:</p><p class="euler__paragraph">L1: (27, 44) to (12, 32)</p><p class="euler__paragraph">L2: (46, 53) to (17, 62)</p><p class="euler__paragraph">L3: (46, 70) to (22, 40)</p><p class="euler__paragraph">It can be verified that line segments L2 and L3 have a true intersection point. We note that as the one of the end points of L3: (22,40) lies on L1 this is not considered to be a true point of intersection. L1 and L2 have no common point. So among the three line segments, we find one true intersection point.</p><p class="euler__paragraph">Now let us do the same for 5000 line segments. To this end, we generate 20000 numbers using the so-called "Blum Blum Shub" pseudo-random number generator.</p><p class="euler__paragraph">s0 = 290797</p><p class="euler__paragraph">sn+1 = sn×sn (modulo 50515093)</p><p class="euler__paragraph">tn = sn (modulo 500)</p><p class="euler__paragraph">To create each line segment, we use four consecutive numbers tn. That is, the first line segment is given by:</p><p class="euler__paragraph">(t1, t2) to (t3, t4)</p><p class="euler__paragraph">The first four numbers computed according to the above generator should be: 27, 144, 12 and 232. The first segment would thus be (27,144) to (12,232).</p><p class="euler__paragraph">How many distinct true intersection points are found among the 5000 line segments?</p></div>
+
+/// challengeSeed:
+function euler165() {
+  // Good luck!
+  return true;
+}
+
+euler165();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert.strictEqual(euler165(), 2868868, 'message: <code>euler165()</code> should return 2868868.');
+/// id: 5900f4111000cf542c50ff24

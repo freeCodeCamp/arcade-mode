@@ -1,0 +1,37 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 468: Smooth divisors of binomial coefficients
+/// type: project-euler
+
+/// categories:
+math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+<div class="euler"><p class="euler__paragraph">An integer is called B-smooth if none of its prime factors is greater than B.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Let SB(n) be the largest B-smooth divisor of n.</p><p class="euler__paragraph">Examples:</p><p class="euler__paragraph">S1(10) = 1</p><p class="euler__paragraph">S4(2100) = 12</p><p class="euler__paragraph">S17(2496144) = 5712</p><p class="euler__paragraph"></p><p class="euler__paragraph">Define F(n) = ∑1≤B≤n ∑0≤r≤n SB(C(n,r)). Here, C(n,r) denotes the binomial coefficient.</p><p class="euler__paragraph">Examples:</p><p class="euler__paragraph">F(11) = 3132</p><p class="euler__paragraph">F(1 111) mod 1 000 000 993 = 706036312</p><p class="euler__paragraph">F(111 111) mod 1 000 000 993 = 22156169</p><p class="euler__paragraph"></p><p class="euler__paragraph">Find F(11 111 111) mod 1 000 000 993.</p></div>
+
+/// challengeSeed:
+function euler468() {
+  // Good luck!
+  return true;
+}
+
+euler468();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert.strictEqual(euler468(), 852950321, 'message: <code>euler468()</code> should return 852950321.');
+/// id: 5900f5411000cf542c510054

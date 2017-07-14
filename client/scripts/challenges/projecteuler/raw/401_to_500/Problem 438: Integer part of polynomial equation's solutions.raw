@@ -1,0 +1,37 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 438: Integer part of polynomial equation's solutions
+/// type: project-euler
+
+/// categories:
+math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+<div class="euler"><p class="euler__paragraph">For an n-tuple of integers t = (a1, ..., an), let (x1, ..., xn) be the solutions of the polynomial equation xn + a1xn-1 + a2xn-2 + ... + an-1x + an = 0.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Consider the following two conditions:</p><p class="euler__paragraph">x1, ..., xn are all real.</p><p class="euler__paragraph">If x1, ..., xn are sorted, ⌊xi⌋ = i for 1 ≤ i ≤ n. (⌊·⌋: floor function.)</p><p class="euler__paragraph"></p><p class="euler__paragraph">In the case of n = 4, there are 12 n-tuples of integers which satisfy both conditions.</p><p class="euler__paragraph">We define S(t) as the sum of the absolute values of the integers in t.</p><p class="euler__paragraph">For n = 4 we can verify that ∑S(t) = 2087 for all n-tuples t which satisfy both conditions.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Find ∑S(t) for n = 7.</p></div>
+
+/// challengeSeed:
+function euler438() {
+  // Good luck!
+  return true;
+}
+
+euler438();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert.strictEqual(euler438(), 2046409616809, 'message: <code>euler438()</code> should return 2046409616809.');
+/// id: 5900f5231000cf542c510034

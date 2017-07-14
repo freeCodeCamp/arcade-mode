@@ -1,0 +1,37 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 226: A Scoop of Blancmange
+/// type: project-euler
+
+/// categories:
+math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+<div class="euler"><p class="euler__paragraph">The blancmange curve is the set of points (x,y) such that 0 ≤ x ≤ 1 and  ,where s(x) = the distance from x to the nearest integer.</p><p class="euler__paragraph"></p><p class="euler__paragraph">The area under the blancmange curve is equal to ½, shown in pink in the diagram below.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Let C be the circle with centre (¼,½) and radius ¼, shown in black in the diagram.</p><p class="euler__paragraph"></p><p class="euler__paragraph">What area under the blancmange curve is enclosed by C?Give your answer rounded to eight decimal places in the form 0.abcdefgh</p></div>
+
+/// challengeSeed:
+function euler226() {
+  // Good luck!
+  return true;
+}
+
+euler226();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert.strictEqual(euler226(), 0.11316017, 'message: <code>euler226()</code> should return 0.11316017.');
+/// id: 5900f4511000cf542c50ff62

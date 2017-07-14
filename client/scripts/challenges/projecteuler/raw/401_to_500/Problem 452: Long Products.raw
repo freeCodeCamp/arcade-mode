@@ -1,0 +1,37 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 452: Long Products
+/// type: project-euler
+
+/// categories:
+math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+<div class="euler"><p class="euler__paragraph">Define F(m,n) as the number of n-tuples of positive integers for which the product of the elements doesn't exceed m.</p><p class="euler__paragraph">F(10, 10) = 571.</p><p class="euler__paragraph">F(106, 106) mod 1 234 567 891 = 252903833.</p><p class="euler__paragraph">Find F(109, 109) mod 1 234 567 891.</p></div>
+
+/// challengeSeed:
+function euler452() {
+  // Good luck!
+  return true;
+}
+
+euler452();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert.strictEqual(euler452(), 345558983, 'message: <code>euler452()</code> should return 345558983.');
+/// id: 5900f5311000cf542c510043

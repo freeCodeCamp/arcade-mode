@@ -1,0 +1,37 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 572: Idempotent matrices
+/// type: project-euler
+
+/// categories:
+math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+<div class="euler"><p class="euler__paragraph">A matrix $M$ is called idempotent if $M^2 = M$.</p><p class="euler__paragraph">Let $M$ be a three by three matrix : </p><p class="euler__paragraph">$M=\begin{pmatrix} </p><p class="euler__paragraph">  a & b & c\\ </p><p class="euler__paragraph">  d & e & f\\</p><p class="euler__paragraph">  g &h &i\\</p><p class="euler__paragraph">\end{pmatrix}$.</p><p class="euler__paragraph">Let C(n) be the number of  idempotent three by three matrices $M$ with integer elements such that</p><p class="euler__paragraph">$ -n \le a,b,c,d,e,f,g,h,i \le n$.</p><p class="euler__paragraph"></p><p class="euler__paragraph">C(1)=164 and C(2)=848.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Find C(200).</p></div>
+
+/// challengeSeed:
+function euler572() {
+  // Good luck!
+  return true;
+}
+
+euler572();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert.strictEqual(euler572(), TODO: MISSING ANSWER, 'message: <code>euler572()</code> should return TODO: MISSING ANSWER.');
+/// id: 5900fefe58d9425c70af4f8e

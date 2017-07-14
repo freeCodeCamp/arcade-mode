@@ -1,0 +1,37 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 328: Lowest-cost Search
+/// type: project-euler
+
+/// categories:
+math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+<div class="euler"><p class="euler__paragraph">We are trying to find a hidden number selected from the set of integers {1, 2, ..., n} by asking questions. </p><p class="euler__paragraph">Each number (question) we ask, has a cost equal to the number asked and we get one of three possible answers: "Your guess is lower than the hidden number", or</p><p class="euler__paragraph"> "Yes, that's it!", or</p><p class="euler__paragraph"> "Your guess is higher than the hidden number".</p><p class="euler__paragraph">Given the value of n, an optimal strategy minimizes the total cost (i.e. the sum of all the questions asked) for the worst possible case. E.g.</p><p class="euler__paragraph"></p><p class="euler__paragraph">If n=3, the best we can do is obviously to ask the number "2". The answer will immediately lead us to find the hidden number (at a total cost = 2).</p><p class="euler__paragraph"></p><p class="euler__paragraph">If n=8, we might decide to use a "binary search" type of strategy: Our first question would be "4" and if the hidden number is higher than 4 we will need one or two additional questions.</p><p class="euler__paragraph">Let our second question be "6". If the hidden number is still higher than 6, we will need a third question in order to discriminate between 7 and 8.</p><p class="euler__paragraph">Thus, our third question will be "7" and the total cost for this worst-case scenario will be 4+6+7=17.</p><p class="euler__paragraph"></p><p class="euler__paragraph">We can improve considerably the worst-case cost for n=8, by asking "5" as our first question.</p><p class="euler__paragraph">If we are told that the hidden number is higher than 5, our second question will be "7", then we'll know for certain what the hidden number is (for a total cost of 5+7=12).</p><p class="euler__paragraph">If we are told that the hidden number is lower than 5, our second question will be "3" and if the hidden number is lower than 3 our third question will be "1", giving a total cost of 5+3+1=9.</p><p class="euler__paragraph">Since 12>9, the worst-case cost for this strategy is 12. That's better than what we achieved previously with the "binary search" strategy; it is also better than or equal to any other strategy.</p><p class="euler__paragraph">So, in fact, we have just described an optimal strategy for n=8.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Let C(n) be the worst-case cost achieved by an optimal strategy for n, as described above.</p><p class="euler__paragraph">Thus C(1) = 0, C(2) = 1, C(3) = 2 and C(8) = 12.</p><p class="euler__paragraph">Similarly, C(100) = 400 and C(n) = 17575.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Find C(n).</p></div>
+
+/// challengeSeed:
+function euler328() {
+  // Good luck!
+  return true;
+}
+
+euler328();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert.strictEqual(euler328(), 260511850222, 'message: <code>euler328()</code> should return 260511850222.');
+/// id: 5900f4b41000cf542c50ffc7

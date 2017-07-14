@@ -1,0 +1,37 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 533: Minimum values of the Carmichael function
+/// type: project-euler
+
+/// categories:
+math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+<div class="euler"><p class="euler__paragraph">The Carmichael function λ(n) is defined as the smallest positive integer m such that am = 1 modulo n for all integers a coprime with n.</p><p class="euler__paragraph">For example λ(8) = 2 and λ(240) = 4.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Define L(n) as the smallest positive integer m such that λ(k) ≥ n for all k ≥ m.</p><p class="euler__paragraph">For example, L(6) = 241 and L(100) = 20 174 525 281.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Find L(20 000 000). Give the last 9 digits of your answer.</p></div>
+
+/// challengeSeed:
+function euler533() {
+  // Good luck!
+  return true;
+}
+
+euler533();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert.strictEqual(euler533(), TODO: MISSING ANSWER, 'message: <code>euler533()</code> should return TODO: MISSING ANSWER.');
+/// id: 5900fed758d9425c70af4f67

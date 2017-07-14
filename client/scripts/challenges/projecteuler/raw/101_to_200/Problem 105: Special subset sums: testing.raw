@@ -1,0 +1,37 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 105: Special subset sums: testing
+/// type: project-euler
+
+/// categories:
+math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+<div class="euler"><p class="euler__paragraph">Let S(A) represent the sum of elements in set A of size n. We shall call it a special sum set if for any two non-empty disjoint subsets, B and C, the following properties are true:</p><p class="euler__paragraph">S(B) ≠ S(C); that is, sums of subsets cannot be equal.</p><p class="euler__paragraph">If B contains more elements than C then S(B) > S(C).</p><p class="euler__paragraph">For example, {81, 88, 75, 42, 87, 84, 86, 65} is not a special sum set because 65 + 87 + 88 = 75 + 81 + 84, whereas {157, 150, 164, 119, 79, 159, 161, 139, 158} satisfies both rules for all possible subset pair combinations and S(A) = 1286.</p><p class="euler__paragraph">Using sets.txt (right click and "Save Link/Target As..."), a 4K text file with one-hundred sets containing seven to twelve elements (the two examples given above are the first two sets in the file), identify all the special sum sets, A1, A2, ..., Ak, and find the value of S(A1) + S(A2) + ... + S(Ak).</p><p class="euler__paragraph">NOTE: This problem is related to Problem 103 and Problem 106.</p></div>
+
+/// challengeSeed:
+function euler105() {
+  // Good luck!
+  return true;
+}
+
+euler105();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert.strictEqual(euler105(), 73702, 'message: <code>euler105()</code> should return 73702.');
+/// id: 5900f3d61000cf542c50fee8

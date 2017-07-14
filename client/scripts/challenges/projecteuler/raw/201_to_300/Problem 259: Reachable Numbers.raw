@@ -1,0 +1,37 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 259: Reachable Numbers
+/// type: project-euler
+
+/// categories:
+math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+<div class="euler"><p class="euler__paragraph">A positive integer will be called reachable if it can result from an arithmetic expression obeying the following rules:</p><p class="euler__paragraph"></p><p class="euler__paragraph">Uses the digits 1 through 9, in that order and exactly once each.</p><p class="euler__paragraph">Any successive digits can be concatenated (for example, using the digits 2, 3 and 4 we obtain the number 234).</p><p class="euler__paragraph">Only the four usual binary arithmetic operations (addition, subtraction, multiplication and division) are allowed.</p><p class="euler__paragraph">Each operation can be used any number of times, or not at all.</p><p class="euler__paragraph">Unary minus is not allowed.</p><p class="euler__paragraph">Any number of (possibly nested) parentheses may be used to define the order of operations.</p><p class="euler__paragraph">For example, 42 is reachable, since (1/23) * ((4*5)-6) * (78-9) = 42.</p><p class="euler__paragraph"></p><p class="euler__paragraph">What is the sum of all positive reachable integers?</p></div>
+
+/// challengeSeed:
+function euler259() {
+  // Good luck!
+  return true;
+}
+
+euler259();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert.strictEqual(euler259(), 20101196798, 'message: <code>euler259()</code> should return 20101196798.');
+/// id: 5900f4701000cf542c50ff82

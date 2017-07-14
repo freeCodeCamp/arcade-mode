@@ -1,0 +1,37 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 125: Palindromic sums
+/// type: project-euler
+
+/// categories:
+math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+<div class="euler"><p class="euler__paragraph">The palindromic number 595 is interesting because it can be written as the sum of consecutive squares: 62 + 72 + 82 + 92 + 102 + 112 + 122.</p><p class="euler__paragraph">There are exactly eleven palindromes below one-thousand that can be written as consecutive square sums, and the sum of these palindromes is 4164. Note that 1 = 02 + 12 has not been included as this problem is concerned with the squares of positive integers.</p><p class="euler__paragraph">Find the sum of all the numbers less than 108 that are both palindromic and can be written as the sum of consecutive squares.</p></div>
+
+/// challengeSeed:
+function euler125() {
+  // Good luck!
+  return true;
+}
+
+euler125();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert.strictEqual(euler125(), 2906969179, 'message: <code>euler125()</code> should return 2906969179.');
+/// id: 5900f3e91000cf542c50fefc

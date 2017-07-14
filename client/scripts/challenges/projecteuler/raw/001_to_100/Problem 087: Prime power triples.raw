@@ -1,0 +1,37 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 87: Prime power triples
+/// type: project-euler
+
+/// categories:
+math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+<div class="euler"><p class="euler__paragraph">The smallest number expressible as the sum of a prime square, prime cube, and prime fourth power is 28. In fact, there are exactly four numbers below fifty that can be expressed in such a way:</p><p class="euler__paragraph">28 = 22 + 23 + 24</p><p class="euler__paragraph">33 = 32 + 23 + 24</p><p class="euler__paragraph">49 = 52 + 23 + 24</p><p class="euler__paragraph">47 = 22 + 33 + 24</p><p class="euler__paragraph">How many numbers below fifty million can be expressed as the sum of a prime square, prime cube, and prime fourth power?</p></div>
+
+/// challengeSeed:
+function euler87() {
+  // Good luck!
+  return true;
+}
+
+euler87();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert.strictEqual(euler87(), 1097343, 'message: <code>euler87()</code> should return 1097343.');
+/// id: 5900f3c51000cf542c50fed8

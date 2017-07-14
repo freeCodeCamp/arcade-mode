@@ -1,0 +1,37 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 37: Truncatable primes
+/// type: project-euler
+
+/// categories:
+math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+<div class="euler"><p class="euler__paragraph">The number 3797 has an interesting property. Being prime itself, it is possible to continuously remove digits from left to right, and remain prime at each stage: 3797, 797, 97, and 7. Similarly we can work from right to left: 3797, 379, 37, and 3.</p><p class="euler__paragraph">Find the sum of the only eleven primes that are both truncatable from left to right and right to left.</p><p class="euler__paragraph">NOTE: 2, 3, 5, and 7 are not considered to be truncatable primes.</p></div>
+
+/// challengeSeed:
+function euler37() {
+  // Good luck!
+  return true;
+}
+
+euler37();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert.strictEqual(euler37(), 748317, 'message: <code>euler37()</code> should return 748317.');
+/// id: 5900f3911000cf542c50fea4

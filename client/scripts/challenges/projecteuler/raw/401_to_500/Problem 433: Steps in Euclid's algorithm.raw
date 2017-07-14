@@ -1,0 +1,37 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 433: Steps in Euclid's algorithm
+/// type: project-euler
+
+/// categories:
+math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+<div class="euler"><p class="euler__paragraph">Let E(x0, y0) be the number of steps it takes to determine the greatest common divisor of x0 and y0 with Euclid's algorithm. More formally:x1 = y0, y1 = x0 mod y0xn = yn-1, yn = xn-1 mod yn-1</p><p class="euler__paragraph">E(x0, y0) is the smallest n such that yn = 0.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">We have E(1,1) = 1, E(10,6) = 3 and E(6,10) = 4.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Define S(N) as the sum of E(x,y) for 1 ≤ x,y ≤ N.</p><p class="euler__paragraph">We have S(1) = 1, S(10) = 221 and S(100) = 39826.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Find S(5·106).</p></div>
+
+/// challengeSeed:
+function euler433() {
+  // Good luck!
+  return true;
+}
+
+euler433();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert.strictEqual(euler433(), 326624372659664, 'message: <code>euler433()</code> should return 326624372659664.');
+/// id: 5900f51d1000cf542c51002f

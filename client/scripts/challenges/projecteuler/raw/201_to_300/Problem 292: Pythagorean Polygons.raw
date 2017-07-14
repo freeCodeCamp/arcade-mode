@@ -1,0 +1,37 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 292: Pythagorean Polygons
+/// type: project-euler
+
+/// categories:
+math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+<div class="euler"><p class="euler__paragraph">We shall define a pythagorean polygon  to be a convex polygon with the following properties:there are at least three vertices,</p><p class="euler__paragraph">no three vertices are aligned,</p><p class="euler__paragraph">each vertex has integer coordinates,</p><p class="euler__paragraph">each edge has integer length.For a given integer n, define P(n) as the number of distinct pythagorean polygons for which the perimeter is ≤ n.</p><p class="euler__paragraph">Pythagorean polygons should be considered distinct as long as none is a translation of another.</p><p class="euler__paragraph"></p><p class="euler__paragraph">You are given that P(4) = 1, P(30) = 3655 and P(60) = 891045.</p><p class="euler__paragraph">Find P(120).</p></div>
+
+/// challengeSeed:
+function euler292() {
+  // Good luck!
+  return true;
+}
+
+euler292();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert.strictEqual(euler292(), 3600060866, 'message: <code>euler292()</code> should return 3600060866.');
+/// id: 5900f4911000cf542c50ffa3

@@ -1,0 +1,37 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 335: Gathering the beans
+/// type: project-euler
+
+/// categories:
+math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+<div class="euler"><p class="euler__paragraph">Whenever Peter feels bored, he places some bowls, containing one bean each, in a circle. After this, he takes all the beans out of a certain bowl and drops them one by one in the bowls going clockwise. He repeats this, starting from the bowl he dropped the last bean in, until the initial situation appears again. For example with 5 bowls he acts as follows:</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">So with 5 bowls it takes Peter 15 moves to return to the initial situation.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Let M(x) represent the number of moves required to return to the initial situation, starting with x bowls. Thus, M(5) = 15. It can also be verified that M(100) = 10920.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Find M(2k+1). Give your answer modulo 79.</p></div>
+
+/// challengeSeed:
+function euler335() {
+  // Good luck!
+  return true;
+}
+
+euler335();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert.strictEqual(euler335(), 5032316, 'message: <code>euler335()</code> should return 5032316.');
+/// id: 5900f4bd1000cf542c50ffce

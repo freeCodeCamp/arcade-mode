@@ -1,0 +1,37 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 332: Spherical triangles
+/// type: project-euler
+
+/// categories:
+math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+<div class="euler"><p class="euler__paragraph">A spherical triangle is a figure formed on the surface of a sphere by three great circular arcs intersecting pairwise in three vertices.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Let C(r) be the sphere with the centre (0,0,0) and radius r.</p><p class="euler__paragraph">Let Z(r) be the set of points on the surface of C(r) with integer coordinates.</p><p class="euler__paragraph">Let T(r) be the set of spherical triangles with vertices in Z(r).</p><p class="euler__paragraph">Degenerate spherical triangles, formed by three points on the same great arc, are not included in T(r).</p><p class="euler__paragraph">Let A(r) be the area of the smallest spherical triangle in T(r).</p><p class="euler__paragraph"></p><p class="euler__paragraph">For example A(14) is 3.294040 rounded to six decimal places.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Find  A(r). Give your answer rounded to six decimal places.</p></div>
+
+/// challengeSeed:
+function euler332() {
+  // Good luck!
+  return true;
+}
+
+euler332();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert.strictEqual(euler332(), 2717.751525, 'message: <code>euler332()</code> should return 2717.751525.');
+/// id: 5900f4b91000cf542c50ffcb

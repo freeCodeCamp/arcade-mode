@@ -1,0 +1,37 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 286: Scoring probabilities
+/// type: project-euler
+
+/// categories:
+math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+<div class="euler"><p class="euler__paragraph">Barbara is a mathematician and a basketball player. She has found that the probability of scoring a point when shooting from a distance x is exactly (1 - x/q), where q is a real constant greater than 50.</p><p class="euler__paragraph"></p><p class="euler__paragraph">During each practice run, she takes shots from distances x = 1, x = 2, ..., x = 50 and, according to her records, she has precisely a 2 % chance to score a total of exactly 20 points.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Find q and give your answer rounded to 10 decimal places.</p></div>
+
+/// challengeSeed:
+function euler286() {
+  // Good luck!
+  return true;
+}
+
+euler286();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert.strictEqual(euler286(), 52.6494571953, 'message: <code>euler286()</code> should return 52.6494571953.');
+/// id: 5900f48a1000cf542c50ff9d

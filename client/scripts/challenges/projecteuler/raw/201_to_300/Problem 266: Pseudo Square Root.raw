@@ -1,0 +1,37 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 266: Pseudo Square Root
+/// type: project-euler
+
+/// categories:
+math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+<div class="euler"><p class="euler__paragraph">The divisors of 12 are: 1,2,3,4,6 and 12.</p><p class="euler__paragraph">The largest divisor of 12 that does not exceed the square root of 12 is 3.</p><p class="euler__paragraph">We shall call the largest divisor of an integer n that does not exceed the square root of n the pseudo square root (PSR) of n.</p><p class="euler__paragraph">It can be seen that PSR(3102)=47.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">Let p be the product of the primes below 190.</p><p class="euler__paragraph">Find PSR(p) mod 1016.</p></div>
+
+/// challengeSeed:
+function euler266() {
+  // Good luck!
+  return true;
+}
+
+euler266();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert.strictEqual(euler266(), 1096883702440585, 'message: <code>euler266()</code> should return 1096883702440585.');
+/// id: 5900f4771000cf542c50ff89

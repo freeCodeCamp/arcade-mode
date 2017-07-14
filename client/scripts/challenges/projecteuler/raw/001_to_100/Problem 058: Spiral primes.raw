@@ -1,0 +1,37 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 58: Spiral primes
+/// type: project-euler
+
+/// categories:
+math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+<div class="euler"><p class="euler__paragraph">Starting with 1 and spiralling anticlockwise in the following way, a square spiral with side length 7 is formed.</p><p class="euler__paragraph">37 36 35 34 33 32 31</p><p class="euler__paragraph">38 17 16 15 14 13 30</p><p class="euler__paragraph">39 18  5  4  3 12 29</p><p class="euler__paragraph">40 19  6  1  2 11 28</p><p class="euler__paragraph">41 20  7  8  9 10 27</p><p class="euler__paragraph">42 21 22 23 24 25 2643 44 45 46 47 48 49</p><p class="euler__paragraph">It is interesting to note that the odd squares lie along the bottom right diagonal, but what is more interesting is that 8 out of the 13 numbers lying along both diagonals are prime; that is, a ratio of 8/13 ≈ 62%.</p><p class="euler__paragraph">If one complete new layer is wrapped around the spiral above, a square spiral with side length 9 will be formed. If this process is continued, what is the side length of the square spiral for which the ratio of primes along both diagonals first falls below 10%?</p></div>
+
+/// challengeSeed:
+function euler58() {
+  // Good luck!
+  return true;
+}
+
+euler58();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert.strictEqual(euler58(), 26241, 'message: <code>euler58()</code> should return 26241.');
+/// id: 5900f3a61000cf542c50feb9

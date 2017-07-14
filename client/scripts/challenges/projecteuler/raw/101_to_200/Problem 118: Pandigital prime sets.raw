@@ -1,0 +1,37 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 118: Pandigital prime sets
+/// type: project-euler
+
+/// categories:
+math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+<div class="euler"><p class="euler__paragraph">Using all of the digits 1 through 9 and concatenating them freely to form decimal integers, different sets can be formed. Interestingly with the set {2,5,47,89,631}, all of the elements belonging to it are prime.</p><p class="euler__paragraph">How many distinct sets containing each of the digits one through nine exactly once contain only prime elements?</p></div>
+
+/// challengeSeed:
+function euler118() {
+  // Good luck!
+  return true;
+}
+
+euler118();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert.strictEqual(euler118(), 44680, 'message: <code>euler118()</code> should return 44680.');
+/// id: 5900f3e21000cf542c50fef5

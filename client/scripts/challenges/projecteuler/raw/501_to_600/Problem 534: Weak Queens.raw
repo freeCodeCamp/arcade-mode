@@ -1,0 +1,37 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 534: Weak Queens
+/// type: project-euler
+
+/// categories:
+math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+<div class="euler"><p class="euler__paragraph">The classical eight queens puzzle is the well known problem of placing eight chess queens on a 8×8 chessboard so that no two queens threaten each other. Allowing configurations to reappear in rotated or mirrored form, a total of 92 distinct configurations can be found for eight queens. The general case asks for the number of distinct ways of placing n queens on a n×n board, e.g. you can find 2 distinct configurations for n=4.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Lets define a weak queen on a n×n board to be a piece which can move any number of squares if moved horizontally, but a maximum of n−1−w squares if moved vertically or diagonally, 0≤w<n being the "weakness factor". For example, a weak queen on a n×n board with a weakness factor of w=1 located in the bottom row will not be able to threaten any square in the top row as the weak queen would need to move n−1 squares vertically or diagonally to get there, but may only move n−2 squares in these directions. In contrast, the weak queen is not handicapped horizontally, thus threatening every square in its own row, independently from its current position in that row.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Let Q(n,w) be the number of ways n weak queens with weakness factor w can be placed on a n×n board so that no two queens threaten each other. It can be shown, for example, that Q(4,0)=2, Q(4,2)=16 and Q(4,3)=256.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Let $S(n)=\displaystyle\sum_{w=0}^{n-1} Q(n,w)$.</p><p class="euler__paragraph"></p><p class="euler__paragraph">You are given that S(4)=276 and S(5)=3347.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Find S(14).</p></div>
+
+/// challengeSeed:
+function euler534() {
+  // Good luck!
+  return true;
+}
+
+euler534();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert.strictEqual(euler534(), TODO: MISSING ANSWER, 'message: <code>euler534()</code> should return TODO: MISSING ANSWER.');
+/// id: 5900fed858d9425c70af4f68

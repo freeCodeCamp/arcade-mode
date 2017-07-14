@@ -1,0 +1,37 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 177: Integer angled Quadrilaterals
+/// type: project-euler
+
+/// categories:
+math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+<div class="euler"><p class="euler__paragraph">Let ABCD be a convex quadrilateral, with diagonals AC and BD. At each vertex the diagonal makes an angle with each of the two sides, creating eight corner angles.</p><p class="euler__paragraph"></p><p class="euler__paragraph">For example, at vertex A, the two angles are CAD, CAB.</p><p class="euler__paragraph">We call such a quadrilateral for which all eight corner angles have integer values when measured in degrees an "integer angled quadrilateral". An example of an integer angled quadrilateral is a square, where all eight corner angles are 45°. Another example is given by DAC = 20°, BAC = 60°, ABD = 50°, CBD = 30°, BCA = 40°, DCA = 30°, CDB = 80°, ADB = 50°.</p><p class="euler__paragraph">What is the total number of non-similar integer angled quadrilaterals?</p><p class="euler__paragraph">Note: In your calculations you may assume that a calculated angle is integral if it is within a tolerance of 10-9 of an integer value.</p></div>
+
+/// challengeSeed:
+function euler177() {
+  // Good luck!
+  return true;
+}
+
+euler177();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert.strictEqual(euler177(), 129325, 'message: <code>euler177()</code> should return 129325.');
+/// id: 5900f41e1000cf542c50ff30

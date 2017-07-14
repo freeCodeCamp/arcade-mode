@@ -1,0 +1,37 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 66: Diophantine equation
+/// type: project-euler
+
+/// categories:
+math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+<div class="euler"><p class="euler__paragraph">Consider quadratic Diophantine equations of the form:</p><p class="euler__paragraph">x2 – Dy2 = 1</p><p class="euler__paragraph">For example, when D=13, the minimal solution in x is 6492 – 13×1802 = 1.</p><p class="euler__paragraph">It can be assumed that there are no solutions in positive integers when D is square.</p><p class="euler__paragraph">By finding minimal solutions in x for D = {2, 3, 5, 6, 7}, we obtain the following:</p><p class="euler__paragraph">32 – 2×22 = 1</p><p class="euler__paragraph">22 – 3×12 = 192 – 5×42 = 1</p><p class="euler__paragraph">52 – 6×22 = 1</p><p class="euler__paragraph">82 – 7×32 = 1</p><p class="euler__paragraph">Hence, by considering minimal solutions in x for D ≤ 7, the largest x is obtained when D=5.</p><p class="euler__paragraph">Find the value of D ≤ 1000 in minimal solutions of x for which the largest value of x is obtained.</p></div>
+
+/// challengeSeed:
+function euler66() {
+  // Good luck!
+  return true;
+}
+
+euler66();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert.strictEqual(euler66(), 661, 'message: <code>euler66()</code> should return 661.');
+/// id: 5900f3ae1000cf542c50fec1

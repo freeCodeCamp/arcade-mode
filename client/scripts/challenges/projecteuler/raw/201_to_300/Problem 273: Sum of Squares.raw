@@ -1,0 +1,37 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 273: Sum of Squares
+/// type: project-euler
+
+/// categories:
+math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+<div class="euler"><p class="euler__paragraph">Consider equations of the form: a2 + b2 = N, 0 ≤ a ≤ b, a, b and N integer.</p><p class="euler__paragraph"></p><p class="euler__paragraph">For N=65 there are two solutions:</p><p class="euler__paragraph">a=1, b=8 and a=4, b=7.</p><p class="euler__paragraph">We call S(N) the sum of the values of a of all solutions of a2 + b2 = N, 0 ≤ a ≤ b, a, b and N integer.</p><p class="euler__paragraph">Thus S(65) = 1 + 4 = 5.</p><p class="euler__paragraph">Find ∑S(N), for all squarefree N only divisible by primes of the form 4k+1 with 4k+1 < 150.</p></div>
+
+/// challengeSeed:
+function euler273() {
+  // Good luck!
+  return true;
+}
+
+euler273();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert.strictEqual(euler273(), 2032447591196869000, 'message: <code>euler273()</code> should return 2032447591196869000.');
+/// id: 5900f47e1000cf542c50ff90

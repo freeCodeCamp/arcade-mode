@@ -1,0 +1,37 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 147: Rectangles in cross-hatched grids
+/// type: project-euler
+
+/// categories:
+math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+<div class="euler"><p class="euler__paragraph">In a 3x2 cross-hatched grid, a total of 37 different rectangles could be situated within that grid as indicated in the sketch.</p><p class="euler__paragraph"></p><p class="euler__paragraph">There are 5 grids smaller than 3x2, vertical and horizontal dimensions being important, i.e. 1x1, 2x1, 3x1, 1x2 and 2x2. If each of them is cross-hatched, the following number of different rectangles could be situated within those smaller grids:</p><p class="euler__paragraph">1x1: 1</p><p class="euler__paragraph">2x1: 4</p><p class="euler__paragraph">3x1: 8</p><p class="euler__paragraph">1x2: 4</p><p class="euler__paragraph">2x2: 18</p><p class="euler__paragraph"></p><p class="euler__paragraph">Adding those to the 37 of the 3x2 grid, a total of 72 different rectangles could be situated within 3x2 and smaller grids.</p><p class="euler__paragraph"></p><p class="euler__paragraph">How many different rectangles could be situated within 47x43 and smaller grids?</p></div>
+
+/// challengeSeed:
+function euler147() {
+  // Good luck!
+  return true;
+}
+
+euler147();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert.strictEqual(euler147(), 846910284, 'message: <code>euler147()</code> should return 846910284.');
+/// id: 5900f3ff1000cf542c50ff12

@@ -1,0 +1,37 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 140: Modified Fibonacci golden nuggets
+/// type: project-euler
+
+/// categories:
+math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+<div class="euler"><p class="euler__paragraph">Consider the infinite polynomial series AG(x) = xG1 + x2G2 + x3G3 + ..., where Gk is the kth term of the second order recurrence relation Gk = Gk−1 + Gk−2, G1 = 1 and G2 = 4; that is, 1, 4, 5, 9, 14, 23, ... .</p><p class="euler__paragraph">For this problem we shall be concerned with values of x for which AG(x) is a positive integer.</p><p class="euler__paragraph">The corresponding values of x for the first five natural numbers are shown below.</p><p class="euler__paragraph"></p><p class="euler__paragraph">xAG(x)</p><p class="euler__paragraph">(√5−1)/41</p><p class="euler__paragraph">2/52</p><p class="euler__paragraph">(√22−2)/63</p><p class="euler__paragraph">(√137−5)/144</p><p class="euler__paragraph">1/25</p><p class="euler__paragraph"></p><p class="euler__paragraph">We shall call AG(x) a golden nugget if x is rational, because they become increasingly rarer; for example, the 20th golden nugget is 211345365.</p><p class="euler__paragraph">Find the sum of the first thirty golden nuggets.</p></div>
+
+/// challengeSeed:
+function euler140() {
+  // Good luck!
+  return true;
+}
+
+euler140();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert.strictEqual(euler140(), 5673835352990, 'message: <code>euler140()</code> should return 5673835352990.');
+/// id: 5900f3fa1000cf542c50ff0c

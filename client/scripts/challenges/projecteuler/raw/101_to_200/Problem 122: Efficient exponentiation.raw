@@ -1,0 +1,37 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 122: Efficient exponentiation
+/// type: project-euler
+
+/// categories:
+math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+<div class="euler"><p class="euler__paragraph">The most naive way of computing n15 requires fourteen multiplications:</p><p class="euler__paragraph">n × n × ... × n = n15</p><p class="euler__paragraph">But using a "binary" method you can compute it in six multiplications:</p><p class="euler__paragraph">n × n = n2n2 × n2 = n4n4 × n4 = n8n8 × n4 = n12n12 × n2 = n14n14 × n = n15</p><p class="euler__paragraph">However it is yet possible to compute it in only five multiplications:</p><p class="euler__paragraph">n × n = n2n2 × n = n3n3 × n3 = n6n6 × n6 = n12n12 × n3 = n15</p><p class="euler__paragraph">We shall define m(k) to be the minimum number of multiplications to compute nk; for example m(15) = 5.</p><p class="euler__paragraph">For 1 ≤ k ≤ 200, find ∑ m(k).</p></div>
+
+/// challengeSeed:
+function euler122() {
+  // Good luck!
+  return true;
+}
+
+euler122();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert.strictEqual(euler122(), 1582, 'message: <code>euler122()</code> should return 1582.');
+/// id: 5900f3e61000cf542c50fef9

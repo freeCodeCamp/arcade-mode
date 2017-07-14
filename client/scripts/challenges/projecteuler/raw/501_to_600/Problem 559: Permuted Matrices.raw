@@ -1,0 +1,37 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 559: Permuted Matrices
+/// type: project-euler
+
+/// categories:
+math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+<div class="euler"><p class="euler__paragraph">An ascent of a column j in a matrix occurs if the value of column j is smaller than the value of column j+1 in all rows.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Let P(k, r, n) be the number of r x n matrices with the following properties:</p><p class="euler__paragraph"></p><p class="euler__paragraph">The rows are permutations of {1, 2, 3, ... , n}.</p><p class="euler__paragraph"> Numbering the first column as 1, a column ascent occurs at column j<n if and only if j is not a multiple of k.</p><p class="euler__paragraph"></p><p class="euler__paragraph">For example, P(1, 2, 3) = 19, P(2, 4, 6) = 65508751 and  P(7, 5, 30) mod 1000000123 = 161858102.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Let Q(n) =$\,  \displaystyle \sum_{k=1}^n\,$ P(k, n, n).</p><p class="euler__paragraph">For example, Q(5) = 21879393751 and Q(50) mod 1000000123 = 819573537.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Find Q(50000) mod 1000000123.</p></div>
+
+/// challengeSeed:
+function euler559() {
+  // Good luck!
+  return true;
+}
+
+euler559();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert.strictEqual(euler559(), TODO: MISSING ANSWER, 'message: <code>euler559()</code> should return TODO: MISSING ANSWER.');
+/// id: 5900fef158d9425c70af4f81

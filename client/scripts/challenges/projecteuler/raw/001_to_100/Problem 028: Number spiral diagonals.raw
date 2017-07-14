@@ -1,0 +1,37 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 28: Number spiral diagonals
+/// type: project-euler
+
+/// categories:
+math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+<div class="euler"><p class="euler__paragraph">Starting with the number 1 and moving to the right in a clockwise direction a 5 by 5 spiral is formed as follows:</p><p class="euler__paragraph">21 22 23 24 25</p><p class="euler__paragraph">20  7  8  9 10</p><p class="euler__paragraph">19  6  1  2 11</p><p class="euler__paragraph">18  5  4  3 1217 16 15 14 13</p><p class="euler__paragraph">It can be verified that the sum of the numbers on the diagonals is 101.</p><p class="euler__paragraph">What is the sum of the numbers on the diagonals in a 1001 by 1001 spiral formed in the same way?</p></div>
+
+/// challengeSeed:
+function euler28() {
+  // Good luck!
+  return true;
+}
+
+euler28();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert.strictEqual(euler28(), 669171001, 'message: <code>euler28()</code> should return 669171001.');
+/// id: 5900f3881000cf542c50fe9b

@@ -1,0 +1,37 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 280: Ant and seeds
+/// type: project-euler
+
+/// categories:
+math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+<div class="euler"><p class="euler__paragraph">A laborious ant walks randomly on a 5x5 grid. The walk starts from the central square. At each step, the ant moves to an adjacent square at random, without leaving the grid; thus there are 2, 3 or 4 possible moves at each step depending on the ant's position.</p><p class="euler__paragraph"></p><p class="euler__paragraph">At the start of the walk, a seed is placed on each square of the lower row. When the ant isn't carrying a seed and reaches a square of the lower row containing a seed, it will start to carry the seed. The ant will drop the seed on the first empty square of the upper row it eventually reaches.</p><p class="euler__paragraph"></p><p class="euler__paragraph">What's the expected number of steps until all seeds have been dropped in the top row? </p><p class="euler__paragraph">Give your answer rounded to 6 decimal places.</p></div>
+
+/// challengeSeed:
+function euler280() {
+  // Good luck!
+  return true;
+}
+
+euler280();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert.strictEqual(euler280(), 430.088247, 'message: <code>euler280()</code> should return 430.088247.');
+/// id: 5900f4841000cf542c50ff97

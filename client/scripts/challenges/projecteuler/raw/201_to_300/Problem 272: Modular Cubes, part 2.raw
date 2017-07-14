@@ -1,0 +1,37 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 272: Modular Cubes, part 2
+/// type: project-euler
+
+/// categories:
+math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+<div class="euler"><p class="euler__paragraph">For a positive number n, define C(n) as the number of the integers x, for which 1<x<n andx3≡1 mod n.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">When n=91, there are 8 possible values for x, namely : 9, 16, 22, 29, 53, 74, 79, 81.</p><p class="euler__paragraph">Thus, C(91)=8.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Find the sum of the positive numbers n≤1011 for which C(n)=242.</p></div>
+
+/// challengeSeed:
+function euler272() {
+  // Good luck!
+  return true;
+}
+
+euler272();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert.strictEqual(euler272(), 8495585919506151000, 'message: <code>euler272()</code> should return 8495585919506151000.');
+/// id: 5900f47d1000cf542c50ff8f

@@ -1,0 +1,37 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 209: Circular Logic
+/// type: project-euler
+
+/// categories:
+math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+<div class="euler"><p class="euler__paragraph">A k-input binary truth table is a map from k input bits</p><p class="euler__paragraph">(binary digits, 0 [false] or 1 [true]) to 1 output bit. For example, the 2-input binary truth tables for the logical AND and XOR functions are:</p><p class="euler__paragraph"></p><p class="euler__paragraph">x</p><p class="euler__paragraph">y</p><p class="euler__paragraph">x AND y000010100111x</p><p class="euler__paragraph">y</p><p class="euler__paragraph">x XOR y000011101110How many 6-input binary truth tables, τ, satisfy the formula</p><p class="euler__paragraph"></p><p class="euler__paragraph">τ(a, b, c, d, e, f) AND τ(b, c, d, e, f, a XOR (b AND c)) = 0</p><p class="euler__paragraph">for all 6-bit inputs (a, b, c, d, e, f)?</p></div>
+
+/// challengeSeed:
+function euler209() {
+  // Good luck!
+  return true;
+}
+
+euler209();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert.strictEqual(euler209(), 15964587728784, 'message: <code>euler209()</code> should return 15964587728784.');
+/// id: 5900f43e1000cf542c50ff4f

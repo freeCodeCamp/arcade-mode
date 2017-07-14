@@ -1,0 +1,37 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 578: Integers with decreasing prime powers
+/// type: project-euler
+
+/// categories:
+math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+<div class="euler"><p class="euler__paragraph">Any positive integer can be written as a product of prime powers: p1a1 × p2a2 × ... × pkak,</p><p class="euler__paragraph">where pi are distinct prime integers, ai > 0 and pi < pj if i < j.</p><p class="euler__paragraph"></p><p class="euler__paragraph">A decreasing prime power positive integer is one for which ai ≥ aj if i < j.</p><p class="euler__paragraph">For example, 1, 2, 15=3×5, 360=23×32×5 and 1000=23×53 are decreasing prime power integers.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Let C(n) be the count of decreasing prime power positive integers not exceeding n.</p><p class="euler__paragraph">C(100) = 94 since all positive integers not exceeding 100 have decreasing prime powers except 18, 50, 54, 75, 90 and 98.</p><p class="euler__paragraph">You are given C(106) = 922052.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Find C(1013).</p></div>
+
+/// challengeSeed:
+function euler578() {
+  // Good luck!
+  return true;
+}
+
+euler578();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert.strictEqual(euler578(), TODO: MISSING ANSWER, 'message: <code>euler578()</code> should return TODO: MISSING ANSWER.');
+/// id: 5900ff0458d9425c70af4f94

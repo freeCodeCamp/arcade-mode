@@ -1,0 +1,37 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 411: Uphill paths
+/// type: project-euler
+
+/// categories:
+math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+<div class="euler"><p class="euler__paragraph">Let n be a positive integer. Suppose there are stations at the coordinates (x, y) = (2i mod n, 3i mod n) for 0 ≤ i ≤ 2n. We will consider stations with the same coordinates as the same station.</p><p class="euler__paragraph"></p><p class="euler__paragraph">We wish to form a path from (0, 0) to (n, n) such that the x and y coordinates never decrease.</p><p class="euler__paragraph">Let S(n) be the maximum number of stations such a path can pass through.</p><p class="euler__paragraph"></p><p class="euler__paragraph">For example, if n = 22, there are 11 distinct stations, and a valid path can pass through at most 5 stations. Therefore, S(22) = 5.</p><p class="euler__paragraph">The case is illustrated below, with an example of an optimal path:</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">It can also be verified that S(123) = 14 and S(10000) = 48.</p><p class="euler__paragraph"></p><p class="euler__paragraph">Find ∑ S(k5) for 1 ≤ k ≤ 30.</p></div>
+
+/// challengeSeed:
+function euler411() {
+  // Good luck!
+  return true;
+}
+
+euler411();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert.strictEqual(euler411(), 9936352, 'message: <code>euler411()</code> should return 9936352.');
+/// id: 5900f5081000cf542c510019

@@ -1,0 +1,37 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 60: Prime pair sets
+/// type: project-euler
+
+/// categories:
+math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+<div class="euler"><p class="euler__paragraph">The primes 3, 7, 109, and 673, are quite remarkable. By taking any two primes and concatenating them in any order the result will always be prime. For example, taking 7 and 109, both 7109 and 1097 are prime. The sum of these four primes, 792, represents the lowest sum for a set of four primes with this property.</p><p class="euler__paragraph">Find the lowest sum for a set of five primes for which any two primes concatenate to produce another prime.</p></div>
+
+/// challengeSeed:
+function euler60() {
+  // Good luck!
+  return true;
+}
+
+euler60();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert.strictEqual(euler60(), 26033, 'message: <code>euler60()</code> should return 26033.');
+/// id: 5900f3a81000cf542c50febb

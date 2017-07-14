@@ -1,0 +1,37 @@
+
+/* eslint spaced-comment: 0 */
+/* eslint no-redeclare: 0 */
+/* eslint no-unused-vars: 0 */
+
+const assert = require('chai').assert;
+
+/// title: Problem 184: Triangles containing the origin
+/// type: project-euler
+
+/// categories:
+math
+
+/// difficulty: ?
+
+/// benchmark:
+//replaceWithActualFunctionHere;
+
+/// description:
+<div class="euler"><p class="euler__paragraph">Consider the set Ir of points (x,y) with integer co-ordinates in the interior of the circle with radius r, centered at the origin, i.e. x2 + y2 < r2.</p><p class="euler__paragraph">For a radius of 2, I2 contains the nine points (0,0), (1,0), (1,1), (0,1), (-1,1), (-1,0), (-1,-1), (0,-1) and (1,-1). There are eight triangles having all three vertices in I2 which contain the origin in the interior. Two of them are shown below, the others are obtained from these by rotation.</p><p class="euler__paragraph"></p><p class="euler__paragraph"></p><p class="euler__paragraph">For a radius of 3, there are 360 triangles containing the origin in the interior and having all vertices in I3 and for I5 the number is 10600.</p><p class="euler__paragraph"></p><p class="euler__paragraph">How many triangles are there containing the origin in the interior and having all three vertices in I105?</p></div>
+
+/// challengeSeed:
+function euler184() {
+  // Good luck!
+  return true;
+}
+
+euler184();
+
+/// solutions:
+
+/// tail:
+const replaceThis = 3;
+
+/// tests:
+assert.strictEqual(euler184(), 1725323624056, 'message: <code>euler184()</code> should return 1725323624056.');
+/// id: 5900f4241000cf542c50ff37
