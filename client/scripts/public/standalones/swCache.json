@@ -38,6 +38,7 @@
     "public/json/challenges-arcade.json",
     "public/json/challenges-combined.json",
     "public/json/challenges-data-structures.json",
+    "public/json/challenges-euler.json",
     "public/json/challenges-rosetta.json"
   ]
 }
