@@ -29,10 +29,9 @@ fetch(url)
       const id = challenge._id;
       const title = challenge.title;
       let escapedTitle = title.replace(/\//g, '&');
-      const description = challenge.description.map(line => `<p class="euler__paragraph">${line}</p>`).join('').replace(/^(.*)$/, '<div class="euler">$1</div>');
+      const description = challenge.description.map(line => `<p class="euler__paragraph">${line}</p>`).join('\n').replace(/^([\s\S]*)$/, '<div class="euler">$1</div>').replace(/^(.*)$/gm, '/// $1');
       const challengeSeed = challenge.challengeSeed.join('\n');
       const tests = challenge.tests[0];
-      const templatedChallenge = toInHouseTemplate(title, description, challengeSeed, tests, id);
       const problemNumberRegex = /^Problem (\d+):/;
       const problemNumber = +title.match(problemNumberRegex)[1];
       let subPath = '';
@@ -61,6 +60,8 @@ fetch(url)
         subPath = pathNames[5];
       }
 
+      const templatedChallenge = toInHouseTemplate(title, description, challengeSeed, problemNumber, tests, id);
+
       fs.writeFileSync(`${outputPath}/${subPath}/${escapedTitle}.raw`, templatedChallenge);
     });
   })
@@ -77,7 +78,7 @@ function ensureDirectoryExistence(filePath) {
   fs.mkdirSync(filePath);
 }
 
-function toInHouseTemplate (title, description, challengeSeed, tests, id) {
+function toInHouseTemplate (title, description, challengeSeed, problemNumber, tests, id) {
   const templatedContent = `
 /* eslint spaced-comment: 0 */
 /* eslint no-redeclare: 0 */
@@ -97,7 +98,7 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// ${description}
+${description}
 
 /// challengeSeed:
 ${challengeSeed}
@@ -108,6 +109,7 @@ ${challengeSeed}
 const replaceThis = 3;
 
 /// tests:
+assert(typeof euler${problemNumber} === 'function', 'message: <code>euler${problemNumber}()</code> is a function.');
 ${tests}
 /// id: ${id}
 `;
