@@ -19,6 +19,12 @@ const assert = require('chai').assert;
 /// <div class="rosetta"><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
 /// <p class="rosetta__paragraph">Write a function that returns a deep copy of a given object.</p>
 /// <p class="rosetta__paragraph">The copy must not be the same object that was given.</p>
+/// <br /><p class="rosetta__paragraph">This task will not test for: </p>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item--unordered">Objects with properties that are functions</li>
+/// <li class="rosetta__list-item--unordered">Date objects or object with properties that are Date objects</li>
+/// <li class="rosetta__list-item--unordered">Prototype copying</li>
+/// </ul>
 /// <br /><br />
 
 
