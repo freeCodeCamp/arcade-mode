@@ -23,6 +23,7 @@ const assert = require('chai').assert;
 /// <ul class="rosetta__unordered-list">
 /// <li class="rosetta__list-item--unordered">Objects with properties that are functions</li>
 /// <li class="rosetta__list-item--unordered">Date objects or object with properties that are Date objects</li>
+/// <li class="rosetta__list-item--unordered">RegEx or object with properties that are RegEx objects</li>
 /// <li class="rosetta__list-item--unordered">Prototype copying</li>
 /// </ul>
 /// <br /><br />
