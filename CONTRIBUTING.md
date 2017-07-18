@@ -1,14 +1,16 @@
 # Contributor's Guide
 
+Welcome to the Arcade Mode Contributors Guide!
+
+Arcade Mode is an interview preparation app featuring algorithm and data structure questions in a timed environment. The end goal will be its incorporation into freeCodeCamp proper as part of the coding interview preparation section.
+
 We welcome pull requests from freeCodeCamp campers (our students) and seasoned JavaScript developers alike! Follow these steps to contribute:
 
-1. Find an issue that needs assistance by searching for the [Help Wanted](https://github.com/freeCodeCamp/arcade-mode/labels/help%20wanted) tag.
+1. Follow the [Contribution Guidelines](#contribution-guidelines) to initially set up the project.
 
-2. Refer to the issue for specific instructions.
+2. Find an issue that needs assistance by going to the [Help Wanted section](#help-wanted) or by searching for the [Help Wanted tag](https://github.com/freeCodeCamp/arcade-mode/labels/help%20wanted). Specific instructions are provided in each help wanted item.
 
-3. Follow the [Contribution Guidelines](#contribution-guidelines) to start working on the issue.
-
-Remember to feel free to ask for help in our [Contributors](https://gitter.im/FreeCodeCamp/Contributors) Gitter room.
+Feel free to ask for help in our [Gitter room](https://gitter.im/FreeCodeCamp/arcade-mode).
 
 Working on your first Pull Request? You can learn how from this *free* series [How to Contribute to an Open Source Project on GitHub](https://egghead.io/series/how-to-contribute-to-an-open-source-project-on-github)
 
@@ -32,6 +34,11 @@ Working on your first Pull Request? You can learn how from this *free* series [H
 - [How We Close Stale Issues](#how-we-close-stale-issues)
 - [Next Steps](#next-steps)
 - [Other resources](#other-resources)
+
+## Help Wanted
+
+- [Rosetta](#rosetta)
+- [Euler](#euler)
 
 ### Prerequisites
 
@@ -388,3 +395,78 @@ Be sure to post in the PR conversation that you have made the requested changes.
 -   [Writing great git commit messages](http://forum.freecodecamp.com/t/writing-good-git-commit-messages/13210)
 
 -   [Contributor Chat Support - For the FCC Repositories, and running a local instance](https://gitter.im/FreeCodeCamp/Contributors)
+
+### Rosetta
+
+We currently need help with coverting [RosettaCode](https://rosettacode.org) tasks into in-house challenges.
+
+If you would like to contribute, please check [the spreadsheet][1] to find a task-to-challenge that has not been worked on yet. Once you have decided on a letter, please add your GitHub username to the Contributor section and note the decision `wip` so that others know you are working on it. If you have been vetted by Quincy/Michael, you will be granted write access to the spreadsheet.
+
+**Details:**
+Please refer to [this directory](https://github.com/freeCodeCamp/arcade-mode/tree/master/client/scripts/challenges/rosettacode).
+
+- Raw, preprocessed RosettaCode tasks comes from the `raw` directory
+- Formatted content goes into the `formatted` directory
+
+**Workflow steps:**
+1. In considering a raw RosettaCode task for conversion, check if it passes the following exclusion criteria test (exclude if):
+- There exists no JavaScript solution
+- It is a trivial task (e.g., it is not asking for A + B)
+- It requires HTML to implement (e.g., requires `<canvas>`)
+_For other exclusion considerations, refer to [the spreadsheet][1]._
+
+2. If suitable, copy the raw file to its respective formatted letter directory, but replace the `.raw` extension with `.js`.
+
+3. Conversion process:
+- Update the challenge description such that it asks the user to create a function to solve the challenge.
+- In formatting the challenge seed and solution, they should take the form of:
+```
+function <APT_NAME_FOR_CHALLENGE_FN> (<ANY_ARGS>) {
+  // Good luck!
+  return <APT_RETURN_VALUE>;
+}
+```
+- Visual formatting (i.e., does the challenge look acceptable when viewed in the browser?)
+- Add tests using Chai's `assert`.
+- The `/// tail:` section appends code above the `/// test:` phase. If you find you need to add additional code for testing, it goes in the tail section.
+- If you believe the challenge is benchmark worthy, you can add a benchmark call under `/// benchmark:`. Otherwise, remove the `/// benchmark:` and its subsequent line entirely for the time being.
+- Assign a difficulty number between 1 (easiest) and 9 (hardest) given your best estimate.
+
+4. Lastly, be sure to test the challenge:
+- via unit testing with `npm run test:rosetta` (be sure that `public/json/challenges-rosetta.json` has been regenerated with the updated file content before running the test as it relies on this file)
+- via the app itself
+
+If you run into an issue or have questions on the porting process, the first and best method would be to refer to already completed ports; see currently formatted challenges in the directories `0-C` and `T-Z` for reference. If that does not resolve your issue or question, leave a comment below and we will get back to you as soon as we can. If the issue is more general or of a different nature, please create a separate issue. You can also reach us at our [Gitter](https://gitter.im/FreeCodeCamp/arcade-mode).
+
+**Miscellaneous:**
+1. There may occasionally be RosettaCode challenges that ask the user to solve multiple tasks. We do not want users to become confused as a result of all the tasks. In these scenarios, please make the best attempt to cut down the number of tasks to one or at most two. The task description will likely have to be rewritten to a degree.
+
+2. For aesthetics and formatting, refer to other already formatted challenges (e.g., formatted challenges in `A-C`) and the [Rosetta Code task itself](http://rosettacode.org/wiki/Category:Programming_Tasks).
+
+Thank you for your help!
+
+[1]: https://docs.google.com/spreadsheets/d/1b_wMIaKR-gA0tD6ADQfDjDT5BBWaUsQyIPP0TS6o7is/edit?usp=sharing
+
+### Euler
+
+We currently need help with converting [Project Euler](https://projecteuler.net/) tasks into in-house challenges. This mostly involves adding a solution to the challenge.
+
+**Details:**
+Please refer to [this path](https://github.com/freeCodeCamp/arcade-mode/tree/master/client/scripts/challenges/projecteuler).
+- Raw Project Euler tasks are located in the `raw` directory.
+- Formatted challenges go into the `formatted` directory; the subdirectory depends on the hundreds-digit (e.g., Problem 53 would go into folder `001_to_100`).
+
+The format you see is the in-house format we use to process the challenges into one json file.
+
+**What needs to be done:**
+- A solution under the `/// solutions:` header (it should have the same function name as in the `challengeSeed`)
+- An estimated difficulty rating between 1 (easiest) and 9 (hardest)
+
+For reference, refer to the finished [Problem 2: Even Fibonacci numbers](https://github.com/freeCodeCamp/arcade-mode/blob/master/client/scripts/challenges/projecteuler/formatted/001_to_100/Problem%20002:%20Even%20Fibonacci%20numbers.js).
+
+Overall progress is updated at [this spreadsheet](https://docs.google.com/spreadsheets/d/1b_wMIaKR-gA0tD6ADQfDjDT5BBWaUsQyIPP0TS6o7is/edit?usp=sharing).
+
+Please let us know if you would like to get involved at our [Gitter room](https://gitter.im/FreeCodeCamp/arcade-mode).
+
+Thank you all for the help!
+
