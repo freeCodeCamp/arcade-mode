@@ -405,7 +405,7 @@ If you would like to contribute, please check [the spreadsheet][1] to find a tas
 **Details:**
 Please refer to [this directory](https://github.com/freeCodeCamp/arcade-mode/tree/master/client/scripts/challenges/rosettacode).
 
-- Raw, preprocessed RosettaCode tasks comes from the `raw` directory
+- Preprocessed RosettaCode tasks comes from the `preformatted` directory
 - Formatted content goes into the `formatted` directory
 
 **Workflow steps:**
@@ -453,7 +453,7 @@ We currently need help with converting [Project Euler](https://projecteuler.net/
 
 **Details:**
 Please refer to [this path](https://github.com/freeCodeCamp/arcade-mode/tree/master/client/scripts/challenges/projecteuler).
-- Raw Project Euler tasks are located in the `raw` directory.
+- Preformatted Project Euler tasks are located in the `preformatted` directory.
 - Formatted challenges go into the `formatted` directory; the subdirectory depends on the hundreds-digit (e.g., Problem 53 would go into folder `001_to_100`).
 
 The format you see is the in-house format we use to process the challenges into one json file.
