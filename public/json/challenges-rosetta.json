@@ -1028,6 +1028,100 @@
       "id": "5958469238c0d8d2632f46db"
     },
     {
+      "title": "Comma quibbling",
+      "type": "rosetta-code",
+      "categories": [
+        ""
+      ],
+      "difficulty": "1",
+      "benchmark": "//poorcandidateforbenchmarking",
+      "description": [
+        "<div class=\"rosetta\">",
+        "<p class=\"rosetta__paragraph\">Comma quibbling is a task originally set by Eric Lippert in his <a class=\"rosetta__link--wiki\" href=\"http://blogs.msdn.com/b/ericlippert/archive/2009/04/15/comma-quibbling.aspx\" title=\"link: http://blogs.msdn.com/b/ericlippert/archive/2009/04/15/comma-quibbling.aspx\">blog</a>.</p>",
+        "<br/><dl class=\"rosetta__description-list\"><dt class=\"rosetta__description-title\">Task:</dt></dl><br/><p class=\"rosetta__paragraph\">Write a function to generate a string output which is the concatenation of input words from a list/sequence where:</p>",
+        "<ol class=\"rosetta__ordered-list\"><li class=\"rosetta__list-item--ordered\">An input of no words produces the output string of just the two brace characters \"{}\".</li>",
+        "<li class=\"rosetta__list-item--ordered\">An input of just one word, e.g. [\"ABC\"], produces the output string of the word inside the two braces, e.g. \"{ABC}\".</li>",
+        "<li class=\"rosetta__list-item--ordered\">An input of two words, e.g. [\"ABC\", \"DEF\"], produces the output string of the two words inside the two braces with the words separated by the string \" and \", e.g. \"{ABC and DEF}\".</li>",
+        "<li class=\"rosetta__list-item--ordered\">An input of three or more words, e.g. [\"ABC\", \"DEF\", \"G\", \"H\"], produces the output string of all but the last word separated by \", \" with the last word separated by \" and \" and all within braces; e.g. \"{ABC, DEF, G and H}\".</li></ol>",
+        "<br>",
+        "<p class=\"rosetta__paragraph\">Test your function with the following series of inputs showing your output here on this page:</p>",
+        "<ul class=\"rosetta__unordered-list\"><li class=\"rosetta__list-item--unordered\">[]                       # (No input words).</li>",
+        "<li class=\"rosetta__list-item--unordered\">[\"ABC\"]</li>",
+        "<li class=\"rosetta__list-item--unordered\">[\"ABC\", \"DEF\"]</li>",
+        "<li class=\"rosetta__list-item--unordered\">[\"ABC\", \"DEF\", \"G\", \"H\"]</li></ul>",
+        "<br>",
+        "<p class=\"rosetta__paragraph\">Note: Assume words are non-empty strings of uppercase characters for this task.</p>",
+        "<br><br><br/></div>"
+      ],
+      "challengeSeed": [
+        "function quibble (words) {",
+        "  // Good luck!",
+        "  return true;",
+        "}"
+      ],
+      "solutions": [
+        "function quibble (words) {\n  return \"{\" +\n    words.slice(0, words.length - 1).join(\",\") +\n   (words.length > 1 ? \" and \" : \"\") +\n   (words[words.length - 1] || '') +\n  \"}\";\n}\n"
+      ],
+      "tail": [
+        "const testCases = [[], [\"ABC\"], [\"ABC\", \"DEF\"], [\"ABC\", \"DEF\", \"G\", \"H\"]];",
+        "const results = [\"{}\", \"{ABC}\", \"{ABC and DEF}\", \"{ABC,DEF,G and H}\"];"
+      ],
+      "tests": [
+        "assert(typeof quibble === 'function', 'message: <code>quibble</code> is a function.');",
+        "assert(typeof quibble([\"ABC\"]) === 'string', 'message: <code>quibble([\"ABC\"])</code> should return a string.');",
+        "assert.equal(quibble(testCases[0]), results[0], 'message: <code>quibble([])</code> should return \"{}\".');",
+        "assert.equal(quibble(testCases[1]), results[1], 'message: <code>quibble([\"ABC\"])</code> should return \"{ABC}\".');",
+        "assert.equal(quibble(testCases[2]), results[2], 'message: <code>quibble([\"ABC\", \"DEF\"])</code> should return \"{ABC and DEF}\".');",
+        "assert.equal(quibble(testCases[3]), results[3], 'message: <code>quibble([\"ABC\", \"DEF\", \"G\", \"H\"])</code> should return \"{ABC,DEF,G and H}\".');"
+      ],
+      "id": "596e414344c3b2872167f0fe"
+    },
+    {
+      "title": "Compare a list of strings",
+      "type": "rosetta-code",
+      "categories": [
+        ""
+      ],
+      "difficulty": "1",
+      "benchmark": "//replaceWithActualFunctionHere;",
+      "description": [
+        "<div class=\"rosetta\"><br/>",
+        "<p class=\"rosetta__paragraph\">Given a  <a class=\"rosetta__link--wiki\" href=\"https://en.wikipedia.org/wiki/List_(abstract_data_type)\" title=\"wp: List_(abstract_data_type)\">list</a>  of arbitrarily many strings, implement a function for each of the following conditions:</p><br/><ul class=\"rosetta__unordered-list\"><li class=\"rosetta__list-item--unordered\"> test if they are all lexically <span class=\"rosetta__text--bold\">equal</span></li>",
+        "<li class=\"rosetta__list-item--unordered\"> test if every string is lexically <span class=\"rosetta__text--bold\">less than</span> the one after it  <span class=\"rosetta__text--italic\">(i.e. whether the list is in strict ascending order)</span></li></ul>",
+        "</div>"
+      ],
+      "challengeSeed": [
+        "function allEqual (arr) {",
+        "  // Good luck!",
+        "  return true;",
+        "}",
+        "",
+        "function azSorted (arr) {",
+        "  // Good luck!",
+        "  return true;",
+        "}"
+      ],
+      "solutions": [
+        "function allEqual(a) {\n  let out = true;\n  let i = 0;\n  while (++i < a.length) {\n    out = out && (a[i - 1] === a[i]);\n  } return out;\n}\n\nfunction azSorted(a) {\n  let out = true;\n  let i = 0;\n  while (++i < a.length) {\n    out = out && (a[i - 1] < a[i]);\n  } return out;\n}\n"
+      ],
+      "tail": "const testCases = [['AA', 'AA', 'AA', 'AA'], ['AA', 'ACB', 'BB', 'CC'], [], ['AA'], ['BB', 'AA']];",
+      "tests": [
+        "assert(typeof allEqual === 'function', 'message: <code>allEqual</code> is a function.');",
+        "assert(typeof azSorted === 'function', 'message: <code>azSorted</code> is a function.');",
+        "assert.isTrue(allEqual(testCases[0]), 'message: <code>allEqual([\"AA\", \"AA\", \"AA\", \"AA\"])</code> returns true.');",
+        "assert.isFalse(azSorted(testCases[0]), 'message: <code>azSorted([\"AA\", \"AA\", \"AA\", \"AA\"])</code> returns false.');",
+        "assert.isFalse(allEqual(testCases[1]), 'message: <code>allEqual([\"AA\", \"ACB\", \"BB\", \"CC\"])</code> returns false.');",
+        "assert.isTrue(azSorted(testCases[1]), 'message: <code>azSorted([\"AA\", \"ACB\", \"BB\", \"CC\"])</code> returns true.');",
+        "assert.isTrue(allEqual(testCases[2]), 'message: <code>allEqual([])</code> returns true.');",
+        "assert.isTrue(azSorted(testCases[2]), 'message: <code>azSorted([])</code> returns true.');",
+        "assert.isTrue(allEqual(testCases[3]), 'message: <code>allEqual([\"AA\"])</code> returns true.');",
+        "assert.isTrue(azSorted(testCases[3]), 'message: <code>azSorted([\"AA\"])</code> returns true.');",
+        "assert.isFalse(allEqual(testCases[4]), 'message: <code>allEqual([\"BB\", \"AA\"])</code> returns false.');",
+        "assert.isFalse(azSorted(testCases[4]), 'message: <code>azSorted([\"BB\", \"AA\"])</code> returns false.');"
+      ],
+      "id": "596e457071c35c882915b3e4"
+    },
+    {
       "title": "Date format",
       "type": "rosetta-code",
       "categories": [
@@ -1076,6 +1170,59 @@
       "id": "59669d08d75b60482359409f"
     },
     {
+      "title": "Date manipulation",
+      "type": "rosetta-code",
+      "categories": "Date and time",
+      "difficulty": "3",
+      "benchmark": [],
+      "description": [
+        "<div class=\"rosetta\">",
+        "<br/><dl class=\"rosetta__description-list\"><dt class=\"rosetta__description-title\">Task:</dt></dl>",
+        "<p class=\"rosetta__paragraph\">Given a date string in EST, output the given date as a string with 12 hours added to the time. <br></p>",
+        "<p class=\"rosetta__paragraph\">Time zone should be preserved.<br><br></p>",
+        "<p class=\"rosetta__paragraph\">Example input: <br></p>",
+        "<p class=\"rosetta__paragraph\"><span class=\"rosetta__text--indented\"><code>\"March 7 2009 7:30pm EST\"</code></span></p>",
+        "<p class=\"rosetta__paragraph\">Example output: <br></p>",
+        "<p class=\"rosetta__paragraph\"><span class=\"rosetta__text--indented\"><code>\"March 8 2009 7:30am EST\"</code></span></p>",
+        "<br><br><br/></div>"
+      ],
+      "challengeSeed": [
+        "function add12Hours (dateString) {",
+        "  // Good luck!",
+        "  return true;",
+        "}"
+      ],
+      "solutions": [
+        "function add12Hours (dateString) {\n  const months = ['January', 'February', 'March', 'April', 'May', 'June',\n    'July', 'August', 'September', 'October', 'November', 'December'];\n  // Get the parts of the string\n  const parts = dateString.split(' ');\n  const month = months.indexOf(parts[0]);\n  const day = parseInt(parts[1], 10);\n  const year = parseInt(parts[2], 10);\n  const time = parts[3].split(':');\n  let hours = parseInt(time[0], 10);\n  if (time[1].slice(-2) === 'pm') {\n    hours += 12;\n  }\n  const minutes = parseInt(time[1].slice(0, -2), 10);\n\n  // Create a date with given parts, and updated hours\n  const date = new Date();\n  date.setFullYear(year, month, day);\n  date.setHours(hours + 12);  // Add 12 hours\n  date.setMinutes(minutes);\n\n  let hoursOutput = date.getHours();\n  let abbreviation = 'am';\n  if (hoursOutput > 12) {\n    hoursOutput -= 12;\n    abbreviation = 'pm';\n  }\n\n  return `${months[date.getMonth()]} ${date.getDate()} ${date.getFullYear()} ${hoursOutput}:${date.getMinutes()}${abbreviation} EST`;\n}\n"
+      ],
+      "tail": [
+        "const tests = [",
+        "  'January 17 2017 11:43am EST',",
+        "  'March 7 2009 7:30pm EST',",
+        "  'February 29 2004 9:15pm EST',",
+        "  'February 28 1999 3:15pm EST',",
+        "  'December 31 2020 1:45pm EST'",
+        "];",
+        "const answers = [",
+        "  'January 17 2017 11:43pm EST',",
+        "  'March 8 2009 7:30am EST',",
+        "  'March 1 2004 9:15am EST',",
+        "  'March 1 1999 3:15am EST',",
+        "  'January 1 2021 1:45am EST'",
+        "];"
+      ],
+      "tests": [
+        "assert(typeof add12Hours === 'function', 'message: <code>add12Hours</code> is a function.');",
+        "assert(typeof add12Hours(tests[0]) === 'string', 'message: <code>add12Hours(dateString)</code> should return a string.');",
+        "assert(add12Hours(tests[0]) === answers[0], 'message: <code>add12Hours(\"' + tests[0] + '\")</code> should return <code>\"' + answers[0] + '\"</code>');",
+        "assert(add12Hours(tests[1]) === answers[1], 'message: Should handel day change. <code>add12Hours(\"' + tests[1] + '\")</code> should return <code>\"' + answers[1] + '\"</code>');",
+        "assert(add12Hours(tests[2]) === answers[2], 'message: Should handel month change in a leap years. <code>add12Hours(\"' + tests[2] + '\")</code> should return <code>\"' + answers[2] + '\"</code>');",
+        "assert(add12Hours(tests[3]) === answers[3], 'message: Should handel month change in a common years. <code>add12Hours(\"' + tests[3] + '\")</code> should return <code>\"' + answers[3] + '\"</code>');",
+        "assert(add12Hours(tests[4]) === answers[4], 'message: Should handel year change. <code>add12Hours(\"' + tests[4] + '\")</code> should return <code>\"' + answers[4] + '\"</code>');"
+      ],
+      "id": "5966c21cf732a95f1b67dd28"
+    },
+    {
       "title": "Day of the week",
       "type": "rosetta-code",
       "categories": "Date",
@@ -1109,6 +1256,108 @@
         "assert.deepEqual(findXmasSunday(2008, 2121), secondSolution, 'message: <code>findChristmasSunday(2008, 2121</code> should return [2011, 2016, 2022, 2033, 2039, 2044, 2050, 2061, 2067, 2072, 2078, 2089, 2095, 2101, 2107, 2112, 2118]');"
       ],
       "id": "5966f99c45e8976909a85575"
+    },
+    {
+      "title": "Deal cards for FreeCell",
+      "type": "rosetta-code",
+      "categories": "Cards",
+      "difficulty": "4",
+      "benchmark": [],
+      "description": [
+        "<div class=\"rosetta\"><br/><p class=\"rosetta__paragraph\"><span class=\"rosetta__text--italic\">Free Cell</span> is the solitaire card game that Paul Alfille introduced to the PLATO system in 1978. Jim Horne, at Microsoft, changed the name to <span class=\"rosetta__text--italic\">FreeCell</span> and reimplemented the game for <a class=\"rosetta__link--rosetta\" href=\"http://rosettacode.org/wiki/DOS\" title=\"DOS\">DOS</a>, then <a class=\"rosetta__link--rosetta\" href=\"http://rosettacode.org/wiki/Windows\" title=\"Windows\">Windows</a>. <br></p>",
+        "<p class=\"rosetta__paragraph\">This version introduced 32000 numbered deals. (The <a class=\"rosetta__link--wiki\" href=\"http://www.solitairelaboratory.com/fcfaq.html\" title=\"link: http://www.solitairelaboratory.com/fcfaq.html\">FreeCell FAQ</a> tells this history.)</p><br/><p class=\"rosetta__paragraph\">As the game became popular, Jim Horne disclosed <a class=\"rosetta__link--wiki\" href=\"http://www.solitairelaboratory.com/mshuffle.txt\" title=\"link: http://www.solitairelaboratory.com/mshuffle.txt\">the algorithm</a>, and other implementations of FreeCell began to reproduce the Microsoft deals. <br></p>",
+        "<p class=\"rosetta__paragraph\">These deals are numbered from 1 to 32000.</p>",
+        "<p class=\"rosetta__paragraph\">Newer versions from Microsoft have 1 million deals, numbered from 1 to 1000000; some implementations allow numbers outside that range.</p><br/><p class=\"rosetta__paragraph\">The algorithm uses this <a class=\"rosetta__link--rosetta\" href=\"http://rosettacode.org/wiki/linear congruential generator\" title=\"linear congruential generator\">linear congruential generator</a> from Microsoft C:</p><br/><ul class=\"rosetta__unordered-list\"><li class=\"rosetta__list-item--unordered\">$state_{n + 1} \\equiv 214013 \\times state_n + 2531011 \\pmod{2^{31}}$</li>",
+        "<li class=\"rosetta__list-item--unordered\">$rand_n = state_n \\div 2^{16}$</li>",
+        "<li class=\"rosetta__list-item--unordered\">$rand_n$ is in range 0 to 32767.</li>",
+        "<br>",
+        "<p class=\"rosetta__paragraph\">The algorithm follows:</p><br/><ol class=\"rosetta__ordered-list\"><li class=\"rosetta__list-item--ordered\">Seed the RNG with the number of the deal.</li>",
+        "<li class=\"rosetta__list-item--ordered\">Create an <a class=\"rosetta__link--rosetta\" href=\"http://rosettacode.org/wiki/array\" title=\"array\">array</a> of 52 cards: Ace of Clubs, Ace of Diamonds, Ace of Hearts, Ace of Spades, 2 of Clubs, 2 of Diamonds, and so on through the ranks: Ace, 2, 3, 4, 5, 6, 7, 8, 9, 10, Jack, Queen, King. The array indexes are 0 to 51, with Ace of Clubs at 0, and King of Spades at 51.</li>",
+        "<li class=\"rosetta__list-item--ordered\">Until the array is empty:</li>",
+        "<ul class=\"rosetta__unordered-list\">",
+        "<li class=\"rosetta__list-item--unordered\"> Choose a random card at <span class=\"rosetta__text--italic\">index</span> &equiv; <span class=\"rosetta__text--italic\">next random number</span> (mod <span class=\"rosetta__text--italic\">array length</span>). </li>",
+        "<li class=\"rosetta__list-item--unordered\"> Swap this random card with the last card of the array.</li>",
+        "<li class=\"rosetta__list-item--unordered\"> Remove this random card from the array. (Array length goes down by 1.)</li>",
+        "<li class=\"rosetta__list-item--unordered\"> Deal this random card.</li>",
+        "</ul>",
+        "<li class=\"rosetta__list-item--ordered\">Deal all 52 cards, face up, across 8 columns. The first 8 cards go in 8 columns, the next 8 cards go on the first 8 cards, and so on.</li></ol>",
+        "<br />",
+        "<dl class=\"rosetta__description-list\"><dt class=\"rosetta__description-title\">Example:</dt></dl>",
+        "<p class=\"rosetta__paragraph\">Order to deal cards</p>",
+        "<p class=\"rosetta__paragraph\"><div class=\"rosetta__pre-wrap\"><pre class=\"rosetta__pre\"> 1  2  3  4  5  6  7  8",
+        " 9 10 11 12 13 14 15 16",
+        "17 18 19 20 21 22 23 24",
+        "25 26 27 28 29 30 31 32",
+        "33 34 35 36 37 38 39 40",
+        "41 42 43 44 45 46 47 48",
+        "49 50 51 52</pre></div></p>",
+        "<p class=\"rosetta__paragraph\">Game #1</p>",
+        "<p class=\"rosetta__paragraph\"><div class=\"rosetta__pre-wrap\"><pre class=\"rosetta__pre\">[",
+        "['JD', '2D', '9H', 'JC', '5D', '7H', '7C', '5H'],",
+        "['KD', 'KC', '9S', '5S', 'AD', 'QC', 'KH', '3H'],",
+        "['2S', 'KS', '9D', 'QD', 'JS', 'AS', 'AH', '3C'],",
+        "['4C', '5C', 'TS', 'QH', '4H', 'AC', '4D', '7S'],",
+        "['3S', 'TD', '4S', 'TH', '8H', '2C', 'JH', '7D'],",
+        "['6D', '8S', '8D', 'QS', '6C', '3D', '8C', 'TC'],",
+        "['6S', '9C', '2H', '6H']",
+        "]</pre></div></p>",
+        "<p class=\"rosetta__paragraph\">Game #617</p>",
+        "<p class=\"rosetta__paragraph\"><div class=\"rosetta__pre-wrap\"><pre class=\"rosetta__pre\">[",
+        "['7D', 'AD', '5C', '3S', '5S', '8C', '2D', 'AH'],",
+        "['TD', '7S', 'QD', 'AC', '6D', '8H', 'AS', 'KH'],",
+        "['TH', 'QC', '3H', '9D', '6S', '8D', '3D', 'TC'],",
+        "['KD', '5H', '9S', '3C', '8S', '7H', '4D', 'JS'],",
+        "['4C', 'QS', '9C', '9H', '7C', '6H', '2C', '2S'],",
+        "['4S', 'TS', '2H', '5D', 'JC', '6C', 'JH', 'QH'],",
+        "['JD', 'KS', 'KC', '4H']",
+        "]</pre></div></p>",
+        "<br />",
+        "<dl class=\"rosetta__description-list\"><dt class=\"rosetta__description-title\">Task:</dt></dl>",
+        "<p class=\"rosetta__paragraph\">Write a function to take a deal number and deal cards in the same order as this algorithm.</p>",
+        "<p class=\"rosetta__paragraph\">The function must return a two dimentional array representing the FreeCell board.</p>",
+        "<br/>",
+        "<p class=\"rosetta__paragraph\">Deals can also be checked against <a class=\"rosetta__link--wiki\" href=\"http://freecellgamesolutions.com/\" title=\"link: http://freecellgamesolutions.com/\">FreeCell solutions to 1000000 games</a>.</p>",
+        "<p class=\"rosetta__paragraph\">(Summon a video solution, and it displays the initial deal.)</p>",
+        "<br><br><br/></div>"
+      ],
+      "challengeSeed": [
+        "function dealFreeCell (seed) {",
+        "  // Good luck!",
+        "  return true;",
+        "}"
+      ],
+      "solutions": [
+        "// RNG\nfunction FreeCellRNG (seed) {\n  return {\n    lastNum: seed,\n    next() {\n      this.lastNum = ((214013 * this.lastNum) + 2531011) % (2 ** 31);\n      return this.lastNum >> 16;\n    }\n  };\n}\n// Get cards\nfunction getDeck() {\n  const ranks = ['A', '2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K'];\n  const suits = ['C', 'D', 'H', 'S'];\n  const cards = [];\n  for (let i = 0; i < ranks.length; i += 1) {\n    for (let j = 0; j < suits.length; j += 1) {\n      cards.push(`${ranks[i]}${suits[j]}`);\n    }\n  }\n  return cards;\n}\nfunction dealFreeCell(seed) {\n  const rng = FreeCellRNG(seed);\n  const deck = getDeck();\n\n  const deltCards = [[], [], [], [], [], [], []];\n  let currentColumn = 0;\n  let currentRow = 0;\n\n  let rand;\n  let temp;\n  let card;\n  while (deck.length > 0) {\n    // Choose a random card\n    rand = rng.next() % deck.length;\n\n    // Swap this random card with the last card in the array\n    temp = deck[deck.length - 1];\n    deck[deck.length - 1] = deck[rand];\n    deck[rand] = temp;\n\n    // Remove this card from the array\n    card = deck.pop();\n\n    // Deal this card\n    deltCards[currentRow].push(card);\n    currentColumn += 1;\n    if (currentColumn === 8) {\n      currentColumn = 0;\n      currentRow += 1;\n    }\n  }\n\n  return deltCards;\n}\n"
+      ],
+      "tail": [
+        "const replaceThis = 3;",
+        "const game1 = [",
+        "  ['JD', '2D', '9H', 'JC', '5D', '7H', '7C', '5H'],",
+        "  ['KD', 'KC', '9S', '5S', 'AD', 'QC', 'KH', '3H'],",
+        "  ['2S', 'KS', '9D', 'QD', 'JS', 'AS', 'AH', '3C'],",
+        "  ['4C', '5C', 'TS', 'QH', '4H', 'AC', '4D', '7S'],",
+        "  ['3S', 'TD', '4S', 'TH', '8H', '2C', 'JH', '7D'],",
+        "  ['6D', '8S', '8D', 'QS', '6C', '3D', '8C', 'TC'],",
+        "  ['6S', '9C', '2H', '6H']",
+        "];",
+        "const game617 = [",
+        "  ['7D', 'AD', '5C', '3S', '5S', '8C', '2D', 'AH'],",
+        "  ['TD', '7S', 'QD', 'AC', '6D', '8H', 'AS', 'KH'],",
+        "  ['TH', 'QC', '3H', '9D', '6S', '8D', '3D', 'TC'],",
+        "  ['KD', '5H', '9S', '3C', '8S', '7H', '4D', 'JS'],",
+        "  ['4C', 'QS', '9C', '9H', '7C', '6H', '2C', '2S'],",
+        "  ['4S', 'TS', '2H', '5D', 'JC', '6C', 'JH', 'QH'],",
+        "  ['JD', 'KS', 'KC', '4H']",
+        "];"
+      ],
+      "tests": [
+        "assert(typeof dealFreeCell === 'function', 'message: <code>dealFreeCell</code> is a function.');",
+        "assert(typeof dealFreeCell(1) === 'object', 'message: <code>dealFreeCell(seed)</code> should return an object.');",
+        "assert(dealFreeCell(1).length === 7, 'message: <code>dealFreeCell(seed)</code> should return an array of length 7.');",
+        "assert.deepEqual(dealFreeCell(1), game1, 'message: <code>dealFreeCell(1)</code> should return an array identical to example \"Game #1\"');",
+        "assert.deepEqual(dealFreeCell(617), game617, 'message: <code>dealFreeCell(617)</code> should return an array identical to example \"Game #617\"');"
+      ],
+      "id": "59694356a6e7011f7f1c5f4e"
     },
     {
       "title": "Hailstone sequence",
