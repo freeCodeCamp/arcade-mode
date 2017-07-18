@@ -409,13 +409,13 @@ Please refer to [this directory](https://github.com/freeCodeCamp/arcade-mode/tre
 - Formatted content goes into the `formatted` directory
 
 **Workflow steps:**
-1. In considering a raw RosettaCode task for conversion, check if it passes the following exclusion criteria test (exclude if):
+1. In considering a preformatted RosettaCode task for conversion, check if it passes the following exclusion criteria test (exclude if):
 - There exists no JavaScript solution
 - It is a trivial task (e.g., it is not asking for A + B)
 - It requires HTML to implement (e.g., requires `<canvas>`)
 _For other exclusion considerations, refer to [the spreadsheet][1]._
 
-2. If suitable, copy the raw file to its respective formatted letter directory, but replace the `.raw` extension with `.js`.
+2. If suitable, copy the preformatted file to its respective formatted letter directory, but replace the `.raw` extension with `.js`.
 
 3. Conversion process:
 - Update the challenge description such that it asks the user to create a function to solve the challenge.

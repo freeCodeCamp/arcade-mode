@@ -23,7 +23,7 @@ const queryURL = `http://rosettacode.org/mw/api.php?action=query&generator=categ
 
 const contentURL = 'http://rosettacode.org/mw/api.php?action=query&prop=revisions&rvprop=content&format=json&pageids=';
 
-const outputPath = 'client/scripts/challenges/rosettacode/raw';
+const outputPath = 'client/scripts/challenges/rosettacode/preformatted';
 
 let fetchCounter = 1;
 

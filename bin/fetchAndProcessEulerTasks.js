@@ -15,7 +15,7 @@ const fetch = require('node-fetch');
 
 const url = 'https://raw.githubusercontent.com/freeCodeCamp/freeCodeCamp/staging/seed/challenges/08-coding-interview-questions-and-take-home-assignments/project-euler-problems.json';
 
-const outputPath = 'client/scripts/challenges/projecteuler/raw';
+const outputPath = 'client/scripts/challenges/projecteuler/preformatted:';
 
 const pathNames = ['001_to_100', '101_to_200', '201_to_300', '301_to_400', '401_to_500', '501_to_600'];
 
