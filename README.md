@@ -2,7 +2,7 @@
 
 [![Join the chat at https://gitter.im/FreeCodeCamp/arcade-mode](https://badges.gitter.im/FreeCodeCamp/arcade-mode.svg)](https://gitter.im/FreeCodeCamp/arcade-mode?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-Arcade Mode is an interview preparation app featuring algorithm and data structure questions in a timed environment.
+Arcade Mode is an interview preparation app featuring algorithm and data structure questions in a timed environment. The end goal will be its incorporation into freeCodeCamp proper as part of the coding interview preparation section.
 
 ### Note:
 Arcade Mode has been undergoing heavy prototyping and iteration. As such, it is currently set up with development and debugging in mind.
