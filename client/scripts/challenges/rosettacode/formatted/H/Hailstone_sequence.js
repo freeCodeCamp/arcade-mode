@@ -27,7 +27,7 @@ const assert = require('chai').assert;
 
 /// challengeSeed:
 // noprotect
-function hailstoneSequence() {
+function hailstoneSequence () {
   const res = [];
   // Good luck!
 
@@ -36,7 +36,7 @@ function hailstoneSequence() {
 
 /// solutions:
 // noprotect
-function hailstoneSequence() {
+function hailstoneSequence () {
   const res = [];
 
   function hailstone(n) {
