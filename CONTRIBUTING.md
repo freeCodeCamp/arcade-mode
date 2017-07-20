@@ -8,7 +8,7 @@ We welcome pull requests from freeCodeCamp campers (our students) and seasoned J
 
 1. Follow the [Contribution Guidelines](#contribution-guidelines) to initially set up the project. You can also watch this video:
 
-[![](https://www.evernote.com/l/Ar9fl3UC8K9NeqKU1rAmFNvfWgPgrf0FNAYB/image.png)](https://youtu.be/iKMZR5Gair)
+[![a thumbnail for the demo video](https://www.evernote.com/l/Ar9fl3UC8K9NeqKU1rAmFNvfWgPgrf0FNAYB/image.png)](https://www.youtube.com/watch?v=iKMZR5Gairg)
 
 2. Find an issue that needs assistance by going to the [Help Wanted section](#help-wanted) or by searching for the [Help Wanted tag](https://github.com/freeCodeCamp/arcade-mode/labels/help%20wanted). Specific instructions are provided in each help wanted item.
 
