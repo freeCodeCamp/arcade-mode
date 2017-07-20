@@ -18,8 +18,18 @@ const assert = require('chai').assert;
 
 /// description:
 /// <div class="rosetta"><br/>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
 /// <p class="rosetta__paragraph">Define a type that behaves like an integer but has a lowest valid value of 1 and a highest valid value of 10.</p>
-/// <br/></div>
+/// <br/>
+/// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Errors:</dt></dl>
+/// <ul class="rosetta__unordered-list">
+/// <li class="rosetta__list-item--unordered">If you try to instantiate a <code>Num</code> with a value outside of 1 - 10
+/// it should throw a <code>TypeError</code> with an error message of <code>'Out of range'</code>.</li>
+/// <li class="rosetta__list-item--unordered">If you try to instantiate a <code>Num</code> with a value that is not a number
+/// it should throw a <code>TypeError</code> with an error message of <code>'Not a Number'</code>.</li>
+/// </ul>
+/// <br />
+/// </div>
 
 /// challengeSeed:
 function Num (n) {
