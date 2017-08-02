@@ -187,7 +187,7 @@ function hashJoin (hash1, hash2) {
 }
 
 /// solutions:
-function hashJoin(hash1, hash2) {
+function hashJoin (hash1, hash2) {
   const hJoin = (tblA, tblB, strJoin) => {
     const [jA, jB] = strJoin.split('=');
     const M = tblB.reduce((a, x) => {

@@ -27,13 +27,13 @@ arrToObj(Array.apply(null, { length: 10000 }).map(String.call, String), Array.ap
 /// </div>
 
 /// challengeSeed:
-function arrToObj(keys, vals) {
+function arrToObj (keys, vals) {
   // Good luck!
   return true;
 }
 
 /// solutions:
-function arrToObj(keys, vals) {
+function arrToObj (keys, vals) {
   return keys.reduce((map, key, index) => {
     map[key] = vals[index];
     return map;
