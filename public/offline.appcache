@@ -2,15 +2,15 @@ CACHE MANIFEST
 
 CACHE:
 css/style.css
-img/FCCfire.svg
-img/FCClogo.svg
-img/favicon.ico
 js/MathJax.min.js
 js/index.bundle.js
 js/main.bundle.js
 js/sw.bundle.js
 js/ww.bundle.js
 js/wwBenchmark.bundle.js
+img/FCCfire.svg
+img/FCClogo.svg
+img/favicon.ico
 json/appconfig.json
 json/challenges-algorithms.json
 json/challenges-arcade.json
@@ -18,8 +18,8 @@ json/challenges-combined.json
 json/challenges-data-structures.json
 json/challenges-euler.json
 json/challenges-rosetta.json
-font/Kalam/Kalam-Regular.ttf
 font/Lato/Lato-Black.ttf
+font/Kalam/Kalam-Regular.ttf
 font/Roboto/Roboto-Bold.ttf
 font/Roboto/Roboto-Medium.ttf
 font/Roboto/Roboto-Regular.ttf
@@ -37,4 +37,4 @@ NETWORK:
 SETTINGS:
 prefer-online
 
-# hash: 7ddf9f57563604a5dcfa3cca27d25bfc4bdd1d131ebd20814dfc1b9ba2b16d3b
+# hash: e86620cc39b963f7377260c39549c245d45edbd51754bd1e83482368e3781333

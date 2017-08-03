@@ -1122,6 +1122,251 @@
       "id": "596e457071c35c882915b3e4"
     },
     {
+      "title": "Convert seconds to compound duration",
+      "type": "rosetta-code",
+      "categories": "Date and time",
+      "difficulty": "1",
+      "benchmark": "//replaceWithActualFunctionHere;",
+      "description": [
+        "<div class=\"rosetta\"><dl class=\"rosetta__description-list\"><dt class=\"rosetta__description-title\">Task:</dt></dl>",
+        "<p class=\"rosetta__paragraph\">Implement a function which:</p>",
+        "<ul class=\"rosetta__unordered-list\"><li class=\"rosetta__list-item--unordered\">takes a positive integer representing a duration in seconds as input (e.g., <code>100</code>), and</li>",
+        "<li class=\"rosetta__list-item--unordered\">returns a string which shows the same duration decomposed into weeks, days, hours, minutes, and seconds as detailed below (e.g., \"<code>1 min, 40 sec</code>\").</li></ul><br>",
+        "<p class=\"rosetta__paragraph\">Demonstrate that it passes the following three test-cases:</p><p class=\"rosetta__paragraph\" style=\"font-size:115%; margin:1em 0 0 0\"><span class=\"rosetta__text--bold\"><span class=\"rosetta__text--italic\">Test Cases</span></span></p><br/>",
+        "<table class=\"rosetta__wikitable\">",
+        "<tbody>",
+        "<tr>",
+        "<th>input number</th>",
+        "<th>output number</th>",
+        "</tr>",
+        "<tr>",
+        "<td>7259</td>",
+        "<td><code>2 hr, 59 sec</code></td>",
+        "</tr>",
+        "<tr>",
+        "<td>86400</td>",
+        "<td><code>1 d</code></td>",
+        "</tr>",
+        "<tr>",
+        "<td>6000000</td>",
+        "<td><code>9 wk, 6 d, 10 hr, 40 min</code></td>",
+        "</tr>",
+        "</tbody>",
+        "</table>",
+        "<br/><p class=\"rosetta__paragraph\" style=\"font-size:115%; margin:1em 0 0 0\"><span class=\"rosetta__text--bold\"><span class=\"rosetta__text--italic\">Details</span></span></p><br/>",
+        "<ul class=\"rosetta__unordered-list\">",
+        "<li class=\"rosetta__list-item--unordered\">The following five units should be used:",
+        "<table class=\"rosetta__wikitable\">",
+        "<tbody>",
+        "<tr>",
+        "<th>unit</th>",
+        "<th>suffix used in output</th>",
+        "<th>conversion</th>",
+        "</tr>",
+        "<tr>",
+        "<td>week</td>",
+        "<td><code>wk</code></td>",
+        "<td>1 week = 7 days</td>",
+        "</tr>",
+        "<tr>",
+        "<td>day</td>",
+        "<td><code>d</code></td>",
+        "<td>1 day = 24 hours</td>",
+        "</tr>",
+        "<tr>",
+        "<td>hour</td>",
+        "<td><code>hr</code></td>",
+        "<td>1 hour = 60 minutes</td>",
+        "</tr>",
+        "<tr>",
+        "<td>minute</td>",
+        "<td><code>min</code></td>",
+        "<td>1 minute = 60 seconds</td>",
+        "</tr>",
+        "<tr>",
+        "<td>second</td>",
+        "<td><code>sec</code></td>",
+        "<td></td>",
+        "</tr>",
+        "</tbody>",
+        "</table>",
+        "</li><br/><li class=\"rosetta__list-item--unordered\">However, <span class=\"rosetta__text--bold\">only</span> include quantities with non-zero values in the output (e.g., return \"<code>1 d</code>\" and not \"<code>0 wk, 1 d, 0 hr, 0 min, 0 sec</code>\").</li><br/><li class=\"rosetta__list-item--unordered\">Give larger units precedence over smaller ones as much as possible (e.g., return <code>2 min, 10 sec</code> and not <code>1 min, 70 sec</code> or <code>130 sec</code>)</li><br/><li class=\"rosetta__list-item--unordered\">Mimic the formatting shown in the test-cases (quantities sorted from largest unit to smallest and separated by comma+space; value and unit of each quantity separated by space).</li>",
+        "</ul><br/><p class=\"rosetta__paragraph\"><hr style=\"margin:1em 0;\"/></p>",
+        "</div>"
+      ],
+      "challengeSeed": [
+        "function convertSeconds (sec) {",
+        "  // Good luck!",
+        "  return true;",
+        "}"
+      ],
+      "solutions": [
+        "function convertSeconds (sec) {\n  const localNames = ['wk', 'd', 'hr', 'min', 'sec'];\n  // compoundDuration :: [String] -> Int -> String\n  const compoundDuration = (labels, intSeconds) =>\n    weekParts(intSeconds)\n    .map((v, i) => [v, labels[i]])\n    .reduce((a, x) =>\n      a.concat(x[0] ? [`${x[0]} ${x[1] || '?'}`] : []), []\n    )\n    .join(', ');\n\n    // weekParts :: Int -> [Int]\n  const weekParts = intSeconds => [0, 7, 24, 60, 60]\n    .reduceRight((a, x) => {\n      const r = a.rem;\n      const mod = x !== 0 ? r % x : r;\n\n      return {\n        rem: (r - mod) / (x || 1),\n        parts: [mod].concat(a.parts)\n      };\n    }, {\n      rem: intSeconds,\n      parts: []\n    })\n    .parts;\n\n  return compoundDuration(localNames, sec);\n}\n"
+      ],
+      "tail": [
+        "const testCases = [7259, 86400, 6000000];",
+        "const results = ['2 hr, 59 sec', '1 d', '9 wk, 6 d, 10 hr, 40 min'];"
+      ],
+      "tests": [
+        "assert(typeof convertSeconds === 'function', 'message: <code>convertSeconds</code> is a function.');",
+        "assert.equal(convertSeconds(testCases[0]), results[0], 'message: <code>convertSeconds(7259)</code> should return <code>2 hr, 59 sec</code>.');",
+        "assert.equal(convertSeconds(testCases[1]), results[1], 'message: <code>convertSeconds(86400)</code> should return <code>1 d</code>.');",
+        "assert.equal(convertSeconds(testCases[2]), results[2], 'message: <code>convertSeconds(6000000)</code> should return <code>9 wk, 6 d, 10 hr, 40 min</code>.');"
+      ],
+      "id": "596fd036dc1ab896c5db98b1"
+    },
+    {
+      "title": "Count occurrences of a substring",
+      "type": "rosetta-code",
+      "categories": [
+        ""
+      ],
+      "difficulty": "2",
+      "benchmark": "//replaceWithActualFunctionHere;",
+      "description": [
+        "<div class=\"rosetta\"><dl class=\"rosetta__description-list\"><dt class=\"rosetta__description-title\">Task:</dt></dl>",
+        "<p class=\"rosetta__paragraph\">Create a function,  or show a built-in function,  to count the number of non-overlapping occurrences of a substring inside a string.</p><br/><p class=\"rosetta__paragraph\">The function should take two arguments:</p>",
+        "<ul class=\"rosetta__unordered-list\">",
+        "<li class=\"rosetta__list-item--unordered\">the first argument being the string to search,  and</li>",
+        "<li class=\"rosetta__list-item--unordered\">the second a substring to be searched for.</li>",
+        "</ul>",
+        "<br/><p class=\"rosetta__paragraph\">It should return an integer count.</p>",
+        "<br/><p class=\"rosetta__paragraph\">The matching should yield the highest number of non-overlapping matches.</p><br/><p class=\"rosetta__paragraph\">In general, this essentially means matching from left-to-right or right-to-left.</p>",
+        "</div>"
+      ],
+      "challengeSeed": [
+        "function countSubstring (str, subStr) {",
+        "  // Good luck!",
+        "  return true;",
+        "}"
+      ],
+      "solutions": [
+        "function countSubstring(str, subStr) {\n  const escapedSubStr = subStr.replace(/[.+*?^$[\\]{}()|/]/g, '\\\\$&');\n  const matches = str.match(new RegExp(escapedSubStr, 'g'));\n  return matches ? matches.length : 0;\n}\n"
+      ],
+      "tail": [
+        "const testCases = ['the three truths', 'ababababab', 'abaabba*bbaba*bbab'];",
+        "const searchString = ['th', 'abab', 'a*b'];",
+        "const results = [3, 2, 2];"
+      ],
+      "tests": [
+        "assert(typeof countSubstring === 'function', 'message: <code>countSubstring</code> is a function.');",
+        "assert.equal(countSubstring(testCases[0], searchString[0]), results[0], 'message: <code>countSubstring(\"the three truths\", \"th\")</code> should return <code>3</code>.');",
+        "assert.equal(countSubstring(testCases[1], searchString[1]), results[1], 'message: <code>countSubstring(\"ababababab\", \"abab\")</code> should return <code>2</code>.');",
+        "assert.equal(countSubstring(testCases[2], searchString[2]), results[2], 'message: <code>countSubstring(\"abaabba*bbaba*bbab\", \"a*b\")</code> should return <code>2</code>.');"
+      ],
+      "id": "596fda99c69f779975a1b67d"
+    },
+    {
+      "title": "Count the coins",
+      "type": "rosetta-code",
+      "categories": [
+        ""
+      ],
+      "difficulty": "1",
+      "benchmark": "//replaceWithActualFunctionHere;",
+      "description": [
+        "<div class=\"rosetta\"><br/><p class=\"rosetta__paragraph\">There are four types of common coins in <a class=\"rosetta__link--wiki\" href=\"https://en.wikipedia.org/wiki/United_States\" title=\"link: https://en.wikipedia.org/wiki/United_States\">US</a> currency:</p>",
+        "<ol class=\"rosetta__ordered-list\">",
+        "<li class=\"rosetta__list-item--ordered\">quarters (25 cents)</li>",
+        "<li class=\"rosetta__list-item--ordered\">dimes (10 cents)</li>",
+        "<li class=\"rosetta__list-item--ordered\">nickels (5 cents),  and </li>",
+        "<li class=\"rosetta__list-item--ordered\">pennies (1 cent)  </li>",
+        "</ol>",
+        "<br/><p class=\"rosetta__paragraph\">There are six ways to make change for 15 cents:</p>",
+        "<ol class=\"rosetta__ordered-list\">",
+        "<li class=\"rosetta__list-item--ordered\">A dime and a nickel </li>",
+        "<li class=\"rosetta__list-item--ordered\">A dime and 5 pennies</li>",
+        "<li class=\"rosetta__list-item--ordered\">3 nickels</li>",
+        "<li class=\"rosetta__list-item--ordered\">2 nickels and 5 pennies</li>",
+        "<li class=\"rosetta__list-item--ordered\">A nickel and 10 pennies</li>",
+        "<li class=\"rosetta__list-item--ordered\">15 pennies</li>",
+        "<br><dl class=\"rosetta__description-list\"><dt class=\"rosetta__description-title\">Task:</dt></dl>",
+        "<p class=\"rosetta__paragraph\">Implement a function to determine how many ways there are to make change for a dollar using these common coins? (1 dollar = 100 cents).</p>",
+        "<br/><dl class=\"rosetta__description-list\"><dt class=\"rosetta__description-title\">Reference:</dt></dl>",
+        "<ul class=\"rosetta__unordered-list\"><li class=\"rosetta__list-item--unordered\"> <a class=\"rosetta__link--wiki\" href=\"http://mitpress.mit.edu/sicp/full-text/book/book-Z-H-11.html#%_sec_Temp_52\" title=\"link: http://mitpress.mit.edu/sicp/full-text/book/book-Z-H-11.html#%_sec_Temp_52\">an algorithm from MIT Press</a>. </li></ul></div>"
+      ],
+      "challengeSeed": [
+        "function countCoins () {",
+        "  // Good luck!",
+        "  return true;",
+        "}"
+      ],
+      "solutions": [
+        "function countCoins () {\n  let t = 100;\n  const operands = [1, 5, 10, 25];\n  const targetsLength = t + 1;\n  const operandsLength = operands.length;\n  t = [1];\n\n  for (let a = 0; a < operandsLength; a++) {\n    for (let b = 1; b < targetsLength; b++) {\n      // initialise undefined target\n      t[b] = t[b] ? t[b] : 0;\n\n      // accumulate target + operand ways\n      t[b] += (b < operands[a]) ? 0 : t[b - operands[a]];\n    }\n  }\n\n  return t[targetsLength - 1];\n}\n"
+      ],
+      "tests": [
+        "assert(typeof countCoins === 'function', 'message: <code>countCoins</code> is a function.');",
+        "assert.equal(countCoins(), 242, 'message: <code>countCoints()</code> should return 242.');"
+      ],
+      "id": "59713bd26bdeb8a594fb9413"
+    },
+    {
+      "title": "Cramer's rule",
+      "type": "rosetta-code",
+      "categories": [
+        ""
+      ],
+      "difficulty": "7",
+      "benchmark": "//replaceWithActualFunctionHere;",
+      "description": [
+        "<div class=\"rosetta\"><p class=\"rosetta__paragraph\">In <a class=\"rosetta__link--wiki\" href=\"https://en.wikipedia.org/wiki/linear algebra\" title=\"wp: linear algebra\">linear algebra</a>, <a class=\"rosetta__link--wiki\" href=\"https://en.wikipedia.org/wiki/Cramer's rule\" title=\"wp: Cramer's rule\">Cramer's rule</a> is an explicit formula for the solution of a <a class=\"rosetta__link--wiki\" href=\"https://en.wikipedia.org/wiki/system of linear equations\" title=\"wp: system of linear equations\">system of linear equations</a> with as many equations as unknowns, valid whenever the system has a unique solution. It expresses the solution in terms of the determinants of the (square) coefficient matrix and of matrices obtained from it by replacing one column by the vector of right hand sides of the equations.</p>",
+        "<br/><p class=\"rosetta__paragraph\">Given</p>",
+        "<p class=\"rosetta__paragraph\"><big></p>",
+        "<p class=\"rosetta__paragraph\"><span class=\"rosetta__text--indented\"> $\\left\\{\\begin{matrix}a_1x + b_1y + c_1z&= {\\color{red}d_1}\\\\a_2x + b_2y + c_2z&= {\\color{red}d_2}\\\\a_3x + b_3y + c_3z&= {\\color{red}d_3}\\end{matrix}\\right.$</span></p>",
+        "</big><br/><p class=\"rosetta__paragraph\">which in matrix format is</p><br/><p class=\"rosetta__paragraph\"><big></p>",
+        "<p class=\"rosetta__paragraph\"><span class=\"rosetta__text--indented\"> $\\begin{bmatrix} a_1 & b_1 & c_1 \\\\ a_2 & b_2 & c_2 \\\\ a_3 & b_3 & c_3 \\end{bmatrix}\\begin{bmatrix} x \\\\ y \\\\ z \\end{bmatrix}=\\begin{bmatrix} {\\color{red}d_1} \\\\ {\\color{red}d_2} \\\\ {\\color{red}d_3} \\end{bmatrix}.$</span></p>",
+        "</big><br/><p class=\"rosetta__paragraph\">Then the values of $x, y$ and $z$ can be found as follows:</p><br/><p class=\"rosetta__paragraph\"><big></p>",
+        "<p class=\"rosetta__paragraph\"><span class=\"rosetta__text--indented\">$x = \\frac{\\begin{vmatrix} {\\color{red}d_1} & b_1 & c_1 \\\\ {\\color{red}d_2} & b_2 & c_2 \\\\ {\\color{red}d_3} & b_3 & c_3 \\end{vmatrix} } { \\begin{vmatrix} a_1 & b_1 & c_1 \\\\ a_2 & b_2 & c_2 \\\\ a_3 & b_3 & c_3 \\end{vmatrix}}, \\quad y = \\frac {\\begin{vmatrix} a_1 & {\\color{red}d_1} & c_1 \\\\ a_2 & {\\color{red}d_2} & c_2 \\\\ a_3 & {\\color{red}d_3} & c_3 \\end{vmatrix}} {\\begin{vmatrix} a_1 & b_1 & c_1 \\\\ a_2 & b_2 & c_2 \\\\ a_3 & b_3 & c_3 \\end{vmatrix}}, \\text{ and }z = \\frac { \\begin{vmatrix} a_1 & b_1 & {\\color{red}d_1} \\\\ a_2 & b_2 & {\\color{red}d_2} \\\\ a_3 & b_3 & {\\color{red}d_3} \\end{vmatrix}} {\\begin{vmatrix} a_1 & b_1 & c_1 \\\\ a_2 & b_2 & c_2 \\\\ a_3 & b_3 & c_3 \\end{vmatrix} }.$</span></p>",
+        "</big>",
+        "<br/><dl class=\"rosetta__description-list\"><dt class=\"rosetta__description-title\">Task</dt></dl>",
+        "<p class=\"rosetta__paragraph\">Given the following system of equations:</p><br/><p class=\"rosetta__paragraph\"><big>",
+        "<span class=\"rosetta__text--indented\">",
+        "$\\begin{cases}",
+        "2w-x+5y+z=-3 \\\\",
+        "3w+2x+2y-6z=-32 \\\\",
+        "w+3x+3y-z=-47 \\\\",
+        "5w-2x-3y+3z=49 \\\\",
+        "\\end{cases}$",
+        "</span>",
+        "</big></p><br>",
+        "<p class=\"rosetta__paragraph\">solve for <big>$w$, $x$, $y$</big> and <big>$z$</big>, using Cramer's rule.</p>",
+        "<br><br><br/></div>"
+      ],
+      "challengeSeed": [
+        "function cramersRule (matrix, freeTerms) {",
+        "  // Good luck!",
+        "  return true;",
+        "}"
+      ],
+      "solutions": [
+        "/**\n * Compute Cramer's Rule\n * @param  {array} matrix    x,y,z, etc. terms\n * @param  {array} freeTerms\n * @return {array}           solution for x,y,z, etc.\n */\nfunction cramersRule(matrix, freeTerms) {\n  const det = detr(matrix);\n  const returnArray = [];\n  let i;\n\n  for (i = 0; i < matrix[0].length; i++) {\n    const tmpMatrix = insertInTerms(matrix, freeTerms, i);\n    returnArray.push(detr(tmpMatrix) / det);\n  }\n  return returnArray;\n}\n\n/**\n * Inserts single dimensional array into\n * @param  {array} matrix multidimensional array to have ins inserted into\n * @param  {array} ins single dimensional array to be inserted vertically into matrix\n * @param  {array} at  zero based offset for ins to be inserted into matrix\n * @return {array}     New multidimensional array with ins replacing the at column in matrix\n */\nfunction insertInTerms(matrix, ins, at) {\n  const tmpMatrix = clone(matrix);\n  let i;\n  for (i = 0; i < matrix.length; i++) {\n    tmpMatrix[i][at] = ins[i];\n  }\n  return tmpMatrix;\n}\n/**\n * Compute the determinate of a matrix.  No protection, assumes square matrix\n * function borrowed, and adapted from MIT Licensed numericjs library (www.numericjs.com)\n * @param  {array} m Input Matrix (multidimensional array)\n * @return {number}   result rounded to 2 decimal\n */\nfunction detr(m) {\n  let ret = 1;\n  let j;\n  let k;\n  const A = clone(m);\n  const n = m[0].length;\n  let alpha;\n\n  for (j = 0; j < n - 1; j++) {\n    k = j;\n    for (let i = j + 1; i < n; i++) { if (Math.abs(A[i][j]) > Math.abs(A[k][j])) { k = i; } }\n    if (k !== j) {\n      const temp = A[k]; A[k] = A[j]; A[j] = temp;\n      ret *= -1;\n    }\n    const Aj = A[j];\n    for (let i = j + 1; i < n; i++) {\n      const Ai = A[i];\n      alpha = Ai[j] / Aj[j];\n      for (k = j + 1; k < n - 1; k += 2) {\n        const k1 = k + 1;\n        Ai[k] -= Aj[k] * alpha;\n        Ai[k1] -= Aj[k1] * alpha;\n      }\n      if (k !== n) { Ai[k] -= Aj[k] * alpha; }\n    }\n    if (Aj[j] === 0) { return 0; }\n    ret *= Aj[j];\n  }\n  return Math.round(ret * A[j][j] * 100) / 100;\n}\n\n/**\n * Clone two dimensional Array using ECMAScript 5 map function and EcmaScript 3 slice\n * @param  {array} m Input matrix (multidimensional array) to clone\n * @return {array}   New matrix copy\n */\nfunction clone(m) {\n  return m.map(a => a.slice());\n}\n"
+      ],
+      "tail": [
+        "const matrices = [",
+        "  [",
+        "    [2, -1, 5, 1],",
+        "    [3, 2, 2, -6],",
+        "    [1, 3, 3, -1],",
+        "    [5, -2, -3, 3]",
+        "  ],",
+        "  [",
+        "    [3, 1, 1],",
+        "    [2, 2, 5],",
+        "    [1, -3, -4]",
+        "  ]",
+        "];",
+        "const freeTerms = [[-3, -32, -47, 49], [3, -1, 2]];",
+        "",
+        "const answers = [[2, -12, -4, 1], [1, 1, -1]];"
+      ],
+      "tests": [
+        "assert(typeof cramersRule === 'function', 'message: <code>cramersRule</code> is a function.');",
+        "assert.deepEqual(cramersRule(matrices[0], freeTerms[0]), answers[0], 'message: <code>cramersRule([[2, -1, 5, 1], [3, 2, 2, -6], [1, 3, 3, -1], [5, -2, -3, 3]], [-3, -32, -47, 49])</code> should return <code>[2, -12, -4, 1]</code>.');",
+        "assert.deepEqual(cramersRule(matrices[1], freeTerms[1]), answers[1], 'message: <code>cramersRule([[3, 1, 1], [2, 2, 5], [1, -3, -4]], [3, -1, 2])</code> should return <code>[1, 1, -1]</code>.');"
+      ],
+      "id": "59713da0a428c1a62d7db430"
+    },
+    {
       "title": "Date format",
       "type": "rosetta-code",
       "categories": [
