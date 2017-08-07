@@ -44,7 +44,7 @@ function fibonacci(n) {
 /// tail:
 
 /// tests:
-assert(typeof fibonacci === 'function', 'message: <code>fib</code> is a function.');
+assert(typeof fibonacci === 'function', 'message: <code>fibonacci</code> is a function.');
 assert(typeof fibonacci(2) == 'number', 'message: <code>fibonacci(2)</code> should return a number.');
 assert.equal(fibonacci(3),1,"message: <code>fibonacci(3)</code> should return 1.");
 assert.equal(fibonacci(5),3,"message: <code>fibonacci(5)</code> should return 3.");
