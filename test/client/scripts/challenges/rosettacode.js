@@ -29,8 +29,8 @@ describe('Rosetta challenges', () => {
 });
 
 challenges.forEach(challenge => {
-  describe(`RosettaChallenge ${challenge.title}`, () => {
-    it(`runner can execute ${challenge.title} challenge properly`, () => {
+  describe(`RosettaChallenge "${challenge.title}"`, () => {
+    it(`runner can execute "${challenge.title}" challenge properly`, () => {
       const userCode = challenge.solutions.join('');
       expect(challenge.tests, 'Tests must be in an array').to.have.property('length');
       const result = runner(userCode, challenge);
