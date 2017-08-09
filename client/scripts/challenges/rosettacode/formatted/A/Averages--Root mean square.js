@@ -5,7 +5,7 @@
 /* eslint no-unused-vars: 0 */
 /* eslint no-mixed-operators: 0 */
 
-const assert = require('chai').assert;
+const assert = require('assert');
 
 /// title: Averages/Root mean square
 /// type: rosetta-code

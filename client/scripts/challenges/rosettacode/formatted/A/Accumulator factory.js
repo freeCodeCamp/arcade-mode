@@ -6,7 +6,7 @@
 /* eslint no-param-reassign: 0 */
 
 
-const assert = require('chai').assert;
+const assert = require('assert');
 
 /// title: Accumulator factory
 /// type: rosetta-code

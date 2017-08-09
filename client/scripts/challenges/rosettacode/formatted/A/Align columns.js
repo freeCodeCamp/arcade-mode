@@ -5,7 +5,7 @@
 /* eslint no-return-assign: 0 */
 /* eslint no-param-reassign: 0 */
 
-const assert = require('chai').assert;
+const assert = require('assert');
 
 /// title: Align columns
 /// type: rosetta-code

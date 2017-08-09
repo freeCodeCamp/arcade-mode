@@ -5,7 +5,7 @@
 /* eslint vars-on-top: 0 */
 /* eslint no-var: 0 */
 
-const assert = require('chai').assert;
+const assert = require('assert');
 
 /// title: Y combinator
 /// difficulty: 6

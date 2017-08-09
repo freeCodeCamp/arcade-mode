@@ -6,7 +6,7 @@
 
 /* @: the user may feel duped with the final solution; TODO? */
 
-const assert = require('chai').assert;
+const assert = require('assert');
 
 /// title: 100 doors
 /// type: rosetta-code

@@ -4,7 +4,7 @@
 /* eslint no-unused-vars: 0 */
 /* eslint prefer-template: 0 */
 
-const assert = require('chai').assert;
+const assert = require('assert');
 
 /// title: Date format
 /// type: rosetta-code

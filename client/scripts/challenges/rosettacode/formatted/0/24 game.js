@@ -5,7 +5,7 @@
 /* eslint no-unused-vars: 0 */
 /* eslint no-eval: 0 */
 
-const assert = require('chai').assert;
+const assert = require('assert');
 
 /// title: 24 game
 /// type: rosetta-code
@@ -136,10 +136,15 @@ const answers = [
   ['(1+7)*(2+1)', '(1+7)*(1+2)', '(1+2)*(1+7)', '(1+2)*(7+1)', '(2+1)*(1+7)', '(7+1)*(2+1)']
 ];
 
+function include(ansArr, res) {
+  const index = ansArr.indexOf(res);
+  return index >= 0;
+}
+
 /// tests:
 assert(typeof solve24 === 'function', 'message: <code>solve24</code> is a function.');
-assert.include(answers[0], solve24(testCases[0]), 'message: <code>solve24("4878")</code> should return <code>(7-8/8)*4</code> or <code>4*(7-8/8)</code>');
-assert.include(answers[1], solve24(testCases[1]), 'message: <code>solve24("1234")</code> should return any arrangement of <code>1*2*3*4</code>');
-assert.include(answers[2], solve24(testCases[2]), 'message: <code>solve24("6789")</code> should return <code>(6*8)/(9-7)</code> or <code>(8*6)/(9-7)</code>');
-assert.include(answers[3], solve24(testCases[3]), 'message: <code>solve24("1127")</code> should return a permutation of <code>(1+7)*(1*2)</code>');
+assert(include(answers[0], solve24(testCases[0])), 'message: <code>solve24("4878")</code> should return <code>(7-8/8)*4</code> or <code>4*(7-8/8)</code>');
+assert(include(answers[1], solve24(testCases[1])), 'message: <code>solve24("1234")</code> should return any arrangement of <code>1*2*3*4</code>');
+assert(include(answers[2], solve24(testCases[2])), 'message: <code>solve24("6789")</code> should return <code>(6*8)/(9-7)</code> or <code>(8*6)/(9-7)</code>');
+assert(include(answers[3], solve24(testCases[3])), 'message: <code>solve24("1127")</code> should return a permutation of <code>(1+7)*(1*2)</code>');
 /// id: 5951e88f64ebf159166a1176

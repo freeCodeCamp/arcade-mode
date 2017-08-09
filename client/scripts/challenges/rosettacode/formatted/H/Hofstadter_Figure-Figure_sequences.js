@@ -4,7 +4,7 @@
 /* eslint no-param-reassign: 0 */
 /* eslint no-shadow: 0 */
 
-const assert = require('chai').assert;
+const assert = require('assert');
 
 /// title: Hofstadter Figure-Figure sequences
 /// type: rosetta-code
@@ -79,8 +79,8 @@ const ffsParamRes = [[10, 14], [50, 59], [100, 112], [1000, 1041]];
 /// tests:
 assert(typeof ffr === 'function', 'message: <code>ffr</code> is a function.');
 assert(typeof ffs === 'function', 'message: <code>ffs</code> is a function.');
-assert.isNumber(ffr(1), 'message: <code>ffr</code> should return integer.');
-assert.isNumber(ffs(1), 'message: <code>ffs</code> should return integer.');
+assert(Number.isInteger(ffr(1)), 'message: <code>ffr</code> should return integer.');
+assert(Number.isInteger(ffs(1)), 'message: <code>ffs</code> should return integer.');
 assert.equal(ffr(ffrParamRes[0][0]), ffrParamRes[0][1], 'message: <code>ffr()</code> should return <code>69</code>');
 assert.equal(ffr(ffrParamRes[1][0]), ffrParamRes[1][1], 'message: <code>ffr()</code> should return <code>1509</code>');
 assert.equal(ffr(ffrParamRes[2][0]), ffrParamRes[2][1], 'message: <code>ffr()</code> should return <code>5764</code>');

@@ -4,7 +4,7 @@
 /* eslint no-param-reassign: 0 */
 /* eslint no-mixed-operators: 0 */
 
-const assert = require('chai').assert;
+const assert = require('assert');
 
 /// title: Hailstone sequence
 /// type: rosetta-code
@@ -73,5 +73,5 @@ const res = [[27, 82, 41, 124, 8, 4, 2, 1], [351, 77031]];
 
 /// tests:
 assert(typeof hailstoneSequence === 'function', 'message: <code>hailstoneSequence</code> is a function.');
-assert.sameDeepMembers(hailstoneSequence(), res, 'message: <code>hailstoneSequence()</code> should return <code>[[27,82,41,124,8,4,2,1], [351, 77031]]</code>');
+assert.deepEqual(hailstoneSequence(), res, 'message: <code>hailstoneSequence()</code> should return <code>[[27,82,41,124,8,4,2,1], [351, 77031]]</code>');
 /// id: 595608ff8bcd7a50bd490181

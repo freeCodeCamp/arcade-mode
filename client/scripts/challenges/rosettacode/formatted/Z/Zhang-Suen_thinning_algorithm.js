@@ -5,7 +5,7 @@
 /* eslint no-redeclare: 0 */
 /* eslint no-trailing-spaces: 0 */
 
-const assert = require('chai').assert;
+const assert = require('assert');
 
 /// title: Zhang-Suen thinning algorithm
 /// type: rosetta-code

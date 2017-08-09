@@ -5,7 +5,7 @@
 /* eslint no-unused-vars: 0 */
 /* eslint no-cond-assign: 0 */
 
-const assert = require('chai').assert;
+const assert = require('assert');
 
 /// title: 9 billion names of God the integer
 /// type: rosetta-code

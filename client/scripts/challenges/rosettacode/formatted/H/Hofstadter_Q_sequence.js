@@ -2,7 +2,7 @@
 /* eslint no-redeclare: 0 */
 /* eslint no-unused-vars: 0 */
 
-const assert = require('chai').assert;
+const assert = require('assert');
 
 /// title: Hofstadter Q sequence
 /// type: rosetta-code
@@ -48,7 +48,7 @@ const res = [502, 755, 1005, 1261];
 
 /// tests:
 assert(typeof hofstadterQ === 'function', 'message: <code>hofstadterQ</code> is a function.');
-assert.isNumber(hofstadterQ(1000), 'message: <code>hofstadterQ()</code> should return <code>integer</code>');
+assert(Number.isInteger(hofstadterQ(1000)), 'message: <code>hofstadterQ()</code> should return <code>integer</code>');
 assert.equal(hofstadterQ(testCase[0]), res[0], 'message: <code>hofstadterQ(1000)</code> should return <code>502</code>');
 assert.equal(hofstadterQ(testCase[1]), res[1], 'message: <code>hofstadterQ(1500)</code> should return <code>755</code>');
 assert.equal(hofstadterQ(testCase[2]), res[2], 'message: <code>hofstadterQ(2000)</code> should return <code>1005</code>');

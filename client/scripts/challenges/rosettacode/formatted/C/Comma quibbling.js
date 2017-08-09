@@ -5,7 +5,7 @@
 /* eslint quotes: 0 */
 /* eslint prefer-template: 0 */
 
-const assert = require('chai').assert;
+const assert = require('assert');
 
 /// title: Comma quibbling
 /// type: rosetta-code

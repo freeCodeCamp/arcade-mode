@@ -4,7 +4,7 @@
 /* eslint no-undef: 0 */
 /* eslint no-unused-vars: 0 */
 
-const assert = require('chai').assert;
+const assert = require('assert');
 
 /// title: Closest-pair problem
 /// type: rosetta-code
@@ -361,7 +361,7 @@ function getClosestPair(arr) {
 /// tests:
 assert(typeof getClosestPair === 'function', 'message: <code>getClosestPair</code> is a function.');
 assert.equal(getClosestPair(points1).distance, answer1.distance, 'message: Distance should be the following.');
-assert.sameDeepMembers(JSON.parse(JSON.stringify(getClosestPair(points1))).pair, answer1.pair, 'message: Points should be the following.');
+assert.deepEqual(JSON.parse(JSON.stringify(getClosestPair(points1))).pair, answer1.pair, 'message: Points should be the following.');
 assert.equal(getClosestPair(points2).distance, answer2.distance, 'message: Distance should be the following.');
-assert.sameDeepMembers(JSON.parse(JSON.stringify(getClosestPair(points2))).pair, answer2.pair, 'message: Points should be the following.');
+assert.deepEqual(JSON.parse(JSON.stringify(getClosestPair(points2))).pair, answer2.pair, 'message: Points should be the following.');
 /// id: 5951a53863c8a34f02bf1bdc

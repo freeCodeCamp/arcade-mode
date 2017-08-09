@@ -4,7 +4,7 @@
 /* eslint no-unused-vars: 0 */
 /* eslint no-nested-ternary: 0 */
 
-const assert = require('chai').assert;
+const assert = require('assert');
 
 /// title: Abundant, deficient and perfect number classifications
 /// type: rosetta-code

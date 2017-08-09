@@ -3,7 +3,7 @@
 /* eslint no-redeclare: 0 */
 /* eslint no-unused-vars: 0 */
 
-const assert = require('chai').assert;
+const assert = require('assert');
 
 /// title: Combinations
 /// type: rosetta-code
@@ -75,6 +75,6 @@ const testOutput2 = [[0, 1, 2, 3], [0, 1, 2, 4], [0, 1, 2, 5], [0, 1, 3, 4], [0,
 
 /// tests:
 assert(typeof combinations === 'function', 'message: <code>combinations</code> is a function.');
-assert.sameDeepMembers(combinations(testInput1[0], testInput1[1]), testOutput1, 'message: <code>combinations(3, 5)</code> should return <code>[[0, 1, 2], [0, 1, 3], [0, 1, 4], [0, 2, 3], [0, 2, 4], [0, 3, 4], [1, 2, 3], [1, 2, 4], [1, 3, 4], [2, 3, 4]]</code>.');
-assert.sameDeepMembers(combinations(testInput2[0], testInput2[1]), testOutput2, 'message: <code>combinations(4, 6)</code> should return <code>[[0,1,2,3],  [0,1,2,4],  [0,1,2,5],  [0,1,3,4],  [0,1,3,5],  [0,1,4,5],  [0,2,3,4],  [0,2,3,5],  [0,2,4,5],  [0,3,4,5],  [1,2,3,4],  [1,2,3,5],  [1,2,4,5],  [1,3,4,5],  [2,3,4,5]]</code>');
+assert.deepEqual(combinations(testInput1[0], testInput1[1]), testOutput1, 'message: <code>combinations(3, 5)</code> should return <code>[[0, 1, 2], [0, 1, 3], [0, 1, 4], [0, 2, 3], [0, 2, 4], [0, 3, 4], [1, 2, 3], [1, 2, 4], [1, 3, 4], [2, 3, 4]]</code>.');
+assert.deepEqual(combinations(testInput2[0], testInput2[1]), testOutput2, 'message: <code>combinations(4, 6)</code> should return <code>[[0,1,2,3],  [0,1,2,4],  [0,1,2,5],  [0,1,3,4],  [0,1,3,5],  [0,1,4,5],  [0,2,3,4],  [0,2,3,5],  [0,2,4,5],  [0,3,4,5],  [1,2,3,4],  [1,2,3,5],  [1,2,4,5],  [1,3,4,5],  [2,3,4,5]]</code>');
 /// id: 5958469238c0d8d2632f46db

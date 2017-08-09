@@ -5,7 +5,7 @@
 /* eslint no-unused-vars: 0 */
 /* eslint no-mixed-operators: 0 */
 
-const assert = require('chai').assert;
+const assert = require('assert');
 
 /// title: Circles of given radius through two points
 /// type: rosetta-code

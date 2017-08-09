@@ -7,7 +7,7 @@
 
 /* no benchmark expected as there were no "optimal" solutions in the solution list */
 
-const assert = require('chai').assert;
+const assert = require('assert');
 
 /// title: ABC Problem
 /// type: rosetta-code
@@ -82,10 +82,10 @@ const words = ['bark', 'BooK', 'TReAT', 'COMMON', 'squAD', 'conFUSE'];
 /// tests:
 assert(typeof canMakeWord === 'function', 'message: <code>canMakeWord</code> is a function.');
 assert(typeof canMakeWord('hi') === 'boolean', 'message: <code>canMakeWord</code> should return a boolean.');
-assert.isTrue(canMakeWord(words[0]), 'message: <code>canMakeWord("bark")</code> should return true.');
-assert.isFalse(canMakeWord(words[1]), 'message: <code>canMakeWord("BooK")</code> should return false.');
-assert.isTrue(canMakeWord(words[2]), 'message: <code>canMakeWord("TReAT")</code> should return true.');
-assert.isFalse(canMakeWord(words[3]), 'message: <code>canMakeWord("COMMON")</code> should return false.');
-assert.isTrue(canMakeWord(words[4]), 'message: <code>canMakeWord("squAD")</code> should return true.');
-assert.isTrue(canMakeWord(words[5]), 'message: <code>canMakeWord("conFUSE")</code> should return true.');
+assert(canMakeWord(words[0]), 'message: <code>canMakeWord("bark")</code> should return true.');
+assert(!canMakeWord(words[1]), 'message: <code>canMakeWord("BooK")</code> should return false.');
+assert(canMakeWord(words[2]), 'message: <code>canMakeWord("TReAT")</code> should return true.');
+assert(!canMakeWord(words[3]), 'message: <code>canMakeWord("COMMON")</code> should return false.');
+assert(canMakeWord(words[4]), 'message: <code>canMakeWord("squAD")</code> should return true.');
+assert(canMakeWord(words[5]), 'message: <code>canMakeWord("conFUSE")</code> should return true.');
 /// id: 594810f028c0303b75339acc

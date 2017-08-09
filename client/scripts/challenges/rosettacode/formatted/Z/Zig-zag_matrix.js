@@ -4,7 +4,7 @@
 /* eslint no-shadow: 0 */
 /* eslint no-redeclare: 0 */
 
-const assert = require('chai').assert;
+const assert = require('assert');
 
 /// title: Zig-zag matrix
 /// type: rosetta-code

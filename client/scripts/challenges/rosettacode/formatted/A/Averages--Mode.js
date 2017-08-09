@@ -4,7 +4,7 @@
 /* eslint no-undef: 0 */
 /* eslint no-unused-vars: 0 */
 
-const assert = require('chai').assert;
+const assert = require('assert');
 
 /// title: Averages/Mode
 /// type: rosetta-code
@@ -54,5 +54,5 @@ const arr2 = [1, 2, 4, 4, 1];
 /// tests:
 assert(typeof mode === 'function', 'message: <code>mode</code> is a function.');
 assert.deepEqual(mode(arr1), [6], 'message: <code>mode([1, 3, 6, 6, 6, 6, 7, 7, 12, 12, 17])</code> should equal <code>[6]</code>');
-assert.sameMembers(mode(arr2), [1, 4], 'message <code>mode([1, 2, 4, 4, 1])</code> should equal <code>[1, 4]</code>.');
+assert.deepEqual(mode(arr2).sort(), [1, 4], 'message <code>mode([1, 2, 4, 4, 1])</code> should equal <code>[1, 4]</code>.');
 /// id: 594d8d0ab97724821379b1e6

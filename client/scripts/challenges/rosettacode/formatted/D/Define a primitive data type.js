@@ -4,7 +4,7 @@
 /* eslint no-unused-vars: 0 */
 /* eslint no-underscore-dangle: 0 */
 
-const assert = require('chai').assert;
+const assert = require('assert');
 
 /// title: Define a primitive data type
 /// type: rosetta-code
@@ -52,16 +52,33 @@ function Num(n) {
 Num.prototype.valueOf = function() { return this._value; };
 Num.prototype.toString = function () { return this._value.toString(); };
 
+function throws(func, errorType, msg) {
+  let hasThrown = false;
+  let errorMsg = '';
+  let correctType = false;
+  try {
+    func();
+  }
+  catch (e) {
+    hasThrown = true;
+    errorMsg = e.message;
+    if (e instanceof errorType) {
+      correctType = true;
+    }
+  }
+  return hasThrown && correctType && msg === errorMsg;
+}
+
 /// tail:
 
 /// tests:
 assert(typeof Num === 'function', 'message: <code>Num</code> should be a function.');
 assert(typeof (new Num(4)) === 'object', 'message: <code>new Num(4)</code> should return an object.');
-assert.throws(() => new Num('test'), TypeError, 'Not a Number', 'message: <code>new Num(\'test\')</code> should throw a TypeError with message \'Not a Number\'.');
-assert.throws(() => new Num(0), TypeError, 'Out of range', 'message: <code>new Num(0)</code> should throw a TypeError with message \'Out of range\'.');
-assert.throws(() => new Num(-5), TypeError, 'Out of range', 'message: <code>new Num(-5)</code> should throw a TypeError with message \'Out of range\'.');
-assert.throws(() => new Num(11), TypeError, 'Out of range', 'message: <code>new Num(10)</code> should throw a TypeError with message \'Out of range\'.');
-assert.throws(() => new Num(20), TypeError, 'Out of range', 'message: <code>new Num(20)</code> should throw a TypeError with message \'Out of range\'.');
+assert(throws(() => new Num('test'), TypeError, 'Not a Number'), 'message: <code>new Num(\'test\')</code> should throw a TypeError with message \'Not a Number\'.');
+assert(throws(() => new Num(0), TypeError, 'Out of range'), 'message: <code>new Num(0)</code> should throw a TypeError with message \'Out of range\'.');
+assert(throws(() => new Num(-5), TypeError, 'Out of range'), 'message: <code>new Num(-5)</code> should throw a TypeError with message \'Out of range\'.');
+assert(throws(() => new Num(11), TypeError, 'Out of range'), 'message: <code>new Num(10)</code> should throw a TypeError with message \'Out of range\'.');
+assert(throws(() => new Num(20), TypeError, 'Out of range'), 'message: <code>new Num(20)</code> should throw a TypeError with message \'Out of range\'.');
 assert.equal(new Num(3) + new Num(4), 7, 'message: <code>new Num(3) + new Num(4)</code> should equal 7.');
 assert.equal(new Num(3) - new Num(4), -1, 'message: <code>new Num(3) - new Num(4)</code> should equal -1.');
 assert.equal(new Num(3) * new Num(4), 12, 'message: <code>new Num(3) * new Num(4)</code> should equal 12.');

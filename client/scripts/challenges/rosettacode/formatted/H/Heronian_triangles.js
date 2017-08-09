@@ -5,7 +5,7 @@
 /* eslint no-mixed-operators: 0 */
 /* eslint no-shadow: 0 */
 
-const assert = require('chai').assert;
+const assert = require('assert');
 
 /// title: Heronian triangles
 /// type: rosetta-code

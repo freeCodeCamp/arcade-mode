@@ -3,7 +3,7 @@
 /* eslint no-redeclare: 0 */
 /* eslint no-unused-vars: 0 */
 
-const assert = require('chai').assert;
+const assert = require('assert');
 
 /// title: Compare a list of strings
 /// type: rosetta-code
@@ -56,14 +56,14 @@ const testCases = [['AA', 'AA', 'AA', 'AA'], ['AA', 'ACB', 'BB', 'CC'], [], ['AA
 /// tests:
 assert(typeof allEqual === 'function', 'message: <code>allEqual</code> is a function.');
 assert(typeof azSorted === 'function', 'message: <code>azSorted</code> is a function.');
-assert.isTrue(allEqual(testCases[0]), 'message: <code>allEqual(["AA", "AA", "AA", "AA"])</code> returns true.');
-assert.isFalse(azSorted(testCases[0]), 'message: <code>azSorted(["AA", "AA", "AA", "AA"])</code> returns false.');
-assert.isFalse(allEqual(testCases[1]), 'message: <code>allEqual(["AA", "ACB", "BB", "CC"])</code> returns false.');
-assert.isTrue(azSorted(testCases[1]), 'message: <code>azSorted(["AA", "ACB", "BB", "CC"])</code> returns true.');
-assert.isTrue(allEqual(testCases[2]), 'message: <code>allEqual([])</code> returns true.');
-assert.isTrue(azSorted(testCases[2]), 'message: <code>azSorted([])</code> returns true.');
-assert.isTrue(allEqual(testCases[3]), 'message: <code>allEqual(["AA"])</code> returns true.');
-assert.isTrue(azSorted(testCases[3]), 'message: <code>azSorted(["AA"])</code> returns true.');
-assert.isFalse(allEqual(testCases[4]), 'message: <code>allEqual(["BB", "AA"])</code> returns false.');
-assert.isFalse(azSorted(testCases[4]), 'message: <code>azSorted(["BB", "AA"])</code> returns false.');
+assert(allEqual(testCases[0]), 'message: <code>allEqual(["AA", "AA", "AA", "AA"])</code> returns true.');
+assert(!azSorted(testCases[0]), 'message: <code>azSorted(["AA", "AA", "AA", "AA"])</code> returns false.');
+assert(!allEqual(testCases[1]), 'message: <code>allEqual(["AA", "ACB", "BB", "CC"])</code> returns false.');
+assert(azSorted(testCases[1]), 'message: <code>azSorted(["AA", "ACB", "BB", "CC"])</code> returns true.');
+assert(allEqual(testCases[2]), 'message: <code>allEqual([])</code> returns true.');
+assert(azSorted(testCases[2]), 'message: <code>azSorted([])</code> returns true.');
+assert(allEqual(testCases[3]), 'message: <code>allEqual(["AA"])</code> returns true.');
+assert(azSorted(testCases[3]), 'message: <code>azSorted(["AA"])</code> returns true.');
+assert(!allEqual(testCases[4]), 'message: <code>allEqual(["BB", "AA"])</code> returns false.');
+assert(!azSorted(testCases[4]), 'message: <code>azSorted(["BB", "AA"])</code> returns false.');
 /// id: 596e457071c35c882915b3e4

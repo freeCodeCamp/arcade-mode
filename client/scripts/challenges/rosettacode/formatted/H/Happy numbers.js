@@ -6,7 +6,7 @@
 
 /* no benchmark expected as there were no "optimal" solutions in the solution list */
 
-const assert = require('chai').assert;
+const assert = require('assert');
 
 /// title: Happy numbers
 /// type: rosetta-code
@@ -50,15 +50,15 @@ function happy (number) {
 /// tests:
 assert(typeof happy === 'function', 'message: <code>happy</code> is a function.');
 assert(typeof happy(1) === 'boolean', 'message: <code>happy(1)</code> should return a boolean.');
-assert.isTrue(happy(1), 'message: <code>happy(1)</code> should return true.');
-assert.isFalse(happy(2), 'message: <code>happy(2)</code> should return false.');
-assert.isTrue(happy(7), 'message: <code>happy(7)</code> should return true.');
-assert.isTrue(happy(10), 'message: <code>happy(10)</code> should return true.');
-assert.isTrue(happy(13), 'message: <code>happy(13)</code> should return true.');
-assert.isTrue(happy(19), 'message: <code>happy(19)</code> should return true.');
-assert.isTrue(happy(23), 'message: <code>happy(23)</code> should return true.');
-assert.isTrue(happy(28), 'message: <code>happy(28)</code> should return true.');
-assert.isTrue(happy(31), 'message: <code>happy(31)</code> should return true.');
-assert.isTrue(happy(32), 'message: <code>happy(32)</code> should return true:.');
-assert.isFalse(happy(33), 'message: <code>happy(33)</code> should return false.');
+assert(happy(1), 'message: <code>happy(1)</code> should return true.');
+assert(!happy(2), 'message: <code>happy(2)</code> should return false.');
+assert(happy(7), 'message: <code>happy(7)</code> should return true.');
+assert(happy(10), 'message: <code>happy(10)</code> should return true.');
+assert(happy(13), 'message: <code>happy(13)</code> should return true.');
+assert(happy(19), 'message: <code>happy(19)</code> should return true.');
+assert(happy(23), 'message: <code>happy(23)</code> should return true.');
+assert(happy(28), 'message: <code>happy(28)</code> should return true.');
+assert(happy(31), 'message: <code>happy(31)</code> should return true.');
+assert(happy(32), 'message: <code>happy(32)</code> should return true:.');
+assert(!happy(33), 'message: <code>happy(33)</code> should return false.');
 /// id: 594810f028c0303b75339ad1

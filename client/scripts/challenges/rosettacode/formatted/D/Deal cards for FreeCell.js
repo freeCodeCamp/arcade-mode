@@ -4,7 +4,7 @@
 /* eslint no-unused-vars: 0 */
 /* eslint no-bitwise: 0 */
 
-const assert = require('chai').assert;
+const assert = require('assert');
 
 /// title: Deal cards for FreeCell
 /// type: rosetta-code

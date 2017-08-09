@@ -3,7 +3,7 @@
 /* eslint no-sequences: 0 */
 /* eslint no-unused-vars: 0 */
 
-const assert = require('chai').assert;
+const assert = require('assert');
 
 /// title: Vector cross product
 /// type: rosetta-code

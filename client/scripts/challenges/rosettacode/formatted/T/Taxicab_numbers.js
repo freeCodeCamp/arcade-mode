@@ -5,7 +5,7 @@
 /* eslint no-unused-vars: 0 */
 /* eslint no-continue: 0 */
 
-const assert = require('chai').assert;
+const assert = require('assert');
 
 /// title: Taxicab numbers
 /// type: rosetta-code
