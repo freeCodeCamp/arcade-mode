@@ -20,7 +20,7 @@ const es2015 = require('babel-preset-es2015');
 const loopProtect = require('../vendor/loop-protect');
 
 chai.use(chaiAsPromised);
-const assert = chai.assert;
+const assert = require('assert');
 
 export default async function runner (userCode, currChallenge) {
   // run and save test results if no syntax error was observed:
