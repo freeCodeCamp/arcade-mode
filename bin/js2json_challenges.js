@@ -19,11 +19,16 @@ const fs = require('fs');
 const acorn = require('acorn');
 const mongoose = require('mongoose');
 
+// const sanitizer = require('sanitizer');
+
 const optionDefinitions = [
+  { name: 'fcc', type: Boolean, descr: 'Produce JSON as freeCodeCamp compatible output.' },
   { name: 'force', type: Boolean, descr: 'Overwrite output files forcefully.' },
   { name: 'help', alias: 'h', type: Boolean, descr: 'Print help message' },
   { name: 'infile', alias: 'f', type: String, multiple: true, descr: 'Input files' },
+  { name: 'order', type: String, descr: 'Order prop inserted into the JSON file' },
   { name: 'outfile', alias: 'o', type: String, descr: 'Output JSON file' },
+  { name: 'name', type: String, descr: 'Name prop inserted into the JSON file' },
   { name: 'verbose', alias: 'v', type: Boolean, descr: 'Run in verbose mode' }
 ];
 
@@ -37,6 +42,14 @@ const re = {
   endComment: /^\/\/\/\s+end\s+$/,
   workInProgress: /^\/\/\/\s+WIP/i
 };
+
+const tagsToRemoveRegex = new RegExp(
+  '</?' +
+  '(div|p|br|ol|ul|dl|dt|li).*?>'
+, 'gi');
+const classToRemoveRegex = new RegExp(
+  ' class=.*?".*?"'
+, 'gi');
 
 const opts = commandLineArgs(optionDefinitions);
 
@@ -72,12 +85,12 @@ if (!opts.infile || opts.infile.length === 0) {
 }
 
 const propParser = {
-  state: 'IDLE',
   currFile: null,
   prop: null,
   propValue: [],
   files: {},
-  continuedComments: false
+  continuedComments: false,
+  idMap: {}
 };
 
 opts.infile.forEach(file => {
@@ -109,6 +122,10 @@ function processFile(parser, file, props) {
     }
 
     verifyExpectedProps(parser, file, props);
+
+    if (opts.fcc) {
+      addFCCProps(parser, file);
+    }
   }
   else {
     console.log(`Skipping WIP file ${file}`);
@@ -225,17 +242,25 @@ function finishCurrProp(parser) {
 /* Verifies that the parsed file contains expected props like 'solution' etc.*/
 function verifyExpectedProps(parser, file, props) {
   Object.keys(props).forEach(prop => {
-    if (parser.files[file][prop] === undefined) {
+    if (typeof parser.files[file][prop] === 'undefined') {
       console.warn(`Prop ${prop} missing from file ${file}`);
     }
-
-    // Add unique IDs to files, unless they already exist
-    if (!parser.files[file].id) {
-      const id = mongoose.Types.ObjectId();
-      parser.files[file].id = id;
-      fs.appendFileSync(file, `/// id: ${id}\n`);
-    }
   });
+
+  // Add unique IDs to files, unless they already exist
+  const idOld = parser.files[file].id;
+  if (!idOld) {
+    const id = mongoose.Types.ObjectId();
+    parser.files[file].id = id;
+    fs.appendFileSync(file, `/// id: ${id}\n`);
+  }
+  else if (parser.idMap[idOld]) {
+    const file1 = parser.idMap[idOld];
+    throw new Error(`Non-unique ID ${idOld} in files ${file} & ${file1}`);
+  }
+  else {
+    parser.idMap[idOld] = file;
+  }
 }
 
 /* Formats the result as JSON. */
@@ -245,8 +270,8 @@ function formatResult(parsedFiles) {
   );
 
   const finalFormat = {
-    name: 'ArcadeMode Interview Questions',
-    order: '',
+    name: opts.name || 'ArcadeMode Interview Questions',
+    order: opts.order || '',
     time: '',
     helpRoom: '',
     challenges
@@ -282,7 +307,9 @@ function usage(exitCode = 0) {
 }
 
 function isPropLegal(propName) {
+  /* eslint-disable */
   return allProps.hasOwnProperty(propName);
+  /* eslint-enable */
 }
 
 function workInProgress(lines) {
@@ -293,5 +320,53 @@ function workInProgress(lines) {
     }
   });
   return wip;
+}
+
+/* If the script is run with --fcc, modifies the JSON format to adhere to the
+ * original freeCodeCamp JSON format as close as possible. */
+function addFCCProps(parser, file) {
+  const type = 'Waypoint';
+  const challengeType = 5;
+  const date = new Date();
+  const releasedOn = `August ${date.getDate()}, ${date.getFullYear()}`;
+
+  parser.files[file].type = type;
+  parser.files[file].challengeType = challengeType;
+  parser.files[file].releasedOn = releasedOn;
+
+  delete parser.files[file].naive;
+  delete parser.files[file].benchmark;
+  delete parser.files[file].difficulty;
+  delete parser.files[file].categories;
+
+  if (typeof parser.files[file].tail === 'string') {
+    parser.files[file].tail = [parser.files[file].tail];
+  }
+
+  const description = parser.files[file].description;
+  const descrSanitized = [];
+
+  description.forEach(line => {
+    const newLine = removeHTMLTags(line);
+    if (newLine.length > 0) {
+      descrSanitized.push(newLine);
+    }
+  });
+
+  if (!parser.files[file].id) {
+    throw new Error(`No ID for ${file}`);
+  }
+
+  // console.log(JSON.stringify(description));
+  // console.log(JSON.stringify(descrSanitized));
+
+  parser.files[file].description = descrSanitized;
+}
+
+
+function removeHTMLTags(str) {
+  return str
+    .replace(tagsToRemoveRegex, '')
+    .replace(classToRemoveRegex, '');
 }
 
