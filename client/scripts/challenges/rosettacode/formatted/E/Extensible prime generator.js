@@ -1,4 +1,4 @@
-
+// noprotect 
 /* eslint spaced-comment: 0 */
 /* eslint no-redeclare: 0 */
 /* eslint no-unused-vars: 0 */
@@ -66,8 +66,8 @@ function primeGenerator(num, showPrimes) {
 
 /// tests:
 assert(typeof primeGenerator === 'function', 'message: <code>primeGenerator</code> is a function.');
+assert.deepEqual(primeGenerator(20, true),[2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71],'message: <code>primeGenerator</code> is a function.');
 assert.deepEqual(primeGenerator([100, 150], true),[ 101, 103, 107, 109, 113, 127, 131, 137, 139, 149 ],'message: <code>primeGenerator</code> is a function.');
 assert.equal(primeGenerator([7700, 8000], false),30,'message: <code>primeGenerator</code> is a function.');
 assert.equal(primeGenerator(10000, false),104729,'message: <code>primeGenerator</code> is a function.');
-assert.deepEqual(primeGenerator(20, true),[2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71],'message: <code>primeGenerator</code> is a function.');
 /// id: 598ee8b91b410510ae82efef
