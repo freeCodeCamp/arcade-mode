@@ -1,4 +1,3 @@
-// noprotect 
 /* eslint spaced-comment: 0 */
 /* eslint no-redeclare: 0 */
 /* eslint no-unused-vars: 0 */
@@ -25,6 +24,7 @@ function primeGenerator (num, showPrimes) {
 }
 
 /// solutions:
+// noprotect
 function primeGenerator(num, showPrimes) {
   let i,
       arr = [];
