@@ -18,10 +18,12 @@ const commandLineArgs = require('command-line-args');
 const fs = require('fs');
 const acorn = require('acorn');
 const mongoose = require('mongoose');
+const debug = require('debug')('amode:js2json');
 
 // const sanitizer = require('sanitizer');
 
 const optionDefinitions = [
+  { name: 'challenge', type: String, descr: 'Convert only challenges matching this.' },
   { name: 'fcc', type: Boolean, descr: 'Produce JSON as freeCodeCamp compatible output.' },
   { name: 'force', type: Boolean, descr: 'Overwrite output files forcefully.' },
   { name: 'help', alias: 'h', type: Boolean, descr: 'Print help message' },
@@ -45,7 +47,7 @@ const re = {
 
 const tagsToRemoveRegex = new RegExp(
   '</?' +
-  '(div|p|br|ol|ul|dl|dt|li).*?>'
+  '(div|p\b|br|ol|ul|dl|dt|li|span).*?>'
 , 'gi');
 const classToRemoveRegex = new RegExp(
   ' class=.*?".*?"'
@@ -128,7 +130,7 @@ function processFile(parser, file, props) {
     }
   }
   else {
-    console.log(`Skipping WIP file ${file}`);
+    console.log(`/// WIP found. Skipping file ${file}`);
   }
 }
 
@@ -273,14 +275,27 @@ function formatResult(parsedFiles) {
     name: opts.name || 'ArcadeMode Interview Questions',
     order: opts.order || '',
     time: '',
-    helpRoom: '',
-    challenges
+    helpRoom: ''
   };
+
+  // Filters the challenges if a name is given with --challenge
+  if (opts.challenge) {
+    const matchingChallenges = [];
+    challenges.forEach(challenge => {
+      if (challenge.title === opts.challenge) {
+        matchingChallenges.push(challenge);
+      }
+    });
+    finalFormat.challenges = matchingChallenges;
+  }
+  else {
+    finalFormat.challenges = challenges;
+  }
 
   return JSON.stringify(finalFormat, null, 2);
 }
 
-/* Prints the results to given output file. */
+/* Prints the results to given output file, or stdout. */
 function printToOutput (res) {
   if (opts.outfile) {
     if (!fs.existsSync(opts.outfile) || opts.force) {
@@ -329,6 +344,7 @@ function addFCCProps(parser, file) {
   const challengeType = 5;
   const date = new Date();
   const releasedOn = `August ${date.getDate()}, ${date.getFullYear()}`;
+  const title = parser.files[file].title;
 
   parser.files[file].type = type;
   parser.files[file].challengeType = challengeType;
@@ -357,16 +373,19 @@ function addFCCProps(parser, file) {
     throw new Error(`No ID for ${file}`);
   }
 
-  // console.log(JSON.stringify(description));
-  // console.log(JSON.stringify(descrSanitized));
+  debug(`${title} Non-sanitized: ${JSON.stringify(description)}`);
+  debug(`${title} Sanitized: ${JSON.stringify(descrSanitized)}`);
 
   parser.files[file].description = descrSanitized;
 }
 
 
 function removeHTMLTags(str) {
-  return str
+  debug(`\tremoveHTMLTags BEFORE: ${str}`);
+  const replStr = str
     .replace(tagsToRemoveRegex, '')
     .replace(classToRemoveRegex, '');
+  debug(`\tremoveHTMLTags AFTER: ${replStr}`);
+  return replStr;
 }
 
