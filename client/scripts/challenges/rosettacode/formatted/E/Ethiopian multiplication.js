@@ -62,36 +62,35 @@ const assert = require('chai').assert;
 /// </div>
 
 /// challengeSeed:
-function eth_mult (a,b) {
+function eth_mult (a, b) {
   // Good luck!
 }
 
 /// solutions:
-function eth_mult(a,b){
-	let sum = 0; a = [a]; b = [b];
+function eth_mult(a, b) {
+  let sum = 0; a = [a]; b = [b];
 
-	let half=(a)=>a/2,
-		double=(a)=>a*2,
-		is_even=(a)=>a%2==0;
-	
-	while ( a[0] !== 1 ){
-		a.unshift(Math.floor(half(a[0])));
-		b.unshift(double(b[0]));
-	}
+  let half = a => a / 2,
+    double = a => a * 2,
+    is_even = a => a % 2 == 0;
 
-	for( let i = a.length - 1; i > 0 ; i -= 1 ){
+  while (a[0] !== 1) {
+    a.unshift(Math.floor(half(a[0])));
+    b.unshift(double(b[0]));
+  }
 
-		if(!is_even(a[i])){
-			sum += b[i];
-		}
-	}		
-	return sum + b[0];
+  for (let i = a.length - 1; i > 0; i -= 1) {
+    if (!is_even(a[i])) {
+      sum += b[i];
+    }
+  }
+  return sum + b[0];
 }
 /// tests:
 assert(typeof eth_mult === 'function', 'message: <code>eth_mult</code> is a function.');
-assert.equal(eth_mult(17,34),578,"message: <code>eth_mult(17,34)</code> should return <code>578</code>.");
-assert.equal(eth_mult(23,46),1058,"message: <code>eth_mult(23,46)</code> should return <code>1058</code>.");
-assert.equal(eth_mult(12,27),324,"message: <code>eth_mult(12,27)</code> should return <code>324</code>.");
-assert.equal(eth_mult(56,98),5488,"message: <code>eth_mult(56,98)</code> should return <code>5488</code>.");
-assert.equal(eth_mult(63,74),4662,"message: <code>eth_mult(63,74)</code> should return <code>4662</code>.");
+assert.equal(eth_mult(17, 34), 578, 'message: <code>eth_mult(17,34)</code> should return <code>578</code>.');
+assert.equal(eth_mult(23, 46), 1058, 'message: <code>eth_mult(23,46)</code> should return <code>1058</code>.');
+assert.equal(eth_mult(12, 27), 324, 'message: <code>eth_mult(12,27)</code> should return <code>324</code>.');
+assert.equal(eth_mult(56, 98), 5488, 'message: <code>eth_mult(56,98)</code> should return <code>5488</code>.');
+assert.equal(eth_mult(63, 74), 4662, 'message: <code>eth_mult(63,74)</code> should return <code>4662</code>.');
 /// id: 599d1566a02b571412643b84

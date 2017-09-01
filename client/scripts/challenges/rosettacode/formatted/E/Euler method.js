@@ -40,20 +40,21 @@ function eulersMethod (x1, y1, x2, h) {
 
 /// solutions:
 function eulersMethod(x1, y1, x2, h) {
-	let x=x1, y=y1;
+  let x = x1;
+  let y = y1;
 
-	while ((x<x2 && x1<x2) || (x>x2 && x1>x2)) {
-		y += h*(-0.07 * (y-20));
-		x += h;
-	}
+  while ((x < x2 && x1 < x2) || (x > x2 && x1 > x2)) {
+    y += h * (-0.07 * (y - 20));
+    x += h;
+  }
 
-	return y;
+  return y;
 }
 
 /// tests:
 assert(typeof eulersMethod === 'function', 'message: <code>eulersMethod</code> is a function.');
-assert(typeof eulersMethod(0, 100, 100, 10) == 'number',"message: <code>eulersMethod(0, 100, 100, 10)</code> should return a number.");
-assert.equal(eulersMethod(0, 100, 100, 2),20.0424631833732,"message: <code>eulersMethod(0, 100, 100, 10)</code> should return 20.0424631833732.");
-assert.equal(eulersMethod(0, 100, 100, 5),20.01449963666907,"message: <code>eulersMethod(0, 100, 100, 10)</code> should return 20.01449963666907.");
-assert.equal(eulersMethod(0, 100, 100, 10),20.000472392,"message: <code>eulersMethod(0, 100, 100, 10)</code> should return 20.000472392.");
+assert(typeof eulersMethod(0, 100, 100, 10) === 'number', 'message: <code>eulersMethod(0, 100, 100, 10)</code> should return a number.');
+assert.equal(eulersMethod(0, 100, 100, 2), 20.0424631833732, 'message: <code>eulersMethod(0, 100, 100, 10)</code> should return 20.0424631833732.');
+assert.equal(eulersMethod(0, 100, 100, 5), 20.01449963666907, 'message: <code>eulersMethod(0, 100, 100, 10)</code> should return 20.01449963666907.');
+assert.equal(eulersMethod(0, 100, 100, 10), 20.000472392, 'message: <code>eulersMethod(0, 100, 100, 10)</code> should return 20.000472392.');
 /// id: 59880443fb36441083c6c20e
