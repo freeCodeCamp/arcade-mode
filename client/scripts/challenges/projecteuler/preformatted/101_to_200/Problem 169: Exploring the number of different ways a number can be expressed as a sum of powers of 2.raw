@@ -3,7 +3,7 @@
 /* eslint no-redeclare: 0 */
 /* eslint no-unused-vars: 0 */
 
-const assert = require('chai').assert;
+const assert = require('assert');
 
 /// title: Problem 169: Exploring the number of different ways a number can be expressed as a sum of powers of 2
 /// type: project-euler

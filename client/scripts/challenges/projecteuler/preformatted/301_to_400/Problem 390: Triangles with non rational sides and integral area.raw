@@ -3,7 +3,7 @@
 /* eslint no-redeclare: 0 */
 /* eslint no-unused-vars: 0 */
 
-const assert = require('chai').assert;
+const assert = require('assert');
 
 /// title: Problem 390: Triangles with non rational sides and integral area
 /// type: project-euler

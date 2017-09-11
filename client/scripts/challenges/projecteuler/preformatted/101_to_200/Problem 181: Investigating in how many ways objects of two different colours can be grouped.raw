@@ -3,7 +3,7 @@
 /* eslint no-redeclare: 0 */
 /* eslint no-unused-vars: 0 */
 
-const assert = require('chai').assert;
+const assert = require('assert');
 
 /// title: Problem 181: Investigating in how many ways objects of two different colours can be grouped
 /// type: project-euler
