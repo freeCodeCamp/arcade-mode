@@ -385,17 +385,18 @@ gulp.task('watch-dev', gulp.series('build-dev', done => {
 
 // Hot-reloading
 // -------------
-gulp.task('browser-sync', gulp.series('watch-dev', done => {
+gulp.task('browser-sync', gulp.series(done => {
   browserSync.init({
     proxy: {
       target: 'localhost:8080',
       ws: true // websockets
     },
     ghostMode: true, // sync across all browsers
-    reloadDelay: 2000, // give gulp tasks time to reprocess files
+    reloadDelay: 1000, // give gulp tasks time to reprocess files
+    reloadDebounce: 4000,
     port: 3000 // browserSync port
-  }, done);
-}));
+  }, done)
+}, 'watch-dev'));
 
 // GitHub pages deploy
 // -------------------
