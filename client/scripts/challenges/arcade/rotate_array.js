@@ -5,6 +5,7 @@
 const assert = require('assert');
 
 /// title: Rotate array left
+/// type: arcade-mode
 
 /// categories:
 /// algorithms
