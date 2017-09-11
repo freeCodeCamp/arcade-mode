@@ -9,6 +9,10 @@ const assert = require('assert');
 /// difficulty: 3
 
 /// description:
+/// <p>Write a function which accepts one string, and returns true if it has
+/// balanced parentheses. </p>
+/// <p>It should handle the following characters: <code>(</code>, <code>)</code>, <code>[</code>, <code>]</code>, <code>{</code> and
+/// <code>}</code>.</p>
 /// HINT: Do not try to parse the full expression with a single regular expression.
 
 /// challengeSeed:
@@ -41,10 +45,10 @@ function isBalanced(str) {
 }
 
 /// tests:
-assert.isOk(isBalanced(''), 'message: Empty expression is balanced.');
-assert.isNotOk(isBalanced('('), 'message: <code>(</code> is not balanced.');
-assert.isOk(isBalanced('([{}])'), 'message: <code>([{}])</code> should return true.');
-assert.isNotOk(isBalanced('([{}}])'), 'message: <code>([{}}])</code> should return false.');
-assert.isNotOk(isBalanced('((())))'), 'message: <code>((())))</code> should return false.');
-assert.isOk(isBalanced('(a(v(b(fdasf)a)a)e)'), 'message: <code>(a(v(b(fdasf)a)a)e)</code> should return false.');
+assert(isBalanced(''), 'message: Empty expression is balanced.');
+assert(!isBalanced('('), 'message: <code>(</code> is not balanced.');
+assert(isBalanced('([{}])'), 'message: <code>([{}])</code> should return true.');
+assert(!isBalanced('([{}}])'), 'message: <code>([{}}])</code> should return false.');
+assert(!isBalanced('((())))'), 'message: <code>((())))</code> should return false.');
+assert(isBalanced('(a(v(b(fdasf)a)a)e)'), 'message: <code>(a(v(b(fdasf)a)a)e)</code> should return false.');
 /// id: 59481016e949d6392ed98d48
