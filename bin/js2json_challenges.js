@@ -18,9 +18,9 @@ const commandLineArgs = require('command-line-args');
 const fs = require('fs');
 const acorn = require('acorn');
 const mongoose = require('mongoose');
-const debug = require('debug')('amode:js2json');
 
-// const sanitizer = require('sanitizer');
+// To turn on debug, use DEBUG=amode:js2json js2json...
+const debug = require('debug')('amode:js2json');
 
 const optionDefinitions = [
   { name: 'challenge', type: String, descr: 'Convert only challenges matching this.' },
@@ -45,9 +45,10 @@ const re = {
   workInProgress: /^\/\/\/\s+WIP/i
 };
 
+// These tags are removed when --fcc is specified
 const tagsToRemoveRegex = new RegExp(
   '</?' +
-  '(div|p\b|br|ol|ul|dl|dt|li|span).*?>'
+  '(img|div|p\b|br|ol|ul|dl|dt|li|span).*?>'
 , 'gi');
 const classToRemoveRegex = new RegExp(
   ' class=.*?".*?"'
@@ -86,14 +87,7 @@ if (!opts.infile || opts.infile.length === 0) {
   usage(1);
 }
 
-const propParser = {
-  currFile: null,
-  prop: null,
-  propValue: [],
-  files: {},
-  continuedComments: false,
-  idMap: {}
-};
+const propParser = newParser();
 
 opts.infile.forEach(file => {
   processFile(propParser, file, expectedProps);
@@ -107,12 +101,23 @@ printToOutput(result);
 // HELPER FUNCTIONS
 //---------------------------------------------------------------------------
 
+function newParser() {
+  return {
+    currFile: null,
+    prop: null,
+    propValue: [],
+    files: {},
+    continuedComments: false,
+    idMap: {}
+  };
+}
+
 function processFile(parser, file, props) {
   const buffer = fs.readFileSync(file);
-  parser.currFile = file;
   checkFileSyntax(buffer);
 
   const lines = buffer.toString().split('\n');
+  parser.currFile = file;
   if (!workInProgress(lines)) {
     parser.files[file] = {};
     lines.forEach(line => {
@@ -245,7 +250,7 @@ function finishCurrProp(parser) {
 function verifyExpectedProps(parser, file, props) {
   Object.keys(props).forEach(prop => {
     if (typeof parser.files[file][prop] === 'undefined') {
-      console.warn(`Prop ${prop} missing from file ${file}`);
+      console.warn(`Prop |${prop}:| missing from file ${file}`);
     }
   });
 
