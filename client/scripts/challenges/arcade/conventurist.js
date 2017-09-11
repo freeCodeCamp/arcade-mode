@@ -4,7 +4,7 @@
 
 /* @: time-based assert tests capable of producing different results/run; TODO? */
 
-const assert = require('chai').assert;
+const assert = require('assert');
 
 /// title: Conventurist
 /// type: arcade-mode

@@ -5,7 +5,7 @@
 /* eslint no-confusing-arrow: 0 */
 /* eslint no-nested-ternary: 0 */
 /* eslint no-extend-native: 0 */
-const assert = require('chai').assert;
+const assert = require('assert');
 
 let code = '';
 

@@ -1,7 +1,7 @@
 /* eslint spaced-comment: 0 */
 /* eslint no-unused-vars: 0 */
 /* eslint no-redeclare: 0 */
-const assert = require('chai').assert;
+const assert = require('assert');
 
 /// title: Gittaca
 /// type: arcade-mode

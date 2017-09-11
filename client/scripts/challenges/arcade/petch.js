@@ -4,7 +4,7 @@
 /* eslint no-unused-vars: 0 */
 /* eslint no-bitwise: 0 */
 
-const assert = require('chai').assert;
+const assert = require('assert');
 
 /// title: Petch
 /// type: arcade-mode
