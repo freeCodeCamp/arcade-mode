@@ -55,7 +55,7 @@ const obj3 = {
 /// tests:
 assert(typeof deepcopy === 'function', 'message: <code>deepcopy</code> should be a function.');
 assert(typeof deepcopy(obj1) === 'object', 'message: <code>deepcopy({test: "test"})</code> should return an object.');
-assert.notEqual(deepcopy(obj2), obj2, 'message: Should not return the same object that was provided.');
+assert(deepcopy(obj2) != obj2, 'message: Should not return the same object that was provided.');
 assert.deepEqual(deepcopy(obj2), obj2, 'message: When passed an object containing an array, should return a deep copy of the object.');
 assert.deepEqual(deepcopy(obj3), obj3, 'message: When passed an object containing another object, should return a deep copy of the object.');
 /// id: 596a8888ab7c01048de257d5
