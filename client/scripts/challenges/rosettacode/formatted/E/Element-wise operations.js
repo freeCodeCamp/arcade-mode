@@ -2,6 +2,7 @@
 /* eslint spaced-comment: 0 */
 /* eslint no-redeclare: 0 */
 /* eslint no-unused-vars: 0 */
+/* eslint no-restricted-properties: 0 */
 
 const assert = require('assert');
 
@@ -36,7 +37,7 @@ function operation(op, arr1, arr2) {
     sub: ((a, b) => a - b),
     mult: ((a, b) => a * b),
     div: ((a, b) => a / b),
-    exp: ((a, b) => a ** b)
+    exp: ((a, b) => Math.pow(a, b))
   };
   const ifm = op.startsWith('m');
   const doOp = ops[op.substring(2)];

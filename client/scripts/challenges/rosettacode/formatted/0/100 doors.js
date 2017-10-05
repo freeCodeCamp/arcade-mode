@@ -3,6 +3,7 @@
 /* eslint no-undef: 0 */
 /* eslint no-unused-vars: 0 */
 /* eslint no-bitwise: 0 */
+/* eslint no-restricted-properties: 0 */
 
 /* @: the user may feel duped with the final solution; TODO? */
 
@@ -36,8 +37,8 @@ function getFinalOpenedDoors (numDoors) {
   // thus, the most efficient solution simply returns an array of squares up to numDoors).
   const finalState = [];
   let i = 1;
-  while (i ** 2 <= numDoors) {
-    finalState.push(i ** 2);
+  while (Math.pow(i, 2) <= numDoors) {
+    finalState.push(Math.pow(i, 2));
     i++;
   }
   return finalState;

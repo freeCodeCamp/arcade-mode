@@ -3,6 +3,7 @@
 /* eslint no-undef: 0 */
 /* eslint no-unused-vars: 0 */
 /* eslint no-param-reassign: 0 */
+/* eslint no-restricted-properties: 0 */
 
 /* no benchmark expected as there were no "optimal" solutions in the solution list */
 
@@ -39,7 +40,7 @@ function happy (number) {
     m = 0;
     while (number > 0) {
       digit = number % 10;
-      m += digit ** 2;
+      m += Math.pow(digit, 2);
       number = (number - digit) / 10;
     }
     number = m;

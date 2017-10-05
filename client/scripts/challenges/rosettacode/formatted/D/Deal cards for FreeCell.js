@@ -3,6 +3,7 @@
 /* eslint no-redeclare: 0 */
 /* eslint no-unused-vars: 0 */
 /* eslint no-bitwise: 0 */
+/* eslint no-restricted-properties: 0 */
 
 const assert = require('assert');
 
@@ -85,7 +86,7 @@ function FreeCellRNG (seed) {
   return {
     lastNum: seed,
     next() {
-      this.lastNum = ((214013 * this.lastNum) + 2531011) % (2 ** 31);
+      this.lastNum = ((214013 * this.lastNum) + 2531011) % (Math.pow(2, 31));
       return this.lastNum >> 16;
     }
   };

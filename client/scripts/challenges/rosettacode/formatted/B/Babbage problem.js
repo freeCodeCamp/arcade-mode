@@ -4,6 +4,7 @@
 /* eslint no-undef: 0 */
 /* eslint no-unused-vars: 0 */
 /* eslint radix: 0 */
+/* eslint no-restricted-properties: 0 */
 
 const assert = require('assert');
 
@@ -33,7 +34,7 @@ function babbage (babbageNum, endDigits) {
 
 /// solutions:
 function babbage (babbageAns, endDigits) {
-  const babbageNum = babbageAns ** 2;
+  const babbageNum = Math.pow(babbageAns, 2);
   const babbageStartDigits = parseInt(babbageNum.toString().replace('269696', ''));
   let answer = 99736;
 

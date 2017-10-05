@@ -3,6 +3,7 @@
 /* eslint no-redeclare: 0 */
 /* eslint no-undef: 0 */
 /* eslint no-unused-vars: 0 */
+/* eslint no-restricted-properties: 0 */
 
 const assert = require('assert');
 
@@ -70,7 +71,7 @@ function pythagoreanMeans (rangeArr) {
       (a[(typeof k === 'string' && k)] = v, a), {}, kvs);
 
   // raise :: Num -> Int -> Num
-  const raise = (n, e) => n ** e;
+  const raise = (n, e) => Math.pow(n, e);
 /*
   // show :: a -> String
   // show :: a -> Int -> String
