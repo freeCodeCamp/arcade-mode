@@ -1,5 +1,4 @@
 
-/// WIP
 /* eslint spaced-comment: 0 */
 /* eslint no-redeclare: 0 */
 /* eslint no-unused-vars: 0 */
@@ -17,15 +16,16 @@ const assert = require('assert');
 /// benchmark:
 
 /// description: Sailors, coconuts and a monkey problem.html
-//
+
 /// challengeSeed:
+// noprotect
 function splitCoconuts(intSailors) {
   // Good luck!
   return true;
 }
 
 /// solutions:
-
+// noprotect
 function splitCoconuts(intSailors) {
   let intNuts = intSailors;
   let result = splitCoconutsHelper(intNuts, intSailors);
@@ -58,8 +58,9 @@ function splitCoconutsHelper(intNuts, intSailors, intDepth) {
 /// tail:
 
 /// tests:
-assert(typeof splitCoconuts === 'function', 'message: <code>replaceMe</code> is a function.');
+assert(typeof splitCoconuts === 'function', 'message: <code>splitCoconuts</code> is a function.');
 assert(splitCoconuts(5) === 3121, 'message: <code>splitCoconuts(5)</code> should return 3121.');
 assert(splitCoconuts(6) === 233275, 'message: <code>splitCoconuts(6)</code> should return 233275.');
 assert(splitCoconuts(7) === 823537, 'message: <code>splitCoconuts(7)</code> should return 823537.');
 
+/// id: 59da22823d04c95919d46269
