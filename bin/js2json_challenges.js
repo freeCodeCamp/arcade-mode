@@ -115,7 +115,7 @@ function newParser() {
 
 function processFile(parser, file, props) {
   const buffer = fs.readFileSync(file);
-  checkFileSyntax(buffer);
+  checkFileSyntax(file, buffer);
 
   const lines = buffer.toString().split('\n');
   parser.currFile = file;
@@ -141,12 +141,12 @@ function processFile(parser, file, props) {
 }
 
 /* Checks the code syntax in given buffer using acorn. */
-function checkFileSyntax(buffer) {
+function checkFileSyntax(file, buffer) {
   try {
     acorn.parse(buffer);
   }
   catch (err) {
-    console.error(`Parsing failed: ${err}`);
+    console.error(`Parsing failed: ${err}, File: ${file}`);
     process.exit(1);
   }
 }
