@@ -49,6 +49,10 @@ function expectNoErrorsAndAllTestsRun(res, challenge) {
   expect(res.testResults, 'All tests need to have result'
     ).to.have.length(challenge.tests.length);
   res.testResults.forEach((result, index) => {
-    expect(result.pass, `Test ${index} should return result.pass: true`).to.be.true;
+    let msg = `Test ${index} should return result.pass: true`;
+    if (!result.pass) {
+      msg += ` ERROR: |${result.error}|`;
+    }
+    expect(result.pass, msg).to.be.true;
   });
 }
