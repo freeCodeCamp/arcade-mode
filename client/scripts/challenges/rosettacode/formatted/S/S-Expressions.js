@@ -12,7 +12,7 @@ const assert = require('assert');
 /// parsing
 /// s-expressions
 
-/// difficulty: ?
+/// difficulty: 4
 
 /// benchmark:
 parseSexpr('((data "quoted data" 123 4.5) (data (!@# (4.5) "(more" "data)")))');
