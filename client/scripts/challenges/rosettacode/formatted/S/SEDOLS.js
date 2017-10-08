@@ -12,7 +12,7 @@ const assert = require('assert');
 /// checksum
 
 
-/// difficulty: 3
+/// difficulty: 4
 
 /// benchmark:
 
