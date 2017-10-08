@@ -16,6 +16,7 @@
 
 const commandLineArgs = require('command-line-args');
 const fs = require('fs');
+const path = require('path');
 const acorn = require('acorn');
 const mongoose = require('mongoose');
 
@@ -209,14 +210,28 @@ function finishCurrProp(parser) {
 
   let newPropVal;
 
-  // keep solutions string in an array
-  if (parser.prop === 'solutions') {
+  if (parser.propValue.length === 1) {
+    const propValue = parser.propValue[0];
+
+    const pathObj = path.parse(parser.currFile);
+    const propFileName = `${pathObj.dir}/${propValue}`;
+    if (isFile(propValue)) {
+      newPropVal = getFromFile(propValue);
+    }
+    else if (isFile(propFileName)) {
+      console.log(`Reading prop from file ${propFileName}`);
+      newPropVal = getFromFile(propFileName);
+    }
+    else if (parser.prop === 'solutions') {
+      newPropVal = parser.propValue;
+    }
+    else {
+      newPropVal = parser.propValue[0] || parser.propValue;
+    }
+  }
+  else {
     newPropVal = parser.propValue;
   }
-  else if (parser.propValue.length === 1) {
-    newPropVal = parser.propValue[0] || parser.propValue;
-  }
-  else newPropVal = parser.propValue;
 
   if (typeof parser.files[parser.currFile][parser.prop] === 'undefined') {
     parser.files[parser.currFile][parser.prop] = newPropVal;
@@ -392,5 +407,20 @@ function removeHTMLTags(str) {
     .replace(classToRemoveRegex, '');
   debug(`\tremoveHTMLTags AFTER: ${replStr}`);
   return replStr;
+}
+
+function getFromFile(filename) {
+  const buf = fs.readFileSync(filename);
+  return buf.toString().split('\n');
+}
+
+function isFile(filename) {
+  try {
+    const stats = fs.lstatSync(filename);
+    return stats.isFile();
+  }
+  catch (e) {
+    return false;
+  }
 }
 
