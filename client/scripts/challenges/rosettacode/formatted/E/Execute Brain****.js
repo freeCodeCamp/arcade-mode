@@ -173,7 +173,7 @@ let fib=`+
 assert(typeof brain(bye)=='string','');
 assert(typeof brain(hello)=='string','');
 assert.equal(brain("++++++[>++++++++++<-]>+++++."),"A",'');
-assert.equal(brain(bye),"Goodbye, World!\r\n",'');
-assert.equal(brain(hello),"Hello World!\n",'');
-assert.equal(brain(fib),"1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89",'');
+assert.equal(brain(bye),"Goodbye, World!\r\n",'<code>brain('+bye+')</code> should return <code>Goodbye, World!\\r\\n</code>');
+assert.equal(brain(hello),"Hello World!\n",'<code>brain('+hello+')</code> should return <code>Hello World!\n</code>');
+assert.equal(brain(fib),"1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89",'<code>brain('+fib+')</code> should return <code>1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89</code>');
 /// id: 59e0a8df964e4540d5abe599
