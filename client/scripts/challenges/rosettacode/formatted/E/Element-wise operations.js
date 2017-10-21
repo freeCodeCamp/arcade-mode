@@ -2,12 +2,13 @@
 /* eslint spaced-comment: 0 */
 /* eslint no-redeclare: 0 */
 /* eslint no-unused-vars: 0 */
+/* eslint no-restricted-properties: 0 */
 
 const assert = require('chai').assert;
 
 /// title: Element-wise operations
 /// type: rosetta-code
-	1`
+
 /// categories:
 /// Mathematics
 
@@ -37,7 +38,7 @@ function operation(op,arr1,arr2){
         "mult":((a,b)=>a*b), 
         "div":((a,b)=>a/b),
         "exp":((a,b)=>Math.pow(a,b))
-    }
+    };
     let ifm=op.startsWith("m");
     op=ops[op.substring(2)];
     for(let i=0;i<arr1.length;i++){
