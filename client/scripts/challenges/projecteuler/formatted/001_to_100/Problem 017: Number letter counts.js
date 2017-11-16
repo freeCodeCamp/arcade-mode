@@ -19,7 +19,7 @@ const assert = require('chai').assert;
 /// description:
 /// <div class="euler"><p class="euler__paragraph">If the numbers 1 to 5 are written out in words: one, two, three, four, five, then there are 3 + 3 + 5 + 4 + 4 = 19 letters used in total.</p>
 /// <p class="euler__paragraph">If all the numbers from 1 to 1000 (one thousand) inclusive were written out in words, how many letters would be used? </p>
-/// <p class="euler__paragraph">NOTE: Do not count spaces or hyphens. For example, 342 (three hundred and forty-two) contains 23 letters and 115 (one hundred and fifteen) contains 20 letters. The use of "and" when writing out numbers is in compliance with British usage.</p></div>
+/// <p class="euler__paragraph">NOTE: Do not count spaces or hyphens. For example, 342 (three hundred and forty-two) contains 23 letters and 115 (one hundred and fifteen) contains 20 letters. The use of "and" when writing out numbers is in compliance with <a class="euler__link--wiki" href="https://english.stackexchange.com/questions/111765/how-to-write-out-numbers-in-compliance-with-british-usage" title="British Usage">British usage</a>.</p></div>
 
 /// challengeSeed:
 function euler17() {
