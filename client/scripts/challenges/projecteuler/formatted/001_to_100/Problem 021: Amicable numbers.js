@@ -17,8 +17,8 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">Let d(n) be defined as the sum of proper divisors of n (numbers less than n which divide evenly into n).</p>
-/// <p class="euler__paragraph">If d(a) = b and d(b) = a, where a ≠ b, then a and b are an amicable pair and each of a and b are called amicable numbers.</p>
+/// <div class="euler"><p class="euler__paragraph">Let d(<span class="euler__text--italic">n</span>) be defined as the sum of proper divisors of <span class="euler__text--italic">n</span> (numbers less than <span class="euler__text--italic">n</span> which divide evenly into <span class="euler__text--italic">n</span>).</p>
+/// <p class="euler__paragraph">If d(<span class="euler__text--italic">a</span>) = <span class="euler__text--italic">b</span> and d(<span class="euler__text--italic">b</span>) = <span class="euler__text--italic">a</span>, where <span class="euler__text--italic">a</span> ≠ <span class="euler__text--italic">b</span>, then <span class="euler__text--italic">a</span> and <span class="euler__text--italic">b</span> are an amicable pair and each of <span class="euler__text--italic">a</span> and <span class="euler__text--italic">b</span> are called amicable numbers.</p>
 /// <p class="euler__paragraph">For example, the proper divisors of 220 are 1, 2, 4, 5, 10, 11, 20, 22, 44, 55 and 110; therefore d(220) = 284. The proper divisors of 284 are 1, 2, 4, 71 and 142; so d(284) = 220.</p>
 /// <p class="euler__paragraph">Evaluate the sum of all the amicable numbers under 10000.</p></div>
 

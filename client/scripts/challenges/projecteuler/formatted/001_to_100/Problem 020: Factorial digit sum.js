@@ -18,8 +18,13 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">n! means n × (n − 1) × ... × 3 × 2 × 1</p>
-/// <p class="euler__paragraph">For example, 10! = 10 × 9 × ... × 3 × 2 × 1 = 3628800,and the sum of the digits in the number 10! is 3 + 6 + 2 + 8 + 8 + 0 + 0 = 27.</p>
+/// <div class="euler">
+/// <p class="euler__paragraph"><span class="euler__text--italic">n</span>! means <span class="euler__text--italic">n</span> × (<span class="euler__text--italic">n</span> − 1) × ... × 3 × 2 × 1</p>
+/// <br>
+/// <p class="euler__paragraph">For example, 10! = 10 × 9 × ... × 3 × 2 × 1 = 3628800,</p>
+/// <p class="euler__paragraph">and the sum of the digits in the number 10! is:</p>
+/// <p class="euler__paragraph">3 + 6 + 2 + 8 + 8 + 0 + 0 = 27.</p>
+/// <br>
 /// <p class="euler__paragraph">Find the sum of the digits in the number 100!</p></div>
 
 /// challengeSeed:

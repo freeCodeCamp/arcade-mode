@@ -19,14 +19,15 @@ const assert = require('chai').assert;
 /// description:
 /// <div class="euler">
 /// <p class="euler__paragraph">You are given the following information, but you may prefer to do some research for yourself.</p>
-/// <ul><li>1 Jan 1900 was a Monday.</li>
-/// <li>Thirty days has September,
+/// <ul class="euler__unordered-list"><li class="euler__list-item--unordered">1 Jan 1900 was a Monday.</li>
+/// <li class="euler__list-item--unordered">Thirty days has September,
 /// April, June and November.
 /// All the rest have thirty-one,
-/// Saving February alone,
-/// Which has twenty-eight, rain or shine.
+/// saving February alone,
+/// which has twenty-eight, rain or shine.
 /// And on leap years, twenty-nine.</li>
-/// <li>A leap year occurs on any year evenly divisible by 4, but not on a century unless it is divisible by 400.</li></ul>
+/// <li class="euler__list-item--unordered">A leap year occurs on any year evenly divisible by 4, but not on a century unless it is divisible by 400.</li></ul>
+/// <br>
 /// <p class="euler__paragraph">How many Sundays fell on the first of the month during the twentieth century (1 Jan 1901 to 31 Dec 2000)?</p></div>
 
 /// challengeSeed:
