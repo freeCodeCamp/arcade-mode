@@ -17,8 +17,9 @@ const assert = require('chai').assert;
 //replaceWithActualFunctionHere;
 
 /// description:
-/// <div class="euler"><p class="euler__paragraph">215 = 32768 and the sum of its digits is 3 + 2 + 7 + 6 + 8 = 26.</p>
-/// <p class="euler__paragraph">What is the sum of the digits of the number 21000?</p></div>
+/// <div class="euler"><p class="euler__paragraph">2<sup>15</sup> = 32768 and the sum of its digits is:</p>
+/// <p class="euler__paragraph">3 + 2 + 7 + 6 + 8 = 26.</p>
+/// <p class="euler__paragraph">What is the sum of the digits of the number 2<sup>1000</sup>?</p></div>
 
 /// challengeSeed:
 function euler16() {
