@@ -1,0 +1,100 @@
+// _blocks.euler.scss
+
+// formatting for Euler challenges:
+
+.euler {
+  // the entire element itself:
+  white-space: normal;
+
+  &__blockquote {
+    margin: 0;
+  }
+
+  &__paragraph {
+    margin: 0;
+  }
+
+  &__description {
+    &-list {
+      margin: 10px 0 0 0;
+    }
+    &-title {
+      font-weight: bold;
+    }
+  }
+
+  &__text {
+    &--bold {
+      font-weight: bold;
+    }
+    &--italic {
+      font-style: italic;
+    }
+    &--indented {
+      display: inline-block;
+      text-indent: 1em;
+    }
+    &--centered {
+      text-align: center;
+    }
+  }
+
+  &__unordered-list {
+    margin: 0;
+  }
+
+  &__ordered-list {
+    margin: 0;
+  }
+
+  &__list-item--ordered {
+    margin: 0;
+    list-style-position: inside;
+  }
+  &__list-item--unordered {
+    margin: 0;
+    list-style-type: disc;
+    list-style-position: inside;
+  }
+
+  &__pre-wrap {
+    text-align: center;
+  }
+
+  &__pre {
+    text-align: initial;
+    display: inline-block;
+    overflow-x: auto;
+    max-width: 100%;
+  }
+
+  &__wikitable {
+    margin: auto;
+    background: #f9f9f9;
+    border: 1px solid #aaa;
+    border-collapse: collapse;
+  }
+}
+
+// table headers
+table.euler__wikitable > tr > th,
+table.euler__wikitable > * > tr > th {
+  background-color: #f2f2f2;
+  text-align: center;
+}
+
+
+// Inner elements
+table.euler__wikitable > tr > th,
+table.euler__wikitable > * > tr > th {
+  background-color: #f2f2f2;
+  text-align: center;
+}
+
+table.euler__wikitable > tr > th,
+table.euler__wikitable > tr > td,
+table.euler__wikitable > * > tr > th,
+table.euler__wikitable > * > tr > td {
+  border: 1px solid #aaa;
+  padding: 0.2em 0.4em;
+}
