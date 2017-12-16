@@ -31,10 +31,12 @@ const optionDefinitions = [
   { name: 'help', alias: 'h', type: Boolean, descr: 'Print help message' },
   { name: 'infile', alias: 'f', type: String, multiple: true, descr: 'Input files' },
   { name: 'merge', type: Boolean, descr: 'Merge two (or more) JSON files.' },
+  { name: 'name', type: String, descr: 'Name prop inserted into the JSON file' },
   { name: 'nochecks', type: Boolean, descr: 'Do not check file javascript syntax.' },
   { name: 'order', type: String, descr: 'Order prop inserted into the JSON file' },
   { name: 'outfile', alias: 'o', type: String, descr: 'Output JSON file' },
-  { name: 'name', type: String, descr: 'Name prop inserted into the JSON file' },
+  { name: 'prop', alias: 'p', type: String, multiple: true,
+    descr: 'Additional JSON props added to each challenge'},
   { name: 'verbose', alias: 'v', type: Boolean, descr: 'Run in verbose mode' }
 ];
 
@@ -357,6 +359,16 @@ function formatResult(parsedFiles) {
     finalFormat.challenges = challenges;
   }
 
+  // Add all props given with -p to each challenge
+  if (opts.prop.length > 0) {
+    finalFormat.challenges.forEach(chal => {
+      opts.prop.forEach(prop => {
+        const [key, val] = prop.split(':');
+        chal[key] = val;
+      });
+    });
+  }
+
   return JSON.stringify(finalFormat, null, 2);
 }
 
@@ -397,6 +409,8 @@ function usage(exitCode = 0) {
   console.log('\tbin/js2json_challenges.js -f src/challenges/*.js [-o challenges.json]');
   console.log('2. To merge 2 or more JSON files, use:');
   console.log('\tbin/js2json_challenges.js --merge -f f1.json f2.json [-o merged.json]');
+  console.log('3. To add JSON props (prop key/value must be legal JSON), use:');
+  console.log('\tbin/js2json_challenges.js -p "isBeta:true" -p "myFlag:xxx" -f src/challenges/*.js');
   process.exit(exitCode);
 }
 
