@@ -395,7 +395,7 @@ gulp.task('browser-sync', gulp.series(done => {
     reloadDelay: 1000, // give gulp tasks time to reprocess files
     reloadDebounce: 4000,
     port: 3000 // browserSync port
-  }, done)
+  }, done);
 }, 'watch-dev'));
 
 // GitHub pages deploy
