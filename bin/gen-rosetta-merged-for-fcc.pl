@@ -22,7 +22,6 @@ use strict;
 use warnings;
 use utf8;
 
-
 my $js2json = "bin/js2json_challenges.js";
 my $csv_script = "bin/get-excluded-from-csv.js";
 
@@ -33,10 +32,12 @@ my @csv_files = glob("*.csv");
 
 _cmd("$csv_script '" . join("' '", @csv_files) . "' > excluded.txt");
 
-_cmd("$js2json --nochecks --exclude excluded.txt -f $rosetta_raw > rosetta_raw.json");
-_cmd("$js2json -f $rosetta_formatted > rosetta_formatted.json");
+my $fcc_args = "--fcc --order --name 'Rosetta code problems'";
+_cmd("$js2json $fcc_args --nochecks --exclude excluded.txt -f $rosetta_raw -p isBeta:true > rosetta_raw.json");
 
-_cmd("$js2json --merge -f rosetta_formatted.json rosetta_raw.json > rosetta_merged.json");
+_cmd("$js2json $fcc_args -f $rosetta_formatted > rosetta_formatted.json");
+
+_cmd("$js2json $fcc_args --merge -f rosetta_formatted.json rosetta_raw.json > rosetta_merged.json");
 
 # Clean up
 #_cmd("rm excluded.txt rosetta_formatted.json rosetta_raw.json");
