@@ -36,7 +36,7 @@ const optionDefinitions = [
   { name: 'order', type: String, descr: 'Order prop inserted into the JSON file' },
   { name: 'outfile', alias: 'o', type: String, descr: 'Output JSON file' },
   { name: 'prop', alias: 'p', type: String, multiple: true,
-    descr: 'Additional JSON props added to each challenge'},
+    descr: 'Additional JSON props added to each challenge' },
   { name: 'verbose', alias: 'v', type: Boolean, descr: 'Run in verbose mode' }
 ];
 
@@ -50,6 +50,10 @@ const re = {
   endComment: /^\/\/\/\s+end\s+$/,
   workInProgress: /^\/\/\/\s+WIP/i
 };
+
+const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
+  'July', 'August', 'September', 'October', 'November', 'December'
+];
 
 // These tags are removed when --fcc is specified to generate fCC compatible
 // markup for the challenge descriptions
@@ -360,7 +364,7 @@ function formatResult(parsedFiles) {
   }
 
   // Add all props given with -p to each challenge
-  if (opts.prop.length > 0) {
+  if (Array.isArray(opts.prop) && opts.prop.length > 0) {
     finalFormat.challenges.forEach(chal => {
       opts.prop.forEach(prop => {
         const [key, val] = prop.split(':');
@@ -436,7 +440,7 @@ function addFCCProps(parser, file) {
   const type = 'Waypoint';
   const challengeType = 5;
   const date = new Date();
-  const releasedOn = `August ${date.getDate()}, ${date.getFullYear()}`;
+  const releasedOn = `${monthNames[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
   const title = parser.files[file].title;
 
   parser.files[file].type = type;
@@ -448,9 +452,12 @@ function addFCCProps(parser, file) {
   delete parser.files[file].difficulty;
   delete parser.files[file].categories;
 
-  if (typeof parser.files[file].tail === 'string') {
-    parser.files[file].tail = [parser.files[file].tail];
-  }
+  const propsToArray = ['tail', 'description', 'tests'];
+  propsToArray.forEach(item => {
+    if (typeof parser.files[file][item] === 'string') {
+      parser.files[file][item] = [parser.files[file][item]];
+    }
+  });
 
   const description = parser.files[file].description;
   const descrSanitized = [];
