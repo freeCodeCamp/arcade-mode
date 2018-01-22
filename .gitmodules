@@ -1,0 +1,3 @@
+[submodule "local_node_modules/gulp-manifest"]
+	path = local_node_modules/gulp-manifest
+	url = https://github.com/timolawl/gulp-manifest.git
