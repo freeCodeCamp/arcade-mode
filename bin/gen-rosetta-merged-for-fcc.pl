@@ -33,7 +33,8 @@ my @csv_files = glob("*.csv");
 _cmd("$csv_script '" . join("' '", @csv_files) . "' > excluded.txt");
 
 my $fcc_args = "--fcc --order --name 'Rosetta code problems'";
-_cmd("$js2json $fcc_args --nochecks --exclude excluded.txt -f $rosetta_raw -p isBeta:true > rosetta_raw.json");
+my $raw_args = "--rename solutions:betaSolutions --rename tests:betaTests -p isBeta:true";
+_cmd("$js2json $fcc_args --nochecks --exclude excluded.txt -f $rosetta_raw $raw_args > rosetta_raw.json");
 
 _cmd("$js2json $fcc_args -f $rosetta_formatted > rosetta_formatted.json");
 
