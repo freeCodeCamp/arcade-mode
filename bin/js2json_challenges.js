@@ -1,5 +1,7 @@
 #! /usr/bin/env node
 
+/* eslint object-property-newline: 0 */
+
 /* A script for converting javascript challenge code into JSON.
   * Each challenge should have sections marked with comments '/// keyword:',
   * For example:
@@ -37,6 +39,8 @@ const optionDefinitions = [
   { name: 'outfile', alias: 'o', type: String, descr: 'Output JSON file' },
   { name: 'prop', alias: 'p', type: String, multiple: true,
     descr: 'Additional JSON props added to each challenge' },
+  { name: 'rename', alias: 'r', type: String, multiple: true,
+    descr: 'Rename chosen JSON properties: --rename old:new' },
   { name: 'verbose', alias: 'v', type: Boolean, descr: 'Run in verbose mode' }
 ];
 
@@ -373,6 +377,17 @@ function formatResult(parsedFiles) {
     });
   }
 
+  // Rename properties specified with --rename|-r
+  if (Array.isArray(opts.rename) && opts.rename.length > 0) {
+    opts.rename.forEach(renameProp => {
+      const [oldName, newName] = renameProp.split(':');
+      finalFormat.challenges.forEach(chal => {
+        chal[newName] = chal[oldName];
+        delete chal[oldName];
+      });
+    });
+  }
+
   return JSON.stringify(finalFormat, null, 2);
 }
 
@@ -415,6 +430,8 @@ function usage(exitCode = 0) {
   console.log('\tbin/js2json_challenges.js --merge -f f1.json f2.json [-o merged.json]');
   console.log('3. To add JSON props (prop key/value must be legal JSON), use:');
   console.log('\tbin/js2json_challenges.js -p "isBeta:true" -p "myFlag:xxx" -f src/challenges/*.js');
+  console.log('4. To rename JSON props (prop key/value must be legal JSON), use:');
+  console.log('\tbin/js2json_challenges.js -r "oldName:newName" -f src/challenges/*.js');
   process.exit(exitCode);
 }
 
