@@ -1,4 +1,9 @@
 
+// These challenges require an assertion library that fCC proper does not use to be tested.
+// As testing ultimately requires that it fits into fCC proper, these challenges have been
+// placed on hold.
+// - Tim 1/31/18
+
 import { expect } from 'chai';
 
 import runner from '../../../../client/scripts/arcademode/runner';
