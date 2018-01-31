@@ -29,10 +29,6 @@ let code = '';
 /// Understanding that your flight is tomorrow, you only have today to sort through all the books. Luckily for you, you know a few sorting algorithms. You accept the shopkeep's offer.
 /// Given an array of book author last names, sort the books without using Array.prototype.sort().
 
-/// head:
-// Set Array.prototype.sort to null, prevents user from using it
-Array.prototype.sort = undefined;
-
 /// challengeSeed:
 function sortBooks (arr) {
   // Good luck!
@@ -77,6 +73,6 @@ function isSorted (arr) {
 /// tests:
 assert(typeof sortBooks === 'function', 'message: <code>sortBooks</code> is a function.');
 assert(isSorted(sortBooks(userProvidedArr)), 'message: <code>sortBooks</code> returns a sorted array.');
-assert.sameMembers(sortBooks(userProvidedArr), unmodifiedArr, 'message: <code>sortBooks</code> returns an array that is unchanged except for order.');
+assert.deepEqual(sortBooks(userProvidedArr), unmodifiedArr.sort(), 'message: <code>sortBooks</code> returns an array that is unchanged except for order.');
 assert.strictEqual(code.search(/\.sort\(/), -1, 'message: <code>sortBooks</code> should not use the built-in <code>.sort()</code> method.');
 /// id: 59481016e949d6392ed98d4e
