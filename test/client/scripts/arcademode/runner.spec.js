@@ -11,7 +11,7 @@ const challenges = ArcadeChallenges.challenges;
 const stackChallenge = challenges.find(item => item.title.match(/Queue using/));
 const bookshopChallenge = challenges.find(item => item.title.match(/Bookshop/));
 const gittacaChallenge = challenges.find(item => item.title.match(/Gittaca/));
-const conventuristChallenge = challenges.find(item => item.title.match(/Conventurist/));
+// const conventuristChallenge = challenges.find(item => item.title.match(/Conventurist/));
 const lruCacheChallenge = challenges.find(item => item.title.match(/LRU Cache/));
 const petchChallenge = challenges.find(item => item.title.match(/Petch/));
 const rotateArrayChallenge = challenges.find(item => item.title.match(/Rotate array/));
@@ -139,6 +139,7 @@ describe('runner()', () => {
     });
   });
 
+  /*
   it('can execute the conventurist challenge', () => {
     const userCode = conventuristChallenge.solutions.join('');
     const result = runner(userCode, conventuristChallenge);
@@ -147,6 +148,7 @@ describe('runner()', () => {
       expectNoErrorsAndAllTestsRun(res, conventuristChallenge);
     });
   });
+ */
 
   it('can execute the LRU cache challenge', () => {
     const userCode = lruCacheChallenge.solutions.join('');
