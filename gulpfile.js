@@ -54,7 +54,7 @@ const jsoncombine = require('gulp-jsoncombine');
 
 // Appcache creation
 // -----------------
-const manifest = require('gulp-manifest');
+const manifest = require('gulp-manifest3');
 
 
 // Configuration Objects
