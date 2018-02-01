@@ -1044,6 +1044,853 @@
       "id": "5900f3841000cf542c50fe97"
     },
     {
+      "title": "Problem 25: 1000-digit Fibonacci number",
+      "type": "project-euler",
+      "categories": "math",
+      "difficulty": "?",
+      "benchmark": "//replaceWithActualFunctionHere;",
+      "description": [
+        "<div class=\"euler\"><p class=\"euler__paragraph\">The <a class=\"euler__link--wiki\" href=\"https://en.wikipedia.org/wiki/Fibonacci_number\" title=\"Fibonacci Numbers\">Fibonacci sequence</a> is defined by the recurrence relation:</p>",
+        "<p class=\"euler__paragraph\">F<sub>n</sub> = F<sub>n-1</sub> + F<sub>n-2</sub>, where F<sub>1</sub> = 1 and F<sub>2</sub> = 1.</p>",
+        "<p class=\"euler__paragraph\">Hence the first 12 terms will be:</p>",
+        "<p class=\"euler__paragraph\">F<sub>1</sub> = 1</p>",
+        "<p class=\"euler__paragraph\">F<sub>2</sub> = 1</p>",
+        "<p class=\"euler__paragraph\">F<sub>3</sub> = 2</p>",
+        "<p class=\"euler__paragraph\">F<sub>4</sub> = 3</p>",
+        "<p class=\"euler__paragraph\">F<sub>5</sub> = 5</p>",
+        "<p class=\"euler__paragraph\">F<sub>6</sub> = 8</p>",
+        "<p class=\"euler__paragraph\">F<sub>7</sub> = 13</p>",
+        "<p class=\"euler__paragraph\">F<sub>8</sub> = 21</p>",
+        "<p class=\"euler__paragraph\">F<sub>9</sub> = 34</p>",
+        "<p class=\"euler__paragraph\">F<sub>10</sub> = 55</p>",
+        "<p class=\"euler__paragraph\">F<sub>11</sub> = 89</p>",
+        "<p class=\"euler__paragraph\">F<sub>12</sub> = 144</p>",
+        "<p class=\"euler__paragraph\">The 12th term, F<sub>12</sub>, is the first term to contain three digits.</p>",
+        "<br>",
+        "<p class=\"euler__paragraph\">What is the index of the first term in the Fibonacci sequence to contain 1000 digits?</p></div>"
+      ],
+      "challengeSeed": [
+        "// noprotect",
+        "function euler25() {",
+        "  // Good luck!",
+        "  return true;",
+        "}",
+        "",
+        "euler25();"
+      ],
+      "solutions": [
+        "// noprotect\nfunction euler25() {\n  function sumDigitArrays(arr1, arr2) {\n    function addNumToDigitArr(arr, index, num) {\n      // adds a number to a digit array at a specified index.\n      const len = arr.length;\n      const ones = num % 10;\n      const tens = Math.floor((num % 100) / 10);\n      const hundreds = Math.floor(num / 100);\n      arr[index] = ones;\n      if (tens > 0 || hundreds > 0) {\n        if (index + 1 >= len) {\n          // need to extend arr\n          arr.push(tens);\n        } else {\n          addNumToDigitArr(arr, index + 1, tens + arr[index + 1]);\n        }\n      }\n      if (hundreds > 0) {\n        if (index + 2 >= len) {\n          // need to extend arr\n          arr.push(hundreds);\n        } else {\n          addNumToDigitArr(arr, index + 2, hundreds + arr[index + 2]);\n        }\n      }\n    }\n\n    const longArr = arr1.length > arr2.length ? arr1 : arr2;\n    const shortArr = arr1.length <= arr2.length ? arr1 : arr2;\n    const result = [0];\n    let i = 0;\n    while (i < shortArr.length) {\n      addNumToDigitArr(result, i, shortArr[i] + longArr[i] + (result[i] ? result[i] : 0));\n      i++;\n    }\n    while (i < longArr.length) {\n      addNumToDigitArr(result, i, longArr[i] + (result[i] ? result[i] : 0));\n      i++;\n    }\n    return result;\n  }\n\n  // fibList will store numbers as digit arrays\n  const fibList = [[1]];\n  let latestFib = [1];\n  while (latestFib.length < 1000) {\n    fibList.push(latestFib);\n    const len = fibList.length;\n    latestFib = sumDigitArrays(fibList[len - 2], fibList[len - 1]);\n  }\n  return fibList.length + 1;\n}\n"
+      ],
+      "tail": [],
+      "tests": [
+        "assert(typeof euler25 === 'function', 'message: <code>euler25()</code> is a function.');",
+        "assert.strictEqual(euler25(), 4782, 'message: <code>euler25()</code> should return 4782.');"
+      ],
+      "id": "5900f3851000cf542c50fe98"
+    },
+    {
+      "title": "Problem 26: Reciprocal cycles",
+      "type": "project-euler",
+      "categories": "math",
+      "difficulty": "?",
+      "benchmark": "//replaceWithActualFunctionHere;",
+      "description": [
+        "<div class=\"euler\"><p class=\"euler__paragraph\">A unit fraction contains 1 in the numerator. The decimal representation of the unit fractions with denominators 2 to 10 are given:</p>",
+        "<p class=\"euler__paragraph\"></p>",
+        "<p class=\"euler__text--indented\"><sup>1</sup>/<sub>2</sub> = 0.5</p><br>",
+        "<p class=\"euler__text--indented\"><sup>1</sup>/<sub>3</sub> = 0.(3)</p><br>",
+        "<p class=\"euler__text--indented\"><sup>1</sup>/<sub>4</sub> = 0.25</p><br>",
+        "<p class=\"euler__text--indented\"><sup>1</sup>/<sub>5</sub> = 0.2</p><br>",
+        "<p class=\"euler__text--indented\"><sup>1</sup>/<sub>6</sub> = 0.1(6)</p><br>",
+        "<p class=\"euler__text--indented\"><sup>1</sup>/<sub>7</sub> = 0.(142857)</p><br>",
+        "<p class=\"euler__text--indented\"><sup>1</sup>/<sub>8</sub> = 0.125</p><br>",
+        "<p class=\"euler__text--indented\"><sup>1</sup>/<sub>9</sub> = 0.(1)</p><br>",
+        "<p class=\"euler__text--indented\"><sup>1</sup>/<sub>10</sub>= 0.1</p><br>",
+        "<p class=\"euler__paragraph\">Where 0.1(6) means 0.166666..., and has a 1-digit recurring cycle. It can be seen that <sup>1</sup>/<sub>7</sub> has a 6-digit recurring cycle.</p>",
+        "<br>",
+        "<p class=\"euler__paragraph\">Find the value of d < 1000 for which <sup>1</sup>/<sub>d</sub> contains the longest recurring cycle in its decimal fraction part.</p></div>"
+      ],
+      "challengeSeed": [
+        "function euler26() {",
+        "  // Good luck!",
+        "  return true;",
+        "}",
+        "",
+        "euler26();"
+      ],
+      "solutions": [
+        "function euler26() {\n  function getLengthOfCycle(denominator) {\n    let currNum = 1;\n    let count = 0;\n    const numsVisited = [];\n    while (numsVisited.indexOf(currNum) === -1) {\n      numsVisited.push(currNum);\n      currNum %= denominator;\n      currNum *= 10;\n      count++;\n    }\n    return count - 1;\n  }\n\n  let longestCycle = 0;\n  let numWithLongestCycle;\n  for (let d = 999; d > 0; d--) {\n    if (d < longestCycle) break;\n    const cycleLength = getLengthOfCycle(d);\n    if (cycleLength > longestCycle) {\n      longestCycle = cycleLength;\n      numWithLongestCycle = d;\n    }\n  }\n  return numWithLongestCycle;\n}\n"
+      ],
+      "tail": [],
+      "tests": [
+        "assert(typeof euler26 === 'function', 'message: <code>euler26()</code> is a function.');",
+        "assert.strictEqual(euler26(), 983, 'message: <code>euler26()</code> should return 983.');"
+      ],
+      "id": "5900f3861000cf542c50fe99"
+    },
+    {
+      "title": "Problem 27: Quadratic primes",
+      "type": "project-euler",
+      "categories": "math",
+      "difficulty": "?",
+      "benchmark": "//replaceWithActualFunctionHere;",
+      "description": [
+        "<div class=\"euler\"><p class=\"euler__paragraph\">Euler discovered the remarkable quadratic formula:</p>",
+        "<br>",
+        "<p class=\"euler__paragraph\">$n^2 + n + 41$</p>",
+        "<br>",
+        "<p class=\"euler__paragraph\">It turns out that the formula will produce 40 primes for the consecutive integer values $0 \\le n \\le 39$. However, when $n = 40$, $40^2 + 40 + 41 = 40(40 + 1) + 41$ is divisible by 41, and certainly when $n = 41$, $41^2 + 41 + 41$ is clearly divisible by 41.</p>",
+        "<br>",
+        "<p class=\"euler__paragraph\">The incredible formula $n^2 - 79n + 1601$ was discovered, which produces 80 primes for the consecutive values $0 \\le n \\le 79$. The product of the coefficients, −79 and 1601, is −126479.</p>",
+        "<br>",
+        "<p class=\"euler__paragraph\">Considering quadratics of the form:</p>",
+        "<br>",
+        "<p class=\"euler__paragraph\">$n^2 + an + b$, where $|a| < 1000$ and $|b| \\le 1000$</p>",
+        "<br>",
+        "<p class=\"euler__paragraph\"><small>where $|n|$ is the modulus/absolute value of $n$<br>e.g. $|11| = 11$ and $|-4| = 4$</small></p>",
+        "<br>",
+        "<p class=\"euler__paragraph\">Find the product of the coefficients, $a$ and $b$, for the quadratic expression that produces the maximum number of primes for consecutive values of $n$, starting with $n = 0$.</p></div>"
+      ],
+      "challengeSeed": [
+        "// noprotect",
+        "function euler27() {",
+        "  // Good luck!",
+        "  return true;",
+        "}",
+        "",
+        "euler27();"
+      ],
+      "solutions": [
+        "// noprotect\nfunction euler27() {\n  function isPrime(num) {\n    if (num < 2) {\n      return false;\n    } else if (num === 2) {\n      return true;\n    }\n    const sqrtOfNum = Math.floor(num ** 0.5);\n    for (let i = 2; i <= sqrtOfNum + 1; i++) {\n      if (num % i === 0) {\n        return false;\n      }\n    }\n    return true;\n  }\n\n  function findPrimes(lim) {\n    const primes = [];\n    for (let num = 1; num < lim; num++) {\n      if (isPrime(num)) {\n        primes.push(num);\n      }\n    }\n    return primes;\n  }\n\n  const limitA = 1000;\n  const limitB = 1000;\n\n  const primes = findPrimes(limitA > limitB ? limitA : limitB);\n  const negativePrimes = [];\n  primes.forEach(prime => {\n    negativePrimes.push(prime);\n    negativePrimes.push(-prime);\n  });\n\n  let maxN = 0;\n  let maxA = 0;\n  let maxB = 0;\n  for (let i = 0; i < negativePrimes.length && negativePrimes[i] < limitA; i++) {\n    const a = negativePrimes[i];\n    for (let j = 0; j < negativePrimes.length && negativePrimes[j] <= limitB; j++) {\n      const b = negativePrimes[j];\n      let n = 0;\n      while (isPrime((n ** 2) + (a * n) + b)) {\n        n++;\n      }\n      if (n > maxN) {\n        maxN = n;\n        maxA = a;\n        maxB = b;\n      }\n    }\n  }\n  return maxA * maxB;\n}\n"
+      ],
+      "tail": [],
+      "tests": [
+        "assert(typeof euler27 === 'function', 'message: <code>euler27()</code> is a function.');",
+        "assert.strictEqual(euler27(), -59231, 'message: <code>euler27()</code> should return -59231.');"
+      ],
+      "id": "5900f3871000cf542c50fe9a"
+    },
+    {
+      "title": "Problem 28: Number spiral diagonals",
+      "type": "project-euler",
+      "categories": "math",
+      "difficulty": "?",
+      "benchmark": "//replaceWithActualFunctionHere;",
+      "description": [
+        "<div class=\"euler\"><p class=\"euler__paragraph\">Starting with the number 1 and moving to the right in a clockwise direction a 5 by 5 spiral is formed as follows:</p>",
+        "<div class=\"euler__pre-wrap\"><pre class=\"euler__pre\">",
+        "<span class=\"euler__text--bold\" style=\"color:#ff0000;\">21</span> 22 23 24 <span class=\"euler__text--bold\" style=\"color:#ff0000;\">25</span>",
+        "20  <span class=\"euler__text--bold\" style=\"color:#ff0000;\">7</span>  8  <span class=\"euler__text--bold\" style=\"color:#ff0000;\">9</span> 10",
+        "19  6  <span class=\"euler__text--bold\" style=\"color:#ff0000;\">1</span>  2 11",
+        "18  <span class=\"euler__text--bold\" style=\"color:#ff0000;\">5</span>  4  <span class=\"euler__text--bold\" style=\"color:#ff0000;\">3</span> 12",
+        "<span class=\"euler__text--bold\" style=\"color:#ff0000;\">17</span> 16 15 14 <span class=\"euler__text--bold\" style=\"color:#ff0000;\">13</span>",
+        "</pre></div>",
+        "<p class=\"euler__paragraph\">It can be verified that the sum of the numbers on the diagonals is 101.</p>",
+        "<br>",
+        "<p class=\"euler__paragraph\">What is the sum of the numbers on the diagonals in a 1001 by 1001 spiral formed in the same way?</p></div>"
+      ],
+      "challengeSeed": [
+        "function euler28() {",
+        "  // Good luck!",
+        "  return true;",
+        "}",
+        "",
+        "euler28();"
+      ],
+      "solutions": [
+        "function euler28() {\n  const spiralSize = 1001;\n  if (spiralSize % 2 === 0) {\n    return -1;\n  }\n  if (spiralSize === 1) {\n    return 1;\n  }\n  let sum = 1;\n  const cornerNums = [3, 5, 7, 9];\n  for (let layer = 3; layer <= spiralSize; layer += 2) {\n    sum += cornerNums.reduce((element, cornerSum) =>\n      cornerSum + element, 0);\n    cornerNums.forEach((num, i) => {\n      cornerNums[i] += ((layer - 1) * (3 - i)) + ((layer + 1) * (i + 1));\n    });\n  }\n  return sum;\n}\n"
+      ],
+      "tail": [],
+      "tests": [
+        "assert(typeof euler28 === 'function', 'message: <code>euler28()</code> is a function.');",
+        "assert.strictEqual(euler28(), 669171001, 'message: <code>euler28()</code> should return 669171001.');"
+      ],
+      "id": "5900f3881000cf542c50fe9b"
+    },
+    {
+      "title": "Problem 30: Digit fifth powers",
+      "type": "project-euler",
+      "categories": "math",
+      "difficulty": "?",
+      "benchmark": "//replaceWithActualFunctionHere;",
+      "description": [
+        "<div class=\"euler\"><p class=\"euler__paragraph\">Surprisingly there are only three numbers that can be written as the sum of fourth powers of their digits:</p>",
+        "<p class=\"euler__paragraph\">$1634 = 1^4 + 6^4 + 3^4 + 4^4$</p>",
+        "<p class=\"euler__paragraph\">$8208 = 8^4 + 2^4 + 0^4 + 8^4$</p>",
+        "<p class=\"euler__paragraph\">$9474 = 9^4 + 4^4 + 7^4 + 4^4$</p>",
+        "<p class=\"euler__paragraph\">As $1 = 1^4$ is not a sum it is not included.</p>",
+        "<p class=\"euler__paragraph\">The sum of these numbers is: $1634 + 8208 + 9474 = 19316$</p>",
+        "<br>",
+        "<p class=\"euler__paragraph\">Find the sum of all the numbers that can be written as the sum of fifth powers of their digits.</p></div>"
+      ],
+      "challengeSeed": [
+        "// noprotect",
+        "function euler30() {",
+        "  // Good luck!",
+        "  return true;",
+        "}",
+        "",
+        "euler30();"
+      ],
+      "solutions": [
+        "// noprotect\nfunction euler30() {\n  /*\n    The upper bound is found by evaluating:\n    n*9^5 = {nDigitNumber}\n    When n < 6, we get a number with more than n digits.\n    When n = 6, we get a number with 6 digits. 6*9^5 = 354,294\n    Therefore, we can't get a number greater than 354,294 with\n    6 digits.\n    When n > 6, we get a number with less than n digits.\n    Therefore, we can't get any solutions for n > 6.\n    Therefore, 354,294 must be our limit.\n  */\n  let sum = 0;\n  for (let i = 2; i <= 354294; i++) {\n    let sumOfFifthPowers = 0;\n    let currNum = i;\n    while (sumOfFifthPowers <= i && currNum > 0) {\n      sumOfFifthPowers += (currNum % 10) ** 5;\n      currNum = Math.floor(currNum / 10);\n    }\n    if (sumOfFifthPowers === i) {\n      sum += sumOfFifthPowers;\n    }\n  }\n  return sum;\n}\n"
+      ],
+      "tail": [],
+      "tests": [
+        "assert(typeof euler30 === 'function', 'message: <code>euler30()</code> is a function.');",
+        "assert.strictEqual(euler30(), 443839, 'message: <code>euler30()</code> should return 443839.');"
+      ],
+      "id": "5900f38a1000cf542c50fe9d"
+    },
+    {
+      "title": "Problem 31: Coin sums",
+      "type": "project-euler",
+      "categories": "math",
+      "difficulty": "?",
+      "benchmark": "//replaceWithActualFunctionHere;",
+      "description": [
+        "<div class=\"euler\"><p class=\"euler__paragraph\">In England the currency is made up of pound, £, and pence, p, and there are eight coins in general circulation:</p>",
+        "<p class=\"euler__paragraph\">1p, 2p, 5p, 10p, 20p, 50p, £1 (100p) and £2 (200p).</p>",
+        "<br>",
+        "<p class=\"euler__paragraph\">It is possible to make £2 in the following way:</p>",
+        "<p class=\"euler__paragraph\">1×£1 + 1×50p + 2×20p + 1×5p + 1×2p + 3×1p</p>",
+        "<br>",
+        "<p class=\"euler__paragraph\">How many different ways can £2 be made using any number of coins?</p></div>"
+      ],
+      "challengeSeed": [
+        "function euler31() {",
+        "  // Good luck!",
+        "  return true;",
+        "}",
+        "",
+        "euler31();"
+      ],
+      "solutions": [
+        "function euler31() {\n  let count = 0;\n  const requiredTotal = 200;\n  for (let a = requiredTotal; a >= 0; a -= 200) {\n    for (let b = a; b >= 0; b -= 100) {\n      for (let c = b; c >= 0; c -= 50) {\n        for (let d = c; d >= 0; d -= 20) {\n          for (let e = d; e >= 0; e -= 10) {\n            for (let f = e; f >= 0; f -= 5) {\n              for (let g = f; g >= 0; g -= 2) {\n                count++;\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n  return count;\n}\n"
+      ],
+      "tail": [],
+      "tests": [
+        "assert(typeof euler31 === 'function', 'message: <code>euler31()</code> is a function.');",
+        "assert.strictEqual(euler31(), 73682, 'message: <code>euler31()</code> should return 73682.');"
+      ],
+      "id": "5900f38b1000cf542c50fe9e"
+    },
+    {
+      "title": "Problem 32: Pandigital products",
+      "type": "project-euler",
+      "categories": "math",
+      "difficulty": "?",
+      "benchmark": "//replaceWithActualFunctionHere;",
+      "description": [
+        "<div class=\"euler\"><p class=\"euler__paragraph\">We shall say that an n-digit number is pandigital if it makes use of all the digits 1 to n exactly once; for example, the 5-digit number, 15234, is 1 through 5 pandigital.</p>",
+        "<br>",
+        "<p class=\"euler__paragraph\">The product 7254 is unusual, as the identity, 39 × 186 = 7254, containing multiplicand, multiplier, and product is 1 through 9 pandigital.</p>",
+        "<br>",
+        "<p class=\"euler__paragraph\">Find the sum of all products whose multiplicand/multiplier/product identity can be written as a 1 through 9 pandigital.</p>",
+        "<br>",
+        "<p class=\"euler__paragraph\"><small>HINT: Some products can be obtained in more than one way so be sure to only include it once in your sum.</small></p></div>"
+      ],
+      "challengeSeed": [
+        "// noprotect",
+        "function euler32() {",
+        "  // Good luck!",
+        "  return true;",
+        "}",
+        "",
+        "euler32();"
+      ],
+      "solutions": [
+        "// noprotect\nfunction euler32() {\n  function is1to9Pandigital(...numbers) {\n    const digitStr = concatenateNums(...numbers);\n\n    // check if length is 9\n    if (digitStr.length !== 9) {\n      return false;\n    }\n\n    // check if pandigital\n    for (let i = digitStr.length; i > 0; i--) {\n      if (digitStr.indexOf(i.toString()) === -1) {\n        return false;\n      }\n    }\n    return true;\n  }\n\n  function concatenateNums(...numbers) {\n    let digitStr = '';\n    for (let i = 0; i < numbers.length; i++) {\n      digitStr += numbers[i].toString();\n    }\n    return digitStr;\n  }\n\n  const pandigitalNums = [];\n  let sum = 0;\n  // limit mult 1 to 9876. Anything more than this will\n  // result in a product with more than 4 digits, which means\n  // the equation will have more than 9 digits\n  for (let mult1 = 2; mult1 < 9876; mult1++) {\n    // start mult 2 at 123. Anything lower than this will\n    // create a equation with less than 9 digits\n    let mult2 = 123;\n    while (concatenateNums(mult1, mult2, mult1 * mult2).length < 10) {\n      if (is1to9Pandigital(mult1, mult2, mult1 * mult2)\n          && !pandigitalNums.includes(mult1 * mult2)) {\n        pandigitalNums.push(mult1 * mult2);\n        sum += mult1 * mult2;\n      }\n      mult2++;\n    }\n  }\n  return sum;\n}\n"
+      ],
+      "tail": [],
+      "tests": [
+        "assert(typeof euler32 === 'function', 'message: <code>euler32()</code> is a function.');",
+        "assert.strictEqual(euler32(), 45228, 'message: <code>euler32()</code> should return 45228.');"
+      ],
+      "id": "5900f38c1000cf542c50fe9f"
+    },
+    {
+      "title": "Problem 33: Digit cancelling fractions",
+      "type": "project-euler",
+      "categories": "math",
+      "difficulty": "?",
+      "benchmark": "//replaceWithActualFunctionHere;",
+      "description": [
+        "<div class=\"euler\"><p class=\"euler__paragraph\">The fraction $49/98$ is a curious fraction, as an inexperienced mathematician in attempting to simplify it may incorrectly believe that $49/98 = 4/8$, which is correct, is obtained by cancelling the $9$s.</p>",
+        "<p class=\"euler__paragraph\">We shall consider fractions like, $30/50 = 3/5$, to be trivial examples.</p>",
+        "<p class=\"euler__paragraph\">There are exactly four non-trivial examples of this type of fraction, less than one in value, and containing two digits in the numerator and denominator.</p>",
+        "<br>",
+        "<p class=\"euler__paragraph\">If the product of these four fractions is given in its lowest common terms, find the value of the denominator.</p></div>"
+      ],
+      "challengeSeed": [
+        "function euler33() {",
+        "  // Good luck!",
+        "  return true;",
+        "}",
+        "",
+        "euler33();"
+      ],
+      "solutions": [
+        "function euler33() {\n  function isCurious(numerator, denominator) {\n    const fraction = numerator / denominator;\n    const numString = numerator.toString();\n    const denString = denominator.toString();\n\n    if (numString[1] === '0' && denString[1] === '0') {\n      // trivial\n      return false;\n    }\n    for (let i = 0; i < 2; i++) {\n      for (let j = 0; j < 2; j++) {\n        if (numString[i] === denString[j]) {\n          const newNum = parseInt(numString[1 - i], 10);\n          const newDen = parseInt(denString[1 - j], 10);\n          if (newNum / newDen === fraction) {\n            return true;\n          }\n        }\n      }\n    }\n    return false;\n  }\n\n  function findLargestDivisor(a, b) {\n    let gcd = a > b ? b : a;\n    while (gcd > 1) {\n      if (a % gcd === 0 && b % gcd === 0) {\n        return gcd;\n      }\n      gcd--;\n    }\n    return gcd;\n  }\n\n  function simplifyFraction(numerator, denominator) {\n    const divisor = findLargestDivisor(numerator, denominator);\n    return [numerator / divisor, denominator / divisor];\n  }\n\n  let multipleNumerator = 1;\n  let multipleDenominator = 1;\n\n  for (let denominator = 11; denominator < 100; denominator++) {\n    for (let numerator = 10; numerator < denominator; numerator++) {\n      if (isCurious(numerator, denominator)) {\n        multipleNumerator *= numerator;\n        multipleDenominator *= denominator;\n      }\n    }\n  }\n\n  return simplifyFraction(multipleNumerator, multipleDenominator)[1];\n}\n"
+      ],
+      "tail": [],
+      "tests": [
+        "assert(typeof euler33 === 'function', 'message: <code>euler33()</code> is a function.');",
+        "assert.strictEqual(euler33(), 100, 'message: <code>euler33()</code> should return 100.');"
+      ],
+      "id": "5900f38d1000cf542c50fea0"
+    },
+    {
+      "title": "Problem 34: Digit factorials",
+      "type": "project-euler",
+      "categories": "math",
+      "difficulty": "?",
+      "benchmark": "//replaceWithActualFunctionHere;",
+      "description": [
+        "<div class=\"euler\"><p class=\"euler__paragraph\">$145$ is a curious number, as $1! + 4! + 5! = 1 + 24 + 120 = 145$.</p>",
+        "<br>",
+        "<p class=\"euler__paragraph\">Find the sum of all numbers which are equal to the sum of the factorial of their digits.</p>",
+        "<br>",
+        "<p class=\"euler__paragraph\"><small>Note: as $1! = 1$ and $2! = 2$ are not sums they are not included.</small></p></div>"
+      ],
+      "challengeSeed": [
+        "// noprotect",
+        "function euler34() {",
+        "  // Good luck!",
+        "  return true;",
+        "}",
+        "",
+        "euler34();"
+      ],
+      "solutions": [
+        "// noprotect\nfunction euler34() {\n  function factorial(num) {\n    if (num === 0 || num === 1) {\n      return 1;\n    }\n    return factorial(num - 1) * num;\n  }\n\n  // create factorial lookup\n  const factorialHash = {};\n  for (let i = 0; i < 10; i++) {\n    factorialHash[i] = factorial(i);\n  }\n\n  let sum = 0;\n  // finding the upper limit:\n  // n * 9! = {n-digit-number}\n  // for n > 7, we get a number with less than n digits\n  // so the upper limit = 7 * 9! = 2540160\n  for (let i = 10; i < 2540160; i++) {\n    let currNum = i;\n    let sumOfFactorialOfDigits = 0;\n    while (currNum > 0) {\n      sumOfFactorialOfDigits += factorialHash[currNum % 10];\n      currNum = Math.floor(currNum / 10);\n    }\n    if (sumOfFactorialOfDigits === i) {\n      sum += i;\n    }\n  }\n  return sum;\n}\n"
+      ],
+      "tail": [],
+      "tests": [
+        "assert(typeof euler34 === 'function', 'message: <code>euler34()</code> is a function.');",
+        "assert.strictEqual(euler34(), 40730, 'message: <code>euler34()</code> should return 40730.');"
+      ],
+      "id": "5900f38e1000cf542c50fea1"
+    },
+    {
+      "title": "Problem 35: Circular primes",
+      "type": "project-euler",
+      "categories": "math",
+      "difficulty": "?",
+      "benchmark": "//replaceWithActualFunctionHere;",
+      "description": [
+        "<div class=\"euler\"><p class=\"euler__paragraph\">The number, 197, is called a circular prime because all rotations of the digits: 197, 971, and 719, are themselves prime.</p>",
+        "<br>",
+        "<p class=\"euler__paragraph\">There are thirteen such primes below 100: 2, 3, 5, 7, 11, 13, 17, 31, 37, 71, 73, 79, and 97.</p>",
+        "<br>",
+        "<p class=\"euler__paragraph\">How many circular primes are there below one million?</p></div>"
+      ],
+      "challengeSeed": [
+        "// noprotect",
+        "function euler35() {",
+        "  // Good luck!",
+        "  return true;",
+        "}",
+        "",
+        "euler35();"
+      ],
+      "solutions": [
+        "// noprotect\nfunction euler35() {\n  function eSieve(max) {\n    // Find primes using the Sieve of Eratosthenes\n    const array = [];\n    const upperLimit = Math.sqrt(max);\n    const primes = [];\n\n    for (let i = 0; i < max; i++) {\n      array.push(true);\n    }\n\n    for (let i = 2; i <= upperLimit; i++) {\n      if (array[i]) {\n        for (let j = i * i; j < max; j += i) {\n          array[j] = false;\n        }\n      }\n    }\n\n    for (let i = 2; i < max; i++) {\n      if (array[i]) {\n        primes.push(i);\n      }\n    }\n    return primes;\n  }\n\n  function isPrime(num) {\n    if (num < 2) {\n      return false;\n    } else if (num === 2) {\n      return true;\n    }\n    const sqrtOfNum = Math.floor(num ** 0.5);\n    for (let i = 2; i <= sqrtOfNum + 1; i++) {\n      if (num % i === 0) {\n        return false;\n      }\n    }\n    return true;\n  }\n\n  function getRotations(num) {\n    let numStr = num.toString();\n    const rotations = [];\n    for (let i = 0; i < numStr.length; i++) {\n      rotations.push(parseInt(numStr, 10));\n      numStr = numStr.slice(1) + numStr[0];\n    }\n    return rotations;\n  }\n\n  function canHavePrimeRotations(num) {\n    if (num === 5 || num === 2) return true;\n    const numStr = num.toString();\n    for (let i = 0; i < numStr.length; i++) {\n      const c = numStr[i];\n      if ((c % 2 === 0 || c % 5 === 0)) return false;\n    }\n    return true;\n  }\n\n  const limit = 1000000;\n  // create array of prime numbers below limit\n  const primes = eSieve(limit);\n\n  let circularPrimesCount = 0;\n  for (let i = 0; i < primes.length; i++) {\n    if (canHavePrimeRotations(primes[i])) {\n      const rotations = getRotations(primes[i]);\n      let allArePrime = true;\n      for (let j = 0; j < rotations.length; j++) {\n        if (!isPrime(rotations[j])) allArePrime = false;\n      }\n      if (allArePrime) circularPrimesCount++;\n    }\n  }\n  return circularPrimesCount;\n}\n"
+      ],
+      "tail": [],
+      "tests": [
+        "assert(typeof euler35 === 'function', 'message: <code>euler35()</code> is a function.');",
+        "assert.strictEqual(euler35(), 55, 'message: <code>euler35()</code> should return 55.');"
+      ],
+      "id": "5900f38f1000cf542c50fea2"
+    },
+    {
+      "title": "Problem 36: Double-base palindromes",
+      "type": "project-euler",
+      "categories": "math",
+      "difficulty": "?",
+      "benchmark": "//replaceWithActualFunctionHere;",
+      "description": [
+        "<div class=\"euler\"><p class=\"euler__paragraph\">The decimal number, 585 = 1001001001<sub>2</sub> (binary), is palindromic in both bases.</p>",
+        "<br>",
+        "<p class=\"euler__paragraph\">Find the sum of all numbers, less than one million, which are palindromic in base 10 and base 2.</p>",
+        "<br>",
+        "<p class=\"euler__paragraph\">(Please note that the palindromic number, in either base, may not include leading zeros.)</p></div>"
+      ],
+      "challengeSeed": [
+        "// noprotect",
+        "function euler36() {",
+        "  // Good luck!",
+        "  return true;",
+        "}",
+        "",
+        "euler36();"
+      ],
+      "solutions": [
+        "// noprotect\nfunction euler36() {\n  function isPalindromic(num) {\n    const numStr = num.toString();\n    for (let i = 0; i < numStr.length / 2; i++) {\n      if (numStr[i] !== numStr[numStr.length - 1 - i]) return false;\n    }\n    return true;\n  }\n\n  function getBinaryNumber(num) {\n    let binaryNum = '';\n    let largestPower = 1;\n    while (largestPower * 2 <= num) {\n      largestPower *= 2;\n    }\n    let currNum = num;\n    while (largestPower >= 1) {\n      if (largestPower <= currNum) {\n        binaryNum += '1';\n        currNum -= largestPower;\n      } else {\n        binaryNum += '0';\n      }\n      largestPower /= 2;\n    }\n    return binaryNum;\n  }\n\n  let sum = 0;\n  for (let i = 1; i < 1000000; i++) {\n    if (isPalindromic(i) && isPalindromic(getBinaryNumber(i))) {\n      sum += i;\n    }\n  }\n  return sum;\n}\n"
+      ],
+      "tail": [],
+      "tests": [
+        "assert(typeof euler36 === 'function', 'message: <code>euler36()</code> is a function.');",
+        "assert.strictEqual(euler36(), 872187, 'message: <code>euler36()</code> should return 872187.');"
+      ],
+      "id": "5900f3901000cf542c50fea3"
+    },
+    {
+      "title": "Problem 37: Truncatable primes",
+      "type": "project-euler",
+      "categories": "math",
+      "difficulty": "?",
+      "benchmark": "//replaceWithActualFunctionHere;",
+      "description": [
+        "<div class=\"euler\"><p class=\"euler__paragraph\">The number 3797 has an interesting property. Being prime itself, it is possible to continuously remove digits from left to right, and remain prime at each stage: 3797, 797, 97, and 7. Similarly we can work from right to left: 3797, 379, 37, and 3.</p>",
+        "<br>",
+        "<p class=\"euler__paragraph\">Find the sum of the only eleven primes that are both truncatable from left to right and right to left.</p>",
+        "<br>",
+        "<p class=\"euler__paragraph\"><small>NOTE: 2, 3, 5, and 7 are not considered to be truncatable primes.</small></p></div>"
+      ],
+      "challengeSeed": [
+        "// noprotect",
+        "function euler37() {",
+        "  // Good luck!",
+        "  return true;",
+        "}",
+        "",
+        "euler37();"
+      ],
+      "solutions": [
+        "// noprotect\nfunction euler37() {\n  function isPrime(num) {\n    if (num <= 1) {\n      return false;\n    } else if (num === 2) {\n      return true;\n    }\n    const sqrtOfNum = Math.floor(num ** 0.5);\n    for (let i = 2; i <= sqrtOfNum + 1; i++) {\n      if (num % i === 0) {\n        return false;\n      }\n    }\n    return true;\n  }\n\n  let count = 0;\n  let sum = 0;\n  for (let num = 11; count < 11; num++) {\n    if (isPrime(num)) {\n      const numStr = num.toString();\n      let allTruncationsArePrime = true;\n      for (let i = 1; i < numStr.length; i++) {\n        if (!isPrime(parseInt(numStr.slice(i), 10))\n          || !isPrime(parseInt(numStr.slice(0, numStr.length - i), 10))) {\n          allTruncationsArePrime = false;\n        }\n      }\n      if (allTruncationsArePrime) {\n        sum += num;\n        count++;\n      }\n    }\n  }\n  return sum;\n}\n"
+      ],
+      "tail": [],
+      "tests": [
+        "assert(typeof euler37 === 'function', 'message: <code>euler37()</code> is a function.');",
+        "assert.strictEqual(euler37(), 748317, 'message: <code>euler37()</code> should return 748317.');"
+      ],
+      "id": "5900f3911000cf542c50fea4"
+    },
+    {
+      "title": "Problem 38: Pandigital multiples",
+      "type": "project-euler",
+      "categories": "math",
+      "difficulty": "?",
+      "benchmark": "//replaceWithActualFunctionHere;",
+      "description": [
+        "<div class=\"euler\"><p class=\"euler__paragraph\">Take the number $192$ and multiply it by each of $1$, $2$, and $3$:</p>",
+        "<p class=\"euler__paragraph euler__text--centered\">$192 × 1 = 192$</p>",
+        "<p class=\"euler__paragraph euler__text--centered\">$192 × 2 = 384$</p>",
+        "<p class=\"euler__paragraph euler__text--centered\">$192 × 3 = 576$</p>",
+        "<br>",
+        "<p class=\"euler__paragraph\">By concatenating each product we get the $1$ to $9$ pandigital, $192384576$. We will call $192384576$ the concatenated product of $192$ and $(1,2,3)$</p>",
+        "<br>",
+        "<p class=\"euler__paragraph\">The same can be achieved by starting with $9$ and multiplying by $1$, $2$, $3$, $4$, and $5$, giving the pandigital, $918273645$, which is the concatenated product of $9$ and $(1,2,3,4,5)$.</p>",
+        "<br>",
+        "<p class=\"euler__paragraph\">What is the largest $1$ to $9$ pandigital $9$-digit number that can be formed as the concatenated product of an integer with $(1,2, ... , n)$ where $n > 1$?</p></div>"
+      ],
+      "challengeSeed": [
+        "function euler38() {",
+        "  // Good luck!",
+        "  return true;",
+        "}",
+        "",
+        "euler38();"
+      ],
+      "solutions": [
+        "function euler38() {\n  function get9DigitConcatenatedProduct(num) {\n    // returns false if concatenated product\n    // is not 9 digits\n    let concatenatedProduct = num.toString();\n    let i = 2;\n    while (concatenatedProduct.length < 9) {\n      concatenatedProduct += num * i;\n      i++;\n    }\n    return concatenatedProduct.length === 9 ? concatenatedProduct : false;\n  }\n\n  function is1to9Pandigital(num) {\n    const numStr = num.toString();\n\n    // check if length is 9\n    if (numStr.length !== 9) {\n      return false;\n    }\n\n    // check if pandigital\n    for (let i = 9; i > 0; i--) {\n      if (numStr.indexOf(i.toString()) === -1) {\n        return false;\n      }\n    }\n    return true;\n  }\n\n  let largestNum = 0;\n  for (let i = 1; i < 9876; i++) {\n    const concatenatedProduct = get9DigitConcatenatedProduct(i);\n    if (is1to9Pandigital(concatenatedProduct)\n      && concatenatedProduct > largestNum) {\n      largestNum = concatenatedProduct;\n    }\n  }\n  return parseInt(largestNum, 10);\n}\n"
+      ],
+      "tail": [],
+      "tests": [
+        "assert(typeof euler38 === 'function', 'message: <code>euler38()</code> is a function.');",
+        "assert.strictEqual(euler38(), 932718654, 'message: <code>euler38()</code> should return 932718654.');"
+      ],
+      "id": "5900f3931000cf542c50fea5"
+    },
+    {
+      "title": "Problem 39: Integer right triangles",
+      "type": "project-euler",
+      "categories": "math",
+      "difficulty": "?",
+      "benchmark": "//replaceWithActualFunctionHere;",
+      "description": [
+        "<div class=\"euler\"><p class=\"euler__paragraph\">If $p$ is the perimeter of a right angle triangle with integral length sides, ${a,b,c}$, there are exactly three solutions for $p = 120$.</p>",
+        "<br>",
+        "<p class=\"euler__paragraph\">${20,48,52}$, ${24,45,51}$, ${30,40,50}$</p>",
+        "<br>",
+        "<p class=\"euler__paragraph\">For which value of $p ≤ 1000$, is the number of solutions maximised?</p></div>"
+      ],
+      "challengeSeed": [
+        "function euler39() {",
+        "  // Good luck!",
+        "  return true;",
+        "}",
+        "",
+        "euler39();"
+      ],
+      "solutions": [
+        "function euler39() {\n  function findSideLengthOptions(p) {\n    const options = [];\n    for (let a = 1; a < p / 2; a++) {\n      // Solving the equations for b and c:\n      // a + b + c = p\n      // a^2 + b^2 = c^2\n      // gives the following sollutions\n      const b = (p * ((a - p) / 2)) / (a - p);\n      const c = (((-1 * (a ** 2)) + (p * a)) - ((p ** 2) / 2)) / (a - p);\n      if (b % 1 === 0 && c % 1 === 0) {\n        options.push([a, b, c]);\n      }\n    }\n    return options;\n  }\n\n  let maxNum;\n  let maxOptions = 0;\n  for (let i = 0; i <= 1000; i++) {\n    const len = findSideLengthOptions(i).length;\n    if (len > maxOptions) {\n      maxNum = i;\n      maxOptions = len;\n    }\n  }\n  return maxNum;\n}\n"
+      ],
+      "tail": [],
+      "tests": [
+        "assert(typeof euler39 === 'function', 'message: <code>euler39()</code> is a function.');",
+        "assert.strictEqual(euler39(), 840, 'message: <code>euler39()</code> should return 840.');"
+      ],
+      "id": "5900f3931000cf542c50fea6"
+    },
+    {
+      "title": "Problem 40: Champernowne's constant",
+      "type": "project-euler",
+      "categories": "math",
+      "difficulty": "?",
+      "benchmark": "//replaceWithActualFunctionHere;",
+      "description": [
+        "<div class=\"euler\"><p class=\"euler__paragraph\">An irrational decimal fraction is created by concatenating the positive integers:</p>",
+        "<p class=\"euler__paragraph\">$0.123456789101112131415161718192021$...</p>",
+        "<br>",
+        "<p class=\"euler__paragraph\">It can be seen that the $12$th digit of the fractional part is $1$.</p>",
+        "<br>",
+        "<p class=\"euler__paragraph\">If $d_n$ represents the $n$th digit of the fractional part, find the value of the following expression.</p>",
+        "<p class=\"euler__paragraph\">$d_1 × d_{10} × d_{100} × d_{1000} × d_{10000}$ $× d_{100000} × d_{1000000}$</p></div>"
+      ],
+      "challengeSeed": [
+        "function euler40() {",
+        "  // Good luck!",
+        "  return true;",
+        "}",
+        "",
+        "euler40();"
+      ],
+      "solutions": [
+        "function euler40() {\n  let fractionalPart = ' ';\n  for (let i = 1; fractionalPart.length <= 1000000; i++) {\n    fractionalPart += i.toString();\n  }\n  let product = 1;\n  for (let i = 0; i < 7; i++) {\n    const index = 10 ** i;\n    product *= parseInt(fractionalPart[index], 10);\n  }\n  return product;\n}\n"
+      ],
+      "tail": [],
+      "tests": [
+        "assert(typeof euler40 === 'function', 'message: <code>euler40()</code> is a function.');",
+        "assert.strictEqual(euler40(), 210, 'message: <code>euler40()</code> should return 210.');"
+      ],
+      "id": "5900f3941000cf542c50fea7"
+    },
+    {
+      "title": "Problem 41: Pandigital prime",
+      "type": "project-euler",
+      "categories": "math",
+      "difficulty": "?",
+      "benchmark": "//replaceWithActualFunctionHere;",
+      "description": [
+        "<div class=\"euler\"><p class=\"euler__paragraph\">We shall say that an n-digit number is pandigital if it makes use of all the digits 1 to n exactly once. For example, 2143 is a 4-digit pandigital and is also prime.</p>",
+        "<br>",
+        "<p class=\"euler__paragraph\">What is the largest n-digit pandigital prime that exists?</p></div>"
+      ],
+      "challengeSeed": [
+        "// noprotect",
+        "function euler41() {",
+        "  // Good luck!",
+        "  return true;",
+        "}",
+        "",
+        "euler41();"
+      ],
+      "solutions": [
+        "// noprotect\nfunction euler41() {\n  function isPrime(num) {\n    if (num < 2) {\n      return false;\n    } else if (num === 2) {\n      return true;\n    }\n    const sqrtOfNum = Math.floor(num ** 0.5);\n    for (let i = 2; i <= sqrtOfNum + 1; i++) {\n      if (num % i === 0) {\n        return false;\n      }\n    }\n    return true;\n  }\n\n  function isPandigital(num) {\n    const digitStr = num.toString();\n\n    // check if pandigital\n    for (let i = digitStr.length; i > 0; i--) {\n      if (digitStr.indexOf(i.toString()) === -1) {\n        return false;\n      }\n    }\n    return true;\n  }\n\n  function getPermutations(digitString) {\n    if (digitString.length === 1) {\n      return digitString;\n    }\n    const oldPerms = getPermutations(digitString.slice(1));\n    const newPerms = [];\n\n    for (let i = 0; i < oldPerms.length; i++) {\n      const ithPerm = oldPerms[i];\n      for (let j = 0; j < oldPerms[i].length + 1; j++) {\n        const newPerm = ithPerm.slice(0, j) + digitString[0] + ithPerm.slice(j);\n        newPerms.push(newPerm);\n      }\n    }\n    return newPerms;\n  }\n\n  // number has to be less than 9 digits to be pandigital\n  const maxPossible = '987654321';\n  let max = 0;\n  for (let i = 0; i < 9; i++) {\n    const currMax = maxPossible.slice(i);\n    const permutations = getPermutations(currMax);\n    for (let j = 0; j < permutations.length; j++) {\n      const num = permutations[j];\n      if (isPrime(num) && num > max) {\n        max = num;\n      }\n    }\n  }\n  return parseInt(max, 10);\n}\n"
+      ],
+      "tail": "const replaceThis = 3;",
+      "tests": [
+        "assert(typeof euler41 === 'function', 'message: <code>euler41()</code> is a function.');",
+        "assert.strictEqual(euler41(), 7652413, 'message: <code>euler41()</code> should return 7652413.');"
+      ],
+      "id": "5900f3951000cf542c50fea8"
+    },
+    {
+      "title": "Problem 43: Sub-string divisibility",
+      "type": "project-euler",
+      "categories": "math",
+      "difficulty": "?",
+      "benchmark": "//replaceWithActualFunctionHere;",
+      "description": [
+        "<div class=\"euler\"><p class=\"euler__paragraph\">The number, 1406357289, is a 0 to 9 pandigital number because it is made up of each of the digits 0 to 9 in some order, but it also has a rather interesting sub-string divisibility property.</p>",
+        "<br>",
+        "<p class=\"euler__paragraph\">Let $d_1$ be the 1st digit, $d_2$ be the 2nd digit, and so on. In this way, we note the following:</p>",
+        "<br>",
+        "<p class=\"euler__paragraph\">$d_2d_3d_4=406$ is divisible by 2</p>",
+        "<p class=\"euler__paragraph\">$d_3d_4d_5=063$ is divisible by 3</p>",
+        "<p class=\"euler__paragraph\">$d_4d_5d_6=635$ is divisible by 5</p>",
+        "<p class=\"euler__paragraph\">$d_5d_6d_7=357$ is divisible by 7</p>",
+        "<p class=\"euler__paragraph\">$d_6d_7d_8=572$ is divisible by 11</p>",
+        "<p class=\"euler__paragraph\">$d_7d_8d_9=728$ is divisible by 13</p>",
+        "<p class=\"euler__paragraph\">$d_8d_9d_{10}=289$ is divisible by 17</p>",
+        "<br>",
+        "<p class=\"euler__paragraph\">Find the sum of all 0 to 9 pandigital numbers with this property.</p></div>"
+      ],
+      "challengeSeed": [
+        "// noprotect",
+        "function euler43() {",
+        "  // Good luck!",
+        "  return true;",
+        "}",
+        "",
+        "euler43();"
+      ],
+      "solutions": [
+        "// noprotect\nfunction euler43() {\n  function getPermutations(digitString) {\n    if (digitString.length === 1) {\n      return digitString;\n    }\n    const oldPerms = getPermutations(digitString.slice(1));\n    const newPerms = [];\n\n    for (let i = 0; i < oldPerms.length; i++) {\n      const ithPerm = oldPerms[i];\n      for (let j = 0; j < oldPerms[i].length + 1; j++) {\n        const newPerm = ithPerm.slice(0, j) + digitString[0] + ithPerm.slice(j);\n        newPerms.push(newPerm);\n      }\n    }\n    return newPerms;\n  }\n\n  let pandigitalNums = getPermutations('0123456789');\n\n  pandigitalNums = pandigitalNums.filter(num =>\n    num[0] !== 0\n    && num.substring(7, 10) % 17 === 0\n    && num.substring(6, 9) % 13 === 0\n    && num.substring(5, 8) % 11 === 0\n    && num.substring(4, 7) % 7 === 0\n    && num[5] % 5 === 0\n    && num.substring(2, 5) % 3 === 0\n    && num[3] % 2 === 0);\n\n  const total = pandigitalNums.reduce((sum, num) =>\n    sum + parseInt(num, 10), 0);\n\n  return total;\n}\n"
+      ],
+      "tail": "const replaceThis = 3;",
+      "tests": [
+        "assert(typeof euler43 === 'function', 'message: <code>euler43()</code> is a function.');",
+        "assert.strictEqual(euler43(), 16695334890, 'message: <code>euler43()</code> should return 16695334890.');"
+      ],
+      "id": "5900f3971000cf542c50feaa"
+    },
+    {
+      "title": "Problem 44: Pentagon numbers",
+      "type": "project-euler",
+      "categories": "math",
+      "difficulty": "?",
+      "benchmark": "//replaceWithActualFunctionHere;",
+      "description": [
+        "<div class=\"euler\"><p class=\"euler__paragraph\">Pentagonal numbers are generated by the formula, $P_n=n(3n−1)/2$. The first ten pentagonal numbers are:</p>",
+        "<br>",
+        "<p class=\"euler__paragraph\">1, 5, 12, 22, 35, 51, 70, 92, 117, 145, ...</p>",
+        "<br>",
+        "<p class=\"euler__paragraph\">It can be seen that $P_4 + P_7 = 22 + 70 = 92 = P_8$. However, their difference, $70 − 22 = 48$, is not pentagonal.</p>",
+        "<br>",
+        "<p class=\"euler__paragraph\">Find the pair of pentagonal numbers, $P_j$ and $P_k$, for which their sum and difference are pentagonal and $D = |Pk − Pj|$ is minimised; what is the value of $D$?</p></div>"
+      ],
+      "challengeSeed": [
+        "function euler44() {",
+        "  // Good luck!",
+        "  return true;",
+        "}",
+        "",
+        "euler44();"
+      ],
+      "solutions": [
+        "function euler44() {\n  function isPentagonal(num) {\n    // Formula found by solving pentagonal number\n    // equation for n.\n    const n = (Math.sqrt((24 * num) + 1) + 1) / 6;\n    return n % 1 === 0;\n  }\n\n  function pentagonal(num) {\n    return (num * ((3 * num) - 1)) / 2;\n  }\n\n  let result;\n  let i = 1;\n  while (!result) {\n    i++;\n    const num1 = (i * ((3 * i) - 1)) / 2; // Pentagonal num formula\n    const minDiff = num1 - (((i - 1) * ((3 * (i - 1)) - 1)) / 2);\n    let j = i - 1;\n    while (j > 0 && !result) {\n      const num2 = (j * ((3 * j) - 1)) / 2;\n      if (isPentagonal(num1 - num2) && isPentagonal(num1 + num2)) {\n        result = num1 - num2;\n      }\n      j--;\n    }\n  }\n  return result;\n}\n"
+      ],
+      "tail": "const replaceThis = 3;",
+      "tests": [
+        "assert(typeof euler44 === 'function', 'message: <code>euler44()</code> is a function.');",
+        "assert.strictEqual(euler44(), 5482660, 'message: <code>euler44()</code> should return 5482660.');"
+      ],
+      "id": "5900f3981000cf542c50feab"
+    },
+    {
+      "title": "Problem 45: Triangular, pentagonal, and hexagonal",
+      "type": "project-euler",
+      "categories": "math",
+      "difficulty": "?",
+      "benchmark": "//replaceWithActualFunctionHere;",
+      "description": [
+        "<div class=\"euler\"><p class=\"euler__paragraph\">Triangle, pentagonal, and hexagonal numbers are generated by the following formulae:</p>",
+        "<br>",
+        "<p class=\"euler__paragraph\">Triangle</p>",
+        "<br>",
+        "<p class=\"euler__paragraph\">$T_n=n(n+1)/2$</p>",
+        "<p class=\"euler__paragraph\">1, 3, 6, 10, 15, ...</p>",
+        "<br>",
+        "<p class=\"euler__paragraph\">Pentagonal</p>",
+        "<br>",
+        "<p class=\"euler__paragraph\">$P_n=n(3n−1)/2$</p>",
+        "<p class=\"euler__paragraph\">1, 5, 12, 22, 35, ...</p>",
+        "<br>",
+        "<p class=\"euler__paragraph\">Hexagonal</p>",
+        "<br>",
+        "<p class=\"euler__paragraph\">$H_n=n(2n−1)$</p>",
+        "<p class=\"euler__paragraph\">1, 6, 15, 28, 45, ...</p>",
+        "<br>",
+        "<p class=\"euler__paragraph\">It can be verified that $T_{285} = P_{165} = H_{143} = 40755$.</p>",
+        "<br>",
+        "<p class=\"euler__paragraph\">Find the next triangle number that is also pentagonal and hexagonal.</p></div>"
+      ],
+      "challengeSeed": [
+        "function euler45() {",
+        "  // Good luck!",
+        "  return true;",
+        "}",
+        "",
+        "euler45();"
+      ],
+      "solutions": [
+        "function euler45() {\n  function triangular(num) {\n    return (num * (num + 1)) / 2;\n  }\n\n  function isPentagonal(num) {\n    // Formula found by completing the square and\n    // solving for n.\n    const n = (Math.sqrt((24 * num) + 1) + 1) / 6;\n    return n % 1 === 0;\n  }\n\n  function isHexagonal(num) {\n    // Formula found by completing the square and\n    // solving for n.\n    const n = Math.sqrt(0.5 * (num + (1 / 8))) + 0.25;\n    return n % 1 === 0;\n  }\n\n  let iTri = 40755;\n  let tri;\n  let found = false;\n  while (!found) {\n    iTri++;\n    tri = triangular(iTri);\n    if (isPentagonal(tri) && isHexagonal(tri)) {\n      found = true;\n    }\n  }\n  return tri;\n}\n"
+      ],
+      "tail": "const replaceThis = 3;",
+      "tests": [
+        "assert(typeof euler45 === 'function', 'message: <code>euler45()</code> is a function.');",
+        "assert.strictEqual(euler45(), 1533776805, 'message: <code>euler45()</code> should return 1533776805.');"
+      ],
+      "id": "5900f3991000cf542c50feac"
+    },
+    {
+      "title": "Problem 46: Goldbach's other conjecture",
+      "type": "project-euler",
+      "categories": "math",
+      "difficulty": "?",
+      "benchmark": "//replaceWithActualFunctionHere;",
+      "description": [
+        "<div class=\"euler\"><p class=\"euler__paragraph\">It was proposed by Christian Goldbach that every odd composite number can be written as the sum of a prime and twice a square.</p>",
+        "<br>",
+        "<p class=\"euler__paragraph\">$9 = 7 + 2×12$</p>",
+        "<p class=\"euler__paragraph\">$15 = 7 + 2×22$</p>",
+        "<p class=\"euler__paragraph\">$21 = 3 + 2×32$</p>",
+        "<p class=\"euler__paragraph\">$25 = 7 + 2×32$</p>",
+        "<p class=\"euler__paragraph\">$27 = 19 + 2×22$</p>",
+        "<p class=\"euler__paragraph\">$33 = 31 + 2×12$</p>",
+        "<br>",
+        "<p class=\"euler__paragraph\">It turns out that the conjecture was false.</p>",
+        "<br>",
+        "<p class=\"euler__paragraph\">What is the smallest odd composite that cannot be written as the sum of a prime and twice a square?</p></div>"
+      ],
+      "challengeSeed": [
+        "function euler46() {",
+        "  // Good luck!",
+        "  return true;",
+        "}",
+        "",
+        "euler46();"
+      ],
+      "solutions": [
+        "function euler46() {\n  function isPrime(num) {\n    if (num < 2) {\n      return false;\n    } else if (num === 2) {\n      return true;\n    }\n    const sqrtOfNum = Math.floor(num ** 0.5);\n    for (let i = 2; i <= sqrtOfNum + 1; i++) {\n      if (num % i === 0) {\n        return false;\n      }\n    }\n    return true;\n  }\n\n  function isSquare(num) {\n    return Math.sqrt(num) % 1 === 0;\n  }\n\n  // construct a list of prime numbers\n  const primes = [];\n  for (let i = 2; primes.length < 1000; i++) {\n    if (isPrime(i)) primes.push(i);\n  }\n\n  let num = 3;\n  let answer;\n  while (!answer) {\n    num += 2;\n    if (!isPrime(num)) {\n      let found = false;\n      for (let primeI = 0; primeI < primes.length && !found; primeI++) {\n        const square = (num - primes[primeI]) / 2;\n        if (isSquare(square)) {\n          found = true;\n          break;\n        }\n      }\n      if (!found) answer = num;\n    }\n  }\n  return answer;\n}\n"
+      ],
+      "tail": [],
+      "tests": [
+        "assert(typeof euler46 === 'function', 'message: <code>euler46()</code> is a function.');",
+        "assert.strictEqual(euler46(), 5777, 'message: <code>euler46()</code> should return 5777.');"
+      ],
+      "id": "5900f39a1000cf542c50fead"
+    },
+    {
+      "title": "Problem 47: Distinct primes factors",
+      "type": "project-euler",
+      "categories": "math",
+      "difficulty": "?",
+      "benchmark": "//replaceWithActualFunctionHere;",
+      "description": [
+        "<div class=\"euler\"><p class=\"euler__paragraph\">The first two consecutive numbers to have two distinct prime factors are:</p>",
+        "<br>",
+        "<p class=\"euler__paragraph\">$14 = 2 × 7$</p>",
+        "<p class=\"euler__paragraph\">$15 = 3 × 5$</p>",
+        "<br>",
+        "<p class=\"euler__paragraph\">The first three consecutive numbers to have three distinct prime factors are:</p>",
+        "<br>",
+        "<p class=\"euler__paragraph\">$644 = 2^2 × 7 × 23$</p>",
+        "<p class=\"euler__paragraph\">$645 = 3 × 5 × 43$</p>",
+        "<p class=\"euler__paragraph\">$646 = 2 × 17 × 19$</p>",
+        "<br>",
+        "<p class=\"euler__paragraph\">Find the first four consecutive integers to have four distinct prime factors each. What is the first of these numbers?</p></div>"
+      ],
+      "challengeSeed": [
+        "// noprotect",
+        "function euler47() {",
+        "  // Good luck!",
+        "  return true;",
+        "}",
+        "",
+        "euler47();"
+      ],
+      "solutions": [
+        "// noprotect\nfunction euler47() {\n  function isPrime(num) {\n    if (num < 2) {\n      return false;\n    } else if (num === 2) {\n      return true;\n    }\n    const sqrtOfNum = Math.floor(num ** 0.5);\n    for (let i = 2; i <= sqrtOfNum + 1; i++) {\n      if (num % i === 0) {\n        return false;\n      }\n    }\n    return true;\n  }\n\n  function getPrimeFactors(num) {\n    const factors = [];\n    for (let i = 1; i <= Math.sqrt(num); i++) {\n      if (num % i === 0) {\n        // Found a factor\n        if (isPrime(i)) factors.push(i);\n        if (isPrime(num / i) && i !== Math.sqrt(num)) {\n          factors.push(num / i);\n        }\n      }\n    }\n    return factors;\n  }\n\n  function findConsecutiveNumbers(targetNumPrimes, targetConsecutive) {\n    let number = 0;\n    let consecutive = 0;\n    while (consecutive < targetConsecutive) {\n      number++;\n      if (getPrimeFactors(number).length >= targetNumPrimes) {\n        consecutive++;\n      } else {\n        consecutive = 0;\n      }\n    }\n    return (number - targetConsecutive) + 1;\n  }\n\n  return findConsecutiveNumbers(4, 4);\n}\n"
+      ],
+      "tail": "const replaceThis = 3;",
+      "tests": [
+        "assert(typeof euler47 === 'function', 'message: <code>euler47()</code> is a function.');",
+        "assert.strictEqual(euler47(), 134043, 'message: <code>euler47()</code> should return 134043.');"
+      ],
+      "id": "5900f39c1000cf542c50feae"
+    },
+    {
+      "title": "Problem 48: Self powers",
+      "type": "project-euler",
+      "categories": "math",
+      "difficulty": "?",
+      "benchmark": "//replaceWithActualFunctionHere;",
+      "description": [
+        "<div class=\"euler\"><p class=\"euler__paragraph\">The series, $1^1 + 2^2 + 3^3 + ... + 10^{10} = 10405071317$.</p>",
+        "<br>",
+        "<p class=\"euler__paragraph\">Find the last ten digits of the series, $1^1 + 2^2 + 3^3 + ... + 1000^{1000}$.</p></div>"
+      ],
+      "challengeSeed": [
+        "function euler48() {",
+        "  // Good luck!",
+        "  return true;",
+        "}",
+        "",
+        "euler48();"
+      ],
+      "solutions": [
+        "function euler48() {\n  let sum = 0;\n\n  // We'll use modulo to remove everything but the\n  // last 10 digits of our results.\n  const modulo = 10000000000;\n\n  for (let i = 1; i <= 1000; i++) {\n    let temp = i;\n    for (let j = 1; j < i; j++) {\n      // multiply by i\n      temp *= i;\n      // trim answer\n      temp %= modulo;\n    }\n    // add the trimmed i^i\n    sum += temp;\n    // trim the answer\n    sum %= modulo;\n  }\n  return sum;\n}\n"
+      ],
+      "tail": [],
+      "tests": [
+        "assert(typeof euler48 === 'function', 'message: <code>euler48()</code> is a function.');",
+        "assert.strictEqual(euler48(), 9110846700, 'message: <code>euler48()</code> should return 9110846700.');"
+      ],
+      "id": "5900f39c1000cf542c50feaf"
+    },
+    {
+      "title": "Problem 49: Prime permutations",
+      "type": "project-euler",
+      "categories": "math",
+      "difficulty": "?",
+      "benchmark": "//replaceWithActualFunctionHere;",
+      "description": [
+        "<div class=\"euler\"><p class=\"euler__paragraph\">The arithmetic sequence, 1487, 4817, 8147, in which each of the terms increases by 3330, is unusual in two ways: (i) each of the three terms are prime, and, (ii) each of the 4-digit numbers are permutations of one another.</p>",
+        "<br>",
+        "<p class=\"euler__paragraph\">There are no arithmetic sequences made up of three 1-, 2-, or 3-digit primes, exhibiting this property, but there is one other 4-digit increasing sequence.</p>",
+        "<br>",
+        "<p class=\"euler__paragraph\">What 12-digit number do you form by concatenating the three terms in this sequence?</p></div>"
+      ],
+      "challengeSeed": [
+        "function euler49() {",
+        "  // Good luck!",
+        "  return true;",
+        "}",
+        "",
+        "euler49();"
+      ],
+      "solutions": [
+        "function euler49() {\n  function arePermutations(num1, num2) {\n    const numStr1 = num1.toString();\n    let numStr2 = num2.toString();\n    if (numStr1.length !== numStr2.length) {\n      return false;\n    }\n\n    for (let i = 0; i < numStr1.length; i++) {\n      const index = numStr2.indexOf(numStr1[i]);\n      if (index === -1) {\n        return false;\n      }\n      numStr2 = numStr2.slice(0, index) + numStr2.slice(index + 1);\n    }\n    return true;\n  }\n\n  function isPrime(num) {\n    if (num < 2) {\n      return false;\n    } else if (num === 2) {\n      return true;\n    }\n    const sqrtOfNum = Math.floor(num ** 0.5);\n    for (let i = 2; i <= sqrtOfNum + 1; i++) {\n      if (num % i === 0) {\n        return false;\n      }\n    }\n    return true;\n  }\n\n  for (let num1 = 1000; num1 <= 9999; num1++) {\n    const num2 = num1 + 3330;\n    const num3 = num2 + 3330;\n    if (isPrime(num1) && isPrime(num2) && isPrime(num3)) {\n      if (arePermutations(num1, num2) && arePermutations(num1, num3)\n        && num1 !== 1487) {\n        // concatenate and return numbers\n        return (num1 * 100000000) + (num2 * 10000) + num3;\n      }\n    }\n  }\n  return 0;\n}\n"
+      ],
+      "tail": [],
+      "tests": [
+        "assert(typeof euler49 === 'function', 'message: <code>euler49()</code> is a function.');",
+        "assert.strictEqual(euler49(), 296962999629, 'message: <code>euler49()</code> should return 296962999629.');"
+      ],
+      "id": "5900f39d1000cf542c50feb0"
+    },
+    {
+      "title": "Problem 50: Consecutive prime sum",
+      "type": "project-euler",
+      "categories": "math",
+      "difficulty": "?",
+      "benchmark": "//replaceWithActualFunctionHere;",
+      "description": [
+        "<div class=\"euler\"><p class=\"euler__paragraph\">The prime 41, can be written as the sum of six consecutive primes:</p>",
+        "<br>",
+        "<p class=\"euler__paragraph\">$41 = 2 + 3 + 5 + 7 + 11 + 13$</p>",
+        "<br>",
+        "<p class=\"euler__paragraph\">This is the longest sum of consecutive primes that adds to a prime below one-hundred.</p>",
+        "<br>",
+        "<p class=\"euler__paragraph\">The longest sum of consecutive primes below one-thousand that adds to a prime, contains 21 terms, and is equal to 953.</p>",
+        "<br>",
+        "<p class=\"euler__paragraph\">Which prime, below one-million, can be written as the sum of the most consecutive primes?</p></div>"
+      ],
+      "challengeSeed": [
+        "// noprotect",
+        "function euler50() {",
+        "  // Good luck!",
+        "  return true;",
+        "}",
+        "",
+        "euler50();"
+      ],
+      "solutions": [
+        "// noprotect\nfunction euler50() {\n  function isPrime(num) {\n    if (num < 2) {\n      return false;\n    } else if (num === 2) {\n      return true;\n    }\n    const sqrtOfNum = Math.floor(num ** 0.5);\n    for (let i = 2; i <= sqrtOfNum + 1; i++) {\n      if (num % i === 0) {\n        return false;\n      }\n    }\n    return true;\n  }\n\n  function getPrimes(limit) {\n    const primes = [];\n    for (let i = 0; i <= limit; i++) {\n      if (isPrime(i)) primes.push(i);\n    }\n    return primes;\n  }\n\n  const limit = 1000000;\n  const primes = getPrimes(limit);\n\n  // Create a map of the cumulative sum of primes\n  const cumulativeSums = {};\n  let cumulativeSum = 0;\n  for (let i = 0; i < primes.length; i++) {\n    cumulativeSum += primes[i];\n    cumulativeSums[primes[i]] = cumulativeSum;\n  }\n\n  // Look for a set of 1000000 consecutive primes.\n  // If not found, decrease the number of consecutive primes\n  // and look again.\n  for (let consecPrimes = 1000000; consecPrimes > 0; consecPrimes--) {\n    for (let i = 0; i < primes.length - consecPrimes; i++) {\n      const sum = cumulativeSums[primes[i + consecPrimes]] - cumulativeSums[primes[i]];\n      if (sum > limit) break;\n      if (isPrime(sum)) return sum;\n    }\n  }\n}\n"
+      ],
+      "tail": [],
+      "tests": [
+        "assert(typeof euler50 === 'function', 'message: <code>euler50()</code> is a function.');",
+        "assert.strictEqual(euler50(), 997651, 'message: <code>euler50()</code> should return 997651.');"
+      ],
+      "id": "5900f39e1000cf542c50feb1"
+    },
+    {
       "title": "Problem 100: Arranged probability",
       "type": "project-euler",
       "categories": "math",
