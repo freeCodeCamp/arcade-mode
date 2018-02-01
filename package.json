@@ -7,7 +7,6 @@
     "build": "NODE_ENV=production gulp build",
     "build-dev": "NODE_ENV=development gulp build-dev",
     "build-github": "NODE_ENV=production DEST=github gulp build",
-    "preinstall": "git submodule update -i -r",
     "postinstall": "npm run build && bin/buildSWCacheFile.js && bin/fetchAndProcessRosettaCodeTasks.js",
     "start": "node --use-strict server/server.js",
     "test": "NODE_ENV=test mocha --require test/helpers/browser.js --compilers .:babel-core/register --recursive test --exit",
