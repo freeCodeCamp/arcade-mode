@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# Time: Wed Jan 31 2018 17:13:15 GMT-0800 (PST)
+# Time: Thu Feb 01 2018 09:11:20 GMT-0800 (PST)
 
 CACHE:
 css/style.css
@@ -20,10 +20,10 @@ json/challenges-data-structures.json
 json/challenges-euler.json
 json/challenges-rosetta.json
 font/Kalam/Kalam-Regular.ttf
+font/Lato/Lato-Black.ttf
 font/Roboto/Roboto-Bold.ttf
 font/Roboto/Roboto-Medium.ttf
 font/Roboto/Roboto-Regular.ttf
-font/Lato/Lato-Black.ttf
 img/challenges/conventurist.png
 img/challenges/petch.png
 img/challenges/pexels-photo-127556.jpeg
@@ -38,4 +38,4 @@ NETWORK:
 SETTINGS:
 prefer-online
 
-# hash: 257272a5cf4130311fff7b539cc199c6d9937132b266a74488df6a02e343a8ba
+# hash: 5de3d70fc5bb3662ab1fd9abbcfb2d3e0f4949af1b69cffaffaee4aa44b95175
