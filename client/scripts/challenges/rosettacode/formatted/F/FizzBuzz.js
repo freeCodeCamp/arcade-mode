@@ -18,11 +18,11 @@ const assert = require('assert');
 /// description:
 /// <div class="rosetta">
 /// <p class="rosetta__paragraph">Write a function that takes a number as a parameter and returns a string as follows:</p>
-/// <ul>
-/// 	<li>for multiples of three, print Fizz (instead of the number)</li>
-/// 	<li>for multiples of five, print Buzz (instead of the number)</li>
-/// 	<li>for multiples of both three and five, print FizzBuzz (instead of the number) </li>
-/// 	<li>for all other numbers returns the number itself (as a string) </li>
+/// <ul class="rosetta__unordered-list">
+/// 	<li class="rosetta__list-item--unordered"> for multiples of three, print Fizz (instead of the number)</li>
+/// 	<li class="rosetta__list-item--unordered"> for multiples of five, print Buzz (instead of the number)</li>
+/// 	<li class="rosetta__list-item--unordered"> for multiples of both three and five, print FizzBuzz (instead of the number) </li>
+/// 	<li class="rosetta__list-item--unordered"> for all other numbers returns the number itself (as a string) </li>
 /// </ul>
 /// </div>
 
