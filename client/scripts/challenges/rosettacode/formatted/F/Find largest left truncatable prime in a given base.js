@@ -14,7 +14,11 @@ const assert = require('assert');
 /// difficulty: 4
 
 /// description:
-/// <div class="rosetta"><br/><p class="rosetta__paragraph">A <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Truncatable primes" title="Truncatable primes">truncatable prime</a> is one where all non-empty substrings that finish at the end of the number (right-substrings) are also primes <span class="rosetta__text--italic">when understood as numbers in a particular base</span>. The largest such prime in a given (integer) base is therefore computable, provided the base is larger than 2.</p><br/><p class="rosetta__paragraph">Write a function that takes radix/base as parameter and returns the largest left trunctable prime for the given radix/base.</p></div>
+/// <div class="rosetta">
+/// <p class="rosetta__paragraph">A <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Truncatable primes" title="Truncatable primes">truncatable prime</a> is one where all non-empty substrings that finish at the end of the number (right-substrings) are also primes <span class="rosetta__text--italic">when understood as numbers in a particular base</span>. The largest such prime in a given (integer) base is therefore computable, provided the base is larger than 2.</p>
+/// <br/>
+/// <p class="rosetta__paragraph">Write a function that takes radix/base as parameter and returns the largest left trunctable prime for the given radix/base.</p>
+/// </div>
 
 /// challengeSeed:
 function getLargestLeftTruncPrime(radix) {

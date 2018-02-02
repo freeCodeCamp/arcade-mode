@@ -14,7 +14,9 @@ const assert = require('assert');
 /// difficulty: 3
 
 /// description:
-/// <div class="rosetta"><br/><p class="rosetta__paragraph">Write a function that counts the months with five full weekends(five Fridays, Saturdays and Sundays) for a given year range. The year range is passed as parameter to the function.</p></div>
+/// <div class="rosetta">
+/// <p class="rosetta__paragraph">Write a function that counts the months with five full weekends(five Fridays, Saturdays and Sundays) for a given year range. The year range is passed as parameter to the function.</p>
+/// </div>
 
 /// challengeSeed:
 function fiveWeekends (startYear,endYear) {
