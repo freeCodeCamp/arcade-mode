@@ -15,7 +15,7 @@ const assert = require('assert');
 
 
 /// description:
-/// <div class="rosetta"><br/><p class="rosetta__paragraph"><span class="rosetta__text--bold"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/FRACTRAN" title="wp: FRACTRAN">FRACTRAN</a></span> is a Turing-complete esoteric programming language invented by the mathematician <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/John Horton Conway" title="wp: John Horton Conway">John Horton Conway</a>.</p><br/><p class="rosetta__paragraph">A FRACTRAN program is an ordered list of positive fractions $P = (f_1, f_2, \ldots, f_m)$, together with an initial positive integer input $n$.</p>
+/// <div class="rosetta"><p class="rosetta__paragraph"><span class="rosetta__text--bold"><a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/FRACTRAN" title="wp: FRACTRAN">FRACTRAN</a></span> is a Turing-complete esoteric programming language invented by the mathematician <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/John Horton Conway" title="wp: John Horton Conway">John Horton Conway</a>.</p><br/><p class="rosetta__paragraph">A FRACTRAN program is an ordered list of positive fractions $P = (f_1, f_2, \ldots, f_m)$, together with an initial positive integer input $n$.</p>
 /// <br/><p class="rosetta__paragraph">The program is run by updating the integer $n$ as follows:</p><br/><ul class="rosetta__unordered-list"><li class="rosetta__list-item--unordered">for the first fraction, $f_i$, in the list for which $nf_i$ is an integer, replace $n$ with $nf_i$ ;</li>
 /// <li class="rosetta__list-item--unordered">repeat this rule until no fraction in the list produces an integer when multiplied by $n$, then halt.</li></ul>
 /// <br>

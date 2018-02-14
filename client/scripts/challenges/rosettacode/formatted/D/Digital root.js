@@ -15,14 +15,14 @@ const assert = require('assert');
 
 
 /// description:
-/// <div class="rosetta"><br/><p class="rosetta__paragraph">The digital root, $X$, of a number, $n$, is calculated:</p>
+/// <div class="rosetta"><p class="rosetta__paragraph">The digital root, $X$, of a number, $n$, is calculated:</p>
 /// <p class="rosetta__paragraph"><span class="rosetta__text--indented"> find $X$ as the sum of the digits of $n$</span></p>
 /// <p class="rosetta__paragraph"><span class="rosetta__text--indented"> find a new $X$ by summing the digits of $X$, repeating until $X$ has only one digit.</span></p><br/><p class="rosetta__paragraph">The additive persistence is the number of summations required to obtain the single digit.</p><br/><p class="rosetta__paragraph">The task is to calculate the additive persistence and the digital root of a number, e.g.:</p>
 /// <p class="rosetta__paragraph"><span class="rosetta__text--indented">$627615$ has additive persistence $2$ and digital root of $9$;</span></p>
 /// <p class="rosetta__paragraph"><span class="rosetta__text--indented">$39390$ has additive persistence $2$ and digital root of $6$;</span></p>
 /// <p class="rosetta__paragraph"><span class="rosetta__text--indented">$588225$ has additive persistence $2$ and digital root of $3$;</span></p>
 /// <p class="rosetta__paragraph"><span class="rosetta__text--indented">$393900588225$ has additive persistence $2$ and digital root of $9$;</span></p>
-/// <br><br><br/></div>
+/// </div>
 
 /// challengeSeed:
 function digitalRootBase (x) {

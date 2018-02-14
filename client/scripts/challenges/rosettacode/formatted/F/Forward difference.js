@@ -14,7 +14,7 @@ const assert = require('assert');
 /// difficulty: 2
 
 /// description:
-/// <div class="rosetta"><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <div class="rosetta"><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
 /// <p class="rosetta__paragraph">Write a function that produces a list of numbers which is the  <big>n<sup>th</sup></big> order forward difference, given a non-negative integer (specifying the order) and a list of numbers.</p>
 /// <br/><p class="rosetta__paragraph">The first-order forward difference of a list of numbers  <big><span class="rosetta__text--bold">A</span></big>  is a new list  <big><span class="rosetta__text--bold">B</span></big>,  where  <big><b>B</b><sub>n</sub> = <b>A</b><sub>n+1</sub> - <b>A</b><sub>n</sub></big>.</p><p class="rosetta__paragraph">The goal of this task is to repeat this process up to the desired order.</p></div>
 

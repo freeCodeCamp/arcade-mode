@@ -19,7 +19,7 @@ const assert = require('assert');
 /// description:
 /// <div class="rosetta">
 /// <p class="rosetta__paragraph">The <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Floyd–Warshall_algorithm" title="wp: Floyd–Warshall_algorithm">Floyd–Warshall algorithm</a> is an algorithm for finding shortest paths in a weighted graph with positive or negative edge weights.</p>
-/// <br><br>
+/// <br>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task</dt></dl>
 /// <p class="rosetta__paragraph">Find the lengths of the shortest paths between all pairs of vertices of the given directed graph. Your code may assume that the input has already been checked for loops, parallel edges and negative cycles.</p>
 /// <p class="rosetta__paragraph">Write a function that takes an array and a number as parameters. The array will contain 3 elements : the third element in the array is the weight of the edge between the vertices denoted by the first and second element. For example: [1,2,3] = The weight of the edge between vertices 1 and 2 is 3. The number parameter denotes the total number of vertices in the graph. The function should return an array of length equal to the number of vertices. Each array element should also be an array that contains the shortest distances to the other vertices. For example: Let's assume that the function returns [ [5,3] , [5,3] , [4,6] ]. The first element is [5,3] which have the shortest distances from the vertex 1 to the other vertices. The shortest distance between 1 and 2 is 5. The shortest distance between 1 and 3 is 3. Similarly the second element represent the shortest distance from vertex 2 to other vertices, i.e. From 2 to 1 shortest distance is 5 and From 2 to 3 it is 3.</p>

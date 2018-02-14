@@ -16,12 +16,11 @@ const assert = require('assert');
 
 /// description:
 /// <div class="rosetta">
-/// <br/>
 /// <dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
 /// <p class="rosetta__paragraph">Express a number in decimal as a fixed-length string with leading zeros.</p>
 /// <br/><p class="rosetta__paragraph">For example, the number  <span class="rosetta__text--bold">7125</span>  could be expressed as  <span class="rosetta__text--bold">00007125</span>. Here the number is 7125 and the fixed length is 8.</p>
 /// <p class="rosetta__paragraph">Write a function that takes the fixed length and the number as the parameters. The function should return the appropriate string.</p>
-/// <br><br><br/></div>
+/// </div>
 
 /// challengeSeed:
 function format (n,num) {

@@ -16,12 +16,12 @@ const assert = require('assert');
 /// benchmark:
 
 /// description:
-/// <div class="rosetta"><br/><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
+/// <div class="rosetta"><dl class="rosetta__description-list"><dt class="rosetta__description-title">Task:</dt></dl>
 /// <p class="rosetta__paragraph">"<span class="rosetta__text--italic">Simulate</span>" a four-bit adder "chip".</p><br/><p class="rosetta__paragraph">This "chip" can be realized using four <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Adder_(electronics)#Full_adder" title="wp: Adder_(electronics)#Full_adder">1-bit full adder</a>s.</p>
 /// <p class="rosetta__paragraph">Each of these 1-bit full adders can be built with two <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Adder_(electronics)#Half_adder" title="wp: Adder_(electronics)#Half_adder">half adder</a>s and an <span class="rosetta__text--italic">or</span> <a class="rosetta__link--wiki" href="https://en.wikipedia.org/wiki/Logic gate" title="wp: Logic gate">gate</a>. Finally a half adder can be made using a <span class="rosetta__text--italic">xor</span> gate and an <span class="rosetta__text--italic">and</span> gate.</p>
 /// <p class="rosetta__paragraph">The <span class="rosetta__text--italic">xor</span> gate can be made using two <span class="rosetta__text--italic">not</span>s, two <span class="rosetta__text--italic">and</span>s and one <span class="rosetta__text--italic">or</span>.</p><br/><p class="rosetta__paragraph"><span class="rosetta__text--bold">Not</span>, <span class="rosetta__text--bold">or</span> and <span class="rosetta__text--bold">and</span>, the only allowed "gates" for the task, can be "imitated" by using the <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/Bitwise operations" title="Bitwise operations">bitwise operators.</a></p>
 /// <p class="rosetta__paragraph">Write a function that takes two 4-bit binary numbers as strings and returns the sum as a string. The addition should to be done as stated above.</p></div>
-/// <br><br><br/></div>
+/// </div>
 
 /// challengeSeed:
 function fourBitAdder (a, b) {
