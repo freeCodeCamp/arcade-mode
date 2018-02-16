@@ -1,4 +1,12 @@
 # PROGRESS for Arcade Mode
+
+## Monday 1/22/17:
+### Tim:
+  - @:
+    - [ ] Gulp v4 broke a lot of things that need fixing.
+    - [ ] Running test via webworker does not work in dev, but works in prod build.
+    - [ ] Random unit tests are failing.
+
 ## Thursday 6/29/17:
 ### Tim:
   - @:
@@ -8,7 +16,6 @@
         - Considerations:
           - history.pushState
           - react-router
-
 
 ## Monday 6/26/17:
 ### Tim:

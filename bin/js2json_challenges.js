@@ -454,6 +454,8 @@ function workInProgress(lines) {
 /* If the script is run with --fcc, modifies the JSON format to adhere to the
  * original freeCodeCamp JSON format as close as possible. */
 function addFCCProps(parser, file) {
+  const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
   const type = 'Waypoint';
   const challengeType = 5;
   const date = new Date();

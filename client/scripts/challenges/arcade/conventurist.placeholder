@@ -3,6 +3,7 @@
 /* eslint no-redeclare: 0 */
 
 /* @: time-based assert tests capable of producing different results/run; TODO? */
+/* Challenge placed on hold; node assert does not have a method to test promises  Tim: 1/31/18 */
 
 const assert = require('assert');
 

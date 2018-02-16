@@ -13,8 +13,7 @@ const exec = require('child_process').exec;
 // ----
 const gulp = require('gulp');
 const gulpif = require('gulp-if');
-// const ignore
-const gutil = require('gulp-util');
+const through2 = require('through2'); // gutil replacement for gutil.noop()
 const del = require('del');
 const plumber = require('gulp-plumber');
 const notify = require('gulp-notify');
@@ -55,7 +54,7 @@ const jsoncombine = require('gulp-jsoncombine');
 
 // Appcache creation
 // -----------------
-const manifest = require('gulp-manifest');
+const manifest = require('gulp-manifest3');
 
 
 // Configuration Objects
@@ -174,9 +173,9 @@ gulp.task('build-js2json', done => {
       });
     })
   ))
-  .then(() => {
-    done();
-  });
+    .then(() => {
+      done();
+    });
 });
 
 gulp.task('build-js', () => {
@@ -194,13 +193,16 @@ gulp.task('build-js', () => {
     })
       .transform(babelify, { presets: ['env', 'react'] })
       .transform(envify)
-      .transform({
+      .transform(uglifyify, {
         global: true,
-        ignore: ['**/node_modules/benchmark/*']
-      }, uglifyify)
+        ignore: [
+          '**/node_modules/benchmark/*',
+          '**/node_modules/chai-as-promised/*'
+        ]
+      })
       .plugin(collapse)
       .bundle()
-      .on('error', gutil.log.bind(gutil, 'Browserify error.'))
+      .on('error', handleErrors)
       .pipe(source(`./${script.split('/')[script.split('/').length - 1]}`))
       .pipe(buffer())
       .pipe(plumber())
@@ -209,7 +211,7 @@ gulp.task('build-js', () => {
       }))
       .pipe(uglify({ mangle: true }))
       .pipe(gulp.dest(`${ghPages}public/js`))
-      .pipe(isGitHubPages ? gulpif('*sw.bundle.js', gulp.dest(ghPages)) : gutil.noop())
+      .pipe(isGitHubPages ? gulpif('*sw.bundle.js', gulp.dest(ghPages)) : through2.obj())
       .pipe(browserSync.reload({ stream: true }))
   ));
 
@@ -248,7 +250,7 @@ gulp.task('build-view', () =>
   gulp.src(paths.views, { base: 'server/views' })
     .pipe(plumber())
     .pipe(pug({ pretty: true, basedir: 'server/views' }))
-    .pipe(isGitHubPages ? gulp.dest(ghPages) : gutil.noop())
+    .pipe(isGitHubPages ? gulp.dest(ghPages) : through2.obj())
     .pipe(browserSync.reload({ stream: true }))
 );
 
@@ -256,6 +258,7 @@ gulp.task('build-view', () =>
 // ----------------------
 gulp.task('build-appcache', () =>
   gulp.src('public/**/*', { base: 'public' })
+    .pipe(plumber())
     .pipe(manifest({
       hash: true,
       preferOnline: true,
@@ -295,15 +298,15 @@ gulp.task('build-js-inc', () => {
 
     return b.transform(babelify, { presets: ['env', 'react'] })
       .bundle()
-        .on('error', handleErrors)
-        .pipe(source(`./${script.split('/')[script.split('/').length - 1]}`))
-        .pipe(buffer())
-        .pipe(plumber())
-        .pipe(rename(path => {
-          path.extname = '.bundle.js';
-        }))
-        .pipe(gulp.dest('public/js'))
-        .pipe(browserSync.reload({ stream: true }));
+      .on('error', handleErrors)
+      .pipe(source(`./${script.split('/')[script.split('/').length - 1]}`))
+      .pipe(buffer())
+      .pipe(plumber())
+      .pipe(rename(path => {
+        path.extname = '.bundle.js';
+      }))
+      .pipe(gulp.dest('public/js'))
+      .pipe(browserSync.reload({ stream: true }));
   }));
 
   // pass through vendor files
