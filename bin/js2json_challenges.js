@@ -1,5 +1,7 @@
 #! /usr/bin/env node
 
+/* eslint object-property-newline: 0 */
+
 /* A script for converting javascript challenge code into JSON.
   * Each challenge should have sections marked with comments '/// keyword:',
   * For example:
@@ -25,13 +27,20 @@ const debug = require('debug')('amode:js2json');
 
 const optionDefinitions = [
   { name: 'challenge', type: String, descr: 'Convert only challenges matching this.' },
+  { name: 'exclude', type: String, descr: 'Excluded files' },
   { name: 'fcc', type: Boolean, descr: 'Produce JSON as freeCodeCamp compatible output.' },
   { name: 'force', type: Boolean, descr: 'Overwrite output files forcefully.' },
   { name: 'help', alias: 'h', type: Boolean, descr: 'Print help message' },
   { name: 'infile', alias: 'f', type: String, multiple: true, descr: 'Input files' },
+  { name: 'merge', type: Boolean, descr: 'Merge two (or more) JSON files.' },
+  { name: 'name', type: String, descr: 'Name prop inserted into the JSON file' },
+  { name: 'nochecks', type: Boolean, descr: 'Do not check file javascript syntax.' },
   { name: 'order', type: String, descr: 'Order prop inserted into the JSON file' },
   { name: 'outfile', alias: 'o', type: String, descr: 'Output JSON file' },
-  { name: 'name', type: String, descr: 'Name prop inserted into the JSON file' },
+  { name: 'prop', alias: 'p', type: String, multiple: true,
+    descr: 'Additional JSON props added to each challenge' },
+  { name: 'rename', alias: 'r', type: String, multiple: true,
+    descr: 'Rename chosen JSON properties: --rename old:new' },
   { name: 'verbose', alias: 'v', type: Boolean, descr: 'Run in verbose mode' }
 ];
 
@@ -46,7 +55,12 @@ const re = {
   workInProgress: /^\/\/\/\s+WIP/i
 };
 
-// These tags are removed when --fcc is specified
+const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
+  'July', 'August', 'September', 'October', 'November', 'December'
+];
+
+// These tags are removed when --fcc is specified to generate fCC compatible
+// markup for the challenge descriptions
 const tagsToRemoveRegex = new RegExp(
   '</?' +
   '(img|div|p\b|br|ol|ul|dl|dt|li|span).*?>'
@@ -55,12 +69,14 @@ const classToRemoveRegex = new RegExp(
   ' class=.*?".*?"'
 , 'gi');
 
+// Grab the options, check for help request
 const opts = commandLineArgs(optionDefinitions);
-
 if (opts.help) {
   usage(0);
 }
 
+// Each challenge should have at least these props specified
+// using triple comments '/// propName: value'
 const expectedProps = {
   title: String,
   type: String,
@@ -70,6 +86,7 @@ const expectedProps = {
   tests: 'Code'
 };
 
+// These props can also be present
 const optionalProps = {
   difficulty: Number,
   benchmark: 'Code',
@@ -78,7 +95,8 @@ const optionalProps = {
   tail: 'Code',
   images: String,
   naive: 'Code',
-  id: String
+  id: String,
+  rawSolutions: 'Code'
 };
 
 const allProps = Object.assign({}, expectedProps, optionalProps);
@@ -87,14 +105,24 @@ if (!opts.infile || opts.infile.length === 0) {
   console.error('Error. No input files were given.');
   usage(1);
 }
+checkOutputFileLegality(opts);
 
-const propParser = newParser();
+const excludedFiles = getExcludedFiles();
 
-opts.infile.forEach(file => {
-  processFile(propParser, file, expectedProps);
-});
+let result = '';
+if (opts.merge) {
+  result = mergeJSONFiles();
+}
+else {
+  const propParser = newParser();
+  opts.infile.forEach(file => {
+    if (!isExcludedFile(file)) {
+      processFile(propParser, file, expectedProps);
+    }
+  });
 
-const result = formatResult(propParser.files);
+  result = formatResult(propParser.files);
+}
 
 printToOutput(result);
 
@@ -113,9 +141,35 @@ function newParser() {
   };
 }
 
+function getExcludedFiles() {
+  if (opts.exclude) {
+    return fs.readFileSync(opts.exclude).toString().split('\n');
+  }
+  return [];
+}
+
+function isExcludedFile(file) {
+  if (excludedFiles.length === 0) {
+    return false;
+  }
+  let isExcluded = false;
+  excludedFiles.forEach(exFile => {
+    if (exFile.length > 0) {
+      const excRe = new RegExp(exFile);
+      if (excRe.test(file)) {
+        console.error(`File ${file} matches |${exFile}|`);
+        isExcluded = true;
+      }
+    }
+  });
+  return isExcluded;
+}
+
 function processFile(parser, file, props) {
   const buffer = fs.readFileSync(file);
-  checkFileSyntax(file, buffer);
+  if (!opts.nochecks) {
+    checkFileSyntax(file, buffer);
+  }
 
   const lines = buffer.toString().split('\n');
   parser.currFile = file;
@@ -163,6 +217,7 @@ function processLine(parser, line) {
   if (re.lineCommentStartsWithProp.test(line)) {
     const matches = line.match(re.lineCommentStartsWithProp);
     propLegal = isPropLegal(matches[1]);
+    debug(`Prop: ${matches[1]}, isLegal: ${propLegal}`);
   }
 
   if (propLegal && re.lineCommentWithProp.test(line)) {
@@ -219,7 +274,6 @@ function finishCurrProp(parser) {
       newPropVal = getFromFile(propValue);
     }
     else if (isFile(propFileName)) {
-      console.log(`Reading prop from file ${propFileName}`);
       newPropVal = getFromFile(propFileName);
     }
     else if (parser.prop === 'solutions') {
@@ -295,7 +349,8 @@ function formatResult(parsedFiles) {
     name: opts.name || 'ArcadeMode Interview Questions',
     order: opts.order || '',
     time: '',
-    helpRoom: ''
+    helpRoom: '',
+    nChallenges: challenges.length
   };
 
   // Filters the challenges if a name is given with --challenge
@@ -312,7 +367,38 @@ function formatResult(parsedFiles) {
     finalFormat.challenges = challenges;
   }
 
+  // Add all props given with -p to each challenge
+  if (Array.isArray(opts.prop) && opts.prop.length > 0) {
+    finalFormat.challenges.forEach(chal => {
+      opts.prop.forEach(prop => {
+        const [key, val] = prop.split(':');
+        chal[key] = val;
+      });
+    });
+  }
+
+  // Rename properties specified with --rename|-r
+  if (Array.isArray(opts.rename) && opts.rename.length > 0) {
+    opts.rename.forEach(renameProp => {
+      const [oldName, newName] = renameProp.split(':');
+      finalFormat.challenges.forEach(chal => {
+        chal[newName] = chal[oldName];
+        delete chal[oldName];
+      });
+    });
+  }
+
   return JSON.stringify(finalFormat, null, 2);
+}
+
+/* Checks that existing file is not overwritten (unless --force given). */
+function checkOutputFileLegality() {
+  if (opts.outfile) {
+    if (fs.existsSync(opts.outfile) && !opts.force) {
+      const msg = `File ${opts.outfile} exists. Use --force to overwrite.`;
+      throw new Error(msg);
+    }
+  }
 }
 
 /* Prints the results to given output file, or stdout. */
@@ -338,6 +424,14 @@ function usage(exitCode = 0) {
       console.log(`\t--${opt.name}\t\t- ${opt.descr}`);
     }
   });
+  console.log('1. To create a challenges JSON file, use:');
+  console.log('\tbin/js2json_challenges.js -f src/challenges/*.js [-o challenges.json]');
+  console.log('2. To merge 2 or more JSON files, use:');
+  console.log('\tbin/js2json_challenges.js --merge -f f1.json f2.json [-o merged.json]');
+  console.log('3. To add JSON props (prop key/value must be legal JSON), use:');
+  console.log('\tbin/js2json_challenges.js -p "isBeta:true" -p "myFlag:xxx" -f src/challenges/*.js');
+  console.log('4. To rename JSON props (prop key/value must be legal JSON), use:');
+  console.log('\tbin/js2json_challenges.js -r "oldName:newName" -f src/challenges/*.js');
   process.exit(exitCode);
 }
 
@@ -377,9 +471,12 @@ function addFCCProps(parser, file) {
   delete parser.files[file].difficulty;
   delete parser.files[file].categories;
 
-  if (typeof parser.files[file].tail === 'string') {
-    parser.files[file].tail = [parser.files[file].tail];
-  }
+  const propsToArray = ['tail', 'description', 'tests'];
+  propsToArray.forEach(item => {
+    if (typeof parser.files[file][item] === 'string') {
+      parser.files[file][item] = [parser.files[file][item]];
+    }
+  });
 
   const description = parser.files[file].description;
   const descrSanitized = [];
@@ -423,6 +520,55 @@ function isFile(filename) {
   }
   catch (e) {
     return false;
+  }
+}
+
+/* Merges all JSON files given with --infile|-f. Order of the files is
+ * important: Challenges in 1st file are not overwritten by 2nd file etc.
+ * Useful if 1st file contains completed challenges but the 2nd/3rd files have
+ * only stubs/incomplete challenges.
+ */
+function mergeJSONFiles() {
+  const parsedJSON = [];
+
+  // Parse each file into an object
+  opts.infile.forEach(file => {
+    try {
+      const jsonObj = JSON.parse(fs.readFileSync(file).toString());
+      parsedJSON.push(jsonObj);
+    }
+    catch (err) {
+      console.error(`JSON parse failed for file ${file}: ${err}`);
+    }
+  });
+
+  debug(`Parsed ${parsedJSON.length} JSON files.`);
+
+  const resultJSON = parsedJSON[0];
+
+  const mergedChallenges = {};
+  let numMerged = 0;
+
+  parsedJSON.forEach((jsonObj, index) => {
+    const challenges = jsonObj.challenges;
+    const numChallenges = challenges.length;
+    debug(`JSON ${index} has ${numChallenges} challenges.`);
+    challenges.forEach(chal => {
+      if (!mergedChallenges[chal.title]) {
+        mergedChallenges[chal.title] = chal;
+        if (index > 0) {
+          resultJSON.challenges.push(chal);
+          ++numMerged;
+        }
+      }
+    });
+  });
+
+  debug(`Merged ${numMerged} challenges.`);
+
+  if (parsedJSON.length > 0) {
+    return formatResult(mergedChallenges);
+    // return JSON.stringify(resultJSON, null, 2);
   }
 }
 
