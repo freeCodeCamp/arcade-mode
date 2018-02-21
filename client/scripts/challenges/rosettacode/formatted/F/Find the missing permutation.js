@@ -56,7 +56,8 @@ const results=[['BA'],
 /// tests:
 assert(typeof permute=="function","message: <code>permute</code> should be a function.");
 assert(Array.isArray(permute('AB',tests[0].slice())),"message: <code>permute('AB',['AB'])</code> return an array.");
-assert.deepEqual(permute('AB',tests[0].slice()),results[0],"message:<code>permute('AB',"+JSON.stringify(tests[0])+")</code> should return <code>"+JSON.stringify(results[0])+"</code>");assert.deepEqual(permute('AB',tests[1].slice()),results[1],"message:<code>permute('AB',"+JSON.stringify(tests[1])+")</code> should return <code>"+JSON.stringify(results[1])+"</code>");
+assert.deepEqual(permute('AB',tests[0].slice()),results[0],"message:<code>permute('AB',"+JSON.stringify(tests[0])+")</code> should return <code>"+JSON.stringify(results[0])+"</code>");
+assert.deepEqual(permute('AB',tests[1].slice()),results[1],"message:<code>permute('AB',"+JSON.stringify(tests[1])+")</code> should return <code>"+JSON.stringify(results[1])+"</code>");
 assert.deepEqual(permute('ABC',tests[2].slice()),results[2],"message:<code>permute('ABC',"+JSON.stringify(tests[2])+")</code> should return <code>"+JSON.stringify(results[2])+"</code>");
 assert.deepEqual(permute('ABC',tests[3].slice()),results[3],"message:<code>permute('ABC',"+JSON.stringify(tests[3])+")</code> should return <code>"+JSON.stringify(results[3])+"</code>");
 assert.deepEqual(permute('ABCD',tests[4].slice()),results[4],"message:<code>permute('ABCD',"+JSON.stringify(tests[4])+")</code> should return <code>"+JSON.stringify(results[4])+"</code>");
