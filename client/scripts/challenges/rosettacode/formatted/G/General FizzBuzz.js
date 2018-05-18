@@ -16,6 +16,7 @@ const assert = require('assert');
 
 /// benchmark:
 
+/// description:
 /// <div class="rosetta">
 /// <p class="rosetta__paragraph">Write a generalized version of <a class="rosetta__link--rosetta" href="http://rosettacode.org/wiki/FizzBuzz" title="FizzBuzz">FizzBuzz</a> that works for any list of factors, along with their words.</p><p class="rosetta__paragraph">This is basically a "fizzbuzz" implementation where the user supplies the parameters.</p><p>Write a function to implement this. The function should take two parameters. The first will be an array with the FizzBuzz parameters. For example: <code>[ [3,"Fizz"] , [5,"Buzz"] ]</code>. This indcates that Fizz should be printed if the number is a multiple of 3 and Buzz if it is a multiple of 5. If it is a multiple of both then the strings should be concatenated in the order specified in the array. In this case FizzBuzz if the number is a multiple of 3 and 5. The second parameter is the number for which the function should return a string as stated above.</p></div>
 

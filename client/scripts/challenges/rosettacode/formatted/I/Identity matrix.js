@@ -19,14 +19,10 @@ const assert = require('assert');
 /// <br/><p class="rosetta__paragraph">An <span class="rosetta__text--italic">identity matrix</span> is a square matrix of size <span class="rosetta__text--bold"><span class="rosetta__text--italic">n</span> &times; <span class="rosetta__text--italic">n</span></span>,</p>
 /// <br>where the diagonal elements are all <span class="rosetta__text--bold">1</span>s (ones), 
 /// <br>and all the other elements are all <span class="rosetta__text--bold">0</span>s (zeroes).
-/// <br/><p class="rosetta__paragraph">$I_n = \begin{bmatrix}</p>
-/// <p class="rosetta__paragraph">1      & 0      & 0      & \cdots & 0      \\</p>
-/// <p class="rosetta__paragraph">0      & 1      & 0      & \cdots & 0      \\</p>
-/// <p class="rosetta__paragraph">0      & 0      & 1      & \cdots & 0      \\</p>
-/// <p class="rosetta__paragraph">\vdots & \vdots & \vdots & \ddots & \vdots \\</p>
-/// <p class="rosetta__paragraph">0      & 0      & 0      & \cdots & 1      \\</p>
-/// <p class="rosetta__paragraph">\end{bmatrix}$</p>
-/// <br/><dl class="rosetta__description-list"></div>
+/// <p class="rosetta__paragraph">1       0       0</p>
+/// <p class="rosetta__paragraph">0       1       0</p>
+/// <p class="rosetta__paragraph">0       0       1</p>
+/// </div>
 
 /// challengeSeed:
 function idMatrix (n) {
